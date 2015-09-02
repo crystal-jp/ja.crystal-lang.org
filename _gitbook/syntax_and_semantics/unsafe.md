@@ -7,7 +7,7 @@ These parts of the language are considered unsafe:
 * Code involving C bindings
 * [Uninitialized variable declaration](declare_var.html)
 
-"Unsafe" means that memory corruption, segmentation faults and crashes are possible to achieve. For example:
+"Unsafe" means that memory corruption, segmentation faults and crashes are possible to achieve. 例:
 
 ```ruby
 a = 1

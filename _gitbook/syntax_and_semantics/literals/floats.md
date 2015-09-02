@@ -1,14 +1,8 @@
-# Floats
+# 浮動小数点数 (Float)
 
-There are two floating point types, [Float32](http://crystal-lang.org/api/Float32.html) and [Float64](http://crystal-lang.org/api/Float64.html),
-which correspond to the [binary32](http://en.wikipedia.org/wiki/Single_precision_floating-point_format)
-and [binary64](http://en.wikipedia.org/wiki/Double_precision_floating-point_format)
-types defined by IEEE.
+浮動小数点数 (Float) には2つの種類があります。それは、[Float32](http://crystal-lang.org/api/Float32.html) と [Float64](http://crystal-lang.org/api/Float64.html) で、それぞれ IEEE によって定義されている [binary32](http://en.wikipedia.org/wiki/Single_precision_floating-point_format) と [binary64](http://en.wikipedia.org/wiki/Double_precision_floating-point_format) に対応しています。
 
-A floating point literal is an optional `+` or `-` sign, followed by
-a sequence of numbers or underscores, followed by a dot,
-followed by numbers or underscores, followed by an optional exponent suffix,
-followed by an optional type suffix. If no suffix is present, the literal's type is `Float64`.
+浮動小数点数リテラルは、`+` (オプション) または `-` 符号に続く数値とアンダースコア、そしてドット (`.`) と、またそれに続く数値とアンダースコアによって記述し、オプションで指数と型のサフィックスを与えます。もしサフィックスがない場合は、リテラルの型は `Float64` になります。
 
 ```ruby
 1.0      # Float64
@@ -23,10 +17,10 @@ followed by an optional type suffix. If no suffix is present, the literal's type
 -0.5     # Float64
 ```
 
-The underscore `_` before the suffix is optional.
+サフィックスの前のアンダースコア (`_`) はオプションです。
 
-Underscores can be used to make some numbers more readable:
+アンダースコアは、数値を読みやすくするためにも利用できます。
 
 ```ruby
-1_000_000.111_111 # better than 1000000.111111
+1_000_000.111_111 # 1000000.111111 より読みやすい
 ```

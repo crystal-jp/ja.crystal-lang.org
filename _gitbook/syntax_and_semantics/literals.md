@@ -1,3 +1,3 @@
-# Literals
+# リテラル
 
-Several literals are available for creating many basic types in the language.
+Crystal には、数多くの基本的な型に対応したリテラルが用意されています。

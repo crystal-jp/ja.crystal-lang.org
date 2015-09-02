@@ -1,6 +1,6 @@
 # instance_sizeof
 
-The `instance_sizeof` expression returns an `Int32` with the instance size of a given class. For example:
+The `instance_sizeof` expression returns an `Int32` with the instance size of a given class. 例:
 
 ```ruby
 class Point

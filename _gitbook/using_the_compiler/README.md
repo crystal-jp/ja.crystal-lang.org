@@ -1,52 +1,52 @@
-# Using the compiler
+# コンパイラを使用する
 
-Once you [install](../installation/README.md) the compiler you will have a `crystal` binary at your disposal.
+[インストール](../installation/README.md)が済んでいれば、`crystal` というバイナリを利用することができます。
 
-In the next sections a dollar sign (`$`) denotes the command line.
+なお、以降ではドル記号 (`$`) でコマンドラインを示します。
 
-## Compiling and running at once
+## コンパイルと同時に実行する
 
-To compile and run a program in a single shot you can invoke `crystal` with a single filename:
+ファイル名を1つ指定して `crystal` コマンドを実行することで、プログラムのコンパイルと実行を一発で行うことができます。
 
 ```
 $ crystal some_program.cr
 ```
 
-Crystal files end with the `.cr` extension.
+Crystal のファイルには `.cr` という拡張子がつきます。
 
-Alternative you can use the `run` command:
+また、`run` コマンドを使っても同様のことが可能です。
 
 ```
 $ crystal run some_program.cr
 ```
 
-## Creating an executable
+## 実行ファイルの作成
 
-To create an executable use the `build` command:
+実行ファイルを作成するには `build` コマンドを使用します。
 
 ```
 $ crystal build some_program.cr
 ```
 
-This will create a `some_program` file that you can execute:
+上記では、`some_program` という実行ファイルが作成され、以下のようにして実行することができます。
 
 ```
 $ ./some_program
 ```
 
-**Note:** By default the generated executables **are not fully optimized**. To turn optimizations on, use the `--release` flag:
+**注意:** デフォルトでは生成された実行ファイルは**完全に最適化**された状態ではありません。最適化を有効にしたければ、`--release` フラグを与える必要があります。
 
 ```
 $ crystal build some_program.cr --release
 ```
 
-Make sure to always use `--release` for production-ready executables and when performing benchmarks.
+したがって、プロダクションでの利用やベンチマークを測定するような場合には、必ず `--release` をつけるようにしてください。
 
-The reason for this is that performance without full optimizations is still pretty good and provides fast compile times, so you can use the `crystal` command almost as if it were an interpreter.
+このような動作となっている理由は、完全最適化をしない場合にも、ある程度十分なパフォーマンスを維持したままで高速なコンパイルが可能であるため、まるでインタープリタのように `crystal` コマンドを使用することができるからです。
 
-## Creating a project or library
+## プロジェクトやライブラリの作成
 
-Use the `init` command to create a Crystal project with the standard directory structure.
+`init` コマンドを使用すると、標準的なディレクトリ構成を持った Crystal プロジェクトを作成おすることができます。
 
 ```
 $ crystal init lib MyCoolLib
@@ -62,9 +62,9 @@ $ crystal init lib MyCoolLib
 Initialized empty Git repository in ~/MyCoolLib/.git/
 ```
 
-## Other commands and options
+## その他のコマンドやオプション
 
-To see the full set of commands, invoke `crystal` without arguments.
+すべてのコマンドを確認するには、`crystal` コマンドを引数なしで実行してください。
 
 ```
 $ crystal
@@ -85,7 +85,7 @@ Command:
     --version                show version
 ```
 
-To see the available options for a particuar command, use `--help` after a command:
+あるコマンドに対して有効なオプションを確認するには、コマンドに続けて `--help` を入力してください。
 
 ```
 $ crystal build --help

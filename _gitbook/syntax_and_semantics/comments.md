@@ -1,6 +1,6 @@
-# Comments
+# コメント
 
-Comments start with the sharp (`#`) character. Only one-line comments are supported for now.
+「`#`」の文字があると、その行はそれ以降がコメントになります。現在のところ、1行 (one-line) のコメントのみがサポートされています。
 
 ```ruby
 # This is a comment

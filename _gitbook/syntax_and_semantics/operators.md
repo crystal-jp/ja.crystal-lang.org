@@ -1,6 +1,6 @@
 # Operators
 
-Operators like `+` and `-` are regular method calls. For example:
+Operators like `+` and `-` are regular method calls. 例:
 
 ```ruby
 a + b
@@ -42,7 +42,7 @@ Next follows the full list of operators with their usual meaning.
 ~   # bitwise complement
 ```
 
-These are defined without arguments. For example
+These are defined without arguments. 例をあげます。
 
 ```ruby
 struct Vector2
@@ -88,7 +88,7 @@ v1 = Vector2.new(1, 2)
 []= # array index assignment
 ```
 
-For example:
+例:
 
 ```ruby
 class MyArray
