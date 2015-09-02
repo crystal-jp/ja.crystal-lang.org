@@ -1,42 +1,42 @@
 # Proc
 
-A [Proc](http://crystal-lang.org/api/Proc.html) represents a function pointer with an optional context (the closure data). It is typically created with a proc literal:
+[Proc](http://crystal-lang.org/api/Proc.html) は関数ポインタを表すオブジェクトで、追加のコンテキスト (クロージャ) を含むことができます。通常、Proc リテラルを使って生成します。
 
 ```ruby
-# A proc without arguments
+# 引数のない Proc
 ->{ 1 } # Proc(Int32)
 
-# A proc with one argument
+# 引数を1つ持つ Proc
 ->(x : Int32) { x.to_s } # Proc(Int32, String)
 
-# A proc with two arguments:
+# 引数を2つ持つ Proc
 ->(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)
 ```
 
-The types of the arguments are mandatory, except when directly sending a proc literal to a lib `fun` in C bindings.
+引数の型指定は必須です。ただし、C バインディングでライブラリの `fun` に直接 Proc リテラルを渡すときだけは例外です。
 
-The return type is inferred from the proc's body.
+戻り値の型は Proc の内容から推論されます。
 
-A special `new` method is provided too:
+また、`new` メソッドを使って作ることもできます。
 
 ```ruby
 Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
 ```
 
-This form allows you to specify the return type and to check it against the proc's body.
+この形式の場合、戻り値の型を指定することができるため、Proc の本体の戻り値が正しい型であるかをチェックすることが可能です。
 
-## Invoking
+## Proc の実行
 
-To invoke a Proc, you invoke the `call` method on it. The number of arguments must match the proc's type:
+Proc を実行するときは `call` メソッドを使います。そのとき、引数の数は Proc の型と一致している必要があります。
 
 ```ruby
 proc = ->(x : Int32, y : Int32) { x + y }
 proc.call(1, 2) #=> 3
 ```
 
-## From methods
+## メソッドから Proc を生成する
 
-A Proc can be created from an existing method:
+既存のメソッドから Proc を作ることもできます。
 
 ```ruby
 def one
@@ -47,7 +47,7 @@ proc = ->one
 proc.call #=> 1
 ```
 
-If the method has arguments, you must specify their types:
+引数を持つメソッドの場合は、その型を指定する必要があります。
 
 ```ruby
 def plus_one(x)
@@ -58,7 +58,7 @@ proc = ->plus_one(Int32)
 proc.call(41) #=> 42
 ```
 
-A proc can optionally specify a receiver:
+レシーバを指定することも可能です。
 
 ```ruby
 str = "hello"

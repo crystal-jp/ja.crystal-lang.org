@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Blocks and Procs | Crystal Programming Language</title>
+        <title>Blocks and Procs | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.9" data-basepath=".." data-revision="Sun Jun 14 2015 18:59:06 GMT-0300 (ART)">
+    <div class="book" data-level="4.7.9" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Crystal Programming Language</a>
+        <a href="../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1929,7 +1929,7 @@
                     
                         <h1 id="blocks-and-procs">Blocks and Procs</h1>
 <p>Methods can accept a block of code that is executed
-with the <code>yield</code> keyword. For example:</p>
+with the <code>yield</code> keyword. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span>
   <span class="hljs-keyword">yield</span>
@@ -1960,7 +1960,7 @@ twice { puts <span class="hljs-string">&quot;Hello!&quot;</span> }
 <h2 id="overloads">Overloads</h2>
 <p>Two methods, one that yields and another that doesn&apos;t, are considered different overloads, as explained in the <a href="overloading.html">overloading</a> section.</p>
 <h2 id="yield-arguments">Yield arguments</h2>
-<p>The <code>yield</code> expression is similar to a call and can receive arguments. For example:</p>
+<p>The <code>yield</code> expression is similar to a call and can receive arguments. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>
@@ -2007,7 +2007,7 @@ twice <span class="hljs-keyword">do</span> |i|
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>The above outputs &quot;nil&quot; twice.</p>
-<p>Each block variable has the type of every yield expression in that position. For example:</p>
+<p>Each block variable has the type of every yield expression in that position. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>, <span class="hljs-string">&apos;a&apos;</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-keyword">true</span>, <span class="hljs-string">&quot;hello&quot;</span>
@@ -2021,7 +2021,7 @@ some <span class="hljs-keyword">do</span> |first, second|
 </code></pre>
 <p>The block variable <code>second</code> also includes the <code>Nil</code> type because the last <code>yield</code> expression didn&apos;t include a second argument.</p>
 <h2 id="yield-value">yield value</h2>
-<p>The <code>yield</code> expression itself has a value: the last expression of the block. For example:</p>
+<p>The <code>yield</code> expression itself has a value: the last expression of the block. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   v1 = <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   puts v1
@@ -2067,7 +2067,7 @@ thrice <span class="hljs-keyword">do</span> |i|
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>The above prints &quot;Before 1&quot; and &quot;Before 2&quot;. The <code>thrice</code> method didn&apos;t execute the <code>puts &quot;Before 3&quot;</code> expression because of the <code>break</code>.</p>
-<p><code>break</code> can also accept arguments: these become the method&apos;s return value. For example:</p>
+<p><code>break</code> can also accept arguments: these become the method&apos;s return value. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>
@@ -2095,7 +2095,7 @@ values <span class="hljs-comment">#=&gt; {1, 2}</span>
 value <span class="hljs-comment">#=&gt; nil</span>
 </code></pre>
 <h2 id="next">next</h2>
-<p>The <code>next</code> expression inside a block exits early from the block (not the method). For example:</p>
+<p>The <code>next</code> expression inside a block exits early from the block (not the method). &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>

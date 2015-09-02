@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Using the compiler | Crystal Programming Language</title>
+        <title>コンパイラを使用する | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="2" data-basepath=".." data-revision="Sun Jun 14 2015 19:01:20 GMT-0300 (ART)">
+    <div class="book" data-level="2" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Crystal Programming Language</a>
+        <a href="../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1927,26 +1927,26 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="using-the-compiler">Using the compiler</h1>
-<p>Once you <a href="../installation/index.html">install</a> the compiler you will have a <code>crystal</code> binary at your disposal.</p>
-<p>In the next sections a dollar sign (<code>$</code>) denotes the command line.</p>
-<h2 id="compiling-and-running-at-once">Compiling and running at once</h2>
-<p>To compile and run a program in a single shot you can invoke <code>crystal</code> with a single filename:</p>
+                        <h1 id="%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;</h1>
+<p><a href="../installation/index.html">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</a>&#x304C;&#x6E08;&#x3093;&#x3067;&#x3044;&#x308C;&#x3070;&#x3001;<code>crystal</code> &#x3068;&#x3044;&#x3046;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x306A;&#x304A;&#x3001;&#x4EE5;&#x964D;&#x3067;&#x306F;&#x30C9;&#x30EB;&#x8A18;&#x53F7; (<code>$</code>) &#x3067;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x30E9;&#x30A4;&#x30F3;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E3%81%A8%E5%90%8C%E6%99%82%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B">&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x540C;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;</h2>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3092;1&#x3064;&#x6307;&#x5B9A;&#x3057;&#x3066; <code>crystal</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x5B9F;&#x884C;&#x3092;&#x4E00;&#x767A;&#x3067;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>$ crystal some_program.cr
-</code></pre><p>Crystal files end with the <code>.cr</code> extension.</p>
-<p>Alternative you can use the <code>run</code> command:</p>
+</code></pre><p>Crystal &#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306F; <code>.cr</code> &#x3068;&#x3044;&#x3046;&#x62E1;&#x5F35;&#x5B50;&#x304C;&#x3064;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;<code>run</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3082;&#x540C;&#x69D8;&#x306E;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code>$ crystal run some_program.cr
-</code></pre><h2 id="creating-an-executable">Creating an executable</h2>
-<p>To create an executable use the <code>build</code> command:</p>
+</code></pre><h2 id="%E5%AE%9F%E8%A1%8C%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90">&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x4F5C;&#x6210;</h2>
+<p>&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x306B;&#x306F; <code>build</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>$ crystal build some_program.cr
-</code></pre><p>This will create a <code>some_program</code> file that you can execute:</p>
+</code></pre><p>&#x4E0A;&#x8A18;&#x3067;&#x306F;&#x3001;<code>some_program</code> &#x3068;&#x3044;&#x3046;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>$ ./some_program
-</code></pre><p><strong>Note:</strong> By default the generated executables <strong>are not fully optimized</strong>. To turn optimizations on, use the <code>--release</code> flag:</p>
+</code></pre><p><strong>&#x6CE8;&#x610F;:</strong> &#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;<strong>&#x5B8C;&#x5168;&#x306B;&#x6700;&#x9069;&#x5316;</strong>&#x3055;&#x308C;&#x305F;&#x72B6;&#x614B;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x6700;&#x9069;&#x5316;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x305F;&#x3051;&#x308C;&#x3070;&#x3001;<code>--release</code> &#x30D5;&#x30E9;&#x30B0;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>$ crystal build some_program.cr --release
-</code></pre><p>Make sure to always use <code>--release</code> for production-ready executables and when performing benchmarks.</p>
-<p>The reason for this is that performance without full optimizations is still pretty good and provides fast compile times, so you can use the <code>crystal</code> command almost as if it were an interpreter.</p>
-<h2 id="creating-a-project-or-library">Creating a project or library</h2>
-<p>Use the <code>init</code> command to create a Crystal project with the standard directory structure.</p>
+</code></pre><p>&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306E;&#x5229;&#x7528;&#x3084;&#x30D9;&#x30F3;&#x30C1;&#x30DE;&#x30FC;&#x30AF;&#x3092;&#x6E2C;&#x5B9A;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x5FC5;&#x305A; <code>--release</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x52D5;&#x4F5C;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x7406;&#x7531;&#x306F;&#x3001;&#x5B8C;&#x5168;&#x6700;&#x9069;&#x5316;&#x3092;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x306B;&#x3082;&#x3001;&#x3042;&#x308B;&#x7A0B;&#x5EA6;&#x5341;&#x5206;&#x306A;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3092;&#x7DAD;&#x6301;&#x3057;&#x305F;&#x307E;&#x307E;&#x3067;&#x9AD8;&#x901F;&#x306A;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x307E;&#x308B;&#x3067;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D7;&#x30EA;&#x30BF;&#x306E;&#x3088;&#x3046;&#x306B; <code>crystal</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%84%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90">&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3084;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x4F5C;&#x6210;</h2>
+<p><code>init</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x6210;&#x3092;&#x6301;&#x3063;&#x305F; Crystal &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x304A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>$ crystal init lib MyCoolLib
       create  MyCoolLib/.gitignore
       create  MyCoolLib/LICENSE
@@ -1958,8 +1958,8 @@
       create  MyCoolLib/spec/spec_helper.cr
       create  MyCoolLib/spec/MyCoolLib_spec.cr
 Initialized empty Git repository in ~/MyCoolLib/.git/
-</code></pre><h2 id="other-commands-and-options">Other commands and options</h2>
-<p>To see the full set of commands, invoke <code>crystal</code> without arguments.</p>
+</code></pre><h2 id="%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%84%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3">&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3084;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</h2>
+<p>&#x3059;&#x3079;&#x3066;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;<code>crystal</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5F15;&#x6570;&#x306A;&#x3057;&#x3067;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code>$ crystal
 Usage: crystal [command] [switches] [program file] [--] [arguments]
 
@@ -1976,7 +1976,7 @@ Command:
     types                    show type of main variables
     --help                   show this help
     --version                show version
-</code></pre><p>To see the available options for a particuar command, use <code>--help</code> after a command:</p>
+</code></pre><p>&#x3042;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x6709;&#x52B9;&#x306A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x7D9A;&#x3051;&#x3066; <code>--help</code> &#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code>$ crystal build --help
 Usage: crystal build [options] [programfile] [--] [arguments]
 
@@ -2009,10 +2009,10 @@ Options:
         </div>
 
         
-        <a href="../installation/from_source_repository.html" class="navigation navigation-prev " aria-label="Previous page: From sources"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/from_source_repository.html" class="navigation navigation-prev " aria-label="Previous page: ソースコードからインストール"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../overview/index.html" class="navigation navigation-next " aria-label="Next page: Overview and Examples"><i class="fa fa-angle-right"></i></a>
+        <a href="../overview/index.html" class="navigation navigation-next " aria-label="Next page: 概要とプログラム例"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

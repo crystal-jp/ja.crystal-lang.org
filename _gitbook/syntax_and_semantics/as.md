@@ -1,6 +1,6 @@
 # as
 
-The `as` expression restricts the types of an expression. For example:
+The `as` expression restricts the types of an expression. 例:
 
 ```ruby
 if some_condition
@@ -61,7 +61,7 @@ No runtime checks are performed in these cases because, again, pointers are invo
 
 ## Usage for casting to a bigger type
 
-The `as` expression can be used to cast an expression to a "bigger" type. For example:
+The `as` expression can be used to cast an expression to a "bigger" type. 例:
 
 ```ruby
 a = 1
@@ -85,7 +85,7 @@ The `Array#map` method uses the block's type as the generic type for the Array. 
 
 ## Usage for when the compiler can't infer the type of a block
 
-Sometimes the compiler can't infer the type of a block. For example:
+Sometimes the compiler can't infer the type of a block. 例:
 
 ```ruby
 class Person

@@ -1,3 +1,3 @@
-# Syntax and Semantics
+# シンタックスとセマンティクス
 
-The program’s source code must be encoded in UTF-8.
+プログラムのソースコードは UTF-8 でエンコードされている必要があります。

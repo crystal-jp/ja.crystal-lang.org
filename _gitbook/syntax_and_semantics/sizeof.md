@@ -1,6 +1,6 @@
 # sizeof
 
-The `sizeof` expression returns an `Int32` with the size in bytes of a given type. For example:
+The `sizeof` expression returns an `Int32` with the size in bytes of a given type. 例:
 
 ```ruby
 sizeof(Int32)  #=> 4

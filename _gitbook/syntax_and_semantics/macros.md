@@ -1,7 +1,7 @@
 # Macros
 
 Macros are methods that receive AST nodes at compile-time and produce
-code that is pasted into a program. For example:
+code that is pasted into a program. 例:
 
 ```ruby
 macro define_method(name, content)
@@ -48,7 +48,7 @@ end
 Foo.new.yield_with_self { emphasize(10) } #=> "***10***"
 ```
 
-## Interpolation
+## String Interpolation
 
 You use `{{...}}` to paste, or interpolate, an AST node, as in the above example.
 
@@ -208,7 +208,7 @@ Note that `@type` is always the *instance* type, even when the macro is invoked 
 
 ### Constants
 
-Macros can access constants. For example:
+Macros can access constants. 例:
 
 ```ruby
 VALUES = [1, 2, 3]

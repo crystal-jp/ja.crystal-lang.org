@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Macros | Crystal Programming Language</title>
+        <title>Macros | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14" data-basepath=".." data-revision="Tue Jun 16 2015 14:25:53 GMT-0300 (ART)">
+    <div class="book" data-level="4.14" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Crystal Programming Language</a>
+        <a href="../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1929,7 +1929,7 @@
                     
                         <h1 id="macros">Macros</h1>
 <p>Macros are methods that receive AST nodes at compile-time and produce
-code that is pasted into a program. For example:</p>
+code that is pasted into a program. &#x4F8B;:</p>
 <pre><code class="lang-ruby">macro define_method(name, content)
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>{{name}}
     {{content}}
@@ -1966,7 +1966,7 @@ a <code>def</code> without a matching <code>end</code>, or a single <code>when</
 
 <span class="hljs-constant">Foo</span>.new.yield_with_self { emphasize(<span class="hljs-number">10</span>) } <span class="hljs-comment">#=&gt; &quot;***10***&quot;</span>
 </code></pre>
-<h2 id="interpolation">Interpolation</h2>
+<h2 id="string-interpolation">String Interpolation</h2>
 <p>You use <code>{{...}}</code> to paste, or interpolate, an AST node, as in the above example.</p>
 <p>Note that the node is pasted as-is. If in the previous example we pass a symbol, the generated code becomes invalid:</p>
 <pre><code class="lang-ruby"><span class="hljs-comment"># This generates:</span>
@@ -2085,7 +2085,7 @@ println <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, 
 <p>When a macro is invoked you can access the current scope, or type, with a special instance variable: <code>@type</code>. The type of this variable is <code>TypeNode</code>, which gives you access to type information at compile time.</p>
 <p>Note that <code>@type</code> is always the <em>instance</em> type, even when the macro is invoked in a class method.</p>
 <h3 id="constants">Constants</h3>
-<p>Macros can access constants. For example:</p>
+<p>Macros can access constants. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">VALUES</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 
 {% <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-constant">VALUES</span> %}

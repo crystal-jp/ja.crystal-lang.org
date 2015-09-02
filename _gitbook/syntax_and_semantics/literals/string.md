@@ -1,95 +1,93 @@
-# String
+# 文字列 (String)
 
-A [String](http://crystal-lang.org/api/String.html) represents an immutable sequence of UTF-8 characters.
+文字列 ([String](http://crystal-lang.org/api/String.html)) は UTF-8 の文字の不変 (イミュータブル) なシーケンスを表したものです。
 
-A String is typically created with a string literal, enclosing UTF-8 characters in double quotes:
+通常、ダブルクォートで囲んだ UTF-8 文字の並びで文字列リテラルを記述します。
 
 ```ruby
 "hello world"
 ```
 
-A backslash can be used to denote some characters inside the string:
+文字列中のいくつかの文字はバックスラッシュを使って表します。
 
 ```ruby
-"\"" # double quote
-"\\" # backslash
-"\e" # escape
-"\f" # form feed
-"\n" # newline
-"\r" # carriage return
-"\t" # tab
-"\v" # vertical tab
+"\"" # ダブルクォート
+"\\" # バックスラッシュ
+"\e" # エスケープ
+"\f" # フォームフィード (改ページ)
+"\n" # ニューライン (改行)
+"\r" # キャリッジリターン (復帰)
+"\t" # タブ
+"\v" # 垂直タブ
 ```
 
-You can use a backslash followed by at most three digits to denote a code point written in octal:
+バックスラッシュに続けて最大3つの数値を入力すると、8進数でコードポイントを指定することになります。
 
 ```ruby
 "\101" # == "A"
 "\123" # == "S"
 "\12"  # == "\n"
-"\1"   # string with one character with code point 1
+"\1"   # コードポイント1の文字が1つだけの文字列
 ```
 
-You can use a backslash followed by an *u* and four hexadecimal characters to denote a unicode codepoint written:
+「*u*」に続けてバックスラッシュと16進数で4つの数値を入力することでコードポイントを示すこともできます。
 
 ```ruby
 "\u0041" # == "A"
 ```
 
-Or you can use curly braces and specify up to six hexadecimal numbers (0 to 10FFFF):
+波カッコ (ブレース) を使うと、(0 から 10FFFF までの) 16進数を指定することも可能です。
 
 ```ruby
 "\u{41}"    # == "A"
-"\u{1F52E}" # == "🔮"
+"\u{1F52E}" # == "  "
 ```
 
-A string can span multiple lines:
+文字列は複数の行にまたがって記述することができます。
 
 ```ruby
 "hello
-      world" # same as "hello\n      world"
+      world" # "hello\n      world" と同じ
 ```
 
-Note that in the above example trailing and leading spaces, as well as newlines,
-end up in the resulting string. To avoid this, you can split a string into multiple lines
-by joining multiple literals with a backslash:
+上記の例で、先頭と末尾の空白、および改行が結果の文字列にも入っていることに注目してください。これを避けたければ、複数行の文字列リテラルをバックスラッシュで結合することができます。
 
 ```ruby
 "hello " \
 "world, " \
-"no newlines" # same as "hello world, no newlines"
+"no newlines" # "hello world, no newlines" と同じ
 ```
 
-Alternatively, a backlash followed by a newline can be inserted inside the string literal:
+また、改行の前のバックスラッシュは文字列リテラルの中に書くこともできます。
 
 ```ruby
 "hello \
      world, \
-     no newlines" # same as "hello world, no newlines"
+     no newlines" # "hello world, no newlines" と同じ
 ```
 
-In this case, leading whitespace is not included in the resulting string.
+この場合、先頭の空白が結果の文字列に含まれることはありません。
 
-If you need to write a string that has many double quotes, parenthesis, or similar
-characters, you can use alternative literals:
+もし文字列にダブルクォートやカッコなどの文字が多く含まれている場合には、次のような形式でリテラルを書くこともできます。
 
 ```ruby
-# Supports double quotes and nested parenthesis
-%(hello ("world")) # same as "hello (\"world\")"
+# ダブルクォートと入れ子のカッコを含む
+%(hello ("world")) # "hello (\"world\")" と同じ
 
-# Supports double quotes and nested brackets
-%[hello ["world"]] # same as "hello [\"world\"]"
+# ダブルクォートと入れ子の角カッコ (ブラケット) を含む
+%[hello ["world"]] # "hello [\"world\"]" と同じ
 
-# Supports double quotes and nested curlies
-%{hello {"world"}} # same as "hello {\"world\"}"
+# ダブルクォートと入れ子の波カッコ (ブレース) を含む
+%{hello {"world"}} # "hello {\"world\"}" と同じ
 
-# Supports double quotes and nested angles
-%<hello <"world">> # same as "hello <\"world\">"
+# ダブルクォートと入れ子の山カッコ (アングルブラケット) を含む
+%<hello <"world">> # "hello <\"world\">" と同じ
 ```
 
-## Interpolation
+## String Interpolation
 
-To create a String with embedded expressions, you can use string interpolation:
+文字列の中には式を埋め込むことが可能です。これを文字列埋め込み (文字列補完/String Interpolation
+) といいます。
 
 ```ruby
 a = 1
@@ -97,4 +95,4 @@ b = 2
 "sum = #{a + b}"        # "sum = 3"
 ```
 
-This ends up invoking `Object#to_s(IO)` on each expression enclosed by `#{...}`.
+このとき、`#{...}` で囲まれた式に対して、`Object#to_s(IO)` が実行されます。

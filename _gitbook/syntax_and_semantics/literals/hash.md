@@ -1,46 +1,46 @@
-# Hash
+# ハッシュ (Hash)
 
-A [Hash](http://crystal-lang.org/api/Hash.html) representing a mapping of keys of a type `K` to values of a type `V`. It is typically created with a hash literal:
+ハッシュ ([Hash](http://crystal-lang.org/api/Hash.html)) は、`K` 型のキーと `V` 型の値のマッピングを表現するための型です。通常、以下のハッシュリテラルを利用して書きます。
 
 ```ruby
 {1 => 2, 3 => 4}     # Hash(Int32, Int32)
 {1 => 2, 'a' => 3}   # Hash(Int32 | Char, Int32)
 ```
 
-A Hash can have mixed types, both for the keys and values, meaning `K`/`V` will be union types, but these are determined when the hash is created, either by specifying `K` and `V` or by using a hash literal. In the latter case, `K` will be set to the union of the hash literal keys, and `V` will be set to the union of the hash literal values.
+ハッシュは異なる型を持つことが可能です。これは `K`/`V` それぞれが複数の型の組み合わせとなることを意味しています。ただ、それらの型はハッシュが作られたときに決定されます。つまり、ハッシュの生成時に明示的に指定された `K` と `T` か、ハッシュリテラルで生成した場合であれば、リテラルのキーと値それぞれの型の組み合わせによって型が決まります。
 
-When creating an empty hash you must always specify `K` and `V`:
+空のハッシュを作りたいときには、必ず `K` と `V` を指定しなければなりません。
 
 ```ruby
-{} of Int32 => Int32 # same as Hash(Int32, Int32).new
-{}                   # syntax error
+{} of Int32 => Int32 # Hash(Int32, Int32).new と同じ
+{}                   # シンタックスエラーになる
 ```
 
-## Symbol keys
+## キーがシンボルのハッシュ
 
-A special notation allows creating hashes with symbol keys:
+キーがシンボルである場合は、以下の特別な記法を使うことができます。
 
 ```ruby
 {key1: 'a', key2: 'b'} # Hash(Symbol, Char)
 ```
 
-## String keys
+## キーが文字列のハッシュ
 
-A special notation allows creating hashes with string keys:
+キーが文字列である場合は、以下の特別な記法を使うことができます。
 
 ```ruby
 {"key1": 'a', "key2": 'b'} # Hash(String, Char)
 ```
 
-## Hash-like types
+## ハッシュライクな型
 
-You can use a special hash literal syntax with other types too, as long as they define an argless `new` method and a `[]=` method:
+ハッシュが持つ特別なシンタックスを他の型で使うこともできます。ただし、引数のない `new` と `[]=` メソッドが定義されている必要があります。
 
 ```ruby
 MyType{"foo": "bar"}
 ```
 
-If `MyType` is not generic, the above is equivalent to this:
+もし `MyType` が汎用的な型でない場合は、上記は以下と同じ意味です。
 
 ```ruby
 tmp = MyType.new
@@ -48,7 +48,7 @@ tmp["foo"] = "bar"
 tmp
 ```
 
-If `MyType` is generic, the above is equivalent to this:
+もし `MyType` が汎用的な型である場合は、上記は以下と同じ意味です。
 
 ```ruby
 tmp = MyType(typeof("foo"), typeof("bar")).new
@@ -56,7 +56,7 @@ tmp["foo"] = "bar"
 tmp
 ```
 
-In the case of a generic type, the type arguments can be specified too:
+汎用的な型である場合には、型引数を指定することも可能です。
 
 ```ruby
 MyType(String, String) {"foo": "bar"}

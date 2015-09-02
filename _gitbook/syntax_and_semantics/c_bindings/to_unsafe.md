@@ -1,6 +1,6 @@
 # to_unsafe
 
-If a type defines a `to_unsafe` method, when passing it to C the value returned by this method will be passed. For example:
+If a type defines a `to_unsafe` method, when passing it to C the value returned by this method will be passed. 例:
 
 ```ruby
 lib C

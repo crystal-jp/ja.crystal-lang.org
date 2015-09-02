@@ -1,6 +1,6 @@
 # Class variables
 
-Class variables are associated to classes instead of instances. They are prefixed with two "at" signs (`@@`). For example:
+Class variables are associated to classes instead of instances. They are prefixed with two "at" signs (`@@`). 例:
 
 ```ruby
 class Counter

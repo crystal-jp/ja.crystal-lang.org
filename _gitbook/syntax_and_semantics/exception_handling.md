@@ -192,7 +192,7 @@ end
 
 ## Type inference
 
-Variables declared inside the `begin` part of an exception handler also get the `Nil` type when considered inside a `rescue` or `ensure` body. For example:
+Variables declared inside the `begin` part of an exception handler also get the `Nil` type when considered inside a `rescue` or `ensure` body. 例:
 
 ```ruby
 begin
@@ -230,7 +230,7 @@ end
 
 Although exceptions are available as one of the mechanisms for handling errors, they are not your only choice. Raising an exception involves allocating memory, and executing an exception handler is generally slow.
 
-The standard library usually provides a couple of methods to accomplish something: one raises, one returns `nil`. For example:
+The standard library usually provides a couple of methods to accomplish something: one raises, one returns `nil`. 例:
 
 ```ruby
 array = [1, 2, 3]

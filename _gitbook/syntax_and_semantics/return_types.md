@@ -5,7 +5,7 @@ A method's return type is always inferred by the compiler. However, you might wa
 1. To make sure that the method returns the type that you want
 2. To make it appear in documentation comments
 
-For example:
+例:
 
 ```ruby
 def some_method : String
