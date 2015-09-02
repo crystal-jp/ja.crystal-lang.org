@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>From sources | Crystal Programming Language</title>
+        <title>ソースコードからインストール | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="1.5" data-basepath=".." data-revision="Tue Aug 25 2015 14:20:19 GMT+0000 (UTC)">
+    <div class="book" data-level="1.5" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Crystal Programming Language</a>
+        <a href="../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1927,15 +1927,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="from-sources">From sources</h1>
-<p>If you want to contribute then you might want to install Crystal from sources. But Crystal is written in Crystal itself! So you first need to use one of the previous described methods to have a running compiler.</p>
-<p>You will also need LLVM 3.5 present in the path. If you are using Mac and the Homebrew formula, this will be automatically configured for you if you install Crystal adding <code>--with-llvm</code> flag.</p>
-<p>Then clone the repository:</p>
+                        <h1 id="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%8B%E3%82%89%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h1>
+<p>&#x3082;&#x3057;&#x30B3;&#x30F3;&#x30C8;&#x30EA;&#x30D3;&#x30E5;&#x30FC;&#x30C8;&#x3057;&#x305F;&#x3044;&#x3068;&#x8003;&#x3048;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;Crystal &#x3092;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x304F;&#x306A;&#x308B;&#x3053;&#x3068;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x306F;&#x3001;Crystal &#x306F; Crystal &#x81EA;&#x8EAB;&#x306B;&#x3088;&#x3063;&#x3066;&#x66F8;&#x304B;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x307E;&#x305A;&#x306F;&#x3053;&#x308C;&#x307E;&#x3067;&#x306B;&#x7D39;&#x4ECB;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;&#x3042;&#x308F;&#x305B;&#x3066; LLVM 3.5 &#x3082;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;&#x3082;&#x3057; Mac &#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x3066; Homebrew &#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30DF;&#x30E5;&#x30E9;&#x304B;&#x3089;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;<code>--with-llvm</code> &#x30D5;&#x30E9;&#x30B0;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308C;&#x3070; LLVM &#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x69CB;&#x6210;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x308C;&#x304B;&#x3089;&#x3001;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x3092;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>git clone https://github.com/manastech/crystal.git
-</code></pre><p>and you&apos;re ready to start hacking.</p>
-<p>To build your own version of the compiler, run <code>make</code>. The new compiler will be placed at <code>.build/crystal</code>.</p>
-<p>Make sure to install <a href="https://github.com/manastech/crystal/wiki/All-required-libraries" target="_blank">all the required libraries</a>. You might also want to read the <a href="https://github.com/manastech/crystal/blob/master/Contributing.md" target="_blank">contributing guide</a>.</p>
-<p>Inside the repository you will also find a wrapper script at <code>bin/crystal</code>. This script will execute the global installed compiler or the one that you just compiled (if present).</p>
+</code></pre><p>&#x3053;&#x308C;&#x3067;&#x30CF;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x6E96;&#x5099;&#x306F; OK &#x3067;&#x3059;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3059;&#x308B;&#x3068;&#x304D;&#x306F;&#x3001;<code>make</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x30D3;&#x30EB;&#x30C9;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>.build/crystal</code> &#x306B;&#x683C;&#x7D0D;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305F;&#x3060;&#x3057;&#x3001; <a href="https://github.com/manastech/crystal/wiki/All-required-libraries" target="_blank">&#x300C;&#x3059;&#x3079;&#x3066;&#x306E;&#x5FC5;&#x8981;&#x306A;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x300D;</a>&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x307E;&#x305F;&#x3001;<a href="https://github.com/manastech/crystal/blob/master/Contributing.md" target="_blank">&#x30B3;&#x30F3;&#x30C8;&#x30EA;&#x30D3;&#x30E5;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x30FB;&#x30AC;&#x30A4;&#x30C9;</a> &#x306B;&#x3082;&#x76EE;&#x3092;&#x901A;&#x3057;&#x3066;&#x304A;&#x304F;&#x3068;&#x3088;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306E;&#x4E2D;&#x3092;&#x898B;&#x308B;&#x3068;&#x3001;<code>bin/crystal</code> &#x3068;&#x3044;&#x3046;&#x30E9;&#x30C3;&#x30D1;&#x30FC;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x6C17;&#x3065;&#x304F;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306F;&#x3001;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x81EA;&#x5206;&#x3067;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x305F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x3042;&#x308C;&#x3070;&#x305D;&#x308C;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1946,10 +1946,10 @@
         </div>
 
         
-        <a href="../installation/from_a_targz.html" class="navigation navigation-prev " aria-label="Previous page: From a tar.gz"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/from_a_targz.html" class="navigation navigation-prev " aria-label="Previous page: Ftar.gz からインストール"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../using_the_compiler/index.html" class="navigation navigation-next " aria-label="Next page: Using the compiler"><i class="fa fa-angle-right"></i></a>
+        <a href="../using_the_compiler/index.html" class="navigation navigation-next " aria-label="Next page: コンパイラを使用する"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Proc | Crystal Programming Language</title>
+        <title>Proc | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.2.13" data-basepath="../.." data-revision="Sun Jun 14 2015 18:59:06 GMT-0300 (ART)">
+    <div class="book" data-level="4.2.13" data-basepath="../.." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >Crystal Programming Language</a>
+        <a href="../../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1928,29 +1928,29 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="proc">Proc</h1>
-<p>A <a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc</a> represents a function pointer with an optional context (the closure data). It is typically created with a proc literal:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># A proc without arguments</span>
+<p><a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc</a> &#x306F;&#x95A2;&#x6570;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x8868;&#x3059;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3001;&#x8FFD;&#x52A0;&#x306E;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8; (&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;) &#x3092;&#x542B;&#x3080;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x3001;Proc &#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x5F15;&#x6570;&#x306E;&#x306A;&#x3044; Proc</span>
 -&gt;{ <span class="hljs-number">1</span> } <span class="hljs-comment"># Proc(Int32)</span>
 
-<span class="hljs-comment"># A proc with one argument</span>
+<span class="hljs-comment"># &#x5F15;&#x6570;&#x3092;1&#x3064;&#x6301;&#x3064; Proc</span>
 -&gt;(x <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) { x.to_s } <span class="hljs-comment"># Proc(Int32, String)</span>
 
-<span class="hljs-comment"># A proc with two arguments:</span>
+<span class="hljs-comment"># &#x5F15;&#x6570;&#x3092;2&#x3064;&#x6301;&#x3064; Proc</span>
 -&gt;(x <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>, y <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) { x + y } <span class="hljs-comment"># Proc(Int32, Int32, Int32)</span>
 </code></pre>
-<p>The types of the arguments are mandatory, except when directly sending a proc literal to a lib <code>fun</code> in C bindings.</p>
-<p>The return type is inferred from the proc&apos;s body.</p>
-<p>A special <code>new</code> method is provided too:</p>
+<p>&#x5F15;&#x6570;&#x306E;&#x578B;&#x6307;&#x5B9A;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;C &#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3067;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E; <code>fun</code> &#x306B;&#x76F4;&#x63A5; Proc &#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x6E21;&#x3059;&#x3068;&#x304D;&#x3060;&#x3051;&#x306F;&#x4F8B;&#x5916;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;&#x306F; Proc &#x306E;&#x5185;&#x5BB9;&#x304B;&#x3089;&#x63A8;&#x8AD6;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;<code>new</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">Proc</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>).new { |x| x.to_s } <span class="hljs-comment"># Proc(Int32, String)</span>
 </code></pre>
-<p>This form allows you to specify the return type and to check it against the proc&apos;s body.</p>
-<h2 id="invoking">Invoking</h2>
-<p>To invoke a Proc, you invoke the <code>call</code> method on it. The number of arguments must match the proc&apos;s type:</p>
+<p>&#x3053;&#x306E;&#x5F62;&#x5F0F;&#x306E;&#x5834;&#x5408;&#x3001;&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3001;Proc &#x306E;&#x672C;&#x4F53;&#x306E;&#x623B;&#x308A;&#x5024;&#x304C;&#x6B63;&#x3057;&#x3044;&#x578B;&#x3067;&#x3042;&#x308B;&#x304B;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="proc-%E3%81%AE%E5%AE%9F%E8%A1%8C">Proc &#x306E;&#x5B9F;&#x884C;</h2>
+<p>Proc &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x304D;&#x306F; <code>call</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x3068;&#x304D;&#x3001;&#x5F15;&#x6570;&#x306E;&#x6570;&#x306F; Proc &#x306E;&#x578B;&#x3068;&#x4E00;&#x81F4;&#x3057;&#x3066;&#x3044;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">proc = -&gt;(x <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>, y <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) { x + y }
 proc.call(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<h2 id="from-methods">From methods</h2>
-<p>A Proc can be created from an existing method:</p>
+<h2 id="%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%8B%E3%82%89-proc-%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089; Proc &#x3092;&#x751F;&#x6210;&#x3059;&#x308B;</h2>
+<p>&#x65E2;&#x5B58;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089; Proc &#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>one
   <span class="hljs-number">1</span>
 <span class="hljs-keyword">end</span>
@@ -1958,7 +1958,7 @@ proc.call(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>
 proc = -&gt;one
 proc.call <span class="hljs-comment">#=&gt; 1</span>
 </code></pre>
-<p>If the method has arguments, you must specify their types:</p>
+<p>&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>plus_one(x)
   x + <span class="hljs-number">1</span>
 <span class="hljs-keyword">end</span>
@@ -1966,7 +1966,7 @@ proc.call <span class="hljs-comment">#=&gt; 1</span>
 proc = -&gt;plus_one(<span class="hljs-constant">Int32</span>)
 proc.call(<span class="hljs-number">41</span>) <span class="hljs-comment">#=&gt; 42</span>
 </code></pre>
-<p>A proc can optionally specify a receiver:</p>
+<p>&#x30EC;&#x30B7;&#x30FC;&#x30D0;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">str = <span class="hljs-string">&quot;hello&quot;</span>
 proc = -&gt;str.count(<span class="hljs-constant">Char</span>)
 proc.call(<span class="hljs-string">&apos;e&apos;</span>) <span class="hljs-comment">#=&gt; 1</span>
@@ -1982,7 +1982,7 @@ proc.call(<span class="hljs-string">&apos;l&apos;</span>) <span class="hljs-comm
         </div>
 
         
-        <a href="../../syntax_and_semantics/literals/tuple.html" class="navigation navigation-prev " aria-label="Previous page: Tuple"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/literals/tuple.html" class="navigation navigation-prev " aria-label="Previous page: タプル (Tuple)"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../../syntax_and_semantics/local_variables.html" class="navigation navigation-next " aria-label="Next page: Local variables"><i class="fa fa-angle-right"></i></a>

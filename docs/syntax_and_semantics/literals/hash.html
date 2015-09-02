@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Hash | Crystal Programming Language</title>
+        <title>ハッシュ (Hash) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.2.9" data-basepath="../.." data-revision="Sun Jun 14 2015 18:59:06 GMT-0300 (ART)">
+    <div class="book" data-level="4.2.9" data-basepath="../.." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >Crystal Programming Language</a>
+        <a href="../../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1927,39 +1927,39 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="hash">Hash</h1>
-<p>A <a href="http://crystal-lang.org/api/Hash.html" target="_blank">Hash</a> representing a mapping of keys of a type <code>K</code> to values of a type <code>V</code>. It is typically created with a hash literal:</p>
+                        <h1 id="%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5-hash">&#x30CF;&#x30C3;&#x30B7;&#x30E5; (Hash)</h1>
+<p>&#x30CF;&#x30C3;&#x30B7;&#x30E5; (<a href="http://crystal-lang.org/api/Hash.html" target="_blank">Hash</a>) &#x306F;&#x3001;<code>K</code> &#x578B;&#x306E;&#x30AD;&#x30FC;&#x3068; <code>V</code> &#x578B;&#x306E;&#x5024;&#x306E;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x578B;&#x3067;&#x3059;&#x3002;&#x901A;&#x5E38;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x66F8;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">{<span class="hljs-number">1</span> =&gt; <span class="hljs-number">2</span>, <span class="hljs-number">3</span> =&gt; <span class="hljs-number">4</span>}     <span class="hljs-comment"># Hash(Int32, Int32)</span>
 {<span class="hljs-number">1</span> =&gt; <span class="hljs-number">2</span>, <span class="hljs-string">&apos;a&apos;</span> =&gt; <span class="hljs-number">3</span>}   <span class="hljs-comment"># Hash(Int32 | Char, Int32)</span>
 </code></pre>
-<p>A Hash can have mixed types, both for the keys and values, meaning <code>K</code>/<code>V</code> will be union types, but these are determined when the hash is created, either by specifying <code>K</code> and <code>V</code> or by using a hash literal. In the latter case, <code>K</code> will be set to the union of the hash literal keys, and <code>V</code> will be set to the union of the hash literal values.</p>
-<p>When creating an empty hash you must always specify <code>K</code> and <code>V</code>:</p>
-<pre><code class="lang-ruby">{} of <span class="hljs-constant">Int32</span> =&gt; <span class="hljs-constant">Int32</span> <span class="hljs-comment"># same as Hash(Int32, Int32).new</span>
-{}                   <span class="hljs-comment"># syntax error</span>
+<p>&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x306F;&#x7570;&#x306A;&#x308B;&#x578B;&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F; <code>K</code>/<code>V</code> &#x305D;&#x308C;&#x305E;&#x308C;&#x304C;&#x8907;&#x6570;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3068;&#x306A;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3001;&#x305D;&#x308C;&#x3089;&#x306E;&#x578B;&#x306F;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4F5C;&#x3089;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x6C7A;&#x5B9A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x751F;&#x6210;&#x6642;&#x306B;&#x660E;&#x793A;&#x7684;&#x306B;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F; <code>K</code> &#x3068; <code>T</code> &#x304B;&#x3001;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3067;&#x751F;&#x6210;&#x3057;&#x305F;&#x5834;&#x5408;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x306E;&#x30AD;&#x30FC;&#x3068;&#x5024;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x306B;&#x3088;&#x3063;&#x3066;&#x578B;&#x304C;&#x6C7A;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x7A7A;&#x306E;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x4F5C;&#x308A;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;&#x5FC5;&#x305A; <code>K</code> &#x3068; <code>V</code> &#x3092;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-ruby">{} of <span class="hljs-constant">Int32</span> =&gt; <span class="hljs-constant">Int32</span> <span class="hljs-comment"># Hash(Int32, Int32).new &#x3068;&#x540C;&#x3058;</span>
+{}                   <span class="hljs-comment"># &#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308B;</span>
 </code></pre>
-<h2 id="symbol-keys">Symbol keys</h2>
-<p>A special notation allows creating hashes with symbol keys:</p>
+<h2 id="%E3%82%AD%E3%83%BC%E3%81%8C%E3%82%B7%E3%83%B3%E3%83%9C%E3%83%AB%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5">&#x30AD;&#x30FC;&#x304C;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x306E;&#x30CF;&#x30C3;&#x30B7;&#x30E5;</h2>
+<p>&#x30AD;&#x30FC;&#x304C;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x7279;&#x5225;&#x306A;&#x8A18;&#x6CD5;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">{<span class="hljs-symbol">key1:</span> <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-symbol">key2:</span> <span class="hljs-string">&apos;b&apos;</span>} <span class="hljs-comment"># Hash(Symbol, Char)</span>
 </code></pre>
-<h2 id="string-keys">String keys</h2>
-<p>A special notation allows creating hashes with string keys:</p>
+<h2 id="%E3%82%AD%E3%83%BC%E3%81%8C%E6%96%87%E5%AD%97%E5%88%97%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5">&#x30AD;&#x30FC;&#x304C;&#x6587;&#x5B57;&#x5217;&#x306E;&#x30CF;&#x30C3;&#x30B7;&#x30E5;</h2>
+<p>&#x30AD;&#x30FC;&#x304C;&#x6587;&#x5B57;&#x5217;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x7279;&#x5225;&#x306A;&#x8A18;&#x6CD5;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">{<span class="hljs-string">&quot;key1&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&quot;key2&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&apos;b&apos;</span>} <span class="hljs-comment"># Hash(String, Char)</span>
 </code></pre>
-<h2 id="hash-like-types">Hash-like types</h2>
-<p>You can use a special hash literal syntax with other types too, as long as they define an argless <code>new</code> method and a <code>[]=</code> method:</p>
+<h2 id="%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%A9%E3%82%A4%E3%82%AF%E3%81%AA%E5%9E%8B">&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x30E9;&#x30A4;&#x30AF;&#x306A;&#x578B;</h2>
+<p>&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x6301;&#x3064;&#x7279;&#x5225;&#x306A;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x4ED6;&#x306E;&#x578B;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x5F15;&#x6570;&#x306E;&#x306A;&#x3044; <code>new</code> &#x3068; <code>[]=</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">MyType</span>{<span class="hljs-string">&quot;foo&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;bar&quot;</span>}
 </code></pre>
-<p>If <code>MyType</code> is not generic, the above is equivalent to this:</p>
+<p>&#x3082;&#x3057; <code>MyType</code> &#x304C;&#x6C4E;&#x7528;&#x7684;&#x306A;&#x578B;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x610F;&#x5473;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">tmp = <span class="hljs-constant">MyType</span>.new
 tmp[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>
 tmp
 </code></pre>
-<p>If <code>MyType</code> is generic, the above is equivalent to this:</p>
+<p>&#x3082;&#x3057; <code>MyType</code> &#x304C;&#x6C4E;&#x7528;&#x7684;&#x306A;&#x578B;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x610F;&#x5473;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">tmp = <span class="hljs-constant">MyType</span>(typeof(<span class="hljs-string">&quot;foo&quot;</span>), typeof(<span class="hljs-string">&quot;bar&quot;</span>)).new
 tmp[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>
 tmp
 </code></pre>
-<p>In the case of a generic type, the type arguments can be specified too:</p>
+<p>&#x6C4E;&#x7528;&#x7684;&#x306A;&#x578B;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x578B;&#x5F15;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">MyType</span>(<span class="hljs-constant">String</span>, <span class="hljs-constant">String</span>) {<span class="hljs-string">&quot;foo&quot;</span><span class="hljs-symbol">:</span> <span class="hljs-string">&quot;bar&quot;</span>}
 </code></pre>
 
@@ -1972,10 +1972,10 @@ tmp
         </div>
 
         
-        <a href="../../syntax_and_semantics/literals/array.html" class="navigation navigation-prev " aria-label="Previous page: Array"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/literals/array.html" class="navigation navigation-prev " aria-label="Previous page: 配列 (Array)"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/literals/range.html" class="navigation navigation-next " aria-label="Next page: Range"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/literals/range.html" class="navigation navigation-next " aria-label="Next page: 範囲 (Range)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

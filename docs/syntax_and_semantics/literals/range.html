@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Range | Crystal Programming Language</title>
+        <title>範囲 (Range) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.2.10" data-basepath="../.." data-revision="Sun Jun 14 2015 18:59:06 GMT-0300 (ART)">
+    <div class="book" data-level="4.2.10" data-basepath="../.." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >Crystal Programming Language</a>
+        <a href="../../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1927,12 +1927,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="range">Range</h1>
-<p>A <a href="http://crystal-lang.org/api/Range.html" target="_blank">Range</a> is typically constructed with a range literal:</p>
-<pre><code class="lang-ruby">x..y  <span class="hljs-comment"># an inclusive range, in mathematics: [x, y]</span>
-x...y <span class="hljs-comment"># an exclusive range, in mathematics: [x, y)</span>
+                        <h1 id="%E7%AF%84%E5%9B%B2-range">&#x7BC4;&#x56F2; (Range)</h1>
+<p>&#x7BC4;&#x56F2; (<a href="http://crystal-lang.org/api/Range.html" target="_blank">Range</a>) &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x308B;&#x306B;&#x306F;&#x7BC4;&#x56F2;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby">x..y  <span class="hljs-comment"># &#x53F3;&#x5074;&#x306E;&#x5024;&#x3092;&#x300C;&#x542B;&#x3080;&#x300D;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;&#x6570;&#x5B66;&#x7684;&#x306B;&#x306F;&#x9589;&#x533A;&#x9593;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;: [x, y]</span>
+x...y <span class="hljs-comment"># &#x53F3;&#x5074;&#x306E;&#x5024;&#x3092;&#x300C;&#x542B;&#x307E;&#x306A;&#x3044;&#x300D;&#x7BC4;&#x56F2;&#x3067;&#x3059;&#x3002;&#x6570;&#x5B66;&#x7684;&#x306B;&#x306F;&#x5DE6;&#x9589;&#x53F3;&#x958B;&#x533A;&#x9593;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;: [x, y)</span>
 </code></pre>
-<p>An easy way to remember which one is inclusive and which one is exclusive it to think of the extra dot as if it pushes <em>y</em> further away, thus leaving it outside of the range.</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x300C;&#x53F3;&#x5074;&#x306E;&#x5024;&#x3092;&#x542B;&#x3080;/&#x542B;&#x307E;&#x306A;&#x3044;&#x300D;&#x8A18;&#x6CD5;&#x306E;&#x7C21;&#x5358;&#x306A;&#x899A;&#x3048;&#x65B9;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;&#x30C9;&#x30C3;&#x30C8;&#x304C;1&#x3064;&#x591A;&#x304F;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x304B;&#x3089;&#x3001;&#x305D;&#x308C;&#x3060;&#x3051; <em>y</em> &#x304C;&#x9060;&#x304F;&#x306B;&#x62BC;&#x3057;&#x51FA;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3092;&#x30A4;&#x30E1;&#x30FC;&#x30B8;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3060;&#x304B;&#x3089;&#x305D;&#x306E;&#x3068;&#x304D;&#x9060;&#x304F;&#x306E; <em>y</em> &#x306F;&#x7BC4;&#x56F2;&#x306B;&#x542B;&#x307E;&#x308C;&#x306A;&#x3044;&#x3001;&#x3068;&#x3044;&#x3046;&#x308F;&#x3051;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1943,10 +1943,10 @@ x...y <span class="hljs-comment"># an exclusive range, in mathematics: [x, y)</s
         </div>
 
         
-        <a href="../../syntax_and_semantics/literals/hash.html" class="navigation navigation-prev " aria-label="Previous page: Hash"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/literals/hash.html" class="navigation navigation-prev " aria-label="Previous page: ハッシュ (Hash)"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/literals/regex.html" class="navigation navigation-next " aria-label="Next page: Regex"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/literals/regex.html" class="navigation navigation-next " aria-label="Next page: 正規表現 (Regex)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

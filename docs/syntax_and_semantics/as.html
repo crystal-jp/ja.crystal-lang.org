@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>as | Crystal Programming Language</title>
+        <title>as | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="Sun Aug 02 2015 12:12:24 GMT-0300 (ART)">
+    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Crystal Programming Language</a>
+        <a href="../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="as">as</h1>
-<p>The <code>as</code> expression restricts the types of an expression. For example:</p>
+<p>The <code>as</code> expression restricts the types of an expression. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> some_condition
   a = <span class="hljs-number">1</span>
 <span class="hljs-keyword">else</span>
@@ -1967,7 +1967,7 @@ array2.same?(array) <span class="hljs-comment">#=&gt; true</span>
 </code></pre>
 <p>No runtime checks are performed in these cases because, again, pointers are involved. The need for this cast is even more rare than the previous one, but allows to implement some core types (like String) in Crystal itself, and it also allows passing a Reference type to C functions by casting it to a void pointer.</p>
 <h2 id="usage-for-casting-to-a-bigger-type">Usage for casting to a bigger type</h2>
-<p>The <code>as</code> expression can be used to cast an expression to a &quot;bigger&quot; type. For example:</p>
+<p>The <code>as</code> expression can be used to cast an expression to a &quot;bigger&quot; type. &#x4F8B;:</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 b = a as <span class="hljs-constant">Int32</span> | <span class="hljs-constant">Float64</span>
 b <span class="hljs-comment">#:: Int32 | Float64</span>
@@ -1983,7 +1983,7 @@ ary2 &lt;&lt; <span class="hljs-number">1.5</span> <span class="hljs-comment"># 
 </code></pre>
 <p>The <code>Array#map</code> method uses the block&apos;s type as the generic type for the Array. Without the <code>as</code> expression, the inferred type would have been <code>Int32</code> and we wouldn&apos;t have been able to add a <code>Float64</code> into it.</p>
 <h2 id="usage-for-when-the-compiler-can-t-infer-the-type-of-a-block">Usage for when the compiler can&apos;t infer the type of a block</h2>
-<p>Sometimes the compiler can&apos;t infer the type of a block. For example:</p>
+<p>Sometimes the compiler can&apos;t infer the type of a block. &#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(<span class="hljs-variable">@name</span>)
   <span class="hljs-keyword">end</span>

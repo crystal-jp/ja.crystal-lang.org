@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>String | Crystal Programming Language</title>
+        <title>文字列 (String) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.2.6" data-basepath="../.." data-revision="Thu Aug 06 2015 10:52:22 GMT-0300 (ART)">
+    <div class="book" data-level="4.2.6" data-basepath="../.." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -59,7 +59,7 @@
                     <a href="../../index.html">
                         <i class="fa fa-check"></i>
                         
-                        Introduction
+                        はじめに
                     </a>
                 
             
@@ -74,7 +74,7 @@
                         
                             <b>1.</b>
                         
-                        Installation
+                        インストール
                     </a>
                 
             
@@ -90,7 +90,7 @@
                         
                             <b>1.1.</b>
                         
-                        On Debian and Ubuntu
+                        Debian や Ubuntu
                     </a>
                 
             
@@ -105,7 +105,7 @@
                         
                             <b>1.2.</b>
                         
-                        On RedHat and CentOS
+                        RedHat や CentOS
                     </a>
                 
             
@@ -120,7 +120,7 @@
                         
                             <b>1.3.</b>
                         
-                        On Mac OSX using Homebrew
+                        Mac OS X (Homebrew を利用)
                     </a>
                 
             
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        From a tar.gz
+                        Ftar.gz からインストール
                     </a>
                 
             
@@ -150,7 +150,7 @@
                         
                             <b>1.5.</b>
                         
-                        From sources
+                        ソースコードからインストール
                     </a>
                 
             
@@ -170,7 +170,7 @@
                         
                             <b>2.</b>
                         
-                        Using the compiler
+                        コンパイラを使用する
                     </a>
                 
             
@@ -185,7 +185,7 @@
                         
                             <b>3.</b>
                         
-                        Overview and Examples
+                        概要とプログラム例
                     </a>
                 
             
@@ -216,7 +216,7 @@
                         
                             <b>3.2.</b>
                         
-                        HTTP Server
+                        HTTP サーバー
                     </a>
                 
             
@@ -236,7 +236,7 @@
                         
                             <b>4.</b>
                         
-                        Syntax and semantics
+                        シンタックスとセマンティクス
                     </a>
                 
             
@@ -252,7 +252,7 @@
                         
                             <b>4.1.</b>
                         
-                        Comments
+                        コメント
                     </a>
                 
             
@@ -267,7 +267,7 @@
                         
                             <b>4.2.</b>
                         
-                        Literals
+                        リテラル
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -313,7 +313,7 @@
                         
                             <b>4.2.3.</b>
                         
-                        Integers
+                        整数 (Integer)
                     </a>
                 
             
@@ -328,7 +328,7 @@
                         
                             <b>4.2.4.</b>
                         
-                        Floats
+                        浮動小数点数 (Float)
                     </a>
                 
             
@@ -343,7 +343,7 @@
                         
                             <b>4.2.5.</b>
                         
-                        Char
+                        文字 (Char)
                     </a>
                 
             
@@ -358,7 +358,7 @@
                         
                             <b>4.2.6.</b>
                         
-                        String
+                        文字列 (String)
                     </a>
                 
             
@@ -373,7 +373,7 @@
                         
                             <b>4.2.7.</b>
                         
-                        Symbol
+                        シンボル (Symbol)
                     </a>
                 
             
@@ -388,7 +388,7 @@
                         
                             <b>4.2.8.</b>
                         
-                        Array
+                        配列 (Array)
                     </a>
                 
             
@@ -403,7 +403,7 @@
                         
                             <b>4.2.9.</b>
                         
-                        Hash
+                        ハッシュ (Hash)
                     </a>
                 
             
@@ -418,7 +418,7 @@
                         
                             <b>4.2.10.</b>
                         
-                        Range
+                        範囲 (Range)
                     </a>
                 
             
@@ -433,7 +433,7 @@
                         
                             <b>4.2.11.</b>
                         
-                        Regex
+                        正規表現 (Regex)
                     </a>
                 
             
@@ -448,7 +448,7 @@
                         
                             <b>4.2.12.</b>
                         
-                        Tuple
+                        タプル (Tuple)
                     </a>
                 
             
@@ -1917,7 +1917,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >Crystal Programming Language</a>
+        <a href="../../" >プログラミング言語 Crystal</a>
     </h1>
 </div>
 
@@ -1927,72 +1927,70 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="string">String</h1>
-<p>A <a href="http://crystal-lang.org/api/String.html" target="_blank">String</a> represents an immutable sequence of UTF-8 characters.</p>
-<p>A String is typically created with a string literal, enclosing UTF-8 characters in double quotes:</p>
+                        <h1 id="%E6%96%87%E5%AD%97%E5%88%97-string">&#x6587;&#x5B57;&#x5217; (String)</h1>
+<p>&#x6587;&#x5B57;&#x5217; (<a href="http://crystal-lang.org/api/String.html" target="_blank">String</a>) &#x306F; UTF-8 &#x306E;&#x6587;&#x5B57;&#x306E;&#x4E0D;&#x5909; (&#x30A4;&#x30DF;&#x30E5;&#x30FC;&#x30BF;&#x30D6;&#x30EB;) &#x306A;&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x3092;&#x8868;&#x3057;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x3001;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3067;&#x56F2;&#x3093;&#x3060; UTF-8 &#x6587;&#x5B57;&#x306E;&#x4E26;&#x3073;&#x3067;&#x6587;&#x5B57;&#x5217;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x8A18;&#x8FF0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;hello world&quot;</span>
 </code></pre>
-<p>A backslash can be used to denote some characters inside the string:</p>
-<pre><code class="lang-ruby"><span class="hljs-string">&quot;\&quot;&quot;</span> <span class="hljs-comment"># double quote</span>
-<span class="hljs-string">&quot;\\&quot;</span> <span class="hljs-comment"># backslash</span>
-<span class="hljs-string">&quot;\e&quot;</span> <span class="hljs-comment"># escape</span>
-<span class="hljs-string">&quot;\f&quot;</span> <span class="hljs-comment"># form feed</span>
-<span class="hljs-string">&quot;\n&quot;</span> <span class="hljs-comment"># newline</span>
-<span class="hljs-string">&quot;\r&quot;</span> <span class="hljs-comment"># carriage return</span>
-<span class="hljs-string">&quot;\t&quot;</span> <span class="hljs-comment"># tab</span>
-<span class="hljs-string">&quot;\v&quot;</span> <span class="hljs-comment"># vertical tab</span>
+<p>&#x6587;&#x5B57;&#x5217;&#x4E2D;&#x306E;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x6587;&#x5B57;&#x306F;&#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-string">&quot;\&quot;&quot;</span> <span class="hljs-comment"># &#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;</span>
+<span class="hljs-string">&quot;\\&quot;</span> <span class="hljs-comment"># &#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;</span>
+<span class="hljs-string">&quot;\e&quot;</span> <span class="hljs-comment"># &#x30A8;&#x30B9;&#x30B1;&#x30FC;&#x30D7;</span>
+<span class="hljs-string">&quot;\f&quot;</span> <span class="hljs-comment"># &#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30D5;&#x30A3;&#x30FC;&#x30C9; (&#x6539;&#x30DA;&#x30FC;&#x30B8;)</span>
+<span class="hljs-string">&quot;\n&quot;</span> <span class="hljs-comment"># &#x30CB;&#x30E5;&#x30FC;&#x30E9;&#x30A4;&#x30F3; (&#x6539;&#x884C;)</span>
+<span class="hljs-string">&quot;\r&quot;</span> <span class="hljs-comment"># &#x30AD;&#x30E3;&#x30EA;&#x30C3;&#x30B8;&#x30EA;&#x30BF;&#x30FC;&#x30F3; (&#x5FA9;&#x5E30;)</span>
+<span class="hljs-string">&quot;\t&quot;</span> <span class="hljs-comment"># &#x30BF;&#x30D6;</span>
+<span class="hljs-string">&quot;\v&quot;</span> <span class="hljs-comment"># &#x5782;&#x76F4;&#x30BF;&#x30D6;</span>
 </code></pre>
-<p>You can use a backslash followed by at most three digits to denote a code point written in octal:</p>
+<p>&#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x7D9A;&#x3051;&#x3066;&#x6700;&#x5927;3&#x3064;&#x306E;&#x6570;&#x5024;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x3068;&#x3001;8&#x9032;&#x6570;&#x3067;&#x30B3;&#x30FC;&#x30C9;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;\101&quot;</span> <span class="hljs-comment"># == &quot;A&quot;</span>
 <span class="hljs-string">&quot;\123&quot;</span> <span class="hljs-comment"># == &quot;S&quot;</span>
 <span class="hljs-string">&quot;\12&quot;</span>  <span class="hljs-comment"># == &quot;\n&quot;</span>
-<span class="hljs-string">&quot;\1&quot;</span>   <span class="hljs-comment"># string with one character with code point 1</span>
+<span class="hljs-string">&quot;\1&quot;</span>   <span class="hljs-comment"># &#x30B3;&#x30FC;&#x30C9;&#x30DD;&#x30A4;&#x30F3;&#x30C8;1&#x306E;&#x6587;&#x5B57;&#x304C;1&#x3064;&#x3060;&#x3051;&#x306E;&#x6587;&#x5B57;&#x5217;</span>
 </code></pre>
-<p>You can use a backslash followed by an <em>u</em> and four hexadecimal characters to denote a unicode codepoint written:</p>
+<p>&#x300C;<em>u</em>&#x300D;&#x306B;&#x7D9A;&#x3051;&#x3066;&#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3068;16&#x9032;&#x6570;&#x3067;4&#x3064;&#x306E;&#x6570;&#x5024;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30B3;&#x30FC;&#x30C9;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x793A;&#x3059;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;\u0041&quot;</span> <span class="hljs-comment"># == &quot;A&quot;</span>
 </code></pre>
-<p>Or you can use curly braces and specify up to six hexadecimal numbers (0 to 10FFFF):</p>
+<p>&#x6CE2;&#x30AB;&#x30C3;&#x30B3; (&#x30D6;&#x30EC;&#x30FC;&#x30B9;) &#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;(0 &#x304B;&#x3089; 10FFFF &#x307E;&#x3067;&#x306E;) 16&#x9032;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;\u{41}&quot;</span>    <span class="hljs-comment"># == &quot;A&quot;</span>
-<span class="hljs-string">&quot;\u{1F52E}&quot;</span> <span class="hljs-comment"># == &quot;&#x1F52E;&quot;</span>
+<span class="hljs-string">&quot;\u{1F52E}&quot;</span> <span class="hljs-comment"># == &quot;  &quot;</span>
 </code></pre>
-<p>A string can span multiple lines:</p>
+<p>&#x6587;&#x5B57;&#x5217;&#x306F;&#x8907;&#x6570;&#x306E;&#x884C;&#x306B;&#x307E;&#x305F;&#x304C;&#x3063;&#x3066;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;hello
-      world&quot;</span> <span class="hljs-comment"># same as &quot;hello\n      world&quot;</span>
+      world&quot;</span> <span class="hljs-comment"># &quot;hello\n      world&quot; &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
-<p>Note that in the above example trailing and leading spaces, as well as newlines,
-end up in the resulting string. To avoid this, you can split a string into multiple lines
-by joining multiple literals with a backslash:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x3001;&#x5148;&#x982D;&#x3068;&#x672B;&#x5C3E;&#x306E;&#x7A7A;&#x767D;&#x3001;&#x304A;&#x3088;&#x3073;&#x6539;&#x884C;&#x304C;&#x7D50;&#x679C;&#x306E;&#x6587;&#x5B57;&#x5217;&#x306B;&#x3082;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3053;&#x308C;&#x3092;&#x907F;&#x3051;&#x305F;&#x3051;&#x308C;&#x3070;&#x3001;&#x8907;&#x6570;&#x884C;&#x306E;&#x6587;&#x5B57;&#x5217;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3067;&#x7D50;&#x5408;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;hello &quot;</span> \
 <span class="hljs-string">&quot;world, &quot;</span> \
-<span class="hljs-string">&quot;no newlines&quot;</span> <span class="hljs-comment"># same as &quot;hello world, no newlines&quot;</span>
+<span class="hljs-string">&quot;no newlines&quot;</span> <span class="hljs-comment"># &quot;hello world, no newlines&quot; &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
-<p>Alternatively, a backlash followed by a newline can be inserted inside the string literal:</p>
+<p>&#x307E;&#x305F;&#x3001;&#x6539;&#x884C;&#x306E;&#x524D;&#x306E;&#x30D0;&#x30C3;&#x30AF;&#x30B9;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x306F;&#x6587;&#x5B57;&#x5217;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x306E;&#x4E2D;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;hello \
      world, \
-     no newlines&quot;</span> <span class="hljs-comment"># same as &quot;hello world, no newlines&quot;</span>
+     no newlines&quot;</span> <span class="hljs-comment"># &quot;hello world, no newlines&quot; &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
-<p>In this case, leading whitespace is not included in the resulting string.</p>
-<p>If you need to write a string that has many double quotes, parenthesis, or similar
-characters, you can use alternative literals:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># Supports double quotes and nested parenthesis</span>
-<span class="hljs-string">%(hello (&quot;world&quot;)</span>) <span class="hljs-comment"># same as &quot;hello (\&quot;world\&quot;)&quot;</span>
+<p>&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;&#x5148;&#x982D;&#x306E;&#x7A7A;&#x767D;&#x304C;&#x7D50;&#x679C;&#x306E;&#x6587;&#x5B57;&#x5217;&#x306B;&#x542B;&#x307E;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x3082;&#x3057;&#x6587;&#x5B57;&#x5217;&#x306B;&#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3084;&#x30AB;&#x30C3;&#x30B3;&#x306A;&#x3069;&#x306E;&#x6587;&#x5B57;&#x304C;&#x591A;&#x304F;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x5F62;&#x5F0F;&#x3067;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3068;&#x5165;&#x308C;&#x5B50;&#x306E;&#x30AB;&#x30C3;&#x30B3;&#x3092;&#x542B;&#x3080;</span>
+<span class="hljs-string">%(hello (&quot;world&quot;)</span>) <span class="hljs-comment"># &quot;hello (\&quot;world\&quot;)&quot; &#x3068;&#x540C;&#x3058;</span>
 
-<span class="hljs-comment"># Supports double quotes and nested brackets</span>
-<span class="hljs-string">%[hello [&quot;world&quot;]</span>] <span class="hljs-comment"># same as &quot;hello [\&quot;world\&quot;]&quot;</span>
+<span class="hljs-comment"># &#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3068;&#x5165;&#x308C;&#x5B50;&#x306E;&#x89D2;&#x30AB;&#x30C3;&#x30B3; (&#x30D6;&#x30E9;&#x30B1;&#x30C3;&#x30C8;) &#x3092;&#x542B;&#x3080;</span>
+<span class="hljs-string">%[hello [&quot;world&quot;]</span>] <span class="hljs-comment"># &quot;hello [\&quot;world\&quot;]&quot; &#x3068;&#x540C;&#x3058;</span>
 
-<span class="hljs-comment"># Supports double quotes and nested curlies</span>
-<span class="hljs-string">%{hello {&quot;world&quot;}</span>} <span class="hljs-comment"># same as &quot;hello {\&quot;world\&quot;}&quot;</span>
+<span class="hljs-comment"># &#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3068;&#x5165;&#x308C;&#x5B50;&#x306E;&#x6CE2;&#x30AB;&#x30C3;&#x30B3; (&#x30D6;&#x30EC;&#x30FC;&#x30B9;) &#x3092;&#x542B;&#x3080;</span>
+<span class="hljs-string">%{hello {&quot;world&quot;}</span>} <span class="hljs-comment"># &quot;hello {\&quot;world\&quot;}&quot; &#x3068;&#x540C;&#x3058;</span>
 
-<span class="hljs-comment"># Supports double quotes and nested angles</span>
-<span class="hljs-string">%&lt;hello &lt;&quot;world&quot;&gt;</span>&gt; <span class="hljs-comment"># same as &quot;hello &lt;\&quot;world\&quot;&gt;&quot;</span>
+<span class="hljs-comment"># &#x30C0;&#x30D6;&#x30EB;&#x30AF;&#x30A9;&#x30FC;&#x30C8;&#x3068;&#x5165;&#x308C;&#x5B50;&#x306E;&#x5C71;&#x30AB;&#x30C3;&#x30B3; (&#x30A2;&#x30F3;&#x30B0;&#x30EB;&#x30D6;&#x30E9;&#x30B1;&#x30C3;&#x30C8;) &#x3092;&#x542B;&#x3080;</span>
+<span class="hljs-string">%&lt;hello &lt;&quot;world&quot;&gt;</span>&gt; <span class="hljs-comment"># &quot;hello &lt;\&quot;world\&quot;&gt;&quot; &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
-<h2 id="interpolation">Interpolation</h2>
-<p>To create a String with embedded expressions, you can use string interpolation:</p>
+<h2 id="string-interpolation">String Interpolation</h2>
+<p>&#x6587;&#x5B57;&#x5217;&#x306E;&#x4E2D;&#x306B;&#x306F;&#x5F0F;&#x3092;&#x57CB;&#x3081;&#x8FBC;&#x3080;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x6587;&#x5B57;&#x5217;&#x57CB;&#x3081;&#x8FBC;&#x307F; (&#x6587;&#x5B57;&#x5217;&#x88DC;&#x5B8C;/String Interpolation
+) &#x3068;&#x3044;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 b = <span class="hljs-number">2</span>
 <span class="hljs-string">&quot;sum = <span class="hljs-subst">#{a + b}</span>&quot;</span>        <span class="hljs-comment"># &quot;sum = 3&quot;</span>
 </code></pre>
-<p>This ends up invoking <code>Object#to_s(IO)</code> on each expression enclosed by <code>#{...}</code>.</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>#{...}</code> &#x3067;&#x56F2;&#x307E;&#x308C;&#x305F;&#x5F0F;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;<code>Object#to_s(IO)</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -2003,10 +2001,10 @@ b = <span class="hljs-number">2</span>
         </div>
 
         
-        <a href="../../syntax_and_semantics/literals/char.html" class="navigation navigation-prev " aria-label="Previous page: Char"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/literals/char.html" class="navigation navigation-prev " aria-label="Previous page: 文字 (Char)"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/literals/symbol.html" class="navigation navigation-next " aria-label="Next page: Symbol"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/literals/symbol.html" class="navigation navigation-next " aria-label="Next page: シンボル (Symbol)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
