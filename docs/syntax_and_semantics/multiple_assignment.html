@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Multiple assignment | プログラミング言語 Crystal</title>
+        <title>多重代入 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.5.1" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
+    <div class="book" data-level="4.5.1" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -483,7 +483,7 @@
                         
                             <b>4.3.</b>
                         
-                        Local variables
+                        ローカル変数
                     </a>
                 
             
@@ -498,7 +498,7 @@
                         
                             <b>4.4.</b>
                         
-                        Global variables
+                        グローバル変数
                     </a>
                 
             
@@ -513,7 +513,7 @@
                         
                             <b>4.5.</b>
                         
-                        Assignment
+                        代入
                     </a>
                 
             
@@ -529,7 +529,7 @@
                         
                             <b>4.5.1.</b>
                         
-                        Multiple assignment
+                        多重代入
                     </a>
                 
             
@@ -1927,50 +1927,50 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="multiple-assignment">Multiple assignment</h1>
-<p>You can declare/assign multiple variables at the same time by separating expressions with a comma (<code>,</code>):</p>
+                        <h1 id="%E5%A4%9A%E9%87%8D%E4%BB%A3%E5%85%A5">&#x591A;&#x91CD;&#x4EE3;&#x5165;</h1>
+<p>&#x8907;&#x6570;&#x306E;&#x5F0F;&#x3092;&#x30AB;&#x30F3;&#x30DE;&#x8A18;&#x53F7; (<code>,</code>) &#x3067;&#x533A;&#x5207;&#x3063;&#x3066;&#x4EE3;&#x5165;&#x3059;&#x308B;&#x3068;&#x3001;&#x8907;&#x6570;&#x306E;&#x5909;&#x6570;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x540C;&#x6642;&#x306B;&#x5BA3;&#x8A00;/&#x4EE3;&#x5165;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059; (&#x591A;&#x91CD;&#x4EE3;&#x5165;) &#x3002;</p>
 <pre><code class="lang-ruby">name, age = <span class="hljs-string">&quot;Crystal&quot;</span>, <span class="hljs-number">1</span>
 
-<span class="hljs-comment"># The above is the same as this:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 temp1 = <span class="hljs-string">&quot;Crystal&quot;</span>
 temp2 = <span class="hljs-number">1</span>
 name  = temp1
 age   = temp2
 </code></pre>
-<p>Note that because expressions are assigned to temporary variables it is possible to exchange variables&#x2019; contents in a single line:</p>
+<p>&#x307E;&#x305F;&#x3001;&#x5F0F;&#x306F;&#x4E00;&#x6642;&#x7684;&#x306A;&#x5909;&#x6570;&#x306B;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x308B;&#x4ED5;&#x7D44;&#x307F;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;1&#x884C;&#x3067;&#x5909;&#x6570;&#x306E;&#x5024;&#x3092;&#x4EA4;&#x63DB;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 b = <span class="hljs-number">2</span>
 a, b = b, a
 a <span class="hljs-comment">#=&gt; 2</span>
 b <span class="hljs-comment">#=&gt; 1</span>
 </code></pre>
-<p>If the right-hand side contains just one expression, it is considered an indexed type and the following syntax sugar applies:</p>
+<p>&#x3082;&#x3057;&#x4EE3;&#x5165;&#x6587;&#x306E;&#x53F3;&#x8FBA;&#x306B;1&#x3064;&#x306E;&#x5F0F;&#x3057;&#x304B;&#x306A;&#x3044;&#x3068;&#x304D;&#x306B;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x305D;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x6301;&#x3064;&#x578B;&#x3060;&#x3068;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x304C;&#x9069;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>name, age, source = &quot;Crystal,1,github&quot;.split(&quot;,&quot;)
 
-# The above is the same as this:
+# &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;
 temp = &quot;Crystal,1,github&quot;.split(&quot;,&quot;)
 name   = temp[0]
 age    = temp[1]
 source = temp[2]
-</code></pre><p>If the left-hand side contains just one variable, the right-hand side is considered an array:</p>
+</code></pre><p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x3082;&#x3057;&#x5DE6;&#x8FBA;&#x306B;1&#x3064;&#x306E;&#x5909;&#x6570;&#x3057;&#x304B;&#x306A;&#x3044;&#x3068;&#x304D;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x305D;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x53F3;&#x8FBA;&#x304C;&#x914D;&#x5217;&#x3067;&#x3042;&#x308B;&#x3068;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">names = <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;Peter&quot;</span>, <span class="hljs-string">&quot;Jack&quot;</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 names = [<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;Peter&quot;</span>, <span class="hljs-string">&quot;Jack&quot;</span>]
 </code></pre>
-<p>Multiple assignment is also available to methods that end with <code>=</code>:</p>
+<p>&#x591A;&#x91CD;&#x4EE3;&#x5165;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;&#x304C; <code>=</code> &#x3067;&#x7D42;&#x308F;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">person.name, person.age = <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">32</span>
 
-<span class="hljs-comment"># Same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 temp1 = <span class="hljs-string">&quot;John&quot;</span>
 temp2 = <span class="hljs-number">32</span>
 person.name = temp1
 person.age = temp2
 </code></pre>
-<p>And it is also available to indexers (<code>[]=</code>):</p>
+<p>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x6307;&#x5B9A;&#x306E;&#x4EE3;&#x5165; (<code>[]=</code>) &#x306E;&#x5834;&#x5408;&#x306B;&#x3082;&#x540C;&#x69D8;&#x306B;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">objects[<span class="hljs-number">1</span>], objects[<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>, <span class="hljs-number">4</span>
 
-<span class="hljs-comment"># Same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 temp1 = <span class="hljs-number">3</span>
 temp2 = <span class="hljs-number">4</span>
 objects[<span class="hljs-number">1</span>] = temp1
@@ -1986,7 +1986,7 @@ objects[<span class="hljs-number">2</span>] = temp2
         </div>
 
         
-        <a href="../syntax_and_semantics/assignment.html" class="navigation navigation-prev " aria-label="Previous page: Assignment"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/assignment.html" class="navigation navigation-prev " aria-label="Previous page: 代入"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/control_expressions.html" class="navigation navigation-next " aria-label="Next page: Control expressions"><i class="fa fa-angle-right"></i></a>

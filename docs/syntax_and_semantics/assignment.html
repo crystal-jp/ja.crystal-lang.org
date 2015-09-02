@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Assignment | プログラミング言語 Crystal</title>
+        <title>代入 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.5" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
+    <div class="book" data-level="4.5" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -483,7 +483,7 @@
                         
                             <b>4.3.</b>
                         
-                        Local variables
+                        ローカル変数
                     </a>
                 
             
@@ -498,7 +498,7 @@
                         
                             <b>4.4.</b>
                         
-                        Global variables
+                        グローバル変数
                     </a>
                 
             
@@ -513,7 +513,7 @@
                         
                             <b>4.5.</b>
                         
-                        Assignment
+                        代入
                     </a>
                 
             
@@ -529,7 +529,7 @@
                         
                             <b>4.5.1.</b>
                         
-                        Multiple assignment
+                        多重代入
                     </a>
                 
             
@@ -1927,59 +1927,59 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="assignment">Assignment</h1>
-<p>Assignment is done with the equal (<code>=</code>) character.</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># Assigns to a local variable</span>
+                        <h1 id="%E4%BB%A3%E5%85%A5">&#x4EE3;&#x5165;</h1>
+<p>&#x4EE3;&#x5165;&#x306B;&#x306F;&#x30A4;&#x30B3;&#x30FC;&#x30EB;&#x8A18;&#x53F7; (<code>=</code>) &#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;</span>
 local = <span class="hljs-number">1</span>
 
-<span class="hljs-comment"># Assigns to an instance variable</span>
+<span class="hljs-comment"># &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;</span>
 <span class="hljs-variable">@instance</span> = <span class="hljs-number">2</span>
 
-<span class="hljs-comment"># Assigns to a class variable</span>
+<span class="hljs-comment">#  &#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;</span>
 <span class="hljs-variable">@@class</span> = <span class="hljs-number">3</span>
 
-<span class="hljs-comment"># Assigns to a global variable</span>
+<span class="hljs-comment"># &#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;</span>
 <span class="hljs-variable">$global</span> = <span class="hljs-number">4</span>
 </code></pre>
-<p>Each of the above kinds of variables will be explained later on.</p>
-<p>Some syntax sugar that contains the <code>=</code> character is available:</p>
-<pre><code class="lang-ruby">local += <span class="hljs-number">1</span>  <span class="hljs-comment"># same as: local = local + 1</span>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x5909;&#x6570;&#x306E;&#x7A2E;&#x985E;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x6539;&#x3081;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><code>=</code> &#x3092;&#x4F7F;&#x3063;&#x305F;&#x4EE3;&#x5165;&#x306E;&#x305F;&#x3081;&#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x304C;&#x3044;&#x304F;&#x3064;&#x304B;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby">local += <span class="hljs-number">1</span>  <span class="hljs-comment"># local = local + 1 &#x3068;&#x540C;&#x3058;</span>
 
-<span class="hljs-comment"># The above is valid with these operators:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x6F14;&#x7B97;&#x5B50;&#x3067;&#x3082;&#x6709;&#x52B9;</span>
 <span class="hljs-comment"># +, -, *, /, %, |, &amp;, ^, **, &lt;&lt;, &gt;&gt;</span>
 
-local ||= <span class="hljs-number">1</span> <span class="hljs-comment"># same as: local || (local = 1)</span>
-local &amp;&amp;= <span class="hljs-number">1</span> <span class="hljs-comment"># same as: local &amp;&amp; (local = 1)</span>
+local ||= <span class="hljs-number">1</span> <span class="hljs-comment"># local || (local = 1) &#x3068;&#x540C;&#x3058;</span>
+local &amp;&amp;= <span class="hljs-number">1</span> <span class="hljs-comment"># local &amp;&amp; (local = 1) &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
-<p>A method invocation that ends with <code>=</code> has syntax sugar:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># A setter</span>
+<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;&#x304C; <code>=</code> &#x3067;&#x7D42;&#x308F;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x306B;&#x3082;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x30BB;&#x30C3;&#x30BF;&#x30FC;</span>
 person.name=(<span class="hljs-string">&quot;John&quot;</span>)
 
-<span class="hljs-comment"># The above can be written as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;</span>
 person.name = <span class="hljs-string">&quot;John&quot;</span>
 
-<span class="hljs-comment"># An indexed assignment</span>
+<span class="hljs-comment"># &#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x4EE3;&#x5165;</span>
 objects.[]=(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 
-<span class="hljs-comment"># The above can be written as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;</span>
 objects[<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>
 
-<span class="hljs-comment"># Not assignment-related, but also syntax sugar:</span>
+<span class="hljs-comment"># &#x4EE3;&#x5165;&#x3067;&#x306F;&#x306A;&#x3044;&#x304C;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x3082;&#x6709;&#x52B9;</span>
 objects.[](<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 
-<span class="hljs-comment"># The above can be written as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;</span>
 objects[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 </code></pre>
-<p>The <code>=</code> operator syntax sugar is also available to setters and indexers. Note that <code>||</code> and <code>&amp;&amp;</code> use the <code>[]?</code> method to check for key prescence.</p>
-<pre><code class="lang-ruby">person.age += <span class="hljs-number">1</span>        <span class="hljs-comment"># same as: person.age = person.age + 1</span>
+<p>&#x30BB;&#x30C3;&#x30BF;&#x30FC;&#x3084;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x6307;&#x5B9A;&#x4EE3;&#x5165;&#x306E;&#x5834;&#x5408;&#x306B;&#x3082;&#x3001;<code>=</code> &#x6F14;&#x7B97;&#x5B50;&#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>||</code> &#x3068; <code>&amp;&amp;</code> &#x306F;&#x3001;&#x30AD;&#x30FC;&#x306E;&#x5B58;&#x5728;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x306E;&#x305F;&#x3081;&#x306B; <code>[]?</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<pre><code class="lang-ruby">person.age += <span class="hljs-number">1</span>        <span class="hljs-comment"># person.age = person.age + 1 &#x3068;&#x540C;&#x3058;</span>
 
-person.name ||= <span class="hljs-string">&quot;John&quot;</span> <span class="hljs-comment"># same as: person.name || (person.name = &quot;John&quot;)</span>
-person.name &amp;&amp;= <span class="hljs-string">&quot;John&quot;</span> <span class="hljs-comment"># same as: person.name &amp;&amp; (person.name = &quot;John&quot;)</span>
+person.name ||= <span class="hljs-string">&quot;John&quot;</span> <span class="hljs-comment"># person.name || (person.name = &quot;John&quot;) &#x3068;&#x540C;&#x3058;</span>
+person.name &amp;&amp;= <span class="hljs-string">&quot;John&quot;</span> <span class="hljs-comment"># person.name &amp;&amp; (person.name = &quot;John&quot;) &#x3068;&#x540C;&#x3058;</span>
 
-objects[<span class="hljs-number">1</span>] += <span class="hljs-number">2</span>        <span class="hljs-comment"># same as: objects[1] = objects[1] + 2</span>
+objects[<span class="hljs-number">1</span>] += <span class="hljs-number">2</span>        <span class="hljs-comment"># objects[1] = objects[1] + 2 &#x3068;&#x540C;&#x3058;</span>
 
-objects[<span class="hljs-number">1</span>] ||= <span class="hljs-number">2</span>       <span class="hljs-comment"># same as: objects[1]? || (objects[1] = 2)</span>
-objects[<span class="hljs-number">1</span>] &amp;&amp;= <span class="hljs-number">2</span>       <span class="hljs-comment"># same as: objects[1]? &amp;&amp; (objects[1] = 2)</span>
+objects[<span class="hljs-number">1</span>] ||= <span class="hljs-number">2</span>       <span class="hljs-comment"># objects[1]? || (objects[1] = 2) &#x3068;&#x540C;&#x3058;</span>
+objects[<span class="hljs-number">1</span>] &amp;&amp;= <span class="hljs-number">2</span>       <span class="hljs-comment"># objects[1]? &amp;&amp; (objects[1] = 2) &#x3068;&#x540C;&#x3058;</span>
 </code></pre>
 
                     
@@ -1991,10 +1991,10 @@ objects[<span class="hljs-number">1</span>] &amp;&amp;= <span class="hljs-number
         </div>
 
         
-        <a href="../syntax_and_semantics/global_variables.html" class="navigation navigation-prev " aria-label="Previous page: Global variables"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/global_variables.html" class="navigation navigation-prev " aria-label="Previous page: グローバル変数"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/multiple_assignment.html" class="navigation navigation-next " aria-label="Next page: Multiple assignment"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/multiple_assignment.html" class="navigation navigation-next " aria-label="Next page: 多重代入"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

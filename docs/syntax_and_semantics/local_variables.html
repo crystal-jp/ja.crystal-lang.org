@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Local variables | プログラミング言語 Crystal</title>
+        <title>ローカル変数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.3" data-basepath=".." data-revision="Wed Sep 02 2015 11:56:02 GMT+0900 (JST)">
+    <div class="book" data-level="4.3" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -483,7 +483,7 @@
                         
                             <b>4.3.</b>
                         
-                        Local variables
+                        ローカル変数
                     </a>
                 
             
@@ -498,7 +498,7 @@
                         
                             <b>4.4.</b>
                         
-                        Global variables
+                        グローバル変数
                     </a>
                 
             
@@ -513,7 +513,7 @@
                         
                             <b>4.5.</b>
                         
-                        Assignment
+                        代入
                     </a>
                 
             
@@ -529,7 +529,7 @@
                         
                             <b>4.5.1.</b>
                         
-                        Multiple assignment
+                        多重代入
                     </a>
                 
             
@@ -1927,20 +1927,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="local-variables">Local variables</h1>
-<p>Local variables start with lowercase letters. They are declared when you first assign them a value.</p>
+                        <h1 id="%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%A4%89%E6%95%B0">&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;</h1>
+<p>&#x5909;&#x6570;&#x540D;&#x306E;&#x5148;&#x982D;&#x304C;&#x5C0F;&#x6587;&#x5B57;&#x306E;&#x5909;&#x6570;&#x306F;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x5BA3;&#x8A00;&#x306F;&#x3001;&#x306F;&#x3058;&#x3081;&#x3066;&#x5024;&#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x884C;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">name = <span class="hljs-string">&quot;Crystal&quot;</span>
 age = <span class="hljs-number">1</span>
 </code></pre>
-<p>Their type is inferred from their usage, not only from their initializer. In general, they are just value holders associated with the type that the programmer expects them to have according to their location and usage on the program.</p>
-<p>For example, reassigning a variable with a different expression makes it have that expression&#x2019;s type:</p>
+<p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306E;&#x578B;&#x306F;&#x3001;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x3068;&#x304D;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x305D;&#x306E;&#x7528;&#x9014;&#x306B;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x63A8;&#x8AD6;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3069;&#x3046;&#x3044;&#x3046;&#x3053;&#x3068;&#x304B;&#x3068;&#x3044;&#x3046;&#x3068;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x5358;&#x7D14;&#x306B;&#x578B;&#x306E;&#x60C5;&#x5831;&#x3092;&#x6301;&#x3063;&#x305F;&#x5024;&#x306E;&#x5165;&#x308C;&#x7269;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3068;&#x8003;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x304A;&#x3051;&#x308B;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x5834;&#x6240;&#x3084;&#x7528;&#x9014;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x305D;&#x306E;&#x5165;&#x308C;&#x7269;&#x306E;&#x578B;&#x3082;&#x5909;&#x5316;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x4F8B;&#x3048;&#x3070;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306B;&#x5225;&#x306E;&#x5F0F;&#x3092;&#x518D;&#x4EE3;&#x5165;&#x3059;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x65B0;&#x3057;&#x3044;&#x5F0F;&#x306E;&#x578B;&#x306E;&#x5909;&#x6570;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">var = <span class="hljs-string">&quot;Hello&quot;</span>
 <span class="hljs-comment"># At this point &apos;var&apos; is a String</span>
 
 var = <span class="hljs-number">1</span>
 <span class="hljs-comment"># At this point &apos;var&apos; is an Int32</span>
 </code></pre>
-<p>Underscores are allowed at the beginning of a variable name, but these names are reserved for the compiler, so their use is not recommended (and it also makes the code uglier to read).</p>
+<p>&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x3092;&#x5909;&#x6570;&#x540D;&#x306E;&#x5148;&#x982D;&#x306B;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x3089;&#x306E;&#x540D;&#x524D;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x3063;&#x3066;&#x4E88;&#x7D04;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x5148;&#x982D;&#x304C;&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x306E;&#x5909;&#x6570;&#x540D;&#x306F;&#x63A8;&#x5968;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093; (&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x898B;&#x305F;&#x76EE;&#x3084;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x3055;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x3082;&#x3042;&#x307E;&#x308A;&#x7F8E;&#x3057;&#x304F;&#x306A;&#x3044;&#x3067;&#x3059;&#x3088;&#x306D;) &#x3002;</p>
 
                     
                     </section>
@@ -1954,7 +1954,7 @@ var = <span class="hljs-number">1</span>
         <a href="../syntax_and_semantics/literals/proc.html" class="navigation navigation-prev " aria-label="Previous page: Proc"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/global_variables.html" class="navigation navigation-next " aria-label="Next page: Global variables"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/global_variables.html" class="navigation navigation-next " aria-label="Next page: グローバル変数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
