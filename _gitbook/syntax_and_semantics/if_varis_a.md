@@ -1,18 +1,18 @@
-# if var.is_a?(...)
+# if 変数.is_a?(...)
 
-If an `if`'s condition is an `is_a?` test, the type of a variable is guaranteed to be restricted by that type in the `then` branch.
+`if` の条件で `is_a?` によるチェックを行うと、`then` 節での変数の型を制限し保証することができます。
 
 ```ruby
 if a.is_a?(String)
-  # here a is a String
+  # a は必ず String
 end
 
 if b.is_a?(Number)
-  # here b is a Number
+  # b は必ず Number
 end
 ```
 
-Additionally, in the `else` branch the type of the variable is guaranteed to not be restricted by that type:
+一方このとき、`else` 節の中ではチェックした型「ではない」ことが保証されます。
 
 ```ruby
 a = some_condition ? 1 : "hello"
@@ -25,30 +25,30 @@ else
 end
 ```
 
-Note that you can use any type as an `is_a?` test, like abstract classes and modules.
+`is_a?` によるチェックはどんな型に対しても行うことができます。例えば抽象クラスやモジュールでも有効です。
 
-The above also works if there are ands (`&&`) in the condition:
+上記は、条件で「かつ (`&&`)」が使われた場合にも同様です。
 
 ```ruby
 if a.is_a?(String) && b.is_a?(Number)
-  # here a is a String and b is a Number
+  # ここでは a は String で b は Number
 end
 ```
 
-The above **doesn’t** work with instance variables, class variables or global variables. To work with these, first assign them to a variable:
+ただ、インスタンス変数、クラス変数、そしてグローバル変数の場合には、上記が **当てはまらない** ことに注意してください。それらの場合には、まず変数への代入を行ってください。
 
 ```ruby
 if @a.is_a?(String)
-  # here @a is not guaranteed to be a String
+  # ここでは @a が String であることが保証され「ない」
 end
 
 a = @a
 if a.is_a?(String)
-  # here a is guaranteed to be a String
+  # ここでは a が String であることが保証される
 end
 
-# A bit shorter:
+# より簡潔な書き方
 if (a = @a).is_a?(String)
-  # here a is guaranteed to be a String
+  # ここでは a が String であることが保証される
 end
 ```

@@ -1,3 +1,3 @@
-# Control expressions
+# 制御式
 
-Before talking about control expressions we need to know what *truthy* and *falsey* values are.
+ここから制御式について記載します。ただし、その前に「真 (*truthy*)」 と「偽 (*falsey*)」の値という概念について知っておく必要があります。 
