@@ -1,8 +1,8 @@
 # case
 
-A `case` is a control expression that allows a sort of pattern matching. It allows writing a chain of if-else-if with a small change in semantic and some more powerful constructs.
+`case` を使うと、パターンマッチングを利用した条件によって制御を行うことができます。これは、多少異なる点もありますが、`if` 文で「if-else-if」の形で複数の条件分岐を構築することに近いです。
 
-In its basic form, it allows matching a value against other values:
+基本的な書き方は以下のような形で、値と値のマッチングによって制御します。
 
 ```ruby
 case exp
@@ -14,7 +14,7 @@ else
   do_another_thing
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 tmp = exp
 if value1 === tmp || value2 === tmp
   do_something
@@ -25,9 +25,9 @@ else
 end
 ```
 
-Note that `===` is used for comparing an expression against a `case`'s value.
+`case` において、対象の値と条件式は `===` を使って比較されることを覚えておいてください。
 
-If a `when`'s expression is a type, `is_a?` is used. Additionally, if the case expression is a variable or a variable assignment the type of the variable is restricted:
+もし `when` 節の式に型が与えられた場合は、`is_a?` を用いて比較されます。そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制限が加えられます。
 
 ```ruby
 case var
@@ -38,11 +38,11 @@ when Int32
   # var :: Int32
   do_something_else
 else
-  # here var is neither a String nor an Int32
+  # ここでは var は String と Int32 のどちらでもない
   do_another_thing
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 if var.is_a?(String)
   do_something
 elsif var.is_a?(Int32)
@@ -52,7 +52,7 @@ else
 end
 ```
 
-You can invoke a method on the `case`'s expression in a `when` by using the implicit-object syntax:
+`case` 式に対してメソッドを実行することも可能です。このとき、`when` 節では暗黙的なオブジェクト指定の記法を使います。
 
 ```ruby
 case num
@@ -62,7 +62,7 @@ when .odd?
   do_something_else
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 tmp = num
 if tmp.even?
   do_something
@@ -71,7 +71,7 @@ elsif tmp.odd?
 end
 ```
 
-Finally, you can ommit the `case`'s value:
+`case` の値を省略することも可能です。
 
 ```ruby
 case
@@ -81,7 +81,7 @@ when cond3
   do_something_else
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 if cond1 || cond2
   do_something
 elsif cond3
@@ -89,4 +89,4 @@ elsif cond3
 end
 ```
 
-This sometimes leads to code that is more natural to read.
+この方がコードが読みやすくなる場合もあるでしょう。

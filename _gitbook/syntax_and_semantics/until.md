@@ -1,16 +1,16 @@
 # until
 
-An `until` executes its body until its condition is *truthy*. An `until` is just syntax sugar for a `while` with the condition negated:
+`until` は、与えられた条件が「真」になるまでその本体を繰り返し実行します。実際には、`until` というのは `while` に否定の条件が与えられた場合のシンタックスシュガーになっています。
 
 ```ruby
 until some_condition
   do_this
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 while !some_condition
   do_this
 end
 ```
 
-`break` and `next` can also be used inside an `until`.
+`until` の中でも、`break` と `next`を利用することができます。
