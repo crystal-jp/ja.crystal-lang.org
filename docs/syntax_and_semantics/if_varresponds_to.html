@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>if var.responds_to?(...) | プログラミング言語 Crystal</title>
+        <title>if 変数.responds_to?(...) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.2.6" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.2.6" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        真偽値 (Bool)
+                        Bool
                     </a>
                 
             
@@ -549,7 +549,7 @@
                         
                             <b>4.6.</b>
                         
-                        Control expressions
+                        制御式
                     </a>
                 
             
@@ -565,7 +565,7 @@
                         
                             <b>4.6.1.</b>
                         
-                        Truthy and falsey values
+                        真偽値
                     </a>
                 
             
@@ -596,7 +596,7 @@
                         
                             <b>4.6.2.1.</b>
                         
-                        As a suffix
+                        後置 if
                     </a>
                 
             
@@ -611,7 +611,7 @@
                         
                             <b>4.6.2.2.</b>
                         
-                        As an expression
+                        式としての if
                     </a>
                 
             
@@ -626,7 +626,7 @@
                         
                             <b>4.6.2.3.</b>
                         
-                        Ternary if
+                        3項演算子
                     </a>
                 
             
@@ -641,7 +641,7 @@
                         
                             <b>4.6.2.4.</b>
                         
-                        if var
+                        if 変数
                     </a>
                 
             
@@ -656,7 +656,7 @@
                         
                             <b>4.6.2.5.</b>
                         
-                        if var.is_a?(...)
+                        if 変数.is_a?(...)
                     </a>
                 
             
@@ -671,7 +671,7 @@
                         
                             <b>4.6.2.6.</b>
                         
-                        if var.responds_to?(...)
+                        if 変数.responds_to?(...)
                     </a>
                 
             
@@ -1927,35 +1927,35 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="if-var-responds-to">if var.responds_to?(...)</h1>
-<p>If an <code>if</code>&apos;s condition is a <code>responds_to?</code> test, in the <code>then</code> branch the type of a variable is guaranteed to be restricted to the types that respond to that method:</p>
+                        <h1 id="if-%E5%A4%89%E6%95%B0-responds-to">if &#x5909;&#x6570;.responds_to?(...)</h1>
+<p><code>if</code> &#x306E;&#x6761;&#x4EF6;&#x3067; <code>responds_to?</code> &#x306B;&#x3088;&#x308B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x884C;&#x3046;&#x3068;&#x3001;<code>then</code> &#x7BC0;&#x3067;&#x306E;&#x5909;&#x6570;&#x306E;&#x578B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x5236;&#x9650;&#x3057;&#x4FDD;&#x8A3C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> a.responds_to?(<span class="hljs-symbol">:abs</span>)
-  <span class="hljs-comment"># here a&apos;s type will be reduced to those responding to the &apos;abs&apos; method</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F;&#x3001;a &#x306E;&#x578B;&#x306F;&#x5FC5;&#x305A; &apos;abs&apos; &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3082;&#x306E;&#x306B;&#x5236;&#x9650;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Additionally, in the <code>else</code> branch the type of the variable is guaranteed to be restricted to the types that don&#x2019;t respond to that method:</p>
+<p>&#x4E00;&#x65B9;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>else</code> &#x7BC0;&#x306E;&#x4E2D;&#x3067;&#x306F;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x300C;&#x3057;&#x306A;&#x3044;&#x300D;&#x578B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = some_condition ? <span class="hljs-number">1</span> <span class="hljs-symbol">:</span> <span class="hljs-string">&quot;hello&quot;</span>
 <span class="hljs-comment"># a :: Int32 | String</span>
 
 <span class="hljs-keyword">if</span> a.responds_to?(<span class="hljs-symbol">:abs</span>)
-  <span class="hljs-comment"># here a will be Int32, since Int32#abs exists but String#abs doesn&apos;t</span>
+  <span class="hljs-comment"># Int32#abs &#x306F;&#x5B58;&#x5728;&#x3059;&#x308B;&#x304C; String#abs &#x306F;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F; Int32 &#x3068;&#x306A;&#x308B;</span>
 <span class="hljs-keyword">else</span>
-  <span class="hljs-comment"># here a will be String</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; String &#x3068;&#x306A;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The above <strong>doesn&#x2019;t</strong> work with instance variables, class variables or global variables. To work with these, first assign them to a variable:</p>
+<p>&#x305F;&#x3060;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3001;&#x305D;&#x3057;&#x3066;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x4E0A;&#x8A18;&#x304C; <strong>&#x5F53;&#x3066;&#x306F;&#x307E;&#x3089;&#x306A;&#x3044;</strong> &#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305D;&#x308C;&#x3089;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x307E;&#x305A;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;&#x3092;&#x884C;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-variable">@a</span>.responds_to?(<span class="hljs-symbol">:abs</span>)
-  <span class="hljs-comment"># here <span class="hljs-yardoctag">@a</span> is not guaranteed to respond to `abs`</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; <span class="hljs-yardoctag">@a</span> &#x304C; `abs` &#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x300C;&#x3055;&#x308C;&#x306A;&#x3044;&#x300D;</span>
 <span class="hljs-keyword">end</span>
 
 a = <span class="hljs-variable">@a</span>
 <span class="hljs-keyword">if</span> a.responds_to?(<span class="hljs-symbol">:abs</span>)
-  <span class="hljs-comment"># here a is guaranteed to respond to `abs`</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x304C; `abs` &#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># A bit shorter:</span>
+<span class="hljs-comment"># &#x3088;&#x308A;&#x7C21;&#x6F54;&#x306A;&#x66F8;&#x304D;&#x65B9;</span>
 <span class="hljs-keyword">if</span> (a = <span class="hljs-variable">@a</span>).responds_to?(<span class="hljs-symbol">:abs</span>)
-  <span class="hljs-comment"># here a is guaranteed to respond to `abs`</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x304C; `abs` &#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
 
@@ -1968,7 +1968,7 @@ a = <span class="hljs-variable">@a</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/if_varis_a.html" class="navigation navigation-prev " aria-label="Previous page: if var.is_a?(...)"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/if_varis_a.html" class="navigation navigation-prev " aria-label="Previous page: if 変数.is_a?(...)"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/unless.html" class="navigation navigation-next " aria-label="Next page: unless"><i class="fa fa-angle-right"></i></a>

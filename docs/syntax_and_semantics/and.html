@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.7" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.7" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        真偽値 (Bool)
+                        Bool
                     </a>
                 
             
@@ -549,7 +549,7 @@
                         
                             <b>4.6.</b>
                         
-                        Control expressions
+                        制御式
                     </a>
                 
             
@@ -565,7 +565,7 @@
                         
                             <b>4.6.1.</b>
                         
-                        Truthy and falsey values
+                        真偽値
                     </a>
                 
             
@@ -596,7 +596,7 @@
                         
                             <b>4.6.2.1.</b>
                         
-                        As a suffix
+                        後置 if
                     </a>
                 
             
@@ -611,7 +611,7 @@
                         
                             <b>4.6.2.2.</b>
                         
-                        As an expression
+                        式としての if
                     </a>
                 
             
@@ -626,7 +626,7 @@
                         
                             <b>4.6.2.3.</b>
                         
-                        Ternary if
+                        3項演算子
                     </a>
                 
             
@@ -641,7 +641,7 @@
                         
                             <b>4.6.2.4.</b>
                         
-                        if var
+                        if 変数
                     </a>
                 
             
@@ -656,7 +656,7 @@
                         
                             <b>4.6.2.5.</b>
                         
-                        if var.is_a?(...)
+                        if 変数.is_a?(...)
                     </a>
                 
             
@@ -671,7 +671,7 @@
                         
                             <b>4.6.2.6.</b>
                         
-                        if var.responds_to?(...)
+                        if 変数.responds_to?(...)
                     </a>
                 
             
@@ -1928,11 +1928,11 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="">&amp;&amp;</h1>
-<p>An <code>&amp;&amp;</code> (and) evaluates its left hand side. If it&apos;s <em>truthy</em>, it evaluates its right hand side and has that value. Otherwise it has the value of the left hand side. Its type is the union of the types of both sides.</p>
-<p>You can think an <code>&amp;&amp;</code> as syntax sugar of an <code>if</code>:</p>
+<p><code>&amp;&amp;</code> (&#x304B;&#x3064;/&#x8AD6;&#x7406;&#x7A4D;) &#x306F;&#x307E;&#x305A;&#x5DE6;&#x8FBA;&#x3092;&#x8A55;&#x4FA1;&#x3057;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x305D;&#x308C;&#x304C;&#x300C;&#x771F;&#x300D;&#x306E;&#x5834;&#x5408;&#x306E;&#x307F;&#x3001;&#x53F3;&#x8FBA;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x8A55;&#x4FA1;&#x3092;&#x884C;&#x3044;&#x3001;&#x7D50;&#x679C;&#x306E;&#x5024;&#x304C;&#x53F3;&#x8FBA;&#x306E;&#x5024;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3046;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x7D50;&#x679C;&#x306F;&#x5DE6;&#x8FBA;&#x306E;&#x5024;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x578B;&#x306F;&#x4E21;&#x8FBA;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;<code>&amp;&amp;</code> &#x3092; <code>if</code> &#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">some_exp1 &amp;&amp; some_exp2
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 tmp = some_exp1
 <span class="hljs-keyword">if</span> tmp
   some_exp2
