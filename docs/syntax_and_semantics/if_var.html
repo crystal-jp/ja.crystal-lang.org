@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>if var | プログラミング言語 Crystal</title>
+        <title>if 変数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.2.4" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.2.4" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        真偽値 (Bool)
+                        Bool
                     </a>
                 
             
@@ -549,7 +549,7 @@
                         
                             <b>4.6.</b>
                         
-                        Control expressions
+                        制御式
                     </a>
                 
             
@@ -565,7 +565,7 @@
                         
                             <b>4.6.1.</b>
                         
-                        Truthy and falsey values
+                        真偽値
                     </a>
                 
             
@@ -596,7 +596,7 @@
                         
                             <b>4.6.2.1.</b>
                         
-                        As a suffix
+                        後置 if
                     </a>
                 
             
@@ -611,7 +611,7 @@
                         
                             <b>4.6.2.2.</b>
                         
-                        As an expression
+                        式としての if
                     </a>
                 
             
@@ -626,7 +626,7 @@
                         
                             <b>4.6.2.3.</b>
                         
-                        Ternary if
+                        3項演算子
                     </a>
                 
             
@@ -641,7 +641,7 @@
                         
                             <b>4.6.2.4.</b>
                         
-                        if var
+                        if 変数
                     </a>
                 
             
@@ -656,7 +656,7 @@
                         
                             <b>4.6.2.5.</b>
                         
-                        if var.is_a?(...)
+                        if 変数.is_a?(...)
                     </a>
                 
             
@@ -671,7 +671,7 @@
                         
                             <b>4.6.2.6.</b>
                         
-                        if var.responds_to?(...)
+                        if 変数.responds_to?(...)
                     </a>
                 
             
@@ -1927,53 +1927,53 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="if-var">if var</h1>
-<p>If a variable is the condition of an <code>if</code>, inside the <code>then</code> branch the variable will be considered as not having the <code>Nil</code> type:</p>
+                        <h1 id="if-%E5%A4%89%E6%95%B0">if &#x5909;&#x6570;</h1>
+<p>&#x3082;&#x3057;&#x3042;&#x308B;&#x5909;&#x6570;&#x304C; <code>if</code> &#x306E;&#x6761;&#x4EF6;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x304D;&#x3001;<code>then</code> &#x306E;&#x5206;&#x5C90;&#x5185;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;&#x305D;&#x306E;&#x5024;&#x304C; <code>Nil</code> &#x578B;&#x3067;&#x306F;&#x306A;&#x3044;&#x3068;&#x5224;&#x65AD;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = some_condition ? <span class="hljs-keyword">nil</span> <span class="hljs-symbol">:</span> <span class="hljs-number">3</span>
-<span class="hljs-comment"># a is Int32 or Nil</span>
+<span class="hljs-comment"># a &#x306F; Int32 &#x304B; Nil &#x306E;&#x3044;&#x305A;&#x308C;&#x304B;</span>
 
 <span class="hljs-keyword">if</span> a
-  <span class="hljs-comment"># Since the only way to get here is if a is truthy,</span>
-  <span class="hljs-comment"># a can&apos;t be nil. So here a is Int32.</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x306B;&#x5230;&#x9054;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F; if &#x304C;&#x771F;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;</span>
+  <span class="hljs-comment"># &#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3001;a  &#x304C; nil &#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3042;&#x308A;&#x5F97;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x5FC5;&#x305A; Int32 &#x3067;&#x3042;&#x308B;</span>
   a.abs
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This also applies when a variable is assigned in an <code>if</code>&apos;s condition:</p>
+<p>&#x3053;&#x306E;&#x3053;&#x3068;&#x306F;&#x3001;<code>if</code> &#x306E;&#x6761;&#x4EF6;&#x3067;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;&#x304C;&#x884C;&#x308F;&#x308C;&#x305F;&#x5834;&#x5408;&#x306B;&#x3082;&#x5F53;&#x3066;&#x306F;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> a = some_expression
-  <span class="hljs-comment"># here a is not nil</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x306F; nil &#x3067;&#x306F;&#x306A;&#x3044;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This logic also applies if there are ands (<code>&amp;&amp;</code>) in the condition:</p>
+<p>&#x6761;&#x4EF6;&#x3067;&#x300C;&#x304B;&#x3064; (<code>&amp;&amp;</code>)&#x300D;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x305F;&#x5834;&#x5408;&#x306B;&#x3082;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> a &amp;&amp; b
-  <span class="hljs-comment"># here both a and b are guaranteed not to be Nil</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x3082; b &#x3082; Nil &#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Here, the right-hand side of the <code>&amp;&amp;</code> expression is also guaranteed to have <code>a</code> as not <code>Nil</code>.</p>
-<p>Of course, reassigning a variable inside the <code>then</code> branch makes that variable have a new type based on the expression assigned.</p>
-<p>The above logic <strong>doesn&#x2019;t</strong> work with instance variables, class variables or global variables:</p>
+<p><code>&amp;&amp;</code> &#x5F0F;&#x306E;&#x53F3;&#x8FBA;&#x304C;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;<code>a</code> &#x304C; <code>Nil</code> &#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3082;&#x540C;&#x6642;&#x306B;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3082;&#x3061;&#x308D;&#x3093;&#x3001;<code>then</code> &#x306E;&#x5206;&#x5C90;&#x5185;&#x3067;&#x5909;&#x6570;&#x3078;&#x518D;&#x4EE3;&#x5165;&#x3092;&#x884C;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x305F;&#x5F0F;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x5909;&#x6570;&#x306E;&#x578B;&#x306F;&#x5909;&#x308F;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305F;&#x3060;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3001;&#x305D;&#x3057;&#x3066;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x4E0A;&#x8A18;&#x304C; <strong>&#x5F53;&#x3066;&#x306F;&#x307E;&#x3089;&#x306A;&#x3044;</strong> &#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-variable">@a</span>
-  <span class="hljs-comment"># here <span class="hljs-yardoctag">@a</span> can be nil</span>
+  <span class="hljs-comment"># <span class="hljs-yardoctag">@a</span> &#x306F; nil &#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x5F97;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This is because any method call could potentially affect that instance variable, rendering it <code>nil</code>. Another reason is that another thread could change that instance variable after checking the condition.</p>
-<p>To do something with <code>@a</code> only when it is not <code>nil</code> you have two options:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># First option: assign it to a variable</span>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x306F;&#x3069;&#x3093;&#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x306B;&#x3088;&#x3063;&#x3066;&#x3082;&#x5F71;&#x97FF;&#x3092;&#x53D7;&#x3051;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x305D;&#x308C;&#x304C; <code>nil</code> &#x306B;&#x306A;&#x308B;&#x5834;&#x5408;&#x3082;&#x3042;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x3082;&#x3046;1&#x3064;&#x306E;&#x7406;&#x7531;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;&#x6761;&#x4EF6;&#x5F0F;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x304C;&#x884C;&#x308F;&#x308C;&#x305F;&#x5F8C;&#x3067;&#x3001;&#x4ED6;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304C;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3092;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x3042;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
+<p><code>@a</code> &#x304C; <code>nil</code> &#x3067;&#x306F;&#x306A;&#x3044;&#x5834;&#x5408;&#x306E;&#x307F;&#x306B;&#x3042;&#x308B;&#x51E6;&#x7406;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x3001;&#x65B9;&#x6CD5;&#x306F;2&#x3064;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x65B9;&#x6CD5;1: &#x5909;&#x6570;&#x306B;&#x4EE3;&#x5165;&#x3059;&#x308B;</span>
 <span class="hljs-keyword">if</span> a = <span class="hljs-variable">@a</span>
-  <span class="hljs-comment"># here a can&apos;t be nil</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x304C; nil &#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x5F97;&#x306A;&#x3044;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Second option: use `Object#try` found in the standard library</span>
+<span class="hljs-comment"># &#x65B9;&#x6CD5;2: &#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E; `Object#try` &#x3092;&#x4F7F;&#x3046;</span>
 <span class="hljs-variable">@a</span>.try <span class="hljs-keyword">do</span> |a|
-  <span class="hljs-comment"># here a can&apos;t be nil</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; a &#x304C; nil &#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x5F97;&#x306A;&#x3044;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>That logic also doesn&apos;t work with proc and method calls, including getters and properties, because nilable (or, more generally, union-typed) procs and methods aren&apos;t guaranteed to return the same more-specific type on two successive calls.</p>
-<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> method <span class="hljs-comment"># first call to a method that can return Int32 or Nil</span>
-          <span class="hljs-comment"># here we know that the first call did not return Nil</span>
-  method  <span class="hljs-comment"># second call can still return Int32 or Nil</span>
+<p>Proc &#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057; (&#x30B2;&#x30C3;&#x30BF;&#x30FC;&#x3084;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x3082;&#x542B;&#x3080;) &#x306E;&#x5834;&#x5408;&#x306B;&#x3082;&#x5F53;&#x3066;&#x306F;&#x307E;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x306A;&#x305C;&#x306A;&#x3089;&#x3001;Nil &#x3092;&#x8A31;&#x5BB9;&#x3059;&#x308B; (&#x3082;&#x3057;&#x304F;&#x306F;&#x3001;&#x8907;&#x6570;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x306E;&#x5834;&#x5408;&#x304C;&#x3088;&#x308A;&#x4E00;&#x822C;&#x7684;&#x3067;&#x3057;&#x3087;&#x3046;) Proc &#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306E;&#x5834;&#x5408;&#x3001;&#x9023;&#x7D9A;&#x3057;&#x305F;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x3001;&#x305D;&#x308C;&#x3089;&#x304C;&#x5E38;&#x306B;&#x540C;&#x3058;&#x578B;&#x3092;&#x8FD4;&#x3059;&#x3068;&#x306F;&#x9650;&#x3089;&#x306A;&#x3044;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> method <span class="hljs-comment"># &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x6700;&#x521D;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057; (&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F; Int32 &#x304B; Nil &#x3092;&#x8FD4;&#x3059;&#x3068;&#x3059;&#x308B;)</span>
+          <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x3001;&#x6700;&#x521D;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x304C; Nil &#x3092;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x306F;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x308B;</span>
+  method  <span class="hljs-comment"># &#x3057;&#x304B;&#x3057;&#x3001;2&#x56DE;&#x76EE;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306F;&#x3001;&#x307E;&#x305F; Int32 &#x304B; Nil &#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3092;&#x8FD4;&#x3059;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The techniques described above for instance variables will also work for proc and method calls.</p>
+<p>&#x3053;&#x3046;&#x3044;&#x3063;&#x305F; Proc &#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306E;&#x5834;&#x5408;&#x306B;&#x3082;&#x3001;&#x4E0A;&#x8A18;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x306B;&#x95A2;&#x3057;&#x3066;&#x8A18;&#x8F09;&#x3057;&#x305F;&#x30C6;&#x30AF;&#x30CB;&#x30C3;&#x30AF;&#x304C;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1984,10 +1984,10 @@
         </div>
 
         
-        <a href="../syntax_and_semantics/ternary_if.html" class="navigation navigation-prev " aria-label="Previous page: Ternary if"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/ternary_if.html" class="navigation navigation-prev " aria-label="Previous page: 3項演算子"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/if_varis_a.html" class="navigation navigation-next " aria-label="Next page: if var.is_a?(...)"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/if_varis_a.html" class="navigation navigation-next " aria-label="Next page: if 変数.is_a?(...)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

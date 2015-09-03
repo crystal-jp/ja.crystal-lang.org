@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>As an expression | プログラミング言語 Crystal</title>
+        <title>式としての if | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.2.2" data-basepath=".." data-revision="Wed Sep 02 2015 15:52:15 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.2.2" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        真偽値 (Bool)
+                        Bool
                     </a>
                 
             
@@ -549,7 +549,7 @@
                         
                             <b>4.6.</b>
                         
-                        Control expressions
+                        制御式
                     </a>
                 
             
@@ -565,7 +565,7 @@
                         
                             <b>4.6.1.</b>
                         
-                        Truthy and falsey values
+                        真偽値
                     </a>
                 
             
@@ -596,7 +596,7 @@
                         
                             <b>4.6.2.1.</b>
                         
-                        As a suffix
+                        後置 if
                     </a>
                 
             
@@ -611,7 +611,7 @@
                         
                             <b>4.6.2.2.</b>
                         
-                        As an expression
+                        式としての if
                     </a>
                 
             
@@ -626,7 +626,7 @@
                         
                             <b>4.6.2.3.</b>
                         
-                        Ternary if
+                        3項演算子
                     </a>
                 
             
@@ -641,7 +641,7 @@
                         
                             <b>4.6.2.4.</b>
                         
-                        if var
+                        if 変数
                     </a>
                 
             
@@ -656,7 +656,7 @@
                         
                             <b>4.6.2.5.</b>
                         
-                        if var.is_a?(...)
+                        if 変数.is_a?(...)
                     </a>
                 
             
@@ -671,7 +671,7 @@
                         
                             <b>4.6.2.6.</b>
                         
-                        if var.responds_to?(...)
+                        if 変数.responds_to?(...)
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="as-an-expression">As an expression</h1>
-<p>The value of an <code>if</code> is the value of the last expression found in each of its branches:</p>
+                        <h1 id="%E5%BC%8F%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE-if">&#x5F0F;&#x3068;&#x3057;&#x3066;&#x306E; if</h1>
+<p><code>if</code> &#x306F;&#x5F0F;&#x3068;&#x3057;&#x3066;&#x3082;&#x6A5F;&#x80FD;&#x3057;&#x3001;&#x305D;&#x306E;&#x5024;&#x306F;&#x3001;&#x8A72;&#x5F53;&#x3059;&#x308B;&#x5206;&#x5C90;&#x7BC0;&#x306E;&#x6700;&#x5F8C;&#x306E;&#x5F0F;&#x306E;&#x5024;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-keyword">if</span> <span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span>
       <span class="hljs-number">3</span>
     <span class="hljs-keyword">else</span>
@@ -1936,25 +1936,26 @@
     <span class="hljs-keyword">end</span>
 a <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<p>If an <code>if</code> branch is empty, or it&#x2019;s missing, it&#x2019;s considered as if it had <code>nil</code> in it:</p>
-<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>
+<p>&#x3082;&#x3057;&#x3001;&#x6761;&#x4EF6;&#x306B;&#x5408;&#x81F4;&#x3059;&#x308B;&#x5206;&#x5C90;&#x7BC0;&#x304C;&#x7A7A;&#x306E;&#x5834;&#x5408;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x5408;&#x81F4;&#x3059;&#x308B;&#x5206;&#x5C90;&#x7BC0;&#x81EA;&#x4F53;&#x304C;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x305D;&#x3053;&#x306B; <code>nil</code> &#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x3066;&#x3044;&#x305F;&#x306E;&#x3068;&#x540C;&#x3058;&#x6319;&#x52D5;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x4F8B;1</span>
+<span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>
   <span class="hljs-number">3</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>
   <span class="hljs-number">3</span>
 <span class="hljs-keyword">else</span>
   <span class="hljs-keyword">nil</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Another example:</span>
+<span class="hljs-comment"># &#x4F8B;2</span>
 <span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>
 <span class="hljs-keyword">else</span>
   <span class="hljs-number">3</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>
   <span class="hljs-keyword">nil</span>
 <span class="hljs-keyword">else</span>
@@ -1971,10 +1972,10 @@ a <span class="hljs-comment">#=&gt; 3</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/as_a_suffix.html" class="navigation navigation-prev " aria-label="Previous page: As a suffix"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/as_a_suffix.html" class="navigation navigation-prev " aria-label="Previous page: 後置 if"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/ternary_if.html" class="navigation navigation-next " aria-label="Next page: Ternary if"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/ternary_if.html" class="navigation navigation-next " aria-label="Next page: 3項演算子"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
