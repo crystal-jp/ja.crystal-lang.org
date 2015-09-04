@@ -1,13 +1,13 @@
 # &&
 
-`&&` (かつ/論理積) はまず左辺を評価します。もしそれが「真」の場合のみ、右辺に対して評価を行い、結果の値が右辺の値となります。そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせです。
+An `&&` (and) evaluates its left hand side. If it's *truthy*, it evaluates its right hand side and has that value. Otherwise it has the value of the left hand side. Its type is the union of the types of both sides.
 
-したがって、`&&` を `if` のシンタックスシュガーとして利用することもできます。
+You can think an `&&` as syntax sugar of an `if`:
 
 ```ruby
 some_exp1 && some_exp2
 
-# 上記は以下と同じ
+# The above is the same as:
 tmp = some_exp1
 if tmp
   some_exp2

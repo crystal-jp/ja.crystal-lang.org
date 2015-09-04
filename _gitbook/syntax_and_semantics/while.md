@@ -1,6 +1,6 @@
 # while
 
-`while` は、与えられた条件が「真」である間はずっと、その本体を繰り返し実行し続けます。
+A `while` executes its body as long as its condition is *truthy*.
 
 ```ruby
 while some_condition
@@ -8,13 +8,13 @@ while some_condition
 end
 ```
 
-まず条件に対して判定が行われ、もし「真」であれば本体が実行されます。これはつまり、本体が1度も実行されない場合もあるということです。
+The condition is first tested and, if *truthy*, the body is executed. That is, the body might never be executed.
 
-`while` の型は常に `Nil` です。
+A `while`'s type is always `Nil`.
 
-`if` の場合と同様に、`while` の条件に変数が与えられている場合は、本体の中ではその変数が `nil` ではないことが保証されます。条件で `var.is_a?(Type)` による判定を行うと、本体の中では `var` の型がその型であることを保証することができます。また、もし条件が `var.responds_to?(:method)` の判定であれば、本体の中で `var` がそのメソッドに応答することを保証することが可能です。
+Similar to an `if`, if a `while`'s condition is a variable, the variable is guaranteed to not be `nil` inside the body. If the condition is an `var.is_a?(Type)` test, `var` is guaranteed to be of type Type inside the body. And if the condition is a `var.responds_to?(:method)`, `var` is guaranteed to be of a type that responds to that method.
 
-`while` の後である変数の型が何であるかは、`while` 以前の型と、そして `while` の本体を抜ける前の型によって決まります。
+The type of a variable after a `while` depends on the type it had before the `while` and the type it had before leaving the `while`'s body:
 
 ```ruby
 a = 1
@@ -27,9 +27,9 @@ end
 # a :: Int32 | String
 ```
 
-## 条件によってループを抜ける
+## Checking the condition at the end of a loop
 
-ループを抜けるための条件を設定することで、必ず1回は本体を実行することができます。
+If you need to execute the body at least once and then check for a breaking condition, you can do this:
 
 ```ruby
 while true
@@ -38,7 +38,7 @@ while true
 end
 ```
 
-標準ライブラリの `loop` を利用しても同じことが可能です。
+Or use `loop`, found in the standard library:
 
 ```ruby
 loop do

@@ -1,18 +1,18 @@
-# The Program
+# プログラム
 
-The program is a global object in which you can define types, methods and file-local variables.
+プログラムはそれ自体がグローバルオブジェクトです。その中で、型やメソッド、そしてファイルローカルな変数の定義を行うことができます。
 
 ```ruby
-# Defines a method in the program
+# プログラムにメソッドを定義
 def add(x, y)
   x + y
 end
 
-# Invokes the add method in the program
+# プログラムで add メソッドを実行
 add(1, 2) #=> 3
 ```
 
-A method's value is the value of its last expression, there's no need for explicit `return` expressions. However, explicit `return` are possible:
+メソッドでは、その最後の式の値がメソッドの値となります。したがって、明示的に `return` を書く必要はありません。ただ、明示的に `return` を書くことも可能です。
 
 ```ruby
 def even?(num)
@@ -24,7 +24,7 @@ def even?(num)
 end
 ```
 
-When invoking a method without a receiver, like `add(1, 2)`, it will be searched in the program if not found in the current type or any of its ancestors.
+例えば `add(1, 2)` など、レシーバを指定せずにメソッドを実行したとき、もしそのメソッドが自身の型とその継承元に見つからなかった場合は、プログラム内を探索します。
 
 ```ruby
 def add(x, y)
@@ -33,10 +33,10 @@ end
 
 class Foo
   def bar
-    # invokes the program's add method
+    # プログラムの add メソッドを実行
     add(1, 2)
 
-    # invokes Foo's baz method
+    # Foo の baz メソッドを実行
     baz(1, 2)
   end
 
@@ -46,7 +46,7 @@ class Foo
 end
 ```
 
-If you want to invoke the program's method, even though the current type defines a method with the same name, prefix the call with `::`:
+プログラムに定義されたメソッドを実行したいけれど、自身の型にも同名のメソッドが定義されている場合には、`::` をプレフィックスに与えることで実行できます。
 
 ```ruby
 def baz(x, y)
@@ -65,7 +65,7 @@ class Foo
 end
 ```
 
-Variables declared in a program are not visible inside methods:
+プログラムに定義された変数に対して、メソッドの中からアクセスすることはできません。
 
 ```ruby
 x = 1
@@ -77,8 +77,8 @@ end
 add(2)
 ```
 
-Parentheses in method invocations are optional:
+メソッド実行時のカッコは省略することができます。
 
 ```ruby
-add 1, 2 # same as add(1, 2)
+add 1, 2 # add(1, 2) と同じ
 ```
