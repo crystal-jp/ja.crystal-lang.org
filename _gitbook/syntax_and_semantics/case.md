@@ -1,6 +1,6 @@
 # case
 
-`case` を使うと、パターンマッチングを利用した条件によって制御を行うことができます。これは、多少異なる点もありますが、`if` 文で「if-else-if」の形で複数の条件分岐を構築することに近いです。
+`case` を使うと、パターンマッチングを利用した条件によって制御を行うことができます。これは、多少異なる点もありますが、`if` 文で if-else-if の形で複数の条件分岐を構築することに近いです。
 
 基本的な書き方は以下のような形で、値と値のマッチングによって制御します。
 
@@ -27,7 +27,7 @@ end
 
 `case` において、対象の値と条件式は `===` を使って比較されることを覚えておいてください。
 
-もし `when` 節の式に型が与えられた場合は、`is_a?` を用いて比較されます。そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制限が加えられます。
+もし `when` 節の expression is a type, `is_a?` is used. Additionally, if the case expression is a variable or a variable assignment the type of the variable is restricted:
 
 ```ruby
 case var
@@ -38,11 +38,11 @@ when Int32
   # var :: Int32
   do_something_else
 else
-  # ここでは var は String と Int32 のどちらでもない
+  # here var is neither a String nor an Int32
   do_another_thing
 end
 
-# 上記は以下と同じ
+# The above is the same as:
 if var.is_a?(String)
   do_something
 elsif var.is_a?(Int32)
@@ -52,7 +52,7 @@ else
 end
 ```
 
-`case` 式に対してメソッドを実行することも可能です。このとき、`when` 節では暗黙的なオブジェクト指定の記法を使います。
+You can invoke a method on the `case`'s expression in a `when` by using the implicit-object syntax:
 
 ```ruby
 case num
@@ -62,7 +62,7 @@ when .odd?
   do_something_else
 end
 
-# 上記は以下と同じ
+# The above is the same as:
 tmp = num
 if tmp.even?
   do_something
@@ -71,7 +71,7 @@ elsif tmp.odd?
 end
 ```
 
-`case` の値を省略することも可能です。
+Finally, you can ommit the `case`'s value:
 
 ```ruby
 case
@@ -81,7 +81,7 @@ when cond3
   do_something_else
 end
 
-# 上記は以下と同じ
+# The above is the same as:
 if cond1 || cond2
   do_something
 elsif cond3

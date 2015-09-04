@@ -1,10 +1,10 @@
-# Everything is an object
+# すべてがオブジェクト
 
-In Crystal everything is an object. The definition of an object boils down to these points:
+Crystal ではすべてのものがオブジェクトです。オブジェクトの定義は、突き詰めると以下に要約することができます。
 
-* It has a type
-* It can respond to some methods
+* オブジェクトは型を持っている
+* オブジェクトは何らかのメソッドに応答する
 
-This is everything you can know about an object: its type and whether it responds to some method.
+「型を持っていて、メソッドに応答する」もの。これがオブジェクトです。
 
-An object's internal state, if any, can only be queried by invoking methods.
+そして、オブジェクトに内部状態が存在する場合は、メソッドを実行することでその状態について問い合わせることができます。

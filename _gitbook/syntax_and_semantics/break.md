@@ -1,12 +1,12 @@
 # break
 
-`while` のループを抜けるためには `break` を使います。
+You can use `break` to break out of a `while` loop:
 
 ```ruby
 a = 2
 while (a += 1) < 20
   if a == 10
-    # ループを抜けて 'puts a' に行く
+    # goes to 'puts a'
     break
   end
 end

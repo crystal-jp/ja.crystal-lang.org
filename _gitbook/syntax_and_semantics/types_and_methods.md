@@ -1,3 +1,3 @@
-# Types and methods
+# 型とメソッド
 
-The next sections will assume you know what [object oriented programming](http://en.wikipedia.org/wiki/Object-oriented_programming) is, as well as the concepts of [classes](http://en.wikipedia.org/wiki/Class_%28computer_programming%29) and [methods](http://en.wikipedia.org/wiki/Method_%28computer_programming%29).
+この章では、[クラス](http://en.wikipedia.org/wiki/Class_%28computer_programming%29)や[メソッド](http://en.wikipedia.org/wiki/Method_%28computer_programming%29)といった[オブジェクト指向プログラミング](http://en.wikipedia.org/wiki/Object-oriented_programming)についての基本的な知識を持っていることを前提としています。
