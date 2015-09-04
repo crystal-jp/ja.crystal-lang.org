@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.6" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.6" data-basepath=".." data-revision="Fri Sep 04 2015 15:21:49 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        Ftar.gz からインストール
+                        tar.gz からインストール
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -822,7 +822,7 @@
                         
                             <b>4.7.</b>
                         
-                        Types and methods
+                        型とメソッド
                     </a>
                 
             
@@ -838,7 +838,7 @@
                         
                             <b>4.7.1.</b>
                         
-                        Everything is an object
+                        すべてがオブジェクト
                     </a>
                 
             
@@ -853,7 +853,7 @@
                         
                             <b>4.7.2.</b>
                         
-                        The Program
+                        プログラム
                     </a>
                 
             
@@ -868,7 +868,7 @@
                         
                             <b>4.7.3.</b>
                         
-                        Classes and methods
+                        クラスとメソッド
                     </a>
                 
             
@@ -884,7 +884,7 @@
                         
                             <b>4.7.3.1.</b>
                         
-                        new, initialize and allocate
+                        new/initialize/allocate
                     </a>
                 
             
@@ -1928,17 +1928,17 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="until">until</h1>
-<p><code>until</code> &#x306F;&#x3001;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x6761;&#x4EF6;&#x304C;&#x300C;&#x771F;&#x300D;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x305D;&#x306E;&#x672C;&#x4F53;&#x3092;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3001;<code>until</code> &#x3068;&#x3044;&#x3046;&#x306E;&#x306F; <code>while</code> &#x306B;&#x5426;&#x5B9A;&#x306E;&#x6761;&#x4EF6;&#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x5834;&#x5408;&#x306E;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30E5;&#x30AC;&#x30FC;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>An <code>until</code> executes its body until its condition is <em>truthy</em>. An <code>until</code> is just syntax sugar for a <code>while</code> with the condition negated:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">until</span> some_condition
   do_this
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
+<span class="hljs-comment"># The above is the same as:</span>
 <span class="hljs-keyword">while</span> !some_condition
   do_this
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><code>until</code> &#x306E;&#x4E2D;&#x3067;&#x3082;&#x3001;<code>break</code> &#x3068; <code>next</code>&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><code>break</code> and <code>next</code> can also be used inside an <code>until</code>.</p>
 
                     
                     </section>

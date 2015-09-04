@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Everything is an object | プログラミング言語 Crystal</title>
+        <title>すべてがオブジェクト | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.1" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.1" data-basepath=".." data-revision="Fri Sep 04 2015 15:21:49 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        Ftar.gz からインストール
+                        tar.gz からインストール
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -822,7 +822,7 @@
                         
                             <b>4.7.</b>
                         
-                        Types and methods
+                        型とメソッド
                     </a>
                 
             
@@ -838,7 +838,7 @@
                         
                             <b>4.7.1.</b>
                         
-                        Everything is an object
+                        すべてがオブジェクト
                     </a>
                 
             
@@ -853,7 +853,7 @@
                         
                             <b>4.7.2.</b>
                         
-                        The Program
+                        プログラム
                     </a>
                 
             
@@ -868,7 +868,7 @@
                         
                             <b>4.7.3.</b>
                         
-                        Classes and methods
+                        クラスとメソッド
                     </a>
                 
             
@@ -884,7 +884,7 @@
                         
                             <b>4.7.3.1.</b>
                         
-                        new, initialize and allocate
+                        new/initialize/allocate
                     </a>
                 
             
@@ -1927,14 +1927,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="everything-is-an-object">Everything is an object</h1>
-<p>In Crystal everything is an object. The definition of an object boils down to these points:</p>
+                        <h1 id="%E3%81%99%E3%81%B9%E3%81%A6%E3%81%8C%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88">&#x3059;&#x3079;&#x3066;&#x304C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</h1>
+<p>Crystal &#x3067;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x3082;&#x306E;&#x304C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3059;&#x3002;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x3001;&#x7A81;&#x304D;&#x8A70;&#x3081;&#x308B;&#x3068;&#x4EE5;&#x4E0B;&#x306B;&#x8981;&#x7D04;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li>It has a type</li>
-<li>It can respond to some methods</li>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x4F55;&#x3089;&#x304B;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;</li>
 </ul>
-<p>This is everything you can know about an object: its type and whether it responds to some method.</p>
-<p>An object&apos;s internal state, if any, can only be queried by invoking methods.</p>
+<p>&#x300C;&#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x300D;&#x3082;&#x306E;&#x3002;&#x3053;&#x308C;&#x304C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x5185;&#x90E8;&#x72B6;&#x614B;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x305D;&#x306E;&#x72B6;&#x614B;&#x306B;&#x3064;&#x3044;&#x3066;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1945,10 +1945,10 @@
         </div>
 
         
-        <a href="../syntax_and_semantics/types_and_methods.html" class="navigation navigation-prev " aria-label="Previous page: Types and methods"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/types_and_methods.html" class="navigation navigation-prev " aria-label="Previous page: 型とメソッド"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/the_program.html" class="navigation navigation-next " aria-label="Next page: The Program"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/the_program.html" class="navigation navigation-next " aria-label="Next page: プログラム"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

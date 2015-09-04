@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.5" data-basepath=".." data-revision="Thu Sep 03 2015 14:51:36 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.5" data-basepath=".." data-revision="Fri Sep 04 2015 15:21:49 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -135,7 +135,7 @@
                         
                             <b>1.4.</b>
                         
-                        Ftar.gz からインストール
+                        tar.gz からインストール
                     </a>
                 
             
@@ -298,7 +298,7 @@
                         
                             <b>4.2.2.</b>
                         
-                        Bool
+                        真偽値 (Bool)
                     </a>
                 
             
@@ -822,7 +822,7 @@
                         
                             <b>4.7.</b>
                         
-                        Types and methods
+                        型とメソッド
                     </a>
                 
             
@@ -838,7 +838,7 @@
                         
                             <b>4.7.1.</b>
                         
-                        Everything is an object
+                        すべてがオブジェクト
                     </a>
                 
             
@@ -853,7 +853,7 @@
                         
                             <b>4.7.2.</b>
                         
-                        The Program
+                        プログラム
                     </a>
                 
             
@@ -868,7 +868,7 @@
                         
                             <b>4.7.3.</b>
                         
-                        Classes and methods
+                        クラスとメソッド
                     </a>
                 
             
@@ -884,7 +884,7 @@
                         
                             <b>4.7.3.1.</b>
                         
-                        new, initialize and allocate
+                        new/initialize/allocate
                     </a>
                 
             
@@ -1928,15 +1928,15 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="while">while</h1>
-<p><code>while</code> &#x306F;&#x3001;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x6761;&#x4EF6;&#x304C;&#x300C;&#x771F;&#x300D;&#x3067;&#x3042;&#x308B;&#x9593;&#x306F;&#x305A;&#x3063;&#x3068;&#x3001;&#x305D;&#x306E;&#x672C;&#x4F53;&#x3092;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x5B9F;&#x884C;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;</p>
+<p>A <code>while</code> executes its body as long as its condition is <em>truthy</em>.</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">while</span> some_condition
   do_this
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>&#x307E;&#x305A;&#x6761;&#x4EF6;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5224;&#x5B9A;&#x304C;&#x884C;&#x308F;&#x308C;&#x3001;&#x3082;&#x3057;&#x300C;&#x771F;&#x300D;&#x3067;&#x3042;&#x308C;&#x3070;&#x672C;&#x4F53;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3064;&#x307E;&#x308A;&#x3001;&#x672C;&#x4F53;&#x304C;1&#x5EA6;&#x3082;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x306A;&#x3044;&#x5834;&#x5408;&#x3082;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<p><code>while</code> &#x306E;&#x578B;&#x306F;&#x5E38;&#x306B; <code>Nil</code> &#x3067;&#x3059;&#x3002;</p>
-<p><code>if</code> &#x306E;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x306B;&#x3001;<code>while</code> &#x306E;&#x6761;&#x4EF6;&#x306B;&#x5909;&#x6570;&#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x672C;&#x4F53;&#x306E;&#x4E2D;&#x3067;&#x306F;&#x305D;&#x306E;&#x5909;&#x6570;&#x304C; <code>nil</code> &#x3067;&#x306F;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x4FDD;&#x8A3C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x6761;&#x4EF6;&#x3067; <code>var.is_a?(Type)</code> &#x306B;&#x3088;&#x308B;&#x5224;&#x5B9A;&#x3092;&#x884C;&#x3046;&#x3068;&#x3001;&#x672C;&#x4F53;&#x306E;&#x4E2D;&#x3067;&#x306F; <code>var</code> &#x306E;&#x578B;&#x304C;&#x305D;&#x306E;&#x578B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x3082;&#x3057;&#x6761;&#x4EF6;&#x304C; <code>var.responds_to?(:method)</code> &#x306E;&#x5224;&#x5B9A;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x672C;&#x4F53;&#x306E;&#x4E2D;&#x3067; <code>var</code> &#x304C;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
-<p><code>while</code> &#x306E;&#x5F8C;&#x3067;&#x3042;&#x308B;&#x5909;&#x6570;&#x306E;&#x578B;&#x304C;&#x4F55;&#x3067;&#x3042;&#x308B;&#x304B;&#x306F;&#x3001;<code>while</code> &#x4EE5;&#x524D;&#x306E;&#x578B;&#x3068;&#x3001;&#x305D;&#x3057;&#x3066; <code>while</code> &#x306E;&#x672C;&#x4F53;&#x3092;&#x629C;&#x3051;&#x308B;&#x524D;&#x306E;&#x578B;&#x306B;&#x3088;&#x3063;&#x3066;&#x6C7A;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>The condition is first tested and, if <em>truthy</em>, the body is executed. That is, the body might never be executed.</p>
+<p>A <code>while</code>&apos;s type is always <code>Nil</code>.</p>
+<p>Similar to an <code>if</code>, if a <code>while</code>&apos;s condition is a variable, the variable is guaranteed to not be <code>nil</code> inside the body. If the condition is an <code>var.is_a?(Type)</code> test, <code>var</code> is guaranteed to be of type Type inside the body. And if the condition is a <code>var.responds_to?(:method)</code>, <code>var</code> is guaranteed to be of a type that responds to that method.</p>
+<p>The type of a variable after a <code>while</code> depends on the type it had before the <code>while</code> and the type it had before leaving the <code>while</code>&apos;s body:</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 <span class="hljs-keyword">while</span> some_condition
   <span class="hljs-comment"># a :: Int32 | String</span>
@@ -1946,14 +1946,14 @@
 <span class="hljs-keyword">end</span>
 <span class="hljs-comment"># a :: Int32 | String</span>
 </code></pre>
-<h2 id="%E6%9D%A1%E4%BB%B6%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E6%8A%9C%E3%81%91%E3%82%8B">&#x6761;&#x4EF6;&#x306B;&#x3088;&#x3063;&#x3066;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x629C;&#x3051;&#x308B;</h2>
-<p>&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x629C;&#x3051;&#x308B;&#x305F;&#x3081;&#x306E;&#x6761;&#x4EF6;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x5FC5;&#x305A;1&#x56DE;&#x306F;&#x672C;&#x4F53;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="checking-the-condition-at-the-end-of-a-loop">Checking the condition at the end of a loop</h2>
+<p>If you need to execute the body at least once and then check for a breaking condition, you can do this:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span>
   do_something
   <span class="hljs-keyword">break</span> <span class="hljs-keyword">if</span> some_condition
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E; <code>loop</code> &#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3082;&#x540C;&#x3058;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<p>Or use <code>loop</code>, found in the standard library:</p>
 <pre><code class="lang-ruby">loop <span class="hljs-keyword">do</span>
   do_something
   <span class="hljs-keyword">break</span> <span class="hljs-keyword">if</span> some_condition
