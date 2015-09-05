@@ -1,6 +1,6 @@
-# Methods and instance variables
+# メソッドとインスタンス変数
 
-We can simplify our constructor by using a shorter syntax for assigning a method argument to an instance variable:
+コンストラクタの引数にインスタンス変数を指定する短縮記法を使うと、インスタンス変数への代入をより簡潔に書くことができます。
 
 ```ruby
 class Person
@@ -10,7 +10,7 @@ class Person
 end
 ```
 
-Right now, we can't do much with a person: create it with a name, ask for its name and for its age, which will always be zero. So lets add a method that makes a person become older:
+さて、これで person に対して、「名前を付けてインスタンスを生成する」ことと「名前と年齢を尋ねる」ことができるようになりました。しかし、年齢はずっと0歳のままで変更できませんし、まだまだ機能は不十分です。それでは、person が年をとることができるようにしてみましょう。
 
 ```ruby
 class Person
@@ -30,9 +30,9 @@ john.age #=> 1
 peter.age #=> 0
 ```
 
-Method names begin with a lowercase letter and, as a convention, only use lowercase letters, underscores and numbers.
+メソッド名の先頭は小文字である必要があります。また、メソッド名には使うのは小文字とアンダースコア、そして数値のみとすることが慣習的です。
 
-As a side note, we can define `become_older` inside the original `Person` definition, or in a separate definition: Crystal combines all definitions into a single class. The following works just fine:
+少し補足をすると、上記のように `become_older` メソッドを元々の `Person` クラスの中で定義するだけではなく、元々のクラスと別で改めて定義することも可能です。Crystal はそれらのすべての定義を1つのクラスにまとめます。つまり、以下の場合でも問題なく動作します。
 
 ```ruby
 class Person
@@ -48,9 +48,9 @@ class Person
 end
 ```
 
-## Redefining methods, and previous_def
+## メソッドの再定義と previous_def
 
-If you redefine a method, the last definition will take precedence.
+もしあるメソッドが再度定義された場合、最後に定義されたものが優先されます。
 
 ```ruby
 class Person
@@ -70,7 +70,7 @@ person.become_older
 person.age #=> 2
 ```
 
-You can invoke the previously redefined method with `previous_def`:
+そのとき、`previous_def` を使うと以前に定義されたメソッドを実行することが可能です。
 
 ```ruby
 class Person
@@ -91,4 +91,4 @@ person.become_older
 person.age #=> 3
 ```
 
-Without arguments nor parenthesis, `previous_def` receives the same arguments as the method's arguments. Otherwise, it receives the arguments you pass to it.
+`previous_def` を引数なし、かつカッコもなしで実行したとき、そのメソッドが受け取った引数がそのまま渡されます。上記に当てはまらない場合には、指定した引数が渡されます。
