@@ -1,24 +1,24 @@
-# Requiring files
+# 必要なファイル
 
-Writing a program in a single file is OK for little snippets and small benchmark code. Big programs are better maintained and understood when split across different files.
+小さなプログラムやベンチマーク用途なら一つのファイルに書くのはもちろんＯＫですが、大きなプログラムは、いくつかファイルに分けるとメンテナンスが楽であり、また理解もし易いです。
 
-To make the compiler process other files you use `require "..."`. It accepts a single argument, a string literal, and it can come in many flavors.
+コンパイラ処理を他のファイルで行いたい時は `require "..."`を使用してください。引数は一つで、文字列リテラルであれば、いろいろ記述できます。
 
-Once a file is required, the compiler remembers its absolute path and later `require`s of that same file will be ignored.
+一度require処理されると、コンパイラはその絶対パスを記憶し、その後は同じ名前のファイルは無視されます。
 
 ## require "filename"
 
-This looks up "filename" in the require path.
+この記述で、必要なパスと "filename" を参照します。
 
-By default the require path is the location of the standard library that comes with the compiler, and the "libs" directory relative to the current working directory (given by `pwd` in a unix shell). These are the only places that are looked up.
+デフォルトで、必要なパスは、コンパイラとセットで提供されるstandard libraryデキレクトリと、現在のワーキングデイレクトリから相対的に指定される"libs"を参照します（つまり、unix shellで言う`pwd`で与えられるデイレクトリです）。参照されるデイレクトリは、これらのみです。
 
-The lookup goes like this:
+参照は、以下のように処理されます：
 
-* If a file named "filename.cr" is found in the require path, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* Otherwise a compile-time error is issued.
+*もし"filename.cr"というファイル名がrequire pathに見つかったら、それは参照する。
+*もしデイレクトリ名で "filename"が見つかり、そこに"filename.cr"が含まれていたら、それは参照する。
+*それ以外はコンパイルエラーになる。
 
-The second rule is very convenient because of the typical directory structure of a project:
+2番目のルールは、プロジェクトでよく使われるデイレクトリ構造でもあり、便利です：
 
 ```
 - project
@@ -35,31 +35,32 @@ The second rule is very convenient because of the typical directory structure of
 
 ## require "./filename"
 
-This looks up "filename" relative to the file containing the require expression.
+この場合、requireを読み込んだファイルの場所から相対的に"filename"を参照します。
 
-The lookup goes like this:
+参照は、以下のように処理されます：
 
-* If a file named "filename.cr" is found relative to the current file, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* Otherwise a compile-time error is issued.
+* もし"filename.cr"というファイル名が現在のファイルの場所から相対的指定場所に見つかったら、それは参照する。
+* もしデイレクトリ名で "filename"が見つかり、そこに"filename.cr"が含まれていたら、それは参照する。
+* それ以外はコンパイルエラーになる。
 
-This relative is mostly used inside a project to refer to other files inside it. It is also used to refer to code from specs:
+この相対パス参照はプロジェクトで使われるそのデイレクトリの中にある他のファイルを使う時によく使われますし、またspecs:からコードを参照する場合にも使われます：
 
 ```ruby
 # in spec/project_spec.cr
 require "../src/project"
 ```
 
-## Other forms
+## その他の形式
 
-In both cases you can use nested names and they will be looked up in nested directories:
+上記どちらの場合でも、ネストされた名前が使用でき、指定するとネストされたデイレクトリを参照することになります：
 
-* `require "foo/bar/baz"` will lookup "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" in the require path.
-* `require "./foo/bar/baz"` will lookup "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" relative to the current file.
+* `require "foo/bar/baz"` はrequire pathにある"foo/bar/baz.cr" あるいは "foo/bar/baz/baz.cr"を参照する 。
+* `require "./foo/bar/baz"`は現在のファイル位置から相対的に見て  "foo/bar/baz.cr" あるいは "foo/bar/baz/baz.cr" を参照する。
 
-You can also use "../" to access parent directories relative to the current file, so `require "../../foo/bar"` works as well.
+"../"を利用することによって現在のファイル位置から親のデイレクトリをアクセスできますし、`require "../../foo/bar"`も同様です。
 
-In all of these cases you can use the special `*` and `**` suffixes:
+これらのすべての場合において、 `*`と `**`が利用できます：
 
-* `require "foo/*"` will require all ".cr" files below the "foo" directory, but not below directories inside "foo".
-* `require "foo/**"` will require all ".cr" files below the "foo" directory, and below directories inside "foo", recursively.
+* `require "foo/*"` は"foo"デイレクトリ内の全ての ".cr" ファイルをrequire参照し、それ以下のデイレクトリは参照しない。
+* `require "foo/**"`は"foo"デイレクトリ配下の全ての ".cr"ファイルをrequire参照し、それ以下のデイレクトリも再帰的に参照する。
+
