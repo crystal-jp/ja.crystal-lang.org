@@ -83,7 +83,7 @@
        * [as](syntax_and_semantics/as.md)
        * [typeof](syntax_and_semantics/typeof.md)
    * [Attributes](syntax_and_semantics/attributes.md)
-   * [Requiring files](syntax_and_semantics/requiring_files.md)
+   * [ファイルの require](syntax_and_semantics/requiring_files.md)
    * [Low-level primitives](syntax_and_semantics/low_level_primitives.md)
        * [pointerof](syntax_and_semantics/pointerof.md)
        * [sizeof](syntax_and_semantics/sizeof.md)
