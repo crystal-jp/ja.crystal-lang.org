@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.1" data-basepath=".." data-revision="Fri Sep 04 2015 15:21:49 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.1" data-basepath=".." data-revision="Sat Sep 05 2015 19:17:01 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -899,7 +899,7 @@
                         
                             <b>4.7.3.2.</b>
                         
-                        Methods and instance variables
+                        メソッドとインスタンス変数
                     </a>
                 
             
@@ -914,7 +914,7 @@
                         
                             <b>4.7.3.3.</b>
                         
-                        Instance variables type inference
+                        インスタンス変数と型推論
                     </a>
                 
             
@@ -1931,7 +1931,7 @@
 <p>&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x5BFE;&#x3057;&#x3066; <code>new</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>person = Person.new
 </code></pre><p>&#x3053;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;<code>person</code> &#x306F; <code>Person</code> &#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x305F;&#x3060;&#x3001;<code>person</code> &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306B;&#x306F;&#x307E;&#x3060;&#x307B;&#x3068;&#x3093;&#x3069;&#x4F55;&#x306E;&#x6A5F;&#x80FD;&#x3082;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>Person</code> &#x306F;&#x540D;&#x524D; (name) &#x3068;&#x5E74;&#x9F62; (age) &#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x300C;&#x3059;&#x3079;&#x3066;&#x304C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x300D;&#x306E;&#x30BB;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3001;&#x300C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x578B;&#x3092;&#x6301;&#x3061;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x300D;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3068;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x5BFE;&#x8A71;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5FC5;&#x8981;&#x3060;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x540D;&#x524D;&#x3068;&#x5E74;&#x9F62;&#x306E;&#x305F;&#x3081;&#x306B; <code>name</code> &#x3068; <code>age</code> &#x306E;2&#x3064;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x60C5;&#x5831;&#x306F;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570; (&#x5909;&#x6570;&#x540D;&#x306E;&#x5148;&#x982D;&#x306F; <code>@</code>) &#x306B;&#x4FDD;&#x5B58;&#x3057;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;Person &#x304C;&#x751F;&#x307E;&#x308C;&#x308B; (&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;) &#x3068;&#x304D;&#x3001;&#x540D;&#x524D;&#x306F;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x540D;&#x524D;&#x3067;&#x3001;&#x5E74;&#x9F62;&#x306F;0&#x6B73;&#x306E;&#x72B6;&#x614B;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x300C;&#x751F;&#x307E;&#x308C;&#x308B; (&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;) &#x300D;&#x3068;&#x304D;&#x306E;&#x51E6;&#x7406;&#x306B;&#x306F;&#x3001;<code>initialize</code> &#x3068;&#x3044;&#x3046;&#x7279;&#x5225;&#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x300C;<em>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</em>&#x300D;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002; </p>
+<p>&#x305F;&#x3060;&#x3001;<code>person</code> &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306B;&#x306F;&#x307E;&#x3060;&#x307B;&#x3068;&#x3093;&#x3069;&#x4F55;&#x306E;&#x6A5F;&#x80FD;&#x3082;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>Person</code> &#x306F;&#x540D;&#x524D; (name) &#x3068;&#x5E74;&#x9F62; (age) &#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x300C;&#x3059;&#x3079;&#x3066;&#x304C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x300D;&#x306E;&#x30BB;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3001;&#x300C;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x578B;&#x3092;&#x6301;&#x3061;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x300D;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3068;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x5BFE;&#x8A71;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5FC5;&#x8981;&#x3060;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x540D;&#x524D;&#x3068;&#x5E74;&#x9F62;&#x306E;&#x305F;&#x3081;&#x306B; <code>name</code> &#x3068; <code>age</code> &#x306E;2&#x3064;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x60C5;&#x5831;&#x306F;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570; (&#x5909;&#x6570;&#x540D;&#x306E;&#x5148;&#x982D;&#x306F; <code>@</code>) &#x306B;&#x4FDD;&#x5B58;&#x3057;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;Person &#x304C;&#x751F;&#x307E;&#x308C;&#x308B; (&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;) &#x3068;&#x304D;&#x3001;&#x540D;&#x524D;&#x306F;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x540D;&#x524D;&#x3067;&#x3001;&#x5E74;&#x9F62;&#x306F;0&#x6B73;&#x306E;&#x72B6;&#x614B;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x300C;&#x751F;&#x307E;&#x308C;&#x308B; (&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;) &#x300D;&#x3068;&#x304D;&#x306E;&#x51E6;&#x7406;&#x306B;&#x306F;&#x3001;<code>initialize</code> &#x3068;&#x3044;&#x3046;&#x7279;&#x5225;&#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x300C;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x300D;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002; </p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(name)
     <span class="hljs-variable">@name</span> = name
@@ -1981,7 +1981,7 @@ peter.name <span class="hljs-comment">#=&gt; &quot;Peter&quot;</span>
         <a href="../syntax_and_semantics/classes_and_methods.html" class="navigation navigation-prev " aria-label="Previous page: クラスとメソッド"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/methods_and_instance_variables.html" class="navigation navigation-next " aria-label="Next page: Methods and instance variables"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/methods_and_instance_variables.html" class="navigation navigation-next " aria-label="Next page: メソッドとインスタンス変数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
