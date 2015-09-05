@@ -73,7 +73,7 @@ one = Person.new 1
 
 `@name` の型が `(String | Int32)` となっていますね。これは、`String` と `Int32` 型の「組み合わせ」を意味しています。このように、コンパイラは `@name` が与えられたすべての型を持つようにしています。
 
-このケースでは、コンパイラは `@name` は常に `String` か `Int32` のいずれかの型であるとして解釈します。したがって、もしその「両方」の型に存在しないメソッドが呼び出された場合、コンパイル時にエラーが発生します。
+このケースでは、コンパイラは `@name` は常に `String` か `Int32` のいずれかの型であるとして解釈します。したがって、もしその「両方」の型に存在しないメソッドが呼び出された場合にはコンパイルエラーが発生します。
 
 ```ruby
 john = Person.new "John"
@@ -94,7 +94,7 @@ john.name.length
 one = Person.new 1
 ```
 
-これはコンパイル時エラーとなります。
+これはコンパイルエラーとなります。
 
 ```
 Error in foo.cr:14: instantiating 'Person:Class#new(Int32)'
@@ -151,7 +151,7 @@ john.address = "Argentina"
             @address : String?
 ```
 
-`@address` が `String?` となっています。これは `String | Nil` の短縮表記です。このとき、以下はコンパイル時エラーが発生します。
+`@address` が `String?` となっています。これは `String | Nil` の短縮表記です。このとき、以下はコンパイルエラーが発生します。
 
 ```ruby
 # Error: undefined method 'length' for Nil
@@ -189,6 +189,6 @@ class Person
 end
 ```
 
-こうしておくと、`@age` に `Int32` ではない値を代入しようとしたときに、その場所でコンパイル時エラーが発生します。
+こうしておくと、`@age` に `Int32` ではない値を代入しようとしたときに、その場所でコンパイルエラーが発生します。
 
 ただ、型に対する「デフォルト」の値というものは存在しないので、この場合においても、catch-all initializer か `initialize` メソッドでインスタンス変数の初期化を行う必要があることを覚えておいてください。
