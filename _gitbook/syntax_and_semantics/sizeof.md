@@ -1,13 +1,15 @@
 # sizeof
 
-The `sizeof` expression returns an `Int32` with the size in bytes of a given type. 例:
+`sizeof` は与えられたタイプのバイトサイズを `Int32` で返します。 
+
+例:
 
 ```ruby
 sizeof(Int32)  #=> 4
 sizeof(Int64)  #=> 8
 ```
 
-For [Reference](http://crystal-lang.org/api/Reference.html) types, the size is the same as the size of a pointer:
+[Reference](http://crystal-lang.org/api/Reference.html) type については, ポインターの size と同じです：
 
 ```ruby
 # On a 64 bits machine
@@ -15,9 +17,9 @@ sizeof(Pointer(Int32)) #=> 8
 sizeof(String)         #=> 8
 ```
 
-This is because a Reference's memory is allocated on the heap and a pointer to it is passed around. To get the effective size of a class, use [instance_sizeof](instance_sizeof.html).
+この理由は Reference のメモリはヒープエリアに配置され、それを示すポインターを引き渡すためです。　実際のクラスのサイズを得るには [instance_sizeof](instance_sizeof.html) を使用してください。
 
-The argument to sizeof is a [type](type_grammar.html) and is often combined with [typeof](typeof.html):
+sizeof への引数は [type](type_grammar.html) で、使用する時は、しばしば [typeof](typeof.html) と併用します:
 
 ```ruby
 a = 1
