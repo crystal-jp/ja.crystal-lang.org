@@ -1,6 +1,6 @@
 # instance_sizeof
 
-The `instance_sizeof` expression returns an `Int32` with the instance size of a given class. 例:
+`instance_sizeof` は与えられたクラスのインスタンスサイズを `Int32` で返します。　例:
 
 ```ruby
 class Point
@@ -14,4 +14,4 @@ Point.new 1, 2
 instance_sizeof(Point) #=> 12
 ```
 
-Even though the instance has two `Int32` fields, the compiler always includes an extra `Int32` field for the type id of the object. That's why the instance size ends up being 12 and not 8.
+この場合インスタンスが二つの `Int32` フィールドを持っていますが、コンパイラはオブジェクトのタイプｉｄのために常に `Int32` フィールドを持っていますので、インスタンスサイズは１２になります。
