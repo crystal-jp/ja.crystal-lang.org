@@ -1,19 +1,19 @@
-# 初期化しない変数の宣言
+# 初期化しない変数宣言
 
-Crystal は初期化しない変数宣言を許します：
+Crystal では、初期化せず変数を宣言することが可能です。
 
 ```ruby
 x :: Int32
-x #=> some random value, garbage, unreliable
+x #=> 何かのランダムな値。つまり信頼できないゴミのようなもの…
 ```
 
-これは [unsafe](unsafe.html) コードで、特にローレベルなコード記述で [StaticArray](http://crystal-lang.org/api/StaticArray.html) バッファーなど初期化しないでパフォーマンスを重視する時に使います：
+これは「安全でない ([unsafe](unsafe.html))」なコードで、特にローレベルなコードにおいて、未初期化の [StaticArray](http://crystal-lang.org/api/StaticArray.html)  バッファをパフォーマンスの劣化なく定義するために使われます。
 
 ```ruby
 buffer :: UInt8[256]
 ```
 
-バッファーはヒープエリアを避けスタックに配置されます。
+このとき、バッファはヒープではなくスタックに割り当てられます。
 
-二つのコロンの後に続くタイプは [type grammar](type_grammar.html) に従います。
+2つのコロン (`::`) に続く型は[型文法](type_grammar.html)にしたがって書きます。
 

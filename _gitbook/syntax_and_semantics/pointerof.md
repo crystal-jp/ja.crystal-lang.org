@@ -37,5 +37,5 @@ ptr.value = 10
 point.x #=> 10
 ```
 
-`pointerof` はポインタを扱うため [unsafe](unsafe.html) であることに注意してください。
+`pointerof` はポインタを扱うため「安全でない ([unsafe](unsafe.html))」ことに注意してください。
 

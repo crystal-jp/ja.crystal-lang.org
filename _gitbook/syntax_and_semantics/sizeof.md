@@ -15,7 +15,7 @@ sizeof(Pointer(Int32)) #=> 8
 sizeof(String)         #=> 8
 ```
 
-この理由は、Reference のメモリはヒープに配置され、渡されるのはそこを指すポインタになるためです。
+この理由は、Reference のメモリはヒープに割り当てられ、渡されるのはそこを指すポインタになるためです。
 実際のクラスのサイズを得るには [instance_sizeof](instance_sizeof.html) を使用してください。
 
 sizeof の引数は [type](type_grammar.html) なので、[typeof](typeof.html) とあわせて使うことが多いでしょう。
