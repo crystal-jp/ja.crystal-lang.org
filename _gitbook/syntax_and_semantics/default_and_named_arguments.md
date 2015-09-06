@@ -1,6 +1,6 @@
-# Default and named arguments
+# デフォルト引数と名前付き引数
 
-A method can specify default values for the last arguments:
+メソッドの引数にはデフォルト値を設定することができます。デフォルト値のある引数を複数指定することもできますが、「1. デフォルト値のない引数」そして「2. デフォルト値のある引数」の順序でのみ指定可能です。
 
 ```ruby
 class Person
@@ -19,13 +19,13 @@ john.become_older 2
 john.age #=> 3
 ```
 
-To specify the values of arguments that have default values you can also use their names in the invocation:
+デフォルト値を設定した引数に対して、メソッドの実行時にその名前を指定することができます。
 
 ```ruby
 john.become_older by: 5
 ```
 
-When the method has many default arguments the order of the names in the invocation doesn't matter, and some names can be ommited:
+メソッドがデフォルト引数を複数持つときには、メソッド実行時の引数の順序に関係なく、指定した名前の引数として渡されます。また、引数を省略することも可能です。
 
 ```ruby
 def some_method(x, y = 1, z = 2, w = 3)
@@ -37,6 +37,6 @@ some_method 10, z: 10 # x = 10, y = 1, z = 10, w = 3
 some_method 10, w: 1, y: 2, z: 3 # x = 10, y = 2, z = 3, w = 1
 ```
 
-Note that in the above example you can't use `x`'s name, as it doesn't have a default value.
+上記において、`x` はデフォルト値を持たないため、その名前を指定することができないことに注意してください。
 
-In this way, default arguments and named arguments are related to each other: when you specify default arguments you are also allowing the caller to use their names. Be wise and choose good names.
+このように、デフォルト引数と名前付き引数には密接な関係があります。つまり、デフォルト引数を指定した場合、同事に呼び出し側がその名前で引数を指定できるようになるということです。引数には良い名前をつけるよう心がけましょう。
