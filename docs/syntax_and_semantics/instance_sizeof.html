@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.11.3" data-basepath=".." data-revision="Sun Sep 06 2015 13:06:07 GMT+0900 (JST)">
+    <div class="book" data-level="4.11.3" data-basepath=".." data-revision="Sun Sep 06 2015 21:14:21 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -929,7 +929,7 @@
                         
                             <b>4.7.3.4.</b>
                         
-                        Overloading
+                        オーバーロード
                     </a>
                 
             
@@ -944,7 +944,7 @@
                         
                             <b>4.7.3.5.</b>
                         
-                        Default and named arguments
+                        デフォルト引数と名前付き引数
                     </a>
                 
             
@@ -1453,7 +1453,7 @@
                         
                             <b>4.11.4.</b>
                         
-                        Uninitialized variable declaration
+                        初期化しない変数宣言
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="instance-sizeof">instance_sizeof</h1>
-<p>The <code>instance_sizeof</code> expression returns an <code>Int32</code> with the instance size of a given class. &#x4F8B;:</p>
+<p><code>instance_sizeof</code> &#x306F;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092; <code>Int32</code> &#x3067;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(<span class="hljs-variable">@x</span>, <span class="hljs-variable">@y</span>)
   <span class="hljs-keyword">end</span>
@@ -1939,7 +1939,7 @@
 <span class="hljs-comment"># 2 x Int32 = 2 x 4 = 8</span>
 instance_sizeof(<span class="hljs-constant">Point</span>) <span class="hljs-comment">#=&gt; 12</span>
 </code></pre>
-<p>Even though the instance has two <code>Int32</code> fields, the compiler always includes an extra <code>Int32</code> field for the type id of the object. That&apos;s why the instance size ends up being 12 and not 8.</p>
+<p>&#x4E0A;&#x8A18;&#x3067;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306F;2&#x3064;&#x306E; <code>Int32</code> &#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x578B; ID &#x306E;&#x305F;&#x3081;&#x306B;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x3063;&#x3066;&#x5E38;&#x306B; <code>Int32</code> &#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306B;&#x3053;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x306F; 8 &#x3067;&#x306F;&#x306A;&#x304F; 12 &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1953,7 +1953,7 @@ instance_sizeof(<span class="hljs-constant">Point</span>) <span class="hljs-comm
         <a href="../syntax_and_semantics/sizeof.html" class="navigation navigation-prev " aria-label="Previous page: sizeof"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/declare_var.html" class="navigation navigation-next " aria-label="Next page: Uninitialized variable declaration"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/declare_var.html" class="navigation navigation-next " aria-label="Next page: 初期化しない変数宣言"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
