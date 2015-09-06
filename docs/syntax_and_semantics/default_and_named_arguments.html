@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Default and named arguments | プログラミング言語 Crystal</title>
+        <title>デフォルト引数と名前付き引数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.5" data-basepath=".." data-revision="Sun Sep 06 2015 13:06:07 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.5" data-basepath=".." data-revision="Sun Sep 06 2015 21:14:21 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -929,7 +929,7 @@
                         
                             <b>4.7.3.4.</b>
                         
-                        Overloading
+                        オーバーロード
                     </a>
                 
             
@@ -944,7 +944,7 @@
                         
                             <b>4.7.3.5.</b>
                         
-                        Default and named arguments
+                        デフォルト引数と名前付き引数
                     </a>
                 
             
@@ -1453,7 +1453,7 @@
                         
                             <b>4.11.4.</b>
                         
-                        Uninitialized variable declaration
+                        初期化しない変数宣言
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="default-and-named-arguments">Default and named arguments</h1>
-<p>A method can specify default values for the last arguments:</p>
+                        <h1 id="%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E5%BC%95%E6%95%B0%E3%81%A8%E5%90%8D%E5%89%8D%E4%BB%98%E3%81%8D%E5%BC%95%E6%95%B0">&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5F15;&#x6570;&#x3068;&#x540D;&#x524D;&#x4ED8;&#x304D;&#x5F15;&#x6570;</h1>
+<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5F15;&#x6570;&#x306B;&#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x306E;&#x3042;&#x308B;&#x5F15;&#x6570;&#x3092;&#x8907;&#x6570;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;1. &#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x306E;&#x306A;&#x3044;&#x5F15;&#x6570;&#x300D;&#x305D;&#x3057;&#x3066;&#x300C;2. &#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x306E;&#x3042;&#x308B;&#x5F15;&#x6570;&#x300D;&#x306E;&#x9806;&#x5E8F;&#x3067;&#x306E;&#x307F;&#x6307;&#x5B9A;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>become_older(by = <span class="hljs-number">1</span>)
     <span class="hljs-variable">@age</span> += by
@@ -1944,10 +1944,10 @@ john.age <span class="hljs-comment">#=&gt; 1</span>
 john.become_older <span class="hljs-number">2</span>
 john.age <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<p>To specify the values of arguments that have default values you can also use their names in the invocation:</p>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x5F15;&#x6570;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x6642;&#x306B;&#x305D;&#x306E;&#x540D;&#x524D;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">john.become_older <span class="hljs-symbol">by:</span> <span class="hljs-number">5</span>
 </code></pre>
-<p>When the method has many default arguments the order of the names in the invocation doesn&apos;t matter, and some names can be ommited:</p>
+<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5F15;&#x6570;&#x3092;&#x8907;&#x6570;&#x6301;&#x3064;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5B9F;&#x884C;&#x6642;&#x306E;&#x5F15;&#x6570;&#x306E;&#x9806;&#x5E8F;&#x306B;&#x95A2;&#x4FC2;&#x306A;&#x304F;&#x3001;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x540D;&#x524D;&#x306E;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x6E21;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x5F15;&#x6570;&#x3092;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_method(x, y = <span class="hljs-number">1</span>, z = <span class="hljs-number">2</span>, w = <span class="hljs-number">3</span>)
   <span class="hljs-comment"># do something...</span>
 <span class="hljs-keyword">end</span>
@@ -1956,8 +1956,8 @@ some_method <span class="hljs-number">10</span> <span class="hljs-comment"># x =
 some_method <span class="hljs-number">10</span>, <span class="hljs-symbol">z:</span> <span class="hljs-number">10</span> <span class="hljs-comment"># x = 10, y = 1, z = 10, w = 3</span>
 some_method <span class="hljs-number">10</span>, <span class="hljs-symbol">w:</span> <span class="hljs-number">1</span>, <span class="hljs-symbol">y:</span> <span class="hljs-number">2</span>, <span class="hljs-symbol">z:</span> <span class="hljs-number">3</span> <span class="hljs-comment"># x = 10, y = 2, z = 3, w = 1</span>
 </code></pre>
-<p>Note that in the above example you can&apos;t use <code>x</code>&apos;s name, as it doesn&apos;t have a default value.</p>
-<p>In this way, default arguments and named arguments are related to each other: when you specify default arguments you are also allowing the caller to use their names. Be wise and choose good names.</p>
+<p>&#x4E0A;&#x8A18;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>x</code> &#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x6301;&#x305F;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x305D;&#x306E;&#x540D;&#x524D;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5F15;&#x6570;&#x3068;&#x540D;&#x524D;&#x4ED8;&#x304D;&#x5F15;&#x6570;&#x306B;&#x306F;&#x5BC6;&#x63A5;&#x306A;&#x95A2;&#x4FC2;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5F15;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x5834;&#x5408;&#x3001;&#x540C;&#x4E8B;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3057;&#x5074;&#x304C;&#x305D;&#x306E;&#x540D;&#x524D;&#x3067;&#x5F15;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x5F15;&#x6570;&#x306B;&#x306F;&#x826F;&#x3044;&#x540D;&#x524D;&#x3092;&#x3064;&#x3051;&#x308B;&#x3088;&#x3046;&#x5FC3;&#x304C;&#x3051;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
                     
                     </section>
@@ -1968,7 +1968,7 @@ some_method <span class="hljs-number">10</span>, <span class="hljs-symbol">w:</s
         </div>
 
         
-        <a href="../syntax_and_semantics/overloading.html" class="navigation navigation-prev " aria-label="Previous page: Overloading"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/overloading.html" class="navigation navigation-prev " aria-label="Previous page: オーバーロード"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/splats_and_tuples.html" class="navigation navigation-next " aria-label="Next page: Splats and tuples"><i class="fa fa-angle-right"></i></a>
