@@ -1,8 +1,8 @@
 # pointerof
 
-`pointerof` は 変数の内容あるいはインスタンス変数を示す[ポインター](http://crystal-lang.org/api/Pointer.html) として返します。
+`pointerof` は、変数やインスタンス変数の格納場所を指す[ポインタ](http://crystal-lang.org/api/Pointer.html)を返します。
 
-変数を扱った例：
+変数の例:
 
 ```ruby
 a = 1
@@ -13,7 +13,7 @@ ptr.value = 2
 a #=> 2
 ```
 
-インスタンス変数を扱った例：
+インスタンス変数の例:
 
 ```ruby
 class Point
@@ -37,5 +37,5 @@ ptr.value = 10
 point.x #=> 10
 ```
 
-`pointerof` はポインターを扱うため [unsafe](unsafe.html) ですので、注意してください。
+`pointerof` はポインタを扱うため [unsafe](unsafe.html) であることに注意してください。
 
