@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.11.2" data-basepath=".." data-revision="Sun Sep 06 2015 01:26:19 GMT+0900 (JST)">
+    <div class="book" data-level="4.11.2" data-basepath=".." data-revision="Sun Sep 06 2015 13:06:07 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1392,7 +1392,7 @@
                         
                             <b>4.11.</b>
                         
-                        Low-level primitives
+                        ローレベルプリミティブ
                     </a>
                 
             
@@ -1928,17 +1928,18 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="sizeof">sizeof</h1>
-<p>The <code>sizeof</code> expression returns an <code>Int32</code> with the size in bytes of a given type. &#x4F8B;:</p>
+<p><code>sizeof</code> &#x306F;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x578B;&#x306E;&#x30D0;&#x30A4;&#x30C8;&#x6570;&#x3092; <code>Int32</code> &#x3067;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-ruby">sizeof(<span class="hljs-constant">Int32</span>)  <span class="hljs-comment">#=&gt; 4</span>
 sizeof(<span class="hljs-constant">Int64</span>)  <span class="hljs-comment">#=&gt; 8</span>
 </code></pre>
-<p>For <a href="http://crystal-lang.org/api/Reference.html" target="_blank">Reference</a> types, the size is the same as the size of a pointer:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># On a 64 bits machine</span>
+<p><a href="http://crystal-lang.org/api/Reference.html" target="_blank">Reference</a> &#x578B;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x306F;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3068;&#x540C;&#x3058;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># 64&#x30D3;&#x30C3;&#x30C8;&#x51E6;&#x7406;&#x7CFB;&#x306E;&#x5834;&#x5408;</span>
 sizeof(<span class="hljs-constant">Pointer</span>(<span class="hljs-constant">Int32</span>)) <span class="hljs-comment">#=&gt; 8</span>
 sizeof(<span class="hljs-constant">String</span>)         <span class="hljs-comment">#=&gt; 8</span>
 </code></pre>
-<p>This is because a Reference&apos;s memory is allocated on the heap and a pointer to it is passed around. To get the effective size of a class, use <a href="instance_sizeof.html">instance_sizeof</a>.</p>
-<p>The argument to sizeof is a <a href="type_grammar.html">type</a> and is often combined with <a href="typeof.html">typeof</a>:</p>
+<p>&#x3053;&#x306E;&#x7406;&#x7531;&#x306F;&#x3001;Reference &#x306E;&#x30E1;&#x30E2;&#x30EA;&#x306F;&#x30D2;&#x30FC;&#x30D7;&#x306B;&#x914D;&#x7F6E;&#x3055;&#x308C;&#x3001;&#x6E21;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x305D;&#x3053;&#x3092;&#x6307;&#x3059;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x306B;&#x306A;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;
+&#x5B9F;&#x969B;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5F97;&#x308B;&#x306B;&#x306F; <a href="instance_sizeof.html">instance_sizeof</a> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>sizeof &#x306E;&#x5F15;&#x6570;&#x306F; <a href="type_grammar.html">type</a> &#x306A;&#x306E;&#x3067;&#x3001;<a href="typeof.html">typeof</a> &#x3068;&#x3042;&#x308F;&#x305B;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 sizeof(typeof(a)) <span class="hljs-comment">#=&gt; 4</span>
 </code></pre>

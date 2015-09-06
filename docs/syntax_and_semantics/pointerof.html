@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.11.1" data-basepath=".." data-revision="Sun Sep 06 2015 01:26:19 GMT+0900 (JST)">
+    <div class="book" data-level="4.11.1" data-basepath=".." data-revision="Sun Sep 06 2015 13:06:07 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1392,7 +1392,7 @@
                         
                             <b>4.11.</b>
                         
-                        Low-level primitives
+                        ローレベルプリミティブ
                     </a>
                 
             
@@ -1928,8 +1928,8 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="pointerof">pointerof</h1>
-<p>The <code>pointerof</code> expression returns a <a href="http://crystal-lang.org/api/Pointer.html" target="_blank">Pointer</a> that points to the contents of a variable or instance variable.</p>
-<p>An example with a variable:</p>
+<p><code>pointerof</code> &#x306F;&#x3001;&#x5909;&#x6570;&#x3084;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x306E;&#x683C;&#x7D0D;&#x5834;&#x6240;&#x3092;&#x6307;&#x3059;<a href="http://crystal-lang.org/api/Pointer.html" target="_blank">&#x30DD;&#x30A4;&#x30F3;&#x30BF;</a>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5909;&#x6570;&#x306E;&#x4F8B;:</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 
 ptr = pointerof(a)
@@ -1937,7 +1937,7 @@ ptr.value = <span class="hljs-number">2</span>
 
 a <span class="hljs-comment">#=&gt; 2</span>
 </code></pre>
-<p>An example with an instance variable:</p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x306E;&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(<span class="hljs-variable">@x</span>, <span class="hljs-variable">@y</span>)
   <span class="hljs-keyword">end</span>
@@ -1958,7 +1958,7 @@ ptr.value = <span class="hljs-number">10</span>
 
 point.x <span class="hljs-comment">#=&gt; 10</span>
 </code></pre>
-<p>Because <code>pointerof</code> involves pointers, it is considered <a href="unsafe.html">unsafe</a>.</p>
+<p><code>pointerof</code> &#x306F;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x6271;&#x3046;&#x305F;&#x3081; <a href="unsafe.html">unsafe</a> &#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>
@@ -1969,7 +1969,7 @@ point.x <span class="hljs-comment">#=&gt; 10</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/low_level_primitives.html" class="navigation navigation-prev " aria-label="Previous page: Low-level primitives"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/low_level_primitives.html" class="navigation navigation-prev " aria-label="Previous page: ローレベルプリミティブ"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/sizeof.html" class="navigation navigation-next " aria-label="Next page: sizeof"><i class="fa fa-angle-right"></i></a>
