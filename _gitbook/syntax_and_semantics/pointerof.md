@@ -1,8 +1,8 @@
 # pointerof
 
-The `pointerof` expression returns a [Pointer](http://crystal-lang.org/api/Pointer.html) that points to the contents of a variable or instance variable.
+`pointerof` は 変数の内容あるいはインスタンス変数を示す[ポインター](http://crystal-lang.org/api/Pointer.html) として返します。
 
-An example with a variable:
+変数を扱った例：
 
 ```ruby
 a = 1
@@ -13,7 +13,7 @@ ptr.value = 2
 a #=> 2
 ```
 
-An example with an instance variable:
+インスタンス変数を扱った例：
 
 ```ruby
 class Point
@@ -37,5 +37,5 @@ ptr.value = 10
 point.x #=> 10
 ```
 
-Because `pointerof` involves pointers, it is considered [unsafe](unsafe.html).
+`pointerof` はポインターを扱うため [unsafe](unsafe.html) ですので、注意してください。
 
