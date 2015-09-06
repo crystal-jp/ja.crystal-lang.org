@@ -1,6 +1,6 @@
-# Overloading
+# オーバーロード
 
-We can define a `become_older` method that accepts a number indicating the years to grow:
+これから、何歳年をとるかを数値で指定できる `become_older` メソッドを定義します。
 
 ```ruby
 class Person
@@ -23,35 +23,35 @@ john.become_older 5
 john.age #=> 6
 ```
 
-That is, you can have different methods with the same name and different number of arguments and they will be considered as separate methods. This is called *method overloading*.
+上記からわかるように、同じ名前で引数の数が異なるメソッドを定義することが可能で、それぞれが別のメソッドとして扱われます。これを「メソッドのオーバーロード」と呼びます。
 
-Methods overload by several criteria:
+メソッドがオーバーロードされるための条件は次の通りです。
 
-* The number of arguments
-* The type restrictions applied to arguments
-* Whether the method accepts a [block](blocks_and_procs.html) or not
+* 引数の数
+* 引数に指定された型制約
+* メソッドが[ブロック](blocks_and_procs.html)をとるかどうか
 
-For example, we can define four different `become_older` methods:
+例えば、`become_older` であれば、以下の4つの異なるメソッドを定義することができます。
 
 ```ruby
 class Person
-  # Increases age by one
+  # 1歳年をとる
   def become_older
     @age += 1
   end
 
-  # Increases age by the given number of years
+  # 受け取った数値だけ年をとる
   def become_older(years : Int32)
     @age += years
   end
 
-  # Increases age by the given number of years, as a String
+  # 「String 型で」受け取った数値だけ年をとる
   def become_older(years : String)
     @age += years.to_i
   end
 
-  # Yields the current age of this person and increases
-  # its age by the value returned by the block
+  # 現在の年齢を yield して
+  # そのブロックの戻り値にしたがって年をとる
   def become_older
     @age += yield @age
   end
@@ -74,7 +74,7 @@ end
 person.age #=> 28
 ```
 
-Note that in the case of the method that yields, the compiler figured this out because there's a `yield` expression. To make this more explicit, you can add a dummy `&block` argument at the end:
+コンパイラは、`yield` が含まれていることを検知して、そのメソッドがブロックをとるメソッドであることを判断します。より明示的にそのことを示したい場合は、`&block` という引数をダミーとして引数の最後に指定してください。
 
 ```ruby
 class Person
@@ -84,20 +84,20 @@ class Person
 end
 ```
 
-In generated documentation the dummy `&block` method will always appear, regardless of you writing it or not.
+ドキュメントでは、明示的にダミーの `&block` を指定したかどうかに関わらず、必ず `&block` を引数に伴って出力されます。
 
-Given the same number of arguments, the compiler will try to sort them by leaving the less restrictive ones to the end:
+もし同じ数の引数をとるメソッドが複数ある場合、コンパイラは最も制約の少ないものが最後にくる (優先されない) ようにソートを行います。
 
 ```ruby
 class Person
-  # First, this method is defined
+  # 最初にこのメソッドが定義されている
   def become_older(age)
     @age += age
   end
 
-  # Since "String" is more restrictive than no restriction
-  # at all, the compiler puts this method before the previous
-  # one when considering which overload matches.
+  # 「String」の指定は制約なしのものより制約的であるため、
+  # オーバーロードの条件に合致していた場合は、
+  # コンパイラはこのメソッドを最初のものより先に並べる (優先させる)
   def become_older(age : String)
     @age += age.to_i
   end
@@ -105,11 +105,11 @@ end
 
 person = Person.new "John"
 
-# Invokes the first definition
+# これは最初に定義されたメソッドを実行する
 person.become_older 20
 
-# Invokes the second definition
+# これは2番目に定義されたメソッドを実行する
 person.become_older "12"
 ```
 
-However, the compiler cannot always figure out the order because there isn't always a total ordering, so it's always better to put less restrictive methods at the end.
+しかしながら、必ずしも順序関係が全順序であるとは限らないため、コンパイラが常に正しく順序を設定できるわけではありません。したがって、いつも制約の少ないメソッドを最後に書くようにすることを推奨します。
