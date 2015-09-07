@@ -52,7 +52,7 @@ Or, combining the `&` and `->` syntaxes:
 twice &->{ puts "Hello" }
 ```
 
-Or:
+または
 
 ```ruby
 def say_hello
