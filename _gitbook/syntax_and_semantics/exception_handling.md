@@ -1,23 +1,23 @@
-# 例外処理 (Exception handling)
+# 例外処理
 
-Crystal のエラーハンドリングは exception の raise と rescue で処理する方法です
+Crystal では、例外を発生 (raise) させ、それを捕捉 (rescue) することによってエラーハンドリングを行います。
 
-## exception の raise 
+## 例外を発生させる
 
-例外を発生させるには、トップレベルの `raise` メソッドを呼び出します。ほかのキーワードと違って `raise` は通常二つのオーバーロードを使います： [一つは String を受け取る方法](http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method) そしてもう一つは [Exception インスタンスを受け取る方法](http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method) です：
+例外を発生させるにはトップレベルの `raise` メソッドを使います。他のキーワードとは異なり、`raise` は通常のメソッドであり、2つのオーバーロードがあります。その1つは [String を受け取るもの](http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method)で、もう1つは[例外 (Exception) クラスを受け取るもの](http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method)です。
 
 ```ruby
 raise "OH NO!"
 raise Exception.new("Some error")
 ```
 
-String の場合は、単にそのメッセージを持った新しい [Exception](http://crystal-lang.org/api/Exception.html) インスタンスを生成します
+String の場合は、単純にそのメッセージを含んだ [Exception](http://crystal-lang.org/api/Exception.html) のインスタンスを生成します。
 
-`Exception` インスタンスまたはサブクラスだけが raise　出来ます
+そして、`raise` の対象に指定することができるのは `Exception` のインスタンス、もしくはそのサブクラスのみに限られます。
 
-## 固有の exception の定義
+## 独自の例外を定義する
 
-固有の exception タイプを定義するには [Exception](http://crystal-lang.org/api/Exception.html) からサブクラスを作ります：
+独自の例外型を定義したい場合には、[Exception](http://crystal-lang.org/api/Exception.html) からサブクラスを作成します。
 
 ```ruby
 class MyException < Exception
@@ -27,11 +27,11 @@ class MyOtherException < Exception
 end
 ```
 
-常にあなたの exception のコンストラクタを定義したり、デフォールトの exception を使用できます
+通常のクラスのように、自分でコンストラクタを定義することもできますし、デフォルトのコンストラクタを利用することも可能です。
 
-## exception の Rescue
+## 例外の捕捉
 
-例外を救済 (rescue) するには `begin ... rescue ... end` 表現を使ってください：
+例外を捕捉するには、`begin ... rescue ... end` の構文を使用します。
 
 ```ruby
 begin
@@ -43,7 +43,7 @@ end
 # 出力: Rescued!
 ```
 
-救済された例外にアクセスするには、 `rescue` 節に変数を規定できます：
+捕捉された例外にアクセスしたいときは、`rescue` 節に変数を指定することが可能です。
 
 ```ruby
 begin
@@ -55,7 +55,7 @@ end
 # 出力: OH NO!
 ```
 
-例外の一つのタイプ（或いはそのサブクラス）を救済 (rescue) したい場合の表現：
+ある型の例外 (そのサブクラスも含む) のみ捕捉したい場合には以下のようにします。
 
 ```ruby
 begin
@@ -67,7 +67,7 @@ end
 # 出力: Rescued MyException
 ```
 
-そして、それにアクセスしたい場合、タイプ宣言と同様な文法を使用します：
+型を指定して、かつその例外にアクセスしたいときは、型制約の場合と同じように書きます。
 
 ```ruby
 begin
@@ -79,35 +79,35 @@ end
 # 出力: Rescued MyException: OH NO!
 ```
 
-複数の `rescue` クラスも規定できます：
+複数の `rescue` 節を設定することも可能です。
 
 ```ruby
 begin
   # ...
 rescue ex1 : MyException
-  # MyException の時のみ
+  # MyException のみ
 rescue ex2 : MyOtherException
-  # MyOtherException の時のみ
+  # MyOtherException のみ
 rescue
-  # 上記以外の exception
+  # その他の例外
 end
 ```
 
-union type を規定することで、複数の exception タイプもまた rescue 出来ます：
+また、型の組み合わせを指定すれば、複数の例外を同時に補足することが可能です。
 
 ```ruby
 begin
   # ...
 rescue ex : MyException | MyOtherException
-  # MyException 或いは MyOtherException の時のみ
+  # MyException/MyOtherException のみ
 rescue
-  # 上記以外の exception
+  # その他の例外
 end
 ```
 
 ## ensure
 
-`ensure` 節は exception が raised されたか如何に関わらず `begin ... end` 或いは `begin ... rescue ... end` の後に実行されます：
+`ensure` 節は、例外が発生したかどうかに関係なく、`begin ... end` または `begin ... rescue ... end` の後で必ず実行されます。
 
 ```ruby
 begin
@@ -116,11 +116,12 @@ ensure
   puts "Cleanup..."
 end
 
-# something_dangerous が発生した後 "Cleanup..." とprint
-# raise　の如何に関わらず実行
+# 例外が発生したかどうかに関わらず、
+# something_dangerous が実行された後に「Cleanup...」が出力される 
+
 ```
 
-或いは:
+または
 
 ```ruby
 begin
@@ -128,114 +129,114 @@ begin
 rescue
   # ...
 ensure
-  # ここは常に実行
+  # ここは必ず実行される
 end
 ```
 
-`ensure` 節は一般にクリーンナップつまり、リソースの開放などの時に使われます
+通常、`ensure` 節は処理の後始末やリソースの開放などに利用します。
 
 ## else
 
-`else` 節はexception が rescue されなかった時だけ実行されます：
+`else` 節は、例外が発生しなかった場合にのみ実行されます。
 
 ```ruby
 begin
   something_dangerous
 rescue
-  # 例外が発生したとき実
+  # 例外が発生するとここが実行される
 else
-  # 例外が発生しなかったとき実行
+  # 例外が発生しなかった場合のみここが実行される
 end
 ```
 
-`else` 節は少なくとも一つの `rescue` 節が規定された時のみ規定できます
+`else` 節を設定するためには、少なくとも1つの `rescue` 節が設定されている必要があります。
 
-## Short syntax form
+## 短縮記法
 
-例外処理 (Exception handling) は short syntax form があります：メソッドの定義が `begin ... end`が暗黙であると仮定して、 `rescue`, `ensure` と `else` 節を規定します：
+例外処理には短縮記法が用意されています。それは、メソッドの定義は暗黙的に `begin ... end` 構文であるとして `rescue`/`ensure`/`else` を使用できるというものです。
 
 ```ruby
 def some_method
   something_dangerous
 rescue
-  # 例外が発生したとき実行
+  # 例外が発生するとここが実行される
 end
 
-# 上記と同じ例：
+# 上記は以下と同じ
 def some_method
   begin
     something_dangerous
   rescue
-    # 例外が発生したとき実行
+    # 例外が発生するとここが実行される
   end
 end
 ```
 
-`ensure` の例：
+`ensure` の例:
 
 ```ruby
 def some_method
   something_dangerous
 ensure
-  # ここは常に実行される
+  # ここは必ず実行される
 end
 
-# 上記と同じ例：
+# 上記は以下と同じ
 def some_method
   begin
     something_dangerous
   ensure
-    # ここは常に実行される
+    # ここは必ず実行される
   end
 end
 ```
 
-## 型推定
+## 型推論
 
-exception ハンドラーの`begin` の内側で宣言された変数は `rescue` 或いは `ensure` ボデーの内部変数と推定されれば `Nil` タイプになります　例:
+例外処理において、`begin` 節の中で宣言された変数は、`rescue` または `ensure` 内においては `Nil` 型を持っているとして解釈されます。例:
 
 ```ruby
 begin
   a = something_dangerous_that_returns_Int32
 ensure
-  puts a + 1 # コンパイルエラー：error, undefined method '+' for Nil
+  puts a + 1 # error, undefined method '+' for Nil
 end
 ```
 
-上記例ではたとえ `something_dangerous_that_returns_Int32` が raise されなくても、また  `a` に値が代入され、raise メソッドが実行された場合もエラーが発生します：
+このとき、もし `something_dangerous_that_returns_Int32`が例外を発生させない場合であってもエラーが発生します。さらに、`a` に先に値が代入されて、それから例外を発生させる可能性があるメソッドが実行された場合であったとしてもエラーとなります。
 
 ```ruby
 begin
   a = 1
   something_dangerous
 ensure
-  puts a + 1 # コンパイルエラー：error, undefined method '+' for Nil
+  puts a + 1 # error, undefined method '+' for Nil
 end
 ```
 
-`a` に値が代入されても、コンパイラは変数が初期化されるべきでないと考えます。　この論理は将来改定されるかもしれませんが、現時点コードの趣旨を明瞭に示すために、書く人に例外ハンドラーで最小限必要な記述を要求します：
+この場合、`a` に常に値が代入されていることは明白なのですが、それでもコンパイラは `a` が初期化されていない可能性があると解釈します。このロジックは将来的には改定されるかもしれません。ただ、現時点では例外処理の中で行うことは必要最小限に留め、コードの意図を明確にして書くことが求められます。
 
 ```ruby
-# 上記より `a` が必要ないことが明瞭
-# 例外処理ハンドリングコード
+# 例外処理のコードの内部で `a` 宣言する必要はないため、
+# こう書くことでより意図が明確になる
 a = 1
 begin
   something_dangerous
 ensure
-  puts a + 1 # コンパイルエラーになりません
+  puts a + 1 # エラーにならない
 end
 ```
 
-## 例外処理のもう一つの方法　Alternative ways to do error handling
+## 例外処理の他の方法
 
-exception はエラーハンドリングのメカニズムの一つで有効ですが、ほかにも方法はあります。例外の発生はメモリー配置を含みますので一般的に処理が遅い点があります。
+例外はエラーハンドリング機構の1つですが、必ずしも例外処理でしかエラーを扱うことができないわけではありません。例外を発生させることはメモリの割り当てを伴うので、一般的に例外処理は遅くなる傾向があります。
 
-標準ライブラリは通常 raise を使う方法と、`nil` を返す方法を提供しています　例:
+そこで、標準ライブラリでは、例外を発生する方法に加えて、`nil` を返す方法も用意しています。例:
 
 ```ruby
 array = [1, 2, 3]
-array[4]  # インデックス領域外なので raise する
-array[4]? # インデックス領域外なので nil を返す
+array[4]  # IndexOutOfBounds の例外が発生
+array[4]? # インデックス範囲外のため nil が返る
 ```
 
-一般的には raise の代わりにメソッドに `nil` を返す二者択一の質問方策を提供していて、ユーザが例外か `nil` を使うかを選べるようにしています。しかしすべてのメソッドで利用できるという訳ではなく、例外処理はエラーハンドリングロジッを汚くしないためには好ましい方法です
+慣習として、メソッドが例外を発生させる代わりに `nil` を返すことができる場合は、それを’示すために「? (クエスチョン)」メソッドとして提供することになっています。こうすることで、ユーザーが例外を利用するか `nil` を利用するかを選択することが可能です。ただ、すべてのメソッドにこの方法が用意されているわけではありません。また、エラーハンドリングのロジックが混ざることよってコードが汚れてしまうのを避けるという意味でも、例外処理というのは好ましい方法であるでしょう。
