@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Splats and tuples | プログラミング言語 Crystal</title>
+        <title>splat 展開とタプル | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.6" data-basepath=".." data-revision="Sun Sep 06 2015 21:14:21 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.6" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -959,7 +959,7 @@
                         
                             <b>4.7.3.6.</b>
                         
-                        Splats and tuples
+                        splat 展開とタプル
                     </a>
                 
             
@@ -974,7 +974,7 @@
                         
                             <b>4.7.3.7.</b>
                         
-                        Type restrictions
+                        型制約
                     </a>
                 
             
@@ -1473,7 +1473,7 @@
                         
                             <b>4.12.</b>
                         
-                        Exception handling
+                        例外処理
                     </a>
                 
             
@@ -1488,7 +1488,7 @@
                         
                             <b>4.13.</b>
                         
-                        Compile-time flags
+                        コンパイル時のフラグ
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="splats-and-tuples">Splats and tuples</h1>
-<p>A method can receive a variable number of arguments by using a <em>splat</em> (<code>*</code>), which can appear only once and in any position:</p>
+                        <h1 id="splat-%E5%B1%95%E9%96%8B%E3%81%A8%E3%82%BF%E3%83%97%E3%83%AB">splat &#x5C55;&#x958B;&#x3068;&#x30BF;&#x30D7;&#x30EB;</h1>
+<p>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x3001;&#x300C;splat &#x5C55;&#x958B; (<code>*</code>)&#x300D;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3092;&#x4E00;&#x5EA6;&#x306B;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x4EEE;&#x5F15;&#x6570;&#x306E;&#x4E2D;&#x3067;1&#x56DE;&#x3060;&#x3051;&#x3057;&#x304B;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x9806;&#x5E8F;&#x3092;&#x554F;&#x308F;&#x305A;&#x3069;&#x306E;&#x5834;&#x6240;&#x306B;&#x3067;&#x3082;&#x6307;&#x5B9A;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>sum(*elements)
   total = <span class="hljs-number">0</span>
   elements.each <span class="hljs-keyword">do</span> |value|
@@ -1940,11 +1940,11 @@
 sum <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>    <span class="hljs-comment">#=&gt; 6</span>
 sum <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.5</span> <span class="hljs-comment">#=&gt; 10.5</span>
 </code></pre>
-<p>The passed arguments become a <a href="http://crystal-lang.org/api/Tuple.html" target="_blank">Tuple</a> in the method&apos;s body:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># elements is Tuple(Int32, Int32, Int32)</span>
+<p>&#x6E21;&#x3055;&#x308C;&#x305F;&#x5F15;&#x6570;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x4E2D;&#x3067;<a href="http://crystal-lang.org/api/Tuple.html" target="_blank">&#x30BF;&#x30D7;&#x30EB; (Tuple)</a> &#x3068;&#x3057;&#x3066;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># Tuple(Int32, Int32, Int32)</span>
 sum <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>
 
-<span class="hljs-comment"># elements is Tuple(Int32, Int32, Int32, Float64)</span>
+<span class="hljs-comment"># Tuple(Int32, Int32, Int32, Float64)</span>
 sum <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>
 </code></pre>
 
@@ -1960,7 +1960,7 @@ sum <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <spa
         <a href="../syntax_and_semantics/default_and_named_arguments.html" class="navigation navigation-prev " aria-label="Previous page: デフォルト引数と名前付き引数"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/type_restrictions.html" class="navigation navigation-next " aria-label="Next page: Type restrictions"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/type_restrictions.html" class="navigation navigation-next " aria-label="Next page: 型制約"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

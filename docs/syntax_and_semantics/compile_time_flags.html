@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Compile-time flags | プログラミング言語 Crystal</title>
+        <title>コンパイル時のフラグ | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.13" data-basepath=".." data-revision="Sun Sep 06 2015 21:14:21 GMT+0900 (JST)">
+    <div class="book" data-level="4.13" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -959,7 +959,7 @@
                         
                             <b>4.7.3.6.</b>
                         
-                        Splats and tuples
+                        splat 展開とタプル
                     </a>
                 
             
@@ -974,7 +974,7 @@
                         
                             <b>4.7.3.7.</b>
                         
-                        Type restrictions
+                        型制約
                     </a>
                 
             
@@ -1473,7 +1473,7 @@
                         
                             <b>4.12.</b>
                         
-                        Exception handling
+                        例外処理
                     </a>
                 
             
@@ -1488,7 +1488,7 @@
                         
                             <b>4.13.</b>
                         
-                        Compile-time flags
+                        コンパイル時のフラグ
                     </a>
                 
             
@@ -1927,27 +1927,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="compile-time-flags">Compile-time flags</h1>
-<p>Types, methods and generally any part of your code can be conditionally defined based on some flags available at compile time. These flags are by default the result of executing <code>uname -m -s</code>, split by whitespace and lowercased.</p>
+                        <h1 id="%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E6%99%82%E3%81%AE%E3%83%95%E3%83%A9%E3%82%B0">&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306E;&#x30D5;&#x30E9;&#x30B0;</h1>
+<p>&#x578B;&#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306A;&#x3069;&#x3001;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x3069;&#x306E;&#x90E8;&#x5206;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x6307;&#x5B9A;&#x53EF;&#x80FD;&#x306A;&#x30D5;&#x30E9;&#x30B0;&#x306B;&#x3088;&#x308B;&#x6761;&#x4EF6;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x3001;<code>uname -m -s</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x7D50;&#x679C;&#x3092;&#x7A7A;&#x767D;&#x3067;&#x5206;&#x5272;&#x3057;&#x3001;&#x3059;&#x3079;&#x3066;&#x3092;&#x5C0F;&#x6587;&#x5B57;&#x306B;&#x3057;&#x305F;&#x3082;&#x306E;&#x304C;&#x30D5;&#x30E9;&#x30B0;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-bash">$ uname -m <span class="hljs-operator">-s</span>
 Darwin x86_64
 
-<span class="hljs-comment"># so the flags are: darwin, x86_64</span>
+<span class="hljs-comment"># &#x3053;&#x306E;&#x5834;&#x5408;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x306F; darwin &#x3068; x86_64</span>
 </code></pre>
-<p>Additionally, if a program is compiled with <code>--release</code>, the <code>release</code> flag will be true.</p>
-<p>You can test these flags with <code>ifdef</code>:</p>
+<p>&#x307E;&#x305F;&#x3001;<code>--release</code> &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x3064;&#x3051;&#x3066;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;<code>release</code> &#x30D5;&#x30E9;&#x30B0;&#x304C; true &#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x306B;&#x306F; <code>ifdef</code> &#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">ifdef x86_64
-  <span class="hljs-comment"># some specific code for 64 bits platforms</span>
+  <span class="hljs-comment"># 64&#x30D3;&#x30C3;&#x30C8;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306B;&#x56FA;&#x6709;&#x306E;&#x30B3;&#x30FC;&#x30C9;</span>
 <span class="hljs-keyword">else</span>
-  <span class="hljs-comment"># some specific code for non-64 bits platforms</span>
+  <span class="hljs-comment"># 64&#x30D3;&#x30C3;&#x30C8;&#x3067;&#x306F;&#x306A;&#x3044;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306B;&#x56FA;&#x6709;&#x306E;&#x30B3;&#x30FC;&#x30C9;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>You can use <code>&amp;&amp;</code>, <code>||</code> and <code>|</code>:</p>
+<p><code>&amp;&amp;</code>/<code>||</code>/<code>|</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">ifdef linux &amp;&amp; x86_64
-  <span class="hljs-comment"># some specific code for linux 64 bits</span>
+  <span class="hljs-comment"># Linux &#x306E;64&#x30D3;&#x30C3;&#x30C8;&#x306B;&#x56FA;&#x6709;&#x306E;&#x30B3;&#x30FC;&#x30C9;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>These flags are generally used in C bindings to conditionally define types and functions. For example the very well known <code>size_t</code> type is defined like this in Crystal:</p>
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x306F;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B; C &#x8A00;&#x8A9E;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x578B;&#x3084;&#x95A2;&#x6570;&#x3092;&#x6761;&#x4EF6;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;<code>size_t</code> &#x3068;&#x3044;&#x3046;&#x3088;&#x304F;&#x77E5;&#x3089;&#x308C;&#x305F;&#x578B;&#x306F;&#x3001;Crystal &#x3067;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   ifdef x86_64
     <span class="hljs-keyword">alias</span> <span class="hljs-constant">SizeT</span> = <span class="hljs-constant">UInt64</span>
@@ -1956,10 +1956,10 @@ Darwin x86_64
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><strong>Note:</strong> conditionally defining fields of a C struct or union is not currently supported. The whole type definition must be defined separately.</p>
+<p><strong>&#x6CE8;&#x610F;:</strong> &#x73FE;&#x5728;&#x306E;&#x3068;&#x3053;&#x308D;&#x3001;C &#x8A00;&#x8A9E;&#x306E;&#x69CB;&#x9020;&#x4F53;&#x3084;&#x5171;&#x7528;&#x4F53;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x6761;&#x4EF6;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;&#x305D;&#x306E;&#x5168;&#x4F53;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;&#x500B;&#x5225;&#x306B;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   struct <span class="hljs-constant">SomeStruct</span>
-    <span class="hljs-comment"># Error: the next line gives a parser error</span>
+    <span class="hljs-comment"># &#x6B21;&#x306E;&#x884C;&#x306F;&#x30D1;&#x30FC;&#x30B9;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x306A;&#x308B;</span>
     ifdef linux
       some_field <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
     <span class="hljs-keyword">else</span>
@@ -1979,7 +1979,7 @@ Darwin x86_64
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This restriction might be lifted in the future.</p>
+<p>&#x305F;&#x3060;&#x3057;&#x3001;&#x5C06;&#x6765;&#x306F;&#x3053;&#x306E;&#x5236;&#x9650;&#x304C;&#x64A4;&#x5EC3;&#x3055;&#x308C;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1990,7 +1990,7 @@ Darwin x86_64
         </div>
 
         
-        <a href="../syntax_and_semantics/exception_handling.html" class="navigation navigation-prev " aria-label="Previous page: Exception handling"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/exception_handling.html" class="navigation navigation-prev " aria-label="Previous page: 例外処理"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/cross-compilation.html" class="navigation navigation-next " aria-label="Next page: Cross-compilation"><i class="fa fa-angle-right"></i></a>
