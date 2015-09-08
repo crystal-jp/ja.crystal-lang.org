@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Exception handling | プログラミング言語 Crystal</title>
+        <title>例外処理 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.12" data-basepath=".." data-revision="Sun Sep 06 2015 21:14:21 GMT+0900 (JST)">
+    <div class="book" data-level="4.12" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -959,7 +959,7 @@
                         
                             <b>4.7.3.6.</b>
                         
-                        Splats and tuples
+                        splat 展開とタプル
                     </a>
                 
             
@@ -974,7 +974,7 @@
                         
                             <b>4.7.3.7.</b>
                         
-                        Type restrictions
+                        型制約
                     </a>
                 
             
@@ -1473,7 +1473,7 @@
                         
                             <b>4.12.</b>
                         
-                        Exception handling
+                        例外処理
                     </a>
                 
             
@@ -1488,7 +1488,7 @@
                         
                             <b>4.13.</b>
                         
-                        Compile-time flags
+                        コンパイル時のフラグ
                     </a>
                 
             
@@ -1927,155 +1927,155 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="exception-handling">Exception handling</h1>
-<p>Crystal&apos;s way to do error handling is by raising and rescuing exceptions.</p>
-<h2 id="raising-exception">Raising exception</h2>
-<p>You raise exceptions by invoking a top-level <code>raise</code> method. Unlike other keywords, <code>raise</code> is a regular method with two overloads: <a href="http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method" target="_blank">one accepting a String</a> and another <a href="http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method" target="_blank">accepting an Exception instance</a>:</p>
+                        <h1 id="%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86">&#x4F8B;&#x5916;&#x51E6;&#x7406;</h1>
+<p>Crystal &#x3067;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F; (raise) &#x3055;&#x305B;&#x3001;&#x305D;&#x308C;&#x3092;&#x6355;&#x6349; (rescue) &#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E4%BE%8B%E5%A4%96%E3%82%92%E7%99%BA%E7%94%9F%E3%81%95%E3%81%9B%E3%82%8B">&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;</h2>
+<p>&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x306B;&#x306F;&#x30C8;&#x30C3;&#x30D7;&#x30EC;&#x30D9;&#x30EB;&#x306E; <code>raise</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x4ED6;&#x306E;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x306F;&#x7570;&#x306A;&#x308A;&#x3001;<code>raise</code> &#x306F;&#x901A;&#x5E38;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308A;&#x3001;2&#x3064;&#x306E;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;1&#x3064;&#x306F; <a href="http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method" target="_blank">String &#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3082;&#x306E;</a>&#x3067;&#x3001;&#x3082;&#x3046;1&#x3064;&#x306F;<a href="http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method" target="_blank">&#x4F8B;&#x5916; (Exception) &#x30AF;&#x30E9;&#x30B9;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3082;&#x306E;</a>&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">raise <span class="hljs-string">&quot;OH NO!&quot;</span>
 raise <span class="hljs-constant">Exception</span>.new(<span class="hljs-string">&quot;Some error&quot;</span>)
 </code></pre>
-<p>The String version just creates a new <a href="http://crystal-lang.org/api/Exception.html" target="_blank">Exception</a> instance with that message.</p>
-<p>Only <code>Exception</code> instances or subclasses can be raised.</p>
-<h2 id="defining-custom-exceptions">Defining custom exceptions</h2>
-<p>To define a custom exception type, just subclass from <a href="http://crystal-lang.org/api/Exception.html" target="_blank">Exception</a>:</p>
+<p>String &#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x5358;&#x7D14;&#x306B;&#x305D;&#x306E;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x542B;&#x3093;&#x3060; <a href="http://crystal-lang.org/api/Exception.html" target="_blank">Exception</a> &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;<code>raise</code> &#x306E;&#x5BFE;&#x8C61;&#x306B;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x306F; <code>Exception</code> &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x305D;&#x306E;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x307F;&#x306B;&#x9650;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E7%8B%AC%E8%87%AA%E3%81%AE%E4%BE%8B%E5%A4%96%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B">&#x72EC;&#x81EA;&#x306E;&#x4F8B;&#x5916;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;</h2>
+<p>&#x72EC;&#x81EA;&#x306E;&#x4F8B;&#x5916;&#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;<a href="http://crystal-lang.org/api/Exception.html" target="_blank">Exception</a> &#x304B;&#x3089;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyException</span> <span class="hljs-inheritance">&lt; <span class="hljs-parent">Exception</span></span></span>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyOtherException</span> <span class="hljs-inheritance">&lt; <span class="hljs-parent">Exception</span></span></span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>You can, as always, define a constructor for your exception or just use the default one.</p>
-<h2 id="rescuing-exceptions">Rescuing exceptions</h2>
-<p>To rescue any exception use a <code>begin ... rescue ... end</code> expression:</p>
+<p>&#x901A;&#x5E38;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x81EA;&#x5206;&#x3067;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3057;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="%E4%BE%8B%E5%A4%96%E3%81%AE%E6%8D%95%E6%8D%89">&#x4F8B;&#x5916;&#x306E;&#x6355;&#x6349;</h2>
+<p>&#x4F8B;&#x5916;&#x3092;&#x6355;&#x6349;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;<code>begin ... rescue ... end</code> &#x306E;&#x69CB;&#x6587;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   raise <span class="hljs-string">&quot;OH NO!&quot;</span>
 <span class="hljs-keyword">rescue</span>
   puts <span class="hljs-string">&quot;Rescued!&quot;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Output: Rescued!</span>
+<span class="hljs-comment"># &#x51FA;&#x529B;: Rescued!</span>
 </code></pre>
-<p>To access the rescued exception you can specify a variable in the <code>rescue</code> clause:</p>
+<p>&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x4F8B;&#x5916;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306F;&#x3001;<code>rescue</code> &#x7BC0;&#x306B;&#x5909;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   raise <span class="hljs-string">&quot;OH NO!&quot;</span>
 <span class="hljs-keyword">rescue</span> ex
   puts ex.message
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Output: OH NO!</span>
+<span class="hljs-comment"># &#x51FA;&#x529B;: OH NO!</span>
 </code></pre>
-<p>To rescue just one type of exception (or any of its subclasses):</p>
+<p>&#x3042;&#x308B;&#x578B;&#x306E;&#x4F8B;&#x5916; (&#x305D;&#x306E;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x3082;&#x542B;&#x3080;) &#x306E;&#x307F;&#x6355;&#x6349;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   raise <span class="hljs-constant">MyException</span>.new(<span class="hljs-string">&quot;OH NO!&quot;</span>)
 <span class="hljs-keyword">rescue</span> <span class="hljs-constant">MyException</span>
   puts <span class="hljs-string">&quot;Rescued MyException&quot;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Output: Rescued MyException</span>
+<span class="hljs-comment"># &#x51FA;&#x529B;: Rescued MyException</span>
 </code></pre>
-<p>And to access it, use a syntax similar to type restrictions:</p>
+<p>&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x3001;&#x304B;&#x3064;&#x305D;&#x306E;&#x4F8B;&#x5916;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306F;&#x3001;&#x578B;&#x5236;&#x7D04;&#x306E;&#x5834;&#x5408;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   raise <span class="hljs-constant">MyException</span>.new(<span class="hljs-string">&quot;OH NO!&quot;</span>)
 <span class="hljs-keyword">rescue</span> ex <span class="hljs-symbol">:</span> <span class="hljs-constant">MyException</span>
   puts <span class="hljs-string">&quot;Rescued MyException: <span class="hljs-subst">#{ex.message}</span>&quot;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Output: Rescued MyException: OH NO!</span>
+<span class="hljs-comment"># &#x51FA;&#x529B;: Rescued MyException: OH NO!</span>
 </code></pre>
-<p>Multiple <code>rescue</code> clauses can be specified:</p>
+<p>&#x8907;&#x6570;&#x306E; <code>rescue</code> &#x7BC0;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   <span class="hljs-comment"># ...</span>
 <span class="hljs-keyword">rescue</span> ex1 <span class="hljs-symbol">:</span> <span class="hljs-constant">MyException</span>
-  <span class="hljs-comment"># only MyException...</span>
+  <span class="hljs-comment"># MyException &#x306E;&#x307F;</span>
 <span class="hljs-keyword">rescue</span> ex2 <span class="hljs-symbol">:</span> <span class="hljs-constant">MyOtherException</span>
-  <span class="hljs-comment"># only MyOtherException...</span>
+  <span class="hljs-comment"># MyOtherException &#x306E;&#x307F;</span>
 <span class="hljs-keyword">rescue</span>
-  <span class="hljs-comment"># any other kind of exception</span>
+  <span class="hljs-comment"># &#x305D;&#x306E;&#x4ED6;&#x306E;&#x4F8B;&#x5916;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>You can also rescue multiple exception types at once by specifying a union type:</p>
+<p>&#x307E;&#x305F;&#x3001;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308C;&#x3070;&#x3001;&#x8907;&#x6570;&#x306E;&#x4F8B;&#x5916;&#x3092;&#x540C;&#x6642;&#x306B;&#x88DC;&#x8DB3;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   <span class="hljs-comment"># ...</span>
 <span class="hljs-keyword">rescue</span> ex <span class="hljs-symbol">:</span> <span class="hljs-constant">MyException</span> | <span class="hljs-constant">MyOtherException</span>
-  <span class="hljs-comment"># only MyException or MyOtherException</span>
+  <span class="hljs-comment"># MyException/MyOtherException &#x306E;&#x307F;</span>
 <span class="hljs-keyword">rescue</span>
-  <span class="hljs-comment"># any other kind of exception</span>
+  <span class="hljs-comment"># &#x305D;&#x306E;&#x4ED6;&#x306E;&#x4F8B;&#x5916;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
 <h2 id="ensure">ensure</h2>
-<p>An <code>ensure</code> clause is executed at the end of a <code>begin ... end</code> or <code>begin ... rescue ... end</code> expression regardless of whether an exception was raised or not:</p>
+<p><code>ensure</code> &#x7BC0;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;&#x306B;&#x95A2;&#x4FC2;&#x306A;&#x304F;&#x3001;<code>begin ... end</code> &#x307E;&#x305F;&#x306F; <code>begin ... rescue ... end</code> &#x306E;&#x5F8C;&#x3067;&#x5FC5;&#x305A;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   something_dangerous
 <span class="hljs-keyword">ensure</span>
   puts <span class="hljs-string">&quot;Cleanup...&quot;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Will print &quot;Cleanup...&quot; after invoking something_dangerous,</span>
-<span class="hljs-comment"># regardless of whether it raised or not</span>
+<span class="hljs-comment"># &#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;&#x306B;&#x95A2;&#x308F;&#x3089;&#x305A;&#x3001;</span>
+<span class="hljs-comment"># something_dangerous &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x5F8C;&#x306B;&#x300C;Cleanup...&#x300D;&#x304C;&#x51FA;&#x529B;&#x3055;&#x308C;&#x308B;</span>
 </code></pre>
-<p>Or:</p>
+<p>&#x307E;&#x305F;&#x306F;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   something_dangerous
 <span class="hljs-keyword">rescue</span>
   <span class="hljs-comment"># ...</span>
 <span class="hljs-keyword">ensure</span>
-  <span class="hljs-comment"># this will always be executed</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x306F;&#x5FC5;&#x305A;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><code>ensure</code> clauses are usually used for clean up, freeing resources, etc.</p>
+<p>&#x901A;&#x5E38;&#x3001;<code>ensure</code> &#x7BC0;&#x306F;&#x51E6;&#x7406;&#x306E;&#x5F8C;&#x59CB;&#x672B;&#x3084;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x958B;&#x653E;&#x306A;&#x3069;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="else">else</h2>
-<p>An <code>else</code> clause is executed only if no exceptions were rescued:</p>
+<p><code>else</code> &#x7BC0;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x306E;&#x307F;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   something_dangerous
 <span class="hljs-keyword">rescue</span>
-  <span class="hljs-comment"># execute this if an exception is raised</span>
+  <span class="hljs-comment"># &#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x3068;&#x3053;&#x3053;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">else</span>
-  <span class="hljs-comment"># execute this if an exception isn&apos;t raised</span>
+  <span class="hljs-comment"># &#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306E;&#x307F;&#x3053;&#x3053;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>An <code>else</code> clause can only be specified if at least one <code>rescue</code> clause is specified.</p>
-<h2 id="short-syntax-form">Short syntax form</h2>
-<p>Exception handling has a short syntax form: assume a method definition is an implicit <code>begin ... end</code> expression, then specify <code>rescue</code>, <code>ensure</code> and <code>else</code> clauses:</p>
+<p><code>else</code> &#x7BC0;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x5C11;&#x306A;&#x304F;&#x3068;&#x3082;1&#x3064;&#x306E; <code>rescue</code> &#x7BC0;&#x304C;&#x8A2D;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E7%9F%AD%E7%B8%AE%E8%A8%98%E6%B3%95">&#x77ED;&#x7E2E;&#x8A18;&#x6CD5;</h2>
+<p>&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306B;&#x306F;&#x77ED;&#x7E2E;&#x8A18;&#x6CD5;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x6697;&#x9ED9;&#x7684;&#x306B; <code>begin ... end</code> &#x69CB;&#x6587;&#x3067;&#x3042;&#x308B;&#x3068;&#x3057;&#x3066; <code>rescue</code>/<code>ensure</code>/<code>else</code> &#x3092;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_method
   something_dangerous
 <span class="hljs-keyword">rescue</span>
-  <span class="hljs-comment"># execute if an exception is raised</span>
+  <span class="hljs-comment"># &#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x3068;&#x3053;&#x3053;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_method
   <span class="hljs-keyword">begin</span>
     something_dangerous
   <span class="hljs-keyword">rescue</span>
-    <span class="hljs-comment"># execute if an exception is raised</span>
+    <span class="hljs-comment"># &#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x3068;&#x3053;&#x3053;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>An example with <code>ensure</code>:</p>
+<p><code>ensure</code> &#x306E;&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_method
   something_dangerous
 <span class="hljs-keyword">ensure</span>
-  <span class="hljs-comment"># always execute this</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x306F;&#x5FC5;&#x305A;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_method
   <span class="hljs-keyword">begin</span>
     something_dangerous
   <span class="hljs-keyword">ensure</span>
-    <span class="hljs-comment"># always execute this</span>
+    <span class="hljs-comment"># &#x3053;&#x3053;&#x306F;&#x5FC5;&#x305A;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h2 id="type-inference">Type inference</h2>
-<p>Variables declared inside the <code>begin</code> part of an exception handler also get the <code>Nil</code> type when considered inside a <code>rescue</code> or <code>ensure</code> body. &#x4F8B;:</p>
+<h2 id="%E5%9E%8B%E6%8E%A8%E8%AB%96">&#x578B;&#x63A8;&#x8AD6;</h2>
+<p>&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>begin</code> &#x7BC0;&#x306E;&#x4E2D;&#x3067;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x305F;&#x5909;&#x6570;&#x306F;&#x3001;<code>rescue</code> &#x307E;&#x305F;&#x306F; <code>ensure</code> &#x5185;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F; <code>Nil</code> &#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3057;&#x3066;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   a = something_dangerous_that_returns_Int32
 <span class="hljs-keyword">ensure</span>
   puts a + <span class="hljs-number">1</span> <span class="hljs-comment"># error, undefined method &apos;+&apos; for Nil</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The above happens even if <code>something_dangerous_that_returns_Int32</code> never raises, or if <code>a</code> was assigned a value and then a method that potentially raises is executed:</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x3082;&#x3057; <code>something_dangerous_that_returns_Int32</code>&#x304C;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x306A;&#x3044;&#x5834;&#x5408;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3059;&#x3002;&#x3055;&#x3089;&#x306B;&#x3001;<code>a</code> &#x306B;&#x5148;&#x306B;&#x5024;&#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x3066;&#x3001;&#x305D;&#x308C;&#x304B;&#x3089;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3067;&#x3042;&#x3063;&#x305F;&#x3068;&#x3057;&#x3066;&#x3082;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   a = <span class="hljs-number">1</span>
   something_dangerous
@@ -2083,24 +2083,24 @@ raise <span class="hljs-constant">Exception</span>.new(<span class="hljs-string"
   puts a + <span class="hljs-number">1</span> <span class="hljs-comment"># error, undefined method &apos;+&apos; for Nil</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Although it is obvious that <code>a</code> will always be assigned a value, the compiler will still think <code>a</code> might never had a chance to be initialized. Even though this logic might improve in the future, right now it forces you to keep your exception handlers to their necessary minimum, making the code&apos;s intention more clear:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># Clearer than the above: `a` doesn&apos;t need</span>
-<span class="hljs-comment"># to be in the exception handling code.</span>
+<p>&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;<code>a</code> &#x306B;&#x5E38;&#x306B;&#x5024;&#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306F;&#x660E;&#x767D;&#x306A;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x3067;&#x3082;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>a</code> &#x304C;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x3068;&#x89E3;&#x91C8;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x306F;&#x5C06;&#x6765;&#x7684;&#x306B;&#x306F;&#x6539;&#x5B9A;&#x3055;&#x308C;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x305F;&#x3060;&#x3001;&#x73FE;&#x6642;&#x70B9;&#x3067;&#x306F;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306E;&#x4E2D;&#x3067;&#x884C;&#x3046;&#x3053;&#x3068;&#x306F;&#x5FC5;&#x8981;&#x6700;&#x5C0F;&#x9650;&#x306B;&#x7559;&#x3081;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x610F;&#x56F3;&#x3092;&#x660E;&#x78BA;&#x306B;&#x3057;&#x3066;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x6C42;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x5185;&#x90E8;&#x3067; `a` &#x5BA3;&#x8A00;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;</span>
+<span class="hljs-comment"># &#x3053;&#x3046;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3067;&#x3088;&#x308A;&#x610F;&#x56F3;&#x304C;&#x660E;&#x78BA;&#x306B;&#x306A;&#x308B;</span>
 a = <span class="hljs-number">1</span>
 <span class="hljs-keyword">begin</span>
   something_dangerous
 <span class="hljs-keyword">ensure</span>
-  puts a + <span class="hljs-number">1</span> <span class="hljs-comment"># works</span>
+  puts a + <span class="hljs-number">1</span> <span class="hljs-comment"># &#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x3089;&#x306A;&#x3044;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<h2 id="alternative-ways-to-do-error-handling">Alternative ways to do error handling</h2>
-<p>Although exceptions are available as one of the mechanisms for handling errors, they are not your only choice. Raising an exception involves allocating memory, and executing an exception handler is generally slow.</p>
-<p>The standard library usually provides a couple of methods to accomplish something: one raises, one returns <code>nil</code>. &#x4F8B;:</p>
+<h2 id="%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86%E3%81%AE%E4%BB%96%E3%81%AE%E6%96%B9%E6%B3%95">&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306E;&#x4ED6;&#x306E;&#x65B9;&#x6CD5;</h2>
+<p>&#x4F8B;&#x5916;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x6A5F;&#x69CB;&#x306E;1&#x3064;&#x3067;&#x3059;&#x304C;&#x3001;&#x5FC5;&#x305A;&#x3057;&#x3082;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3067;&#x3057;&#x304B;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x306F;&#x30E1;&#x30E2;&#x30EA;&#x306E;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3092;&#x4F34;&#x3046;&#x306E;&#x3067;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306F;&#x9045;&#x304F;&#x306A;&#x308B;&#x50BE;&#x5411;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x3053;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x306B;&#x52A0;&#x3048;&#x3066;&#x3001;<code>nil</code> &#x3092;&#x8FD4;&#x3059;&#x65B9;&#x6CD5;&#x3082;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-ruby">array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
-array[<span class="hljs-number">4</span>]  <span class="hljs-comment"># raises because of IndexOutOfBounds</span>
-array[<span class="hljs-number">4</span>]? <span class="hljs-comment"># returns nil because of index out of bounds</span>
+array[<span class="hljs-number">4</span>]  <span class="hljs-comment"># IndexOutOfBounds &#x306E;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;</span>
+array[<span class="hljs-number">4</span>]? <span class="hljs-comment"># &#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x7BC4;&#x56F2;&#x5916;&#x306E;&#x305F;&#x3081; nil &#x304C;&#x8FD4;&#x308B;</span>
 </code></pre>
-<p>The usual convention is to provide an alternative &quot;question&quot; method to signal that this variant of the method returns <code>nil</code> instead of raising. This lets the user choose whether she wants to deal with exceptions or with <code>nil</code>. Note, however, that this is not avaialble for every method out there, as exceptions are still the preferred way because they don&apos;t pollute the code with error handling logic.</p>
+<p>&#x6163;&#x7FD2;&#x3068;&#x3057;&#x3066;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x4EE3;&#x308F;&#x308A;&#x306B; <code>nil</code> &#x3092;&#x8FD4;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x308C;&#x3092;&#x2019;&#x793A;&#x3059;&#x305F;&#x3081;&#x306B;&#x300C;? (&#x30AF;&#x30A8;&#x30B9;&#x30C1;&#x30E7;&#x30F3;)&#x300D;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3068;&#x3057;&#x3066;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3046;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x4F8B;&#x5916;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x304B; <code>nil</code> &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x304B;&#x3092;&#x9078;&#x629E;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x307E;&#x305F;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x306E;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x304C;&#x6DF7;&#x3056;&#x308B;&#x3053;&#x3068;&#x3088;&#x3063;&#x3066;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x6C5A;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3092;&#x907F;&#x3051;&#x308B;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3082;&#x3001;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x597D;&#x307E;&#x3057;&#x3044;&#x65B9;&#x6CD5;&#x3067;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
                     
                     </section>
@@ -2114,7 +2114,7 @@ array[<span class="hljs-number">4</span>]? <span class="hljs-comment"># returns 
         <a href="../syntax_and_semantics/declare_var.html" class="navigation navigation-prev " aria-label="Previous page: 初期化しない変数宣言"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/compile_time_flags.html" class="navigation navigation-next " aria-label="Next page: Compile-time flags"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/compile_time_flags.html" class="navigation navigation-next " aria-label="Next page: コンパイル時のフラグ"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
