@@ -1,35 +1,35 @@
-# Compile-time flags
+# コンパイル時フラグ
 
-Types, methods and generally any part of your code can be conditionally defined based on some flags available at compile time. These flags are by default the result of executing `uname -m -s`, split by whitespace and lowercased.
+タイプやメソドや一般的にコードのどの部分でもコンパイル時に利用できるフラグを基に条件定義が可能です。これらのフラグは、コンパイル時デフォールトで `uname -m -s` を実行した結果で示されます。空白で区切られた小文字のフラグです。
 
 ```bash
 $ uname -m -s
 Darwin x86_64
 
-# so the flags are: darwin, x86_64
+# この場合フラグは: darwin, x86_64 です
 ```
 
-Additionally, if a program is compiled with `--release`, the `release` flag will be true.
+さらにプログラムが`--release`オプションでコンパイルされるときには `release` フラグはtrue になります。
 
-You can test these flags with `ifdef`:
+フラグをテストするには `ifdef` を使用します:
 
 ```ruby
 ifdef x86_64
-  # some specific code for 64 bits platforms
+  # x86_64 bits　プラットフォーム用のコード
 else
-  # some specific code for non-64 bits platforms
+  # non-64 bits プラットフォーム用のコード
 end
 ```
 
-You can use `&&`, `||` and `|`:
+ `&&` 、 `||` と `|`が使用できます:
 
 ```ruby
 ifdef linux && x86_64
-  # some specific code for linux 64 bits
+  # linux と x86_64 bits プラットフォーム用のコード
 end
 ```
 
-These flags are generally used in C bindings to conditionally define types and functions. For example the very well known `size_t` type is defined like this in Crystal:
+これらフラグは一般的にはＣコードをバインデイングする時に type や function を条件定義するときに使われます。例として、よく知られた `size_t` の type は Crystal ではこのように定義されます：
 
 ```ruby
 lib C
@@ -41,12 +41,12 @@ lib C
 end
 ```
 
-**Note:** conditionally defining fields of a C struct or union is not currently supported. The whole type definition must be defined separately.
+**注意:** Ｃの構造体やユニオンのフィールドに関する条件定義は現在サポートされていません。全体の type 定義のためには別々に定義がされなければなりません
 
 ```ruby
 lib C
   struct SomeStruct
-    # Error: the next line gives a parser error
+    # エラー: the next line gives a parser error
     ifdef linux
       some_field : Int32
     else
@@ -67,4 +67,4 @@ lib C
 end
 ```
 
-This restriction might be lifted in the future.
+この制約は将来取り除かれるかもしれません。
