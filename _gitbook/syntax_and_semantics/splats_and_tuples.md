@@ -1,6 +1,6 @@
-# Splats and tuples
+# splat 展開とタプル
 
-A method can receive a variable number of arguments by using a *splat* (`*`), which can appear only once and in any position:
+メソッドは、「splat 展開 (`*`)」を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずどの場所にでも指定可能です。
 
 ```ruby
 def sum(*elements)
@@ -15,12 +15,12 @@ sum 1, 2, 3    #=> 6
 sum 1, 2, 3, 4.5 #=> 10.5
 ```
 
-The passed arguments become a [Tuple](http://crystal-lang.org/api/Tuple.html) in the method's body:
+渡された引数はメソッドの中で[タプル (Tuple)](http://crystal-lang.org/api/Tuple.html) として扱うことができます。
 
 ```ruby
-# elements is Tuple(Int32, Int32, Int32)
+# Tuple(Int32, Int32, Int32)
 sum 1, 2, 3
 
-# elements is Tuple(Int32, Int32, Int32, Float64)
+# Tuple(Int32, Int32, Int32, Float64)
 sum 1, 2, 3, 4.5
 ```
