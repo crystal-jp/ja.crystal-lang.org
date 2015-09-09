@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Cross-compilation | プログラミング言語 Crystal</title>
+        <title>クロスコンパイル | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.13.1" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
+    <div class="book" data-level="4.13.1" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -989,7 +989,7 @@
                         
                             <b>4.7.3.8.</b>
                         
-                        Return types
+                        戻り値の型
                     </a>
                 
             
@@ -1004,7 +1004,7 @@
                         
                             <b>4.7.3.9.</b>
                         
-                        Operators
+                        演算子
                     </a>
                 
             
@@ -1019,7 +1019,7 @@
                         
                             <b>4.7.3.10.</b>
                         
-                        Visibility
+                        可視性
                     </a>
                 
             
@@ -1504,7 +1504,7 @@
                         
                             <b>4.13.1.</b>
                         
-                        Cross-compilation
+                        クロスコンパイル
                     </a>
                 
             
@@ -1927,30 +1927,30 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="cross-compilation">Cross-compilation</h1>
-<p>Crystal supports a basic form of <a href="http://en.wikipedia.org/wiki/Cross_compiler" target="_blank">cross compilation</a>.</p>
-<p>In order to achieve this, the compiler executable provides two flags:</p>
+                        <h1 id="%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB">&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;</h1>
+<p>Crystal &#x306F;&#x57FA;&#x672C;&#x7684;&#x306A;<a href="http://en.wikipedia.org/wiki/Cross_compiler" target="_blank">&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;</a>&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x306E;&#x305F;&#x3081;&#x306B;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x4EE5;&#x4E0B;&#x306E;2&#x3064;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li><code>--cross-compile</code>: the <a href="compile_time_flags.html">compile-time flags</a> to use</li>
-<li><code>--target</code>: the <a href="http://llvm.org/docs/LangRef.html#target-triple" target="_blank">LLVM Target Triple</a> to use</li>
+<li><code>--cross-compile</code>: the <a href="compile_time_flags.html">compile-time flags</a></li>
+<li><code>--target</code>: the <a href="http://llvm.org/docs/LangRef.html#target-triple" target="_blank">LLVM Target Triple</a></li>
 </ul>
-<p>To get the <code>--cross-compile</code> flags you can execute <code>uname -m -s</code> on a unix system. For example, if you are on a Mac, the <code>uname -m -s</code> command says &quot;Darwin x86_64&quot;. On some linux 64 bits it will say &quot;Linux x86_64&quot;.</p>
-<p>To get the <code>--target</code> flags you can execute <code>llvm-config --host-target</code> using an installed LLVM 3.5. For example on a Linux it could say &quot;x86_64-unknown-linux-gnu&quot;.</p>
-<p>Using these two, we can compile a program in a Mac that will run on that Linux like this:</p>
+<p><code>--cross-compile</code> &#x30D5;&#x30E9;&#x30B0;&#x306F;&#x3001;UNIX &#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3067;&#x306F; <code>uname -m -s</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x7D50;&#x679C;&#x304B;&#x3089;&#x77E5;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070; Mac &#x306E;&#x5834;&#x5408;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;<code>uname -m -s</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x7D50;&#x679C;&#x306F; &quot;Darwin x86_64&quot; &#x3067;&#x3059;&#x3002;64&#x30D3;&#x30C3;&#x30C8;&#x306E; Linux &#x3067;&#x3042;&#x308C;&#x3070;&#x305D;&#x306E;&#x7D50;&#x679C;&#x306F; &quot;Linux x86_64&quot; &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E00;&#x65B9;&#x3001;<code>--target</code> &#x30D5;&#x30E9;&#x30B0;&#x3092;&#x5F97;&#x308B;&#x306B;&#x306F;&#x3001;LLVM 3.5 &#x3092;&#x4F7F;&#x3063;&#x3066; <code>llvm-config --host-target</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;Linux &#x3067;&#x3042;&#x308C;&#x3070; &quot;x86_64-unknown-linux-gnu&quot; &#x3068;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3089;&#x306E;2&#x3064;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;Linux &#x3067;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092; Mac &#x4E0A;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-bash">crystal build your_program.cr --cross-compile <span class="hljs-string">&quot;Linux x86_64&quot;</span> --target <span class="hljs-string">&quot;x86_64-unknown-linux-gnu&quot;</span>
 </code></pre>
-<p>This will generate a <code>.o</code> (<a href="http://en.wikipedia.org/wiki/Object_file" target="_blank">Object file</a>) and will print a line with a command to execute on the system we are trying to cross-compile to. &#x4F8B;:</p>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;<code>.o</code> (<a href="http://en.wikipedia.org/wiki/Object_file" target="_blank">&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</a>) &#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x3001;&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306E;&#x5BFE;&#x8C61;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x4E0A;&#x3067;&#x5B9F;&#x884C;&#x3059;&#x3079;&#x304D;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-bash">cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind
 </code></pre>
-<p>You must copy this <code>.o</code> file to that system and execute those commands. Once you do this the executable will be available in that target system.</p>
-<p>This procedure is usually done with the compiler itself to port it to new platforms where a compiler is not yet available. Because in order to compile a Crystal compiler we need an older Crystal compiler, the only two ways to generate a compiler for a system where there isn&apos;t a compiler yet are:</p>
+<p><code>.o</code> &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x5BFE;&#x8C61;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x4E0A;&#x306B;&#x30B3;&#x30D4;&#x30FC;&#x3057;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305D;&#x3046;&#x3059;&#x308B;&#x3068;&#x3001;&#x5BFE;&#x8C61;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x4E0A;&#x306B;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x4F5C;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x3001;&#x307E;&#x3060;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x5165;&#x624B;&#x3067;&#x304D;&#x306A;&#x3044;&#x65B0;&#x3057;&#x3044;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x81EA;&#x4F53;&#x3092;&#x79FB;&#x690D;&#x3059;&#x308B;&#x969B;&#x306B;&#x3053;&#x306E;&#x624B;&#x9806;&#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x53E4;&#x3044; Crystal &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x307E;&#x3060;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x5165;&#x624B;&#x3067;&#x304D;&#x306A;&#x3044;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;2&#x3064;&#x306E;&#x65B9;&#x6CD5;&#x3057;&#x304B;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <ul>
-<li>We checkout the latest version of the compiler written in Ruby, and from that compiler we compile the next versions until the current one.</li>
-<li>We create a <code>.o</code> file in the target system and from that file we create a compile.</li>
+<li>Ruby &#x3067;&#x66F8;&#x304B;&#x308C;&#x305F;&#x6700;&#x65B0;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x5165;&#x624B;&#x3057;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3001;&#x305D;&#x308C;&#x3092;&#x73FE;&#x5728;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x307E;&#x3067;&#x7E70;&#x308A;&#x8FD4;&#x3059;</li>
+<li>&#x5BFE;&#x8C61;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x7528;&#x306E; <code>.o</code> &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x751F;&#x6210;&#x3057;&#x3001;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;</li>
 </ul>
-<p>The first alternative is long and cumbersome, while the second one is much easier.</p>
-<p>Cross-compiling can be done for other executables, but its main target is the compiler. If Crystal isn&apos;t available in some system you can try cross-compiling it there.</p>
-<p><strong>Note:</strong> there currently isn&apos;t a way to add more compile-time flags and not do a cross-compile at the same time.</p>
+<p>&#x6700;&#x521D;&#x306E;&#x65B9;&#x6CD5;&#x306F;&#x975E;&#x5E38;&#x306B;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308A;&#x9762;&#x5012;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306B;&#x6BD4;&#x3079;&#x3066;2&#x756A;&#x76EE;&#x306E;&#x65B9;&#x6CD5;&#x305A;&#x3063;&#x3068;&#x306F;&#x7C21;&#x5358;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306F;&#x4ED6;&#x306E;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x304C;&#x3001;&#x4E3B;&#x306A;&#x76EE;&#x7684;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x751F;&#x6210;&#x3067;&#x3059;&#x3002;&#x3082;&#x3057;&#x3001;&#x3042;&#x308B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x5229;&#x7528;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x306E;&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3092;&#x8A66;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;:</strong> &#x73FE;&#x5728;&#x306E;&#x3068;&#x3053;&#x308D;&#x3001;&#x4ED6;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x305A;&#x3001;&#x30AF;&#x30ED;&#x30B9;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x540C;&#x6642;&#x306B;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 
                     
                     </section>
