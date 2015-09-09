@@ -39,7 +39,7 @@ The pipe (`|`) in types creates a union type. `Int32 | String` is read "Int32 or
 alias Int32OrNil = Int32?
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```ruby
 alias Int32OrNil = Int32 | ::Nil
@@ -53,7 +53,7 @@ In regular code, `Int32?` is a syntax error.
 alias Int32Ptr = Int32*
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```ruby
 alias Int32 = Pointer(Int32)
@@ -67,7 +67,7 @@ In regular code, `Int32*` means invoking the `*` method on `Int32`.
 alias Int32_8 = Int32[8]
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```ruby
 alias Int32_8 = StaticArray(Int32, 8)
@@ -81,7 +81,7 @@ In regular code, `Int32[8]` means invoking the `[]` method on `Int32` with `8` a
 alias Int32StringTuple = {Int32, String}
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```ruby
 alias Int32StringTuple = Tuple(Int32, String)
@@ -95,7 +95,7 @@ In regular code, `{Int32, String}` is a tuple instance containing `Int32` and `S
 alias Int32ToString = Int32 -> String
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```ruby
 alias Int32ToString = Proc(Int32, String)
