@@ -91,7 +91,7 @@
        * [初期化しない変数宣言](syntax_and_semantics/declare_var.md)
    * [例外処理](syntax_and_semantics/exception_handling.md)
    * [コンパイル時のフラグ](syntax_and_semantics/compile_time_flags.md)
-       * [Cross-compilation](syntax_and_semantics/cross-compilation.md)
+       * [クロスコンパイル](syntax_and_semantics/cross-compilation.md)
    * [Macros](syntax_and_semantics/macros.md)
        * [Macro methods](syntax_and_semantics/macros/macro_methods.md)
        * [Hooks](syntax_and_semantics/macros/hooks.md)
