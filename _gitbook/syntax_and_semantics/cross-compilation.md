@@ -1,36 +1,38 @@
-# Cross-compilation
+# クロスコンパイル
 
-Crystal supports a basic form of [cross compilation](http://en.wikipedia.org/wiki/Cross_compiler).
+Crystal は基本的な [クロスコンパイル](http://en.wikipedia.org/wiki/Cross_compiler) をサポートしています
 
-In order to achieve this, the compiler executable provides two flags:
+これを実現するため、コンパイラは２つのフラグを用意しています：
 
-* `--cross-compile`: the [compile-time flags](compile_time_flags.html) to use
-* `--target`: the [LLVM Target Triple](http://llvm.org/docs/LangRef.html#target-triple) to use
+* `--cross-compile`: [コンパイル時フラグ](compile_time_flags.html) を使う
+* `--target`: [LLVM の Target Triple](http://llvm.org/docs/LangRef.html#target-triple) を使う
 
-To get the `--cross-compile` flags you can execute `uname -m -s` on a unix system. For example, if you are on a Mac, the `uname -m -s` command says "Darwin x86_64". On some linux 64 bits it will say "Linux x86_64".
+ `--cross-compile` 実行時は unix system で言う `uname -m -s` のフラグを使用できます。　例えばあなたが Mac を利用するのであれば、 `uname -m -s` コマンド結果は "Darwin x86_64" を示し、 linux 64 bits では "Linux x86_64" を示します。
 
-To get the `--target` flags you can execute `llvm-config --host-target` using an installed LLVM 3.5. For example on a Linux it could say "x86_64-unknown-linux-gnu".
+ `--target` フラグを知るにはインストールされた LLVM 3.5 を使用して `llvm-config --host-target` を実行します。例えば Linux では "x86_64-unknown-linux-gnu" が得られます。
 
-Using these two, we can compile a program in a Mac that will run on that Linux like this:
+これらの２つのフラグを用いれば、私たちは Mac で以下のようにすれば、先ほどの Linux で実行可能なプログラムをコンパイルする事が出来ます。
 
 ```bash
 crystal build your_program.cr --cross-compile "Linux x86_64" --target "x86_64-unknown-linux-gnu"
 ```
 
-This will generate a `.o` ([Object file](http://en.wikipedia.org/wiki/Object_file)) and will print a line with a command to execute on the system we are trying to cross-compile to. 例:
+これで１つの `.o` ([オブジェクトファイル](http://en.wikipedia.org/wiki/Object_file)) を生成し、また我々がクロスコンパイルしようとしているシステムでコマンドがでどのように実行するとよいか１行で表示します。例:
 
 ```bash
 cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind
 ```
 
-You must copy this `.o` file to that system and execute those commands. Once you do this the executable will be available in that target system.
+あなたはこの `.o` ファイルをそのターゲットシステムにコピーし、これらのコマンドを実行します。これを一度行えばターゲットシステムで実行可能なファイルが使用可能になります。
 
-This procedure is usually done with the compiler itself to port it to new platforms where a compiler is not yet available. Because in order to compile a Crystal compiler we need an older Crystal compiler, the only two ways to generate a compiler for a system where there isn't a compiler yet are:
-* We checkout the latest version of the compiler written in Ruby, and from that compiler we compile the next versions until the current one.
-* We create a `.o` file in the target system and from that file we create a compile.
+この手順は通常コンパイラが自分自身を新しい未だコンパイラが使用可能でないプラットフォームに移植する時に行われます。 Crystal コンパイラをコンパイルするには古い Crystal コンパイラが必要です。未だコンパイラの存在しないシステムでコンパイラを生成するには２つの方法しかありません。
 
-The first alternative is long and cumbersome, while the second one is much easier.
+* Ruby で書かれた最新の コンパイラを完成させ、それを使って次のバージョンのコンパイラをコンパイルし、それを現在のバージョンまで繰り返す
+* ターゲットシステム用の`.o` ファイルを生成し、そのファイルからコンパイラを生成する
 
-Cross-compiling can be done for other executables, but its main target is the compiler. If Crystal isn't available in some system you can try cross-compiling it there.
+最初の方法は、時間がかかり面倒です。２番目の方法はずっと楽です。
 
-**Note:** there currently isn't a way to add more compile-time flags and not do a cross-compile at the same time.
+クロスコンンパイルはどんな実行可能ファイルも生成できます。しかし主な目的はコンパイラを生成することです。もしも或るシステムで Crystal コンパイラが利用できない場合、このクロスコンパイルをトライしてみてください
+
+**注意:** 現在はこれ以上のコンパイル時フラグを追加する方策が無いこともあり、クロスコンパイルを一度に行うことはしていません。
+
