@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Operators | プログラミング言語 Crystal</title>
+        <title>演算子 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.9" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.9" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -989,7 +989,7 @@
                         
                             <b>4.7.3.8.</b>
                         
-                        Return types
+                        戻り値の型
                     </a>
                 
             
@@ -1004,7 +1004,7 @@
                         
                             <b>4.7.3.9.</b>
                         
-                        Operators
+                        演算子
                     </a>
                 
             
@@ -1019,7 +1019,7 @@
                         
                             <b>4.7.3.10.</b>
                         
-                        Visibility
+                        可視性
                     </a>
                 
             
@@ -1504,7 +1504,7 @@
                         
                             <b>4.13.1.</b>
                         
-                        Cross-compilation
+                        クロスコンパイル
                     </a>
                 
             
@@ -1927,14 +1927,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="operators">Operators</h1>
-<p>Operators like <code>+</code> and <code>-</code> are regular method calls. &#x4F8B;:</p>
+                        <h1 id="%E6%BC%94%E7%AE%97%E5%AD%90">&#x6F14;&#x7B97;&#x5B50;</h1>
+<p><code>+</code> &#x3084; <code>-</code> &#x306A;&#x3069;&#x306E;&#x6F14;&#x7B97;&#x5B50;&#x306F;&#x3001;&#x5B9F;&#x306F;&#x666E;&#x901A;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
 <pre><code class="lang-ruby">a + b
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a.+(b)
 </code></pre>
-<p>You can define an operator for a type like this:</p>
+<p>&#x3042;&#x308B;&#x578B;&#x306B;&#x6F14;&#x7B97;&#x5B50;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">struct <span class="hljs-constant">Vector2</span>
   getter x, y
 
@@ -1950,14 +1950,14 @@ v1 = <span class="hljs-constant">Vector2</span>.new(<span class="hljs-number">1<
 v2 = <span class="hljs-constant">Vector2</span>.new(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
 v1 + v2               <span class="hljs-comment">#=&gt; Vector2(<span class="hljs-yardoctag">@x</span>=4, <span class="hljs-yardoctag">@y</span>=6)</span>
 </code></pre>
-<p>Next follows the full list of operators with their usual meaning.</p>
-<h2 id="unary-operators">Unary operators</h2>
-<pre><code class="lang-ruby">+   <span class="hljs-comment"># positive</span>
--   <span class="hljs-comment"># negative</span>
-!   <span class="hljs-comment"># not</span>
-~   <span class="hljs-comment"># bitwise complement</span>
+<p>&#x3053;&#x308C;&#x304B;&#x3089;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x6F14;&#x7B97;&#x5B50;&#x3092;&#x3001;&#x305D;&#x306E;&#x4E00;&#x822C;&#x7684;&#x306A;&#x7528;&#x9014;&#x3068;&#x3042;&#x308F;&#x305B;&#x3066;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E5%8D%98%E9%A0%85%E6%BC%94%E7%AE%97%E5%AD%90">&#x5358;&#x9805;&#x6F14;&#x7B97;&#x5B50;</h2>
+<pre><code class="lang-ruby">+   <span class="hljs-comment"># &#x6B63;&#x6570;</span>
+-   <span class="hljs-comment"># &#x8CA0;&#x6570;</span>
+!   <span class="hljs-comment"># &#x5426;&#x5B9A;</span>
+~   <span class="hljs-comment"># &#x30D3;&#x30C3;&#x30C8;&#x306E;&#x88DC;&#x6570;</span>
 </code></pre>
-<p>These are defined without arguments. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3089;&#x306F;&#x5F15;&#x6570;&#x3092;&#x6301;&#x305F;&#x306A;&#x3044;&#x3082;&#x306E;&#x3068;&#x3057;&#x3066;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">struct <span class="hljs-constant">Vector2</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>-
     <span class="hljs-constant">Vector2</span>.new(-x, -y)
@@ -1967,32 +1967,32 @@ v1 + v2               <span class="hljs-comment">#=&gt; Vector2(<span class="hlj
 v1 = <span class="hljs-constant">Vector2</span>.new(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
 -v1                    <span class="hljs-comment">#=&gt; Vector2(<span class="hljs-yardoctag">@x</span>=-1, <span class="hljs-yardoctag">@y</span>=-2)</span>
 </code></pre>
-<h2 id="binary-operators">Binary operators</h2>
-<pre><code class="lang-ruby">+   <span class="hljs-comment"># addition</span>
--   <span class="hljs-comment"># subtraction</span>
-*   <span class="hljs-comment"># multiplication</span>
-/   <span class="hljs-comment"># division</span>
-%   <span class="hljs-comment"># modulo</span>
-!   <span class="hljs-comment"># negation</span>
-&amp;   <span class="hljs-comment"># bitwise and</span>
-|   <span class="hljs-comment"># bitwise or</span>
-^   <span class="hljs-comment"># bitwise xor</span>
-**  <span class="hljs-comment"># exponentiation</span>
-&lt;&lt;  <span class="hljs-comment"># shift left, append</span>
-<span class="hljs-prompt">&gt;&gt;</span>  <span class="hljs-comment"># shift right</span>
-==  <span class="hljs-comment"># equals</span>
-!=  <span class="hljs-comment"># not equals</span>
-&lt;   <span class="hljs-comment"># less</span>
-&lt;=  <span class="hljs-comment"># less or equal</span>
-&gt;   <span class="hljs-comment"># greater</span>
-&gt;=  <span class="hljs-comment"># greater or equal</span>
+<h2 id="2%E9%A0%85%E6%BC%94%E7%AE%97%E5%AD%90">2&#x9805;&#x6F14;&#x7B97;&#x5B50;</h2>
+<pre><code class="lang-ruby">+   <span class="hljs-comment"># &#x52A0;&#x7B97;</span>
+-   <span class="hljs-comment"># &#x6E1B;&#x7B97;</span>
+*   <span class="hljs-comment"># &#x4E57;&#x7B97;</span>
+/   <span class="hljs-comment"># &#x9664;&#x7B97;</span>
+%   <span class="hljs-comment"># &#x5270;&#x4F59;</span>
+!   <span class="hljs-comment"># &#x5426;&#x5B9A;</span>
+&amp;   <span class="hljs-comment"># &#x30D3;&#x30C3;&#x30C8; AND</span>
+|   <span class="hljs-comment"># &#x30D3;&#x30C3;&#x30C8; OR</span>
+^   <span class="hljs-comment"># &#x30D3;&#x30C3;&#x30C8; XOR</span>
+**  <span class="hljs-comment"># &#x3079;&#x304D;&#x4E57;</span>
+&lt;&lt;  <span class="hljs-comment"># &#x5DE6;&#x30B7;&#x30D5;&#x30C8;/&#x8FFD;&#x52A0;</span>
+<span class="hljs-prompt">&gt;&gt;</span>  <span class="hljs-comment"># &#x53F3;&#x30B7;&#x30D5;&#x30C8;</span>
+==  <span class="hljs-comment"># &#x7B49;&#x3057;&#x3044;</span>
+!=  <span class="hljs-comment"># &#x7B49;&#x3057;&#x304F;&#x306A;&#x3044;</span>
+&lt;   <span class="hljs-comment"># &#x672A;&#x6E80; (&#x301C;&#x3088;&#x308A;&#x5C0F;&#x3055;&#x3044;)</span>
+&lt;=  <span class="hljs-comment"># &#x4EE5;&#x4E0B;</span>
+&gt;   <span class="hljs-comment"># &#x8D85; (&#x301C;&#x3088;&#x308A;&#x5927;&#x304D;&#x3044;)</span>
+&gt;=  <span class="hljs-comment"># &#x4EE5;&#x4E0A;</span>
 &lt;=&gt; <span class="hljs-comment"># comparison</span>
 === <span class="hljs-comment"># case equality</span>
 </code></pre>
-<h2 id="indexing">Indexing</h2>
-<pre><code class="lang-ruby">[]  <span class="hljs-comment"># array index (raises on out of bounds)</span>
-[]? <span class="hljs-comment"># array index (nil on out of bounds)</span>
-[]= <span class="hljs-comment"># array index assignment</span>
+<h2 id="%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9">&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;</h2>
+<pre><code class="lang-ruby">[]  <span class="hljs-comment"># &#x914D;&#x5217;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9; (&#x914D;&#x5217;&#x9577;&#x3092;&#x8D85;&#x3048;&#x308B;&#x3068;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;)</span>
+[]? <span class="hljs-comment"># &#x914D;&#x5217;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9; (&#x914D;&#x5217;&#x9577;&#x3092;&#x8D85;&#x3048;&#x308B;&#x3068; nil)</span>
+[]= <span class="hljs-comment"># &#x914D;&#x5217;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x6307;&#x5B9A;&#x4EE3;&#x5165;</span>
 </code></pre>
 <p>&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyArray</span></span>
@@ -2011,16 +2011,16 @@ v1 = <span class="hljs-constant">Vector2</span>.new(<span class="hljs-number">1<
 
 array = <span class="hljs-constant">MyArray</span>.new
 
-array[<span class="hljs-number">1</span>]       <span class="hljs-comment"># invokes the first method</span>
-array[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] <span class="hljs-comment"># invokes the second method</span>
-array[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>   <span class="hljs-comment"># invokes the third method</span>
+array[<span class="hljs-number">1</span>]       <span class="hljs-comment"># 1&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
+array[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] <span class="hljs-comment"># 2&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
+array[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span>   <span class="hljs-comment"># 3&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
 
-array.[](<span class="hljs-number">1</span>)       <span class="hljs-comment"># invokes the first method</span>
-array.[](<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment"># invokes the second method</span>
-array.[]=(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)   <span class="hljs-comment"># invokes the third method</span>
+array.[](<span class="hljs-number">1</span>)       <span class="hljs-comment"># 1&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
+array.[](<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment"># 2&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
+array.[]=(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)   <span class="hljs-comment"># 3&#x3064;&#x76EE;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;</span>
 </code></pre>
-<h2 id="meaning">Meaning</h2>
-<p>One can assign any meaning to the operators, but the convention is to follow the above ones to avoid cryptic code, or code that behaves in an unexpected way.</p>
+<h2 id="%E6%BC%94%E7%AE%97%E5%AD%90%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">&#x6F14;&#x7B97;&#x5B50;&#x306E;&#x610F;&#x5473;&#x306B;&#x3064;&#x3044;&#x3066;</h2>
+<p>&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3001;&#x6F14;&#x7B97;&#x5B50;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5185;&#x5BB9;&#x306E;&#x51E6;&#x7406;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x81EA;&#x7531;&#x306B;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x4E0A;&#x8A18;&#x3057;&#x305F;&#x6F14;&#x7B97;&#x5B50;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x610F;&#x5473;&#x306B;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x6163;&#x7FD2;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x8907;&#x96D1;&#x3067;&#x8AAD;&#x307F;&#x3065;&#x3089;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x3084;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x60F3;&#x5B9A;&#x5916;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x3053;&#x3068;&#x3092;&#x907F;&#x3051;&#x308B;&#x610F;&#x5473;&#x3067;&#x91CD;&#x8981;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -2031,10 +2031,10 @@ array.[]=(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/return_types.html" class="navigation navigation-prev " aria-label="Previous page: Return types"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/return_types.html" class="navigation navigation-prev " aria-label="Previous page: 戻り値の型"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/visibility.html" class="navigation navigation-next " aria-label="Next page: Visibility"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/visibility.html" class="navigation navigation-next " aria-label="Next page: 可視性"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.16" data-basepath=".." data-revision="Tue Sep 08 2015 13:46:41 GMT+0900 (JST)">
+    <div class="book" data-level="4.16" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -989,7 +989,7 @@
                         
                             <b>4.7.3.8.</b>
                         
-                        Return types
+                        戻り値の型
                     </a>
                 
             
@@ -1004,7 +1004,7 @@
                         
                             <b>4.7.3.9.</b>
                         
-                        Operators
+                        演算子
                     </a>
                 
             
@@ -1019,7 +1019,7 @@
                         
                             <b>4.7.3.10.</b>
                         
-                        Visibility
+                        可視性
                     </a>
                 
             
@@ -1504,7 +1504,7 @@
                         
                             <b>4.13.1.</b>
                         
-                        Cross-compilation
+                        クロスコンパイル
                     </a>
                 
             
@@ -1955,35 +1955,35 @@
 <h2 id="nilable">Nilable</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrNil</span> = <span class="hljs-constant">Int32</span>?
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrNil</span> = <span class="hljs-constant">Int32</span> | <span class="hljs-constant">::Nil</span>
 </code></pre>
 <p>In regular code, <code>Int32?</code> is a syntax error.</p>
 <h2 id="pointer">Pointer</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32Ptr</span> = <span class="hljs-constant">Int32</span>*
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32</span> = <span class="hljs-constant">Pointer</span>(<span class="hljs-constant">Int32</span>)
 </code></pre>
 <p>In regular code, <code>Int32*</code> means invoking the <code>*</code> method on <code>Int32</code>.</p>
 <h2 id="staticarray">StaticArray</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32_8</span> = <span class="hljs-constant">Int32</span>[<span class="hljs-number">8</span>]
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32_8</span> = <span class="hljs-constant">StaticArray</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-number">8</span>)
 </code></pre>
 <p>In regular code, <code>Int32[8]</code> means invoking the <code>[]</code> method on <code>Int32</code> with <code>8</code> as an argument.</p>
 <h2 id="tuple">Tuple</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32StringTuple</span> = {<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>}
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32StringTuple</span> = <span class="hljs-constant">Tuple</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>)
 </code></pre>
 <p>In regular code, <code>{Int32, String}</code> is a tuple instance containing <code>Int32</code> and <code>String</code> as its elements. This is different than the above tuple <strong>type</strong>.</p>
 <h2 id="proc">Proc</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32ToString</span> = <span class="hljs-constant">Int32</span> -&gt; <span class="hljs-constant">String</span>
 </code></pre>
-<p>is the same as:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32ToString</span> = <span class="hljs-constant">Proc</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>)
 </code></pre>
 <p>To specify a Proc without arguments:</p>
