@@ -1,11 +1,11 @@
 # finalize
 
-If a class defines a `finalize` method, when an instance of that class is garbage-collected that method will be invoked:
+もしクラスに `finalize` メソッドが定義されていた場合、そのクラスのインスタンスがガベージコレクトされるときにそのメソッドが実行されます。
 
 ```ruby
 class Foo
   def finalize
-    # Invoked when Foo is garbage-collected
+    # Foo がガベージコレクトされるときに実行される
     puts "Bye bye from #{self}!"
   end
 end
@@ -16,4 +16,4 @@ loop do
 end
 ```
 
-**Note:** the `finalize` method will only be invoked once the object has been fully initialized via the `initialize` method. If an exception is raised inside the `initialize` method, `finalize` won't be invoked. If your class defines a finalizer, be sure to catch any exceptions that might be raised in the `initialize` methods and free resources.
+**注意:** `finalize` が実行されるのは、オブジェクトが `initialize` メソッドによって完全に初期化されていた場合に限ります。もし `initialize` メソッドで例外が発生したとき、`finalize` は実行されません。もしクラスに `finalize` を定義する場合は、必ず `initialize` メソッドで発生し得る例外を捕捉して、リソースの開放をするようにしてください。

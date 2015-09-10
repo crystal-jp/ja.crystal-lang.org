@@ -1,6 +1,6 @@
 # is_a?
 
-The pseudo-method `is_a?` determines whether a type inherits or includes another type. 例:
+The pseudo-method `is_a?` determines whether a type inherits or includes another type. 例をあげます。
 
 ```ruby
 a = 1

@@ -1,6 +1,6 @@
 # Enums
 
-An enum is a set of integer values, where each value has an associated name. 例:
+An enum is a set of integer values, where each value has an associated name. 例をあげます。
 
 ```ruby
 enum Color
@@ -71,7 +71,7 @@ IOMode::None.value #=> 0
 IOMode::All.value  #=> 7
 ```
 
-Additionally, some `Enum` methods check the `@[Flags]` method. 例:
+Additionally, some `Enum` methods check the `@[Flags]` method. 例をあげます。
 
 ```ruby
 puts(Color::Red)                    # prints "Red"

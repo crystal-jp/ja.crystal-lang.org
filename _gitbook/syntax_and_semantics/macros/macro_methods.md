@@ -1,6 +1,6 @@
 # Macro methods
 
-Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. 例:
+Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. 例をあげます。
 
 ```ruby
 class Object

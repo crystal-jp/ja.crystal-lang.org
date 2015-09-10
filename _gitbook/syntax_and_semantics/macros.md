@@ -1,7 +1,7 @@
 # Macros
 
 Macros are methods that receive AST nodes at compile-time and produce
-code that is pasted into a program. 例:
+code that is pasted into a program. 例をあげます。
 
 ```ruby
 macro define_method(name, content)
@@ -208,7 +208,7 @@ Note that `@type` is always the *instance* type, even when the macro is invoked 
 
 ### Constants
 
-Macros can access constants. 例:
+Macros can access constants. 例をあげます。
 
 ```ruby
 VALUES = [1, 2, 3]

@@ -93,7 +93,7 @@ Little did we know that `typeof` would bring a lot of power to the language.
 
 ## Simple uses of typeof
 
-One obvious use-case of typeof is to ask the compiler the inferred type of an expression. 例:
+One obvious use-case of typeof is to ask the compiler the inferred type of an expression. 例をあげます。
 
 {% highlight ruby %}
 puts typeof(1) #=> Int32

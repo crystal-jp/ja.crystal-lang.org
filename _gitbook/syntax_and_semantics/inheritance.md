@@ -1,8 +1,8 @@
-# Inheritance
+# 継承
 
-Every class except `Object`, the hierarchy root, inherits from another class (its superclass). If you don't specify one it defaults to `Reference` for classes and `Struct` for structs.
+クラス階層のルートクラスである `Object` を除き、すべてのクラスは他のクラス (スーパークラス) を継承しています。継承元を明示的に指定せず定義した場合、クラスであれば `Reference` を、構造体であれば `Struct` がスーパークラスになります。
 
-A class inherits all instance variables and all instance and class methods of a superclass, including its constructors (`new` and `initialize`).
+クラスを継承したとき、すべてのインスタンス変数、およびインスタンスメソッドとクラスメソッドがスーパースラスから引き継がれます。その中にはコンストラクタ (`new` と `initialize`) も含まれます。
 
 ```ruby
 class Person
@@ -21,7 +21,7 @@ employee = Employee.new "John"
 employee.greet # "Hi, I'm John"
 ```
 
-If a class defines a `new` or `initialize` then its superclass constructors are not inherited:
+もしクラスに `new` や `initialize` が定義されると、スーパークラスのコンストラクタは継承されません。
 
 ```ruby
 class Person
@@ -35,11 +35,11 @@ class Employee < Person
 end
 
 Employee.new "John", "Acme" # OK
-Employee.new "Peter" # Error: wrong number of arguments
-                     # for 'Employee:Class#new' (1 for 2)
+Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると
+                     # wrong number of arguments のエラーが発生
 ```
 
-You can override methods in a derived class:
+派生クラスではメソッドをオーバーライドすることが可能です。
 
 ```ruby
 class Person
@@ -61,7 +61,7 @@ e = Employee.new
 e.greet "everyone" # "Hello, everyone"
 ```
 
-Instead of overriding you can define specialized methods by using type restrictions:
+オーバーライドの代わりに、型制約を利用して派生クラスに特化したメソッドを定義することもできます。
 
 ```ruby
 class Person
@@ -84,7 +84,7 @@ e.greet 1 # "Hi, this is a number: 1"
 
 ## super
 
-You can invoke a superclass' method using `super`. Without arguments and without parentheses, all of a method's arguments are forwarded to the parent call:
+`super` を使うと、スーパークラスのメソッドを実行することが可能です。引数とカッコなしで実行すると、メソッドの引数がそのまま親メソッドに渡されます。
 
 ```ruby
 class Person
@@ -101,4 +101,4 @@ class Employee < Person
 end
 ```
 
-Without arguments nor parenthesis, `super` receives the same arguments as the method's arguments. 上記に当てはまらない場合には、指定した引数が渡されます。
+`super` を引数なし、かつカッコもなしで実行したとき、そのメソッドが受け取った引数がそのまま渡されます。上記に当てはまらない場合には、指定した引数が渡されます。

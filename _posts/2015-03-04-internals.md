@@ -143,7 +143,7 @@ This makes symbols very attractive to use for small groups of constants, because
 
 ### Pointer
 
-A Pointer is a generic type that represents a typed pointer to some memory location. 例:
+A Pointer is a generic type that represents a typed pointer to some memory location. 例をあげます。
 
 {% highlight ruby %}
 x = Pointer(Int32).malloc(1_u64)
@@ -245,7 +245,7 @@ and also comfortable to use and to debug with (like, you get names instead of nu
 
 ### Proc
 
-A Proc is a function pointer with an optional closure data information. 例:
+A Proc is a function pointer with an optional closure data information. 例をあげます。
 
 {% highlight ruby %}
 f = ->(x : Int32) { x + 1 }
