@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14.1" data-basepath="../.." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.14.1" data-basepath="../.." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="macro-methods">Macro methods</h1>
-<p>Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. &#x4F8B;:</p>
+<p>Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Object</span></span>
   macro <span class="hljs-function"><span class="hljs-keyword">def</span> </span>instance_vars_names <span class="hljs-symbol">:</span> <span class="hljs-constant">Array</span>(<span class="hljs-constant">String</span>)
     {{ <span class="hljs-variable">@type</span>.instance_vars.map &amp;.name.stringify }}

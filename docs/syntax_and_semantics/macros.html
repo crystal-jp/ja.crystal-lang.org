@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.14" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1929,7 +1929,7 @@
                     
                         <h1 id="macros">Macros</h1>
 <p>Macros are methods that receive AST nodes at compile-time and produce
-code that is pasted into a program. &#x4F8B;:</p>
+code that is pasted into a program. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">macro define_method(name, content)
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>{{name}}
     {{content}}
@@ -2085,7 +2085,7 @@ println <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, 
 <p>When a macro is invoked you can access the current scope, or type, with a special instance variable: <code>@type</code>. The type of this variable is <code>TypeNode</code>, which gives you access to type information at compile time.</p>
 <p>Note that <code>@type</code> is always the <em>instance</em> type, even when the macro is invoked in a class method.</p>
 <h3 id="constants">Constants</h3>
-<p>Macros can access constants. &#x4F8B;:</p>
+<p>Macros can access constants. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">VALUES</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 
 {% <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-constant">VALUES</span> %}

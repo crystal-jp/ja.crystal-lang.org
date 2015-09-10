@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.13" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.13" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1928,10 +1928,10 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="finalize">finalize</h1>
-<p>If a class defines a <code>finalize</code> method, when an instance of that class is garbage-collected that method will be invoked:</p>
+<p>&#x3082;&#x3057;&#x30AF;&#x30E9;&#x30B9;&#x306B; <code>finalize</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x304C;&#x30AC;&#x30D9;&#x30FC;&#x30B8;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3055;&#x308C;&#x308B;&#x3068;&#x304D;&#x306B;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>finalize
-    <span class="hljs-comment"># Invoked when Foo is garbage-collected</span>
+    <span class="hljs-comment"># Foo &#x304C;&#x30AC;&#x30D9;&#x30FC;&#x30B8;&#x30B3;&#x30EC;&#x30AF;&#x30C8;&#x3055;&#x308C;&#x308B;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</span>
     puts <span class="hljs-string">&quot;Bye bye from <span class="hljs-subst">#{<span class="hljs-keyword">self</span>}</span>!&quot;</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
@@ -1941,7 +1941,7 @@ loop <span class="hljs-keyword">do</span>
   <span class="hljs-constant">Foo</span>.new
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><strong>Note:</strong> the <code>finalize</code> method will only be invoked once the object has been fully initialized via the <code>initialize</code> method. If an exception is raised inside the <code>initialize</code> method, <code>finalize</code> won&apos;t be invoked. If your class defines a finalizer, be sure to catch any exceptions that might be raised in the <code>initialize</code> methods and free resources.</p>
+<p><strong>&#x6CE8;&#x610F;:</strong> <code>finalize</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x3001;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304C; <code>initialize</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x3088;&#x3063;&#x3066;&#x5B8C;&#x5168;&#x306B;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#x5834;&#x5408;&#x306B;&#x9650;&#x308A;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057; <code>initialize</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x3068;&#x304D;&#x3001;<code>finalize</code> &#x306F;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3082;&#x3057;&#x30AF;&#x30E9;&#x30B9;&#x306B; <code>finalize</code> &#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x5FC5;&#x305A; <code>initialize</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x767A;&#x751F;&#x3057;&#x5F97;&#x308B;&#x4F8B;&#x5916;&#x3092;&#x6355;&#x6349;&#x3057;&#x3066;&#x3001;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x958B;&#x653E;&#x3092;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>
@@ -1952,7 +1952,7 @@ loop <span class="hljs-keyword">do</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/class_variables.html" class="navigation navigation-prev " aria-label="Previous page: Class variables"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/class_variables.html" class="navigation navigation-prev " aria-label="Previous page: クラス変数"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/modules.html" class="navigation navigation-next " aria-label="Next page: Modules"><i class="fa fa-angle-right"></i></a>

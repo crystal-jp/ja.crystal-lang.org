@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="as">as</h1>
-<p>The <code>as</code> expression restricts the types of an expression. &#x4F8B;:</p>
+<p>The <code>as</code> expression restricts the types of an expression. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> some_condition
   a = <span class="hljs-number">1</span>
 <span class="hljs-keyword">else</span>
@@ -1967,7 +1967,7 @@ array2.same?(array) <span class="hljs-comment">#=&gt; true</span>
 </code></pre>
 <p>No runtime checks are performed in these cases because, again, pointers are involved. The need for this cast is even more rare than the previous one, but allows to implement some core types (like String) in Crystal itself, and it also allows passing a Reference type to C functions by casting it to a void pointer.</p>
 <h2 id="usage-for-casting-to-a-bigger-type">Usage for casting to a bigger type</h2>
-<p>The <code>as</code> expression can be used to cast an expression to a &quot;bigger&quot; type. &#x4F8B;:</p>
+<p>The <code>as</code> expression can be used to cast an expression to a &quot;bigger&quot; type. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 b = a as <span class="hljs-constant">Int32</span> | <span class="hljs-constant">Float64</span>
 b <span class="hljs-comment">#:: Int32 | Float64</span>
@@ -1983,7 +1983,7 @@ ary2 &lt;&lt; <span class="hljs-number">1.5</span> <span class="hljs-comment"># 
 </code></pre>
 <p>The <code>Array#map</code> method uses the block&apos;s type as the generic type for the Array. Without the <code>as</code> expression, the inferred type would have been <code>Int32</code> and we wouldn&apos;t have been able to add a <code>Float64</code> into it.</p>
 <h2 id="usage-for-when-the-compiler-can-t-infer-the-type-of-a-block">Usage for when the compiler can&apos;t infer the type of a block</h2>
-<p>Sometimes the compiler can&apos;t infer the type of a block. &#x4F8B;:</p>
+<p>Sometimes the compiler can&apos;t infer the type of a block. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(<span class="hljs-variable">@name</span>)
   <span class="hljs-keyword">end</span>
