@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Class variables | プログラミング言語 Crystal</title>
+        <title>クラス変数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.12" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.12" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="class-variables">Class variables</h1>
-<p>Class variables are associated to classes instead of instances. They are prefixed with two &quot;at&quot; signs (<code>@@</code>). &#x4F8B;:</p>
+                        <h1 id="%E3%82%AF%E3%83%A9%E3%82%B9%E5%A4%89%E6%95%B0">&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;</h1>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306B;&#x3067;&#x306F;&#x306A;&#x304F;&#x30AF;&#x30E9;&#x30B9;&#x81EA;&#x8EAB;&#x306B;&#x7D50;&#x3073;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x5148;&#x982D;&#x306B;2&#x3064;&#x306E;&#x30A2;&#x30C3;&#x30C8;&#x30DE;&#x30FC;&#x30AF; (<code>@@</code>) &#x304C;&#x4ED8;&#x304D;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span></span>
   <span class="hljs-variable">@@instances</span> = <span class="hljs-number">0</span>
 
@@ -1947,8 +1947,8 @@
 <span class="hljs-constant">Counter</span>.new
 <span class="hljs-constant">Counter</span>.instances <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<p>Class variables can be read and written from class methods or instance methods.</p>
-<p>If a class variable is read before it is assigned a value, it will include the <code>Nil</code> type:</p>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x306F;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3082;&#x3057;&#x5024;&#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x308B;&#x524D;&#x306B;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3080;&#x3068;&#x3001;&#x305D;&#x308C;&#x306F; <code>Nil</code> &#x578B;&#x3092;&#x6301;&#x3064;&#x3082;&#x306E;&#x3068;&#x3057;&#x3066;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.increment
     <span class="hljs-variable">@@instances</span> += <span class="hljs-number">1</span>
@@ -1957,7 +1957,7 @@
 
 <span class="hljs-constant">Counter</span>.increment <span class="hljs-comment"># Error: undefined method &apos;+&apos; for Nil</span>
 </code></pre>
-<p>Class variables are always associated to a single type and are not inherited:</p>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x306F;&#x5E38;&#x306B;&#x5358;&#x4E00;&#x306E;&#x578B;&#x306B;&#x7D50;&#x3073;&#x3064;&#x3044;&#x3066;&#x304A;&#x308A;&#x3001;&#x7D99;&#x627F;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span></span>
   <span class="hljs-variable">@@counter</span> = <span class="hljs-number">0</span>
 <span class="hljs-keyword">end</span>
@@ -1970,7 +1970,7 @@
 
 <span class="hljs-constant">Child</span>.counter <span class="hljs-comment">#=&gt; nil</span>
 </code></pre>
-<p>Class variables can also be associated to modules and structs. Like above, they are not inherited by including types.</p>
+<p>&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3092;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3084;&#x69CB;&#x9020;&#x4F53;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x5834;&#x5408;&#x3082;&#x3001;&#x4E0A;&#x8A18;&#x3068;&#x540C;&#x69D8;&#x306B;&#x3001;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x306B;&#x3088;&#x3063;&#x3066;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x304C;&#x5F15;&#x304D;&#x7D99;&#x304C;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 
                     
                     </section>
@@ -1981,7 +1981,7 @@
         </div>
 
         
-        <a href="../syntax_and_semantics/virtual_and_abstract_types.html" class="navigation navigation-prev " aria-label="Previous page: Virtual and abstract types"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/virtual_and_abstract_types.html" class="navigation navigation-prev " aria-label="Previous page: virtual 型と abstract 型"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/finalize.html" class="navigation navigation-next " aria-label="Next page: finalize"><i class="fa fa-angle-right"></i></a>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Virtual and abstract types | プログラミング言語 Crystal</title>
+        <title>virtual 型と abstract 型 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.11.1" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.11.1" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="virtual-and-abstract-types">Virtual and abstract types</h1>
-<p>When a variable&apos;s type combines different types under the same class hierarchy, its type becomes a <strong>virtual type</strong>. This applies to every class except for <code>Reference</code>. An example:</p>
+                        <h1 id="virtual-%E5%9E%8B%E3%81%A8-abstract-%E5%9E%8B">virtual &#x578B;&#x3068; abstract &#x578B;</h1>
+<p>&#x3042;&#x308B;&#x5909;&#x6570;&#x304C;&#x3001;&#x540C;&#x4E00;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x968E;&#x5C64;&#x4E0B;&#x306E;&#x7570;&#x306A;&#x308B;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3067;&#x3042;&#x308B;&#x3068;&#x304D;&#x3001;&#x305D;&#x306E;&#x578B;&#x306F;&#x300C;virtual &#x578B;&#x300D;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306F; <code>Reference</code> &#x3092;&#x9664;&#x304F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x9069;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span></span>
 <span class="hljs-keyword">end</span>
 
@@ -1954,7 +1954,7 @@
 john = <span class="hljs-constant">Person</span>.new <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-constant">Dog</span>.new
 peter = <span class="hljs-constant">Person</span>.new <span class="hljs-string">&quot;Peter&quot;</span>, <span class="hljs-constant">Cat</span>.new
 </code></pre>
-<p>If you compile the above program with the <code>hierarchy</code> command you will see this for <code>Person</code>:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x5BFE;&#x3057;&#x3066; <code>hierarchy</code> &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3001;<code>Person</code> &#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>- class Object
   |
   +- class Reference
@@ -1962,31 +1962,31 @@ peter = <span class="hljs-constant">Person</span>.new <span class="hljs-string">
      +- class Person
             @name : String
             @pet : Animal+
-</code></pre><p>You can see that <code>@pet</code> is <code>Animal+</code>. The <code>+</code> means it&apos;s a virtual type: because a <code>Dog</code> and a <code>Cat</code> were assigned to <code>@pet</code>, instead of having the type be <code>Dog | Cat</code> the compiler simplified it to <code>Animal+</code>, meaning &quot;any class that inhertis from <code>Animal</code>, including <code>Animal</code>&quot;.</p>
-<p>The compiler will always do this for classes under the same hierarchy: it will find the first superclass that&apos;s not <code>Reference</code> from which all types inherit from. If it can&apos;t find one, the type union remains.</p>
-<p>The real reason the compiler does this is to be able to compile programs faster by not creating all kinds of different similar unions, also making the generated code smaller in size. But, on the other hand, it makes sense: classes under the same hierarchy should behave in a similar way.</p>
-<p>Note that virtual types only apply to classes, never to structs.</p>
-<p>Lets make John&apos;s pet talk:</p>
+</code></pre><p><code>@pet</code> &#x304C; <code>Animal+</code> &#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304C;&#x308F;&#x304B;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x306E; <code>+</code> &#x306F;  virtual &#x578B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>@pet</code> &#x306B;&#x306F; <code>Dog</code> &#x3068; <code>Cat</code> &#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x3068;&#x304D;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x305D;&#x306E;&#x578B;&#x3092; <code>Dog | Cat</code> &#x3067;&#x306F;&#x306A;&#x304F; <code>Animal+</code> &#x3068;&#x5358;&#x7D14;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>Animal</code> &#x3092;&#x7D99;&#x627F;&#x3057;&#x305F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30AF;&#x30E9;&#x30B9; (<code>Animal</code> &#x81EA;&#x8EAB;&#x3082;&#x542B;&#x3080;) &#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x578B;&#x306E;&#x7D99;&#x627F;&#x5143;&#x3067;&#x3042;&#x308B; <code>Reference</code> &#x3092;&#x4F8B;&#x5916;&#x3068;&#x3057;&#x3066;&#x3001;&#x540C;&#x4E00;&#x968E;&#x5C64;&#x4E0B;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3042;&#x308C;&#x3070;&#x5E38;&#x306B;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x89E3;&#x91C8;&#x3057;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x540C;&#x4E00;&#x968E;&#x5C64;&#x4E0B;&#x306B;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x578B;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x305D;&#x306E;&#x307E;&#x307E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3068;&#x3057;&#x3066;&#x6B8B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x3053;&#x306E;&#x4ED5;&#x69D8;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x672C;&#x5F53;&#x306E;&#x7406;&#x7531;&#x306F;&#x3001;&#x540C;&#x3058;&#x7A2E;&#x985E;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3092;&#x3044;&#x304F;&#x3064;&#x3082;&#x4F5C;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3092;&#x9AD8;&#x901F;&#x5316;&#x3057;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5C0F;&#x3055;&#x304F;&#x3059;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306B;&#x3082;&#x3053;&#x306E;&#x4ED5;&#x69D8;&#x306B;&#x306F;&#x610F;&#x5473;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x306F;&#x3001;&#x540C;&#x4E00;&#x968E;&#x5C64;&#x4E0B;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306F;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x632F;&#x308B;&#x821E;&#x3046;&#x3079;&#x304D;&#x3001;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p>virtual &#x578B;&#x304C;&#x9069;&#x7528;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x307F;&#x3067;&#x3001;&#x69CB;&#x9020;&#x4F53;&#x306B;&#x306F;&#x9069;&#x7528;&#x3055;&#x308C;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;John &#x306E;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x558B;&#x3089;&#x305B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">john.pet.talk <span class="hljs-comment"># Error: undefined method &apos;talk&apos; for Animal</span>
 </code></pre>
-<p>We get an error because the compiler now treats <code>@pet</code> as an <code>Animal+</code>, which includes <code>Animal</code>. And since it can&apos;t find a <code>talk</code> method on it, it errors.</p>
-<p>What the compiler doesn&apos;t know is that for us, <code>Animal</code> will never be instantiated as it doesn&apos;t make sense to instantiate one. We have a way to tell the compiler so by marking the class as <code>abstract</code>:</p>
+<p>&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C; <code>@pet</code> &#x3092; <code>Animal+</code> &#x3068;&#x89E3;&#x91C8;&#x3057;&#x3066;&#x304A;&#x308A;&#x3001;&#x305D;&#x308C;&#x306F; <code>Animal</code> &#x81EA;&#x8EAB;&#x3082;&#x542B;&#x3093;&#x3067;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x539F;&#x56E0;&#x3067;&#x3059;&#x3002;<code>Animal</code> &#x306B;&#x306F; <code>talk</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x305F;&#x3081;&#x306B;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><code>Animal</code> &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x306B;&#x306F;&#x610F;&#x5473;&#x304C;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;<code>Animal</code> &#x3092;&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x7D76;&#x5BFE;&#x306B;&#x3042;&#x308A;&#x5F97;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x305F;&#x3060;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x306F;&#x305D;&#x306E;&#x4E8B;&#x60C5;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x305D;&#x306E;&#x3053;&#x3068;&#x3092;&#x6307;&#x793A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x65B9;&#x6CD5;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;&#x305D;&#x308C;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3092; <code>abstract</code> &#x3068;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span></span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Now the code compiles:</p>
+<p>&#x3053;&#x308C;&#x3067;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x304C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">john.pet.talk <span class="hljs-comment">#=&gt; &quot;Woof!&quot;</span>
 </code></pre>
-<p>Marking a class as abstract will also prevent us from creating an instance of it:</p>
+<p>abstract &#x30AF;&#x30E9;&#x30B9;&#x3068;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x305D;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x76F4;&#x63A5;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x306E;&#x3092;&#x907F;&#x3051;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">Animal</span>.new <span class="hljs-comment"># Error: can&apos;t instantiate abstract class Animal</span>
 </code></pre>
-<p>To make it more explicit that an <code>Animal</code> must define a <code>talk</code> method, we can add it to <code>Animal</code> as an abstract method:</p>
+<p>&#x3053;&#x308C;&#x3092;&#x3088;&#x308A;&#x660E;&#x78BA;&#x306B;&#x793A;&#x3059;&#x305F;&#x3081;&#x306B; <code>Animal</code> &#x306B; abstract &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3068;&#x3057;&#x3066; <code>talk</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">abstract <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span></span>
-  <span class="hljs-comment"># Makes this animal talk</span>
+  <span class="hljs-comment"># Animal &#x306B; talk &#x3092;&#x5B9A;&#x7FA9;</span>
   abstract <span class="hljs-function"><span class="hljs-keyword">def</span> </span>talk
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Abstract methods can also be defined in modules.</p>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x3082; abstract &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1997,10 +1997,10 @@ peter = <span class="hljs-constant">Person</span>.new <span class="hljs-string">
         </div>
 
         
-        <a href="../syntax_and_semantics/inheritance.html" class="navigation navigation-prev " aria-label="Previous page: Inheritance"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/inheritance.html" class="navigation navigation-prev " aria-label="Previous page: 継承"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/class_variables.html" class="navigation navigation-next " aria-label="Next page: Class variables"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/class_variables.html" class="navigation navigation-next " aria-label="Next page: クラス変数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

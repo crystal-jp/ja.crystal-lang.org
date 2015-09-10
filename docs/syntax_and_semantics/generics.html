@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.5" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.5" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1959,7 +1959,7 @@ box = <span class="hljs-constant">MyBox</span>.new(<span class="hljs-string">&qu
 box.value.length <span class="hljs-comment"># Error: undefined method &apos;length&apos; for Int32</span>
 </code></pre>
 <p>In cases like this where we want each instance to have a unique type for <code>@value</code>. This is in general necessary when dealing with a collection of objects. Imagine if all arrays and hashes had their types mixed, it would be pretty annoying to deal with them.</p>
-<p>You can make a class generic based on one or more type variables. &#x4F8B;:</p>
+<p>You can make a class generic based on one or more type variables. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBox</span>(<span class="hljs-title">T</span>)</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(<span class="hljs-variable">@value</span>)
   <span class="hljs-keyword">end</span>
@@ -2041,7 +2041,7 @@ box.value = <span class="hljs-string">&quot;hello&quot;</span>       <span class
 </code></pre>
 <p>Only single letter names are allowed as names of type arguments.</p>
 <h2 id="type-variables-inference">Type variables inference</h2>
-<p>Type restrictions in a generic type&apos;s constructor are free variables when type arguments were not specified, and then are used to infer them. &#x4F8B;:</p>
+<p>Type restrictions in a generic type&apos;s constructor are free variables when type arguments were not specified, and then are used to infer them. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">MyBox</span>.new(<span class="hljs-number">1</span>)       <span class="hljs-comment">#:: MyBox(Int32)</span>
 <span class="hljs-constant">MyBox</span>.new(<span class="hljs-string">&quot;hello&quot;</span>) <span class="hljs-comment">#:: MyBox(String)</span>
 </code></pre>

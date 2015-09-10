@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.12" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.12" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -2068,7 +2068,7 @@ raise <span class="hljs-constant">Exception</span>.new(<span class="hljs-string"
 <span class="hljs-keyword">end</span>
 </code></pre>
 <h2 id="%E5%9E%8B%E6%8E%A8%E8%AB%96">&#x578B;&#x63A8;&#x8AD6;</h2>
-<p>&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>begin</code> &#x7BC0;&#x306E;&#x4E2D;&#x3067;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x305F;&#x5909;&#x6570;&#x306F;&#x3001;<code>rescue</code> &#x307E;&#x305F;&#x306F; <code>ensure</code> &#x5185;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F; <code>Nil</code> &#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3057;&#x3066;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
+<p>&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>begin</code> &#x7BC0;&#x306E;&#x4E2D;&#x3067;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x305F;&#x5909;&#x6570;&#x306F;&#x3001;<code>rescue</code> &#x307E;&#x305F;&#x306F; <code>ensure</code> &#x5185;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F; <code>Nil</code> &#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3057;&#x3066;&#x89E3;&#x91C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">begin</span>
   a = something_dangerous_that_returns_Int32
 <span class="hljs-keyword">ensure</span>
@@ -2095,7 +2095,7 @@ a = <span class="hljs-number">1</span>
 </code></pre>
 <h2 id="%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86%E3%81%AE%E4%BB%96%E3%81%AE%E6%96%B9%E6%B3%95">&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306E;&#x4ED6;&#x306E;&#x65B9;&#x6CD5;</h2>
 <p>&#x4F8B;&#x5916;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x6A5F;&#x69CB;&#x306E;1&#x3064;&#x3067;&#x3059;&#x304C;&#x3001;&#x5FC5;&#x305A;&#x3057;&#x3082;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x3067;&#x3057;&#x304B;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x306F;&#x30E1;&#x30E2;&#x30EA;&#x306E;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3092;&#x4F34;&#x3046;&#x306E;&#x3067;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x4F8B;&#x5916;&#x51E6;&#x7406;&#x306F;&#x9045;&#x304F;&#x306A;&#x308B;&#x50BE;&#x5411;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x305D;&#x3053;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x306B;&#x52A0;&#x3048;&#x3066;&#x3001;<code>nil</code> &#x3092;&#x8FD4;&#x3059;&#x65B9;&#x6CD5;&#x3082;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;:</p>
+<p>&#x305D;&#x3053;&#x3067;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x306F;&#x3001;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x306B;&#x52A0;&#x3048;&#x3066;&#x3001;<code>nil</code> &#x3092;&#x8FD4;&#x3059;&#x65B9;&#x6CD5;&#x3082;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 array[<span class="hljs-number">4</span>]  <span class="hljs-comment"># IndexOutOfBounds &#x306E;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;</span>
 array[<span class="hljs-number">4</span>]? <span class="hljs-comment"># &#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x7BC4;&#x56F2;&#x5916;&#x306E;&#x305F;&#x3081; nil &#x304C;&#x8FD4;&#x308B;</span>

@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.9" data-basepath=".." data-revision="Wed Sep 09 2015 14:13:26 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.9" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1034,7 +1034,7 @@
                         
                             <b>4.7.3.11.</b>
                         
-                        Inheritance
+                        継承
                     </a>
                 
             
@@ -1050,7 +1050,7 @@
                         
                             <b>4.7.3.11.1.</b>
                         
-                        Virtual and abstract types
+                        virtual 型と abstract 型
                     </a>
                 
             
@@ -1070,7 +1070,7 @@
                         
                             <b>4.7.3.12.</b>
                         
-                        Class variables
+                        クラス変数
                     </a>
                 
             
@@ -1929,7 +1929,7 @@
                     
                         <h1 id="blocks-and-procs">Blocks and Procs</h1>
 <p>Methods can accept a block of code that is executed
-with the <code>yield</code> keyword. &#x4F8B;:</p>
+with the <code>yield</code> keyword. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span>
   <span class="hljs-keyword">yield</span>
@@ -1960,7 +1960,7 @@ twice { puts <span class="hljs-string">&quot;Hello!&quot;</span> }
 <h2 id="overloads">Overloads</h2>
 <p>Two methods, one that yields and another that doesn&apos;t, are considered different overloads, as explained in the <a href="overloading.html">overloading</a> section.</p>
 <h2 id="yield-arguments">Yield arguments</h2>
-<p>The <code>yield</code> expression is similar to a call and can receive arguments. &#x4F8B;:</p>
+<p>The <code>yield</code> expression is similar to a call and can receive arguments. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>
@@ -2007,7 +2007,7 @@ twice <span class="hljs-keyword">do</span> |i|
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>The above outputs &quot;nil&quot; twice.</p>
-<p>Each block variable has the type of every yield expression in that position. &#x4F8B;:</p>
+<p>Each block variable has the type of every yield expression in that position. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>, <span class="hljs-string">&apos;a&apos;</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-keyword">true</span>, <span class="hljs-string">&quot;hello&quot;</span>
@@ -2021,7 +2021,7 @@ some <span class="hljs-keyword">do</span> |first, second|
 </code></pre>
 <p>The block variable <code>second</code> also includes the <code>Nil</code> type because the last <code>yield</code> expression didn&apos;t include a second argument.</p>
 <h2 id="yield-value">yield value</h2>
-<p>The <code>yield</code> expression itself has a value: the last expression of the block. &#x4F8B;:</p>
+<p>The <code>yield</code> expression itself has a value: the last expression of the block. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   v1 = <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   puts v1
@@ -2067,7 +2067,7 @@ thrice <span class="hljs-keyword">do</span> |i|
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>The above prints &quot;Before 1&quot; and &quot;Before 2&quot;. The <code>thrice</code> method didn&apos;t execute the <code>puts &quot;Before 3&quot;</code> expression because of the <code>break</code>.</p>
-<p><code>break</code> can also accept arguments: these become the method&apos;s return value. &#x4F8B;:</p>
+<p><code>break</code> can also accept arguments: these become the method&apos;s return value. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>
@@ -2095,7 +2095,7 @@ values <span class="hljs-comment">#=&gt; {1, 2}</span>
 value <span class="hljs-comment">#=&gt; nil</span>
 </code></pre>
 <h2 id="next">next</h2>
-<p>The <code>next</code> expression inside a block exits early from the block (not the method). &#x4F8B;:</p>
+<p>The <code>next</code> expression inside a block exits early from the block (not the method). &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>twice
   <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>
   <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>
