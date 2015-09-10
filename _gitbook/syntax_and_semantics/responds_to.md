@@ -1,6 +1,6 @@
 # responds_to?
 
-The pseudo-method `responds_to?` determines whether a type has a method with the given name. 例:
+The pseudo-method `responds_to?` determines whether a type has a method with the given name. 例をあげます。
 
 ```ruby
 a = 1

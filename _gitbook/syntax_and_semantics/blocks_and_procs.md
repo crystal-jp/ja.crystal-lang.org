@@ -1,7 +1,7 @@
 # Blocks and Procs
 
 Methods can accept a block of code that is executed
-with the `yield` keyword. 例:
+with the `yield` keyword. 例をあげます。
 
 ```ruby
 def twice
@@ -45,7 +45,7 @@ Two methods, one that yields and another that doesn't, are considered different 
 
 ## Yield arguments
 
-The `yield` expression is similar to a call and can receive arguments. 例:
+The `yield` expression is similar to a call and can receive arguments. 例をあげます。
 
 ```ruby
 def twice
@@ -109,7 +109,7 @@ end
 
 The above outputs "nil" twice.
 
-Each block variable has the type of every yield expression in that position. 例:
+Each block variable has the type of every yield expression in that position. 例をあげます。
 
 ```ruby
 def some
@@ -128,7 +128,7 @@ The block variable `second` also includes the `Nil` type because the last `yield
 
 ## yield value
 
-The `yield` expression itself has a value: the last expression of the block. 例:
+The `yield` expression itself has a value: the last expression of the block. 例をあげます。
 
 ```ruby
 def twice
@@ -190,7 +190,7 @@ end
 
 The above prints "Before 1" and "Before 2". The `thrice` method didn't execute the `puts "Before 3"` expression because of the `break`.
 
-`break` can also accept arguments: these become the method's return value. 例:
+`break` can also accept arguments: these become the method's return value. 例をあげます。
 
 ```ruby
 def twice
@@ -232,7 +232,7 @@ value #=> nil
 
 ## next
 
-The `next` expression inside a block exits early from the block (not the method). 例:
+The `next` expression inside a block exits early from the block (not the method). 例をあげます。
 
 ```ruby
 def twice

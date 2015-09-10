@@ -1,6 +1,6 @@
 # instance_sizeof
 
-`instance_sizeof` は与えられたクラスのインスタンスのサイズを `Int32` で返します。例:
+`instance_sizeof` は与えられたクラスのインスタンスのサイズを `Int32` で返します。例をあげます。
 
 ```ruby
 class Point

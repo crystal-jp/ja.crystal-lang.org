@@ -2,7 +2,7 @@
 
 A block can be captured and turned into a `Proc`, which represents a block of code with an associated context: the closured data.
 
-To capture a block you must specify it as a method's block argument, give it a name and specify the input and output types. 例:
+To capture a block you must specify it as a method's block argument, give it a name and specify the input and output types. 例をあげます。
 
 ```ruby
 def int_to_int(&block : Int32 -> Int32)

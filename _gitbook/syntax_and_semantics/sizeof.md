@@ -1,6 +1,6 @@
 # sizeof
 
-`sizeof` は与えられた型のバイト数を `Int32` で返します。例:
+`sizeof` は与えられた型のバイト数を `Int32` で返します。例をあげます。
 
 ```ruby
 sizeof(Int32)  #=> 4

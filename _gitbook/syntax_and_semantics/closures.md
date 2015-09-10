@@ -27,7 +27,7 @@ In the above example, even though `x` is a local variable, it was captured by th
 
 ## Type of closured variables
 
-The compiler is usually moderately smart about the type of local variables. 例:
+The compiler is usually moderately smart about the type of local variables. 例をあげます。
 
 ```ruby
 def foo

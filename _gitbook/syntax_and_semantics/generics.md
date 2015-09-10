@@ -52,7 +52,7 @@ box.value.length # Error: undefined method 'length' for Int32
 
 In cases like this where we want each instance to have a unique type for `@value`. This is in general necessary when dealing with a collection of objects. Imagine if all arrays and hashes had their types mixed, it would be pretty annoying to deal with them.
 
-You can make a class generic based on one or more type variables. 例:
+You can make a class generic based on one or more type variables. 例をあげます。
 
 ```ruby
 class MyBox(T)
@@ -163,7 +163,7 @@ Only single letter names are allowed as names of type arguments.
 
 ## Type variables inference
 
-Type restrictions in a generic type's constructor are free variables when type arguments were not specified, and then are used to infer them. 例:
+Type restrictions in a generic type's constructor are free variables when type arguments were not specified, and then are used to infer them. 例をあげます。
 
 ```ruby
 MyBox.new(1)       #:: MyBox(Int32)

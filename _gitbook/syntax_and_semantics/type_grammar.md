@@ -129,7 +129,7 @@ In regular code `Int32 -> String` is a syntax error.
 
 `class` is used to refer to a class type, instead of an instance type.
 
-例:
+例をあげます。
 
 ```ruby
 def foo(x : Int32)

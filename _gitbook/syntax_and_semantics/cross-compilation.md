@@ -17,7 +17,7 @@ Crystal は基本的な[クロスコンパイル](http://en.wikipedia.org/wiki/C
 crystal build your_program.cr --cross-compile "Linux x86_64" --target "x86_64-unknown-linux-gnu"
 ```
 
-これで、`.o` ([オブジェクトファイル](http://en.wikipedia.org/wiki/Object_file)) が生成され、クロスコンパイルの対象システム上で実行すべきコマンドが表示されます。例:
+これで、`.o` ([オブジェクトファイル](http://en.wikipedia.org/wiki/Object_file)) が生成され、クロスコンパイルの対象システム上で実行すべきコマンドが表示されます。例をあげます。
 
 ```bash
 cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind

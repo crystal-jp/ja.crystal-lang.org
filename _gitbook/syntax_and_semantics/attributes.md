@@ -52,7 +52,7 @@ Marks a method or [lib fun](c_bindings/fun.html) as potentially raising an excep
 
 ## CallConvention
 
-Indicates the call convention of a [lib fun](c_bindings/fun.html). 例:
+Indicates the call convention of a [lib fun](c_bindings/fun.html). 例をあげます。
 
 ```ruby
 lib LibFoo
