@@ -1,11 +1,11 @@
-# Modules
+# モジュール
 
-Modules serve two purposes:
+モジュールは以下の2つの役割のためにあります。
 
-* as namespaces for defining other types, methods and constants
-* as partial types that can be mixed in other types
+* 型やメソッド、そして定数を他と区別して定義するための名前空間として使う
+* 部分的な型として別の型に mixin して使う
 
-An example of a module as a namespace:
+まず、名前空間としてモジュールを使用する例を見てみましょう。
 
 ```ruby
 module Curses
@@ -16,11 +16,11 @@ end
 Curses::Window.new
 ```
 
-Library authors are advised to put their definitions inside a module to avoid name clashes. The standard library usually doesn't have a namespace as its types and methods are very common, to avoid writing long names.
+あなたがライブラリの作者であれば、上記のように型などの定義をモジュールの内部で行うことによって名前の衝突を避けるべきです。ただし、標準ライブラリには基本的に名前空間が設定されていません。これは、標準ライブラリの型やメソッドはごく一般的に利用されるものなので、そのたびに長い名前を書かずに済むようにするためです。
 
-To use a module as a partial type you use `include` or `extend`.
+モジュールを部分的な型として利用する場合、`include` または `extend` を使います。
 
-An `include` makes a type include methods defined in that module as instance methods:
+`include` を使用すると、モジュールに定義されたメソッドをインスタンスメソッドとして利用できるようになります。
 
 ```ruby
 module ItemsLength
@@ -41,11 +41,11 @@ items = Items.new
 items.length #=> 3
 ```
 
-In the above example, it is as if we pasted the `length` method from the module into the `Items` class. The way this really works is by making each type have a list of ancestors, or parents. By default this list starts with the superclass. As modules are included they are **prepended** to this list. When a method is not found in a type it is looked up in this list. When you invoke `super`, the first type in this ancestors list is used.
+上記の例では、まるでモジュールの `length` メソッドを `Items` クラスの中に貼り付けたようにメソッドが実行されていることがわかるでしょう。この仕組みは、それぞれの型に対して、その親や先祖のリストを持たせることで機能しています。最初の状態では、このリストはスーパークラスから始まります。モジュールがインクルードされると、そのモジュールはリストの「**先頭**」に追加されます。そして、あるメソッドが自身の型に見つからないとき、そのリストをたどってメソッドを探します。また、`super` を実行したときには、その先祖リストの先頭の型が対象となります。
 
-A `module` can include other modules, so when a method is not found in it it will be looked up in the included modules.
+`module` が別のモジュールをインクルードすることも可能です。したがって、モジュールにメソッドが見つからなかった場合は、インクルードされたモジュールの中を探します。
 
-An `extend` makes a type include methods defined in that module as class methods:
+一方、`extend` を使用すると、モジュールに定義されたメソッドをクラスメソッドとして利用できるようになります。
 
 ```ruby
 module SomeLength
@@ -61,9 +61,9 @@ end
 Items.length #=> 3
 ```
 
-Both `include` and `extend` make constants defined in the module available to the including/extending type.
+また、`include` と `extend` のどちらを使った場合も、モジュールに定義されている定数を利用できるようになります。
 
-Both of them can be used at the top level to avoid writing a namespace over and over (although the chances of name clashes increase):
+トップレベルで `include`/`extend` することもできます。そうすると、何度も名前空間を書かなくても済むようになります (もちろん、その分だけ名前が衝突する可能性は高くなりますが) 。
 
 ```ruby
 module SomeModule
@@ -83,7 +83,7 @@ some_method  # OK, 1
 
 ## extend self
 
-A common pattern for modules is `extend self`:
+モジュールでよく使われるパターンに `extend self` というものがあります。
 
 ```ruby
 module Base64
@@ -99,13 +99,13 @@ module Base64
 end
 ```
 
-In this way a module can be used as a namespace:
+このとき、モジュールを名前空間として利用することができます。
 
 ```ruby
 Base64.encode64 "hello" #=> "aGVsbG8="
 ```
 
-But also it can be included in the program and its methods can be invoked without a namespace:
+それだけではなく、プログラムにインクルードしたとき、名前空間の指定なしでメソッドを実行することも可能です。
 
 ```ruby
 include Base64
@@ -113,9 +113,9 @@ include Base64
 encode64 "hello" #=> "aGVsbG8="
 ```
 
-For this to be useful the method name should have some reference to the module, otherwise chances of name clashes are high.
+ただ、名前が衝突する可能性も高くなってしまうため、モジュールに関連したメソッド名にしておくことがこのパターンを有効に活用するコツになるでしょう。
 
-A module cannot be instantiated:
+モジュールをインスタンス化することはできません。
 
 ```ruby
 module Moo

@@ -4,8 +4,8 @@ Crystal は基本的な[クロスコンパイル](http://en.wikipedia.org/wiki/C
 
 そのために、コンパイラに以下の2つのフラグを用意しています。
 
-* `--cross-compile`: the [compile-time flags](compile_time_flags.html)
-* `--target`: the [LLVM Target Triple](http://llvm.org/docs/LangRef.html#target-triple)
+* `--cross-compile`: [コンパイル時フラグ](compile_time_flags.html) を使用する
+* `--target`: [LLVM Target Triple](http://llvm.org/docs/LangRef.html#target-triple) を使用する
 
 `--cross-compile` フラグは、UNIX システムでは `uname -m -s` を実行した結果から知ることができます。例えば Mac の場合であれば、`uname -m -s` コマンドの実行結果は "Darwin x86_64" です。64ビットの Linux であればその結果は "Linux x86_64" となります。
 
