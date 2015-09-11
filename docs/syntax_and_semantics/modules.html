@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Modules | プログラミング言語 Crystal</title>
+        <title>モジュール | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.4" data-basepath=".." data-revision="Thu Sep 10 2015 13:31:19 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.4" data-basepath=".." data-revision="Sat Sep 12 2015 00:12:42 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1105,7 +1105,7 @@
                         
                             <b>4.7.4.</b>
                         
-                        Modules
+                        モジュール
                     </a>
                 
             
@@ -1927,13 +1927,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="modules">Modules</h1>
-<p>Modules serve two purposes:</p>
+                        <h1 id="%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;</h1>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x4EE5;&#x4E0B;&#x306E;2&#x3064;&#x306E;&#x5F79;&#x5272;&#x306E;&#x305F;&#x3081;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li>as namespaces for defining other types, methods and constants</li>
-<li>as partial types that can be mixed in other types</li>
+<li>&#x578B;&#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3001;&#x305D;&#x3057;&#x3066;&#x5B9A;&#x6570;&#x3092;&#x4ED6;&#x3068;&#x533A;&#x5225;&#x3057;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x3046;</li>
+<li>&#x90E8;&#x5206;&#x7684;&#x306A;&#x578B;&#x3068;&#x3057;&#x3066;&#x5225;&#x306E;&#x578B;&#x306B; mixin &#x3057;&#x3066;&#x4F7F;&#x3046;</li>
 </ul>
-<p>An example of a module as a namespace:</p>
+<p>&#x307E;&#x305A;&#x3001;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x3068;&#x3057;&#x3066;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Curses</span></span>
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Window</span></span>
   <span class="hljs-keyword">end</span>
@@ -1941,9 +1941,9 @@
 
 <span class="hljs-constant">Curses::Window</span>.new
 </code></pre>
-<p>Library authors are advised to put their definitions inside a module to avoid name clashes. The standard library usually doesn&apos;t have a namespace as its types and methods are very common, to avoid writing long names.</p>
-<p>To use a module as a partial type you use <code>include</code> or <code>extend</code>.</p>
-<p>An <code>include</code> makes a type include methods defined in that module as instance methods:</p>
+<p>&#x3042;&#x306A;&#x305F;&#x304C;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x4F5C;&#x8005;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x578B;&#x306A;&#x3069;&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x5185;&#x90E8;&#x3067;&#x884C;&#x3046;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x540D;&#x524D;&#x306E;&#x885D;&#x7A81;&#x3092;&#x907F;&#x3051;&#x308B;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x304C;&#x8A2D;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x578B;&#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x3054;&#x304F;&#x4E00;&#x822C;&#x7684;&#x306B;&#x5229;&#x7528;&#x3055;&#x308C;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x305F;&#x3073;&#x306B;&#x9577;&#x3044;&#x540D;&#x524D;&#x3092;&#x66F8;&#x304B;&#x305A;&#x306B;&#x6E08;&#x3080;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x90E8;&#x5206;&#x7684;&#x306A;&#x578B;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;<code>include</code> &#x307E;&#x305F;&#x306F; <code>extend</code> &#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><code>include</code> &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">ItemsLength</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>length
     items.length
@@ -1961,9 +1961,9 @@
 items = <span class="hljs-constant">Items</span>.new
 items.length <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<p>In the above example, it is as if we pasted the <code>length</code> method from the module into the <code>Items</code> class. The way this really works is by making each type have a list of ancestors, or parents. By default this list starts with the superclass. As modules are included they are <strong>prepended</strong> to this list. When a method is not found in a type it is looked up in this list. When you invoke <code>super</code>, the first type in this ancestors list is used.</p>
-<p>A <code>module</code> can include other modules, so when a method is not found in it it will be looked up in the included modules.</p>
-<p>An <code>extend</code> makes a type include methods defined in that module as class methods:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x307E;&#x308B;&#x3067;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E; <code>length</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092; <code>Items</code> &#x30AF;&#x30E9;&#x30B9;&#x306E;&#x4E2D;&#x306B;&#x8CBC;&#x308A;&#x4ED8;&#x3051;&#x305F;&#x3088;&#x3046;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x578B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x89AA;&#x3084;&#x5148;&#x7956;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x6301;&#x305F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x6A5F;&#x80FD;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x6700;&#x521D;&#x306E;&#x72B6;&#x614B;&#x3067;&#x306F;&#x3001;&#x3053;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306F;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x300C;<strong>&#x5148;&#x982D;</strong>&#x300D;&#x306B;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x3042;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x81EA;&#x8EAB;&#x306E;&#x578B;&#x306B;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x3068;&#x304D;&#x3001;&#x305D;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x305F;&#x3069;&#x3063;&#x3066;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x63A2;&#x3057;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;<code>super</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;&#x305D;&#x306E;&#x5148;&#x7956;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x5148;&#x982D;&#x306E;&#x578B;&#x304C;&#x5BFE;&#x8C61;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p><code>module</code> &#x304C;&#x5225;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x305F;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x4E2D;&#x3092;&#x63A2;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E00;&#x65B9;&#x3001;<code>extend</code> &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x30AF;&#x30E9;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">SomeLength</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>length
     <span class="hljs-number">3</span>
@@ -1976,8 +1976,8 @@ items.length <span class="hljs-comment">#=&gt; 3</span>
 
 <span class="hljs-constant">Items</span>.length <span class="hljs-comment">#=&gt; 3</span>
 </code></pre>
-<p>Both <code>include</code> and <code>extend</code> make constants defined in the module available to the including/extending type.</p>
-<p>Both of them can be used at the top level to avoid writing a namespace over and over (although the chances of name clashes increase):</p>
+<p>&#x307E;&#x305F;&#x3001;<code>include</code> &#x3068; <code>extend</code> &#x306E;&#x3069;&#x3061;&#x3089;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3082;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5B9A;&#x6570;&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30C8;&#x30C3;&#x30D7;&#x30EC;&#x30D9;&#x30EB;&#x3067; <code>include</code>/<code>extend</code> &#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x3046;&#x3059;&#x308B;&#x3068;&#x3001;&#x4F55;&#x5EA6;&#x3082;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x3092;&#x66F8;&#x304B;&#x306A;&#x304F;&#x3066;&#x3082;&#x6E08;&#x3080;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059; (&#x3082;&#x3061;&#x308D;&#x3093;&#x3001;&#x305D;&#x306E;&#x5206;&#x3060;&#x3051;&#x540D;&#x524D;&#x304C;&#x885D;&#x7A81;&#x3059;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x306F;&#x9AD8;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;) &#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">SomeModule</span></span>
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomeType</span></span>
   <span class="hljs-keyword">end</span>
@@ -1993,7 +1993,7 @@ items.length <span class="hljs-comment">#=&gt; 3</span>
 some_method  <span class="hljs-comment"># OK, 1</span>
 </code></pre>
 <h2 id="extend-self">extend self</h2>
-<p>A common pattern for modules is <code>extend self</code>:</p>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3067;&#x3088;&#x304F;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B; <code>extend self</code> &#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Base64</span></span>
   extend <span class="hljs-keyword">self</span>
 
@@ -2006,16 +2006,16 @@ some_method  <span class="hljs-comment"># OK, 1</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>In this way a module can be used as a namespace:</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">Base64</span>.encode64 <span class="hljs-string">&quot;hello&quot;</span> <span class="hljs-comment">#=&gt; &quot;aGVsbG8=&quot;</span>
 </code></pre>
-<p>But also it can be included in the program and its methods can be invoked without a namespace:</p>
+<p>&#x305D;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3057;&#x305F;&#x3068;&#x304D;&#x3001;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x306E;&#x6307;&#x5B9A;&#x306A;&#x3057;&#x3067;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">include</span> <span class="hljs-constant">Base64</span>
 
 encode64 <span class="hljs-string">&quot;hello&quot;</span> <span class="hljs-comment">#=&gt; &quot;aGVsbG8=&quot;</span>
 </code></pre>
-<p>For this to be useful the method name should have some reference to the module, otherwise chances of name clashes are high.</p>
-<p>A module cannot be instantiated:</p>
+<p>&#x305F;&#x3060;&#x3001;&#x540D;&#x524D;&#x304C;&#x885D;&#x7A81;&#x3059;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x9AD8;&#x304F;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x95A2;&#x9023;&#x3057;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x540D;&#x306B;&#x3057;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x304C;&#x3053;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x6709;&#x52B9;&#x306B;&#x6D3B;&#x7528;&#x3059;&#x308B;&#x30B3;&#x30C4;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Moo</span></span>
 <span class="hljs-keyword">end</span>
 
