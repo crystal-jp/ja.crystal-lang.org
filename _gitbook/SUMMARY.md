@@ -66,7 +66,7 @@
                * [virtual 型と abstract 型](syntax_and_semantics/virtual_and_abstract_types.md)
            * [クラス変数](syntax_and_semantics/class_variables.md)
            * [finalize](syntax_and_semantics/finalize.md)
-       * [Modules](syntax_and_semantics/modules.md)
+       * [モジュール](syntax_and_semantics/modules.md)
        * [Generics](syntax_and_semantics/generics.md)
        * [Structs](syntax_and_semantics/structs.md)
        * [Constants](syntax_and_semantics/constants.md)
