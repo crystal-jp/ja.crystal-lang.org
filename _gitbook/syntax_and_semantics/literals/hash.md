@@ -40,7 +40,7 @@
 MyType{"foo": "bar"}
 ```
 
-もし `MyType` が汎用的な型でない場合は、上記は以下と同じ意味です。
+もし `MyType` がジェネリック型でない場合は、上記は以下と同じ意味です。
 
 ```ruby
 tmp = MyType.new
@@ -48,7 +48,7 @@ tmp["foo"] = "bar"
 tmp
 ```
 
-もし `MyType` が汎用的な型である場合は、上記は以下と同じ意味です。
+もし `MyType` がジェネリック型である場合は、上記は以下と同じ意味です。
 
 ```ruby
 tmp = MyType(typeof("foo"), typeof("bar")).new
@@ -56,7 +56,7 @@ tmp["foo"] = "bar"
 tmp
 ```
 
-汎用的な型である場合には、型引数を指定することも可能です。
+ジェネリック型である場合には、型引数を指定することも可能です。
 
 ```ruby
 MyType(String, String) {"foo": "bar"}
