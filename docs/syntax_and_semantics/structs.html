@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Structs | プログラミング言語 Crystal</title>
+        <title>構造体 (Struct) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.6" data-basepath=".." data-revision="Sat Sep 12 2015 00:12:42 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.6" data-basepath=".." data-revision="Sun Sep 13 2015 15:05:09 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1135,7 +1135,7 @@
                         
                             <b>4.7.6.</b>
                         
-                        Structs
+                        構造体 (Struct)
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>4.7.7.</b>
                         
-                        Constants
+                        定数
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="structs">Structs</h1>
-<p>Instead of defining a type with <code>class</code> you can do so with <code>struct</code>:</p>
+                        <h1 id="%E6%A7%8B%E9%80%A0%E4%BD%93-struct">&#x69CB;&#x9020;&#x4F53; (Struct)</h1>
+<p>&#x3042;&#x308B;&#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3068;&#x304D;&#x3001;<code>class</code> &#x3067;&#x306F;&#x306A;&#x304F; <code>struct</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">struct <span class="hljs-constant">Point</span>
   property x
   property y
@@ -1937,15 +1937,15 @@
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The differences between a struct and a class are:</p>
+<p>&#x69CB;&#x9020;&#x4F53;&#x3068;&#x30AF;&#x30E9;&#x30B9;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x9055;&#x3044;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li>Invoking <code>new</code> on a struct allocates it on the stack instead of the heap</li>
-<li>A struct is <a href="http://crystal-lang.org/api/Value.html" target="_blank">passed by value</a> while a class is passed by reference</li>
-<li>A struct implicitly inherits from <a href="http://crystal-lang.org/api/Struct.html" target="_blank">Struct</a>, which inherits from <a href="http://crystal-lang.org/api/Value.html" target="_blank">Value</a>. A class implicitly inherits from <a href="http://crystal-lang.org/api/Reference.html" target="_blank">Reference</a>.</li>
+<li>&#x69CB;&#x9020;&#x4F53;&#x306B;&#x5BFE;&#x3057;&#x3066; <code>new</code> &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x30D2;&#x30FC;&#x30D7;&#x3067;&#x306F;&#x306A;&#x304F;&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x9818;&#x57DF;&#x304C;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x308B;</li>
+<li>&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x53C2;&#x7167;&#x6E21;&#x3057;&#x3067;&#x3042;&#x308B;&#x306E;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x69CB;&#x9020;&#x4F53;&#x306F;<a href="http://crystal-lang.org/api/Value.html" target="_blank">&#x5024;&#x6E21;&#x3057;</a>&#x3067;&#x3042;&#x308B;</li>
+<li>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x6697;&#x9ED9;&#x7684;&#x306B; <a href="http://crystal-lang.org/api/Struct.html" target="_blank">Struct</a> &#x3092;&#x7D99;&#x627F;&#x3057;&#x3001;Struct &#x306F; <a href="http://crystal-lang.org/api/Value.html" target="_blank">Value</a> &#x3092;&#x7D99;&#x627F;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;&#x4E00;&#x65B9;&#x30AF;&#x30E9;&#x30B9;&#x306F; <a href="http://crystal-lang.org/api/Reference.html" target="_blank">Reference</a> &#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;</li>
 </ul>
-<p>A struct can inherit from other structs and can also includes modules. A struct can be generic, just like a class.</p>
-<p>A struct is mostly used for performance reasons to avoid lots of small memory allocations when passing small copies might be more efficient.</p>
-<p>So how do you choose between a struct and a class? The rule of thumb is that if no instance variable is ever reassigned, i.e. your type is immutable, you can use a struct, otherwise use a class.</p>
+<p>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x4ED6;&#x306E;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3001;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x540C;&#x69D8;&#x306B;&#x3001;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x69CB;&#x9020;&#x4F53;&#x3092;&#x4F7F;&#x3046;&#x306E;&#x306F;&#x4E3B;&#x306B;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x4E0A;&#x306E;&#x7406;&#x7531;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x5C0F;&#x3055;&#x3044;&#x30B3;&#x30D4;&#x30FC;&#x3092;&#x6E21;&#x3059;&#x65B9;&#x304C;&#x3088;&#x308A;&#x52B9;&#x7387;&#x7684;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x308F;&#x305A;&#x304B;&#x306A;&#x30E1;&#x30E2;&#x30EA;&#x306E;&#x5272;&#x308A;&#x5F53;&#x3066;&#x304C;&#x5927;&#x91CF;&#x306B;&#x767A;&#x751F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x907F;&#x3051;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305F;&#x3060;&#x3001;&#x5177;&#x4F53;&#x7684;&#x306B;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3044;&#x5206;&#x3051;&#x308C;&#x3070;&#x3088;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3053;&#x308C;&#x307E;&#x3067;&#x306E;&#x7D4C;&#x9A13;&#x304B;&#x3089;&#x8A00;&#x3046;&#x3068;&#x3001;&#x3082;&#x3057;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3078;&#x306E;&#x518D;&#x4EE3;&#x5165;&#x304C;&#x5168;&#x304F;&#x767A;&#x751F;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408; (&#x4F8B;&#x3048;&#x3070;&#x305D;&#x306E;&#x578B;&#x304C;&#x30A4;&#x30DF;&#x30E5;&#x30FC;&#x30BF;&#x30D6;&#x30EB;&#x306A;&#x5834;&#x5408;&#x306A;&#x3069;) &#x306B;&#x306F;&#x69CB;&#x9020;&#x4F53;&#x3092;&#x4F7F;&#x3044;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x5408;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F7F;&#x3046;&#x306E;&#x304C;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
                     
                     </section>
@@ -1959,7 +1959,7 @@
         <a href="../syntax_and_semantics/generics.html" class="navigation navigation-prev " aria-label="Previous page: Generics"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/constants.html" class="navigation navigation-next " aria-label="Next page: Constants"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/constants.html" class="navigation navigation-next " aria-label="Next page: 定数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

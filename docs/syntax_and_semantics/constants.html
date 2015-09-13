@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Constants | プログラミング言語 Crystal</title>
+        <title>定数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.7" data-basepath=".." data-revision="Sat Sep 12 2015 00:12:42 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.7" data-basepath=".." data-revision="Sun Sep 13 2015 15:05:09 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1135,7 +1135,7 @@
                         
                             <b>4.7.6.</b>
                         
-                        Structs
+                        構造体 (Struct)
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>4.7.7.</b>
                         
-                        Constants
+                        定数
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="constants">Constants</h1>
-<p>Constants can be declared at the top level or inside other types. They must start with a capital letter:</p>
+                        <h1 id="%E5%AE%9A%E6%95%B0">&#x5B9A;&#x6570;</h1>
+<p>&#x5B9A;&#x6570;&#x306F;&#x30C8;&#x30C3;&#x30D7;&#x30EC;&#x30D9;&#x30EB;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x3042;&#x308B;&#x578B;&#x306E;&#x5185;&#x90E8;&#x3067;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5B9A;&#x6570;&#x306E;&#x5148;&#x982D;&#x306F;&#x5927;&#x6587;&#x5B57;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">PI</span> = <span class="hljs-number">3.14</span>
 
 <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Earth</span></span>
@@ -1938,8 +1938,8 @@
 <span class="hljs-constant">PI</span> <span class="hljs-comment">#=&gt; 3.14</span>
 <span class="hljs-constant">Earth::RADIUS</span> <span class="hljs-comment">#=&gt; 6_371_000</span>
 </code></pre>
-<p>Although not enforced by the compiler, constants are usually named with all capital letters and underscores to separate words.</p>
-<p>A constant definition can invoke methods and have complex logic:</p>
+<p>&#x307E;&#x305F;&#x3001;&#x3053;&#x308C;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x5F37;&#x5236;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x5B9A;&#x6570;&#x540D;&#x306F;&#x3059;&#x3079;&#x3066;&#x5927;&#x6587;&#x5B57;&#x3068;&#x3057;&#x3001;&#x5358;&#x8A9E;&#x306F;&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x3067;&#x533A;&#x5207;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5B9A;&#x6570;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x969B;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x308A;&#x3001;&#x8907;&#x96D1;&#x306A;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">TEN</span> = <span class="hljs-keyword">begin</span>
   a = <span class="hljs-number">0</span>
   <span class="hljs-keyword">while</span> a &lt; <span class="hljs-number">10</span>
@@ -1950,7 +1950,7 @@
 
 <span class="hljs-constant">TEN</span> <span class="hljs-comment">#=&gt; 10</span>
 </code></pre>
-<p>If a constant is not used, its initializer is never included in the final executable.</p>
+<p>&#x3082;&#x3057;&#x3042;&#x308B;&#x5B9A;&#x6570;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306A;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x305D;&#x306E;&#x5B9A;&#x6570;&#x306E;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x306F;&#x542B;&#x307E;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 
                     
                     </section>
@@ -1961,7 +1961,7 @@
         </div>
 
         
-        <a href="../syntax_and_semantics/structs.html" class="navigation navigation-prev " aria-label="Previous page: Structs"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/structs.html" class="navigation navigation-prev " aria-label="Previous page: 構造体 (Struct)"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/enum.html" class="navigation navigation-next " aria-label="Next page: Enums"><i class="fa fa-angle-right"></i></a>
