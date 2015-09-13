@@ -1,6 +1,6 @@
-# Constants
+# 定数
 
-Constants can be declared at the top level or inside other types. They must start with a capital letter:
+定数はトップレベル、もしくはある型の内部で宣言することができます。定数の先頭は大文字である必要があります。
 
 ```ruby
 PI = 3.14
@@ -13,9 +13,9 @@ PI #=> 3.14
 Earth::RADIUS #=> 6_371_000
 ```
 
-Although not enforced by the compiler, constants are usually named with all capital letters and underscores to separate words.
+また、これはコンパイラに強制されることではありませんが、一般的に定数名はすべて大文字とし、単語はアンダースコアで区切ります。
 
-A constant definition can invoke methods and have complex logic:
+定数を定義する際にメソッドを実行したり、複雑なロジックを使って定義することもできます。
 
 ```ruby
 TEN = begin
@@ -29,4 +29,4 @@ end
 TEN #=> 10
 ```
 
-If a constant is not used, its initializer is never included in the final executable.
+もしある定数が使われなければ、最終的な実行ファイルにその定数の初期化処理は含まれません。

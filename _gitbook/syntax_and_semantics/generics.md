@@ -1,6 +1,6 @@
-# Generics
+# ジェネリクス
 
-Instance variables' types are inferred from the values assigned to them, like it was explained in [instance variables type inference](instance_variables_type_inference.html):
+[インスタンス変数と型推論](instance_variables_type_inference.html)で説明したように、インスタンス変数の型は代入された値から推論されます:
 
 ```ruby
 class MyBox
@@ -13,20 +13,20 @@ class MyBox
 end
 ```
 
-For example, if we take the above code and add this:
+例えば、上記のコードに以下を追加したとします。
 
 ```ruby
 MyBox.new(1)
 ```
 
-and then check what the compiler inferred with `crystal hierarchy file.cr`, we get:
+このとき、コンパイラが型推論した結果を `crystal hierarchy file.cr` で確認すると以下となります。
 
 ```
 +- class MyBox
        @value : Int32
 ```
 
-If we create more boxes with more types:
+この箱クラスのインスタンスを、別の型を与えていくつか作成してみます。
 
 ```ruby
 MyBox.new(nil)
@@ -34,14 +34,14 @@ MyBox.new("hello")
 MyBox.new(1)
 ```
 
-we get:
+すると、結果は以下となります。
 
 ```
 +- class MyBox
        @value : (Nil | String | Int32)
 ```
 
-The above makes it impossible to deal with a single box of a fixed type:
+こうなると、この箱を1つの決まった型として扱うことが不可能になります。
 
 ```ruby
 MyBox.new(1)
@@ -50,9 +50,9 @@ box = MyBox.new("hello")
 box.value.length # Error: undefined method 'length' for Int32
 ```
 
-In cases like this where we want each instance to have a unique type for `@value`. This is in general necessary when dealing with a collection of objects. Imagine if all arrays and hashes had their types mixed, it would be pretty annoying to deal with them.
+したがって、このような場合には、`@value` がインスタンスごとに固有の型を持つことが望ましいと考えることでしょう。これは特にオブジェクトのコレクションを扱う場合に必要になります。例えば、配列やハッシュが様々な型の要素を含むときに、要素がそれぞれ固有の型を持っていないと非常に扱いづらいものになります。
 
-You can make a class generic based on one or more type variables. 例をあげます。
+型変数を使うことで、クラスを汎用的なものにすることができます。例をあげます。
 
 ```ruby
 class MyBox(T)
@@ -65,7 +65,7 @@ class MyBox(T)
 end
 ```
 
-Then you instantiate it like this:
+これは以下のようにしてインスタンス化します。
 
 ```ruby
 MyBox(Int32).new(1)
@@ -74,7 +74,7 @@ box = MyBox(String).new("hello")
 box.value.length #=> 5
 ```
 
-The above now works, because `MyBox` is now not a single type, but a family of types identified with a `T` type: `MyBox(Int32)` is a different type than `MyBox(String)`, and their `@value` variable is not shared. If we run the `hierarchy` command again, we get:
+これで動くようになりました。理由は、この場合 `MyBox` はもはや単一の型ではなく、複数の同じ種類の型の中である1つの型を示すものとなっているからです。そして、それぞれの型は `T` の型によって識別されます。つまり、`MyBox(Int32)` と `MyBox(String)` は同じ種類ですが別の型として扱われます。そして、それぞれの `@value` が共有されることはありません。`hierarchy` コマンドを再度実行してみましょう。その結果は以下となります。
 
 ```
 +- generic class MyBox(T)
@@ -86,13 +86,13 @@ The above now works, because `MyBox` is now not a single type, but a family of t
           @value : Int32
 ```
 
-However, there's a tiny flaw in the above code. This is allowed:
+ただ、上記のコードにはわずかな欠点があります。それは、以下が許されてしまうということです。
 
 ```ruby
 MyBox(Int32).new("hello")
 ```
 
-This is because there's nothing relating the `T` in the type with the instance variable `@value`. The fix is easy, we can use a [type restriction](type_restrictions.html):
+これは、`T` の型とインスタンス変数 `@value` の型に関連性がないことが原因です。これは簡単に修正できます。[型制約](type_restrictions.html)を利用すればいいのです。
 
 ```ruby
 class MyBox(T)
@@ -105,14 +105,14 @@ class MyBox(T)
 end
 
 MyBox(Int32).new(1)       # OK
-MyBox(Int32).new("hello") # Error
+MyBox(Int32).new("hello") # エラー
 ```
 
-The above works because when we do `MyBox(Int32)`, `T` becomes `Int32`, and when we invoke the constructor, the value passed to it must match `T`, which is `Int32`.
+これで欠点が解消しました。`MyBox(Int32)` としたとき、`T` の型は `Int32` になります。そして、コンストラクタを呼び出した際に、渡される値は `T` の型、つまり `Int32` に合致している必要があるからです。
 
-In a way, there's still nothing relating `T` with `@value`. However, the only way to create a `MyBox(T)` instance is by passing a `T` value, that becomes `@value`'s type, and that's what makes it all work.
+ただ、それでも `T` と `@value` の間に関連性があるわけではありません。しかし、`MyBox(T)` のインスタンスを作るためには必ず `T` の値を渡す必要があり、それが `@value` の型となるため、実際には、こうしておくことですべての場合に問題なく動作します。
 
-But check this:
+では、次のコードを見てください。
 
 ```ruby
 class MyBox(T)
@@ -132,7 +132,7 @@ box = MyBox(Int32).new(1) # OK
 box.value = "hello"       # OK
 ```
 
-The above is perfectly valid, because there's no type restriction in the `value=` method, and so we have just "broken" our class. Again, the solution is to use a type restriction:
+`value=` メソッドに型制約が設定されていないため、このコードは完全に正当なコードです。ただ、クラスとしては「壊れ」てしまっていると言えます。対策はやはり型制約を利用することです。
 
 ```ruby
 class MyBox(T)
@@ -149,38 +149,38 @@ class MyBox(T)
 end
 
 box = MyBox(Int32).new(1) # OK
-box.value = "hello"       # Error
+box.value = "hello"       # エラー
 ```
 
-More then one type arguments are allowed:
+型引数は複数設定することが可能です。
 
 ```ruby
 class MyDictionary(K, V)
 end
 ```
 
-Only single letter names are allowed as names of type arguments.
+型引数は1文字の名前のみ設定することができます。
 
-## Type variables inference
+## 型変数の型推論
 
-Type restrictions in a generic type's constructor are free variables when type arguments were not specified, and then are used to infer them. 例をあげます。
+もし型引数が指定されなかった場合、ジェネリック型のコンストラクタに設定された型制約は自由変数として扱われ、それが型推論に利用されます。例をあげます。
 
 ```ruby
 MyBox.new(1)       #:: MyBox(Int32)
 MyBox.new("hello") #:: MyBox(String)
 ```
 
-In the above code we didn't have to specify the type arguments of `MyBox`, the compiler inferred them following this process:
+上記では、`MyBox` に型引数を与えていません。このとき、コンパイラは以下の流れで推論を行います。
 
-* `MyBox.new(value)` delegates to `initialize(@value : T)`
-* `T` doesn't exist, so it's used as a free var
-* Because `MyBox` is actually `MyBox(T)`, and `T` is both a free variable and a type argument, `T` becomes the type of the passed value
+* `MyBox.new(value)` は処理を `initialize(@value : T)` に委譲する
+* `T` が存在しないため、自由変数として扱われる
+* `MyBox` は実際は `MyBox(T)` であり、`T` は自由変数であり型引数でもあるため、`T` は渡された値の型になる
 
-In this way generic types are less tedious to work with.
+このようにして、ジェネリック型の扱いが冗長になってしまうことを軽減しています。
 
-## Other uses for generic types
+## ジェネリック型のその他の用途
 
-Although generic types are usually associated with containers, they can also be used to improve execution performance at the cost of a larger executable size. The main trick is to use a generic type to avoid runtime method dispatch. For example there's the standard library's `BufferedIO(T)`:
+通常、ジェネリック型はコンテナに関連していることが多いですが、それだけではなく、実行ファイルのサイズが大きくなることと引き換えに、実行時のパフォーマンスを向上させるために利用することもできます。これは、ジェネリック型を利用することで、実行時にメソッドのディスパッチが発生しないようにするということです。例えば、標準ライブラリに `BufferedIO(T)` というものがあります。
 
 ```ruby
 file = File.open("myfile.txt")
@@ -188,7 +188,7 @@ io = BufferedIO.new(file) #:: BufferedIO(File)
 io.gets
 ```
 
-That `io` variable is a specified `BufferedIO(File)` instance, so invoking `gets` on it will end up invoking `File#gets`. If `BufferedIO` wasn't generic, that `gets` call would make a dispatch over all the `IO` types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of `BufferedIO` will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.
+この `io` 変数は `BufferedIO(File)` のインスタンスとなります。したがって、そのインスタンスに対して`gets` を実行したときには、`File#gets` が実行されます。もし `BufferedIO` がジェネリック型でなかったとすれば、この `gets` の呼び出しは `IO` types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of `BufferedIO` will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.
 
 ## Generic structs and modules
 
