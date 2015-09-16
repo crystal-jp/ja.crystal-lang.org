@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Capturing blocks | プログラミング言語 Crystal</title>
+        <title>ブロックの捕捉 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.9.1" data-basepath=".." data-revision="Sun Sep 13 2015 15:05:09 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.9.1" data-basepath=".." data-revision="Wed Sep 16 2015 13:56:45 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1165,7 +1165,7 @@
                         
                             <b>4.7.8.</b>
                         
-                        Enums
+                        Enum
                     </a>
                 
             
@@ -1180,7 +1180,7 @@
                         
                             <b>4.7.9.</b>
                         
-                        Blocks and Procs
+                        ブロックと Proc
                     </a>
                 
             
@@ -1196,7 +1196,7 @@
                         
                             <b>4.7.9.1.</b>
                         
-                        Capturing blocks
+                        ブロックの捕捉
                     </a>
                 
             
@@ -1211,7 +1211,7 @@
                         
                             <b>4.7.9.2.</b>
                         
-                        Proc literal
+                        Proc リテラル
                     </a>
                 
             
@@ -1927,9 +1927,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="capturing-blocks">Capturing blocks</h1>
-<p>A block can be captured and turned into a <code>Proc</code>, which represents a block of code with an associated context: the closured data.</p>
-<p>To capture a block you must specify it as a method&apos;s block argument, give it a name and specify the input and output types. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+                        <h1 id="%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E6%8D%95%E6%8D%89">&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306E;&#x6355;&#x6349;</h1>
+<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x6355;&#x6349;&#x3057;&#x3066; <code>Proc</code> &#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059; (captured block) &#x3002; &#x3053;&#x308C;&#x306F;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306B;&#x7D50;&#x3073;&#x3064;&#x3044;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x30D6;&#x30ED;&#x30C3;&#x30AF; (&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;) &#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x6355;&#x6349;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F15;&#x6570;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3001;&#x305D;&#x306E;&#x540D;&#x524D;&#x3068;&#x30A4;&#x30F3;&#x30D7;&#x30C3;&#x30C8;/&#x30A2;&#x30A6;&#x30C8;&#x30D7;&#x30C3;&#x30C8;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>int_to_int(&amp;block <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span> -&gt; <span class="hljs-constant">Int32</span>)
   block
 <span class="hljs-keyword">end</span>
@@ -1937,8 +1937,8 @@
 proc = int_to_int { |x| x + <span class="hljs-number">1</span> }
 proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment">#=&gt; 2</span>
 </code></pre>
-<p>The above code captures the block of code passed to <code>int_to_int</code> in the <code>block</code> variable, and returns it from the method. The type of <code>proc</code> is <a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc(Int32, Int32)</a>, a function that accepts a single <code>Int32</code> argument and returns an <code>Int32</code>.</p>
-<p>In this way a block can be saved as a callback:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x306F;&#x3001;<code>int_to_int</code> &#x306B;&#x6E21;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092; <code>block</code> &#x5909;&#x6570;&#x306E;&#x4E2D;&#x306B;&#x6355;&#x6349;&#x3057;&#x3001;&#x305D;&#x308C;&#x3092;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x623B;&#x308A;&#x5024;&#x3068;&#x3057;&#x3066;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>proc</code> &#x306E;&#x578B;&#x306F; <a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc(Int32, Int32)</a> &#x3067;&#x3001;&#x5358;&#x4E00;&#x306E; <code>Int32</code> &#x306E;&#x5F15;&#x6570;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x3001;<code>Int32</code> &#x306E;&#x623B;&#x308A;&#x5024;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x3067;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x3068;&#x3057;&#x3066;&#x4FDD;&#x5B58;&#x3057;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Model</span></span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>on_save(&amp;block)
     <span class="hljs-variable">@on_save_callback</span> = block
@@ -1953,10 +1953,10 @@ proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment">#=&gt; 
 
 model = <span class="hljs-constant">Model</span>.new
 model.on_save { puts <span class="hljs-string">&quot;Saved!&quot;</span> }
-model.save <span class="hljs-comment"># prints &quot;Saved!&quot;</span>
+model.save <span class="hljs-comment"># &quot;Saved!&quot; &#x3068;&#x51FA;&#x529B;</span>
 </code></pre>
-<p>In the above example the type of <code>&amp;block</code> wasn&apos;t specified: this just means that the captured block doesn&apos;t have arguments and doesn&apos;t return anything.</p>
-<p>Note that if the return type is not specified, nothing gets returned from the proc call:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>&amp;block</code> &#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x308C;&#x306F;&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x304C;&#x5F15;&#x6570;&#x3092;&#x4F55;&#x3082;&#x53D7;&#x3051;&#x53D6;&#x3089;&#x305A;&#x3001;&#x623B;&#x308A;&#x5024;&#x3082;&#x8FD4;&#x3055;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;&#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068;&#x304D;&#x3001;proc &#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306F;&#x4F55;&#x3082;&#x8FD4;&#x3055;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_proc(&amp;block <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span> -&gt;)
   block
 <span class="hljs-keyword">end</span>
@@ -1964,7 +1964,7 @@ model.save <span class="hljs-comment"># prints &quot;Saved!&quot;</span>
 proc = some_proc { |x| x + <span class="hljs-number">1</span> }
 proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment"># void</span>
 </code></pre>
-<p>To have something returned, either specify the return type or use an underscore to allow any return type:</p>
+<p>&#x4F55;&#x304B;&#x8FD4;&#x3057;&#x3066;&#x6B32;&#x3057;&#x3044;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x304B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x578B;&#x3092;&#x8A31;&#x5BB9;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306F;&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>some_proc(&amp;block <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span> -&gt; <span class="hljs-number">_</span>)
   block
 <span class="hljs-keyword">end</span>
@@ -1975,11 +1975,11 @@ proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment"># 2</sp
 proc = some_proc { |x| x.to_s }
 proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment"># &quot;1&quot;</span>
 </code></pre>
-<h2 id="break-and-next">break and next</h2>
-<p><code>break</code> and <code>next</code> can&apos;t be used inside a captured block. <code>return</code> can be used and will exit from the block (not the surrounding method).</p>
-<p>The semantic for <code>next</code> and <code>return</code> inside captured blocks <a href="https://github.com/manastech/crystal/issues/420" target="_blank">might swap in the future</a>.</p>
+<h2 id="break-%E3%81%A8-next">break &#x3068; next</h2>
+<p><code>break</code> &#x3068; <code>next</code> &#x3092;&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306E;&#x4E2D;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;<code>return</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067; (&#x5468;&#x308A;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x306F;&#x306A;&#x304F;) &#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x629C;&#x3051;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306B;&#x304A;&#x3051;&#x308B; <code>next</code> &#x3068; <code>return</code> &#x306E;&#x52D5;&#x4F5C;&#x306F;<a href="https://github.com/manastech/crystal/issues/420" target="_blank">&#x5C06;&#x6765;&#x7684;&#x306B;&#x5165;&#x308C;&#x66FF;&#x308F;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;</a>&#x3002;</p>
 <h2 id="with-yield">with ... yield</h2>
-<p>The default receiver within a captured block can&apos;t be changed by using <code>with ... yield</code>.</p>
+<p>&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5185;&#x306E;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x30EC;&#x30B7;&#x30FC;&#x30D0;&#x306F;&#x3001;<code>with ... yield</code> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1990,10 +1990,10 @@ proc.call(<span class="hljs-number">1</span>) <span class="hljs-comment"># &quot
         </div>
 
         
-        <a href="../syntax_and_semantics/blocks_and_procs.html" class="navigation navigation-prev " aria-label="Previous page: Blocks and Procs"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/blocks_and_procs.html" class="navigation navigation-prev " aria-label="Previous page: ブロックと Proc"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/proc_literal.html" class="navigation navigation-next " aria-label="Next page: Proc literal"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/proc_literal.html" class="navigation navigation-next " aria-label="Next page: Proc リテラル"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
