@@ -1,8 +1,8 @@
-# Capturing blocks
+# ブロックの捕捉
 
-A block can be captured and turned into a `Proc`, which represents a block of code with an associated context: the closured data.
+ブロックを捕捉して `Proc` にすることができます (captured block) 。 これはコンテキストに結びついたコードブロック (クロージャ) を表現するものです。
 
-To capture a block you must specify it as a method's block argument, give it a name and specify the input and output types. 例をあげます。
+ブロックを捕捉するには、メソッドにブロック引数を設定し、その名前とインプット/アウトプットの型を指定する必要があります。例をあげます。
 
 ```ruby
 def int_to_int(&block : Int32 -> Int32)
@@ -13,9 +13,9 @@ proc = int_to_int { |x| x + 1 }
 proc.call(1) #=> 2
 ```
 
-The above code captures the block of code passed to `int_to_int` in the `block` variable, and returns it from the method. The type of `proc` is [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html), a function that accepts a single `Int32` argument and returns an `Int32`.
+上記のコードでは、`int_to_int` に渡されたコードブロックを `block` 変数の中に捕捉し、それをメソッドの戻り値として返しています。このとき、`proc` の型は [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html) で、単一の `Int32` の引数を受け取り、`Int32` の戻り値を返す関数となります。
 
-In this way a block can be saved as a callback:
+この方法で、ブロックをコールバックとして保存しておくこともできます。
 
 ```ruby
 class Model
@@ -32,12 +32,12 @@ end
 
 model = Model.new
 model.on_save { puts "Saved!" }
-model.save # prints "Saved!"
+model.save # "Saved!" と出力
 ```
 
-In the above example the type of `&block` wasn't specified: this just means that the captured block doesn't have arguments and doesn't return anything.
+上記の例において、`&block` の型を指定していません。これは捕捉されたブロックが引数を何も受け取らず、戻り値も返さないことを示しています。
 
-Note that if the return type is not specified, nothing gets returned from the proc call:
+戻り値の型が指定されていないとき、proc の呼び出しは何も返さないことに注意してください。
 
 ```ruby
 def some_proc(&block : Int32 ->)
@@ -48,7 +48,7 @@ proc = some_proc { |x| x + 1 }
 proc.call(1) # void
 ```
 
-To have something returned, either specify the return type or use an underscore to allow any return type:
+何か返して欲しい場合には、戻り値の型を指定するか、もしくはすべての型を許容したいときはアンダースコアを使ってください。
 
 ```ruby
 def some_proc(&block : Int32 -> _)
@@ -62,12 +62,12 @@ proc = some_proc { |x| x.to_s }
 proc.call(1) # "1"
 ```
 
-## break and next
+## break と next
 
-`break` and `next` can't be used inside a captured block. `return` can be used and will exit from the block (not the surrounding method).
+`break` と `next` を捕捉されたブロックの中で使用することはできません。`return` を使うことで (周りのメソッドではなく) ブロックを抜けることができます。
 
-The semantic for `next` and `return` inside captured blocks [might swap in the future](https://github.com/manastech/crystal/issues/420).
+捕捉されたブロックにおける `next` と `return` の動作は[将来的に入れ替わるかもしれません](https://github.com/manastech/crystal/issues/420)。
 
 ## with ... yield
 
-The default receiver within a captured block can't be changed by using `with ... yield`.
+捕捉されたブロック内のデフォルトのレシーバは、`with ... yield` を使用して変更することが可能です。
