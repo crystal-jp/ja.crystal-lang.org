@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Closures | プログラミング言語 Crystal</title>
+        <title>クロージャ | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.9.4" data-basepath=".." data-revision="Wed Sep 16 2015 13:56:45 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.9.4" data-basepath=".." data-revision="Fri Sep 18 2015 15:23:43 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1226,7 +1226,7 @@
                         
                             <b>4.7.9.3.</b>
                         
-                        Block forwarding
+                        ブロックのフォワーディング
                     </a>
                 
             
@@ -1241,7 +1241,7 @@
                         
                             <b>4.7.9.4.</b>
                         
-                        Closures
+                        クロージャ
                     </a>
                 
             
@@ -1927,15 +1927,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="closures">Closures</h1>
-<p>Captured blocks and proc literals closure local variables and <code>self</code>. This is better understood with an example:</p>
+                        <h1 id="%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3">&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;</h1>
+<p>&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3068; proc &#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x306F;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3068; <code>self</code> &#x3092;&#x9589;&#x5305; (&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;) &#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x308B;&#x3068;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">x = <span class="hljs-number">0</span>
 proc = -&gt;{ x += <span class="hljs-number">1</span>; x }
 proc.call <span class="hljs-comment">#=&gt; 1</span>
 proc.call <span class="hljs-comment">#=&gt; 2</span>
 x         <span class="hljs-comment">#=&gt; 2</span>
 </code></pre>
-<p>Or with a proc returned from a method:</p>
+<p>&#x3082;&#x3057;&#x304F;&#x306F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x8FD4;&#x3059; proc &#x306E;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>counter
   x = <span class="hljs-number">0</span>
   -&gt;{ x += <span class="hljs-number">1</span>; x }
@@ -1945,9 +1945,9 @@ proc = counter
 proc.call <span class="hljs-comment">#=&gt; 1</span>
 proc.call <span class="hljs-comment">#=&gt; 2</span>
 </code></pre>
-<p>In the above example, even though <code>x</code> is a local variable, it was captured by the proc literal. In this case the compiler allocates <code>x</code> on the heap and uses it as the context data of the proc to make it work, because normally local variables live in the stack and are gone after a method returns.</p>
-<h2 id="type-of-closured-variables">Type of closured variables</h2>
-<p>The compiler is usually moderately smart about the type of local variables. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;<code>x</code> &#x306F;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3067;&#x3042;&#x308B;&#x306B;&#x3082;&#x95A2;&#x308F;&#x3089;&#x305A;&#x3001;proc &#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x306B;&#x3088;&#x3063;&#x3066;&#x6355;&#x6349;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>x</code> &#x3092;&#x30D2;&#x30FC;&#x30D7;&#x306B;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3001;proc &#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x3057;&#x3066;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306F;&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x306B;&#x5B58;&#x5728;&#x3057;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x7D42;&#x4E86;&#x3059;&#x308B;&#x3068;&#x6D88;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%81%AE%E5%A4%89%E6%95%B0%E3%81%AE%E5%9E%8B">&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;&#x306E;&#x5909;&#x6570;&#x306E;&#x578B;</h2>
+<p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306E;&#x578B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x300C;&#x305D;&#x308C;&#x306A;&#x308A;&#x306B;&#x300D;&#x8CE2;&#x304F;&#x89E3;&#x91C8;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>foo
   <span class="hljs-keyword">yield</span>
 <span class="hljs-keyword">end</span>
@@ -1958,8 +1958,8 @@ foo <span class="hljs-keyword">do</span>
 <span class="hljs-keyword">end</span>
 x <span class="hljs-comment"># :: Int32 | String</span>
 </code></pre>
-<p>The compiler knows that after the block, <code>x</code> can be Int32 or String (it could know that it will always be String because the method always yields, this will maybe improve in the future).</p>
-<p>If <code>x</code> is assigned something else after the block, the compiler knows the type changed:</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306E;&#x5F8C;&#x306B; <code>x</code> &#x304C; Int32 &#x304B; String &#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x5224;&#x65AD;&#x3067;&#x304D;&#x307E;&#x3059; (&#x305F;&#x3060;&#x3001;&#x3053;&#x306E;&#x5834;&#x5408;&#x3060;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x5FC5;&#x305A; yield &#x3059;&#x308B;&#x306E;&#x3067;&#x3001;&#x5E38;&#x306B; String &#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x306F;&#x660E;&#x767D;&#x3067;&#x3059;&#x3002;&#x5C06;&#x6765;&#x7684;&#x306B;&#x306F;&#x305D;&#x3053;&#x307E;&#x3067;&#x5224;&#x65AD;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x6539;&#x5584;&#x3059;&#x308B;&#x3064;&#x3082;&#x308A;&#x3067;&#x3059;) &#x3002;</p>
+<p>&#x3082;&#x3057;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306E;&#x5F8C;&#x3067; <code>x</code> &#x306B;&#x4F55;&#x304B;&#x304C;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x305D;&#x306E;&#x578B;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x305F;&#x3068;&#x5224;&#x65AD;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">x = <span class="hljs-number">1</span>
 foo <span class="hljs-keyword">do</span>
   x = <span class="hljs-string">&quot;hello&quot;</span>
@@ -1969,7 +1969,7 @@ x <span class="hljs-comment"># :: Int32 | String</span>
 x = <span class="hljs-string">&apos;a&apos;</span>
 x <span class="hljs-comment"># :: Char</span>
 </code></pre>
-<p>However, if <code>x</code> is closured by a proc, the type is always the mixed type of all assignments to it:</p>
+<p>&#x3057;&#x304B;&#x3057;&#x3001;&#x3082;&#x3057; <code>x</code> &#x304C; proc &#x306B;&#x3088;&#x3063;&#x3066;&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;&#x306B;&#x5305;&#x307E;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;&#x578B;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x305F;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>capture(&amp;block)
   block
 <span class="hljs-keyword">end</span>
@@ -1980,8 +1980,8 @@ capture { x = <span class="hljs-string">&quot;hello&quot;</span> }
 x = <span class="hljs-string">&apos;a&apos;</span>
 x <span class="hljs-comment"># :: Int32 | String | Char</span>
 </code></pre>
-<p>This is because the captured block could have been potentially stored in a global, class or instance variable and invoked in a separate thread in between the instructions. The compiler doesn&apos;t do an exahustive analysis of this: it just assumes that if a variable is captured by a proc, the time of that proc invocation is unknown.</p>
-<p>This also happens with regular proc literals, even if it&apos;s evident that the proc wasn&apos;t invoked or stored:</p>
+<p>&#x3053;&#x306E;&#x7406;&#x7531;&#x306F;&#x3001;&#x6355;&#x6349;&#x3055;&#x308C;&#x305F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x306F;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x3084;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3001;&#x305D;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x306B;&#x4FDD;&#x6301;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x3001;&#x305D;&#x3057;&#x3066;&#x5225;&#x3005;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x3042;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3053;&#x3068;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x7DBF;&#x5BC6;&#x306A;&#x5206;&#x6790;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x305F;&#x3060;&#x3001;proc &#x306B;&#x5909;&#x6570;&#x304C;&#x6355;&#x6349;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E; proc &#x304C;&#x3044;&#x3064;&#x3069;&#x3053;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x304B;&#x306F;&#x672A;&#x77E5;&#x3067;&#x3042;&#x308B;&#x3001;&#x3068;&#x3057;&#x3066;&#x6271;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x306F;&#x901A;&#x5E38;&#x306E; proc &#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x306B;&#x3082;&#x5F53;&#x3066;&#x306F;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E; proc &#x304C;&#x5B9F;&#x884C;&#x3082;&#x4FDD;&#x6301;&#x3082;&#x3055;&#x308C;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x660E;&#x767D;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>capture(&amp;block)
   block
 <span class="hljs-keyword">end</span>
@@ -2002,7 +2002,7 @@ x <span class="hljs-comment"># :: Int32 | String | Char</span>
         </div>
 
         
-        <a href="../syntax_and_semantics/block_forwarding.html" class="navigation navigation-prev " aria-label="Previous page: Block forwarding"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/block_forwarding.html" class="navigation navigation-prev " aria-label="Previous page: ブロックのフォワーディング"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/alias.html" class="navigation navigation-next " aria-label="Next page: alias"><i class="fa fa-angle-right"></i></a>
