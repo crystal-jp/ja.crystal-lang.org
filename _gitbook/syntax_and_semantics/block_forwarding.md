@@ -1,6 +1,6 @@
-# Block forwarding
+# ブロックのフォワーディング
 
-To forward captured blocks, you use a block argument, prefixing an expression with `&`:
+捕捉したブロックをフォワーディングするには、先頭文字が `&` のブロック引数を利用します。
 
 ```ruby
 def capture(&block)
@@ -12,16 +12,16 @@ def invoke(&block)
 end
 
 proc = capture { puts "Hello" }
-invoke(&proc) # prints "Hello"
+invoke(&proc) # "Hello" を表示
 ```
 
-In the above example, `invoke` receives a block. We can't pass `proc` directly to it because `invoke` doesn't receive regular arguments, just a block argument. We use `&` to specify that we really want to pass `proc` as the block argument. Otherwise:
+上記の例で、`invoke` はブロックを受け取ります。このとき、`proc` をそのまま渡すことはできません。なぜなら `invoke` が受け取るのはブロック引数であり、通常の引数ではないからです。したがって、`proc` をブロック引数として渡すために `&` を指定する必要があります。そうしなかった場合は以下のようになります。
 
 ```ruby
 invoke(proc) # Error: wrong number of arguments for 'invoke' (1 for 0)
 ```
 
-You can actually pass a proc to a method that yields:
+proc を yield するメソッドに渡すこともできます。
 
 ```ruby
 def capture(&block)
@@ -37,7 +37,7 @@ proc = capture { puts "Hello" }
 twice &proc
 ```
 
-The above is simpy rewritten to:
+上記は単純に以下に書き換えることができます。
 
 ```ruby
 proc = capture { puts "Hello" }
@@ -46,7 +46,7 @@ twice do
 end
 ```
 
-Or, combining the `&` and `->` syntaxes:
+`&` と `->` のシンタックスを組み合わせることも可能です。
 
 ```ruby
 twice &->{ puts "Hello" }
@@ -62,9 +62,9 @@ end
 twice &->say_hello
 ```
 
-## Forwarding non-captured blocks
+## 捕捉されないブロックのフォワーディング
 
-To forward non-captured blocks, you must use `yield`:
+捕捉されないブロックをフォワーディングするには `yield` を使用します。
 
 ```ruby
 def foo
@@ -83,13 +83,13 @@ wrap_foo do |i|
   puts i
 end
 
-# Output:
+# 出力:
 # Before foo
 # 1
 # After foo
 ```
 
-You can also use the `&block` syntax to forward blocks, but then you have to at least specify the input types, and the generated code will involve closures and will be slower:
+ブロックのフォワーディングに `&block` を利用することも可能ですが、その場合には最低でも入力する型を指定しておかなければいけません。また、生成されたコードがクロージャを伴うため、速度的にも遅くなってしまいます。
 
 ```ruby
 def foo
@@ -106,13 +106,13 @@ wrap_foo do |i|
   puts i
 end
 
-# Output:
+# 出力:
 # Before foo
 # 1
 # After foo
 ```
 
-Try to avoid forwarding blocks like this if doing `yield` is enough. There's also the issue that `break` and `next` are not allowed inside captured blocks, so the following won't work when using `&block` forwarding:
+もし `yield` で十分な場合には、このようなブロックのフォワーディングは使わないようにしましょう。加えて、捕捉されたブロックでは `break` と `next` を使用することができないという問題もあります。例えば、以下は `&block` でフォワーディングした場合には動作しません。
 
 ```ruby
 foo_forward do |i|
@@ -120,4 +120,4 @@ foo_forward do |i|
 end
 ```
 
-In short, avoid `&block` forwarding when `yield` is involved.
+一言で言うと、`yield` を伴うときには `&block` のフォワーディングは避けるべき、ということです。

@@ -2,7 +2,7 @@
 
 Once macros generate code, they are parsed with a regular Crystal parser where local variables in the context of the macro invocations are assumed to be defined.
 
-This is better understood with an example:
+例を見てみるとわかりやすいでしょう。
 
 ```ruby
 macro update_x
