@@ -1,6 +1,6 @@
 # Proc リテラル
 
-捕捉されたブロック (captured block) は、[Proc リテラル](literals/proc.html) and [passing](block_forwarding.html) を宣言してメソッドに渡すことと等しいです。
+捕捉されたブロック (captured block) は、[Proc リテラル](literals/proc.html) を宣言してメソッドに[渡す](block_forwarding.html)ことと等しいです。
 
 ```ruby
 def some_proc(&block : Int32 -> Int32)

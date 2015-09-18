@@ -1,6 +1,6 @@
-# Closures
+# クロージャ
 
-Captured blocks and proc literals closure local variables and `self`. This is better understood with an example:
+捕捉されたブロックと proc リテラルはローカル変数と `self` を閉包 (クロージャ) します。例を見てみるとわかりやすいでしょう。
 
 ```ruby
 x = 0
@@ -10,7 +10,7 @@ proc.call #=> 2
 x         #=> 2
 ```
 
-Or with a proc returned from a method:
+もしくは、メソッドが返す proc の場合は以下となります。
 
 ```ruby
 def counter
@@ -23,11 +23,11 @@ proc.call #=> 1
 proc.call #=> 2
 ```
 
-In the above example, even though `x` is a local variable, it was captured by the proc literal. In this case the compiler allocates `x` on the heap and uses it as the context data of the proc to make it work, because normally local variables live in the stack and are gone after a method returns.
+上記の例において、`x` はローカル変数であるにも関わらず、proc リテラルによって捕捉されています。このとき、コンパイラは `x` をヒープに割り当て、proc が動作するためのコンテキストのデータをして利用します。通常であれば、ローカル変数はスタックに存在し、メソッドが終了すると消えます。
 
-## Type of closured variables
+## クロージャの変数の型
 
-The compiler is usually moderately smart about the type of local variables. 例をあげます。
+ローカル変数の型に対して、コンパイラは「それなりに」賢く解釈します。例をあげます。
 
 ```ruby
 def foo
@@ -41,9 +41,9 @@ end
 x # :: Int32 | String
 ```
 
-The compiler knows that after the block, `x` can be Int32 or String (it could know that it will always be String because the method always yields, this will maybe improve in the future).
+コンパイラは、ブロックの後に `x` が Int32 か String であることを判断できます (ただ、この場合だとメソッドは必ず yield するので、常に String であることは明白です。将来的にはそこまで判断できるように改善するつもりです) 。
 
-If `x` is assigned something else after the block, the compiler knows the type changed:
+もし、ブロックの後で `x` に何かが代入されたとき、コンパイラはその型が変更されたと判断します。
 
 ```ruby
 x = 1
@@ -56,7 +56,7 @@ x = 'a'
 x # :: Char
 ```
 
-However, if `x` is closured by a proc, the type is always the mixed type of all assignments to it:
+しかし、もし `x` が proc によってクロージャに包まれた場合は、その型はすべての代入された型の組み合わせとなります。
 
 ```ruby
 def capture(&block)
@@ -70,9 +70,9 @@ x = 'a'
 x # :: Int32 | String | Char
 ```
 
-This is because the captured block could have been potentially stored in a global, class or instance variable and invoked in a separate thread in between the instructions. The compiler doesn't do an exahustive analysis of this: it just assumes that if a variable is captured by a proc, the time of that proc invocation is unknown.
+この理由は、捕捉されたブロックはグローバル変数やクラス変数、そしてインスタンス変数に保持されることもあり、そして別々のスレッドで実行される可能性もあるためです。このことに対して、コンパイラが綿密な分析をすることはありません。コンパイラはただ、proc に変数が捕捉されていたら、その proc がいつどこで実行されるかは未知である、として扱います。
 
-This also happens with regular proc literals, even if it's evident that the proc wasn't invoked or stored:
+これは通常の proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。
 
 ```ruby
 def capture(&block)
