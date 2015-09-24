@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Generics | プログラミング言語 Crystal</title>
+        <title>ジェネリクス | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.5" data-basepath=".." data-revision="Fri Sep 18 2015 15:23:43 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.5" data-basepath=".." data-revision="Thu Sep 24 2015 15:41:21 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1120,7 +1120,7 @@
                         
                             <b>4.7.5.</b>
                         
-                        Generics
+                        ジェネリクス
                     </a>
                 
             
@@ -1261,7 +1261,7 @@
                         
                             <b>4.7.10.</b>
                         
-                        alias
+                        エイリアス
                     </a>
                 
             
@@ -1362,7 +1362,7 @@
                         
                             <b>4.9.</b>
                         
-                        Attributes
+                        属性 (Attribute)
                     </a>
                 
             
@@ -2053,14 +2053,14 @@ box.value = <span class="hljs-string">&quot;hello&quot;</span>       <span class
 </ul>
 <p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306E;&#x6271;&#x3044;&#x304C;&#x5197;&#x9577;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x3053;&#x3068;&#x3092;&#x8EFD;&#x6E1B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E5%9E%8B%E3%81%AE%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%94%A8%E9%80%94">&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306E;&#x305D;&#x306E;&#x4ED6;&#x306E;&#x7528;&#x9014;</h2>
-<p>&#x901A;&#x5E38;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306F;&#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x306B;&#x95A2;&#x9023;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x304C;&#x5927;&#x304D;&#x304F;&#x306A;&#x308B;&#x3053;&#x3068;&#x3068;&#x5F15;&#x304D;&#x63DB;&#x3048;&#x306B;&#x3001;&#x5B9F;&#x884C;&#x6642;&#x306E;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3092;&#x5411;&#x4E0A;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x5B9F;&#x884C;&#x6642;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30C7;&#x30A3;&#x30B9;&#x30D1;&#x30C3;&#x30C1;&#x304C;&#x767A;&#x751F;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B; <code>BufferedIO(T)</code> &#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306F;&#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x306B;&#x95A2;&#x9023;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x5B9F;&#x884C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x304C;&#x5927;&#x304D;&#x304F;&#x306A;&#x308B;&#x3053;&#x3068;&#x3068;&#x5F15;&#x304D;&#x63DB;&#x3048;&#x306B;&#x3001;&#x5B9F;&#x884C;&#x6642;&#x306E;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3092;&#x5411;&#x4E0A;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x5B9F;&#x884C;&#x6642;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x30C7;&#x30A3;&#x30B9;&#x30D1;&#x30C3;&#x30C1;&#x304C;&#x767A;&#x751F;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B; <code>BufferedIO(T)</code> &#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002; (&#x8A33;&#x6CE8;: <code>BufferedIO(T)</code> &#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x306F;&#x306A;&#x304F;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x5909;&#x66F4;&#x3055;&#x308C;&#x305F;&#x306E;&#x3067;&#x3001;&#x3053;&#x308C;&#x4EE5;&#x964D;&#x306E;&#x5185;&#x5BB9;&#x306F;&#x73FE;&#x5728;&#x306E; Crystal &#x306B;&#x306F;&#x5F53;&#x3066;&#x306F;&#x307E;&#x3089;&#x306A;&#x3044;&#x305F;&#x3081;&#x7FFB;&#x8A33;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;<a href="https://github.com/manastech/crystal/issues/1453" target="_blank">An example code in the docs&apos; &quot;Generics&quot; doesn&apos;t work</a>)</p>
 <pre><code class="lang-ruby">file = <span class="hljs-constant">File</span>.open(<span class="hljs-string">&quot;myfile.txt&quot;</span>)
 io = <span class="hljs-constant">BufferedIO</span>.new(file) <span class="hljs-comment">#:: BufferedIO(File)</span>
 io.gets
 </code></pre>
-<p>&#x3053;&#x306E; <code>io</code> &#x5909;&#x6570;&#x306F; <code>BufferedIO(File)</code> &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x305D;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306B;&#x5BFE;&#x3057;&#x3066;<code>gets</code> &#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;<code>File#gets</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057; <code>BufferedIO</code> &#x304C;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x3067;&#x306A;&#x304B;&#x3063;&#x305F;&#x3068;&#x3059;&#x308C;&#x3070;&#x3001;&#x3053;&#x306E; <code>gets</code> &#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306F; <code>IO</code> types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of <code>BufferedIO</code> will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.</p>
-<h2 id="generic-structs-and-modules">Generic structs and modules</h2>
-<p>Structs and modules can be generic too. When a module is generic you include it like this:</p>
+<p>That <code>io</code> variable is a specified <code>BufferedIO(File)</code> instance, so invoking <code>gets</code> on it will end up invoking <code>File#gets</code>. If <code>BufferedIO</code> wasn&apos;t generic, that <code>gets</code> call would make a dispatch over all the <code>IO</code> types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of <code>BufferedIO</code> will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.</p>
+<h2 id="%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E3%81%AA%E6%A7%8B%E9%80%A0%E4%BD%93%E3%81%A8%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x306A;&#x69CB;&#x9020;&#x4F53;&#x3068;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;</h2>
+<p>&#x69CB;&#x9020;&#x4F53;&#x3068;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Moo</span>(<span class="hljs-title">T</span>)</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> </span>t
     <span class="hljs-constant">T</span>
@@ -2077,9 +2077,9 @@ io.gets
 foo = <span class="hljs-constant">Foo</span>.new(<span class="hljs-number">1</span>)
 foo.t <span class="hljs-comment"># Int32</span>
 </code></pre>
-<p>Note that in the above example <code>T</code> becomes <code>Int32</code> because <code>Foo.new(1)</code> makes <code>U</code> become <code>Int32</code>, which in turn makes <code>T</code> become <code>Int32</code> via the inclusion of the generic module.</p>
-<h2 id="generic-types-inheritance">Generic types inheritance</h2>
-<p>Generic classes and structs can be inherited. When inheriting you can specify an instance of the generic type, or delegate type varaibles:</p>
+<p>&#x4E0A;&#x8A18;&#x3067; <code>T</code> &#x306F; <code>Int32</code> &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>Foo.new(1)</code> &#x306B;&#x3088;&#x3063;&#x3066; <code>U</code> &#x304C; <code>Int32</code> &#x3068;&#x306A;&#x308A;&#x3001;&#x305D;&#x3057;&#x3066;&#x3001;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x306A;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067; <code>T</code> &#x304C; <code>Int32</code> &#x3068;&#x306A;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%83%83%E3%82%AF%E5%9E%8B%E3%81%AE%E7%B6%99%E6%89%BF">&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x578B;&#x306E;&#x7D99;&#x627F;</h2>
+<p>&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30C3;&#x30AF;&#x306A;&#x30AF;&#x30E9;&#x30B9;&#x3068;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x7D99;&#x627F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x7D99;&#x627F;&#x3059;&#x308B;&#x969B;&#x306F;&#x306B;&#x3001;&#x5177;&#x4F53;&#x7684;&#x306A;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x304B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x578B;&#x5909;&#x6570;&#x3092;&#x79FB;&#x8B72;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span>(<span class="hljs-title">T</span>)</span>
 <span class="hljs-keyword">end</span>
 

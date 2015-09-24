@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>alias | プログラミング言語 Crystal</title>
+        <title>エイリアス | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.10" data-basepath=".." data-revision="Fri Sep 18 2015 15:23:43 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.10" data-basepath=".." data-revision="Thu Sep 24 2015 15:41:21 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1120,7 +1120,7 @@
                         
                             <b>4.7.5.</b>
                         
-                        Generics
+                        ジェネリクス
                     </a>
                 
             
@@ -1261,7 +1261,7 @@
                         
                             <b>4.7.10.</b>
                         
-                        alias
+                        エイリアス
                     </a>
                 
             
@@ -1362,7 +1362,7 @@
                         
                             <b>4.9.</b>
                         
-                        Attributes
+                        属性 (Attribute)
                     </a>
                 
             
@@ -1927,14 +1927,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="alias">alias</h1>
-<p>With <code>alias</code> you can give a type a different name:</p>
+                        <h1 id="%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9">&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;</h1>
+<p><code>alias</code> &#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x578B;&#x306B;&#x5225;&#x540D;&#x3092;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">PInt32</span> = <span class="hljs-constant">Pointer</span>(<span class="hljs-constant">Int32</span>)
 
 ptr = <span class="hljs-constant">PInt32</span>.malloc(<span class="hljs-number">1</span>) <span class="hljs-comment"># :: Pointer(Int32)</span>
 </code></pre>
-<p>Every time you use an alias the compiler replaces it with the type it refers to.</p>
-<p>Aliases are useful to avoid writing long type names, but also to be able to talk about recursive types:</p>
+<p>&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x305D;&#x308C;&#x3089;&#x304C;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x308B;&#x578B;&#x306B;&#x7F6E;&#x304D;&#x5909;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x9577;&#x3044;&#x540D;&#x524D;&#x306E;&#x578B;&#x3092;&#x66F8;&#x304B;&#x305A;&#x306B;&#x6E08;&#x3080;&#x306E;&#x3067;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x305D;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x518D;&#x5E30;&#x7684;&#x306A;&#x578B;&#x3092;&#x6271;&#x3046;&#x3068;&#x304D;&#x306B;&#x3082;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">RecArray</span> = <span class="hljs-constant">Array</span>(<span class="hljs-constant">Int32</span>) | <span class="hljs-constant">Array</span>(<span class="hljs-constant">RecArray</span>)
 
 ary = [] of <span class="hljs-constant">RecArray</span>
@@ -1942,7 +1942,7 @@ ary.push [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>
 ary.push ary
 ary <span class="hljs-comment">#=&gt; [[1, 2, 3], [...]]</span>
 </code></pre>
-<p>A real-world example of a recursive type is json:</p>
+<p>&#x518D;&#x5E30;&#x7684;&#x306A;&#x578B;&#x3068;&#x3057;&#x3066;&#x5B9F;&#x969B;&#x306B;&#x6271;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;&#x4F8B;&#x306F; JSON &#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Json</span></span>
   <span class="hljs-keyword">alias</span> <span class="hljs-constant">Type</span> = <span class="hljs-constant">Nil</span> |
                <span class="hljs-constant">Bool</span> |
