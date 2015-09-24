@@ -180,7 +180,7 @@ MyBox.new("hello") #:: MyBox(String)
 
 ## ジェネリック型のその他の用途
 
-通常、ジェネリック型はコンテナに関連していることが多いですが、それだけではなく、実行ファイルのサイズが大きくなることと引き換えに、実行時のパフォーマンスを向上させるために利用することもできます。これは、ジェネリック型を利用することで、実行時にメソッドのディスパッチが発生しないようにするということです。例えば、標準ライブラリに `BufferedIO(T)` というものがあります。
+通常、ジェネリック型はコンテナに関連していることが多いですが、それだけではなく、実行ファイルのサイズが大きくなることと引き換えに、実行時のパフォーマンスを向上させるために利用することもできます。これは、ジェネリック型を利用することで、実行時にメソッドのディスパッチが発生しないようにするということです。例えば、標準ライブラリに `BufferedIO(T)` というものがあります。 (訳注: `BufferedIO(T)` はクラスではなくモジュールに変更されたので、これ以降の内容は現在の Crystal には当てはまらないため翻訳していません。[An example code in the docs' "Generics" doesn't work](https://github.com/manastech/crystal/issues/1453))
 
 ```ruby
 file = File.open("myfile.txt")
@@ -188,11 +188,11 @@ io = BufferedIO.new(file) #:: BufferedIO(File)
 io.gets
 ```
 
-この `io` 変数は `BufferedIO(File)` のインスタンスとなります。したがって、そのインスタンスに対して`gets` を実行したときには、`File#gets` が実行されます。もし `BufferedIO` がジェネリック型でなかったとすれば、この `gets` の呼び出しは `IO` types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of `BufferedIO` will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.
+That `io` variable is a specified `BufferedIO(File)` instance, so invoking `gets` on it will end up invoking `File#gets`. If `BufferedIO` wasn't generic, that `gets` call would make a dispatch over all the `IO` types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of `BufferedIO` will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.
 
-## Generic structs and modules
+## ジェネリックな構造体とモジュール
 
-Structs and modules can be generic too. When a module is generic you include it like this:
+構造体とモジュールをジェネリックにすることも可能です。ジェネリックなモジュールは以下のようにインクルードします。
 
 ```ruby
 module Moo(T)
@@ -212,11 +212,11 @@ foo = Foo.new(1)
 foo.t # Int32
 ```
 
-Note that in the above example `T` becomes `Int32` because `Foo.new(1)` makes `U` become `Int32`, which in turn makes `T` become `Int32` via the inclusion of the generic module.
+上記で `T` は `Int32` となります。これは、`Foo.new(1)` によって `U` が `Int32` となり、そして、ジェネリックなモジュールをインクルードすることで `T` が `Int32` となるためです。
 
-## Generic types inheritance
+## ジェネリック型の継承
 
-Generic classes and structs can be inherited. When inheriting you can specify an instance of the generic type, or delegate type varaibles:
+ジェネリックなクラスとモジュールを継承することも可能です。継承する際はに、具体的な型を指定するか、もしくは型変数を移譲することができます。
 
 ```ruby
 class Parent(T)
