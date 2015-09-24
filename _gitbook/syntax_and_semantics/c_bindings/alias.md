@@ -1,4 +1,4 @@
-# alias
+# エイリアス
 
 An `alias` declaration inside a `lib` declares a C `typedef`:
 

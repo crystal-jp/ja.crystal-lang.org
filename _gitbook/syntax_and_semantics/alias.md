@@ -1,6 +1,6 @@
-# alias
+# エイリアス
 
-With `alias` you can give a type a different name:
+`alias` を使うと、型に別名をつけることができます。
 
 ```ruby
 alias PInt32 = Pointer(Int32)
@@ -8,9 +8,9 @@ alias PInt32 = Pointer(Int32)
 ptr = PInt32.malloc(1) # :: Pointer(Int32)
 ```
 
-Every time you use an alias the compiler replaces it with the type it refers to.
+エイリアスはコンパイラによって、それらが参照している型に置き変えられます。
 
-Aliases are useful to avoid writing long type names, but also to be able to talk about recursive types:
+エイリアスを使うと長い名前の型を書かずに済むので便利です。しかし、それだけではなく、再帰的な型を扱うときにも利用できます。
 
 ```ruby
 alias RecArray = Array(Int32) | Array(RecArray)
@@ -21,7 +21,7 @@ ary.push ary
 ary #=> [[1, 2, 3], [...]]
 ```
 
-A real-world example of a recursive type is json:
+再帰的な型として実際に扱うことになる例は JSON でしょう。
 
 ```ruby
 module Json
