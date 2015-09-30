@@ -1,6 +1,6 @@
 # as
 
-The `as` expression restricts the types of an expression. 例をあげます。
+`as` 式はある式の型に対して制約を与えます。例をあげます。
 
 ```ruby
 if some_condition
@@ -12,56 +12,56 @@ end
 # a :: Int32 | String
 ```
 
-In the above code, `a` is a union of `Int32 | String`. If for some reason we are sure `a` is an `Int32` after the `if`, we can force the compiler to treat it like one:
+上記のコードでは、`a` は `Int32 | String` の組み合わせとなります。もし何らかの理由で、`if` の後で `a` が `Int32` であるとしたい場合は、そのように扱うようにコンパイラに強制することができます。
 
 ```ruby
 a_as_int = a as Int32
-a_as_int.abs          # works, compiler knows that a_as_int is Int32
+a_as_int.abs          # コンパイラは a_as_int が Int32 であると知っているので動作する
 ```
 
-The `as` expression performs a runtime check: if `a` wasn't an `Int32`, an [exception](exception_handling.html) is raised.
+`as` 式はランタイムにチェックを行うため、もし `a` が `Int32` ではないときには[例外](exception_handling.html)が発生します。
 
-The argument to the expression is a [type](type_grammar.html).
+式に与える引数は[型](type_grammar.html)です。
 
-If it is impossible for a type to be restricted by another type, a compile-time error is issued:
+ある型を別の型に強制することは不可能で、コンパイルエラーが発生します。
 
 ```ruby
 1 as String # Error
 ```
 
-## Converting between pointer types
+## ポインタ型同士の変換
 
-The `as` expression also allows to cast between pointer types:
+`as` 式はポインタ型同士のキャストも可能です。
 
 ```ruby
 ptr = Pointer(Int32).malloc(1)
 ptr as Int8*                    #:: Pointer(Int8)
 ```
 
-In this case, no runtime checks are done: pointers are unsafe and this type of casting is usually only needed in C bindings and low-level code.
+このとき、ランタイムのチェックは行われません。ポインタは安全でない (unsafe) ため、通常、この型キャストは C バインディングやローレベルなコードにおいてのみ利用します。
 
-## Converting between pointer types and other types
+## ポインタ型と他の型の変換
 
-Conversion between pointer types and Reference types is also possible:
+ポインタ型と Reference 型を相互に変換することも可能です。
 
 ```ruby
 array = [1, 2, 3]
 
-# object_id returns the address of an object in memory,
-# so we create a pointer with that address
+# object_id はメモリ上のオブジェクトのアドレスを返すため、
+# そのアドレスからポインタを作ることができる
 ptr = Pointer(Void).new(array.object_id)
 
-# Now we cast that pointer to the same type, and
-# we should get the same value
+# ポインタをその型にキャストすると、
+# 同一の値が得られる
 array2 = ptr as Array(Int32)
 array2.same?(array) #=> true
 ```
 
-No runtime checks are performed in these cases because, again, pointers are involved. The need for this cast is even more rare than the previous one, but allows to implement some core types (like String) in Crystal itself, and it also allows passing a Reference type to C functions by casting it to a void pointer.
+この場合も、ポインタが絡む処理になるためランタイムのチェックは行われません。このキャストが必要になるケースは前述のものよりも稀です。ただ、これによって (String などの) コアとなる型を Crystal 自身で実装することが可能になっており、また、Reference 型を void ポインタにキャストすることで C の関数に渡すこともできます。
 
-## Usage for casting to a bigger type
+## 大きな型へのキャストの利用方法
 
-The `as` expression can be used to cast an expression to a "bigger" type. 例をあげます。
+`as` 式は、ある式をより「大きな」型へキャストするために使うことができます。例をあげます。
 
 ```ruby
 a = 1
@@ -69,23 +69,23 @@ b = a as Int32 | Float64
 b #:: Int32 | Float64
 ```
 
-The above might not seem to be useful, but it is when, for example, mapping an array of elements:
+上記では一体何が嬉しいのかわからないかもしれません。では、以下のように配列の要素を map する場合ではどうでしょう？
 
 ```ruby
 ary = [1, 2, 3]
 
-# We want to create an array 1, 2, 3 of Int32 | Float64
+# Int32 | Float64型 の 1, 2, 3 の配列にしたい
 ary2 = ary.map { |x| x as Int32 | Float64 }
 
 ary2 #:: Array(Int32 | Float64)
 ary2 << 1.5 # OK
 ```
 
-The `Array#map` method uses the block's type as the generic type for the Array. Without the `as` expression, the inferred type would have been `Int32` and we wouldn't have been able to add a `Float64` into it.
+`Array#map` メソッドはブロック内の型を配列のジェネリック型とします。もし `as` 式がなければ、推論された型は `Int32` なので、それに対して `Float64` を追加することはできません。
 
-## Usage for when the compiler can't infer the type of a block
+## コンパイラがブロックの型を推論できないときの利用方法
 
-Sometimes the compiler can't infer the type of a block. 例をあげます。
+コンパイラがブロックの型を推論できない場合があります。例をあげます。
 
 ```ruby
 class Person
@@ -101,14 +101,14 @@ a = [] of Person
 x = a.map { |f| f.name } # Error: can't infer block return type
 ```
 
-The compiler needs the block's type for the generic type of the Array created by `Array#map`, but since `Person` was never instantiated, the compiler doesn't know the type of `@name`. In this cases you can help the compiler by using an `as` expression:
+コンパイラは、`Array#map` によって作られる配列のジェネリック型として、ブロックの型を必要としています。しかし、`Person` が1度もインスタンス化されていないため、コンパイラは `@name` の型を知ることができません。こういったケースでは、`as`式を使うことでコンパイラを補助することができます。
 
 ```ruby
 a = [] of Person
 x = a.map { |f| f.name as String } # OK
 ```
 
-This error isn't very frequent, and is usually gone if a `Person` is instantiated before the map call:
+このエラーに出会うことはあまりないでしょう。もし `Person` が map の呼び出し前にインスタンス化されていればエラーにはなりません。
 
 ```ruby
 Person.new "John"

@@ -1,6 +1,6 @@
 # is_a?
 
-The pseudo-method `is_a?` determines whether a type inherits or includes another type. 例をあげます。
+`is_a?` という擬似メソッドを使うと、ある他の型を継承、もしくはインクルードしていることを判定できます。例をあげます。
 
 ```ruby
 a = 1
@@ -10,4 +10,4 @@ a.is_a?(Number)         #=> true
 a.is_a?(Int32 | String) #=> true
 ```
 
-It is a pseudo-method because the compiler knows about it and it can affect type information, as explained in [if var.is_a?(...)](if_varis_a.html). Also, it accepts a [type](type_grammar.html) that must be known at compile-time as its argument.
+これが擬似メソッドである理由は、[if 変数.is_a?(...)](if_varis_a.html) で説明したように、このメソッドはコンパイラによって参照され、それによって型情報を設定することができるためです。また、コンパイル時に知っておく必要のある[型](type_grammar.html)を引数として指定することも可能です。
