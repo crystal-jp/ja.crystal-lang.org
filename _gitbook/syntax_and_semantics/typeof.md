@@ -1,28 +1,26 @@
 # typeof
 
-The `typeof` expression returns the type of an expression:
+`typeof` 式は、ある式の型を返します。
 
 ```ruby
 a = 1
 b = typeof(a) #=> Int32
 ```
 
-It accepts multiple arguments, and the result is the union of the expression types:
+複数の引数を渡すことも可能で、その場合にはそれぞれの式の組み合わせの型となります。
 
 ```ruby
 typeof(1, "a", 'a') #=> (Int32 | String | Char)
 ```
 
-It is often used in generic code, to make use of the compiler's type inference capabilities:
+これはジェネリックコードにおいて、コンパイラの型推論の力を利用したいときにしばしば使われます。
 
 ```ruby
 hash = {} of Int32 => String
 another_hash = typeof(hash).new #:: Hash(Int32, String)
 ```
 
-Since `typeof` doesn't actually evaluate the expression, it can be
-used on methods at compile time, such as in this example, which
-recursively forms a union type out of nested type paramters:
+`typeof` は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせを構築しています。
 
 ```ruby
 class Array
@@ -41,4 +39,4 @@ typeof(nest) #=> Array(Int32 | Array(String | Array(Symbol | Array(Char))))
 typeof(flat) #=> Array(String | Int32 | Symbol | Char)
 ```
 
-This expression is also available in the [type grammar](type_grammar.html).
+この式は[型文法](type_grammar.html)で利用することもできます。

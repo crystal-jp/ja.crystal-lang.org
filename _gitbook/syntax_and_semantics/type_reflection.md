@@ -1,3 +1,3 @@
-# Type reflection
+# 型のリフレクション
 
-Crystal provides basic methods to do type reflection, casting and introspection.
+Crystal は型のリフレクションやキャスト、そしてイントロスペクションのための基本的なメソッドを提供しています。

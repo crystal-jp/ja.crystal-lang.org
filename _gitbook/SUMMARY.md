@@ -77,7 +77,7 @@
            * [ブロックのフォワーディング](syntax_and_semantics/block_forwarding.md)
            * [クロージャ](syntax_and_semantics/closures.md)
        * [エイリアス](syntax_and_semantics/alias.md)
-   * [Type reflection](syntax_and_semantics/type_reflection.md)
+   * [型のリフレクション](syntax_and_semantics/type_reflection.md)
        * [is_a?](syntax_and_semantics/is_a.md)
        * [responds_to?](syntax_and_semantics/responds_to.md)
        * [as](syntax_and_semantics/as.md)
