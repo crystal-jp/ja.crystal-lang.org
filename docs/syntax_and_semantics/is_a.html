@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.8.1" data-basepath=".." data-revision="Thu Sep 24 2015 15:41:21 GMT+0900 (JST)">
+    <div class="book" data-level="4.8.1" data-basepath=".." data-revision="Wed Sep 30 2015 15:38:20 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1281,7 +1281,7 @@
                         
                             <b>4.8.</b>
                         
-                        Type reflection
+                        型のリフレクション
                     </a>
                 
             
@@ -1928,14 +1928,14 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="is-a">is_a?</h1>
-<p>The pseudo-method <code>is_a?</code> determines whether a type inherits or includes another type. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p><code>is_a?</code> &#x3068;&#x3044;&#x3046;&#x64EC;&#x4F3C;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x3042;&#x308B;&#x4ED6;&#x306E;&#x578B;&#x3092;&#x7D99;&#x627F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x5224;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 a.is_a?(<span class="hljs-constant">Int32</span>)          <span class="hljs-comment">#=&gt; true</span>
 a.is_a?(<span class="hljs-constant">String</span>)         <span class="hljs-comment">#=&gt; false</span>
 a.is_a?(<span class="hljs-constant">Number</span>)         <span class="hljs-comment">#=&gt; true</span>
 a.is_a?(<span class="hljs-constant">Int32</span> | <span class="hljs-constant">String</span>) <span class="hljs-comment">#=&gt; true</span>
 </code></pre>
-<p>It is a pseudo-method because the compiler knows about it and it can affect type information, as explained in <a href="if_varis_a.html">if var.is_a?(...)</a>. Also, it accepts a <a href="type_grammar.html">type</a> that must be known at compile-time as its argument.</p>
+<p>&#x3053;&#x308C;&#x304C;&#x64EC;&#x4F3C;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;&#x7406;&#x7531;&#x306F;&#x3001;<a href="if_varis_a.html">if &#x5909;&#x6570;.is_a?(...)</a> &#x3067;&#x8AAC;&#x660E;&#x3057;&#x305F;&#x3088;&#x3046;&#x306B;&#x3001;&#x3053;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x3063;&#x3066;&#x53C2;&#x7167;&#x3055;&#x308C;&#x3001;&#x305D;&#x308C;&#x306B;&#x3088;&#x3063;&#x3066;&#x578B;&#x60C5;&#x5831;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x77E5;&#x3063;&#x3066;&#x304A;&#x304F;&#x5FC5;&#x8981;&#x306E;&#x3042;&#x308B;<a href="type_grammar.html">&#x578B;</a>&#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1946,7 +1946,7 @@ a.is_a?(<span class="hljs-constant">Int32</span> | <span class="hljs-constant">S
         </div>
 
         
-        <a href="../syntax_and_semantics/type_reflection.html" class="navigation navigation-prev " aria-label="Previous page: Type reflection"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/type_reflection.html" class="navigation navigation-prev " aria-label="Previous page: 型のリフレクション"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../syntax_and_semantics/responds_to.html" class="navigation navigation-next " aria-label="Next page: responds_to?"><i class="fa fa-angle-right"></i></a>
