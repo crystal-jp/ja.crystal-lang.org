@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.6.4" data-basepath=".." data-revision="Wed Sep 30 2015 15:38:20 GMT+0900 (JST)">
+    <div class="book" data-level="4.6.4" data-basepath=".." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1524,7 +1524,7 @@
                         
                             <b>4.14.</b>
                         
-                        Macros
+                        マクロ
                     </a>
                 
             
@@ -1950,7 +1950,7 @@ tmp = exp
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p><code>case</code> &#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x5BFE;&#x8C61;&#x306E;&#x5024;&#x3068;&#x6761;&#x4EF6;&#x5F0F;&#x306F; <code>===</code> &#x3092;&#x4F7F;&#x3063;&#x3066;&#x6BD4;&#x8F03;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x899A;&#x3048;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p>&#x3082;&#x3057; <code>when</code> &#x7BC0;&#x306E; expression is a type, <code>is_a?</code> is used. Additionally, if the case expression is a variable or a variable assignment the type of the variable is restricted:</p>
+<p>&#x3082;&#x3057; <code>when</code> &#x7BC0;&#x306E;&#x5F0F;&#x306B;&#x578B;&#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;<code>is_a?</code> &#x3092;&#x7528;&#x3044;&#x3066;&#x6BD4;&#x8F03;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;case &#x5F0F;&#x304C;&#x5909;&#x6570;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x5909;&#x6570;&#x3078;&#x306E;&#x4EE3;&#x5165;&#x3067;&#x3042;&#x308B;&#x3068;&#x304D;&#x3001;&#x305D;&#x306E;&#x5909;&#x6570;&#x306E;&#x578B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5236;&#x9650;&#x304C;&#x52A0;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">case</span> var
 <span class="hljs-keyword">when</span> <span class="hljs-constant">String</span>
   <span class="hljs-comment"># var :: String</span>
@@ -1959,11 +1959,11 @@ tmp = exp
   <span class="hljs-comment"># var :: Int32</span>
   do_something_else
 <span class="hljs-keyword">else</span>
-  <span class="hljs-comment"># here var is neither a String nor an Int32</span>
+  <span class="hljs-comment"># &#x3053;&#x3053;&#x3067;&#x306F; var &#x306F; String &#x3068; Int32 &#x306E;&#x3069;&#x3061;&#x3089;&#x3067;&#x3082;&#x306A;&#x3044;</span>
   do_another_thing
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-keyword">if</span> var.is_a?(<span class="hljs-constant">String</span>)
   do_something
 <span class="hljs-keyword">elsif</span> var.is_a?(<span class="hljs-constant">Int32</span>)
@@ -1972,7 +1972,7 @@ tmp = exp
   do_another_thing
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>You can invoke a method on the <code>case</code>&apos;s expression in a <code>when</code> by using the implicit-object syntax:</p>
+<p><code>case</code> &#x5F0F;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>when</code> &#x7BC0;&#x3067;&#x306F;&#x6697;&#x9ED9;&#x7684;&#x306A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x6307;&#x5B9A;&#x306E;&#x8A18;&#x6CD5;&#x3092;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">case</span> num
 <span class="hljs-keyword">when</span> .even?
   do_something
@@ -1980,7 +1980,7 @@ tmp = exp
   do_something_else
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 tmp = num
 <span class="hljs-keyword">if</span> tmp.even?
   do_something
@@ -1988,7 +1988,7 @@ tmp = num
   do_something_else
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Finally, you can ommit the <code>case</code>&apos;s value:</p>
+<p><code>case</code> &#x306E;&#x5024;&#x3092;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">case</span>
 <span class="hljs-keyword">when</span> cond1, cond2
   do_something
@@ -1996,7 +1996,7 @@ tmp = num
   do_something_else
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># The above is the same as:</span>
+<span class="hljs-comment"># &#x4E0A;&#x8A18;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;</span>
 <span class="hljs-keyword">if</span> cond1 || cond2
   do_something
 <span class="hljs-keyword">elsif</span> cond3
