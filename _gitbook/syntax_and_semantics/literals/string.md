@@ -84,7 +84,7 @@
 %<hello <"world">> # "hello <\"world\">" と同じ
 ```
 
-## String Interpolation
+## 文字列埋め込み (String Interpolation)
 
 文字列の中には式を埋め込むことが可能です。これを文字列埋め込み (文字列補完/String Interpolation
 ) といいます。
