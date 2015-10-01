@@ -1,7 +1,6 @@
-# Macros
+# マクロ
 
-Macros are methods that receive AST nodes at compile-time and produce
-code that is pasted into a program. 例をあげます。
+マクロとは、コンパイル時に AST ノードを受け取り、コードを生成してそれをプログラムに書き込むメソッドです。例をあげます。
 
 ```ruby
 macro define_method(name, content)
@@ -10,7 +9,7 @@ macro define_method(name, content)
   end
 end
 
-# This generates:
+# これで以下が生成されます
 #
 #     def foo
 #       1
@@ -20,19 +19,15 @@ define_method foo, 1
 foo #=> 1
 ```
 
-A macro's definition body looks like regular Crystal code with
-extra syntax to manipulate the AST nodes. The generated code must
-be valid Crystal code, meaning that you can't for example generate
-a `def` without a matching `end`, or a single `when` expression of a
-`case`, since both of them are not complete valid expressions.
+マクロ定義の本体はほぼ通常の Crystal コードですが、AST ノードを扱うための特別なシンタックスを利用します。生成されたコードは正しい Crystal コードでなくてはいけません。例えば、対応する `end` のない `def` や、`case` の `when` 式単体のものなどは、完全な式として正しいものではないので生成することができません。
 
-## Scope
+## スコープ
 
-Macros declared at the top-level are visible anywhere. If a top-level macro is marked as `private` it is only accessible in that file.
+トップレベルで宣言されたマクロはどこからでもアクセス可能です。もしトップレベルのマクロが `private` に指定された場合は、そのファイル内でのみアクセスできます。
 
-They can also be defined in classes and modules, and are only visible in those scopes. Macros are also looked-up in the ancestors chain (superclasses and included modules).
+クラスやモジュール内で定義することも可能で、その場合はそれらのスコープ内でのみアクセスできます。また、マクロは継承チェーン (スーパクラスとインクルードされたモジュール) からも探索されます。
 
-For example, a block which is given an object to use as the default receiver by being invoked with `with ... yield` can access macros defined within that object's ancestors chain:
+例えば、ブロックが与えられていて、`with ... yield` によってデフォルトのレシーバがあるオブジェクトに設定されているときには、そのオブジェクトの継承チェーンの中で定義されているマクロにアクセスすることが可能です。
 
 ```ruby
 class Foo
@@ -48,14 +43,14 @@ end
 Foo.new.yield_with_self { emphasize(10) } #=> "***10***"
 ```
 
-## String Interpolation
+## 文字列埋め込み (String Interpolation)
 
-You use `{{...}}` to paste, or interpolate, an AST node, as in the above example.
+前述した例にもあったように、AST ノードを貼り付け/埋め込みには `{{...}}` を使います。 
 
-Note that the node is pasted as-is. If in the previous example we pass a symbol, the generated code becomes invalid:
+ノードは「そのまま」貼り付けされることに注意してください。例えばもし、上記の例でシンボルを渡した場合には、生成されたコードは不正なものとなります。
 
 ```ruby
-# This generates:
+# 下記が生成される
 #
 #     def :foo
 #       1
@@ -63,13 +58,13 @@ Note that the node is pasted as-is. If in the previous example we pass a symbol,
 define_method :foo, 1
 ```
 
-Note that `:foo` was the result of the interpolation, because that's what was passed to the macro. You can use the method `ASTNode#id` in these cases, where you just need an identifier.
+マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には、 `ASTNode#id` を利用することができます。
 
-## Macro calls
+## マクロにおけるメソッド呼び出し
 
-You can invoke a **fixed subset** of methods on AST nodes at compile-time. These methods are documented in a ficticious [Macros](http://crystal-lang.org/api/Macros.html) module.
+コンパイル時に、メソッドの **規定のサブセット** を AST ノードに対して実行することが可能です。これらのメソッドは [Macros](http://crystal-lang.org/api/Macros.html) という「フェイクの」モジュールでドキュメント化されています。
 
-For example, invoking `ASTNode#id` in the above example solves the problem:
+例えば、上記の例では、`ASTNode#id` を実行することで問題を解決できます。
 
 ```ruby
 macro define_method(name, content)
@@ -78,7 +73,7 @@ macro define_method(name, content)
   end
 end
 
-# This correctly generates:
+# 以下が正しく生成される
 #
 #     def foo
 #       1
@@ -86,9 +81,9 @@ end
 define_method :foo, 1
 ```
 
-## Conditionals
+## 条件
 
-You use `{% if condition %}` ... `{% end %}` to conditionally generate code:
+`{% if condition %}` ... `{% end %}` を使うことで、条件に応じてコードを生成することが可能になります。
 
 ```ruby
 macro define_method(name, content)
@@ -108,9 +103,9 @@ foo #=> one
 bar #=> 2
 ```
 
-Similar to regular code, `Nop`, `NilLiteral` and a false `BoolLiteral` are considered *falsey*, while everything else is considered truthy.
+通常のコードと同様に、`Nop` と `NilLiteral` 、そして「偽」の `BoolLiteral` は「偽」で、それ以外はすべて「真」と判断されます。
 
-Macro conditionals can be used outside a macro definition:
+マクロの条件分岐は、マクロの外側でも使用することができます。
 
 ```ruby
 {% if env("TEST") %}
@@ -118,8 +113,8 @@ Macro conditionals can be used outside a macro definition:
 {% end %}
 ```
 
-### Iteration
-To iterate an `ArrayLiteral`:
+### イテレーション
+`ArrayLiteral` をイテレートするには以下のようにします。
 
 ```ruby
 macro define_dummy_methods(names)
@@ -137,9 +132,9 @@ bar #=> 1
 baz #=> 2
 ```
 
-The `index` variable in the above example is optional.
+上記の `index` 変数はオプションです。
 
-To iterate a `HashLiteral`:
+`HashLiteral` をイテレートするには以下のようにします。
 
 ```ruby
 macro define_dummy_methods(hash)
@@ -154,7 +149,7 @@ foo #=> 10
 bar #=> 20
 ```
 
-Macro iterations can be used outside a macro definition:
+マクロのイテレーションは、マクロの外側でも使用することができます。
 
 ```ruby
 {% for name, index in ["foo", "bar", "baz"] %}
@@ -168,9 +163,9 @@ bar #=> 1
 baz #=> 2
 ```
 
-## Variadic arguments and splatting
+## 可変長引数と展開
 
-A macro can accept variadic arguments:
+マクロは可変長引数を受け取ることができます。
 
 ```ruby
 macro define_dummy_methods(*names)
@@ -188,27 +183,27 @@ bar #=> 1
 baz #=> 2
 ```
 
-The arguments are packed into an `ArrayLiteral` and passed to the macro.
+引数は `ArrayLiteral` に変換されてマクロに渡されます。
 
-Additionaly, using `*` when interpolating an `ArrayLiteral` interpolates the elements separated by commas:
+さらに、`ArrayLiteral` を埋め込む際に `*` を使うと、要素がカンマで分割されて埋め込まれます。
 
 ```ruby
 macro println(*values)
    print {{*values}}, '\n'
 end
 
-println 1, 2, 3 # outputs 123\n
+println 1, 2, 3 # 123\n と出力
 ```
 
-### Type information
+### 型情報
 
-When a macro is invoked you can access the current scope, or type, with a special instance variable: `@type`. The type of this variable is `TypeNode`, which gives you access to type information at compile time.
+マクロが実行される際に  `@type` という特別のインスタンス変数を使うことで、現在のスコープ、および型にアクセスすることが可能です。この変数の型は `TypeNode` で、コンパイル時の型情報にアクセスすることを可能にします。
 
-Note that `@type` is always the *instance* type, even when the macro is invoked in a class method.
+`@type` は常に (もしクラスメソッドの中で実行されたとしても) 「インスタンス」の型になることに注意してください。
 
-### Constants
+### 定数
 
-Macros can access constants. 例をあげます。
+マクロは定数にアクセスすることができます。例をあげます。
 
 ```ruby
 VALUES = [1, 2, 3]
@@ -218,4 +213,4 @@ VALUES = [1, 2, 3]
 {% end %}
 ```
 
-If the constant denotes a type, you get back a `TypeNode`.
+もし定数が型を示していれば、そのとき得られるのは `TypeNode` となります。
