@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.2.1" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.2.1" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1928,30 +1928,30 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="out">out</h1>
-<p>Consider the <a href="http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html" target="_blank">waitpid</a> function:</p>
+<p><a href="http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html" target="_blank">waitpid</a> &#x95A2;&#x6570;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   fun waitpid(pid <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>, status_ptr <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>*, options <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>The documentation of the function says:</p>
-<pre><code>The status information from the child process is stored in the object
-that status_ptr points to, unless status_ptr is a null pointer.
-</code></pre><p>We can use this function like this:</p>
+<p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x5185;&#x5BB9;&#x3067;&#x3059;&#x3002;</p>
+<pre><code>status_ptr &#x304C;&#x6307;&#x3059;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x4FDD;&#x6301;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5B50;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x304B;&#x3089;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30BF;&#x30B9;&#x60C5;&#x5831;
+(&#x305F;&#x3060;&#x3057; status_ptr &#x304C; NULL &#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x306B;&#x9650;&#x308B;)
+</code></pre><p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x3092;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">pid = ...
 options = ...
 status_ptr <span class="hljs-symbol">:</span><span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 
 <span class="hljs-constant">C</span>.waitpid pid, pointerof(status_ptr), options
 </code></pre>
-<p>In this way we pass a pointer of <code>status_ptr</code> to the function for it to fill its value.</p>
-<p>There&apos;s a simpler way to write the above by using an <code>out</code> parameter:</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;<code>status_ptr</code> &#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x95A2;&#x6570;&#x306B;&#x6E21;&#x3057;&#x3001;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3066;&#x3082;&#x3089;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x306F;&#x3001;<code>out</code> &#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3088;&#x308A;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">pid = ...
 options = ...
 
 <span class="hljs-constant">C</span>.waitpid pid, out status_ptr, options
 </code></pre>
-<p>The compiler will automatically declare a <code>status_ptr</code> variable of type <code>Int32</code>, because the argument is an <code>Int32*</code>.</p>
-<p>This will work for any type, as long as the argument is a pointer of that type (and, of course, as long as the function does fill the value the pointer is pointing to).</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x5F15;&#x6570;&#x304C; <code>Int32*</code> &#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x81EA;&#x52D5;&#x7684;&#x306B; <code>Int32</code> &#x578B;&#x306E; <code>status_ptr</code> &#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;&#x5F15;&#x6570;&#x304C;&#x305D;&#x306E;&#x578B;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3067;&#x3042;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x578B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082;&#x6709;&#x52B9;&#x3067;&#x3059; (&#x3082;&#x3061;&#x308D;&#x3093;&#x3001;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x304C;&#x6307;&#x3059;&#x5024;&#x304C;&#x95A2;&#x6570;&#x306B;&#x3088;&#x3063;&#x3066;&#x8A2D;&#x5B9A;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x524D;&#x63D0;&#x3067;&#x3059;) &#x3002;</p>
 
                     
                     </section>

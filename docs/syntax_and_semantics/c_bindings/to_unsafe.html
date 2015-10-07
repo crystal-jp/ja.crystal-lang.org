@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.2.2" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.2.2" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="to-unsafe">to_unsafe</h1>
-<p>If a type defines a <code>to_unsafe</code> method, when passing it to C the value returned by this method will be passed. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3082;&#x3057;&#x3001;&#x3042;&#x308B;&#x578B;&#x306B; <code>to_unsafe</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#x5834;&#x5408;&#x3001;C &#x306B;&#x6E21;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x306E;&#x623B;&#x308A;&#x5024;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   fun exit(status <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">NoReturn</span>
 <span class="hljs-keyword">end</span>
@@ -1943,12 +1943,12 @@
 <span class="hljs-keyword">end</span>
 
 wrapper = <span class="hljs-constant">IntWrapper</span>.new(<span class="hljs-number">1</span>)
-<span class="hljs-constant">C</span>.exit(wrapper) <span class="hljs-comment"># wrapper is not an Int32, but its to_unsafe</span>
-                <span class="hljs-comment"># method is, so wrapper.to_unsafe</span>
-                <span class="hljs-comment"># is passed instead</span>
+<span class="hljs-constant">C</span>.exit(wrapper) <span class="hljs-comment"># wrapper &#x306F; Int32 &#x3067;&#x306F;&#x306A;&#x3044;&#x304C;&#x3001;</span>
+                <span class="hljs-comment"># to_safe &#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;</span>
+                <span class="hljs-comment"># wrapper.to_unsafe &#x304C;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x6E21;&#x3055;&#x308C;&#x308B;</span>
 </code></pre>
-<p>This is very useful for defining wrappers of C types without having to explicitly transform them to their wrapped values.</p>
-<p>For example, the <code>String</code> class implements <code>to_unsafe</code> to return <code>UInt8*</code>:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;C &#x306E;&#x578B;&#x306E;&#x30E9;&#x30C3;&#x30D1;&#x30FC;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x969B;&#x306B;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B;&#x305D;&#x308C;&#x3089;&#x3092;&#x30E9;&#x30C3;&#x30D7;&#x3055;&#x308C;&#x308B;&#x578B;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3044;&#x305F;&#x3081;&#x306B;&#x4FBF;&#x5229;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;&#x3048;&#x3070;&#x3001;<code>String</code> &#x30AF;&#x30E9;&#x30B9;&#x304C; <code>UInt8*</code> &#x3092;&#x8FD4;&#x3059; <code>to_unsafe</code> &#x3092;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   fun printf(format <span class="hljs-symbol">:</span> <span class="hljs-constant">UInt8</span>*, ...) <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>

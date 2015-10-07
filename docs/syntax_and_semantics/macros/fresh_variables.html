@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Fresh variables | プログラミング言語 Crystal</title>
+        <title>フレッシュな変数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14.3" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.14.3" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="fresh-variables">Fresh variables</h1>
-<p>Once macros generate code, they are parsed with a regular Crystal parser where local variables in the context of the macro invocations are assumed to be defined.</p>
+                        <h1 id="%E3%83%95%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AA%E5%A4%89%E6%95%B0">&#x30D5;&#x30EC;&#x30C3;&#x30B7;&#x30E5;&#x306A;&#x5909;&#x6570;</h1>
+<p>&#x30DE;&#x30AF;&#x30ED;&#x304C;&#x751F;&#x6210;&#x3057;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x901A;&#x5E38;&#x306E; Crystal &#x30D1;&#x30FC;&#x30B5;&#x30FC;&#x3067;&#x30D1;&#x30FC;&#x30B9;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x3068;&#x304D;&#x3001;&#x30DE;&#x30AF;&#x30ED;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306E;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5185;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306F;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x3057;&#x3066;&#x6271;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x4F8B;&#x3092;&#x898B;&#x3066;&#x307F;&#x308B;&#x3068;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-ruby">macro update_x
   x = <span class="hljs-number">1</span>
@@ -1938,26 +1938,26 @@ x = <span class="hljs-number">0</span>
 update_x
 x <span class="hljs-comment">#=&gt; 1</span>
 </code></pre>
-<p>This can sometimes be useful to avoid repetitive code by actually accessing and reading/writing local variables, but can also overwrite local variables by mistake. You can use fresh variables with <code>%name</code>:</p>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x3059;&#x308B;&#x969B;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x66F8;&#x304F;&#x306E;&#x3092;&#x907F;&#x3051;&#x308B;&#x3053;&#x3068;&#x306B;&#x6709;&#x52B9;&#x3067;&#x3059;&#x304C;&#x3001;&#x4E00;&#x65B9;&#x3067;&#x8AA4;&#x3063;&#x3066;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3092;&#x4E0A;&#x66F8;&#x304D;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;<code>%name</code> &#x3067;&#x30D5;&#x30EC;&#x30C3;&#x30B7;&#x30E5;&#x306A;&#x5909;&#x6570;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">macro dont_update_x
   %x = <span class="hljs-number">1</span>
   puts %x
 <span class="hljs-keyword">end</span>
 
 x = <span class="hljs-number">0</span>
-dont_update_x <span class="hljs-comment"># outputs 1</span>
+dont_update_x <span class="hljs-comment"># 1&#x3092;&#x51FA;&#x529B;</span>
 x <span class="hljs-comment">#=&gt; 0</span>
 </code></pre>
-<p>Using <code>%x</code> in the above example we declare a variable whose name is guaranteed not to conflict with local varaibles in the current scope.</p>
-<p>Additionally, you can declare fresh variables related to some other AST node using <code>%var{key1, key2, ..., keyN}</code>. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F; <code>%x</code> &#x3068;&#x3057;&#x3066;&#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3046;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x73FE;&#x5728;&#x306E;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3068;&#x540D;&#x524D;&#x304C;&#x885D;&#x7A81;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;<code>%var{key1, key2, ..., keyN}</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x4ED6;&#x306E; AST &#x30CE;&#x30FC;&#x30C9;&#x306B;&#x7D50;&#x3073;&#x3064;&#x3044;&#x305F;&#x30D5;&#x30EC;&#x30C3;&#x30B7;&#x30E5;&#x306A;&#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">macro fresh_vars_sample(*names)
-  <span class="hljs-comment"># First declare vars</span>
+  <span class="hljs-comment"># &#x307E;&#x305A;&#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;</span>
   {% <span class="hljs-keyword">for</span> name, index <span class="hljs-keyword">in</span> names %}
     print <span class="hljs-string">&quot;Declaring: &quot;</span>, <span class="hljs-string">&quot;%name{index}&quot;</span>, <span class="hljs-string">&apos;\n&apos;</span>
     %name{index} = {{index}}
   {% <span class="hljs-keyword">end</span> %}
 
-  <span class="hljs-comment"># Then print them</span>
+  <span class="hljs-comment"># &#x305D;&#x308C;&#x304B;&#x3089;&#x51FA;&#x529B;&#x3059;&#x308B;</span>
   {% <span class="hljs-keyword">for</span> name, index <span class="hljs-keyword">in</span> names %}
     print <span class="hljs-string">&quot;%name{index}: &quot;</span>, %name{index}, <span class="hljs-string">&apos;\n&apos;</span>
   {% <span class="hljs-keyword">end</span> %}
@@ -1965,7 +1965,7 @@ x <span class="hljs-comment">#=&gt; 0</span>
 
 fresh_vars_sample a, b, c
 
-<span class="hljs-comment"># Sample output:</span>
+<span class="hljs-comment"># &#x51FA;&#x529B;&#x4F8B;:</span>
 <span class="hljs-comment"># Declaring: __temp_255</span>
 <span class="hljs-comment"># Declaring: __temp_256</span>
 <span class="hljs-comment"># Declaring: __temp_257</span>
@@ -1973,7 +1973,7 @@ fresh_vars_sample a, b, c
 <span class="hljs-comment"># __temp_256: 1</span>
 <span class="hljs-comment"># __temp_257: 2</span>
 </code></pre>
-<p>In the above example three variables were declared, associated to an index, and then they were printed, referring to these variables with the same indices.</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;3&#x3064;&#x306E;&#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3057;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x306B;&#x7D10;&#x4ED8;&#x3051;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x304B;&#x3089;&#x51FA;&#x529B;&#x3092;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x3068;&#x304D;&#x306B;&#x540C;&#x3058;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3067;&#x5909;&#x6570;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 
                     
                     </section>
@@ -1984,10 +1984,10 @@ fresh_vars_sample a, b, c
         </div>
 
         
-        <a href="../../syntax_and_semantics/macros/hooks.html" class="navigation navigation-prev " aria-label="Previous page: Hooks"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/macros/hooks.html" class="navigation navigation-prev " aria-label="Previous page: フック"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/c_bindings/index.html" class="navigation navigation-next " aria-label="Next page: C bindings"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/index.html" class="navigation navigation-next " aria-label="Next page: C バインディング"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.2" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.2" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1928,65 +1928,65 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="fun">fun</h1>
-<p>A <code>fun</code> declaration inside a <code>lib</code> binds to a C function.</p>
+<p><code>lib</code> &#x306E;&#x4E2D;&#x3067;<code>fun</code> &#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3068;&#x3001;C &#x95A2;&#x6570;&#x3078;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
-  <span class="hljs-comment"># In C: double cos(double x)</span>
+  <span class="hljs-comment"># C &#x3067;&#x306F; double cos(double x) &#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;</span>
   fun cos(value <span class="hljs-symbol">:</span> <span class="hljs-constant">Float64</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">Float64</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Once you bind it, the function is available inside the <code>C</code> type as if it was a class method:</p>
+<p>&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E;&#x95A2;&#x6570;&#x306F; <code>C</code> &#x578B;&#x3067;&#x30AF;&#x30E9;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">C</span>.cos(<span class="hljs-number">1.5</span>) <span class="hljs-comment">#=&gt; 0.0707372</span>
 </code></pre>
-<p>You can omit the parentheses if the function doesn&apos;t have arguments (and omit them in the call as well):</p>
+<p>&#x3082;&#x3057;&#x95A2;&#x6570;&#x304C;&#x5F15;&#x6570;&#x3092;&#x6301;&#x305F;&#x306A;&#x3044;&#x3082;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x30AB;&#x30C3;&#x30B3;&#x3092;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059; (&#x547C;&#x3073;&#x51FA;&#x3057;&#x306E;&#x969B;&#x306B;&#x3082;&#x540C;&#x69D8;&#x306B;&#x7701;&#x7565;&#x53EF;&#x80FD;&#x3067;&#x3059;) &#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   fun getch <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-constant">C</span>.getch
 </code></pre>
-<p>If the return type is void you can omit it:</p>
+<p>&#x3082;&#x3057;&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;&#x304C; void &#x3067;&#x3042;&#x308C;&#x3070;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   fun srand(seed <span class="hljs-symbol">:</span> <span class="hljs-constant">UInt32</span>)
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-constant">C</span>.srand(<span class="hljs-number">1_</span>u32)
 </code></pre>
-<p>You can bind to variadic functions:</p>
+<p>&#x53EF;&#x5909;&#x9577;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064;&#x95A2;&#x6570;&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   fun variadic(value <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>, ...) <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-constant">X</span>.variadic(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
 </code></pre>
-<p>Note that there are no implicit conversions (except <code>to_unsafe</code>, explained later) when invoking a C function: you must pass the exact type that is expected. For integers and floats you can use the various <code>to_...</code> methods.</p>
-<p>Because method names in Crystal must start with a lowercase letter, <code>fun</code> names must also start with a lowercase letter. If you need to bind to a C function that starts with a capital letter you can give the function another name for Crystal:</p>
+<p>C &#x306E;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B; (&#x5F8C;&#x306B;&#x8AAC;&#x660E;&#x3059;&#x308B; <code>to_unsafe</code> &#x3092;&#x9664;&#x3044;&#x3066;&#x306F;) &#x6697;&#x9ED9;&#x7684;&#x306A;&#x5909;&#x63DB;&#x304C;&#x884C;&#x308F;&#x308C;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x671F;&#x5F85;&#x3055;&#x308C;&#x308B;&#x578B;&#x3092;&#x6B63;&#x78BA;&#x306B;&#x6E21;&#x3055;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x6574;&#x6570;&#x3068;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306B;&#x95A2;&#x3057;&#x3066;&#x306F;&#x3001;&#x69D8;&#x3005;&#x306A; <code>to_...</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>Crystal &#x3067;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x306F;&#x5C0F;&#x6587;&#x5B57;&#x3067;&#x59CB;&#x307E;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;<code>fun</code> &#x306E;&#x540D;&#x524D;&#x3082;&#x540C;&#x69D8;&#x306B;&#x5C0F;&#x6587;&#x5B57;&#x3067;&#x59CB;&#x307E;&#x3089;&#x306A;&#x304F;&#x3066;&#x306F;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3082;&#x3057;&#x3001;&#x5927;&#x6587;&#x5B57;&#x3067;&#x59CB;&#x307E;&#x308B; C &#x306E;&#x95A2;&#x6570;&#x3078;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x3001;Crystal &#x306E;&#x305F;&#x3081;&#x306B;&#x5225;&#x306E;&#x540D;&#x524D;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">LibSDL</span>
   fun init = <span class="hljs-constant">SDL_Init</span>(flags <span class="hljs-symbol">:</span> <span class="hljs-constant">UInt32</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>You can also use a string as a name if the name is not a valid identifier or type name:</p>
+<p>&#x3082;&#x3057;&#x540D;&#x524D;&#x304C;&#x8B58;&#x5225;&#x5B50;&#x3084;&#x578B;&#x540D;&#x3068;&#x3057;&#x3066;&#x4E0D;&#x6B63;&#x306A;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3068;&#x304D;&#x306F;&#x3001;&#x6587;&#x5B57;&#x5217;&#x3092;&#x540D;&#x524D;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">LLVMIntrinsics</span>
   fun ceil_f32 = <span class="hljs-string">&quot;llvm.ceil.f32&quot;</span>(value <span class="hljs-symbol">:</span> <span class="hljs-constant">Float32</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">Float32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This can also be used to give shorter, nicer names to C functions, as these tend to be long and usually be prefixed with the library name.</p>
-<p>The valid types to use in C bindings are:</p>
+<p>C &#x306E;&#x95A2;&#x6570;&#x540D;&#x306F;&#x9577;&#x3044;&#x50BE;&#x5411;&#x304C;&#x3042;&#x308A;&#x3001;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x540D;&#x3067;&#x4FEE;&#x98FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x304C;&#x591A;&#x3044;&#x305F;&#x3081;&#x3001;&#x305D;&#x308C;&#x3089;&#x306B;&#x3088;&#x308A;&#x77ED;&#x304F;&#x3066;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x540D;&#x524D;&#x3092;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x306B;&#x3082;&#x3053;&#x308C;&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>C &#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3067;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x578B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x901A;&#x308A;&#x3067;&#x3059;&#x3002;</p>
 <ul>
-<li>Primitive types (<code>Int8</code>, ..., <code>Int64</code>, <code>UInt8</code>, ..., <code>UInt64</code>, <code>Float32</code>, <code>Float64</code>)</li>
-<li>Pointer types (<code>Pointer(Int32)</code>, which can also be written as <code>Int32*</code>)</li>
-<li>Static arrays (<code>StaticArray(Int32, 8)</code>, which can also be written as <code>Int32[8]</code>)</li>
-<li>Function types (<code>Function(Int32, Int32)</code>, which can also be written as <code>Int32 -&gt; Int32</code>)</li>
-<li>Other <code>struct</code>, <code>union</code>, <code>enum</code>, <code>type</code> or <code>alias</code> declared previously.</li>
-<li><code>Void</code>: the absence of a return value.</li>
-<li><code>NoReturn</code>: similar to <code>Void</code>, but the compiler understands that no code can be executed after that invocation.</li>
+<li>&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x578B; (<code>Int8</code>, ..., <code>Int64</code>, <code>UInt8</code>, ..., <code>UInt64</code>, <code>Float32</code>, <code>Float64</code>)</li>
+<li>&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x578B; (<code>Pointer(Int32)</code>, which can also be written as <code>Int32*</code>)</li>
+<li>&#x9759;&#x7684;&#x914D;&#x5217; (<code>StaticArray(Int32, 8)</code>, which can also be written as <code>Int32[8]</code>)</li>
+<li>&#x95A2;&#x6570;&#x578B; (<code>Function(Int32, Int32)</code>, which can also be written as <code>Int32 -&gt; Int32</code>)</li>
+<li>&#x305D;&#x306E;&#x4ED6;&#x3001;&#x4E8B;&#x524D;&#x306B;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B; <code>struct</code>/<code>union</code>/<code>enum</code>/<code>type</code>/<code>alias</code></li>
+<li><code>Void</code>: &#x623B;&#x308A;&#x5024;&#x306A;&#x3057;</li>
+<li><code>NoReturn</code>: <code>Void</code> &#x3068;&#x4F3C;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x547C;&#x3073;&#x51FA;&#x3057;&#x5F8C;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3067;&#x304D;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3044;&#x308B;</li>
 </ul>
-<p>Refer to the <a href="type_grammar.html">type gammar</a> for the notation used in fun types.</p>
-<p>The standard library defines the <a href="https://github.com/manastech/crystal/blob/master/src/libc.cr" target="_blank">LibC</a> lib with aliases for common C types, like <code>int</code>, <code>short</code>, <code>size_t</code>. Use them in bindings like this:</p>
+<p>fun &#x578B; &#x3067;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x578B;&#x306E;&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F; <a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a> &#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x306F; <a href="https://github.com/manastech/crystal/blob/master/src/libc.cr" target="_blank">LibC</a> &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;<code>int</code>/<code>short</code>/<code>size_t</code> &#x3068;&#x3044;&#x3063;&#x305F;&#x4E00;&#x822C;&#x7684;&#x306A; C &#x306E;&#x578B;&#x306E;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3089;&#x306F;&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">MyLib</span>
   fun my_fun(some_size <span class="hljs-symbol">:</span> <span class="hljs-constant">LibC::SizeT</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><strong>Note:</strong> The C <code>char</code> type is <code>UInt8</code> in Crystal, so a <code>char*</code> or a <code>const char*</code> is <code>UInt8*</code>. The <code>Char</code> type in Crystal is a unicode codepoint so it is represented by four bytes, making it similar to an <code>Int32</code>, not to an <code>UInt8</code>. There&apos;s also the alias <code>LibC::Char</code> if in doubt.</p>
+<p><strong>&#x6CE8;&#x610F;:</strong> C &#x306E; <code>char</code> &#x578B;&#x306F; Crystal &#x3067;&#x306F; <code>UInt8</code> &#x3067;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;<code>char*</code> &#x3084; <code>const char*</code> &#x306F; <code>UInt8*</code> &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;Crystal  &#x306E; <code>Char</code> &#x578B;&#x306F; Unicode &#x306E;&#x30B3;&#x30FC;&#x30C9;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;4&#x30D0;&#x30A4;&#x30C8;&#x3067;&#x8868;&#x73FE;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;<code>UInt8</code> &#x3067;&#x306F;&#x306A;&#x304F; <code>Int32</code> &#x306B;&#x8FD1;&#x3044;&#x3067;&#x3059;&#x3002;&#x3082;&#x3057;&#x6C17;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;<code>LibC::Char</code> &#x3068;&#x3044;&#x3046;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>

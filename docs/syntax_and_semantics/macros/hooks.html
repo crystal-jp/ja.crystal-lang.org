@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Hooks | プログラミング言語 Crystal</title>
+        <title>フック | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14.2" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.14.2" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1927,16 +1927,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="hooks">Hooks</h1>
-<p>Special macros exist that are invoked in some situations, as hooks:
-<code>inherited</code>, <code>included</code> and <code>method_missing</code>.</p>
+                        <h1 id="%E3%83%95%E3%83%83%E3%82%AF">&#x30D5;&#x30C3;&#x30AF;</h1>
+<p>&#x3042;&#x308B;&#x72B6;&#x6CC1;&#x306B;&#x304A;&#x3044;&#x3066;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x7279;&#x5225;&#x306A;&#x30DE;&#x30AF;&#x30ED;&#x304C;&#x30D5;&#x30C3;&#x30AF;&#x3068;&#x3057;&#x3066;&#x5B58;&#x5728;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3089;&#x306F;&#x3001;<code>inherited</code>&#x3001;<code>included</code> &#x305D;&#x3057;&#x3066; <code>method_missing</code> &#x3067;&#x3059;&#x3002;</p>
 <ul>
-<li><code>inherited</code> will be invoked at compile-time when a subclass is defined. <code>@type</code> becomes the inherited type.</li>
-<li><code>included</code> will be invoked at compile-time when a module is included. <code>@type</code> becomes the including type.</li>
-<li><code>extended</code> will be invoked at compile-time when a module is extended. <code>@type</code> becomes the extending type.</li>
-<li><code>method_missing</code> will be invoked at compile-time when a method is not found.</li>
+<li><code>inherited</code> &#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;<code>@type</code> &#x306F;&#x7D99;&#x627F;&#x3055;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x578B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>included</code> &#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;<code>@type</code> &#x306F;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x5074;&#x306E;&#x578B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>extended</code> &#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C; extend &#x3055;&#x308C;&#x305F;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;<code>@type</code> &#x306F; extend &#x3059;&#x308B;&#x5074;&#x306E;&#x578B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>inherited</code> &#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x3068;&#x304D;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
 </ul>
-<p>Example of <code>inherited</code>:</p>
+<p><code>inherited</code> &#x306E;&#x4F8B;:</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span></span>
   macro inherited
     <span class="hljs-function"><span class="hljs-keyword">def</span> </span>{{<span class="hljs-variable">@type</span>.name.downcase.id}}
@@ -1950,13 +1949,13 @@
 
 <span class="hljs-constant">Child</span>.new.child <span class="hljs-comment">#=&gt; 1</span>
 </code></pre>
-<p>Example of <code>method_missing</code>:</p>
+<p><code>method_missing</code> &#x306E;&#x4F8B;:</p>
 <pre><code class="lang-ruby">macro method_missing(name, args, block)
   print <span class="hljs-string">&quot;Got &quot;</span>, {{name.id.stringify}}, <span class="hljs-string">&quot; with &quot;</span>, {{args.length}}, <span class="hljs-string">&quot; arguments&quot;</span>, <span class="hljs-string">&apos;\n&apos;</span>
 <span class="hljs-keyword">end</span>
 
-foo          <span class="hljs-comment"># Prints: Got foo with 0 arguments</span>
-bar <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span> <span class="hljs-comment"># Prints: Got bar with 2 arguments</span>
+foo          <span class="hljs-comment"># &#x51FA;&#x529B;: Got foo with 0 arguments</span>
+bar <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span> <span class="hljs-comment"># &#x51FA;&#x529B;: Got bar with 2 arguments</span>
 </code></pre>
 
                     
@@ -1968,10 +1967,10 @@ bar <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&a
         </div>
 
         
-        <a href="../../syntax_and_semantics/macros/macro_methods.html" class="navigation navigation-prev " aria-label="Previous page: Macro methods"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/macros/macro_methods.html" class="navigation navigation-prev " aria-label="Previous page: マクロメソッド"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/macros/fresh_variables.html" class="navigation navigation-next " aria-label="Next page: Fresh variables"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/macros/fresh_variables.html" class="navigation navigation-next " aria-label="Next page: フレッシュな変数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

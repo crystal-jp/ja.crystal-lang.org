@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Macro methods | プログラミング言語 Crystal</title>
+        <title>マクロメソッド | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.14.1" data-basepath="../.." data-revision="Thu Oct 01 2015 13:29:30 GMT+0900 (JST)">
+    <div class="book" data-level="4.14.1" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1540,7 +1540,7 @@
                         
                             <b>4.14.1.</b>
                         
-                        Macro methods
+                        マクロメソッド
                     </a>
                 
             
@@ -1555,7 +1555,7 @@
                         
                             <b>4.14.2.</b>
                         
-                        Hooks
+                        フック
                     </a>
                 
             
@@ -1570,7 +1570,7 @@
                         
                             <b>4.14.3.</b>
                         
-                        Fresh variables
+                        フレッシュな変数
                     </a>
                 
             
@@ -1590,7 +1590,7 @@
                         
                             <b>4.15.</b>
                         
-                        C bindings
+                        C バインディング
                     </a>
                 
             
@@ -1927,8 +1927,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="macro-methods">Macro methods</h1>
-<p>Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+                        <h1 id="%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">&#x30DE;&#x30AF;&#x30ED;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</h1>
+<p>&#x30DE;&#x30AF;&#x30ED;&#x3067; def &#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x968E;&#x5C64;&#x5185;&#x3067;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3001;&#x305D;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306F;&#x578B;&#x63A8;&#x8AD6;&#x30D5;&#x30A7;&#x30FC;&#x30BA;&#x306E;&#x7D42;&#x308F;&#x308A;&#x306B;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x3068;&#x304D;&#x3001;&#x30DE;&#x30AF;&#x30ED;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x6D3E;&#x751F;&#x578B;&#x306E;&#x578B;&#x60C5;&#x5831;&#x3092;&#x77E5;&#x3063;&#x3066;&#x3044;&#x308B;&#x72B6;&#x614B;&#x3067;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Object</span></span>
   macro <span class="hljs-function"><span class="hljs-keyword">def</span> </span>instance_vars_names <span class="hljs-symbol">:</span> <span class="hljs-constant">Array</span>(<span class="hljs-constant">String</span>)
     {{ <span class="hljs-variable">@type</span>.instance_vars.map &amp;.name.stringify }}
@@ -1943,7 +1943,7 @@
 person = <span class="hljs-constant">Person</span>.new <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">30</span>
 person.instance_vars_names <span class="hljs-comment">#=&gt; [&quot;name&quot;, &quot;age&quot;]</span>
 </code></pre>
-<p>Note that in the case of macro defs you need to specify the return type.</p>
+<p>&#x30DE;&#x30AF;&#x30ED;&#x306E; def &#x3067;&#x306F;&#x3001;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>
@@ -1957,7 +1957,7 @@ person.instance_vars_names <span class="hljs-comment">#=&gt; [&quot;name&quot;, 
         <a href="../../syntax_and_semantics/macros.html" class="navigation navigation-prev " aria-label="Previous page: マクロ"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/macros/hooks.html" class="navigation navigation-next " aria-label="Next page: Hooks"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/macros/hooks.html" class="navigation navigation-next " aria-label="Next page: フック"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

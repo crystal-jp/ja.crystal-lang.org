@@ -95,7 +95,7 @@
    * [マクロ](syntax_and_semantics/macros.md)
        * [マクロメソッド](syntax_and_semantics/macros/macro_methods.md)
        * [フック](syntax_and_semantics/macros/hooks.md)
-       * [フレッシュな変数(syntax_and_semantics/macros/fresh_variables.md)
+       * [フレッシュな変数](syntax_and_semantics/macros/fresh_variables.md)
    * [C バインディング](syntax_and_semantics/c_bindings/README.md)
        * [lib](syntax_and_semantics/c_bindings/lib.md)
        * [fun](syntax_and_semantics/c_bindings/fun.md)
