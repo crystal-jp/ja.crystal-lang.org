@@ -1,6 +1,6 @@
 # struct
 
-A `struct` declaration inside a `lib` declares a C struct.
+`lib` の内部で `struct` を宣言することで C の構造体を宣言できます。
 
 ```ruby
 lib C
@@ -17,7 +17,7 @@ lib C
 end
 ```
 
-You can also specify many fields of the same type:
+同じ型のフィールドは複数指定することも可能です。
 
 ```ruby
 lib C
@@ -27,11 +27,11 @@ lib C
 end
 ```
 
-To declare recursive structs you can forward-declare them:
+再帰的な構造体は、宣言フォワーディング (forward-declare) によって宣言します。
 
 ```ruby
 lib C
-  # This is a forward declaration
+  # 以下が宣言フォーワーディング
   struct Node
   end
 
@@ -41,24 +41,24 @@ lib C
 end
 ```
 
-To create an instance of a struct use `new`:
+構造体のインスタンスを生成するには `new` を利用します。
 
 ```ruby
 tz = C::TimeZone.new
 ```
 
-This allocates the struct on the stack.
+これによって、スタックに構造体が割り当てられます。
 
-A C struct starts with all its fields set to "zero": integers and floats start at zero, pointers start with an address of zero, etc.
+C の構造体は、初期状態として、すべての値が「ゼロ」の状態になります。つまり、整数と浮動小数点数はゼロで、ポインタはゼロのアドレスを指している、などの状態です。
 
-To avoid this initialization you can use `::`:
+このように初期化されることを避けたい場合は、`::` を利用します。
 
 ```ruby
 tz :: C::TimeZone
-tz.minutes_west #=> some garbage value
+tz.minutes_west #=> 何かゴミの値
 ```
 
-You can set and get its properties:
+プロパティの設定、および参照が可能です。
 
 ```ruby
 tz = C::TimeZone.new
@@ -66,7 +66,7 @@ tz.minutes_west = 1
 tz.minutes_west #=> 1
 ```
 
-You can also initialize some fields with a syntax similar to [named arguments](../default_and_named_arguments.html):
+フィールドは[名前付き引数](../default_and_named_arguments.html)と同様のシンタックスを使って初期化することもできます。
 
 ```ruby
 tz = C::TimeZone.new minutes_west: 1, dst_time: 2
@@ -74,7 +74,7 @@ tz.minutes_west #=> 1
 tz.dst_time     #=> 2
 ```
 
-A C struct is passed by value (as a copy) to functions and methods, and also passed by value when it is returned from a method:
+C の構造体は関数やメソッドに (コピーとして) 値渡しされます。また、メソッドから返るときも値で渡されます。
 
 ```ruby
 def change_it(tz)
@@ -86,4 +86,4 @@ change_it tz
 tz.minutes_west #=> 0
 ```
 
-Refer to the [type grammar](type_grammar.html) for the notation used in struct field types.
+構造体のフィールドに使用可能な型の指定方法については[型文法](type_grammar.html)を参照してください。
