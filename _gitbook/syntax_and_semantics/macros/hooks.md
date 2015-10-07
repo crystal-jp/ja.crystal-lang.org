@@ -1,13 +1,12 @@
-# Hooks
+# フック
 
-Special macros exist that are invoked in some situations, as hooks:
-`inherited`, `included` and `method_missing`.
-* `inherited` will be invoked at compile-time when a subclass is defined. `@type` becomes the inherited type.
-* `included` will be invoked at compile-time when a module is included. `@type` becomes the including type.
-* `extended` will be invoked at compile-time when a module is extended. `@type` becomes the extending type.
-* `method_missing` will be invoked at compile-time when a method is not found.
+ある状況において実行される特別なマクロがフックとして存在します。それらは、`inherited`、`included` そして `method_missing` です。
+* `inherited` は、コンパイル時にサブクラスが定義されたときに実行されます。`@type` は継承されたサブクラスの型になります。
+* `included` は、コンパイル時にモジュールがインクルードされたときに実行されます。`@type` はインクルードする側の型になります。
+* `extended` は、コンパイル時にモジュールが extend されたときに実行されます。`@type` は extend する側の型になります。
+* `inherited` は、コンパイル時にメソッドが見つからないときに実行されます。
 
-Example of `inherited`:
+`inherited` の例:
 
 ```ruby
 class Parent
@@ -24,13 +23,13 @@ end
 Child.new.child #=> 1
 ```
 
-Example of `method_missing`:
+`method_missing` の例:
 
 ```ruby
 macro method_missing(name, args, block)
   print "Got ", {{name.id.stringify}}, " with ", {{args.length}}, " arguments", '\n'
 end
 
-foo          # Prints: Got foo with 0 arguments
-bar 'a', 'b' # Prints: Got bar with 2 arguments
+foo          # 出力: Got foo with 0 arguments
+bar 'a', 'b' # 出力: Got bar with 2 arguments
 ```

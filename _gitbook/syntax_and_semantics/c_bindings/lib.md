@@ -1,6 +1,6 @@
 # lib
 
-A `lib` declaration groups C functions and types that belong to a library.
+`lib` の宣言によって、C ライブラリの関数群や型をグループ化します。
 
 ```ruby
 @[Link("pcre")]
@@ -8,12 +8,12 @@ lib LibPCRE
 end
 ```
 
-Although not enforced by the compiler, a `lib`'s name usually starts with `Lib`.
+なお、これはコンパイラが強制するものではありませんが、通常、`lib` の名前は `Lib` から始まるものにします。
 
-Attributes are used to pass flags to the linker to find external libraries:
+また、属性はリンカにフラグを渡すために利用され、リンカはそれにしたがって外部のライブラリを探します。
 
-* `@[Link("pcre")]` will pass `-lpcre` to the linker, but the compiler will first try to use [pkg-config](http://en.wikipedia.org/wiki/Pkg-config).
-* `@[Link(ldflags: "...")]` will pass those flags directly to the linker, without modification. For example: `@[Link(ldflags: "-lpcre")]`. A common technique is to use backticks to execute commands: ``@[Link(ldflags: "`pkg-config libpcre --libs`")]``.
-* `@[Link(framework: "Cocoa")]` will pass `-framework Cocoa` to the linker (only useful in Mac OS X).
+* `@[Link("pcre")]` は `-lpcre` をリンカに渡します。ただ、コンパイラはまず最初に [pkg-config](http://en.wikipedia.org/wiki/Pkg-config) の利用を試みます。
+* `@[Link(ldflags: "...")]` は指定したフラグをそのまま直接リンカに渡します。例: `@[Link(ldflags: "-lpcre")]`. よく使われるテクニックとして、バックティック (バッククォート) を活用してコマンドを実行するものがあります。``@[Link(ldflags: "`pkg-config libpcre --libs`")]``.
+* `@[Link(framework: "Cocoa")]` は `-framework Cocoa` をリンカに渡します (Mac OS X の場合のみ有効) 。
 
-Attributes can be omitted if the library is implicitly linked, as in the case of libc.
+属性は、例えば libc のように、暗黙的にリンクされるライブラリの場合には不要です。
