@@ -104,7 +104,7 @@
        * [struct](syntax_and_semantics/c_bindings/struct.md)
        * [union](syntax_and_semantics/c_bindings/union.md)
        * [enum](syntax_and_semantics/c_bindings/enum.md)
-       * [Variables](syntax_and_semantics/c_bindings/variables.md)
+       * [変数](syntax_and_semantics/c_bindings/variables.md)
        * [Constants](syntax_and_semantics/c_bindings/constants.md)
        * [type](syntax_and_semantics/c_bindings/type.md)
        * [alias](syntax_and_semantics/c_bindings/alias.md)

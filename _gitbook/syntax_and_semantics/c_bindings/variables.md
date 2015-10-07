@@ -1,6 +1,6 @@
-# Variables
+# 変数
 
-Variables exposed by a C library can be declared inside a `lib` declaration using a global-variable-like declaration:
+C のライブラリで公開される変数は、`lib` の内部で、グローバル変数に似た記法を使って宣言できます。
 
 ```ruby
 lib C
@@ -8,7 +8,7 @@ lib C
 end
 ```
 
-Then it can be get and set:
+そして、以下のように参照と設定ができます。
 
 ```ruby
 C.errno #=> some value
@@ -16,7 +16,7 @@ C.errno = 0
 C.errno #=> 0
 ```
 
-A variable can be marked as thread local with an attribute:
+変数は属性を付与することでスレッドローカルにすることが可能です。
 
 ```ruby
 lib C
@@ -25,4 +25,4 @@ lib C
 end
 ```
 
-Refer to the [type grammar](type_grammar.html) for the notation used in external variables types.
+外部の変数に使用可能な型の指定方法については[型文法](type_grammar.html)を参照してください。

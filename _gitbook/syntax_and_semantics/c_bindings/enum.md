@@ -1,6 +1,6 @@
 # enum
 
-An `enum` declaration inside a `lib` declares a C enum:
+`lib` の内部で `enum` を宣言することで C の enum (列挙型) を宣言できます。
 
 ```ruby
 lib X
@@ -21,15 +21,15 @@ lib X
 end
 ```
 
-As in C, the first member of the enum has a value of zero and each successive value is incremented by one.
+C と同じく、enum の最初の要素はゼロで、以降の要素はそれぞれ1ずつ増加した値となります。
 
-To use a value:
+値は以下のように利用します。
 
 ```ruby
 X::SomeEnum::One #=> One
 ```
 
-You can specify the value of a member:
+要素の値を指定することも可能です。
 
 ```ruby
 lib X
@@ -41,9 +41,9 @@ lib X
 end
 ```
 
-As you can see, some basic math is allowed for a member value: `+`, `-`, `*`, `/`, `&`, `|`, `<<`, `>>` and `%`.
+上記のように、要素の値には `+`/`-`/`*`/`/`/`&`/`|`/`<<`/`>>`/`%` といった基本的な計算を使うこともできます。
 
-The type of an enum member is `Int32` by default, even if you specify a different type in a constant value:
+enum の要素の型はデフォルトで `Int32` です。これは、定数の値に別の型を指定した場合であっても同様です。
 
 ```ruby
 lib X
@@ -55,7 +55,7 @@ end
 X::SomeEnum #=> 1_i32
 ```
 
-However, you can change this default type:
+デフォルトの型は以下のように変更することも可能です。
 
 ```ruby
 lib X
@@ -69,7 +69,7 @@ X::SomeEnum::Zero #=> 0_i8
 X::SomeEnum::Two  #=> 2_i8
 ```
 
-You can use an enum as a type in a `fun` argument or `struct` or `union` members:
+`fun` の引数や、`struct` と `union` のメンバーとしても enum を利用できます。
 
 ```ruby
 lib X
