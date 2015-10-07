@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Variables | プログラミング言語 Crystal</title>
+        <title>変数 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.6" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.6" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1717,7 +1717,7 @@
                         
                             <b>4.15.6.</b>
                         
-                        Variables
+                        変数
                     </a>
                 
             
@@ -1927,24 +1927,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="variables">Variables</h1>
-<p>Variables exposed by a C library can be declared inside a <code>lib</code> declaration using a global-variable-like declaration:</p>
+                        <h1 id="%E5%A4%89%E6%95%B0">&#x5909;&#x6570;</h1>
+<p>C &#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x516C;&#x958B;&#x3055;&#x308C;&#x308B;&#x5909;&#x6570;&#x306F;&#x3001;<code>lib</code> &#x306E;&#x5185;&#x90E8;&#x3067;&#x3001;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x306B;&#x4F3C;&#x305F;&#x8A18;&#x6CD5;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5BA3;&#x8A00;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   <span class="hljs-variable">$errno</span> <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Then it can be get and set:</p>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x53C2;&#x7167;&#x3068;&#x8A2D;&#x5B9A;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">C</span>.errno <span class="hljs-comment">#=&gt; some value</span>
 <span class="hljs-constant">C</span>.errno = <span class="hljs-number">0</span>
 <span class="hljs-constant">C</span>.errno <span class="hljs-comment">#=&gt; 0</span>
 </code></pre>
-<p>A variable can be marked as thread local with an attribute:</p>
+<p>&#x5909;&#x6570;&#x306F;&#x5C5E;&#x6027;&#x3092;&#x4ED8;&#x4E0E;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   @[<span class="hljs-constant">ThreadLocal</span>]
   <span class="hljs-variable">$errno</span> <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Refer to the <a href="type_grammar.html">type grammar</a> for the notation used in external variables types.</p>
+<p>&#x5916;&#x90E8;&#x306E;&#x5909;&#x6570;&#x306B;&#x4F7F;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x578B;&#x306E;&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>

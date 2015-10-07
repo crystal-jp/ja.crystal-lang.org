@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.4" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.4" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1717,7 +1717,7 @@
                         
                             <b>4.15.6.</b>
                         
-                        Variables
+                        変数
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="union">union</h1>
-<p>A <code>union</code> declaration inside a <code>lib</code> declares a C union:</p>
+<p><code>lib</code> &#x306E;&#x5185;&#x90E8;&#x3067; <code>union</code> &#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067; C &#x306E;&#x5171;&#x7528;&#x4F53;&#x3092;&#x5BA3;&#x8A00;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">U</span>
   <span class="hljs-comment"># In C:</span>
   <span class="hljs-comment">#</span>
@@ -1942,22 +1942,22 @@
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>To create an instance of a union use <code>new</code>:</p>
+<p>&#x5171;&#x7528;&#x4F53;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x306B;&#x306F; <code>new</code> &#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">value = <span class="hljs-constant">U::IntOrFloat</span>.new
 </code></pre>
-<p>This allocates the union on the stack.</p>
-<p>A C union starts with all its fields set to &quot;zero&quot;: integers and floats start at zero, pointers start with an address of zero, etc.</p>
-<p>To avoid this initialization you can use <code>::</code>:</p>
+<p>&#x3053;&#x308C;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x306B;&#x5171;&#x7528;&#x4F53;&#x304C;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>C &#x306E;&#x5171;&#x7528;&#x4F53;&#x306F;&#x3001;&#x521D;&#x671F;&#x72B6;&#x614B;&#x3068;&#x3057;&#x3066;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x5024;&#x304C;&#x300C;&#x30BC;&#x30ED;&#x300D;&#x306E;&#x72B6;&#x614B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x6574;&#x6570;&#x3068;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;&#x306F;&#x30BC;&#x30ED;&#x3067;&#x3001;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x306F;&#x30BC;&#x30ED;&#x306E;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x3092;&#x6307;&#x3057;&#x3066;&#x3044;&#x308B;&#x3001;&#x306A;&#x3069;&#x306E;&#x72B6;&#x614B;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x907F;&#x3051;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;<code>::</code> &#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">value <span class="hljs-symbol">:</span><span class="hljs-symbol">:</span> <span class="hljs-constant">U::IntOrFlaot</span>
-value.some_int <span class="hljs-comment">#=&gt; some garbage value</span>
+value.some_int <span class="hljs-comment">#=&gt; &#x4F55;&#x304B;&#x30B4;&#x30DF;&#x306E;&#x5024;</span>
 </code></pre>
-<p>You can set and get its properties:</p>
+<p>&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x306E;&#x8A2D;&#x5B9A;&#x3001;&#x304A;&#x3088;&#x3073;&#x53C2;&#x7167;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">value = <span class="hljs-constant">U::IntOrFloat</span>.new
 value.some_int = <span class="hljs-number">1</span>
 value.some_int <span class="hljs-comment">#=&gt; 1</span>
 value.some_float <span class="hljs-comment">#=&gt; 4.94066e-324</span>
 </code></pre>
-<p>A C union is passed by value (as a copy) to functions and methods, and also passed by value when it is returned from a method:</p>
+<p>C &#x306E;&#x5171;&#x7528;&#x4F53;&#x306F;&#x95A2;&#x6570;&#x3084;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B; (&#x30B3;&#x30D4;&#x30FC;&#x3068;&#x3057;&#x3066;) &#x5024;&#x6E21;&#x3057;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304B;&#x3089;&#x8FD4;&#x308B;&#x3068;&#x304D;&#x3082;&#x5024;&#x3067;&#x6E21;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>change_it(value)
   value.some_int = <span class="hljs-number">1</span>
 <span class="hljs-keyword">end</span>
@@ -1966,7 +1966,7 @@ value = <span class="hljs-constant">U::IntOrFloat</span>.new
 change_it value
 value.some_int <span class="hljs-comment">#=&gt; 0</span>
 </code></pre>
-<p>Refer to the <a href="type_grammar.html">type grammar</a> for the notation used in union field types.</p>
+<p>&#x5171;&#x7528;&#x4F53;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;&#x4F7F;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x578B;&#x306E;&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>

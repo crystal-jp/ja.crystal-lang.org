@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.5" data-basepath="../.." data-revision="Wed Oct 07 2015 12:53:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.5" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1717,7 +1717,7 @@
                         
                             <b>4.15.6.</b>
                         
-                        Variables
+                        変数
                     </a>
                 
             
@@ -1928,7 +1928,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="enum">enum</h1>
-<p>An <code>enum</code> declaration inside a <code>lib</code> declares a C enum:</p>
+<p><code>lib</code> &#x306E;&#x5185;&#x90E8;&#x3067; <code>enum</code> &#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067; C &#x306E; enum (&#x5217;&#x6319;&#x578B;) &#x3092;&#x5BA3;&#x8A00;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   <span class="hljs-comment"># In C:</span>
   <span class="hljs-comment">#</span>
@@ -1946,11 +1946,11 @@
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>As in C, the first member of the enum has a value of zero and each successive value is incremented by one.</p>
-<p>To use a value:</p>
+<p>C &#x3068;&#x540C;&#x3058;&#x304F;&#x3001;enum &#x306E;&#x6700;&#x521D;&#x306E;&#x8981;&#x7D20;&#x306F;&#x30BC;&#x30ED;&#x3067;&#x3001;&#x4EE5;&#x964D;&#x306E;&#x8981;&#x7D20;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;1&#x305A;&#x3064;&#x5897;&#x52A0;&#x3057;&#x305F;&#x5024;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x5024;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">X::SomeEnum::One</span> <span class="hljs-comment">#=&gt; One</span>
 </code></pre>
-<p>You can specify the value of a member:</p>
+<p>&#x8981;&#x7D20;&#x306E;&#x5024;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   enum <span class="hljs-constant">SomeEnum</span>
     <span class="hljs-constant">Ten</span> = <span class="hljs-number">10</span>
@@ -1959,8 +1959,8 @@
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>As you can see, some basic math is allowed for a member value: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>&amp;</code>, <code>|</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code> and <code>%</code>.</p>
-<p>The type of an enum member is <code>Int32</code> by default, even if you specify a different type in a constant value:</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x8981;&#x7D20;&#x306E;&#x5024;&#x306B;&#x306F; <code>+</code>/<code>-</code>/<code>*</code>/<code>/</code>/<code>&amp;</code>/<code>|</code>/<code>&lt;&lt;</code>/<code>&gt;&gt;</code>/<code>%</code> &#x3068;&#x3044;&#x3063;&#x305F;&#x57FA;&#x672C;&#x7684;&#x306A;&#x8A08;&#x7B97;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>enum &#x306E;&#x8981;&#x7D20;&#x306E;&#x578B;&#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067; <code>Int32</code> &#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x5B9A;&#x6570;&#x306E;&#x5024;&#x306B;&#x5225;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x5834;&#x5408;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x540C;&#x69D8;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   enum <span class="hljs-constant">SomeEnum</span>
     <span class="hljs-constant">A</span> = <span class="hljs-number">1_</span>u32
@@ -1969,7 +1969,7 @@
 
 <span class="hljs-constant">X::SomeEnum</span> <span class="hljs-comment">#=&gt; 1_i32</span>
 </code></pre>
-<p>However, you can change this default type:</p>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x578B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   enum <span class="hljs-constant">SomeEnum</span> <span class="hljs-symbol">:</span> <span class="hljs-constant">Int8</span>
     <span class="hljs-constant">Zero</span>,
@@ -1980,7 +1980,7 @@
 <span class="hljs-constant">X::SomeEnum::Zero</span> <span class="hljs-comment">#=&gt; 0_i8</span>
 <span class="hljs-constant">X::SomeEnum::Two</span>  <span class="hljs-comment">#=&gt; 2_i8</span>
 </code></pre>
-<p>You can use an enum as a type in a <code>fun</code> argument or <code>struct</code> or <code>union</code> members:</p>
+<p><code>fun</code> &#x306E;&#x5F15;&#x6570;&#x3084;&#x3001;<code>struct</code> &#x3068; <code>union</code> &#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3068;&#x3057;&#x3066;&#x3082; enum &#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   enum <span class="hljs-constant">SomeEnum</span>
     <span class="hljs-constant">One</span>
@@ -2003,7 +2003,7 @@
         <a href="../../syntax_and_semantics/c_bindings/union.html" class="navigation navigation-prev " aria-label="Previous page: union"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/c_bindings/variables.html" class="navigation navigation-next " aria-label="Next page: Variables"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/variables.html" class="navigation navigation-next " aria-label="Next page: 変数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
