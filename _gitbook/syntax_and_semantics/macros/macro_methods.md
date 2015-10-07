@@ -1,6 +1,6 @@
-# Macro methods
+# マクロメソッド
 
-Macro defs allow you to define a method for a class hierarchy and have that method be evaluated at the end of the type-inference phase, as a macro, where type information is known, for each concrete subtype. 例をあげます。
+マクロで def を使うと、クラス階層内でメソッドを定義することが可能で、そのメソッドは型推論フェーズの終わりに評価されます。そのとき、マクロはそれぞれの派生型の型情報を知っている状態で評価されます。例をあげます。
 
 ```ruby
 class Object
@@ -18,5 +18,5 @@ person = Person.new "John", 30
 person.instance_vars_names #=> ["name", "age"]
 ```
 
-Note that in the case of macro defs you need to specify the return type.
+マクロの def では、返り値の型を指定する必要があることに注意してください。
 
