@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>alias | プログラミング言語 Crystal</title>
+        <title>エイリアス (alias) | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.9" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.9" data-basepath="../.." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1672,7 +1672,7 @@
                         
                             <b>4.15.3.</b>
                         
-                        struct
+                        構造体 (struct)
                     </a>
                 
             
@@ -1687,7 +1687,7 @@
                         
                             <b>4.15.4.</b>
                         
-                        union
+                        共用体 (union)
                     </a>
                 
             
@@ -1732,7 +1732,7 @@
                         
                             <b>4.15.7.</b>
                         
-                        Constants
+                        定数
                     </a>
                 
             
@@ -1762,7 +1762,7 @@
                         
                             <b>4.15.9.</b>
                         
-                        alias
+                        エイリアス (alias)
                     </a>
                 
             
@@ -1777,7 +1777,7 @@
                         
                             <b>4.15.10.</b>
                         
-                        Callbacks
+                        コールバック
                     </a>
                 
             
@@ -1927,13 +1927,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9">&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;</h1>
-<p>An <code>alias</code> declaration inside a <code>lib</code> declares a C <code>typedef</code>:</p>
+                        <h1 id="%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9-alias">&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9; (alias)</h1>
+<p><code>lib</code> &#x306E;&#x5185;&#x90E8;&#x3067; <code>alias</code> &#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067; C &#x306E; typedef &#x3092;&#x5BA3;&#x8A00;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   <span class="hljs-keyword">alias</span> <span class="hljs-constant">MyInt</span> = <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Now <code>Int32</code> and <code>MyInt</code> are interchangeable:</p>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;<code>Int32</code> &#x3068; <code>MyInt</code> &#x306F;&#x76F8;&#x4E92;&#x306B;&#x4EA4;&#x63DB;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   <span class="hljs-keyword">alias</span> <span class="hljs-constant">MyInt</span> = <span class="hljs-constant">Int32</span>
 
@@ -1942,7 +1942,7 @@
 
 <span class="hljs-constant">X</span>.some_fun <span class="hljs-number">1</span> <span class="hljs-comment"># OK</span>
 </code></pre>
-<p>An <code>alias</code> is most useful to avoid writing long types over and over, but also to declare a type based on compile-time flags:</p>
+<p><code>alias</code> &#x304C;&#x6700;&#x3082;&#x4FBF;&#x5229;&#x306A;&#x306E;&#x306F;&#x3001;&#x9577;&#x3044;&#x578B;&#x540D;&#x3092;&#x4F55;&#x5EA6;&#x3082;&#x4F55;&#x5EA6;&#x3082;&#x66F8;&#x304B;&#x305A;&#x306B;&#x6E08;&#x3080;&#x3088;&#x3046;&#x306B;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305F;&#x3060;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x30D5;&#x30E9;&#x30B0;&#x306B;&#x57FA;&#x3065;&#x304F;&#x578B;&#x5BA3;&#x8A00;&#x3067;&#x3082;&#x975E;&#x5E38;&#x306B;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">C</span>
   ifdef x86_64
     <span class="hljs-constant">SizeT</span> = <span class="hljs-constant">Int64</span>
@@ -1953,7 +1953,7 @@
   fun memcmp(p1 <span class="hljs-symbol">:</span> <span class="hljs-constant">Void</span>*, p2 <span class="hljs-symbol">:</span> <span class="hljs-constant">Void</span>*, size <span class="hljs-symbol">:</span> <span class="hljs-constant">C::SizeT</span>) <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Refer to the <a href="type_grammar.html">type grammar</a> for the notation used in alias types.</p>
+<p>alias &#x306E;&#x578B;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x969B;&#x306E;&#x8A18;&#x8F09;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>
@@ -1967,7 +1967,7 @@
         <a href="../../syntax_and_semantics/c_bindings/type.html" class="navigation navigation-prev " aria-label="Previous page: type"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/c_bindings/callbacks.html" class="navigation navigation-next " aria-label="Next page: Callbacks"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/callbacks.html" class="navigation navigation-next " aria-label="Next page: コールバック"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

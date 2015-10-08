@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Callbacks | プログラミング言語 Crystal</title>
+        <title>コールバック | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.10" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.10" data-basepath="../.." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1672,7 +1672,7 @@
                         
                             <b>4.15.3.</b>
                         
-                        struct
+                        構造体 (struct)
                     </a>
                 
             
@@ -1687,7 +1687,7 @@
                         
                             <b>4.15.4.</b>
                         
-                        union
+                        共用体 (union)
                     </a>
                 
             
@@ -1732,7 +1732,7 @@
                         
                             <b>4.15.7.</b>
                         
-                        Constants
+                        定数
                     </a>
                 
             
@@ -1762,7 +1762,7 @@
                         
                             <b>4.15.9.</b>
                         
-                        alias
+                        エイリアス (alias)
                     </a>
                 
             
@@ -1777,7 +1777,7 @@
                         
                             <b>4.15.10.</b>
                         
-                        Callbacks
+                        コールバック
                     </a>
                 
             
@@ -1927,33 +1927,33 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="callbacks">Callbacks</h1>
-<p>You can use function types in C declarations:</p>
+                        <h1 id="%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF">&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;</h1>
+<p>C &#x306E;&#x5BA3;&#x8A00;&#x306E;&#x4E2D;&#x3067;&#x95A2;&#x6570;&#x578B;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
-  <span class="hljs-comment"># In C:</span>
+  <span class="hljs-comment"># C &#x3067;&#x306F;:</span>
   <span class="hljs-comment">#</span>
   <span class="hljs-comment">#    void callback(int (*f)(int));</span>
   fun callback(f <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span> -&gt; <span class="hljs-constant">Int32</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Then you can pass a function (a <a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc</a>) like this:</p>
+<p>&#x305D;&#x308C;&#x304B;&#x3089;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x95A2;&#x6570; (<a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc</a>) &#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">f = -&gt;(x <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>) { x + <span class="hljs-number">1</span> }
 <span class="hljs-constant">X</span>.callback(f)
 </code></pre>
-<p>If you define the function inline in the same call you can omit the argument types, the compiler will add the types for you based on the <code>fun</code> signature:</p>
+<p>&#x3082;&#x3057;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3068;&#x540C;&#x6642;&#x306B;&#x30A4;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x3067;&#x95A2;&#x6570;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x5F15;&#x6570;&#x306E;&#x578B;&#x3092;&#x7701;&#x7565;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C; <code>fun</code> &#x306E;&#x30B7;&#x30B0;&#x30CD;&#x30A4;&#x30C1;&#x30E3;&#x306B;&#x57FA;&#x3065;&#x3044;&#x3066;&#x578B;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">X</span>.callback -&gt;(x) { x + <span class="hljs-number">1</span> }
 </code></pre>
-<p>Note, however, that functions passed to C can&apos;t form closures. If the compiler detects at compile-time that a closure is being passed, an error will be issued:</p>
+<p>&#x305F;&#x3060;&#x3001;C &#x306B;&#x6E21;&#x3055;&#x308C;&#x308B;&#x95A2;&#x6570;&#x306F;&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;&#x306B;&#x306F;&#x306A;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3082;&#x3057;&#x3001;&#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x691C;&#x51FA;&#x3055;&#x308C;&#x308B;&#x3068;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">y = <span class="hljs-number">2</span>
-<span class="hljs-constant">X</span>.callback -&gt;(x) { x + y } <span class="hljs-comment"># Error: can&apos;t send closure</span>
-                           <span class="hljs-comment"># to C function</span>
+<span class="hljs-constant">X</span>.callback -&gt;(x) { x + y } <span class="hljs-comment"># &#x30A8;&#x30E9;&#x30FC;: &#x30AF;&#x30ED;&#x30FC;&#x30B8;&#x30E3;&#x306F;</span>
+                           <span class="hljs-comment"># C &#x306E;&#x95A2;&#x6570;&#x306B;&#x306F;&#x6E21;&#x305B;&#x306A;&#x3044;</span>
 </code></pre>
-<p>If the compiler can&apos;t detect this at compile-time, an exception will be raised at runtime.</p>
-<p>Refer to the <a href="type_grammar.html">type grammar</a> for the notation used in callbacks and procs types.</p>
-<h2 id="raises-attribute">Raises attribute</h2>
-<p>If a C function executes a user-provided callback that might raise, it must be annotated with the <code>@[Raises]</code> attribute.</p>
-<p>The compiler infers this attribute for a method if it invokes a method that is marked as <code>@[Raises]</code> or raises (recursively).</p>
-<p>However, some C functions accept callbacks to be executed by other C functions. For example, suppose a ficticious library:</p>
+<p>&#x3082;&#x3057;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x3053;&#x306E;&#x3053;&#x3068;&#x3092;&#x691C;&#x51FA;&#x3067;&#x304D;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x306B;&#x4F8B;&#x5916;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x3068; Proc &#x306B;&#x4F7F;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x578B;&#x306E;&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h2 id="raise-%E5%B1%9E%E6%80%A7">Raise &#x5C5E;&#x6027;</h2>
+<p>&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x306E;&#x3042;&#x308B;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x3092; C &#x306E;&#x95A2;&#x6570;&#x304C;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;<code>@[Raises]</code> &#x5C5E;&#x6027;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x304A;&#x304F;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3001;<code>@[Raises]</code> &#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3084;&#x3001;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082; (&#x518D;&#x5E30;&#x7684;&#x306B;) &#x3053;&#x306E;&#x5C5E;&#x6027;&#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x63A8;&#x8AD6;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3057;&#x304B;&#x3057;&#x3001;C &#x306E;&#x95A2;&#x6570;&#x306B;&#x306F;&#x3001;&#x4ED6;&#x306E; C &#x95A2;&#x6570;&#x306B;&#x3088;&#x3063;&#x3066;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;&#x3042;&#x308B;&#x3082;&#x306E;&#x3068;&#x8003;&#x3048;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">LibFoo</span>
   fun store_callback(callback <span class="hljs-symbol">:</span> -&gt;)
   fun execute_callback
@@ -1962,7 +1962,7 @@
 <span class="hljs-constant">LibFoo</span>.store_callback -&gt;{ raise <span class="hljs-string">&quot;OH NO!&quot;</span> }
 <span class="hljs-constant">LibFoo</span>.execute_callback
 </code></pre>
-<p>If the callback passed to <code>store_callback</code> raises, then <code>execute_callback</code> will raise. However, the compiler doesn&apos;t know that <code>execute_callback</code> can potentially raise because it is not marked as <code>@[Raises]</code> and the compiler has no way to figure this out. In these cases you have to manually mark such functions:</p>
+<p>&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;&#x3082;&#x3057; <code>store_callback</code> &#x306B;&#x6E21;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x304C;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;<code>execute_callback</code> &#x304C;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;<code>execute_callback</code> &#x306B; <code>@[Raises]</code> &#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x305D;&#x308C;&#x304C;&#x4F8B;&#x5916;&#x3092;&#x767A;&#x751F;&#x3055;&#x305B;&#x308B;&#x3082;&#x306E;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x77E5;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x3046;&#x3044;&#x3063;&#x305F;&#x30B1;&#x30FC;&#x30B9;&#x3067;&#x306F;&#x3001;&#x305D;&#x308C;&#x3089;&#x306E;&#x95A2;&#x6570;&#x306B;&#x624B;&#x52D5;&#x3067;&#x6307;&#x793A;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">LibFoo</span>
   fun store_callback(callback <span class="hljs-symbol">:</span> -&gt;)
 
@@ -1970,7 +1970,7 @@
   fun execute_callback
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>If you don&apos;t mark them, <code>begin/rescue</code> blocks that surround this function&apos;s calls won&apos;t work as expected.</p>
+<p>&#x3082;&#x3057;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306B;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x3053;&#x306E;&#x95A2;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x56F2;&#x3080; <code>begin/rescue</code> &#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x304C;&#x671F;&#x5F85;&#x901A;&#x308A;&#x306B;&#x50CD;&#x3044;&#x3066;&#x304F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 
                     
                     </section>
@@ -1981,7 +1981,7 @@
         </div>
 
         
-        <a href="../../syntax_and_semantics/c_bindings/alias.html" class="navigation navigation-prev " aria-label="Previous page: alias"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/alias.html" class="navigation navigation-prev " aria-label="Previous page: エイリアス (alias)"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../../syntax_and_semantics/type_grammar.html" class="navigation navigation-next " aria-label="Next page: Type grammar"><i class="fa fa-angle-right"></i></a>

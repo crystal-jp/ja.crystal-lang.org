@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.15.8" data-basepath="../.." data-revision="Wed Oct 07 2015 14:50:20 GMT+0900 (JST)">
+    <div class="book" data-level="4.15.8" data-basepath="../.." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1672,7 +1672,7 @@
                         
                             <b>4.15.3.</b>
                         
-                        struct
+                        構造体 (struct)
                     </a>
                 
             
@@ -1687,7 +1687,7 @@
                         
                             <b>4.15.4.</b>
                         
-                        union
+                        共用体 (union)
                     </a>
                 
             
@@ -1732,7 +1732,7 @@
                         
                             <b>4.15.7.</b>
                         
-                        Constants
+                        定数
                     </a>
                 
             
@@ -1762,7 +1762,7 @@
                         
                             <b>4.15.9.</b>
                         
-                        alias
+                        エイリアス (alias)
                     </a>
                 
             
@@ -1777,7 +1777,7 @@
                         
                             <b>4.15.10.</b>
                         
-                        Callbacks
+                        コールバック
                     </a>
                 
             
@@ -1927,24 +1927,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="type">type</h1>
-<p>A <code>type</code> declaration inside a <code>lib</code> declares a kind of C <code>typedef</code>, but stronger:</p>
+                        <h1 id="%E5%9E%8B-type">&#x578B; (type)</h1>
+<p><code>lib</code> &#x5BA3;&#x8A00;&#x306E;&#x5185;&#x90E8;&#x3067; <code>type</code> &#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x3068;&#x3001;C &#x306E; <code>typedef</code> &#x306E;&#x5BA3;&#x8A00;&#x306B;&#x8FD1;&#x3044;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x3088;&#x308A;&#x53B3;&#x5BC6;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   type <span class="hljs-constant">MyInt</span> = <span class="hljs-constant">Int32</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Unlike C, <code>Int32</code> and <code>MyInt</code> are not interchangeable:</p>
+<p>C &#x3068;&#x306F;&#x7570;&#x306A;&#x308A;&#x3001;<code>Int32</code> &#x3068; <code>MyInt</code> &#x3092;&#x76F8;&#x4E92;&#x306B;&#x4EA4;&#x63DB;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 <pre><code class="lang-ruby">lib <span class="hljs-constant">X</span>
   type <span class="hljs-constant">MyInt</span> = <span class="hljs-constant">Int32</span>
 
   fun some_fun(value <span class="hljs-symbol">:</span> <span class="hljs-constant">MyInt</span>)
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-constant">X</span>.some_fun <span class="hljs-number">1</span> <span class="hljs-comment"># Error: argument &apos;value&apos; of &apos;X#some_fun&apos;</span>
-             <span class="hljs-comment"># must be X::MyInt, not Int32</span>
+<span class="hljs-constant">X</span>.some_fun <span class="hljs-number">1</span> <span class="hljs-comment"># &#x30A8;&#x30E9;&#x30FC;: &apos;X#some_fun&apos; &#x306E;&#x5F15;&#x6570; &apos;value&apos; &#x306F;</span>
+             <span class="hljs-comment"># Int32 &#x3067;&#x306F;&#x306A;&#x304F; X::MyInt &#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;</span>
 </code></pre>
-<p>Thus, a <code>type</code> declaration is useful for opaque types that are created by the C library you are wrapping. An example of this is the C <code>FILE</code> type, which you can obtain with <code>fopen</code>.</p>
-<p>Refer to the <a href="type_grammar.html">type grammar</a> for the notation used in typedef types.</p>
+<p>&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x30E9;&#x30C3;&#x30D7;&#x3057;&#x3088;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B; C &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x3088;&#x3063;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x4E0D;&#x900F;&#x660E;&#x306A;&#x578B; (opaque type) &#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;<code>type</code> &#x5BA3;&#x8A00;&#x3092;&#x6709;&#x52B9;&#x306B;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;<code>fopen</code> &#x306B;&#x3088;&#x3063;&#x3066;&#x5F97;&#x3089;&#x308C;&#x308B; C &#x306E; <code>FILE</code> &#x578B;&#x3092;&#x3042;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>typedef &#x306E;&#x578B;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x969B;&#x306E;&#x8A18;&#x8F09;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="type_grammar.html">&#x578B;&#x6587;&#x6CD5;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 
                     
                     </section>
@@ -1955,10 +1955,10 @@
         </div>
 
         
-        <a href="../../syntax_and_semantics/c_bindings/constants.html" class="navigation navigation-prev " aria-label="Previous page: Constants"><i class="fa fa-angle-left"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/constants.html" class="navigation navigation-prev " aria-label="Previous page: 定数"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../syntax_and_semantics/c_bindings/alias.html" class="navigation navigation-next " aria-label="Next page: alias"><i class="fa fa-angle-right"></i></a>
+        <a href="../../syntax_and_semantics/c_bindings/alias.html" class="navigation navigation-next " aria-label="Next page: エイリアス (alias)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
