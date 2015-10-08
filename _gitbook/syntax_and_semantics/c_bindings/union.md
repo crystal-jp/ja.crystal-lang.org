@@ -1,10 +1,10 @@
-# union
+# 共用体 (union)
 
 `lib` の内部で `union` を宣言することで C の共用体を宣言できます。
 
 ```ruby
 lib U
-  # In C:
+  # C では:
   #
   #  union IntOrFloat {
   #    int some_int;

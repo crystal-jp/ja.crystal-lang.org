@@ -4,7 +4,7 @@
 
 ```ruby
 lib X
-  # In C:
+  # C では:
   #
   #  enum SomeEnum {
   #    Zero,
