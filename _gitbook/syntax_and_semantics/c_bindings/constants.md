@@ -1,6 +1,6 @@
 # 定数
 
-You can also declare constants inside a `lib` declaration:
+`lib` 宣言の内部で定数を宣言することもできます。
 
 ```ruby
 @[Link("pcre")]

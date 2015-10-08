@@ -1,6 +1,6 @@
-# エイリアス
+# エイリアス (alias)
 
-An `alias` declaration inside a `lib` declares a C `typedef`:
+`lib` の内部で `alias` を宣言することで C の typedef を宣言できます。
 
 ```ruby
 lib X
@@ -8,7 +8,7 @@ lib X
 end
 ```
 
-Now `Int32` and `MyInt` are interchangeable:
+これで、`Int32` と `MyInt` は相互に交換可能になります。
 
 ```ruby
 lib X
@@ -20,7 +20,7 @@ end
 X.some_fun 1 # OK
 ```
 
-An `alias` is most useful to avoid writing long types over and over, but also to declare a type based on compile-time flags:
+`alias` が最も便利なのは、長い型名を何度も何度も書かずに済むようにできることです。ただ、コンパイル時フラグに基づく型宣言でも非常に有効です。
 
 ```ruby
 lib C
@@ -34,4 +34,4 @@ lib C
 end
 ```
 
-Refer to the [type grammar](type_grammar.html) for the notation used in alias types.
+alias の型を設定する際の記載方法については[型文法](type_grammar.html)を参照してください。

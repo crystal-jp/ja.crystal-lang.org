@@ -1,10 +1,10 @@
-# struct
+# 構造体 (struct)
 
 `lib` の内部で `struct` を宣言することで C の構造体を宣言できます。
 
 ```ruby
 lib C
-  # In C:
+  # C では:
   #
   #  struct TimeZone {
   #    int minutes_west;
