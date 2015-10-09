@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Type grammar | プログラミング言語 Crystal</title>
+        <title>型文法 | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.16" data-basepath=".." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.16" data-basepath=".." data-revision="Fri Oct 09 2015 10:41:00 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1797,7 +1797,7 @@
                         
                             <b>4.16.</b>
                         
-                        Type grammar
+                        型文法
                     </a>
                 
             
@@ -1812,7 +1812,7 @@
                         
                             <b>4.17.</b>
                         
-                        Unsafe code
+                        安全でない (unsafe) コード
                     </a>
                 
             
@@ -1927,79 +1927,79 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="type-grammar">Type grammar</h1>
-<p>When:</p>
+                        <h1 id="%E5%9E%8B%E6%96%87%E6%B3%95">&#x578B;&#x6587;&#x6CD5;</h1>
+<p>&#x4EE5;&#x4E0B;&#x306E;&#x5834;&#x5408;&#x3001;</p>
 <ul>
-<li>specifying <a href="type_restrictions.html">type restrictions</a></li>
-<li>specifying <a href="generics.html">type arguments</a></li>
-<li><a href="declare_var.html">declaring variables</a></li>
-<li>declaring <a href="alias.html">aliases</a></li>
-<li>declaring <a href="type.html">typedefs</a></li>
-<li>the argument of an <a href="is_a.html">is_a?</a> pseudo-call</li>
-<li>the argument of an <a href="as.html">as</a> expression</li>
-<li>the argument of a <a href="sizeof.html">sizeof</a> expression</li>
-<li>the argument of an <a href="instance_sizeof.html">instance_sizeof</a> expression</li>
-<li>a method&apos;s <a href="return_types.html">return type</a></li>
+<li>[&#x578B;&#x5236;&#x7D04;]&#x306E;&#x6307;&#x5B9A;(type_restrictions.html)</li>
+<li>[&#x578B;&#x5F15;&#x6570;]&#x306E;&#x6307;&#x5B9A;(generics.html)</li>
+<li><a href="declare_var.html">&#x5909;&#x6570;&#x306E;&#x5BA3;&#x8A00;</a></li>
+<li>[&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;]&#x306E;&#x5BA3;&#x8A00;(alias.html)</li>
+<li>[typedef] &#x306E;&#x5BA3;&#x8A00;(type.html)</li>
+<li>&#x64EC;&#x4F3C;&#x547C;&#x3073;&#x51FA;&#x3057; [is_a?] (is_a.html) &#x306E;&#x5F15;&#x6570;</li>
+<li><a href="as.html">as</a> &#x5F0F;&#x306E;&#x5F15;&#x6570;</li>
+<li><a href="sizeof.html">sizeof</a> &#x5F0F;&#x306E;&#x5F15;&#x6570;</li>
+<li><a href="instance_sizeof.html">instance_sizeof</a> &#x5F0F;&#x306E;&#x5F15;&#x6570;</li>
+<li>&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;<a href="return_types.html">&#x623B;&#x308A;&#x5024;&#x306E;&#x578B;</a></li>
 </ul>
-<p>a convenient syntax is provided for some common types. These are especially useful when writing <a href="c_bindings/index.html">C bindings</a>, but can be used in any of the above locations.</p>
-<h2 id="paths-and-generics">Paths and generics</h2>
-<p>Regular types and generics can be used:</p>
+<p>&#x4E00;&#x822C;&#x7684;&#x306A;&#x578B;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x4FBF;&#x5229;&#x306A;&#x8A18;&#x6CD5;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306F;&#x7279;&#x306B; <a href="c_bindings/index.html">C &#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;</a>&#x3092;&#x66F8;&#x304F;&#x3068;&#x304D;&#x306B;&#x6709;&#x52B9;&#x3067;&#x3059;&#x304C;&#x3001;&#x4E0A;&#x8A18;&#x3057;&#x305F;&#x7B87;&#x6240;&#x3067;&#x3042;&#x308C;&#x3070;&#x3069;&#x3053;&#x3067;&#x3082;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E3%83%91%E3%82%B9%E3%81%A8%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AA%E3%82%AF%E3%82%B9">&#x30D1;&#x30B9;&#x3068;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30AF;&#x30B9;</h2>
+<p>&#x4E00;&#x822C;&#x7684;&#x306A;&#x578B;&#x3068;&#x30B8;&#x30A7;&#x30CD;&#x30EA;&#x30AF;&#x30B9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-constant">Int32</span>
 <span class="hljs-constant">My::Nested::Type</span>
 <span class="hljs-constant">Array</span>(<span class="hljs-constant">String</span>)
 </code></pre>
-<h2 id="union">Union</h2>
+<h2 id="%E5%9E%8B%E3%81%AE%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B-%E3%83%A6%E3%83%8B%E3%82%AA%E3%83%B3">&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B; (&#x30E6;&#x30CB;&#x30AA;&#x30F3;)</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrString</span> = <span class="hljs-constant">Int32</span> | <span class="hljs-constant">String</span>
 </code></pre>
-<p>The pipe (<code>|</code>) in types creates a union type. <code>Int32 | String</code> is read &quot;Int32 or String&quot;. In regular code, <code>Int32 | String</code> means invoking the method <code>|</code> on <code>Int32</code> with <code>String</code> as an argument.</p>
-<h2 id="nilable">Nilable</h2>
+<p>&#x578B;&#x3067;&#x30D1;&#x30A4;&#x30D7; (<code>|</code>) &#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B; (&#x30E6;&#x30CB;&#x30AA;&#x30F3;&#x578B;) &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>Int32 | String</code> &#x306F;&#x300C;Int32 &#x307E;&#x305F;&#x306F; String&#x300D;&#x3068;&#x8AAD;&#x307F;&#x307E;&#x3059;&#x3002;&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>Int32 | String</code> &#x304C;&#x610F;&#x5473;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;<code>Int32</code> &#x306B;&#x5BFE;&#x3057;&#x3066; <code>String</code> &#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066; <code>|</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="nil-%E3%82%92%E8%A8%B1%E5%AE%B9%E3%81%99%E3%82%8B-nilable">Nil &#x3092;&#x8A31;&#x5BB9;&#x3059;&#x308B; (nilable)</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrNil</span> = <span class="hljs-constant">Int32</span>?
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrNil</span> = <span class="hljs-constant">Int32</span> | <span class="hljs-constant">::Nil</span>
 </code></pre>
-<p>In regular code, <code>Int32?</code> is a syntax error.</p>
-<h2 id="pointer">Pointer</h2>
+<p>&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>Int32?</code> &#x306F;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF">&#x30DD;&#x30A4;&#x30F3;&#x30BF;</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32Ptr</span> = <span class="hljs-constant">Int32</span>*
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32</span> = <span class="hljs-constant">Pointer</span>(<span class="hljs-constant">Int32</span>)
 </code></pre>
-<p>In regular code, <code>Int32*</code> means invoking the <code>*</code> method on <code>Int32</code>.</p>
-<h2 id="staticarray">StaticArray</h2>
+<p>&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>Int32*</code> &#x304C;&#x610F;&#x5473;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;<code>Int32</code> &#x306B;&#x5BFE;&#x3057;&#x3066; <code>*</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="%E9%9D%99%E7%9A%84%E9%85%8D%E5%88%97-staticarray">&#x9759;&#x7684;&#x914D;&#x5217; (StaticArray)</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32_8</span> = <span class="hljs-constant">Int32</span>[<span class="hljs-number">8</span>]
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32_8</span> = <span class="hljs-constant">StaticArray</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-number">8</span>)
 </code></pre>
-<p>In regular code, <code>Int32[8]</code> means invoking the <code>[]</code> method on <code>Int32</code> with <code>8</code> as an argument.</p>
-<h2 id="tuple">Tuple</h2>
+<p>&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>Int32[8]</code> &#x304C;&#x610F;&#x5473;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;<code>Int32</code> &#x306B;&#x5BFE;&#x3057;&#x3066; <code>8</code> &#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066; <code>[]</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="%E3%82%BF%E3%83%97%E3%83%AB-tuple">&#x30BF;&#x30D7;&#x30EB; (Tuple)</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32StringTuple</span> = {<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>}
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32StringTuple</span> = <span class="hljs-constant">Tuple</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>)
 </code></pre>
-<p>In regular code, <code>{Int32, String}</code> is a tuple instance containing <code>Int32</code> and <code>String</code> as its elements. This is different than the above tuple <strong>type</strong>.</p>
+<p>&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>{Int32, String}</code> &#x306F; <code>Int32</code> &#x3068; <code>String</code> &#x3092;&#x8981;&#x7D20;&#x3068;&#x3057;&#x3066;&#x6301;&#x3064;&#x30BF;&#x30D7;&#x30EB;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x4E0A;&#x8A18;&#x306E;&#x30BF;&#x30D7;&#x30EB;<strong>&#x578B;</strong>&#x3068;&#x306F;&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="proc">Proc</h2>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32ToString</span> = <span class="hljs-constant">Int32</span> -&gt; <span class="hljs-constant">String</span>
 </code></pre>
 <p>&#x3053;&#x308C;&#x306F;&#x4EE5;&#x4E0B;&#x3068;&#x540C;&#x3058;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32ToString</span> = <span class="hljs-constant">Proc</span>(<span class="hljs-constant">Int32</span>, <span class="hljs-constant">String</span>)
 </code></pre>
-<p>To specify a Proc without arguments:</p>
+<p>&#x5F15;&#x6570;&#x3092;&#x6301;&#x305F;&#x306A;&#x3044; Proc &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">ProcThatReturnsInt32</span> = -&gt; <span class="hljs-constant">Int32</span>
 </code></pre>
-<p>To specify multiple arguments:</p>
+<p>&#x8907;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3064; Proc &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32AndCharToString</span> = <span class="hljs-constant">Int32</span>, <span class="hljs-constant">Char</span> -&gt; <span class="hljs-constant">String</span>
 </code></pre>
-<p>For nested procs (and any type, in general), you can use parentheses:</p>
+<p>&#x30CD;&#x30B9;&#x30C8;&#x3055;&#x308C;&#x305F; Proc &#x306B;&#x5BFE;&#x3057;&#x3066;&#x306F; (&#x304A;&#x3088;&#x3073;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3069;&#x3093;&#x306A;&#x578B;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;) &#x30AB;&#x30C3;&#x30B3;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">ComplexProc</span> = (<span class="hljs-constant">Int32</span> -&gt; <span class="hljs-constant">Int32</span>) -&gt; <span class="hljs-constant">String</span>
 </code></pre>
-<p>In regular code <code>Int32 -&gt; String</code> is a syntax error.</p>
+<p>&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;<code>Int32 -&gt; String</code> &#x306F;&#x30B7;&#x30F3;&#x30BF;&#x30C3;&#x30AF;&#x30B9;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="self">self</h2>
-<p><code>self</code> can be used in the type grammar to denote a <code>self</code> type. Refer to the <a href="type_restrictions.html">type restrictions</a> section.</p>
-<h2 id="class">class</h2>
-<p><code>class</code> is used to refer to a class type, instead of an instance type.</p>
+<p><code>self</code> &#x306F;&#x578B;&#x6587;&#x6CD5;&#x3067;&#x306F; <code>self</code> &#x306E;&#x578B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3059;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x8A73;&#x3057;&#x304F;&#x306F;<a href="type_restrictions.html">&#x578B;&#x5236;&#x7D04;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h2 id="%E3%82%AF%E3%83%A9%E3%82%B9-class">&#x30AF;&#x30E9;&#x30B9; (class)</h2>
+<p><code>class</code> &#x306F;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E;&#x578B;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x578B;&#x3092;&#x53C2;&#x7167;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> </span>foo(x <span class="hljs-symbol">:</span> <span class="hljs-constant">Int32</span>)
   <span class="hljs-string">&quot;instance&quot;</span>
@@ -2012,7 +2012,7 @@
 foo <span class="hljs-number">1</span>     <span class="hljs-comment"># &quot;instance&quot;</span>
 foo <span class="hljs-constant">Int32</span> <span class="hljs-comment"># &quot;class&quot;</span>
 </code></pre>
-<p><code>class</code> is also useful for creating arrays and collections of class type:</p>
+<p><code>class</code> &#x306F;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x578B;&#x3092;&#x6301;&#x3064;&#x914D;&#x5217;&#x3084;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x5834;&#x5408;&#x306B;&#x3082;&#x6709;&#x52B9;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span></span>
 <span class="hljs-keyword">end</span>
 
@@ -2026,18 +2026,18 @@ ary = [] of <span class="hljs-constant">Parent</span>.<span class="hljs-keyword"
 ary &lt;&lt; <span class="hljs-constant">Child1</span>
 ary &lt;&lt; <span class="hljs-constant">Child2</span>
 </code></pre>
-<h2 id="underscore">Underscore</h2>
-<p>An underscore is allowed in type restrictions. It matches anything:</p>
-<pre><code class="lang-ruby"><span class="hljs-comment"># Same as not specifying a restriction, not very useful</span>
+<h2 id="%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9%E3%82%B3%E3%82%A2">&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;</h2>
+<p>&#x578B;&#x5236;&#x7D04;&#x3067;&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x305D;&#x308C;&#x306F;&#x3059;&#x3079;&#x3066;&#x306B;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># &#x4F55;&#x3082;&#x5236;&#x7D04;&#x3092;&#x4E0E;&#x3048;&#x306A;&#x3044;&#x3053;&#x3068;&#x3068;&#x540C;&#x3058;&#x3002;&#x3053;&#x308C;&#x3067;&#x306F;&#x3042;&#x307E;&#x308A;&#x5F79;&#x306B;&#x306F;&#x7ACB;&#x305F;&#x306A;&#x3044;</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> </span>foo(x <span class="hljs-symbol">:</span> <span class="hljs-number">_</span>)
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># A bit more useful: any two arguments Proc that returns an Int32:</span>
+<span class="hljs-comment"># &#x3082;&#x3046;&#x5C11;&#x3057;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3001;&#x5F15;&#x6570;&#x3092;2&#x3064;&#x53D6;&#x3063;&#x3066; Int32 &#x3092;&#x8FD4;&#x3059; Proc</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> </span>foo(x <span class="hljs-symbol">:</span> <span class="hljs-number">_</span>, <span class="hljs-number">_</span> -&gt; <span class="hljs-constant">Int32</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
 <h2 id="typeof">typeof</h2>
-<p><code>typeof</code> is allowed in the type grammar. It returns a union type of the type of the passed expressions:</p>
+<p>&#x578B;&#x6587;&#x6CD5;&#x3067;&#x306F; <code>typeof</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5F0F;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B; (&#x30E6;&#x30CB;&#x30AA;&#x30F3;&#x578B;) &#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">alias</span> <span class="hljs-constant">SameAsInt32</span> = typeof(<span class="hljs-number">1</span> + <span class="hljs-number">2</span>)
 <span class="hljs-keyword">alias</span> <span class="hljs-constant">Int32OrString</span> = typeof(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;a&quot;</span>)
 </code></pre>
@@ -2054,7 +2054,7 @@ ary &lt;&lt; <span class="hljs-constant">Child2</span>
         <a href="../syntax_and_semantics/c_bindings/callbacks.html" class="navigation navigation-prev " aria-label="Previous page: コールバック"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../syntax_and_semantics/unsafe.html" class="navigation navigation-next " aria-label="Next page: Unsafe code"><i class="fa fa-angle-right"></i></a>
+        <a href="../syntax_and_semantics/unsafe.html" class="navigation navigation-next " aria-label="Next page: 安全でない (unsafe) コード"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

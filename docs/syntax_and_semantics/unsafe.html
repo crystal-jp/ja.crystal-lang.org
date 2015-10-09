@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Unsafe code | プログラミング言語 Crystal</title>
+        <title>安全でない (unsafe) コード | プログラミング言語 Crystal</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.2">
@@ -34,7 +34,7 @@
     
 
         
-    <div class="book" data-level="4.17" data-basepath=".." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.17" data-basepath=".." data-revision="Fri Oct 09 2015 10:41:00 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1795,7 +1795,7 @@
                         
                             <b>4.16.</b>
                         
-                        Type grammar
+                        型文法
                     </a>
                 
             
@@ -1810,7 +1810,7 @@
                         
                             <b>4.17.</b>
                         
-                        Unsafe code
+                        安全でない (unsafe) コード
                     </a>
                 
             
@@ -1925,21 +1925,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="unsafe-code">Unsafe code</h1>
-<p>These parts of the language are considered unsafe:</p>
+                        <h1 id="%E5%AE%89%E5%85%A8%E3%81%A7%E3%81%AA%E3%81%84-unsafe-%E3%82%B3%E3%83%BC%E3%83%89">&#x5B89;&#x5168;&#x3067;&#x306A;&#x3044; (unsafe) &#x30B3;&#x30FC;&#x30C9;</h1>
+<p>&#x672C;&#x8A00;&#x8A9E;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x4EE5;&#x4E0B;&#x306F;&#x5B89;&#x5168;&#x3067;&#x306A;&#x3044; (unsafe) &#x3068;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li>Code involving raw pointers: the <a href="http://crystal-lang.org/api/Pointer.html" target="_blank">Pointer</a> type and <a href="pointerof.html">pointerof</a>.</li>
-<li>The <a href="new,_initialize_and_allocate.html">allocate</a> class method.</li>
-<li>Code involving C bindings</li>
-<li><a href="declare_var.html">Uninitialized variable declaration</a></li>
+<li>&#x751F;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x4F34;&#x3046;&#x30B3;&#x30FC;&#x30C9;: <a href="http://crystal-lang.org/api/Pointer.html" target="_blank">&#x30DD;&#x30A4;&#x30F3;&#x30BF;</a> &#x578B;&#x3068; <a href="pointerof.html">pointerof</a></li>
+<li>&#x30AF;&#x30E9;&#x30B9;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E; <a href="new,_initialize_and_allocate.html">allocate</a></li>
+<li>C &#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3092;&#x4F34;&#x3046;&#x30B3;&#x30FC;&#x30C9;</li>
+<li><a href="declare_var.html">&#x521D;&#x671F;&#x5316;&#x3057;&#x306A;&#x3044;&#x5909;&#x6570;&#x5BA3;&#x8A00;</a></li>
 </ul>
-<p>&quot;Unsafe&quot; means that memory corruption, segmentation faults and crashes are possible to achieve. &#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x300C;&#x5B89;&#x5168;&#x3067;&#x306A;&#x3044;&#x300D;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3001;&#x30E1;&#x30E2;&#x30EA;&#x306E;&#x7834;&#x58CA;&#x3001;&#x30BB;&#x30B0;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x9055;&#x53CD;&#x3001;&#x305D;&#x3057;&#x3066;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">a = <span class="hljs-number">1</span>
 ptr = pointerof(a)
-ptr[<span class="hljs-number">100_000</span>] = <span class="hljs-number">2</span>   <span class="hljs-comment"># undefined behaviour, probably a segmentation fault</span>
+ptr[<span class="hljs-number">100_000</span>] = <span class="hljs-number">2</span>   <span class="hljs-comment"># &#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x632F;&#x308B;&#x821E;&#x3044;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x304A;&#x305D;&#x3089;&#x304F;&#x30BB;&#x30B0;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x9055;&#x53CD;&#x3068;&#x306A;&#x308B;</span>
 </code></pre>
-<p>However, regular code usually never involves pointer manipulation or uninitialized variables. And C bindings are usually wrapped in safe wrappers that include null pointers and bounds checks.</p>
-<p>No language is 100% safe: some parts will inevitably be low-level, interface with the operating system and involve pointer manipulation. But once you abstract that and operate on a higher level, and assume (after mathematical proof or thorough testing) that the lower grounds are safe, you can be confident that your entire codebase is safe.</p>
+<p>&#x305F;&#x3060;&#x3001;&#x901A;&#x5E38;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x64CD;&#x4F5C;&#x3084;&#x521D;&#x671F;&#x5316;&#x3057;&#x306A;&#x3044;&#x5909;&#x6570;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305F;&#x3001;C &#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x306F;&#x3001;&#x666E;&#x901A;&#x306F;&#x3001;NULL &#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3084;&#x30D0;&#x30A6;&#x30F3;&#x30C9;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x542B;&#x3080;&#x3088;&#x308A;&#x5B89;&#x5168;&#x306A;&#x30E9;&#x30C3;&#x30D1;&#x30FC;&#x3067;&#x5305;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<p>100% &#x5B89;&#x5168;&#x306A;&#x8A00;&#x8A9E;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x5B58;&#x5728;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002;&#x30ED;&#x30FC;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x51E6;&#x7406;&#x3084;&#x3001;OS &#x306E;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x3001;&#x305D;&#x3057;&#x3066;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x306E;&#x64CD;&#x4F5C;&#x3092;&#x3069;&#x3053;&#x304B;&#x3067;&#x5FC5;&#x305A;&#x542B;&#x307F;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;&#x62BD;&#x8C61;&#x5316;&#x3057;&#x3001;&#x3088;&#x308A;&#x9AD8;&#x3044;&#x30EC;&#x30D9;&#x30EB;&#x3067;&#x306E;&#x64CD;&#x4F5C;&#x3092;&#x884C;&#x3044;&#x3001;&#x3055;&#x3089;&#x306B;&#x3001;(&#x6570;&#x5B66;&#x7684;&#x306A;&#x8A3C;&#x660E;&#x3084;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x901A;&#x3057;&#x3066;) &#x4F4E;&#x3044;&#x30EC;&#x30D9;&#x30EB;&#x306E;&#x5730;&#x76E4;&#x304C;&#x5B89;&#x5168;&#x306A;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308C;&#x3070;&#x3001;&#x81EA;&#x4FE1;&#x3092;&#x6301;&#x3063;&#x3066;&#x30B3;&#x30FC;&#x30C9;&#x30D9;&#x30FC;&#x30B9;&#x5168;&#x4F53;&#x304C;&#x5B89;&#x5168;&#x3067;&#x3042;&#x308B;&#x3068;&#x8A00;&#x3048;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 
                     
                     </section>
@@ -1950,7 +1950,7 @@ ptr[<span class="hljs-number">100_000</span>] = <span class="hljs-number">2</spa
         </div>
 
         
-        <a href="../syntax_and_semantics/type_grammar.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Type grammar"><i class="fa fa-angle-left"></i></a>
+        <a href="../syntax_and_semantics/type_grammar.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 型文法"><i class="fa fa-angle-left"></i></a>
         
         
     </div>

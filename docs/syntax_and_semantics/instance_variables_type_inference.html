@@ -36,7 +36,7 @@
     
 
         
-    <div class="book" data-level="4.7.3.3" data-basepath=".." data-revision="Thu Oct 08 2015 14:40:28 GMT+0900 (JST)">
+    <div class="book" data-level="4.7.3.3" data-basepath=".." data-revision="Fri Oct 09 2015 10:41:00 GMT+0900 (JST)">
     
 
 <div class="book-summary">
@@ -1797,7 +1797,7 @@
                         
                             <b>4.16.</b>
                         
-                        Type grammar
+                        型文法
                     </a>
                 
             
@@ -1812,7 +1812,7 @@
                         
                             <b>4.17.</b>
                         
-                        Unsafe code
+                        安全でない (unsafe) コード
                     </a>
                 
             
@@ -1976,7 +1976,7 @@ one = <span class="hljs-constant">Person</span>.new <span class="hljs-number">1<
      +- class Person
             @name : (String | Int32)
             @age  : Int32
-</code></pre><p><code>@name</code> &#x306E;&#x578B;&#x304C; <code>(String | Int32)</code> &#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>String</code> &#x3068; <code>Int32</code> &#x578B;&#x306E;&#x300C;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x300D;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>@name</code> &#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x3059;&#x3079;&#x3066;&#x306E;&#x578B;&#x3092;&#x6301;&#x3064;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+</code></pre><p><code>@name</code> &#x306E;&#x578B;&#x304C; <code>(String | Int32)</code> &#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;<code>String</code> &#x3068; <code>Int32</code> &#x578B;&#x306E;&#x300C;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B; (&#x30E6;&#x30CB;&#x30AA;&#x30F3;)&#x300D;&#x3092;&#x610F;&#x5473;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>@name</code> &#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x3059;&#x3079;&#x3066;&#x306E;&#x578B;&#x3092;&#x6301;&#x3064;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <p>&#x3053;&#x306E;&#x30B1;&#x30FC;&#x30B9;&#x3067;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F; <code>@name</code> &#x306F;&#x5E38;&#x306B; <code>String</code> &#x304B; <code>Int32</code> &#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x306E;&#x578B;&#x3067;&#x3042;&#x308B;&#x3068;&#x3057;&#x3066;&#x89E3;&#x91C8;&#x3057;&#x307E;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;&#x3082;&#x3057;&#x305D;&#x306E;&#x300C;&#x4E21;&#x65B9;&#x300D;&#x306E;&#x578B;&#x306B;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby">john = <span class="hljs-constant">Person</span>.new <span class="hljs-string">&quot;John&quot;</span>
 one = <span class="hljs-constant">Person</span>.new <span class="hljs-number">1</span>
@@ -2039,7 +2039,7 @@ john.address = <span class="hljs-string">&quot;Argentina&quot;</span>
 <pre><code class="lang-ruby"><span class="hljs-comment"># Error: undefined method &apos;length&apos; for Nil</span>
 john.address.length
 </code></pre>
-<p><code>Nil</code> &#x3084;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x578B;&#x3092;&#x6271;&#x3046;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;<a href="if_var.html">if var</a>/<a href="if_varis_a.html">if var.is_a?</a>/<a href="case.html">case</a>/<a href="is_a.html">is_a?</a> &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><code>Nil</code> &#x3084;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B; (&#x30E6;&#x30CB;&#x30AA;&#x30F3;&#x578B;) &#x3092;&#x6271;&#x3046;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;<a href="if_var.html">if var</a>/<a href="if_varis_a.html">if var.is_a?</a>/<a href="case.html">case</a>/<a href="is_a.html">is_a?</a> &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <h2 id="catch-all-initialization">Catch-all initialization</h2>
 <p>&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x5909;&#x6570;&#x3092; <code>initialize</code> &#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5916;&#x5074;&#x3067;&#x521D;&#x671F;&#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>
