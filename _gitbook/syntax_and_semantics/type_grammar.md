@@ -2,12 +2,12 @@
 
 以下の場合、
 
-* [型制約]の指定(type_restrictions.html)
-* [型引数]の指定(generics.html)
+* [型制約](type_restrictions.html)の指定
+* [型引数](generics.html)の指定
 * [変数の宣言](declare_var.html)
-* [エイリアス]の宣言(alias.html)
-* [typedef] の宣言(type.html)
-* 擬似呼び出し [is_a?] (is_a.html) の引数
+* [エイリアス](alias.html)の宣言
+* [typedef](type.html) の宣言
+* 擬似呼び出し [is_a?](is_a.html) の引数
 * [as](as.html) 式の引数
 * [sizeof](sizeof.html) 式の引数
 * [instance_sizeof](instance_sizeof.html) 式の引数
