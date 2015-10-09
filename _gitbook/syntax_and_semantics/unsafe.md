@@ -1,21 +1,21 @@
-# Unsafe code
+# 安全でない (unsafe) コード
 
-These parts of the language are considered unsafe:
+本言語において、以下は安全でない (unsafe) とされます。
 
-* Code involving raw pointers: the [Pointer](http://crystal-lang.org/api/Pointer.html) type and [pointerof](pointerof.html).
-* The [allocate](new,_initialize_and_allocate.html) class method.
-* Code involving C bindings
-* [Uninitialized variable declaration](declare_var.html)
+* 生のポインタを伴うコード: [ポインタ](http://crystal-lang.org/api/Pointer.html) 型と [pointerof](pointerof.html)
+* クラスメソッドの [allocate](new,_initialize_and_allocate.html)
+* C バインディングを伴うコード
+* [初期化しない変数宣言](declare_var.html)
 
-"Unsafe" means that memory corruption, segmentation faults and crashes are possible to achieve. 例をあげます。
+「安全でない」というのは、メモリの破壊、セグメンテーション違反、そしてクラッシュの可能性があることを意味しています。例をあげます。
 
 ```ruby
 a = 1
 ptr = pointerof(a)
-ptr[100_000] = 2   # undefined behaviour, probably a segmentation fault
+ptr[100_000] = 2   # 定義されていない振る舞いであるため、おそらくセグメンテーション違反となる
 ```
 
-However, regular code usually never involves pointer manipulation or uninitialized variables. And C bindings are usually wrapped in safe wrappers that include null pointers and bounds checks.
+ただ、通常のコードでポインタ操作や初期化しない変数を扱うことはないでしょう。また、C バインディングは、普通は、NULL ポインタやバウンドチェックを含むより安全なラッパーで包みます。
 
-No language is 100% safe: some parts will inevitably be low-level, interface with the operating system and involve pointer manipulation. But once you abstract that and operate on a higher level, and assume (after mathematical proof or thorough testing) that the lower grounds are safe, you can be confident that your entire codebase is safe.
+100% 安全な言語というのは存在しません。ローレベルな処理や、OS のインターフェース、そしてポインタの操作をどこかで必ず含みます。しかし、それらを抽象化し、より高いレベルでの操作を行い、さらに、(数学的な証明やテストを通して) 低いレベルの地盤が安全なことを確認すれば、自信を持ってコードベース全体が安全であると言えるでしょう。
 

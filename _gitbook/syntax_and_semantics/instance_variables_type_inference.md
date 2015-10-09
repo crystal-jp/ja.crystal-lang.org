@@ -71,7 +71,7 @@ one = Person.new 1
             @age  : Int32
 ```
 
-`@name` の型が `(String | Int32)` となっていますね。これは、`String` と `Int32` 型の「組み合わせ」を意味しています。このように、コンパイラは `@name` が与えられたすべての型を持つようにしています。
+`@name` の型が `(String | Int32)` となっていますね。これは、`String` と `Int32` 型の「組み合わせ (ユニオン)」を意味しています。このように、コンパイラは `@name` が与えられたすべての型を持つようにしています。
 
 このケースでは、コンパイラは `@name` は常に `String` か `Int32` のいずれかの型であるとして解釈します。したがって、もしその「両方」の型に存在しないメソッドが呼び出された場合にはコンパイルエラーが発生します。
 
@@ -158,7 +158,7 @@ john.address = "Argentina"
 john.address.length
 ```
 
-`Nil` や組み合わせ型を扱うときには、[if var](if_var.html)/[if var.is_a?](if_varis_a.html)/[case](case.html)/[is_a?](is_a.html) を利用することができます。
+`Nil` や型の組み合わせ (ユニオン型) を扱うときには、[if var](if_var.html)/[if var.is_a?](if_varis_a.html)/[case](case.html)/[is_a?](is_a.html) を利用することができます。
 
 ## Catch-all initialization
 

@@ -109,6 +109,6 @@
        * [type](syntax_and_semantics/c_bindings/type.md)
        * [エイリアス (alias)](syntax_and_semantics/c_bindings/alias.md)
        * [コールバック](syntax_and_semantics/c_bindings/callbacks.md)
-   * [Type grammar](syntax_and_semantics/type_grammar.md)
-   * [Unsafe code](syntax_and_semantics/unsafe.md)
+   * [型文法](syntax_and_semantics/type_grammar.md)
+   * [安全でない (unsafe) コード](syntax_and_semantics/unsafe.md)
 
