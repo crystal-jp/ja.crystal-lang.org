@@ -2,7 +2,7 @@
 
 メソッドの引数に型アノテーションを指定することで、メソッドが受け取ることができる型を制約することが可能です。
 
-```ruby
+```crystal
 def add(x : Number, y : Number)
   x + y
 end
@@ -16,7 +16,7 @@ add true, false
 
 ただし、`add` に型制約をしていなかった場合でも、このコードはコンパイルエラーになります。
 
-```ruby
+```crystal
 def add(x, y)
   x + y
 end
@@ -42,13 +42,38 @@ in foo.cr:2: undefined method '+' for Bool
 
 前者のエラーメッセージの方がより明快であるという少しの違いはあるものの、コンパイル時にエラーが発生するという点では、これらはどちらも安全な定義のしかたであると言えます。したがって、通常は型制約を使わず、メソッドをオーバーロードするときにのみ使用するくらいが好ましいでしょう。その方がより汎用的で、再利用しやすいコードになります。例えば、`Number` ではないクラスが `+` メソッドを持っている場合を考えてみてください。もし `add` というメソッドが型制約を持たない場合、それらのクラスを利用することができますが、型制約がある場合には利用することができません。
 
+```crystal
+# + メソッドを持っているが Number ではないクラス
+class Six
+  def +(other)
+    6 + other
+  end
+end
+
+# 型制約のない add メソッド
+def add(x, y)
+  x + y
+end
+
+# OK
+add Six.new, 10
+
+# 型制約のある add メソッド
+def restricted_add(x : Number, y : Number)
+  x + y
+end
+
+# Error: no overload matches 'restricted_add' with types Six, Int32
+restricted_add Six.new, 10
+```
+
 型制約を設定する際の記載方法については[型文法](type_grammar.html)を参照してください。
 
 ## self 制約
 
 型制約には `self` を使った特別な指定方法があります。
 
-```ruby
+```crystal
 class Person
   def ==(other : self)
     other.name == name
@@ -74,7 +99,7 @@ john == 1 #=> false (1 は Person ではないため)
 
 注意点として、それがもしクラスメソッドの中であったとしても、`self` は常にインスタンスの型に対してのチェックとなります。
 
-```ruby
+```crystal
 class Person
   def self.compare(p1 : self, p2 : self)
     p1.name == p2.name
@@ -93,7 +118,7 @@ Person.compare(john, peter) # OK
 
 例えば、`Int32` の型に制約したとき、メソッドは `Int32` のインスタンスのみしか受け入れません。
 
-```ruby
+```crystal
 def foo(x : Int32)
 end
 
@@ -103,7 +128,7 @@ foo "hello" # エラー
 
 もし、メソッドが (そのインスタンスではなく) `Int32` というクラスだけを受け入れるようにしたい場合、`.class` を使用します。
 
-```ruby
+```crystal
 def foo(x : Int32.class)
 end
 
@@ -113,7 +138,7 @@ foo String # エラー
 
 これは、インスタンスではなく型によってメソッドをオーバーロードしたい場合に便利です。
 
-```ruby
+```crystal
 def foo(x : Int32.class)
   puts "Got Int32"
 end
@@ -130,7 +155,7 @@ foo String # "Got String" を表示
 
 splat 展開でも型制約を利用することができます。
 
-```ruby
+```crystal
 def foo(*args : Int32)
 end
 
@@ -145,7 +170,7 @@ foo()             # エラー
 
 このように型を指定した場合、タプルのすべての要素がその型である必要があります。また、空のタプルは上記の例ではマッチしません。もし空のタプルもサポートしたいのであれば、もう1つオーバーロードを追加してください。
 
-```ruby
+```crystal
 def foo
   # 空のタプルの場合
 end
@@ -155,7 +180,7 @@ end
 
 型制約において、型を1文字の大文字で指定するとその識別子は自由変数となります。
 
-```ruby
+```crystal
 def foo(x : T)
   T
 end
@@ -168,7 +193,7 @@ foo("hello") #=> String
 
 自由変数は、型制約でジェネリック型を指定する場合に、そのパラメータの型を展開することにも使えます。
 
-```ruby
+```crystal
 def foo(x : Array(T))
   T
 end
@@ -179,7 +204,7 @@ foo([1, "a"]) #=> (Int32 | String)
 
 型のインスタンスではなく、型自体の名前を利用したい場合は、型制約の自由変数に `.class` を追加してください。
 
-```ruby
+```crystal
 def foo(x : T.class)
   Array(T)
 end

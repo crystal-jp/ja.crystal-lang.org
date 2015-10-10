@@ -2,7 +2,7 @@
 
 `while` は、与えられた条件が「真」である間はずっと、その本体を繰り返し実行し続けます。
 
-```ruby
+```crystal
 while some_condition
   do_this
 end
@@ -16,13 +16,13 @@ end
 
 `while` の後である変数の型が何であるかは、`while` 以前の型と、そして `while` の本体を抜ける前の型によって決まります。
 
-```ruby
+```crystal
 a = 1
 while some_condition
   # a :: Int32 | String
   a = "hello"
   # a :: String
-  a.length
+  a.size
 end
 # a :: Int32 | String
 ```
@@ -31,7 +31,7 @@ end
 
 ループを抜けるための条件を設定することで、必ず1回は本体を実行することができます。
 
-```ruby
+```crystal
 while true
   do_something
   break if some_condition
@@ -40,7 +40,7 @@ end
 
 標準ライブラリの `loop` を利用しても同じことが可能です。
 
-```ruby
+```crystal
 loop do
   do_something
   break if some_condition

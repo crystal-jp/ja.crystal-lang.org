@@ -2,7 +2,7 @@
 
 `until` は、与えられた条件が「真」になるまでその本体を繰り返し実行します。実際には、`until` というのは `while` に否定の条件が与えられた場合のシンタックスシュガーになっています。
 
-```ruby
+```crystal
 until some_condition
   do_this
 end

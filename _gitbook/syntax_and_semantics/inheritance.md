@@ -4,7 +4,7 @@
 
 クラスを継承したとき、すべてのインスタンス変数、およびインスタンスメソッドとクラスメソッドがスーパースラスから引き継がれます。その中にはコンストラクタ (`new` と `initialize`) も含まれます。
 
-```ruby
+```crystal
 class Person
   def initialize(@name)
   end
@@ -23,7 +23,7 @@ employee.greet # "Hi, I'm John"
 
 もしクラスに `new` や `initialize` が定義されると、スーパークラスのコンストラクタは継承されません。
 
-```ruby
+```crystal
 class Person
   def initialize(@name)
   end
@@ -41,7 +41,7 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると
 
 派生クラスではメソッドをオーバーライドすることが可能です。
 
-```ruby
+```crystal
 class Person
   def greet(msg)
     puts "Hi, #{msg}"
@@ -63,7 +63,7 @@ e.greet "everyone" # "Hello, everyone"
 
 オーバーライドの代わりに、型制約を利用して派生クラスに特化したメソッドを定義することもできます。
 
-```ruby
+```crystal
 class Person
   def greet(msg)
     puts "Hi, #{msg}"
@@ -84,9 +84,9 @@ e.greet 1 # "Hi, this is a number: 1"
 
 ## super
 
-`super` を使うと、スーパークラスのメソッドを実行することが可能です。引数とカッコなしで実行すると、メソッドの引数がそのまま親メソッドに渡されます。
+`super` を使うと、スーパークラスのメソッドを実行することが可能です。
 
-```ruby
+```crystal
 class Person
   def greet(msg)
     puts "Hello, "#{msg}"

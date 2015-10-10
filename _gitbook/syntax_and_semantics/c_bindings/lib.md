@@ -2,7 +2,7 @@
 
 `lib` の宣言によって、C ライブラリの関数群や型をグループ化します。
 
-```ruby
+```crystal
 @[Link("pcre")]
 lib LibPCRE
 end

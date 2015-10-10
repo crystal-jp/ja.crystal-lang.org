@@ -4,7 +4,7 @@
 
 例えば、以下のように書いたとします。
 
-```ruby
+```crystal
 class Person
   getter name
 
@@ -15,20 +15,20 @@ end
 
 john = Person.new "John"
 john.name #=> "John"
-john.name.length #=> 4
+john.name.size #=> 4
 ```
 
 ここで、`Person.new` を実行するときにその引数に `String` 型を与えています。そうすると、コンパイラが `@name` も 同様に`String` 型にしてくれます。
 
 もし、`Person.new` の引数が別の型だった場合は、`@name` もそれに応じて別の型になります。
 
-```ruby
+```crystal
 one = Person.new 1
 one.name #=> 1
 one.name + 2 #=> 3
 ```
 
-これらのプログラムに `hierarchy` コマンドでコンパイラを起動すると、推論された型を階層的に表示することができます。1つの例の場合:
+これらのプログラムに `tool hierarchy` コマンドでコンパイラを起動すると、推論された型を階層的に表示することができます。1つの例の場合:
 
 ```
 - class Object
@@ -54,12 +54,12 @@ one.name + 2 #=> 3
 
 それでは、もし2つの people を作るとき、一方は `String` 型でもう一方は `Int32` 型にした場合にはどうなるでしょうか？試してみましょう。
 
-```ruby
+```crystal
 john = Person.new "John"
 one = Person.new 1
 ```
 
-`hierarchy` コマンドでコンパイラを起動すると、結果は以下となります。
+`tool hierarchy` コマンドでコンパイラを起動すると、結果は以下となります。
 
 ```
 - class Object
@@ -75,12 +75,12 @@ one = Person.new 1
 
 このケースでは、コンパイラは `@name` は常に `String` か `Int32` のいずれかの型であるとして解釈します。したがって、もしその「両方」の型に存在しないメソッドが呼び出された場合にはコンパイルエラーが発生します。
 
-```ruby
+```crystal
 john = Person.new "John"
 one = Person.new 1
 
-# Error: undefined method 'length' for Int32
-john.name.length
+# Error: undefined method 'size' for Int32
+john.name.size
 
 # Error: no overload matches 'String#+' with types Int32
 john.name + 3
@@ -88,9 +88,9 @@ john.name + 3
 
 さらに、後から変数の型を変更されるときには、変更する前の時点でも同様のエラーが発生します。
 
-```ruby
+```crystal
 john = Person.new "John"
-john.name.length
+john.name.size
 one = Person.new 1
 ```
 
@@ -104,9 +104,9 @@ one = Person.new 1
 
 instantiating 'Person#initialize(Int32)'
 
-in foo.cr:12: undefined method 'length' for Int32
+in foo.cr:12: undefined method 'size' for Int32
 
-john.name.length
+john.name.size
           ^~~~~~
 ```
 
@@ -118,7 +118,7 @@ john.name.length
 
 もし、あるインスタンス変数が、クラスで定義されているすべての `initialize` で初期化されなかったとき、そのインスタンス変数は `Nil` 型を持つと解釈されます。
 
-```ruby
+```crystal
 class Person
   getter name
 
@@ -153,9 +153,9 @@ john.address = "Argentina"
 
 `@address` が `String?` となっています。これは `String | Nil` の短縮表記です。このとき、以下はコンパイルエラーが発生します。
 
-```ruby
-# Error: undefined method 'length' for Nil
-john.address.length
+```crystal
+# Error: undefined method 'size' for Nil
+john.address.size
 ```
 
 `Nil` や型の組み合わせ (ユニオン型) を扱うときには、[if var](if_var.html)/[if var.is_a?](if_varis_a.html)/[case](case.html)/[is_a?](is_a.html) を利用することができます。
@@ -164,7 +164,7 @@ john.address.length
 
 インスタンス変数を `initialize` メソッドの外側で初期化することもできます。
 
-```ruby
+```crystal
 class Person
   @age = 0
 
@@ -179,7 +179,7 @@ end
 
 ときには、インスタンス変数の型をコンパイラに固定してもらいたいときもあるでしょう。その場合は、`::` を使って型を指定できます。
 
-```ruby
+```crystal
 class Person
   @age :: Int32
 

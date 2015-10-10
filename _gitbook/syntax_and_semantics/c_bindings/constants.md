@@ -2,7 +2,7 @@
 
 `lib` 宣言の内部で定数を宣言することもできます。
 
-```ruby
+```crystal
 @[Link("pcre")]
 lib PCRE
   INFO_CAPTURECOUNT = 2

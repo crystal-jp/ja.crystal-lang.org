@@ -2,7 +2,7 @@
 
 配列 ([Array](http://crystal-lang.org/api/Array.html)) は、その中に `T` 型の n 個の要素を含むことができるジェネリック型です。通常、以下の配列リテラルを利用して書きます。
 
-```ruby
+```crystal
 [1, 2, 3]         # Array(Int32)
 [1, "hello", 'x'] # Array(Int32 | String | Char)
 ```
@@ -11,7 +11,7 @@
 
 空の配列を作りたいときには、必ず `T` を指定しなければなりません。
 
-```ruby
+```crystal
 [] of Int32 # Array(Int32).new と同じ
 []          # シンタックスエラーになる
 ```
@@ -20,7 +20,7 @@
 
 文字列の配列は特別な記法を使って書くことができます。
 
-```ruby
+```crystal
 %w(one two three) # ["one", "two", "three"]
 ```
 
@@ -28,7 +28,7 @@
 
 シンボルの配列は特別な記法を使って書くことができます。
 
-```ruby
+```crystal
 %i(one two three) # [:one, :two, :three]
 ```
 
@@ -36,13 +36,13 @@
 
 配列が持つ特別なシンタックスを他の型で使うこともできます。ただし、引数のない `new` と `<<` メソッドが定義されている必要があります。
 
-```ruby
+```crystal
 MyType{1, 2, 3}
 ```
 
 もし `MyType` がジェネリック型でない場合は、上記は以下と同じ意味です。
 
-```ruby
+```crystal
 tmp = MyType.new
 tmp << 1
 tmp << 2
@@ -52,7 +52,7 @@ tmp
 
 もし `MyType` がジェネリック型である場合は、上記は以下と同じ意味です。
 
-```ruby
+```crystal
 tmp = MyType(typeof(1, 2, 3)).new
 tmp << 1
 tmp << 2
@@ -62,6 +62,6 @@ tmp
 
 ジェネリック型である場合には、型引数を指定することも可能です。
 
-```ruby
+```crystal
 MyType(Int32 | String) {1, 2, "foo"}
 ```

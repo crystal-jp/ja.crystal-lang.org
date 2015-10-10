@@ -2,7 +2,7 @@
 
 `if` は式に後置して使うことができます。
 
-```ruby
+```crystal
 a = 2 if some_condition
 
 # 上記は以下と同じ

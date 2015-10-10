@@ -2,7 +2,7 @@
 
 C の宣言の中で関数型を利用することが可能です。
 
-```ruby
+```crystal
 lib X
   # C では:
   #
@@ -13,20 +13,20 @@ end
 
 それから、以下のように関数 ([Proc](http://crystal-lang.org/api/Proc.html)) を渡すことができます。
 
-```ruby
+```crystal
 f = ->(x : Int32) { x + 1 }
 X.callback(f)
 ```
 
 もし呼び出しと同時にインラインで関数を定義する場合は、引数の型を省略することが可能です。このとき、コンパイラが `fun` のシグネイチャに基づいて型を追加します。
 
-```ruby
+```crystal
 X.callback ->(x) { x + 1 }
 ```
 
 ただ、C に渡される関数はクロージャにはなれません。もし、クロージャが渡されていることがコンパイル時に検出されるとエラーが発生します。
 
-```ruby
+```crystal
 y = 2
 X.callback ->(x) { x + y } # エラー: クロージャは
                            # C の関数には渡せない
@@ -36,6 +36,13 @@ X.callback ->(x) { x + y } # エラー: クロージャは
 
 コールバックと Proc に使用可能な型の指定方法については[型文法](type_grammar.html)を参照してください。
 
+もしコールバックの代わりに `NULL` を渡したい場合は、単純に `nil` を渡してください。
+
+```crystal
+# C の callback(NULL) と同じ
+X.callback nil
+```
+
 ## Raise 属性
 
 例外を発生させる可能性のあるコールバックを C の関数が実行するときには、`@[Raises]` 属性を指定しておく必要があります。
@@ -44,7 +51,7 @@ X.callback ->(x) { x + y } # エラー: クロージャは
 
 しかし、C の関数には、他の C 関数によって実行されるコールバックを受け取るものがあります。例えば、以下のようなライブラリがあるものと考えてください。
 
-```ruby
+```crystal
 lib LibFoo
   fun store_callback(callback : ->)
   fun execute_callback
@@ -56,7 +63,7 @@ LibFoo.execute_callback
 
 このとき、もし `store_callback` に渡されたコールバックが例外を発生させるものであるときには、`execute_callback` が例外を発生させるでしょう。しかし、`execute_callback` に `@[Raises]` が指定されていないため、コンパイラはそれが例外を発生させるものであることを知ることができません。こういったケースでは、それらの関数に手動で指示を与える必要があります。
 
-```ruby
+```crystal
 lib LibFoo
   fun store_callback(callback : ->)
 

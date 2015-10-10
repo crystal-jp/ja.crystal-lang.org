@@ -2,7 +2,7 @@
 
 ある変数が、同一のクラス階層下の異なる型の組み合わせであるとき、その型は「virtual 型」となります。この仕組みは `Reference` を除くすべてのクラスに適用されます。例をあげましょう。
 
-```ruby
+```crystal
 class Animal
 end
 
@@ -29,7 +29,7 @@ john = Person.new "John", Dog.new
 peter = Person.new "Peter", Cat.new
 ```
 
-上記のプログラムに対して `hierarchy` を実行すると、`Person` は以下のように表示されます。
+上記のプログラムに対して `tool hierarchy` を実行すると、`Person` は以下のように表示されます。
 
 ```
 - class Object
@@ -51,7 +51,7 @@ virtual 型が適用されるのはクラスのみで、構造体には適用さ
 
 それでは、John のペットに喋らせてみましょう。
 
-```ruby
+```crystal
 john.pet.talk # Error: undefined method 'talk' for Animal
 ```
 
@@ -59,26 +59,26 @@ john.pet.talk # Error: undefined method 'talk' for Animal
 
 `Animal` のインスタンス化には意味がないため、`Animal` を直接インスタンス化することは絶対にあり得ないでしょう。ただ、コンパイラにはその事情がわかりません。そこで、コンパイラにそのことを指示するための方法が用意されており、それはクラスを `abstract` と指定することです。
 
-```ruby
+```crystal
 abstract class Animal
 end
 ```
 
 これでコードのコンパイルが可能になります。
 
-```ruby
+```crystal
 john.pet.talk #=> "Woof!"
 ```
 
 abstract クラスとすることで、そのクラスを直接インスタンス化するのを避けることもできます。
 
-```ruby
+```crystal
 Animal.new # Error: can't instantiate abstract class Animal
 ```
 
 これをより明確に示すために `Animal` に abstract メソッドとして `talk` メソッドを定義することも可能です。
 
-```ruby
+```crystal
 abstract class Animal
   # Animal に talk を定義
   abstract def talk

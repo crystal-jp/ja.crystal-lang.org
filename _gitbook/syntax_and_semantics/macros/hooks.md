@@ -8,7 +8,7 @@
 
 `inherited` の例:
 
-```ruby
+```crystal
 class Parent
   macro inherited
     def {{@type.name.downcase.id}}
@@ -25,9 +25,9 @@ Child.new.child #=> 1
 
 `method_missing` の例:
 
-```ruby
+```crystal
 macro method_missing(name, args, block)
-  print "Got ", {{name.id.stringify}}, " with ", {{args.length}}, " arguments", '\n'
+  print "Got ", {{name.id.stringify}}, " with ", {{args.size}}, " arguments", '\n'
 end
 
 foo          # 出力: Got foo with 0 arguments

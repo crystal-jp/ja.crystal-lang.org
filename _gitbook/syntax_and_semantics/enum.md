@@ -2,7 +2,7 @@
 
 Enum はひと組になった整数を表すもので、そのそれぞれの値が名前を持っています。例をあげます。
 
-```ruby
+```crystal
 enum Color
   Red
   Green
@@ -12,7 +12,7 @@ end
 
 Enum を定義するには `enum` キーワードに続けてその名前を書きます。Enum はその本体に値を持ちます。値は最初が `0` で始まって1ずつ増えていきます。それらのデフォルト値を上書きすることも可能です。
 
-```ruby
+```crystal
 enum Color
   Red         # 0
   Green       # 1
@@ -23,19 +23,19 @@ end
 
 Enum のそれぞれの定数は Enum の型を持ちます。
 
-```ruby
+```crystal
 Color::Red #:: Color
 ```
 
 その値を参照するには `value` を実行してください。
 
-```ruby
+```crystal
 Color::Green.value #=> 1
 ```
 
 デフォルトでは値は `Int32` 型ですが、変更することも可能です。
 
-```ruby
+```crystal
 enum Color : UInt8
   Red
   Green
@@ -53,7 +53,7 @@ Color::Red.value #:: UInt8
 
 Enum には `@[Flags]` という属性を指定することができます。これを指定するとデフォルトの値が変わります。
 
-```ruby
+```crystal
 @[Flags]
 enum IOMode
   Read # 1
@@ -66,14 +66,14 @@ end
 
 また、このとき Enum には、`None` と `All` が暗黙的に追加されます。`None` の値は `0` で、`All` はすべての定数の「OR」をとったときの値となります。
 
-```ruby
+```crystal
 IOMode::None.value #=> 0
 IOMode::All.value  #=> 7
 ```
 
 さらに、`Enum` のメソッドには、`@[Flags]` によって振る舞いを変えるものがいくつかあります。例をあげます。
 
-```ruby
+```crystal
 puts(Color::Red)                    # "Red" を出力
 puts(IOMode::Write | IOMode::Async) # "Write, Async" を出力
 ```
@@ -82,14 +82,14 @@ puts(IOMode::Write | IOMode::Async) # "Write, Async" を出力
 
 整数から Enum を作ることができます。
 
-```ruby
-puts Color.new(1) #=> prints "Green"
+```crystal
+puts Color.new(1) #=> "Green" を出力
 ```
 
 Enum の定数にない値を指定することも可能です。その場合、あくまでも型は `Color` となりますが、出力したときにはその値がそのまま出力されます。
 
-```ruby
-puts Color.new(10) #=> prints "10"
+```crystal
+puts Color.new(10) #=> "10" を出力
 ```
 
 これは主に C の整数を Crystal の Enum に変換する用途で利用します。
@@ -98,7 +98,7 @@ puts Color.new(10) #=> prints "10"
 
 クラスや構造体と同様に、Enum にもメソッドを定義することが可能です。
 
-```ruby
+```crystal
 enum Color
   Red
   Green
@@ -119,7 +119,7 @@ Color::Blue.red? #=> false
 
 Enum は、型安全な[シンボル](http://crystal-lang.org/api/Symbol.html)の代替物として利用できます。例えば、Enum 型を利用して API のメソッド[型制約](type_restrictions.html)を設定することが可能です。
 
-```ruby
+```crystal
 def paint(color : Color)
   case color
   when Color::Red
@@ -135,7 +135,7 @@ paint Color::Red
 
 上記と同等のコードを、シンボルを使って実装することもできます。
 
-```ruby
+```crystal
 def paint(color : Symbol)
   case color
   when :red

@@ -2,14 +2,14 @@
 
 Crystal では、初期化せず変数を宣言することが可能です。
 
-```ruby
+```crystal
 x :: Int32
 x #=> 何かのランダムな値。つまり信頼できないゴミのようなもの…
 ```
 
 これは「安全でない ([unsafe](unsafe.html))」なコードで、特にローレベルなコードにおいて、未初期化の [StaticArray](http://crystal-lang.org/api/StaticArray.html)  バッファをパフォーマンスの劣化なく定義するために使われます。
 
-```ruby
+```crystal
 buffer :: UInt8[256]
 ```
 

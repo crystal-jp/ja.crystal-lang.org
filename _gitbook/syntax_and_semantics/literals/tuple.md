@@ -2,7 +2,7 @@
 
 タプル ([Tuple](http://crystal-lang.org/api/Tuple.html)) を作るには、以下のタプルリテラルを使います。
 
-```ruby
+```crystal
 tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
 tuple[0]                  #=> 1       (Int32)
 tuple[1]                  #=> "hello" (String)

@@ -2,7 +2,7 @@
 
 `alias` を使うと、型に別名をつけることができます。
 
-```ruby
+```crystal
 alias PInt32 = Pointer(Int32)
 
 ptr = PInt32.malloc(1) # :: Pointer(Int32)
@@ -12,7 +12,7 @@ ptr = PInt32.malloc(1) # :: Pointer(Int32)
 
 エイリアスを使うと長い名前の型を書かずに済むので便利です。しかし、それだけではなく、再帰的な型を扱うときにも利用できます。
 
-```ruby
+```crystal
 alias RecArray = Array(Int32) | Array(RecArray)
 
 ary = [] of RecArray
@@ -23,7 +23,7 @@ ary #=> [[1, 2, 3], [...]]
 
 再帰的な型として実際に扱うことになる例は JSON でしょう。
 
-```ruby
+```crystal
 module Json
   alias Type = Nil |
                Bool |

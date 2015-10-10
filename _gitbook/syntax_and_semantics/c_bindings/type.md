@@ -2,7 +2,7 @@
 
 `lib` 宣言の内部で `type` を宣言すると、C の `typedef` の宣言に近いことができます。ただし、より厳密です。
 
-```ruby
+```crystal
 lib X
   type MyInt = Int32
 end
@@ -10,7 +10,7 @@ end
 
 C とは異なり、`Int32` と `MyInt` を相互に交換することはできません。
 
-```ruby
+```crystal
 lib X
   type MyInt = Int32
 

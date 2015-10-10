@@ -2,7 +2,7 @@
 
 捕捉されたブロックと proc リテラルはローカル変数と `self` を閉包 (クロージャ) します。例を見てみるとわかりやすいでしょう。
 
-```ruby
+```crystal
 x = 0
 proc = ->{ x += 1; x }
 proc.call #=> 1
@@ -12,7 +12,7 @@ x         #=> 2
 
 もしくは、メソッドが返す proc の場合は以下となります。
 
-```ruby
+```crystal
 def counter
   x = 0
   ->{ x += 1; x }
@@ -29,7 +29,7 @@ proc.call #=> 2
 
 ローカル変数の型に対して、コンパイラは「それなりに」賢く解釈します。例をあげます。
 
-```ruby
+```crystal
 def foo
   yield
 end
@@ -45,7 +45,7 @@ x # :: Int32 | String
 
 もし、ブロックの後で `x` に何かが代入されたとき、コンパイラはその型が変更されたと判断します。
 
-```ruby
+```crystal
 x = 1
 foo do
   x = "hello"
@@ -58,7 +58,7 @@ x # :: Char
 
 しかし、もし `x` が proc によってクロージャに包まれた場合は、その型はすべての代入された型の組み合わせとなります。
 
-```ruby
+```crystal
 def capture(&block)
   block
 end
@@ -74,7 +74,7 @@ x # :: Int32 | String | Char
 
 これは通常の proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。
 
-```ruby
+```crystal
 def capture(&block)
   block
 end

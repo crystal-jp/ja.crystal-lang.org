@@ -2,7 +2,7 @@
 
 マクロとは、コンパイル時に AST ノードを受け取り、コードを生成してそれをプログラムに書き込むメソッドです。例をあげます。
 
-```ruby
+```crystal
 macro define_method(name, content)
   def {{name}}
     {{content}}
@@ -29,7 +29,7 @@ foo #=> 1
 
 例えば、ブロックが与えられていて、`with ... yield` によってデフォルトのレシーバがあるオブジェクトに設定されているときには、そのオブジェクトの継承チェーンの中で定義されているマクロにアクセスすることが可能です。
 
-```ruby
+```crystal
 class Foo
   macro emphasize(value)
     "***#{ {{value}} }***"
@@ -49,7 +49,7 @@ Foo.new.yield_with_self { emphasize(10) } #=> "***10***"
 
 ノードは「そのまま」貼り付けされることに注意してください。例えばもし、上記の例でシンボルを渡した場合には、生成されたコードは不正なものとなります。
 
-```ruby
+```crystal
 # 下記が生成される
 #
 #     def :foo
@@ -66,7 +66,7 @@ define_method :foo, 1
 
 例えば、上記の例では、`ASTNode#id` を実行することで問題を解決できます。
 
-```ruby
+```crystal
 macro define_method(name, content)
   def {{name.id}}
     {{content}}
@@ -85,7 +85,7 @@ define_method :foo, 1
 
 `{% if condition %}` ... `{% end %}` を使うことで、条件に応じてコードを生成することが可能になります。
 
-```ruby
+```crystal
 macro define_method(name, content)
   def {{name}}
     {% if content == 1 %}
@@ -107,7 +107,7 @@ bar #=> 2
 
 マクロの条件分岐は、マクロの外側でも使用することができます。
 
-```ruby
+```crystal
 {% if env("TEST") %}
   puts "We are in test mode"
 {% end %}
@@ -116,7 +116,7 @@ bar #=> 2
 ### イテレーション
 `ArrayLiteral` をイテレートするには以下のようにします。
 
-```ruby
+```crystal
 macro define_dummy_methods(names)
   {% for name, index in names %}
     def {{name.id}}
@@ -136,7 +136,7 @@ baz #=> 2
 
 `HashLiteral` をイテレートするには以下のようにします。
 
-```ruby
+```crystal
 macro define_dummy_methods(hash)
   {% for key, value in hash %}
     def {{key.id}}
@@ -151,7 +151,7 @@ bar #=> 20
 
 マクロのイテレーションは、マクロの外側でも使用することができます。
 
-```ruby
+```crystal
 {% for name, index in ["foo", "bar", "baz"] %}
   def {{name.id}}
     {{index}}
@@ -167,7 +167,7 @@ baz #=> 2
 
 マクロは可変長引数を受け取ることができます。
 
-```ruby
+```crystal
 macro define_dummy_methods(*names)
   {% for name, index in names %}
     def {{name.id}}
@@ -187,7 +187,7 @@ baz #=> 2
 
 さらに、`ArrayLiteral` を埋め込む際に `*` を使うと、要素がカンマで分割されて埋め込まれます。
 
-```ruby
+```crystal
 macro println(*values)
    print {{*values}}, '\n'
 end
@@ -205,7 +205,7 @@ println 1, 2, 3 # 123\n と出力
 
 マクロは定数にアクセスすることができます。例をあげます。
 
-```ruby
+```crystal
 VALUES = [1, 2, 3]
 
 {% for value in VALUES %}

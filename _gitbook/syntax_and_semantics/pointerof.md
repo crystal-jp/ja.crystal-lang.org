@@ -4,7 +4,7 @@
 
 変数の例:
 
-```ruby
+```crystal
 a = 1
 
 ptr = pointerof(a)
@@ -15,7 +15,7 @@ a #=> 2
 
 インスタンス変数の例:
 
-```ruby
+```crystal
 class Point
   def initialize(@x, @y)
   end

@@ -4,7 +4,7 @@
 
 ブロックを捕捉するには、メソッドにブロック引数を設定し、その名前とインプット/アウトプットの型を指定する必要があります。例をあげます。
 
-```ruby
+```crystal
 def int_to_int(&block : Int32 -> Int32)
   block
 end
@@ -17,7 +17,7 @@ proc.call(1) #=> 2
 
 この方法で、ブロックをコールバックとして保存しておくこともできます。
 
-```ruby
+```crystal
 class Model
   def on_save(&block)
     @on_save_callback = block
@@ -39,7 +39,7 @@ model.save # "Saved!" と出力
 
 戻り値の型が指定されていないとき、proc の呼び出しは何も返さないことに注意してください。
 
-```ruby
+```crystal
 def some_proc(&block : Int32 ->)
   block
 end
@@ -50,7 +50,7 @@ proc.call(1) # void
 
 何か返して欲しい場合には、戻り値の型を指定するか、もしくはすべての型を許容したいときはアンダースコアを使ってください。
 
-```ruby
+```crystal
 def some_proc(&block : Int32 -> _)
   block
 end

@@ -2,27 +2,27 @@
 
 `typeof` 式は、ある式の型を返します。
 
-```ruby
+```crystal
 a = 1
 b = typeof(a) #=> Int32
 ```
 
 複数の引数を渡すことも可能で、その場合にはそれぞれの式の組み合わせの型となります。
 
-```ruby
+```crystal
 typeof(1, "a", 'a') #=> (Int32 | String | Char)
 ```
 
 これはジェネリックコードにおいて、コンパイラの型推論の力を利用したいときにしばしば使われます。
 
-```ruby
+```crystal
 hash = {} of Int32 => String
 another_hash = typeof(hash).new #:: Hash(Int32, String)
 ```
 
 `typeof` は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。
 
-```ruby
+```crystal
 class Array
   def self.elem_type(typ)
     if typ.is_a?(Array)

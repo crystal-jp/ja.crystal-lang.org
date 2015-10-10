@@ -2,7 +2,7 @@
 
 クラス変数は、インスタンスにではなくクラス自身に結びついているもので、先頭に2つのアットマーク (`@@`) が付きます。例をあげます。
 
-```ruby
+```crystal
 class Counter
   @@instances = 0
 
@@ -26,7 +26,7 @@ Counter.instances #=> 3
 
 もし値が代入される前にクラス変数を読み込むと、それは `Nil` 型を持つものとして解釈されます。
 
-```ruby
+```crystal
 class Counter
   def self.increment
     @@instances += 1
@@ -38,7 +38,7 @@ Counter.increment # Error: undefined method '+' for Nil
 
 クラス変数は常に単一の型に結びついており、継承されることはありません。
 
-```ruby
+```crystal
 class Parent
   @@counter = 0
 end

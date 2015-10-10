@@ -2,7 +2,7 @@
 
 変数名の先頭が小文字の変数はローカル変数です。その宣言は、はじめて値が代入されたときに行われます。
 
-```ruby
+```crystal
 name = "Crystal"
 age = 1
 ```
@@ -11,12 +11,12 @@ age = 1
 
 例えば、次のようにローカル変数に別の式を再代入すると、その新しい式の型の変数となります。
 
-```ruby
-var = "Hello"
-# At this point 'var' is a String
+```crystal
+flower = "Tulip"
+# ここでは「flower」は String
 
-var = 1
-# At this point 'var' is an Int32
+flower = 1
+# ここでは「flower」は Int32
 ```
 
 アンダースコアを変数名の先頭につけることも可能ですが、それらの名前はコンパイラによって予約されているため、先頭がアンダースコアの変数名は推奨されません (コードの見た目や読みやすさという点でもあまり美しくないですよね) 。

@@ -2,7 +2,7 @@
 
 [インスタンス変数と型推論](instance_variables_type_inference.html)で説明したように、インスタンス変数の型は代入された値から推論されます:
 
-```ruby
+```crystal
 class MyBox
   def initialize(@value)
   end
@@ -15,11 +15,11 @@ end
 
 例えば、上記のコードに以下を追加したとします。
 
-```ruby
+```crystal
 MyBox.new(1)
 ```
 
-このとき、コンパイラが型推論した結果を `crystal hierarchy file.cr` で確認すると以下となります。
+このとき、コンパイラが型推論した結果を `crystal tool hierarchy file.cr` で確認すると以下となります。
 
 ```
 +- class MyBox
@@ -28,7 +28,7 @@ MyBox.new(1)
 
 この箱クラスのインスタンスを、別の型を与えていくつか作成してみます。
 
-```ruby
+```crystal
 MyBox.new(nil)
 MyBox.new("hello")
 MyBox.new(1)
@@ -43,18 +43,18 @@ MyBox.new(1)
 
 こうなると、この箱を1つの決まった型として扱うことが不可能になります。
 
-```ruby
+```crystal
 MyBox.new(1)
 
 box = MyBox.new("hello")
-box.value.length # Error: undefined method 'length' for Int32
+box.value.size # Error: undefined method 'size' for Int32
 ```
 
 したがって、このような場合には、`@value` がインスタンスごとに固有の型を持つことが望ましいと考えることでしょう。これは特にオブジェクトのコレクションを扱う場合に必要になります。例えば、配列やハッシュが様々な型の要素を含むときに、要素がそれぞれ固有の型を持っていないと非常に扱いづらいものになります。
 
 型変数を使うことで、クラスを汎用的なものにすることができます。例をあげます。
 
-```ruby
+```crystal
 class MyBox(T)
   def initialize(@value)
   end
@@ -67,14 +67,14 @@ end
 
 これは以下のようにしてインスタンス化します。
 
-```ruby
+```crystal
 MyBox(Int32).new(1)
 
 box = MyBox(String).new("hello")
-box.value.length #=> 5
+box.value.size #=> 5
 ```
 
-これで動くようになりました。理由は、この場合 `MyBox` はもはや単一の型ではなく、複数の同じ種類の型の中である1つの型を示すものとなっているからです。そして、それぞれの型は `T` の型によって識別されます。つまり、`MyBox(Int32)` と `MyBox(String)` は同じ種類ですが別の型として扱われます。そして、それぞれの `@value` が共有されることはありません。`hierarchy` コマンドを再度実行してみましょう。その結果は以下となります。
+これで動くようになりました。理由は、この場合 `MyBox` はもはや単一の型ではなく、複数の同じ種類の型の中である1つの型を示すものとなっているからです。そして、それぞれの型は `T` の型によって識別されます。つまり、`MyBox(Int32)` と `MyBox(String)` は同じ種類ですが別の型として扱われます。そして、それぞれの `@value` が共有されることはありません。`tool hierarchy` コマンドを再度実行してみましょう。その結果は以下となります。
 
 ```
 +- generic class MyBox(T)
@@ -88,13 +88,13 @@ box.value.length #=> 5
 
 ただ、上記のコードにはわずかな欠点があります。それは、以下が許されてしまうということです。
 
-```ruby
+```crystal
 MyBox(Int32).new("hello")
 ```
 
 これは、`T` の型とインスタンス変数 `@value` の型に関連性がないことが原因です。これは簡単に修正できます。[型制約](type_restrictions.html)を利用すればいいのです。
 
-```ruby
+```crystal
 class MyBox(T)
   def initialize(@value : T)
   end
@@ -114,7 +114,7 @@ MyBox(Int32).new("hello") # エラー
 
 では、次のコードを見てください。
 
-```ruby
+```crystal
 class MyBox(T)
   def initialize(@value : T)
   end
@@ -134,7 +134,7 @@ box.value = "hello"       # OK
 
 `value=` メソッドに型制約が設定されていないため、このコードは完全に正当なコードです。ただ、クラスとしては「壊れ」てしまっていると言えます。対策はやはり型制約を利用することです。
 
-```ruby
+```crystal
 class MyBox(T)
   def initialize(@value : T)
   end
@@ -154,7 +154,7 @@ box.value = "hello"       # エラー
 
 型引数は複数設定することが可能です。
 
-```ruby
+```crystal
 class MyDictionary(K, V)
 end
 ```
@@ -165,7 +165,7 @@ end
 
 もし型引数が指定されなかった場合、ジェネリック型のコンストラクタに設定された型制約は自由変数として扱われ、それが型推論に利用されます。例をあげます。
 
-```ruby
+```crystal
 MyBox.new(1)       #:: MyBox(Int32)
 MyBox.new("hello") #:: MyBox(String)
 ```
@@ -182,7 +182,7 @@ MyBox.new("hello") #:: MyBox(String)
 
 通常、ジェネリック型はコンテナに関連していることが多いですが、それだけではなく、実行ファイルのサイズが大きくなることと引き換えに、実行時のパフォーマンスを向上させるために利用することもできます。これは、ジェネリック型を利用することで、実行時にメソッドのディスパッチが発生しないようにするということです。例えば、標準ライブラリに `BufferedIO(T)` というものがあります。 (訳注: `BufferedIO(T)` はクラスではなくモジュールに変更されたので、これ以降の内容は現在の Crystal には当てはまらないため翻訳していません。[An example code in the docs' "Generics" doesn't work](https://github.com/manastech/crystal/issues/1453))
 
-```ruby
+```crystal
 file = File.open("myfile.txt")
 io = BufferedIO.new(file) #:: BufferedIO(File)
 io.gets
@@ -194,7 +194,7 @@ That `io` variable is a specified `BufferedIO(File)` instance, so invoking `gets
 
 構造体とモジュールをジェネリックにすることも可能です。ジェネリックなモジュールは以下のようにインクルードします。
 
-```ruby
+```crystal
 module Moo(T)
   def t
     T
@@ -218,7 +218,7 @@ foo.t # Int32
 
 ジェネリックなクラスとモジュールを継承することも可能です。継承する際はに、具体的な型を指定するか、もしくは型変数を移譲することができます。
 
-```ruby
+```crystal
 class Parent(T)
 end
 

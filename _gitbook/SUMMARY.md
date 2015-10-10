@@ -4,6 +4,7 @@
 * [インストール](installation/README.md)
    * [Debian や Ubuntu](installation/on_debian_and_ubuntu.md)
    * [RedHat や CentOS](installation/on_redhat_and_centos.md)
+   * [Arch Linux](installation/on_arch_linux.md)
    * [Mac OS X (Homebrew を利用)](installation/on_mac_osx_using_homebrew.md)
    * [tar.gz からインストール](installation/from_a_targz.md)
    * [ソースコードからインストール](installation/from_source_repository.md)
@@ -111,4 +112,6 @@
        * [コールバック](syntax_and_semantics/c_bindings/callbacks.md)
    * [型文法](syntax_and_semantics/type_grammar.md)
    * [安全でない (unsafe) コード](syntax_and_semantics/unsafe.md)
-
+* [規約](conventions/README.md)
+   * [コーディングスタイル](conventions/coding_style.md)
+   * [コードのドキュメント化](conventions/documenting_code.md)

@@ -2,7 +2,7 @@
 
 `while` のループを抜けるためには `break` を使います。
 
-```ruby
+```crystal
 a = 2
 while (a += 1) < 20
   if a == 10

@@ -7,7 +7,7 @@
 
 例をあげます。
 
-```ruby
+```crystal
 def some_method : String
   "hello"
 end

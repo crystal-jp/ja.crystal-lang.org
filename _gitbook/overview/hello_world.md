@@ -2,7 +2,7 @@
 
 伝統的な「hello world」プログラムを Crystal で書くと次のようになります。
 
-```ruby
+```crystal
 puts "Hello world!"
 ```
 

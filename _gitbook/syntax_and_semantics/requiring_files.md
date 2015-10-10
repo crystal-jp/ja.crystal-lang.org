@@ -45,7 +45,7 @@
 
 この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、spec からコードを参照する場合にも利用されます。
 
-```ruby
+```crystal
 # spec/project_spec.cr
 require "../src/project"
 ```

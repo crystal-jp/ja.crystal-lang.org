@@ -2,7 +2,7 @@
 
 `instance_sizeof` は与えられたクラスのインスタンスのサイズを `Int32` で返します。例をあげます。
 
-```ruby
+```crystal
 class Point
   def initialize(@x, @y)
   end

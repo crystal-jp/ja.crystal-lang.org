@@ -10,7 +10,7 @@ person = Person.new
 
 ただ、`person` インスタンスにはまだほとんど何の機能もありません。そこで、いくつかの機能を追加してみましょう。`Person` は名前 (name) と年齢 (age) を持つことにします。「すべてがオブジェクト」のセクションで、「オブジェクトは型を持ち、メソッドに応答する」ものであると書きました。つまり、オブジェクトと対話するためにはメソッドが必要だということです。それでは、名前と年齢のために `name` と `age` の2つのメソッドを設定しましょう。そして、これらの情報はインスタンス変数 (変数名の先頭は `@`) に保存します。また、Person が生まれる (インスタンスとして生成される) とき、名前は指定した名前で、年齢は0歳の状態になっているようにしたいと思います。この「生まれる (インスタンスとして生成される) 」ときの処理には、`initialize` という特別なメソッドを使います。このメソッドを「コンストラクタ」と呼ぶこともあります。 
 
-```ruby
+```crystal
 class Person
   def initialize(name)
     @name = name
@@ -29,7 +29,7 @@ end
 
 これで、以下のようにしてインスタンスを生成することができます。
 
-```ruby
+```crystal
 john = Person.new "John"
 peter = Person.new "Peter"
 
@@ -43,7 +43,7 @@ peter.name #=> "Peter"
 
 実は、`initialize` メソッドを定義したとき、Crystal は同時に `new` メソッドも定義しているのです。
 
-```ruby
+```crystal
 class Person
   def self.new(name)
     instance = Person.allocate

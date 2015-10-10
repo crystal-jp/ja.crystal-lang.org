@@ -4,7 +4,7 @@
 
 基本的な書き方は以下のような形で、値と値のマッチングによって制御します。
 
-```ruby
+```crystal
 case exp
 when value1, value2
   do_something
@@ -29,7 +29,7 @@ end
 
 もし `when` 節の式に型が与えられた場合は、`is_a?` を用いて比較されます。そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制限が加えられます。
 
-```ruby
+```crystal
 case var
 when String
   # var :: String
@@ -54,7 +54,7 @@ end
 
 `case` 式に対してメソッドを実行することも可能です。このとき、`when` 節では暗黙的なオブジェクト指定の記法を使います。
 
-```ruby
+```crystal
 case num
 when .even?
   do_something
@@ -73,7 +73,7 @@ end
 
 `case` の値を省略することも可能です。
 
-```ruby
+```crystal
 case
 when cond1, cond2
   do_something

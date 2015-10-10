@@ -2,7 +2,7 @@
 
 `lib` の内部で `alias` を宣言することで C の typedef を宣言できます。
 
-```ruby
+```crystal
 lib X
   alias MyInt = Int32
 end
@@ -10,7 +10,7 @@ end
 
 これで、`Int32` と `MyInt` は相互に交換可能になります。
 
-```ruby
+```crystal
 lib X
   alias MyInt = Int32
 
@@ -22,12 +22,12 @@ X.some_fun 1 # OK
 
 `alias` が最も便利なのは、長い型名を何度も何度も書かずに済むようにできることです。ただ、コンパイル時フラグに基づく型宣言でも非常に有効です。
 
-```ruby
+```crystal
 lib C
   ifdef x86_64
-    SizeT = Int64
+    alias SizeT = Int64
   else
-    SizeT = Int32
+    alias SizeT = Int32
   end
 
   fun memcmp(p1 : Void*, p2 : Void*, size : C::SizeT) : Int32

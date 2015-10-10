@@ -2,7 +2,7 @@
 
 ある型を定義するとき、`class` ではなく `struct` を使うことで構造体を定義することができます。
 
-```ruby
+```crystal
 struct Point
   property x
   property y

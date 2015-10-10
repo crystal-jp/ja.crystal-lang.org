@@ -2,7 +2,7 @@
 
 C のライブラリで公開される変数は、`lib` の内部で、グローバル変数に似た記法を使って宣言できます。
 
-```ruby
+```crystal
 lib C
   $errno : Int32
 end
@@ -10,15 +10,15 @@ end
 
 そして、以下のように参照と設定ができます。
 
-```ruby
-C.errno #=> some value
+```crystal
+C.errno #=> 何かの値
 C.errno = 0
 C.errno #=> 0
 ```
 
 変数は属性を付与することでスレッドローカルにすることが可能です。
 
-```ruby
+```crystal
 lib C
   @[ThreadLocal]
   $errno : Int32

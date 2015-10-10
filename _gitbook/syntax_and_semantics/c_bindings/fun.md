@@ -2,7 +2,7 @@
 
 `lib` の中で`fun` を宣言すると、C 関数へのバインディングとなります。
 
-```ruby
+```crystal
 lib C
   # C では double cos(double x) となっている
   fun cos(value : Float64) : Float64
@@ -11,13 +11,13 @@ end
 
 バインディングを設定したら、その関数は `C` 型でクラスメソッドのように利用することが可能です。
 
-```ruby
+```crystal
 C.cos(1.5) #=> 0.0707372
 ```
 
 もし関数が引数を持たないものであれば、カッコを省略することができます (呼び出しの際にも同様に省略可能です) 。
 
-```ruby
+```crystal
 lib C
   fun getch : Int32
 end
@@ -27,7 +27,7 @@ C.getch
 
 もし戻り値の型が void であれば省略することが可能です。
 
-```ruby
+```crystal
 lib C
   fun srand(seed : UInt32)
 end
@@ -37,7 +37,7 @@ C.srand(1_u32)
 
 可変長引数を持つ関数にバインディングすることもできます。
 
-```ruby
+```crystal
 lib X
   fun variadic(value : Int32, ...) : Int32
 end
@@ -49,7 +49,7 @@ C の関数を実行するときに (後に説明する `to_unsafe` を除いて
 
 Crystal ではユーザー名は小文字で始まる必要があるため、`fun` の名前も同様に小文字で始まらなくてはなりません。もし、大文字で始まる C の関数へバインドしたい場合、Crystal のために別の名前を与えることができます。
 
-```ruby
+```crystal
 lib LibSDL
   fun init = SDL_Init(flags : UInt32) : Int32
 end
@@ -57,7 +57,7 @@ end
 
 もし名前が識別子や型名として不正なものであるときは、文字列を名前として使うことも可能です。
 
-```ruby
+```crystal
 lib LLVMIntrinsics
   fun ceil_f32 = "llvm.ceil.f32"(value : Float32) : Float32
 end
@@ -78,7 +78,7 @@ fun 型 で利用できる型の指定方法については [型文法](type_gra
 
 標準ライブラリには [LibC](https://github.com/manastech/crystal/blob/master/src/libc.cr) ライブラリが定義されており、`int`/`short`/`size_t` といった一般的な C の型のエイリアスを提供しています。それらはバインディングで以下のように利用できます。
 
-```ruby
+```crystal
 lib MyLib
   fun my_fun(some_size : LibC::SizeT)
 end

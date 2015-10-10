@@ -2,7 +2,7 @@
 
 捕捉したブロックをフォワーディングするには、先頭文字が `&` のブロック引数を利用します。
 
-```ruby
+```crystal
 def capture(&block)
   block
 end
@@ -17,13 +17,13 @@ invoke(&proc) # "Hello" を表示
 
 上記の例で、`invoke` はブロックを受け取ります。このとき、`proc` をそのまま渡すことはできません。なぜなら `invoke` が受け取るのはブロック引数であり、通常の引数ではないからです。したがって、`proc` をブロック引数として渡すために `&` を指定する必要があります。そうしなかった場合は以下のようになります。
 
-```ruby
+```crystal
 invoke(proc) # Error: wrong number of arguments for 'invoke' (1 for 0)
 ```
 
 proc を yield するメソッドに渡すこともできます。
 
-```ruby
+```crystal
 def capture(&block)
   block
 end
@@ -39,7 +39,7 @@ twice &proc
 
 上記は単純に以下に書き換えることができます。
 
-```ruby
+```crystal
 proc = capture { puts "Hello" }
 twice do
   proc.call
@@ -48,13 +48,13 @@ end
 
 `&` と `->` のシンタックスを組み合わせることも可能です。
 
-```ruby
+```crystal
 twice &->{ puts "Hello" }
 ```
 
 または
 
-```ruby
+```crystal
 def say_hello
   puts "Hello"
 end
@@ -66,7 +66,7 @@ twice &->say_hello
 
 捕捉されないブロックをフォワーディングするには `yield` を使用します。
 
-```ruby
+```crystal
 def foo
   yield 1
 end
@@ -91,7 +91,7 @@ end
 
 ブロックのフォワーディングに `&block` を利用することも可能ですが、その場合には最低でも入力する型を指定しておかなければいけません。また、生成されたコードがクロージャを伴うため、速度的にも遅くなってしまいます。
 
-```ruby
+```crystal
 def foo
   yield 1
 end
@@ -114,7 +114,7 @@ end
 
 もし `yield` で十分な場合には、このようなブロックのフォワーディングは使わないようにしましょう。加えて、捕捉されたブロックでは `break` と `next` を使用することができないという問題もあります。例えば、以下は `&block` でフォワーディングした場合には動作しません。
 
-```ruby
+```crystal
 foo_forward do |i|
   break # error
 end
