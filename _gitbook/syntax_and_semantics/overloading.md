@@ -2,7 +2,7 @@
 
 これから、何歳年をとるかを数値で指定できる `become_older` メソッドを定義します。
 
-```ruby
+```crystal
 class Person
   def become_older
     @age += 1
@@ -33,7 +33,7 @@ john.age #=> 6
 
 例えば、`become_older` であれば、以下の4つの異なるメソッドを定義することができます。
 
-```ruby
+```crystal
 class Person
   # 1歳年をとる
   def become_older
@@ -76,7 +76,7 @@ person.age #=> 28
 
 コンパイラは、`yield` が含まれていることを検知して、そのメソッドがブロックをとるメソッドであることを判断します。より明示的にそのことを示したい場合は、`&block` という引数をダミーとして引数の最後に指定してください。
 
-```ruby
+```crystal
 class Person
   def become_older(&block)
     @age += yield @age
@@ -88,7 +88,7 @@ end
 
 もし同じ数の引数をとるメソッドが複数ある場合、コンパイラは最も制約の少ないものが最後にくる (優先されない) ようにソートを行います。
 
-```ruby
+```crystal
 class Person
   # 最初にこのメソッドが定義されている
   def become_older(age)

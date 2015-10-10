@@ -2,7 +2,7 @@
 
 `if` の条件で `is_a?` によるチェックを行うと、`then` 節での変数の型を制限し保証することができます。
 
-```ruby
+```crystal
 if a.is_a?(String)
   # a は必ず String
 end
@@ -14,7 +14,7 @@ end
 
 一方このとき、`else` 節の中ではチェックした型「ではない」ことが保証されます。
 
-```ruby
+```crystal
 a = some_condition ? 1 : "hello"
 # a :: Int32 | String
 
@@ -29,7 +29,7 @@ end
 
 上記は、条件で「かつ (`&&`)」が使われた場合にも同様です。
 
-```ruby
+```crystal
 if a.is_a?(String) && b.is_a?(Number)
   # ここでは a は String で b は Number
 end
@@ -37,7 +37,7 @@ end
 
 ただ、インスタンス変数、クラス変数、そしてグローバル変数の場合には、上記が **当てはまらない** ことに注意してください。それらの場合には、まず変数への代入を行ってください。
 
-```ruby
+```crystal
 if @a.is_a?(String)
   # ここでは @a が String であることが保証され「ない」
 end

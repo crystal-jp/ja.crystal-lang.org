@@ -2,7 +2,7 @@
 
 もし、ある型に `to_unsafe` メソッドが定義されていた場合、C に渡されるのはそのメソッドからの戻り値となります。例をあげます。
 
-```ruby
+```crystal
 lib C
   fun exit(status : Int32) : NoReturn
 end
@@ -26,7 +26,7 @@ C.exit(wrapper) # wrapper は Int32 ではないが、
 
 例えば、`String` クラスが `UInt8*` を返す `to_unsafe` を実装している場合を考えてみましょう。
 
-```ruby
+```crystal
 lib C
   fun printf(format : UInt8*, ...) : Int32
 end

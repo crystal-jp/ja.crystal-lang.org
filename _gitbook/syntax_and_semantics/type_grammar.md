@@ -19,7 +19,7 @@
 
 一般的な型とジェネリクスは以下のように利用します。
 
-```ruby
+```crystal
 Int32
 My::Nested::Type
 Array(String)
@@ -27,7 +27,7 @@ Array(String)
 
 ## 型の組み合わせ (ユニオン)
 
-```ruby
+```crystal
 alias Int32OrString = Int32 | String
 ```
 
@@ -35,13 +35,13 @@ alias Int32OrString = Int32 | String
 
 ## Nil を許容する (nilable)
 
-```ruby
+```crystal
 alias Int32OrNil = Int32?
 ```
 
 これは以下と同じです。
 
-```ruby
+```crystal
 alias Int32OrNil = Int32 | ::Nil
 ```
 
@@ -49,27 +49,27 @@ alias Int32OrNil = Int32 | ::Nil
 
 ## ポインタ
 
-```ruby
+```crystal
 alias Int32Ptr = Int32*
 ```
 
 これは以下と同じです。
 
-```ruby
-alias Int32 = Pointer(Int32)
+```crystal
+alias Int32Ptr = Pointer(Int32)
 ```
 
 通常のコードにおいては、`Int32*` が意味するのは、`Int32` に対して `*` メソッドを実行することです。
 
 ## 静的配列 (StaticArray)
 
-```ruby
+```crystal
 alias Int32_8 = Int32[8]
 ```
 
 これは以下と同じです。
 
-```ruby
+```crystal
 alias Int32_8 = StaticArray(Int32, 8)
 ```
 
@@ -77,13 +77,13 @@ alias Int32_8 = StaticArray(Int32, 8)
 
 ## タプル (Tuple)
 
-```ruby
+```crystal
 alias Int32StringTuple = {Int32, String}
 ```
 
 これは以下と同じです。
 
-```ruby
+```crystal
 alias Int32StringTuple = Tuple(Int32, String)
 ```
 
@@ -91,31 +91,31 @@ alias Int32StringTuple = Tuple(Int32, String)
 
 ## Proc
 
-```ruby
+```crystal
 alias Int32ToString = Int32 -> String
 ```
 
 これは以下と同じです。
 
-```ruby
+```crystal
 alias Int32ToString = Proc(Int32, String)
 ```
 
 引数を持たない Proc を指定するには以下のようにします。
 
-```ruby
+```crystal
 alias ProcThatReturnsInt32 = -> Int32
 ```
 
 複数の引数を持つ Proc を指定するには以下のようにします。
 
-```ruby
+```crystal
 alias Int32AndCharToString = Int32, Char -> String
 ```
 
 ネストされた Proc に対しては (および実際にはどんな型であっても) カッコを利用することができます。
 
-```ruby
+```crystal
 alias ComplexProc = (Int32 -> Int32) -> String
 ```
 
@@ -131,7 +131,7 @@ alias ComplexProc = (Int32 -> Int32) -> String
 
 例をあげます。
 
-```ruby
+```crystal
 def foo(x : Int32)
   "instance"
 end
@@ -146,7 +146,7 @@ foo Int32 # "class"
 
 `class` はクラスの型を持つ配列やコレクションを作る場合にも有効に使うことができます。
 
-```ruby
+```crystal
 class Parent
 end
 
@@ -165,7 +165,7 @@ ary << Child2
 
 型制約でアンダースコアを使うことが可能です。それはすべてにマッチすることを示します。
 
-```ruby
+```crystal
 # 何も制約を与えないことと同じ。これではあまり役には立たない
 def foo(x : _)
 end
@@ -179,7 +179,7 @@ end
 
 型文法では `typeof` を使うことができます。渡された式の型の組み合わせ (ユニオン型) を返します。
 
-```ruby
+```crystal
 alias SameAsInt32 = typeof(1 + 2)
 alias Int32OrString = typeof(1, "a")
 ```

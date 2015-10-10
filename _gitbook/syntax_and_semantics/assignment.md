@@ -2,8 +2,8 @@
 
 代入にはイコール記号 (`=`) を使います。
 
-```ruby
-# ローカル変数への代入
+```crystal
+# Assigns to a local variable
 local = 1
 
 # インスタンス変数への代入
@@ -20,8 +20,8 @@ $global = 4
 
 `=` を使った代入のためのシンタックスシュガーがいくつか用意されています。
 
-```ruby
-local += 1  # local = local + 1 と同じ
+```crystal
+local += 1  # same as: local = local + 1
 
 # 上記は以下の演算子でも有効
 # +, -, *, /, %, |, &, ^, **, <<, >>
@@ -32,8 +32,8 @@ local &&= 1 # local && (local = 1) と同じ
 
 メソッド名が `=` で終わるメソッドの実行にもシンタックスシュガーがあります。
 
-```ruby
-# セッター
+```crystal
+# A setter
 person.name=("John")
 
 # 上記は以下のように書くことができる
@@ -54,8 +54,8 @@ objects[2, 3]
 
 セッターやインデックス指定代入の場合にも、`=` 演算子のシンタックスシュガーを利用できます。このとき、`||` と `&&` は、キーの存在チェックのために `[]?` メソッドを使うことに注意してください。
 
-```ruby
-person.age += 1        # person.age = person.age + 1 と同じ
+```crystal
+person.age += 1        # same as: person.age = person.age + 1
 
 person.name ||= "John" # person.name || (person.name = "John") と同じ
 person.name &&= "John" # person.name && (person.name = "John") と同じ

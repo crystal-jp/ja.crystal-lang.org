@@ -6,7 +6,7 @@ Crystal では、例外を発生 (raise) させ、それを捕捉 (rescue) す�
 
 例外を発生させるにはトップレベルの `raise` メソッドを使います。他のキーワードとは異なり、`raise` は通常のメソッドであり、2つのオーバーロードがあります。その1つは [String を受け取るもの](http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method)で、もう1つは[例外 (Exception) クラスを受け取るもの](http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method)です。
 
-```ruby
+```crystal
 raise "OH NO!"
 raise Exception.new("Some error")
 ```
@@ -19,7 +19,7 @@ String の場合は、単純にそのメッセージを含んだ [Exception](htt
 
 独自の例外型を定義したい場合には、[Exception](http://crystal-lang.org/api/Exception.html) からサブクラスを作成します。
 
-```ruby
+```crystal
 class MyException < Exception
 end
 
@@ -33,7 +33,7 @@ end
 
 例外を捕捉するには、`begin ... rescue ... end` の構文を使用します。
 
-```ruby
+```crystal
 begin
   raise "OH NO!"
 rescue
@@ -45,7 +45,7 @@ end
 
 捕捉された例外にアクセスしたいときは、`rescue` 節に変数を指定することが可能です。
 
-```ruby
+```crystal
 begin
   raise "OH NO!"
 rescue ex
@@ -57,7 +57,7 @@ end
 
 ある型の例外 (そのサブクラスも含む) のみ捕捉したい場合には以下のようにします。
 
-```ruby
+```crystal
 begin
   raise MyException.new("OH NO!")
 rescue MyException
@@ -69,7 +69,7 @@ end
 
 型を指定して、かつその例外にアクセスしたいときは、型制約の場合と同じように書きます。
 
-```ruby
+```crystal
 begin
   raise MyException.new("OH NO!")
 rescue ex : MyException
@@ -81,7 +81,7 @@ end
 
 複数の `rescue` 節を設定することも可能です。
 
-```ruby
+```crystal
 begin
   # ...
 rescue ex1 : MyException
@@ -95,7 +95,7 @@ end
 
 また、型の組み合わせ (ユニオン型) を指定すれば、複数の例外を同時に補足することが可能です。
 
-```ruby
+```crystal
 begin
   # ...
 rescue ex : MyException | MyOtherException
@@ -109,7 +109,7 @@ end
 
 `ensure` 節は、例外が発生したかどうかに関係なく、`begin ... end` または `begin ... rescue ... end` の後で必ず実行されます。
 
-```ruby
+```crystal
 begin
   something_dangerous
 ensure
@@ -123,7 +123,7 @@ end
 
 または
 
-```ruby
+```crystal
 begin
   something_dangerous
 rescue
@@ -139,7 +139,7 @@ end
 
 `else` 節は、例外が発生しなかった場合にのみ実行されます。
 
-```ruby
+```crystal
 begin
   something_dangerous
 rescue
@@ -155,7 +155,7 @@ end
 
 例外処理には短縮記法が用意されています。それは、メソッドの定義は暗黙的に `begin ... end` 構文であるとして `rescue`/`ensure`/`else` を使用できるというものです。
 
-```ruby
+```crystal
 def some_method
   something_dangerous
 rescue
@@ -174,7 +174,7 @@ end
 
 `ensure` の例:
 
-```ruby
+```crystal
 def some_method
   something_dangerous
 ensure
@@ -195,7 +195,7 @@ end
 
 例外処理において、`begin` 節の中で宣言された変数は、`rescue` または `ensure` 内においては `Nil` 型を持っているとして解釈されます。例をあげます。
 
-```ruby
+```crystal
 begin
   a = something_dangerous_that_returns_Int32
 ensure
@@ -205,7 +205,7 @@ end
 
 このとき、もし `something_dangerous_that_returns_Int32`が例外を発生させない場合であってもエラーが発生します。さらに、`a` に先に値が代入されて、それから例外を発生させる可能性があるメソッドが実行された場合であったとしてもエラーとなります。
 
-```ruby
+```crystal
 begin
   a = 1
   something_dangerous
@@ -216,8 +216,8 @@ end
 
 この場合、`a` に常に値が代入されていることは明白なのですが、それでもコンパイラは `a` が初期化されていない可能性があると解釈します。このロジックは将来的には改定されるかもしれません。ただ、現時点では例外処理の中で行うことは必要最小限に留め、コードの意図を明確にして書くことが求められます。
 
-```ruby
-# 例外処理のコードの内部で `a` 宣言する必要はないため、
+```crystal
+# 例外処理のコードの内部で `a` を宣言する必要はないため、
 # こう書くことでより意図が明確になる
 a = 1
 begin
@@ -233,7 +233,7 @@ end
 
 そこで、標準ライブラリでは、例外を発生する方法に加えて、`nil` を返す方法も用意しています。例をあげます。
 
-```ruby
+```crystal
 array = [1, 2, 3]
 array[4]  # IndexOutOfBounds の例外が発生
 array[4]? # インデックス範囲外のため nil が返る

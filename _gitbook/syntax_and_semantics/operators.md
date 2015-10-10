@@ -2,19 +2,19 @@
 
 `+` や `-` などの演算子は、実は普通のメソッド呼び出しとなっています。例をあげます。
 
-```ruby
+```crystal
 a + b
 ```
 
 これは以下と同じです。
 
-```ruby
+```crystal
 a.+(b)
 ```
 
 ある型に演算子を定義したい場合は以下のようにします。
 
-```ruby
+```crystal
 struct Vector2
   getter x, y
 
@@ -35,7 +35,7 @@ v1 + v2               #=> Vector2(@x=4, @y=6)
 
 ## 単項演算子
 
-```ruby
+```crystal
 +   # 正数
 -   # 負数
 !   # 否定
@@ -44,7 +44,7 @@ v1 + v2               #=> Vector2(@x=4, @y=6)
 
 これらは引数を持たないものとして定義されています。例をあげます。
 
-```ruby
+```crystal
 struct Vector2
   def -
     Vector2.new(-x, -y)
@@ -57,7 +57,7 @@ v1 = Vector2.new(1, 2)
 
 ## 2項演算子
 
-```ruby
+```crystal
 +   # 加算
 -   # 減算
 *   # 乗算
@@ -82,7 +82,7 @@ v1 = Vector2.new(1, 2)
 
 ## インデックス
 
-```ruby
+```crystal
 []  # 配列のインデックス (配列長を超えると例外が発生)
 []? # 配列のインデックス (配列長を超えると nil)
 []= # 配列のインデックス指定代入
@@ -90,7 +90,7 @@ v1 = Vector2.new(1, 2)
 
 例をあげます。
 
-```ruby
+```crystal
 class MyArray
   def [](index)
     # ...

@@ -6,7 +6,7 @@
 
 `private` メソッドはレシーバの指定なしでのみ実行可能です。つまり、ドットを使わない形でしか実行できないということです。
 
-```ruby
+```crystal
 class Person
   private def say(message)
     puts message
@@ -24,7 +24,7 @@ end
 
 `private` メソッドがサブクラスからも実行可能であることに注意してください。
 
-```ruby
+```crystal
 class Employee < Person
   def say_bye
     say "bye" # OK
@@ -34,7 +34,7 @@ end
 
 `protected` メソッドは、その型と同一の型のインスタンスに対してのみ実行可能です。
 
-```ruby
+```crystal
 class Person
   protected def say(message)
     puts message
@@ -64,7 +64,7 @@ one_more.say "hello" # one_more が Person だが
 
 `protected` のクラスメソッドはインスタンスメソッドから実行することが可能で、その反対の場合も同様です。
 
-```ruby
+```crystal
 class Person
   protected def self.say(message)
     puts message
@@ -80,7 +80,7 @@ end
 
 トップレベルに定義された `private` メソッドはそのファイルの中でのみ見えます。
 
-```ruby
+```crystal
 # one.cr ファイル
 private def greet
   puts "Hello"

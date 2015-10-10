@@ -7,7 +7,7 @@
 
 まず、名前空間としてモジュールを使用する例を見てみましょう。
 
-```ruby
+```crystal
 module Curses
   class Window
   end
@@ -22,15 +22,15 @@ Curses::Window.new
 
 `include` を使用すると、モジュールに定義されたメソッドをインスタンスメソッドとして利用できるようになります。
 
-```ruby
-module ItemsLength
-  def length
-    items.length
+```crystal
+module ItemsSize
+  def size
+    items.size
   end
 end
 
 class Items
-  include ItemsLength
+  include ItemsSize
 
   def items
     [1, 2, 3]
@@ -38,34 +38,34 @@ class Items
 end
 
 items = Items.new
-items.length #=> 3
+items.size #=> 3
 ```
 
-上記の例では、まるでモジュールの `length` メソッドを `Items` クラスの中に貼り付けたようにメソッドが実行されていることがわかるでしょう。この仕組みは、それぞれの型に対して、その親や先祖のリストを持たせることで機能しています。最初の状態では、このリストはスーパークラスから始まります。モジュールがインクルードされると、そのモジュールはリストの「**先頭**」に追加されます。そして、あるメソッドが自身の型に見つからないとき、そのリストをたどってメソッドを探します。また、`super` を実行したときには、その先祖リストの先頭の型が対象となります。
+上記の例では、まるでモジュールの `size` メソッドを `Items` クラスの中に貼り付けたようにメソッドが実行されていることがわかるでしょう。この仕組みは、それぞれの型に対して、その親や先祖のリストを持たせることで機能しています。最初の状態では、このリストはスーパークラスから始まります。モジュールがインクルードされると、そのモジュールはリストの「**先頭**」に追加されます。そして、あるメソッドが自身の型に見つからないとき、そのリストをたどってメソッドを探します。また、`super` を実行したときには、その先祖リストの先頭の型が対象となります。
 
 `module` が別のモジュールをインクルードすることも可能です。したがって、モジュールにメソッドが見つからなかった場合は、インクルードされたモジュールの中を探します。
 
 一方、`extend` を使用すると、モジュールに定義されたメソッドをクラスメソッドとして利用できるようになります。
 
-```ruby
-module SomeLength
-  def length
+```crystal
+module SomeSize
+  def size
     3
   end
 end
 
 class Items
-  extend SomeLength
+  extend SomeSize
 end
 
-Items.length #=> 3
+Items.size #=> 3
 ```
 
 また、`include` と `extend` のどちらを使った場合も、モジュールに定義されている定数を利用できるようになります。
 
 トップレベルで `include`/`extend` することもできます。そうすると、何度も名前空間を書かなくても済むようになります (もちろん、その分だけ名前が衝突する可能性は高くなりますが) 。
 
-```ruby
+```crystal
 module SomeModule
   class SomeType
   end
@@ -85,7 +85,7 @@ some_method  # OK, 1
 
 モジュールでよく使われるパターンに `extend self` というものがあります。
 
-```ruby
+```crystal
 module Base64
   extend self
 
@@ -101,13 +101,13 @@ end
 
 このとき、モジュールを名前空間として利用することができます。
 
-```ruby
+```crystal
 Base64.encode64 "hello" #=> "aGVsbG8="
 ```
 
 それだけではなく、プログラムにインクルードしたとき、名前空間の指定なしでメソッドを実行することも可能です。
 
-```ruby
+```crystal
 include Base64
 
 encode64 "hello" #=> "aGVsbG8="
@@ -117,7 +117,7 @@ encode64 "hello" #=> "aGVsbG8="
 
 モジュールをインスタンス化することはできません。
 
-```ruby
+```crystal
 module Moo
 end
 

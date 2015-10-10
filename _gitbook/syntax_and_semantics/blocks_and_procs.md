@@ -2,7 +2,7 @@
 
 メソッドはコードブロックをとることができ、そのブロックは `yield` キーワードによって実行されます。例をあげます。
 
-```ruby
+```crystal
 def twice
   yield
   yield
@@ -17,7 +17,7 @@ end
 
 ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはブロックを受け取るメソッドであることを理解します。ダミーのブロック引数を宣言することで、上記をより明確に示すことも可能です。先頭がアンパサンド (`&`) の引数を最後の引数として設定してください。
 
-```ruby
+```crystal
 def twice(&block)
   yield
   yield
@@ -26,7 +26,7 @@ end
 
 ブロックを渡してメソッドを実行するには、`do ... end` もしくは `{ ... }` を使用します。以下はすべて同等のコードです。
 
-```ruby
+```crystal
 twice() do
   puts "Hello!"
 end
@@ -46,7 +46,7 @@ twice { puts "Hello!" }
 
 `yield` 式はメソッド呼び出しと似ていて、引数を受け取ることもできます。例をあげます。
 
-```ruby
+```crystal
 def twice
   yield 1
   yield 2
@@ -61,13 +61,13 @@ end
 
 波カッコを使った指定も可能です。
 
-```ruby
+```crystal
 twice { |i| puts "Got #{i}" }
 ```
 
 複数の値を `yield` することもできます。
 
-```ruby
+```crystal
 def many
   yield 1, 2, 3
 end
@@ -81,7 +81,7 @@ end
 
 ブロックに指定するのが yield される引数の数より少なくても構いません。
 
-```ruby
+```crystal
 def many
   yield 1, 2, 3
 end
@@ -95,7 +95,7 @@ end
 
 ブロックに指定するのが yield される引数の数より多い場合には、それらは `nil` になります。
 
-```ruby
+```crystal
 def twice
   yield
   yield
@@ -110,7 +110,7 @@ end
 
 ブロックの変数はすべての yield 式に応じた型を持ちます。例をあげます。
 
-```ruby
+```crystal
 def some
   yield 1, 'a'
   yield true, "hello"
@@ -129,7 +129,7 @@ end
 
 `yield` 式自体も値を持っていて、それはブロックの最後の式となります。例をあげます。
 
-```ruby
+```crystal
 def twice
   v1 = yield 1
   puts v1
@@ -147,7 +147,7 @@ end
 
 `yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](http://crystal-lang.org/api/Enumerable.html#map%28%26block%20%3A%20T%20-%3E%20U%29-instance-method) と [Enumerable#select](http://crystal-lang.org/api/Enumerable.html#select%28%26block%20%3A%20T%20-%3E%20%29-instance-method) でしょう。
 
-```ruby
+```crystal
 ary = [1, 2, 3]
 ary.map { |x| x + 1 }         #=> [2, 3, 4]
 ary.select { |x| x % 2 == 1 } #=> [1, 3]
@@ -155,7 +155,7 @@ ary.select { |x| x % 2 == 1 } #=> [1, 3]
 
 1つ簡単な変換メソッドを例にあげます。
 
-```ruby
+```crystal
 def transform(value)
   yield value
 end
@@ -169,7 +169,7 @@ transform(1) { |x| x + 1 } #=> 2
 
 ブロックの中に `break` 式があるとそこでメソッドを抜けます。
 
-```ruby
+```crystal
 def thrice
   puts "Before 1"
   yield 1
@@ -191,7 +191,7 @@ end
 
 `break` は引数を受けとることも可能で、その場合にはそれがメソッドの戻り値となります。例をあげます。
 
-```ruby
+```crystal
 def twice
   yield 1
   yield 2
@@ -205,7 +205,7 @@ twice { |i| break "hello" } #=> "hello"
 
 もしある条件によって break する場合、そのメソッドの戻り値の型は、ブロックの戻り値の型と (複数ある場合にはすべての) `break` の型の組み合わせとなります。
 
-```ruby
+```crystal
 value = twice do |i|
   if i == 1
     break "hello"
@@ -217,14 +217,14 @@ value #:: Int32 | String
 
 `break` が複数の引数を受けとるとき、それらは自動的に[タプル](http://crystal-lang.org/api/Tuple.html)に変換されます。
 
-```ruby
+```crystal
 values = twice { break 1, 2 }
 values #=> {1, 2}
 ```
 
 `break` が引数をとらない場合、それは `nil` を1つ受け取ったのと同じことになります。
 
-```ruby
+```crystal
 value = twice { break }
 value #=> nil
 ```
@@ -233,7 +233,7 @@ value #=> nil
 
 ブロックの中に `next` 式があるとそこで (メソッドではなく) ブロックを抜けます。例をあげます。
 
-```ruby
+```crystal
 def twice
   yield 1
   yield 2
@@ -255,7 +255,7 @@ end
 
 `next` 式は引数を受け取ることが可能です。そのとき、受け取った値はそのブロックを実行した `yield` 式の値となります。
 
-```ruby
+```crystal
 def twice
   v1 = yield 1
   puts v1
@@ -283,7 +283,7 @@ end
 
 `yield` 式に `with` キーワードを使うと、ブロック内でメソッドを実行する際にデフォルトのレシーバとなるオブジェクトを指定することができます。
 
-```ruby
+```crystal
 class Foo
   def one
     1
@@ -310,7 +310,7 @@ Foo.new.yield_normally { one }  # => "one"
 
 ブロックを `yield` するとき、そのブロックは**常に**インライン展開されます。クロージャやメソッド呼び出し、そして関数ポインタなどが使われることはありません。これは次のことを意味しています。
 
-```ruby
+```crystal
 def twice
   yield 1
   yield 2
@@ -323,7 +323,7 @@ end
 
 上記は以下のように書くことと完全に同じです。
 
-```ruby
+```crystal
 i = 1
 puts "Got: #{i}"
 i = 2
@@ -332,7 +332,7 @@ puts "Got: #{i}"
 
 例えば、標準ライブラリには `time` という整数のメソッドがあり、それを使うと以下のように書くことができます。
 
-```ruby
+```crystal
 3.times do |i|
   puts i
 end
@@ -342,7 +342,7 @@ end
 
 `Int#times` は以下のように定義されています。
 
-```ruby
+```crystal
 struct Int
   def times
     i = 0
@@ -356,7 +356,7 @@ end
 
 捕捉されないブロック (non-captured block) は常にインライン展開されます。したがって、上記したメソッドの実行は、以下のように書くことと**完全に同じ**です。
 
-```ruby
+```crystal
 i = 0
 while i < 3
   puts i

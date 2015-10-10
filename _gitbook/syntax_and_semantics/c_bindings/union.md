@@ -2,7 +2,7 @@
 
 `lib` の内部で `union` を宣言することで C の共用体を宣言できます。
 
-```ruby
+```crystal
 lib U
   # C では:
   #
@@ -19,7 +19,7 @@ end
 
 共用体のインスタンスを生成するには `new` を利用します。
 
-```ruby
+```crystal
 value = U::IntOrFloat.new
 ```
 
@@ -29,14 +29,14 @@ C の共用体は、初期状態として、すべての値が「ゼロ」の状
 
 このように初期化されることを避けたい場合は、`::` を利用します。
 
-```ruby
+```crystal
 value :: U::IntOrFlaot
 value.some_int #=> 何かゴミの値
 ```
 
 プロパティの設定、および参照が可能です。
 
-```ruby
+```crystal
 value = U::IntOrFloat.new
 value.some_int = 1
 value.some_int #=> 1
@@ -45,7 +45,7 @@ value.some_float #=> 4.94066e-324
 
 C の共用体は関数やメソッドに (コピーとして) 値渡しされます。また、メソッドから返るときも値で渡されます。
 
-```ruby
+```crystal
 def change_it(value)
   value.some_int = 1
 end

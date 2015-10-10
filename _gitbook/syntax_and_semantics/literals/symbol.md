@@ -2,7 +2,7 @@
 
 シンボル ([Symbol](http://crystal-lang.org/api/Symbol.html)) というのは、数値を与えることなく、その名前で識別することが可能な定数です。
 
-```ruby
+```crystal
 :hello
 :good_bye
 

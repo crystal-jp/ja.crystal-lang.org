@@ -2,7 +2,7 @@
 
 `as` 式はある式の型に対して制約を与えます。例をあげます。
 
-```ruby
+```crystal
 if some_condition
   a = 1
 else
@@ -14,9 +14,9 @@ end
 
 上記のコードでは、`a` は `Int32 | String` の組み合わせ (ユニオン型) となります。もし何らかの理由で、`if` の後で `a` が `Int32` であるとしたい場合は、そのように扱うようにコンパイラに強制することができます。
 
-```ruby
+```crystal
 a_as_int = a as Int32
-a_as_int.abs          # コンパイラは a_as_int が Int32 であると知っているので動作する
+a_as_int.abs          # works, compiler knows that a_as_int is Int32
 ```
 
 `as` 式はランタイムにチェックを行うため、もし `a` が `Int32` ではないときには[例外](exception_handling.html)が発生します。
@@ -25,15 +25,17 @@ a_as_int.abs          # コンパイラは a_as_int が Int32 であると知っ
 
 ある型を別の型に強制することは不可能で、コンパイルエラーが発生します。
 
-```ruby
+```crystal
 1 as String # Error
 ```
+
+**注意: ** `as` を使っても、関連のない型に変換することはできません。`as` は他の言語の `cast` とは異なります。整数や浮動小数点数、そして文字にはこれらの変換のためのメソッドが提供されています。代替になるものとしては、以下で説明するポインタキャストを利用することができます。
 
 ## ポインタ型同士の変換
 
 `as` 式はポインタ型同士のキャストも可能です。
 
-```ruby
+```crystal
 ptr = Pointer(Int32).malloc(1)
 ptr as Int8*                    #:: Pointer(Int8)
 ```
@@ -44,7 +46,7 @@ ptr as Int8*                    #:: Pointer(Int8)
 
 ポインタ型と Reference 型を相互に変換することも可能です。
 
-```ruby
+```crystal
 array = [1, 2, 3]
 
 # object_id はメモリ上のオブジェクトのアドレスを返すため、
@@ -63,7 +65,7 @@ array2.same?(array) #=> true
 
 `as` 式は、ある式をより「大きな」型へキャストするために使うことができます。例をあげます。
 
-```ruby
+```crystal
 a = 1
 b = a as Int32 | Float64
 b #:: Int32 | Float64
@@ -71,7 +73,7 @@ b #:: Int32 | Float64
 
 上記では一体何が嬉しいのかわからないかもしれません。では、以下のように配列の要素を map する場合ではどうでしょう？
 
-```ruby
+```crystal
 ary = [1, 2, 3]
 
 # Int32 | Float64型 の 1, 2, 3 の配列にしたい
@@ -87,7 +89,7 @@ ary2 << 1.5 # OK
 
 コンパイラがブロックの型を推論できない場合があります。例をあげます。
 
-```ruby
+```crystal
 class Person
   def initialize(@name)
   end
@@ -103,14 +105,14 @@ x = a.map { |f| f.name } # Error: can't infer block return type
 
 コンパイラは、`Array#map` によって作られる配列のジェネリック型として、ブロックの型を必要としています。しかし、`Person` が1度もインスタンス化されていないため、コンパイラは `@name` の型を知ることができません。こういったケースでは、`as`式を使うことでコンパイラを補助することができます。
 
-```ruby
+```crystal
 a = [] of Person
 x = a.map { |f| f.name as String } # OK
 ```
 
 このエラーに出会うことはあまりないでしょう。もし `Person` が map の呼び出し前にインスタンス化されていればエラーにはなりません。
 
-```ruby
+```crystal
 Person.new "John"
 
 a = [] of Person

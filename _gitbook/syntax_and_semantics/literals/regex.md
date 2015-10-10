@@ -2,7 +2,7 @@
 
 正規表現 (Regular Expression) を表すのは [Regex](http://crystal-lang.org/api/Regex.html) クラスです。そして、通常それは以下の正規表現リテラルによって作られます。
 
-```ruby
+```crystal
 foo_or_bar = /foo|bar/
 heeello    = /h(e+)llo/
 integer    = /\d+/
@@ -18,18 +18,18 @@ integer    = /\d+/
 
 例をあげます。
 
-```ruby
+```crystal
 r = /foo/imx
 ```
 
 スラッシュはエスケープする必要があります。
 
-```ruby
+```crystal
 slash = /\//
 ```
 
 また、以下の記法を利用して書くことも可能です。
 
-```ruby
+```crystal
 r = %r(regex with slash: /)
 ```

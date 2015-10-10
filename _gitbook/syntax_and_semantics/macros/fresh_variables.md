@@ -4,7 +4,7 @@
 
 例を見てみるとわかりやすいでしょう。
 
-```ruby
+```crystal
 macro update_x
   x = 1
 end
@@ -16,7 +16,7 @@ x #=> 1
 
 これは、ローカル変数にアクセスし読み書きする際にコードを繰り返し書くのを避けることに有効ですが、一方で誤ってローカル変数を上書きしてしまう可能性もあります。そこで、`%name` でフレッシュな変数を利用することができるようになっています。
 
-```ruby
+```crystal
 macro dont_update_x
   %x = 1
   puts %x
@@ -31,7 +31,7 @@ x #=> 0
 
 また、`%var{key1, key2, ..., keyN}` を使うことで、他の AST ノードに結びついたフレッシュな変数を宣言することが可能です。例をあげます。
 
-```ruby
+```crystal
 macro fresh_vars_sample(*names)
   # まず変数を宣言する
   {% for name, index in names %}

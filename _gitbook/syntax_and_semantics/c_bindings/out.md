@@ -2,7 +2,7 @@
 
 [waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) 関数について考えてみましょう。
 
-```ruby
+```crystal
 lib C
   fun waitpid(pid : Int32, status_ptr : Int32*, options : Int32) : Int32
 end
@@ -17,7 +17,7 @@ status_ptr が指すオブジェクトに保持されている子プロセスか
 
 この関数を以下のように利用できます。
 
-```ruby
+```crystal
 pid = ...
 options = ...
 status_ptr :: Int32
@@ -29,7 +29,7 @@ C.waitpid pid, pointerof(status_ptr), options
 
 上記は、`out` パラメータを使うことでよりシンプルに書くことができます。
 
-```ruby
+```crystal
 pid = ...
 options = ...
 

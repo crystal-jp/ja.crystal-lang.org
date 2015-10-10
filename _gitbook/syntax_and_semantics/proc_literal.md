@@ -2,7 +2,7 @@
 
 捕捉されたブロック (captured block) は、[Proc リテラル](literals/proc.html) を宣言してメソッドに[渡す](block_forwarding.html)ことと等しいです。
 
-```ruby
+```crystal
 def some_proc(&block : Int32 -> Int32)
   block
 end
@@ -17,7 +17,7 @@ x #=> 11
 
 [Proc リテラル](literals/proc.html)のセクションで説明したように、既存のメソッドから Proc を作ることも可能です。
 
-```ruby
+```crystal
 def add(x, y)
   x + y
 end

@@ -10,7 +10,7 @@ C ライブラリのリンクをコンパイラに指示します。詳細は [l
 
 `@[ThreadLocal]` 属性はグローバル変数とクラス変数に対して適用することが可能です。これによって、それらの変数がスレッドローカルになります。
 
-```ruby
+```crystal
 # スレッドごとに1つずつ
 @[ThreadLocal]
 $values = [] of Int32
@@ -24,7 +24,7 @@ $values = [] of Int32
 
 常にメソッドをインラインにするようにコンパイラに指示します。
 
-```ruby
+```crystal
 @[AlwaysInline]
 def foo
   1
@@ -35,7 +35,7 @@ end
 
 メソッドを呼び出しをインラインにしないようにコンパイラに指示します。メソッドが yield する場合には効果がありません。
 
-```ruby
+```crystal
 @[NoInline]
 def foo
   1
@@ -54,7 +54,7 @@ end
 
 [lib fun](c_bindings/fun.html) の呼出規約を指定します。例をあげます。
 
-```ruby
+```crystal
 lib LibFoo
   @[CallConvention("X86_StdCall")]
   fun foo : Int32

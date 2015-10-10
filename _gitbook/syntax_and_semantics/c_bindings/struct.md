@@ -2,7 +2,7 @@
 
 `lib` の内部で `struct` を宣言することで C の構造体を宣言できます。
 
-```ruby
+```crystal
 lib C
   # C では:
   #
@@ -19,7 +19,7 @@ end
 
 同じ型のフィールドは複数指定することも可能です。
 
-```ruby
+```crystal
 lib C
   struct TimeZone
     minutes_west, dst_time : Int32
@@ -29,7 +29,7 @@ end
 
 再帰的な構造体は、宣言フォワーディング (forward-declare) によって宣言します。
 
-```ruby
+```crystal
 lib C
   # 以下が宣言フォーワーディング
   struct Node
@@ -43,7 +43,7 @@ end
 
 構造体のインスタンスを生成するには `new` を利用します。
 
-```ruby
+```crystal
 tz = C::TimeZone.new
 ```
 
@@ -53,14 +53,14 @@ C の構造体は、初期状態として、すべての値が「ゼロ」の状
 
 このように初期化されることを避けたい場合は、`::` を利用します。
 
-```ruby
+```crystal
 tz :: C::TimeZone
 tz.minutes_west #=> 何かゴミの値
 ```
 
 プロパティの設定、および参照が可能です。
 
-```ruby
+```crystal
 tz = C::TimeZone.new
 tz.minutes_west = 1
 tz.minutes_west #=> 1
@@ -68,7 +68,7 @@ tz.minutes_west #=> 1
 
 フィールドは[名前付き引数](../default_and_named_arguments.html)と同様のシンタックスを使って初期化することもできます。
 
-```ruby
+```crystal
 tz = C::TimeZone.new minutes_west: 1, dst_time: 2
 tz.minutes_west #=> 1
 tz.dst_time     #=> 2
@@ -76,7 +76,7 @@ tz.dst_time     #=> 2
 
 C の構造体は関数やメソッドに (コピーとして) 値渡しされます。また、メソッドから返るときも値で渡されます。
 
-```ruby
+```crystal
 def change_it(tz)
   tz.minutes_west = 1
 end
