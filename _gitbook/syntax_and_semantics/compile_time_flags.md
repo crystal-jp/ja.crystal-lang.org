@@ -1,35 +1,35 @@
-# Compile-time flags
+# コンパイル時のフラグ
 
-Types, methods and generally any part of your code can be conditionally defined based on some flags available at compile time. These flags are by default the result of executing `uname -m -s`, split by whitespace and lowercased.
+型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。デフォルトでは、`uname -m -s` を実行した結果を空白で分割し、すべてを小文字にしたものがフラグとなります。
 
 ```bash
 $ uname -m -s
 Darwin x86_64
 
-# so the flags are: darwin, x86_64
+# この場合のフラグは darwin と x86_64
 ```
 
-Additionally, if a program is compiled with `--release`, the `release` flag will be true.
+また、`--release` オプションをつけてプログラムをコンパイルした場合には、`release` フラグが true になります。
 
-You can test these flags with `ifdef`:
+フラグのチェックには `ifdef` を使います。
 
 ```crystal
 ifdef x86_64
-  # some specific code for 64 bits platforms
+  # 64ビットプラットフォームに固有のコード
 else
-  # some specific code for non-64 bits platforms
+  # 64ビットではないプラットフォームに固有のコード
 end
 ```
 
-You can use `&&`, `||` and `|`:
+`&&`/`||`/`|` を使うこともできます。
 
 ```crystal
 ifdef linux && x86_64
-  # some specific code for linux 64 bits
+  # Linux の64ビットに固有のコード
 end
 ```
 
-These flags are generally used in C bindings to conditionally define types and functions. For example the very well known `size_t` type is defined like this in Crystal:
+これらのフラグは、一般的に C 言語のバインディングにおいて、型や関数を条件に応じて定義するときに利用します。例えば、`size_t` というよく知られた型は、Crystal では以下のように定義されています。
 
 ```crystal
 lib C
@@ -41,12 +41,12 @@ lib C
 end
 ```
 
-**Note:** conditionally defining fields of a C struct or union is not currently supported. The whole type definition must be defined separately.
+**注意:** 現在のところ、C 言語の構造体や共用体のフィールドを条件に応じて定義することはできません。そのため、その全体を定義するためにはそれぞれ個別に定義する必要があります。
 
 ```crystal
 lib C
   struct SomeStruct
-    # Error: the next line gives a parser error
+    # 次の行はパースエラーとなる
     ifdef linux
       some_field : Int32
     else
@@ -67,4 +67,4 @@ lib C
 end
 ```
 
-This restriction might be lifted in the future.
+ただし、将来はこの制限が撤廃される可能性もあります。

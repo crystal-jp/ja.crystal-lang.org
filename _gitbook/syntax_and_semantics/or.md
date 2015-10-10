@@ -1,13 +1,13 @@
 # ||
 
-An `||` (or) evaluates its left hand side. If it's *falsey*, it evaluates its right hand side and has that value. Otherwise it has the value of the left hand side. Its type is the union of the types of both sides.
+`||` (または/論理和) はまず左辺を評価します。もしそれが「偽」の場合のみ、右辺に対して評価を行い、結果の値が右辺の値となります。そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせ (ユニオン型）です。
 
-You can think an `||` as syntax sugar of an `if`:
+したがって、`||` を `if` のシンタックスシュガーとして利用することもできます。
 
 ```crystal
 some_exp1 || some_exp2
 
-# The above is the same as:
+# 上記は以下と同じ
 tmp = some_exp1
 if tmp
   tmp

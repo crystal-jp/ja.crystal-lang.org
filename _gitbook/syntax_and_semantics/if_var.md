@@ -1,69 +1,69 @@
-# if var
+# if 変数
 
-If a variable is the condition of an `if`, inside the `then` branch the variable will be considered as not having the `Nil` type:
+もしある変数が `if` の条件になっているとき、`then` の分岐内においては、その値が `Nil` 型ではないと判断されます。
 
 ```crystal
 a = some_condition ? nil : 3
-# a is Int32 or Nil
+# a は Int32 か Nil のいずれか
 
 if a
-  # Since the only way to get here is if a is truthy,
-  # a can't be nil. So here a is Int32.
+  # ここに到達するためには if が真でなければならない
+  # ということは、a  が nil というのはあり得ないので、ここでは必ず Int32 である
   a.abs
 end
 ```
 
-This also applies when a variable is assigned in an `if`'s condition:
+このことは、`if` の条件で変数への代入が行われた場合にも当てはまります。
 
 ```crystal
 if a = some_expression
-  # here a is not nil
+  # ここでは a は nil ではない
 end
 ```
 
-This logic also applies if there are ands (`&&`) in the condition:
+条件で「かつ (`&&`)」が使われた場合にも同様です。
 
 ```crystal
 if a && b
-  # here both a and b are guaranteed not to be Nil
+  # ここでは a も b も Nil でないことが保証される
 end
 ```
 
-Here, the right-hand side of the `&&` expression is also guaranteed to have `a` as not `Nil`.
+`&&` 式の右辺が評価された場合、`a` が `Nil` でないことも同時に保証されることがわかると思います。
 
-Of course, reassigning a variable inside the `then` branch makes that variable have a new type based on the expression assigned.
+もちろん、`then` の分岐内で変数へ再代入を行った場合は、その代入された式に応じて変数の型は変わります。
 
-The above logic **doesn’t** work with instance variables, class variables or global variables:
+ただ、インスタンス変数、クラス変数、そしてグローバル変数の場合には、上記が **当てはまらない** ことに注意してください。
 
 ```crystal
 if @a
-  # here @a can be nil
+  # @a は nil ということもあり得る
 end
 ```
 
-This is because any method call could potentially affect that instance variable, rendering it `nil`. Another reason is that another thread could change that instance variable after checking the condition.
+これは、インスタンス変数はどんなメソッドの実行によっても影響を受ける可能性があるため、それが `nil` になる場合もあるからです。また、もう1つの理由としては、条件式のチェックが行われた後で、他のスレッドがインスタンス変数を書き換える可能性もあるからです。
 
-To do something with `@a` only when it is not `nil` you have two options:
+`@a` が `nil` ではない場合のみにある処理を実行したい場合、方法は2つあります。
 
 ```crystal
-# First option: assign it to a variable
+# 方法1: 変数に代入する
 if a = @a
-  # here a can't be nil
+  # ここでは a が nil ということはあり得ない
 end
 
-# Second option: use `Object#try` found in the standard library
+# 方法2: 標準ライブラリの `Object#try` を使う
 @a.try do |a|
-  # here a can't be nil
+  # ここでは a が nil ということはあり得ない
 end
 ```
 
-That logic also doesn't work with proc and method calls, including getters and properties, because nilable (or, more generally, union-typed) procs and methods aren't guaranteed to return the same more-specific type on two successive calls.
+Proc やメソッドの呼び出し (ゲッターやプロパティも含む) の場合にも当てはまりません。なぜなら、Nil を許容する (もしくは、複数の型の組み合わせとなるユニオン型の場合がより一般的でしょう) Proc やメソッドの呼び出しの場合、連続した呼び出しであっても、それらが常に同じ型を返すとは限らないからです。
 
 ```crystal
-if method # first call to a method that can return Int32 or Nil
-          # here we know that the first call did not return Nil
-  method  # second call can still return Int32 or Nil
+if method # メソッドの最初の呼び出し (メソッドは Int32 か Nil を返すとする)
+          # ここで、最初の呼び出しが Nil を返していないことはわかっている
+  method  # しかし、2回目の呼び出しは、また Int32 か Nil のどちらかを返す
 end
 ```
 
-The techniques described above for instance variables will also work for proc and method calls.
+こういった Proc やメソッド呼び出しの場合にも、上記でインスタンス変数に関して記載したテクニックが有効です。

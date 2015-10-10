@@ -1,23 +1,24 @@
 # sizeof
 
-The `sizeof` expression returns an `Int32` with the size in bytes of a given type. For example:
+`sizeof` は与えられた型のバイト数を `Int32` で返します。例をあげます。
 
 ```crystal
 sizeof(Int32)  #=> 4
 sizeof(Int64)  #=> 8
 ```
 
-For [Reference](http://crystal-lang.org/api/Reference.html) types, the size is the same as the size of a pointer:
+[Reference](http://crystal-lang.org/api/Reference.html) 型である場合は、そのサイズはポインタのサイズと同じになります。
 
 ```crystal
-# On a 64 bits machine
+# 64ビット処理系の場合
 sizeof(Pointer(Int32)) #=> 8
 sizeof(String)         #=> 8
 ```
 
-This is because a Reference's memory is allocated on the heap and a pointer to it is passed around. To get the effective size of a class, use [instance_sizeof](instance_sizeof.html).
+この理由は、Reference のメモリはヒープに割り当てられ、渡されるのはそこを指すポインタになるためです。
+実際のクラスのサイズを得るには [instance_sizeof](instance_sizeof.html) を使用してください。
 
-The argument to sizeof is a [type](type_grammar.html) and is often combined with [typeof](typeof.html):
+sizeof の引数は [type](type_grammar.html) なので、[typeof](typeof.html) とあわせて使うことが多いでしょう。
 
 ```crystal
 a = 1

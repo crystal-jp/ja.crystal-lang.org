@@ -1,9 +1,9 @@
-# Char
+# 文字 (Char)
 
-A [Char](http://crystal-lang.org/api/Char.html) represents a [Unicode](http://en.wikipedia.org/wiki/Unicode) [code point](http://en.wikipedia.org/wiki/Code_point).
-It occupies 32 bits.
+文字 ([Char](http://crystal-lang.org/api/Char.html)) は [Unicode](http://en.wikipedia.org/wiki/Unicode) の[コードポイント](http://en.wikipedia.org/wiki/Code_point)を表したもので、
+そのビット数は32ビットです。
 
-It is created by enclosing an UTF-8 character in single quotes.
+UTF-8 の文字をシングルクォートで囲んで記述します。
 
 ```crystal
 'a'
@@ -13,37 +13,37 @@ It is created by enclosing an UTF-8 character in single quotes.
 'あ'
 ```
 
-You can use a backslash to denote some characters:
+いくつかの文字はバックスラッシュを使って表します。
 
 ```crystal
-'\'' # single quote
-'\\' # backslash
-'\e' # escape
-'\f' # form feed
-'\n' # newline
-'\r' # carriage return
-'\t' # tab
-'\v' # vertical tab
+'\'' # シングルクォート
+'\\' # バックスラッシュ
+'\e' # エスケープ
+'\f' # フォームフィード (改ページ)
+'\n' # ニューライン (改行)
+'\r' # キャリッジリターン (復帰)
+'\t' # タブ
+'\v' # 垂直タブ
 ```
 
-You can use a backslash followed by at most three digits to denote a code point written in octal:
+バックスラッシュに続けて最大3つの数値を入力すると、8進数でコードポイントを指定することになります。
 
 ```crystal
 '\101' # == 'A'
 '\123' # == 'S'
 '\12'  # == '\n'
-'\1'   # code point 1
+'\1'   # コードポイント1
 ```
 
-You can use a backslash followed by an *u* and four hexadecimal characters to denote a unicode codepoint written:
+「*u*」に続けてバックスラッシュと16進数で4つの数値を入力することでコードポイントを示すこともできます。
 
 ```crystal
 '\u0041' # == 'A'
 ```
 
-Or you can use curly braces and specify up to six hexadecimal numbers (0 to 10FFFF):
+波カッコ (ブレース) を使うと、(0 から 10FFFF までの) 16進数を指定することも可能です。
 
 ```crystal
 '\u{41}'    # == 'A'
-'\u{1F52E}' # == '🔮'
+'\u{1F52E}' # == '  '
 ```

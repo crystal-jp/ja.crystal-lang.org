@@ -1,6 +1,6 @@
-# Structs
+# 構造体 (Struct)
 
-Instead of defining a type with `class` you can do so with `struct`:
+ある型を定義するとき、`class` ではなく `struct` を使うことで構造体を定義することができます。
 
 ```crystal
 struct Point
@@ -12,13 +12,13 @@ struct Point
 end
 ```
 
-The differences between a struct and a class are:
-* Invoking `new` on a struct allocates it on the stack instead of the heap
-* A struct is [passed by value](http://crystal-lang.org/api/Value.html) while a class is passed by reference
-* A struct implicitly inherits from [Struct](http://crystal-lang.org/api/Struct.html), which inherits from [Value](http://crystal-lang.org/api/Value.html). A class implicitly inherits from [Reference](http://crystal-lang.org/api/Reference.html).
+構造体とクラスには以下の違いがあります。
+* 構造体に対して `new` を実行するとヒープではなくスタック領域が割り当てられる
+* クラスが参照渡しであるのに対して、構造体は[値渡し](http://crystal-lang.org/api/Value.html)である
+* 構造体は暗黙的に [Struct](http://crystal-lang.org/api/Struct.html) を継承し、Struct は [Value](http://crystal-lang.org/api/Value.html) を継承している。一方クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承する
 
-A struct can inherit from other structs and can also includes modules. A struct can be generic, just like a class.
+構造体は他の構造体を継承することができ、モジュールをインクルードすることも可能です。また、クラスと同様に、構造体をジェネリック型にすることもできます。
 
-A struct is mostly used for performance reasons to avoid lots of small memory allocations when passing small copies might be more efficient.
+構造体を使うのは主にパフォーマンス上の理由からです。小さいコピーを渡す方がより効率的である場合には、構造体を使うことで、わずかなメモリの割り当てが大量に発生することを避けられます。
 
-So how do you choose between a struct and a class? The rule of thumb is that if no instance variable is ever reassigned, i.e. your type is immutable, you can use a struct, otherwise use a class.
+ただ、具体的にクラスと構造体をどのように使い分ければよいのでしょうか？これまでの経験から言うと、もしインスタンス変数への再代入が全く発生しない場合 (例えばその型がイミュータブルな場合など) には構造体を使い、それ以外の場合はクラスを使うのが良いでしょう。

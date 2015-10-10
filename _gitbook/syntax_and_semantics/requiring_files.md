@@ -1,24 +1,24 @@
-# Requiring files
+#ファイルの require
 
-Writing a program in a single file is OK for little snippets and small benchmark code. Big programs are better maintained and understood when split across different files.
+小さなプログラムやベンチマーク用途のコードであれば1つのファイルに書いても OK ですが、大きなプログラムの場合は、複数のファイルに分けることでメンテナンスが楽になり、また理解もしやすくなります。
 
-To make the compiler process other files you use `require "..."`. It accepts a single argument, a string literal, and it can come in many flavors.
+コンパイラに別のファイルを処理させたいときは `require "..."` を使用します。引数には1つの文字列リテラルをとり、その書き方によって様々な形式で対象を指定することができます。
 
-Once a file is required, the compiler remembers its absolute path and later `require`s of that same file will be ignored.
+ファイルが `require` されると、コンパイラはその絶対パスを記憶し、以降ではそのファイルに対する `require` は無視されます。
 
-## require "filename"
+## require "ファイル名"
 
-This looks up "filename" in the require path.
+このように記述した場合、require パスの中で「ファイル名」のファイルを探します。
 
-By default the require path is the location of the standard library that comes with the compiler, and the "libs" directory relative to the current working directory (given by `pwd` in a unix shell). These are the only places that are looked up.
+デフォルトの require パスは、コンパイラとあわせて提供される標準ライブラリと、カレントディレクトリ  (UNIX シェルで言う `pwd`) から相対的に指定される「libs」ディレクトリ となっています。探索の対象となるディレクトリはこれらのみです。
 
-The lookup goes like this:
+ファイルの探索は以下の流れで処理されます。
 
-* If a file named "filename.cr" is found in the require path, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* Otherwise a compile-time error is issued.
+* もし「ファイル名.cr」というファイルが require パスに見つかれば、そのファイルをロードする
+* もし「ファイル名」のディレクトリが見つかり、そこに「ファイル名.cr」というファイルが含まれていれば、そのファイルをロードする
+* それ以外の場合はコンパイルエラーとなる
 
-The second rule is very convenient because of the typical directory structure of a project:
+特に2番目のルールは、プロジェクトの典型的なデイレクトリ構造にマッチしているためとても便利です。
 
 ```
 - project
@@ -35,31 +35,31 @@ The second rule is very convenient because of the typical directory structure of
 
 ## require "./filename"
 
-This looks up "filename" relative to the file containing the require expression.
+このように記述した場合、require を実行したファイルから相対的に「ファイル名」のファイルを探します。
 
-The lookup goes like this:
+ファイルの探索は以下の流れで処理されます。
 
-* If a file named "filename.cr" is found relative to the current file, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* Otherwise a compile-time error is issued.
+* もし「ファイル名.cr」というファイルが現在のファイルからの相対パスに見つかれば、そのファイルをロードする
+* もし「ファイル名」のディレクトリが見つかり、そこに「ファイル名.cr」というファイルが含まれていれば、そのファイルをロードする
+* それ以外の場合はコンパイルエラーとなる
 
-This relative is mostly used inside a project to refer to other files inside it. It is also used to refer to code from specs:
+この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、spec からコードを参照する場合にも利用されます。
 
 ```crystal
-# in spec/project_spec.cr
+# spec/project_spec.cr
 require "../src/project"
 ```
 
-## Other forms
+## その他の形式
 
-In both cases you can use nested names and they will be looked up in nested directories:
+上記したどちらのケースでも、ネストされた形式で名前を指定することが可能で、その場合にはネストされたデイレクトリを探索します。
 
-* `require "foo/bar/baz"` will lookup "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" in the require path.
-* `require "./foo/bar/baz"` will lookup "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" relative to the current file.
+* `require "foo/bar/baz"` は require パスの「foo/bar/baz.cr」または「foo/bar/baz/baz.cr」を探す
+* `require "./foo/bar/baz"` は現在のファイルから相対的に「foo/bar/baz.cr」または「foo/bar/baz/baz.cr」を探す
 
-You can also use "../" to access parent directories relative to the current file, so `require "../../foo/bar"` works as well.
+また、「../」を使えば、現在のファイルの親ディレクトリを指定することができます。`require "../../foo/bar"` のように書くことも同様に可能です。
 
-In all of these cases you can use the special `*` and `**` suffixes:
+これらのすべてのケースにおいて、 `*` と `**` という特別なサフィックスを利用することができます。
 
-* `require "foo/*"` will require all ".cr" files below the "foo" directory, but not below directories inside "foo".
-* `require "foo/**"` will require all ".cr" files below the "foo" directory, and below directories inside "foo", recursively.
+* `require "foo/*"` は「foo」デイレクトリにあるすべての「.cr」ファイルを require し、「foo」内のディレクトリの中は参照しない
+* `require "foo/**"` は「foo」デイレクトリにあるすべての「.cr」ファイルを require し、さらに「foo」以下のディレクトリを再帰的に参照する

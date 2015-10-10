@@ -1,6 +1,6 @@
-# Conventions
+# 規約
 
-Follow these conventions so your code will be more accessible to other developers.
+他の開発者が利用しやすいように、以下の規約に沿ってコードを書くようにしましょう。
 
-* Use [standard coding style](coding_style.md) so your project will be navigable and readable to others.
-* Write [documentation](documenting_code.md) to express purpose of your code and support the `crystal doc` generator.
+* [標準コーディングスタイル](coding_style.md) を利用してください。そうすれば、あなたのプロジェクトは他の人にとって追いかけやすく読みやすいものになるでしょう。
+* コードの目的を説明するための[ドキュメント](documenting_code.md)を書いてください。 そして、`crystal doc` ジェネレータをサポートしましょう。

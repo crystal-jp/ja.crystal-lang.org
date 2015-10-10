@@ -1,19 +1,19 @@
-# Overview
+# 概要
 
-You can read this document from top to bottom, but it’s advisable to jump through sections because some concepts are interrelated and can’t be explained in isolation.
+本ドキュメントは基本的に最初から順番に読んでいけるように構成されています。ただ、コンセプトによっては、それぞれのコンセプトが相互に関連していて、どうしても単独では説明が難しいものがあります。そういった場合には、順番にこだわらず、別のセクションにジャンプしながら読み進めるのがよいでしょう。
 
-In code examples, the comment `#=>` is used to show the value of an expression. For example:
+コードの例では、ある式の結果の値を示すために `#=>` というコメントを使用します。例をあげます。
 
 ```crystal
 a = 1 + 2
 a #=> 3
 ```
 
-A comment using `::` is used for showing the type of a variable.
+また、コメントの `::` は、変数の型を示すために利用されます。
 
 ```crystal
 s = "hello"
 # s :: String
 ```
 
-Let's start with two examples to familiarize ourselves with the language.
+それでは、まずはこれから紹介する2つのプログラムの例を見ながら、Crystal に親しんでいきましょう。

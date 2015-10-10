@@ -1,10 +1,10 @@
-# Range
+# 範囲 (Range)
 
-A [Range](http://crystal-lang.org/api/Range.html) is typically constructed with a range literal:
+範囲 ([Range](http://crystal-lang.org/api/Range.html)) オブジェクトを作るには範囲リテラルを使います。
 
 ```crystal
-x..y  # an inclusive range, in mathematics: [x, y]
-x...y # an exclusive range, in mathematics: [x, y)
+x..y  # 右側の値を「含む」範囲です。数学的には閉区間となります: [x, y]
+x...y # 右側の値を「含まない」範囲です。数学的には左閉右開区間となります: [x, y)
 ```
 
-An easy way to remember which one is inclusive and which one is exclusive it to think of the extra dot as if it pushes *y* further away, thus leaving it outside of the range.
+上記の「右側の値を含む/含まない」記法の簡単な覚え方を紹介します。ドットが1つ多くついているから、それだけ *y* が遠くに押し出されているのをイメージしてください。だからそのとき遠くの *y* は範囲に含まれない、というわけです。

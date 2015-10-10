@@ -1,20 +1,20 @@
-# Type restrictions
+# 型制約
 
-Type restrictions are type annotations put to method arguments to restrict the types accepted by that method.
+メソッドの引数に型アノテーションを指定することで、メソッドが受け取ることができる型を制約することが可能です。
 
 ```crystal
 def add(x : Number, y : Number)
   x + y
 end
 
-# Ok
-add 1, 2 # Ok
+# これは OK
+add 1, 2
 
 # Error: no overload matches 'add' with types Bool, Bool
 add true, false
 ```
 
-Note that if we had defined `add` without type restrictions, we would also have gotten a compile time error:
+ただし、`add` に型制約をしていなかった場合でも、このコードはコンパイルエラーになります。
 
 ```crystal
 def add(x, y)
@@ -24,7 +24,7 @@ end
 add true, false
 ```
 
-The above code gives this compile error:
+このとき以下のコンパイルエラーが発生します。
 
 ```
 Error in foo.cr:6: instantiating 'add(Bool, Bool)'
@@ -38,19 +38,19 @@ in foo.cr:2: undefined method '+' for Bool
     ^
 ```
 
-This is because when you invoke `add`, it is instantiated with the types of the arguments: every method invocation with a different type combination results in a different method instantiation.
+この理由は、`add` を実行するとき、そのメソッドは引数の型にしたがって初期化される、ということによります。つまり、異なる型を与えてメソッドを実行すると、メソッドを初期化した結果もそれぞれ異なるものとなるからです。
 
-The only difference is that the first error message is a little more clear, but both definitions are safe in that you will get a compile time error anyway. So, in general, it's preferable not to specify type restrictions and almost only use them to define different method overloads. This results in more generic, reusable code. For example, if we define a class that has a `+` method but isn't a `Number`, we can use the `add` method that doesn't have type restrictions, but we can't use the `add` method that has restrictions.
+前者のエラーメッセージの方がより明快であるという少しの違いはあるものの、コンパイル時にエラーが発生するという点では、これらはどちらも安全な定義のしかたであると言えます。したがって、通常は型制約を使わず、メソッドをオーバーロードするときにのみ使用するくらいが好ましいでしょう。その方がより汎用的で、再利用しやすいコードになります。例えば、`Number` ではないクラスが `+` メソッドを持っている場合を考えてみてください。もし `add` というメソッドが型制約を持たない場合、それらのクラスを利用することができますが、型制約がある場合には利用することができません。
 
 ```crystal
-# A class that has a + method but isn't a Number
+# + メソッドを持っているが Number ではないクラス
 class Six
   def +(other)
     6 + other
   end
 end
 
-# add method without type restrictions
+# 型制約のない add メソッド
 def add(x, y)
   x + y
 end
@@ -58,7 +58,7 @@ end
 # OK
 add Six.new, 10
 
-# add method with type restrictions
+# 型制約のある add メソッド
 def restricted_add(x : Number, y : Number)
   x + y
 end
@@ -67,11 +67,11 @@ end
 restricted_add Six.new, 10
 ```
 
-Refer to the [type grammar](type_grammar.html) for the notation used in type restrictions.
+型制約を設定する際の記載方法については[型文法](type_grammar.html)を参照してください。
 
-## self restriction
+## self 制約
 
-A special type restriction is `self`:
+型制約には `self` を使った特別な指定方法があります。
 
 ```crystal
 class Person
@@ -89,15 +89,15 @@ another_john = Person.new "John"
 peter = Person.new "Peter"
 
 john == another_john #=> true
-john == peter #=> false (names differ)
-john == 1 #=> false (because 1 is not a Person)
+john == peter #=> false (name が異なるため)
+john == 1 #=> false (1 は Person ではないため)
 ```
 
-In the previous example `self` is the same as writing `Person`. But, in general, `self` is the same as writing the type that will finally own that method, which, when modules are involved, becomes more useful.
+上記の例では、`self` を指定するのは、そのまま `Person` と書くことと同じです。しかし、`self` と書くことで自身の型を指定できることは、メソッドを定義したモジュールがインクルードされて、そのメソッドを持つのが最終的にインクルードした側の型になる場合により便利です。
 
-As a side note, since `Person` inherits `Reference` the second definition of `==` is not needed, since it's already defined in `Reference`.
+また、これは補足ですが、`Person` は `Reference` を継承しているため、実際には2つ目の `==` を定義する必要はありません。 同様のメソッドが `Reference` で定義されています。
 
-Note that `self` always represents a match against an instance type, even in class methods:
+注意点として、それがもしクラスメソッドの中であったとしても、`self` は常にインスタンスの型に対してのチェックとなります。
 
 ```crystal
 class Person
@@ -112,31 +112,31 @@ peter = Person.new "Peter"
 Person.compare(john, peter) # OK
 ```
 
-You can use `self.class` to restrict to the Person type. The next section talks about the `.class` suffix in type restrictions.
+制約の対象を Person クラスにする場合には、`self.class` を使用してください。次のセクションで型制約における `.class` サフィックスについて記載します。
 
-## Classes as restrictions
+## クラスによる制約
 
-Using, for example, `Int32` as a type restriction makes the method only accept instances of `Int32`:
+例えば、`Int32` の型に制約したとき、メソッドは `Int32` のインスタンスのみしか受け入れません。
 
 ```crystal
 def foo(x : Int32)
 end
 
 foo 1       # OK
-foo "hello" # Error
+foo "hello" # エラー
 ```
 
-If you want a method to only accept the type Int32 (not instances of it), you use `.class`:
+もし、メソッドが (そのインスタンスではなく) `Int32` というクラスだけを受け入れるようにしたい場合、`.class` を使用します。
 
 ```crystal
 def foo(x : Int32.class)
 end
 
 foo Int32  # OK
-foo String # Error
+foo String # エラー
 ```
 
-The above is useful for providing overloads based on types, not instances:
+これは、インスタンスではなく型によってメソッドをオーバーロードしたい場合に便利です。
 
 ```crystal
 def foo(x : Int32.class)
@@ -147,13 +147,13 @@ def foo(x : String.class)
   puts "Got String"
 end
 
-foo Int32  # prints "Got Int32"
-foo String # prints "Got String"
+foo Int32  # "Got Int32" を表示
+foo String # "Got String" を表示
 ```
 
-## Type restrictions in splats
+## splat 展開での型制約
 
-You can specify type restrictions in splats:
+splat 展開でも型制約を利用することができます。
 
 ```crystal
 def foo(*args : Int32)
@@ -162,23 +162,23 @@ end
 def foo(*args : String)
 end
 
-foo 1, 2, 3       # OK, invokes first overload
-foo "a", "b", "c" # OK, invokes second overload
-foo 1, 2, "hello" # Error
-foo()             # Error
+foo 1, 2, 3       # OK、最初のオーバーロードを実行
+foo "a", "b", "c" # OK, 2つ目のオーバーロードを実行
+foo 1, 2, "hello" # エラー
+foo()             # エラー
 ```
 
-When specifying a type, all elements in a tuple must match that type. Additionally, the empty-tuple doesn't match any of the above cases. If you want to support the empty-tuple case, add another overload:
+このように型を指定した場合、タプルのすべての要素がその型である必要があります。また、空のタプルは上記の例ではマッチしません。もし空のタプルもサポートしたいのであれば、もう1つオーバーロードを追加してください。
 
 ```crystal
 def foo
-  # This is the empty-tuple case
+  # 空のタプルの場合
 end
 ```
 
-## Free variables
+## 自由変数
 
-If you use a single uppercase letter as a type restriction, the identifier becomes a free variable:
+型制約において、型を1文字の大文字で指定するとその識別子は自由変数となります。
 
 ```crystal
 def foo(x : T)
@@ -189,9 +189,9 @@ foo(1)       #=> Int32
 foo("hello") #=> String
 ```
 
-That is, `T` becomes the type that was effectively used to instantiate the method.
+つまり、`T` が型を示すため、メソッドを初期化する際に効果的に利用することができます。
 
-A free variable can be used to extract the type parameter of a generic type within a type restriction:
+自由変数は、型制約でジェネリック型を指定する場合に、そのパラメータの型を展開することにも使えます。
 
 ```crystal
 def foo(x : Array(T))
@@ -202,7 +202,7 @@ foo([1, 2])   #=> Int32
 foo([1, "a"]) #=> (Int32 | String)
 ```
 
-To create a method that accepts a type name, rather than an instance of a type, append `.class` to a free variable in the type restriction:
+型のインスタンスではなく、型自体の名前を利用したい場合は、型制約の自由変数に `.class` を追加してください。
 
 ```crystal
 def foo(x : T.class)
@@ -213,7 +213,7 @@ foo(Int32)  #=> Array(Int32)
 foo(String) #=> Array(String)
 ```
 
-## Free variables in constructors
+## コンストラクタにおける自由変数
 
-Free variables allow type inference to be used when creating generic types. Refer to the [Generics](generics.html) section.
+自由変数を使うことで、ジェネリック型を作るときに型推論を行うことができます。詳しくは[ジェネリクス](generics.html)を参照してください。
 

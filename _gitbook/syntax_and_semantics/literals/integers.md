@@ -1,13 +1,11 @@
-# Integers
+# 整数 (Integer)
 
-There are four signed integer types: [Int8](http://crystal-lang.org/api/Int8.html), [Int16](http://crystal-lang.org/api/Int16.html), [Int32](http://crystal-lang.org/api/Int32.html) and [Int64](http://crystal-lang.org/api/Int64.html), being able to represent numbers of 8, 16, 32 and 64 bits respectively.
+符号付き整数 (Integer) 型には4種類のものがあります。それは、[Int8](http://crystal-lang.org/api/Int8.html)、[Int16](http://crystal-lang.org/api/Int16.html)、[Int32](http://crystal-lang.org/api/Int32.html) そして [Int64](http://crystal-lang.org/api/Int64.html)で、それぞれ 8/16/32/64 ビットの数値を表現することが可能です。
 
-There are four unsigned integer types: [UInt8](http://crystal-lang.org/api/UInt8.html), [UInt16](http://crystal-lang.org/api/UInt16.html), [UInt32](http://crystal-lang.org/api/UInt32.html) and [UInt64](http://crystal-lang.org/api/UInt64.html).
+符号なし整数型にも、[UInt8](http://crystal-lang.org/api/UInt8.html)、[UInt16](http://crystal-lang.org/api/UInt16.html)、[UInt32](http://crystal-lang.org/api/UInt32.html) そして [UInt64](http://crystal-lang.org/api/UInt64.html) の4種類が存在します。
 
-An integer literal is an optional `+` or `-` sign, followed by
-a sequence of digits and underscores, optionally followed by a suffix.
-If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
-in which the number fits:
+整数リテラルは、`+` (オプション) または `-` 符号に続く数値とアンダースコアによって記述し、オプションでサフィックスを与えます。
+もしサフィックスがない場合は、リテラルの型は `Int32`/`Int64`/`UInt64`のいずれかのうち、数値に合致する最も小さいものになります。
 
 ```crystal
 1      # Int32
@@ -29,27 +27,27 @@ in which the number fits:
 9223372036854775808 # UInt64
 ```
 
-The underscore `_` before the suffix is optional.
+サフィックスの前のアンダースコア (`_`) はオプションです。
 
-Underscores can be used to make some numbers more readable:
+アンダースコアは、数値を読みやすくするためにも利用できます。
 
 ```crystal
-1_000_000 # better than 1000000
+1_000_000 # 1000000 より読みやすい
 ```
 
-Binary numbers start with `0b`:
+先頭に `0b` をつけると2進数になります。
 
 ```crystal
 0b1101 # == 13
 ```
 
-Octal numbers start with a `0o`:
+先頭に `0o` をつけると8進数になります。
 
 ```crystal
 0o123 # == 83
 ```
 
-Hexadecimal numbers start with `0x`:
+先頭に `0x` をつけると16進数になります
 
 ```crystal
 0xFE012D # == 16646445

@@ -1,6 +1,6 @@
-# HTTP Server
+# HTTP サーバー
 
-A slightly more interesting example is an HTTP Server:
+もう少し興味深いプログラムを見てみましょう。こちらは HTTP サーバーの例になります。
 
 ```crystal
 require "http/server"
@@ -13,22 +13,22 @@ puts "Listening on http://0.0.0.0:8080"
 server.listen
 ```
 
-The above code will make sense once you read the whole documentation, but we can already learn some things.
+上記のコードをすべて理解するためにはこのドキュメント全体を読む必要がありますが、ここでいくつかの点について説明しておきます。
 
-* You can [require](../syntax_and_semantics/requiring_files.html) code defined in other files:
+* [require](../syntax_and_semantics/requiring_files.html) で、他のファイルで定義されたコードを読み込むことができます
 
-    ```ruby
+    ```crystal
     require "http/server"
     ```
-* You can define [local variables](../syntax_and_semantics/local_variables.html) without the need to specify their type:
+* 型を指定することなく[ローカル変数](../syntax_and_semantics/local_variables.html)を定義することができます
 
-    ```ruby
+    ```crystal
     server = HTTP::Server.new ...
     ```
 
-* You program by invoking [methods](../syntax_and_semantics/classes_and_methods.html) (or sending messages) to objects.
+* オブジェクトに対して[メソッド](../syntax_and_semantics/classes_and_methods.html)を実行 (またはメッセージを送信) することでプログラムを構築します
 
-    ```ruby
+    ```crystal
     HTTP::Server.new(8000) ...
     ...
     Time.now
@@ -38,17 +38,17 @@ The above code will make sense once you read the whole documentation, but we can
     server.listen
     ```
 
-* You can use code blocks, or simply [blocks](../syntax_and_semantics/blocks_and_procs.html), which are a very convenient way to reuse code and get some features from the functional world:
+* [ブロック](../syntax_and_semantics/blocks_and_procs.html)を使うと簡単にコードを再利用することができ、また、関数型の世界にあるいくつかの機能を利用することが可能になります
 
-    ```ruby
+    ```crystal
     HTTP::Server.new(8080) do |request|
       ...
     end
     ```
 
-* You can easily create strings with embedded content, known as string interpolation. The language comes with other [syntax](../syntax_and_semantics/literals.html) as well to create arrays, hashes, ranges, tuples and more:
+* 文字列埋め込み (string interpolation) を使うと、簡単に文字列に式を埋め込むことができます。Crystal にはその他にも多くの[シンタックス](../syntax_and_semantics/literals.html)があります。例えば、array や hash、そして range や tuple などです
 
-    ```ruby
+    ```crystal
     "Hello world! The time is #{Time.now}"
     ```
 

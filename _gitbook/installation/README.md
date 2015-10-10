@@ -1,12 +1,12 @@
-# Installation
+# インストール
 
-Once you install the compiler using one of the following methods, make sure to read [Using the compiler](../using_the_compiler/README.md) to learn how to efficiently use it.
+Crystal のコンパイラは以下のいずれかの方法でインストールすることができます。インストール後は、[「コンパイラを使用する」](../using_the_compiler/README.md)を読んで、コンパイラの活用方法について知りましょう。
 
-* [On Debian And Ubuntu](on_debian_and_ubuntu.html)
-* [On RedHat And CentOS](on_redhat_and_centos.html)
-* [On Arch Linux](on_arch_linux.html)
-* [On Mac OSX using Homebrew](on_mac_osx_using_homebrew.html)
-* [From a tar.gz](from_a_targz.html)
-* [From sources](from_source_repository.html)
+* [Debian や Ubuntu](on_debian_and_ubuntu.html)
+* [RedHat や CentOS](on_redhat_and_centos.html)
+* [Arch Linux](on_arch_linux.html)
+* [Mac OS X (Homebrew を利用)](on_mac_osx_using_homebrew.html)
+* [tar.gz からインストール](from_a_targz.html)
+* [ソースコードからインストール](from_source_repository.html)
 
 

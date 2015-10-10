@@ -1,6 +1,6 @@
-# type
+# 型 (type)
 
-A `type` declaration inside a `lib` declares a kind of C `typedef`, but stronger:
+`lib` 宣言の内部で `type` を宣言すると、C の `typedef` の宣言に近いことができます。ただし、より厳密です。
 
 ```crystal
 lib X
@@ -8,7 +8,7 @@ lib X
 end
 ```
 
-Unlike C, `Int32` and `MyInt` are not interchangeable:
+C とは異なり、`Int32` と `MyInt` を相互に交換することはできません。
 
 ```crystal
 lib X
@@ -17,10 +17,10 @@ lib X
   fun some_fun(value : MyInt)
 end
 
-X.some_fun 1 # Error: argument 'value' of 'X#some_fun'
-             # must be X::MyInt, not Int32
+X.some_fun 1 # エラー: 'X#some_fun' の引数 'value' は
+             # Int32 ではなく X::MyInt でなければならない
 ```
 
-Thus, a `type` declaration is useful for opaque types that are created by the C library you are wrapping. An example of this is the C `FILE` type, which you can obtain with `fopen`.
+したがって、ラップしようとしている C ライブラリによって生成された不透明な型 (opaque type) に対して、`type` 宣言を有効に利用することができます。この例としては、`fopen` によって得られる C の `FILE` 型をあげられます。
 
-Refer to the [type grammar](type_grammar.html) for the notation used in typedef types.
+typedef の型を設定する際の記載方法については[型文法](type_grammar.html)を参照してください。

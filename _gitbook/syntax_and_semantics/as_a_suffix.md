@@ -1,14 +1,14 @@
-# As a suffix
+# 後置 if
 
-An `if` can be written as an expression’s suffix:
+`if` は式に後置して使うことができます。
 
 ```crystal
 a = 2 if some_condition
 
-# The above is the same as:
+# 上記は以下と同じ
 if some_condition
   a = 2
 end
 ```
 
-This sometimes leads to code that is more natural to read.
+この方がコードが読みやすくなる場合もあるでしょう。

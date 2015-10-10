@@ -1,10 +1,10 @@
-# Coding Style
+# コーディングスタイル
 
-This style is used in the standard library. You can use it in your own project to make it familiar to other developers.
+このコーディングスタイルは標準ライブラリで使われているものです。自分のプロジェクトでもこのスタイルを利用することで、他の開発者に親しみやすいものにすることができるでしょう。
 
-## Naming
+## 命名
 
-__Type names__ are camelcased. For example:
+__型の名前__はキャメルケースとします。例をあげます。
 
 ```crystal
 class ParseError < Exception
@@ -27,7 +27,7 @@ enum Time::DayOfWeek
 end
 ```
 
-__Method names__ are underscore-cased. For example:
+__メソッド名__はアンダースコア区切りとします。例をあげます。
 
 ```crystal
 class Person
@@ -42,7 +42,7 @@ class Person
 end
 ```
 
-__Variable names__ are underscore-cased. For example:
+__変数名__はアンダースコア区切りとします。例をあげます。
 
 ```crystal
 $global_greeting = "Hello world"
@@ -60,42 +60,42 @@ class Greeting
 end
 ```
 
-__Constants__ are screaming-cased. For example:
+__定数__はすべて大文字とします。例をあげます。
 
 ```crystal
 LUCKY_NUMBERS = [3, 7, 11]
 DOCUMENTATION_URL = "http://crystal-lang.org/docs"
 ```
 
-### Acronyms
+### 頭字語 (Acronym)
 
-In class names, acronyms are _all-uppercase_. For example, `HTTP`, and `LibXML`.
+クラス名では、頭字語は「すべて大文字」とします。例えば、`HTTP` や `LibXML` などです。
 
-In method names, acronyms are _all-lowercase_.  For example `#from_json`,  `#to_io`.
+メソッド名では、頭字語は「すべて小文字」とします。例えば、`#from_json` や `#to_io` などです。
 
-### Libs
+### ライブラリ (Lib)
 
-`Lib` names are prefixed with `Lib`. For example: `LibC`, `LibEvent2`.
+ライブラリ (`Lib`) の名前は先頭に `Lib` をつけます。例えば、`LibC` や `LibEvent2` などです。
 
-### Directory and File Names
+### ディレクトリとファイル名
 
-Within a project:
+プロジェクト内では以下のようにします。
 
-- `/` contains a readme, any project configurations (eg, CI or editor configs), and any other project-level documentation (eg, changelog or contributing guide).
-- `src/` contains the project's source code.
-- `spec/` contains the project's specs, which can be run with `crystal spec`.
-- `bin/` contains any executables.
+- `/` には、README、 (CI や editor config などの) プロジェクトの設定、そして、(changelog や contributing guide などの) プロジェクト全体のドキュメントを配置します。
+- `src/` にはプロジェクトのソースコードを配置します。
+- `spec/` には、`crystal spec` によって起動するプロジェクトの spec を配置します。
+- `bin/` には実行ファイルを配置します。
 
-File paths match the namespace of their contents. Files are named after the class or namespace they define, with _underscore-case_.
+ファイルパスは、そのファイルの内容の名前空間と一致するようにします。ファイル名は、そこで定義されるクラスや名前空間にしたがって、「アンダースコア区切り」で命名します。
 
-For example, `HTTP::WebSocket` is defined in `src/http/web_socket.cr`.
+例えば、`HTTP::WebSocket` は `src/http/web_socket.cr` で定義されています。
 
-## Whitespace
+## 空白 (whitespace)
 
-Use __two spaces__ to indent code inside namespaces, methods, blocks or other nested contexts. For example:
+名前空間やメソッド、そしてブロックやその他のネストされた内容をインデントするには、「スペース2つ」を使用してください。例をあげます。
 
 ```crystal
-module Scorecard  
+module Scorecard
   class Parser
     def parse(score_text)
       begin
@@ -103,17 +103,17 @@ module Scorecard
           handle_match(match)
         end
       rescue err : ParseError
-        # handle error ...
+        # ハラーハンドリング…
       end
     end
   end
 end
 ```
 
-Within a class, separate method definitions, constants and inner class definitions with __one newline__. For example:
+クラス内で、メソッド定義や定数、そして内部のクラス定義は「間を1行空ける」ことで分割してください。例をあげます。
 
 ```crystal
-module Money  
+module Money
   CURRENCIES = {
     "EUR" => 1.0,
     "ARS" => 10.55,
@@ -133,7 +133,7 @@ module Money
     end
 
     def amount
-      # implement conversion ...
+      # 変換の実装…
     end
   end
 end

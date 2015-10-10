@@ -1,6 +1,6 @@
-# Class variables
+# クラス変数
 
-Class variables are associated to classes instead of instances. They are prefixed with two "at" signs (`@@`). For example:
+クラス変数は、インスタンスにではなくクラス自身に結びついているもので、先頭に2つのアットマーク (`@@`) が付きます。例をあげます。
 
 ```crystal
 class Counter
@@ -22,9 +22,9 @@ Counter.new
 Counter.instances #=> 3
 ```
 
-Class variables can be read and written from class methods or instance methods.
+クラス変数は、クラスメソッドかインスタンスメソッドから読み書きすることができます。
 
-If a class variable is read before it is assigned a value, it will include the `Nil` type:
+もし値が代入される前にクラス変数を読み込むと、それは `Nil` 型を持つものとして解釈されます。
 
 ```crystal
 class Counter
@@ -36,7 +36,7 @@ end
 Counter.increment # Error: undefined method '+' for Nil
 ```
 
-Class variables are always associated to a single type and are not inherited:
+クラス変数は常に単一の型に結びついており、継承されることはありません。
 
 ```crystal
 class Parent
@@ -52,4 +52,4 @@ end
 Child.counter #=> nil
 ```
 
-Class variables can also be associated to modules and structs. Like above, they are not inherited by including types.
+クラス変数をモジュールや構造体に設定することも可能です。その場合も、上記と同様に、インクルードによってクラス変数が引き継がれることはありません。

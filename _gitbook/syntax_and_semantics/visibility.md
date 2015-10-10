@@ -1,10 +1,10 @@
-# Visibility
+# 可視性
 
-Methods are public by default: the compiler will always let you invoke them. Because public is the default if there is no `public` keyword.
+メソッドのデフォルトの可視性は public になっており、どこからでも実行することが可能です。したがって、`public` というキーワードは存在しません。
 
-Methods can be marked as `private` or `protected`.
+メソッドには `private` または `protected` を指定することができます。
 
-A `private` method can only be invoked without a receiver, that is, without something before the dot:
+`private` メソッドはレシーバの指定なしでのみ実行可能です。つまり、ドットを使わない形でしか実行できないということです。
 
 ```crystal
 class Person
@@ -13,16 +13,16 @@ class Person
   end
 
   def say_hello
-    say "hello" # OK, no receiver
-    self.say "hello" # Error, self is a receiver
+    say "hello" # レシーバなしなので OK
+    self.say "hello" # self というレシーバが指定されているのでエラー
 
     other = Person.new "Other"
-    other.say "hello" # Error, other is a receiver
+    other.say "hello" # other というレシーバが指定されているのでエラー
   end
 end
 ```
 
-Note that `private` methods are visible by subclasses:
+`private` メソッドがサブクラスからも実行可能であることに注意してください。
 
 ```crystal
 class Employee < Person
@@ -32,7 +32,7 @@ class Employee < Person
 end
 ```
 
-A `protected` method can only be invoked on instances of the same type as the current type:
+`protected` メソッドは、その型と同一の型のインスタンスに対してのみ実行可能です。
 
 ```crystal
 class Person
@@ -41,28 +41,28 @@ class Person
   end
 
   def say_hello
-    say "hello" # OK, implicit self is a Person
-    self.say "hello" # OK, self is a Person
+    say "hello" # 暗黙の self が Person なので OK
+    self.say "hello" # self は Person なので OK
 
     other = Person.new "Other"
-    other.say "hello" # OK, other is a Person
+    other.say "hello" # other は Person なので OK
   end
 end
 
 class Animal
   def make_a_person_talk
     person = Person.new
-    person.say "hello" # Error, person is a Person
-                       # but current type is an Animal
+    person.say "hello" # person は Person だが
+                       # 現在の型が Animal なのでエラー
   end
 end
 
 one_more = Person.new "One more"
-one_more.say "hello" # Error, one_more is a Person
-                     # but current type is the Program
+one_more.say "hello" # one_more が Person だが
+                     # 現在の型が Program なのでエラー
 ```
 
-A `protected` class method can be invoked from an instance method and the other way around:
+`protected` のクラスメソッドはインスタンスメソッドから実行することが可能で、その反対の場合も同様です。
 
 ```crystal
 class Person
@@ -76,22 +76,22 @@ class Person
 end
 ```
 
-## Private top-level methods
+## トップレベルの private メソッド
 
-A `private` top-level method is only visible in the current file.
+トップレベルに定義された `private` メソッドはそのファイルの中でのみ見えます。
 
 ```crystal
-# In file one.cr
+# one.cr ファイル
 private def greet
   puts "Hello"
 end
 
 greet #=> "Hello"
 
-# In file two.cr
+# two.cr ファイル
 require "./one"
 
 greet # undefined local variable or method 'greet'
 ```
 
-This allows you to define helper methods in a file that will only be known in that file.
+このことで、あるファイルの中でのみ利用できるヘルパーメソッドを定義することが可能です。

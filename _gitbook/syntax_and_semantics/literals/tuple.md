@@ -1,6 +1,6 @@
-# Tuple
+# タプル (Tuple)
 
-A [Tuple](http://crystal-lang.org/api/Tuple.html) is typically created with a tuple literal:
+タプル ([Tuple](http://crystal-lang.org/api/Tuple.html)) を作るには、以下のタプルリテラルを使います。
 
 ```crystal
 tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
@@ -9,4 +9,4 @@ tuple[1]                  #=> "hello" (String)
 tuple[2]                  #=> 'x'     (Char)
 ```
 
-To create an empty tuple use [Tuple.new](http://crystal-lang.org/api/Tuple.html#new%28%2Aargs%29-class-method).
+空のタプルを作りたい場合は、[Tuple.new](http://crystal-lang.org/api/Tuple.html#new%28%2Aargs%29-class-method) を使用してください。

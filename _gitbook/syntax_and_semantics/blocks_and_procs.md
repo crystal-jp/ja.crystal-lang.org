@@ -1,7 +1,6 @@
-# Blocks and Procs
+# ブロックと Proc
 
-Methods can accept a block of code that is executed
-with the `yield` keyword. For example:
+メソッドはコードブロックをとることができ、そのブロックは `yield` キーワードによって実行されます。例をあげます。
 
 ```crystal
 def twice
@@ -14,9 +13,9 @@ twice do
 end
 ```
 
-The above program prints "Hello!" twice, once for each `yield`.
+上記のプログラムでは、`yield` ごとに「Hello!」が出力されるので、「Hello!」が計2回出力されます。
 
-To define a method that receives a block, simply use `yield` inside it and the compiler will know. You can make this more evident by declaring a dummy block argument, indicated as a last argument prefixed with ampersand (`&`):
+ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはブロックを受け取るメソッドであることを理解します。ダミーのブロック引数を宣言することで、上記をより明確に示すことも可能です。先頭がアンパサンド (`&`) の引数を最後の引数として設定してください。
 
 ```crystal
 def twice(&block)
@@ -25,7 +24,7 @@ def twice(&block)
 end
 ```
 
-To invoke a method and pass a block, you use `do ... end` or `{ ... }`. All of these are equivalent:
+ブロックを渡してメソッドを実行するには、`do ... end` もしくは `{ ... }` を使用します。以下はすべて同等のコードです。
 
 ```crystal
 twice() do
@@ -39,13 +38,13 @@ end
 twice { puts "Hello!" }
 ```
 
-## Overloads
+## オーバーロード
 
-Two methods, one that yields and another that doesn't, are considered different overloads, as explained in the [overloading](overloading.html) section.
+[オーバーロード](overloading.html)で説明したように、2つのメソッドがあって、一方は yield するメソッドで、もう一方はしないメソッドであるとき、それらは別のオーバーオードと解釈されます。
 
-## Yield arguments
+## yield の引数
 
-The `yield` expression is similar to a call and can receive arguments. For example:
+`yield` 式はメソッド呼び出しと似ていて、引数を受け取ることもできます。例をあげます。
 
 ```crystal
 def twice
@@ -58,15 +57,15 @@ twice do |i|
 end
 ```
 
-The above prints "Got 1" and "Got 2".
+上記を実行すると「Got 1」そして「Got 2」と出力されます。
 
-A curly braces notation is also available:
+波カッコを使った指定も可能です。
 
 ```crystal
 twice { |i| puts "Got #{i}" }
 ```
 
-You can `yield` many values:
+複数の値を `yield` することもできます。
 
 ```crystal
 def many
@@ -77,10 +76,10 @@ many do |x, y, z|
   puts x + y + z
 end
 
-# Output: 6
+# 出力: 6
 ```
 
-A block can specify less than the arguments yielded:
+ブロックに指定するのが yield される引数の数より少なくても構いません。
 
 ```crystal
 def many
@@ -91,10 +90,10 @@ many do |x, y|
   puts x + y
 end
 
-# Output: 3
+# 出力: 3
 ```
 
-A block can also specify more than the arguments yielded, and these will be `nil`:
+ブロックに指定するのが yield される引数の数より多い場合には、それらは `nil` になります。
 
 ```crystal
 def twice
@@ -107,9 +106,9 @@ twice do |i|
 end
 ```
 
-The above outputs "nil" twice.
+上記では「nil」が2回出力されます。
 
-Each block variable has the type of every yield expression in that position. For example:
+ブロックの変数はすべての yield 式に応じた型を持ちます。例をあげます。
 
 ```crystal
 def some
@@ -119,16 +118,16 @@ def some
 end
 
 some do |first, second|
-  # first is Int32 | Bool
-  # second is Char | String | Nil
+  # first は Int32 | Bool
+  # second は Char | String | Nil
 end
 ```
 
-The block variable `second` also includes the `Nil` type because the last `yield` expression didn't include a second argument.
+ブロック変数 `second` は `Nil` 型を含んでいます。これは、最後の `yield` 式に2番目の引数が指定されていないためです。
 
-## yield value
+## yield の値
 
-The `yield` expression itself has a value: the last expression of the block. For example:
+`yield` 式自体も値を持っていて、それはブロックの最後の式となります。例をあげます。
 
 ```crystal
 def twice
@@ -144,9 +143,9 @@ twice do |i|
 end
 ```
 
-The above prints "2" and "3".
+上記では「2」と「3」が出力されます。
 
-A `yield` expression's value is mostly useful for transforming and filtering values. The best examples of this are [Enumerable#map](http://crystal-lang.org/api/Enumerable.html#map%28%26block%20%3A%20T%20-%3E%20U%29-instance-method) and [Enumerable#select](http://crystal-lang.org/api/Enumerable.html#select%28%26block%20%3A%20T%20-%3E%20%29-instance-method):
+`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](http://crystal-lang.org/api/Enumerable.html#map%28%26block%20%3A%20T%20-%3E%20U%29-instance-method) と [Enumerable#select](http://crystal-lang.org/api/Enumerable.html#select%28%26block%20%3A%20T%20-%3E%20%29-instance-method) でしょう。
 
 ```crystal
 ary = [1, 2, 3]
@@ -154,7 +153,7 @@ ary.map { |x| x + 1 }         #=> [2, 3, 4]
 ary.select { |x| x % 2 == 1 } #=> [1, 3]
 ```
 
-A dummy transformation method:
+1つ簡単な変換メソッドを例にあげます。
 
 ```crystal
 def transform(value)
@@ -164,11 +163,11 @@ end
 transform(1) { |x| x + 1 } #=> 2
 ```
 
-The result of the last expression is `2` because the last expression of the `transform` method is `yield`, whose value is the last expression of the block.
+この最後の式の実行結果は `2` になります。`transform` メソッドの最後の式は `yield` であり、そしてその値はブロックの最後の式の値になるからです。
 
 ## break
 
-A `break` expression inside a block exits early from the method:
+ブロックの中に `break` 式があるとそこでメソッドを抜けます。
 
 ```crystal
 def thrice
@@ -188,9 +187,9 @@ thrice do |i|
 end
 ```
 
-The above prints "Before 1" and "Before 2". The `thrice` method didn't execute the `puts "Before 3"` expression because of the `break`.
+上記は「Before 1」そして「Before 2」を出力します。`break` があるため、`thrice` メソッドが `puts "Before 3"` を実行することはありません。
 
-`break` can also accept arguments: these become the method's return value. For example:
+`break` は引数を受けとることも可能で、その場合にはそれがメソッドの戻り値となります。例をあげます。
 
 ```crystal
 def twice
@@ -202,9 +201,9 @@ twice { |i| i + 1 } #=> 3
 twice { |i| break "hello" } #=> "hello"
 ```
 
-The first call's value is 3 because the last expression of the `twice` method is `yield`, which gets the value of the block. The second call's value is "hello" because a `break` was performed.
+最初の呼び出しのときの値は、`twice` メソッドが `yield` されているため、ブロックの値である3になります。一方で2番目の呼び出しでは、`break` が実行されているために値が "hello" となっています。
 
-If there are conditional breaks, the call's return value type will be a union of the type of the block's value and the type of the many `break`s:
+もしある条件によって break する場合、そのメソッドの戻り値の型は、ブロックの戻り値の型と (複数ある場合にはすべての) `break` の型の組み合わせとなります。
 
 ```crystal
 value = twice do |i|
@@ -216,14 +215,14 @@ end
 value #:: Int32 | String
 ```
 
-If a `break` receives many arguments, they are automatically transformed to a [Tuple](http://crystal-lang.org/api/Tuple.html):
+`break` が複数の引数を受けとるとき、それらは自動的に[タプル](http://crystal-lang.org/api/Tuple.html)に変換されます。
 
 ```crystal
 values = twice { break 1, 2 }
 values #=> {1, 2}
 ```
 
-If a `break` receives no arguments, it's the same as receiving a single `nil` argument:
+`break` が引数をとらない場合、それは `nil` を1つ受け取ったのと同じことになります。
 
 ```crystal
 value = twice { break }
@@ -232,7 +231,7 @@ value #=> nil
 
 ## next
 
-The `next` expression inside a block exits early from the block (not the method). For example:
+ブロックの中に `next` 式があるとそこで (メソッドではなく) ブロックを抜けます。例をあげます。
 
 ```crystal
 def twice
@@ -249,12 +248,12 @@ twice do |i|
   puts "Got #{i}"
 end
 
-# Ouptut:
+# 出力:
 # Skipping 1
 # Got 2
 ```
 
-The `next` expression accepts arguments, and these give the value of the `yield` expression that invoked the block:
+`next` 式は引数を受け取ることが可能です。そのとき、受け取った値はそのブロックを実行した `yield` 式の値となります。
 
 ```crystal
 def twice
@@ -273,16 +272,16 @@ twice do |i|
   i + 1
 end
 
-# Output
+# 出力:
 # 10
 # 3
 ```
 
-If a `next` receives many arguments, they are automaticaly transformed to a [Tuple](http://crystal-lang.org/api/Tuple.html). If it receives no arguments it's the same as receiving a single `nil` argument.
+`next` が複数の引数を受けとるとき、それらは自動的に[タプル](http://crystal-lang.org/api/Tuple.html)に変換されます。引数をとらない場合には、`nil` を1つ受け取ったのと同じことになります。
 
 ## with ... yield
 
-A `yield` expression can be modified, using the `with` keyword, to specify an object to use as the default receiver of method calls within the block:
+`yield` 式に `with` キーワードを使うと、ブロック内でメソッドを実行する際にデフォルトのレシーバとなるオブジェクトを指定することができます。
 
 ```crystal
 class Foo
@@ -307,9 +306,9 @@ Foo.new.yield_with_self { one } # => 1
 Foo.new.yield_normally { one }  # => "one"
 ```
 
-## Performance
+## パフォーマンス
 
-When using blocks with `yield`, the blocks are **always** inlined: no closures, calls or function pointers are involved. This means that this:
+ブロックを `yield` するとき、そのブロックは**常に**インライン展開されます。クロージャやメソッド呼び出し、そして関数ポインタなどが使われることはありません。これは次のことを意味しています。
 
 ```crystal
 def twice
@@ -322,7 +321,7 @@ twice do |i|
 end
 ```
 
-is exactly the same as writing this:
+上記は以下のように書くことと完全に同じです。
 
 ```crystal
 i = 1
@@ -331,7 +330,7 @@ i = 2
 puts "Got: #{i}"
 ```
 
-For example, the standard library includes a `times` method on integers, allowing you to write:
+例えば、標準ライブラリには `time` という整数のメソッドがあり、それを使うと以下のように書くことができます。
 
 ```crystal
 3.times do |i|
@@ -339,9 +338,9 @@ For example, the standard library includes a `times` method on integers, allowin
 end
 ```
 
-This looks very fancy, but is it as fast as a C for loop? The answer is: yes!
+とても読みやすいと思いませんか？でも、これは C のループのように高速に動くのでしょうか？その答えは「yes」です！
 
-This is `Int#times` definition:
+`Int#times` は以下のように定義されています。
 
 ```crystal
 struct Int
@@ -355,7 +354,7 @@ struct Int
 end
 ```
 
-Because a non-captured block is always inlined, the above method invocation is **exactly the same** as writing this:
+捕捉されないブロック (non-captured block) は常にインライン展開されます。したがって、上記したメソッドの実行は、以下のように書くことと**完全に同じ**です。
 
 ```crystal
 i = 0
@@ -365,4 +364,4 @@ while i < 3
 end
 ```
 
-Have no fear using blocks for readability or code reuse, it won't affect the resulting executable performance.
+コードの読みやすさや再利用性のために積極的にブロックを利用しましょう。それが実行時のパフォーマンスに影響することはありません。

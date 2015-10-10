@@ -1,23 +1,23 @@
-# Type grammar
+# 型文法
 
-When:
+以下の場合、
 
-* specifying [type restrictions](type_restrictions.html)
-* specifying [type arguments](generics.html)
-* [declaring variables](declare_var.html)
-* declaring [aliases](alias.html)
-* declaring [typedefs](type.html)
-* the argument of an [is_a?](is_a.html) pseudo-call
-* the argument of an [as](as.html) expression
-* the argument of a [sizeof](sizeof.html) expression
-* the argument of an [instance_sizeof](instance_sizeof.html) expression
-* a method's [return type](return_types.html)
+* [型制約](type_restrictions.html)の指定
+* [型引数](generics.html)の指定
+* [変数の宣言](declare_var.html)
+* [エイリアス](alias.html)の宣言
+* [typedef](type.html) の宣言
+* 擬似呼び出し [is_a?](is_a.html) の引数
+* [as](as.html) 式の引数
+* [sizeof](sizeof.html) 式の引数
+* [instance_sizeof](instance_sizeof.html) 式の引数
+* メソッドの[戻り値の型](return_types.html)
 
-a convenient syntax is provided for some common types. These are especially useful when writing [C bindings](c_bindings/index.html), but can be used in any of the above locations.
+一般的な型に対する便利な記法が用意されています。これらは特に [C バインディング](c_bindings/index.html)を書くときに有効ですが、上記した箇所であればどこでも利用することができます。
 
-## Paths and generics
+## パスとジェネリクス
 
-Regular types and generics can be used:
+一般的な型とジェネリクスは以下のように利用します。
 
 ```crystal
 Int32
@@ -25,69 +25,69 @@ My::Nested::Type
 Array(String)
 ```
 
-## Union
+## 型の組み合わせ (ユニオン)
 
 ```crystal
 alias Int32OrString = Int32 | String
 ```
 
-The pipe (`|`) in types creates a union type. `Int32 | String` is read "Int32 or String". In regular code, `Int32 | String` means invoking the method `|` on `Int32` with `String` as an argument.
+型でパイプ (`|`) を使うと、型の組み合わせ (ユニオン型) となります。`Int32 | String` は「Int32 または String」と読みます。通常のコードにおいては、`Int32 | String` が意味するのは、`Int32` に対して `String` を引数として `|` メソッドを実行することです。
 
-## Nilable
+## Nil を許容する (nilable)
 
 ```crystal
 alias Int32OrNil = Int32?
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```crystal
 alias Int32OrNil = Int32 | ::Nil
 ```
 
-In regular code, `Int32?` is a syntax error.
+通常のコードにおいては、`Int32?` はシンタックスエラーとなります。
 
-## Pointer
+## ポインタ
 
 ```crystal
 alias Int32Ptr = Int32*
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```crystal
 alias Int32Ptr = Pointer(Int32)
 ```
 
-In regular code, `Int32*` means invoking the `*` method on `Int32`.
+通常のコードにおいては、`Int32*` が意味するのは、`Int32` に対して `*` メソッドを実行することです。
 
-## StaticArray
+## 静的配列 (StaticArray)
 
 ```crystal
 alias Int32_8 = Int32[8]
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```crystal
 alias Int32_8 = StaticArray(Int32, 8)
 ```
 
-In regular code, `Int32[8]` means invoking the `[]` method on `Int32` with `8` as an argument.
+通常のコードにおいては、`Int32[8]` が意味するのは、`Int32` に対して `8` を引数として `[]` メソッドを実行することです。
 
-## Tuple
+## タプル (Tuple)
 
 ```crystal
 alias Int32StringTuple = {Int32, String}
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```crystal
 alias Int32StringTuple = Tuple(Int32, String)
 ```
 
-In regular code, `{Int32, String}` is a tuple instance containing `Int32` and `String` as its elements. This is different than the above tuple **type**.
+通常のコードにおいては、`{Int32, String}` は `Int32` と `String` を要素として持つタプルのインスタンスです。これは上記のタプル**型**とは異なります。
 
 ## Proc
 
@@ -95,41 +95,41 @@ In regular code, `{Int32, String}` is a tuple instance containing `Int32` and `S
 alias Int32ToString = Int32 -> String
 ```
 
-is the same as:
+これは以下と同じです。
 
 ```crystal
 alias Int32ToString = Proc(Int32, String)
 ```
 
-To specify a Proc without arguments:
+引数を持たない Proc を指定するには以下のようにします。
 
 ```crystal
 alias ProcThatReturnsInt32 = -> Int32
 ```
 
-To specify multiple arguments:
+複数の引数を持つ Proc を指定するには以下のようにします。
 
 ```crystal
 alias Int32AndCharToString = Int32, Char -> String
 ```
 
-For nested procs (and any type, in general), you can use parentheses:
+ネストされた Proc に対しては (および実際にはどんな型であっても) カッコを利用することができます。
 
 ```crystal
 alias ComplexProc = (Int32 -> Int32) -> String
 ```
 
-In regular code `Int32 -> String` is a syntax error.
+通常のコードにおいては、`Int32 -> String` はシンタックスエラーとなります。
 
 ## self
 
-`self` can be used in the type grammar to denote a `self` type. Refer to the [type restrictions](type_restrictions.html) section.
+`self` は型文法では `self` の型であることを示すために利用できます。詳しくは[型制約](type_restrictions.html)を参照してください。
 
-## class
+## クラス (class)
 
-`class` is used to refer to a class type, instead of an instance type.
+`class` は、インスタンスの型ではなく、クラスの型を参照するために利用できます。
 
-For example:
+例をあげます。
 
 ```crystal
 def foo(x : Int32)
@@ -144,7 +144,7 @@ foo 1     # "instance"
 foo Int32 # "class"
 ```
 
-`class` is also useful for creating arrays and collections of class type:
+`class` はクラスの型を持つ配列やコレクションを作る場合にも有効に使うことができます。
 
 ```crystal
 class Parent
@@ -161,23 +161,23 @@ ary << Child1
 ary << Child2
 ```
 
-## Underscore
+## アンダースコア
 
-An underscore is allowed in type restrictions. It matches anything:
+型制約でアンダースコアを使うことが可能です。それはすべてにマッチすることを示します。
 
 ```crystal
-# Same as not specifying a restriction, not very useful
+# 何も制約を与えないことと同じ。これではあまり役には立たない
 def foo(x : _)
 end
 
-# A bit more useful: any two arguments Proc that returns an Int32:
+# もう少し役に立つパターンで、引数を2つ取って Int32 を返す Proc
 def foo(x : _, _ -> Int32)
 end
 ```
 
 ## typeof
 
-`typeof` is allowed in the type grammar. It returns a union type of the type of the passed expressions:
+型文法では `typeof` を使うことができます。渡された式の型の組み合わせ (ユニオン型) を返します。
 
 ```crystal
 alias SameAsInt32 = typeof(1 + 2)

@@ -1,19 +1,19 @@
-# Symbol
+# シンボル (Symbol)
 
-A [Symbol](http://crystal-lang.org/api/Symbol.html) is a constant that is identified by a name without you having to give it a numeric value.
+シンボル ([Symbol](http://crystal-lang.org/api/Symbol.html)) というのは、数値を与えることなく、その名前で識別することが可能な定数です。
 
 ```crystal
 :hello
 :good_bye
 
-# With spaces and symbols
+# 名前にスペースを含むシンボル
 :"symbol with spaces"
 
-# Ending with question and exclamation marks
+# 名前が ? や ! で終わるシンボル
 :question?
 :exclamation!
 
-# For the operators
+# 演算子
 :+
 :-
 :*
@@ -42,4 +42,4 @@ A [Symbol](http://crystal-lang.org/api/Symbol.html) is a constant that is identi
 :===
 ```
 
-Internally a symbol is represented as an `Int32`.
+内部的には、シンボルは `Int32` で表現されます。

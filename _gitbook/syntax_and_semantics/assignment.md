@@ -1,67 +1,67 @@
-# Assignment
+# 代入
 
-Assignment is done with the equal (`=`) character.
+代入にはイコール記号 (`=`) を使います。
 
 ```crystal
 # Assigns to a local variable
 local = 1
 
-# Assigns to an instance variable
+# インスタンス変数への代入
 @instance = 2
 
-# Assigns to a class variable
+#  クラス変数への代入
 @@class = 3
 
-# Assigns to a global variable
+# グローバル変数への代入
 $global = 4
 ```
 
-Each of the above kinds of variables will be explained later on.
+上記のそれぞれの変数の種類については改めて説明します。
 
-Some syntax sugar that contains the `=` character is available:
+`=` を使った代入のためのシンタックスシュガーがいくつか用意されています。
 
 ```crystal
 local += 1  # same as: local = local + 1
 
-# The above is valid with these operators:
+# 上記は以下の演算子でも有効
 # +, -, *, /, %, |, &, ^, **, <<, >>
 
-local ||= 1 # same as: local || (local = 1)
-local &&= 1 # same as: local && (local = 1)
+local ||= 1 # local || (local = 1) と同じ
+local &&= 1 # local && (local = 1) と同じ
 ```
 
-A method invocation that ends with `=` has syntax sugar:
+メソッド名が `=` で終わるメソッドの実行にもシンタックスシュガーがあります。
 
 ```crystal
 # A setter
 person.name=("John")
 
-# The above can be written as:
+# 上記は以下のように書くことができる
 person.name = "John"
 
-# An indexed assignment
+# インデックスを指定した代入
 objects.[]=(2, 3)
 
-# The above can be written as:
+# 上記は以下のように書くことができる
 objects[2] = 3
 
-# Not assignment-related, but also syntax sugar:
+# 代入ではないが、以下のシンタックスシュガーも有効
 objects.[](2, 3)
 
-# The above can be written as:
+# 上記は以下のように書くことができる
 objects[2, 3]
 ```
 
-The `=` operator syntax sugar is also available to setters and indexers. Note that `||` and `&&` use the `[]?` method to check for key prescence.
+セッターやインデックス指定代入の場合にも、`=` 演算子のシンタックスシュガーを利用できます。このとき、`||` と `&&` は、キーの存在チェックのために `[]?` メソッドを使うことに注意してください。
 
 ```crystal
 person.age += 1        # same as: person.age = person.age + 1
 
-person.name ||= "John" # same as: person.name || (person.name = "John")
-person.name &&= "John" # same as: person.name && (person.name = "John")
+person.name ||= "John" # person.name || (person.name = "John") と同じ
+person.name &&= "John" # person.name && (person.name = "John") と同じ
 
-objects[1] += 2        # same as: objects[1] = objects[1] + 2
+objects[1] += 2        # objects[1] = objects[1] + 2 と同じ
 
-objects[1] ||= 2       # same as: objects[1]? || (objects[1] = 2)
-objects[1] &&= 2       # same as: objects[1]? && (objects[1] = 2)
+objects[1] ||= 2       # objects[1]? || (objects[1] = 2) と同じ
+objects[1] &&= 2       # objects[1]? && (objects[1] = 2) と同じ
 ```

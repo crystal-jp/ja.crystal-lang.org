@@ -1,22 +1,22 @@
-# Local variables
+# ローカル変数
 
-Local variables start with lowercase letters. They are declared when you first assign them a value.
+変数名の先頭が小文字の変数はローカル変数です。その宣言は、はじめて値が代入されたときに行われます。
 
 ```crystal
 name = "Crystal"
 age = 1
 ```
 
-Their type is inferred from their usage, not only from their initializer. In general, they are just value holders associated with the type that the programmer expects them to have according to their location and usage on the program.
+ローカル変数の型は、初期化されるときだけではなく、その用途にしたがって推論されます。どういうことかというと、一般的にローカル変数というのは単純に型の情報を持った値の入れ物のようなものと考えることができて、プログラムにおけるそれぞれの場所や用途に応じてその入れ物の型も変化するということです。
 
-For example, reassigning a variable with a different expression makes it have that expression’s type:
+例えば、次のようにローカル変数に別の式を再代入すると、その新しい式の型の変数となります。
 
 ```crystal
 flower = "Tulip"
-# At this point 'flower' is a String
+# ここでは「flower」は String
 
 flower = 1
-# At this point 'flower' is an Int32
+# ここでは「flower」は Int32
 ```
 
-Underscores are allowed at the beginning of a variable name, but these names are reserved for the compiler, so their use is not recommended (and it also makes the code uglier to read).
+アンダースコアを変数名の先頭につけることも可能ですが、それらの名前はコンパイラによって予約されているため、先頭がアンダースコアの変数名は推奨されません (コードの見た目や読みやすさという点でもあまり美しくないですよね) 。

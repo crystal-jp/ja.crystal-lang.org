@@ -1,10 +1,10 @@
 # Hello World!
 
-The classic "hello world" program looks like this in Crystal:
+伝統的な「hello world」プログラムを Crystal で書くと次のようになります。
 
 ```crystal
 puts "Hello world!"
 ```
 
-From this you can see that the main routine is simply the program itself: there's no need to define a "main" function or something similar.
+このプログラムを見ればわかる通り、Crystal ではプログラム自体がメインルーチンとなります。つまり、「main」関数やそれに値するものを定義する必要はありません。
 

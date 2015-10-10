@@ -1,3 +1,3 @@
-# Low-level primitives
+# ローレベルプリミティブ
 
-Some low-level primitives are provided. They are mostly useful for interfacing with C libraries and for low-level code.
+いくつかのローレベルプリミティブが提供されており、C 言語ライブラリとのインターフェースや、ローレベルのコードを書くときに役立ちます。

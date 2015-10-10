@@ -1,8 +1,8 @@
-# Documenting code
+# コードのドキュメント化
 
-Crystal documentation comments use a subset of [Markdown](https://daringfireball.net/projects/markdown/). 
+Crystal のドキュメンテーションコメントは [Markdown](https://daringfireball.net/projects/markdown/) のサブセットになっています。 
 
-* Documentation should be positioned right above definitions of classes, modules, and methods. Leave no blanks between them.
+* ドキュメンテーションコメントはクラス、モジュール、そしてメソッド定義のすぐ上に配置してください。間に空白行が入っていてはいけません。
 
 ```crystal
 # A unicorn is a **legendary animal** (see the `Legendary` module) that has been
@@ -11,18 +11,18 @@ Crystal documentation comments use a subset of [Markdown](https://daringfireball
 class Unicorn
 end
 
-# Bad: This is not attached to any class.
- 
+# よくない例: これはどのクラスにも紐付けられません
+
 class Legendary
 end
 ```
 
-* The documentation of a method is included into the method summary and the method details. The former includes only the first line, the latter includes the entire documentation. In short, it is preferred to:
+* メソッドのドキュメントは、メソッドの概要、およびメソッドの詳細の内容となります。前者が含むのは最初の1行のみで、後者はドキュメント全体を含みます。簡単に言うと、以下のようにするのが好ましいということです。
 
-  1. State a method's purpose or functionality in the first line.
-  2. Supplement it with details and usages after that.
+  1. 最初の行にメソッドの目的と機能を記載する
+  2. その後で、詳細と使用方法をその後に記載する
 
-For instance:
+例えば、
 
 ``````crystal
 # Returns the number of horns this unicorn has.
@@ -35,9 +35,9 @@ def horns
 end
 ``````
 
-* Use the third person: `Returns the number of horns this unicorn has` instead of `Return the number of horns this unicorn has`.
+* 3人称を使ってください。つまり、`Return the number of horns this unicorn has` ではなく、`Returns the number of horns this unicorn has` とします。
 
-* Parameter names should be *italicized* (surrounded with single asterisks `*` or underscores `_`):
+* パラメータ名は「イタリック体」とします。1つのアスタリスク (`*`) またはアンダースコア(`_`) で囲みます。
 
 ```crystal
 # Creates a unicorn with the specified number of *horns*.
@@ -46,7 +46,7 @@ def initialize(@horns = 1)
 end
 ```
 
-* Code blocks that have Crystal code can be surrounded with triple backticks or indented with four spaces.
+* Crystal のコードブロックは3つのバックティック (バッククォート) で囲むか、スペース4つでインデントします。
 
 ``````crystal
 # ```
@@ -55,14 +55,14 @@ end
 # ```
 ``````
 
-or 
+または 
 
 ```crystal
 #     unicorn = Unicorn.new
 #     unicorn.speak 
 ```
 
-* Text blocks, for example to show program output, must be surrounded with triple backticks followed by the "text" keyword.
+* 例えばプログラムの出力を示すためのテキストのブロックは、「text」というキーワードをつけた3つのバックティック (バッククォート) で囲みます。
 
 ``````crystal
 # ```text
@@ -70,31 +70,31 @@ or
 # ```
 ``````
 
-* To automatically link to other types, enclose them with single backticks.
+* 自動的に他の型にリンクさせたい場合は、1つのバックティック (バッククォート) で囲みます。
 
 ```crystal
 # the `Legendary` module
 ```
 
-* To automatically link to methods of the currently documented type, use a hash like `#horns` or `#index(char)`, and enclose it with single backticks.
+* 現在の型のメソッドに対して自動的にリンクさせたい場合は、`#horns` や `#index(char)` のようにハッシュ記号をつけて、1つのバックティック (バッククォート) で囲みます。
 
-* To automatically link to methods in other types, do `OtherType#method(arg1, arg2)` or just `OtherType#method`, and enclose it with single backticks.
+* 他の型のメソッドに対して自動的にリンクさせたい場合は、`OtherType#method(arg1, arg2)` のようにするか、または単純に `OtherType#method` として、1つのバックティック (バッククォート) で囲みます。
 
-For example:
+例をあげます。
 
 ```crystal
 # Check the number of horns with `#horns`.
 # See what a unicorn would say with `Unicorn#speak`.
 ```
 
-* To show the value of an expression inside code blocks, use `#=>`.
+* コードブロックの中で式の値を示したい場合は、`#=>` を使います。
 
 ```crystal
 1 + 2 #=> 3
 Unicorn.new.speak #=> "I'm a unicorn"
 ```
 
-* Use `ditto` to use the same comment as in the previous declaration.
+* 前の定義と同じコメントを使いたい場合は、`ditto` (同上の意味) を使います。
 
 ```crystal
 # ditto
@@ -103,7 +103,7 @@ def number_of_horns
 end
 ```
 
-* Use `:nodoc:` to hide public declarations from the generated documentation. Private and protected methods are always hidden.
+* public に定義されたものを生成されたドキュメント上では隠したい場合には、`:nodoc:` を使います。private や protected のメソッドに関しては、はじめから常に隠されています。
 
 ```crystal
 class Unicorn
@@ -113,7 +113,7 @@ class Unicorn
 end
 ```
 
-### A Complete Example
+### 全体の例
 
 `````crystal
 # A unicorn is a **legendary animal** (see the `Legendary` module) that has been
@@ -167,6 +167,6 @@ class Unicorn
 end
 `````
 
-### Generate Documentation
+### ドキュメントの生成
 
-To generate documentation for a project, invoke `crystal doc`. This will create a `doc` directory, with a `doc/index.html` entry point. All files inside the root `src` directory will be considered.
+プロジェクトのドキュメントを生成するには、`crystal doc` を実行します。これで、`doc` ディレクトリが作られ、そのエントリポイントは `doc/index.html` となります。対象となるのは、ルートの `src` ディレクトリ内に含まれるすべてのファイルです。

@@ -1,46 +1,46 @@
-# Array
+# 配列 (Array)
 
-An [Array](http://crystal-lang.org/api/Array.html) is a generic type containing elements of a type `T`. It is typically created with an array literal:
+配列 ([Array](http://crystal-lang.org/api/Array.html)) は、その中に `T` 型の n 個の要素を含むことができるジェネリック型です。通常、以下の配列リテラルを利用して書きます。
 
 ```crystal
 [1, 2, 3]         # Array(Int32)
 [1, "hello", 'x'] # Array(Int32 | String | Char)
 ```
 
-An Array can have mixed types, meaning `T` will be a union of types, but these are determined when the array is created, either by specifying T or by using an array literal. In the latter case, T will be set to the union of the array literal elements.
+配列には異なる型の要素を含めることが可能で、そのとき `T` は複数の型の組み合わせ (ユニオン型) となります。ただ、その型は配列が作られたときに決定されます。つまり、配列の生成時に明示的に指定された `T` か、配列リテラルで生成した場合であれば、リテラルの要素の型の組み合わせによって型が決まります。
 
-When creating an empty array you must always specify T:
+空の配列を作りたいときには、必ず `T` を指定しなければなりません。
 
 ```crystal
-[] of Int32 # same as Array(Int32).new
-[]          # syntax error
+[] of Int32 # Array(Int32).new と同じ
+[]          # シンタックスエラーになる
 ```
 
-## Array of String
+## 文字列の配列
 
-Arrays of strings can be created with a special syntax:
+文字列の配列は特別な記法を使って書くことができます。
 
 ```crystal
 %w(one two three) # ["one", "two", "three"]
 ```
 
-## Array of Symbol
+## シンボルの配列
 
-Arrays of symbols can be created with a special syntax:
+シンボルの配列は特別な記法を使って書くことができます。
 
 ```crystal
 %i(one two three) # [:one, :two, :three]
 ```
 
-## Array-like types
+## 配列ライクな型
 
-You can use a special array literal syntax with other types too, as long as they define an argless `new` method and a `<<` method:
+配列が持つ特別なシンタックスを他の型で使うこともできます。ただし、引数のない `new` と `<<` メソッドが定義されている必要があります。
 
 ```crystal
 MyType{1, 2, 3}
 ```
 
-If `MyType` is not generic, the above is equivalent to this:
+もし `MyType` がジェネリック型でない場合は、上記は以下と同じ意味です。
 
 ```crystal
 tmp = MyType.new
@@ -50,7 +50,7 @@ tmp << 3
 tmp
 ```
 
-If `MyType` is generic, the above is equivalent to this:
+もし `MyType` がジェネリック型である場合は、上記は以下と同じ意味です。
 
 ```crystal
 tmp = MyType(typeof(1, 2, 3)).new
@@ -60,7 +60,7 @@ tmp << 3
 tmp
 ```
 
-In the case of a generic type, the type arguments can be specified too:
+ジェネリック型である場合には、型引数を指定することも可能です。
 
 ```crystal
 MyType(Int32 | String) {1, 2, "foo"}

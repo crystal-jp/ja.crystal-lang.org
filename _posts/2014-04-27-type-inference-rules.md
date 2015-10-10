@@ -393,7 +393,7 @@ end
 
 This makes sense: if ```a``` is truthy then it means it is not ```nil```. Not only this,
 but the compiler also makes ```a```'s type be that one after the ```if```, combined with
-whatever type ```a``` has in the ```else``` branch. For example:
+whatever type ```a``` has in the ```else``` branch. 例をあげます。
 
 {% highlight ruby %}
 a = some_condition ? 1 : nil
@@ -457,7 +457,7 @@ end
 
 In conclusion, as was said in the beginning of this post, we want Crystal to behave
 as much as possible as Ruby, and if something is intuitive and makes sense for the programmer
-to make the compiler understand it too. For example:
+to make the compiler understand it too. 例をあげます。
 
 {% highlight ruby %}
 def foo(x)

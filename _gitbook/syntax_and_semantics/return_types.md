@@ -1,11 +1,11 @@
-# Return types
+# 戻り値の型
 
-A method's return type is always inferred by the compiler. However, you might want to specify it for two reasons:
+メソッドの戻り値の型は、コンパイラの型推論によって決まります。しかし、以下の2つの理由から、戻り値の型を指定したい場合があるでしょう。
 
-1. To make sure that the method returns the type that you want
-2. To make it appear in documentation comments
+1. メソッドが返す戻り値の型を明確にする
+2. ドキュメンテーションコメントに表示する
 
-For example:
+例をあげます。
 
 ```crystal
 def some_method : String
@@ -13,4 +13,4 @@ def some_method : String
 end
 ```
 
-The return type follows the [type grammar](type_grammar.html).
+戻り値の型は[型文法](type_grammar.html)の記法にしたがいます。

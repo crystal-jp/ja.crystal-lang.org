@@ -1,19 +1,19 @@
-# Uninitialized variable declaration
+# 初期化しない変数宣言
 
-Crystal allows declaring uninitialized variables:
+Crystal では、初期化せず変数を宣言することが可能です。
 
 ```crystal
 x :: Int32
-x #=> some random value, garbage, unreliable
+x #=> 何かのランダムな値。つまり信頼できないゴミのようなもの…
 ```
 
-This is [unsafe](unsafe.html) code and is almost always used in low-level code for declaring uninitialized [StaticArray](http://crystal-lang.org/api/StaticArray.html) buffers without a peformance penalty:
+これは「安全でない ([unsafe](unsafe.html))」なコードで、特にローレベルなコードにおいて、未初期化の [StaticArray](http://crystal-lang.org/api/StaticArray.html)  バッファをパフォーマンスの劣化なく定義するために使われます。
 
 ```crystal
 buffer :: UInt8[256]
 ```
 
-The buffer is allocated on the stack, avoiding a heap allocation.
+このとき、バッファはヒープではなくスタックに割り当てられます。
 
-The type after the two colons (`::`) follows the [type grammar](type_grammar.html).
+2つのコロン (`::`) に続く型は[型文法](type_grammar.html)にしたがって書きます。
 

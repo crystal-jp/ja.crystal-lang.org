@@ -1,6 +1,6 @@
 # next
 
-You can use `next` to try to execute the next iteration of a `while` loop. After executing `next`, the `while`'s condition is checked and, if *truthy*, the body will be executed.
+`while` のループで `next` を使うと、次の繰り返しにジャンプすることができます。`next` が実行された後、`while` の条件がチェックされ、もしそれが「真」であれば本体が再度実行されます。
 
 ```crystal
 a = 1
@@ -11,5 +11,5 @@ while a < 5
   end
   puts a
 end
-# The above prints the numbers 2, 4 and 5
+# 上記を実行すると 2、4、5 と表示されます。
 ```

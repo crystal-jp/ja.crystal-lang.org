@@ -1,10 +1,10 @@
-# Classes and methods
+# クラスとメソッド
 
-A class is a blueprint from which individual objects are created. As an example, consider a `Person` class. You declare a class like this:
+クラスはオブジェクトの設計図であり、それを使って、それぞれの独立したオブジェクトを作ることができます。このセクションでは、`Person` というクラスを例として説明します。以下のようにクラスを定義します。
 
 ```crystal
 class Person
 end
 ```
 
-Class names, and every type name, begin with a capital letter in Crystal.
+Crystal では、クラス名と、そして他のすべての型の名前は先頭が大文字となります。

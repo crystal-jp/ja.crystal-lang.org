@@ -1,28 +1,28 @@
-# Attributes
+# 属性 (Attribute)
 
-Some types and methods can be annotated with attributes. The attribute list is fixed, but eventually (maybe) there will be user-defined attributes.
+いくつかの型やメソッドには、属性を付加することでアノテーションを与えることができます。付加することのできる属性は決まっていますが、将来的には (おそらく) ユーザーが独自の属性を定義できるようになる予定です。
 
 ## Link
 
-Tells the compiler how to link a C library. This is explained in the [lib](c_bindings/lib.html) section.
+C ライブラリのリンクをコンパイラに指示します。詳細は [lib](c_bindings/lib.html) セクションを参照してください。
 
 ## ThreadLocal
 
-The `@[ThreadLocal]` attribute can be applied to global variables and class variables. It makes them be thread local.
+`@[ThreadLocal]` 属性はグローバル変数とクラス変数に対して適用することが可能です。これによって、それらの変数がスレッドローカルになります。
 
 ```crystal
-# One for each thread
+# スレッドごとに1つずつ
 @[ThreadLocal]
 $values = [] of Int32
 ```
 
 ## Packed
 
-Allows marking a [C struct](c_bindings/struct.html) as packed, which makes the alignment of the struct to be one byte, and that there is no padding between the elements. In non-packed structs, padding between field types is inserted according to the target system.
+[C の構造体](c_bindings/struct.html)をパックします。これによって、構造体のアラインメントが1バイトになり、要素間のパディングがなくなります。 パックしていない構造体では、対象のシステムに応じて、フィールドの型の間にパディングが挿入されます。
 
 ## AlwaysInline
 
-Gives a hint to the compiler to always inline a method:
+常にメソッドをインラインにするようにコンパイラに指示します。
 
 ```crystal
 @[AlwaysInline]
@@ -33,7 +33,7 @@ end
 
 ## NoInline
 
-Tells the compiler to never inline a method call. This has no effect if the method yields.
+メソッドを呼び出しをインラインにしないようにコンパイラに指示します。メソッドが yield する場合には効果がありません。
 
 ```crystal
 @[NoInline]
@@ -44,15 +44,15 @@ end
 
 ## ReturnsTwice
 
-Marks a method or [lib fun](c_bindings/fun.html) as returning twice. The C `setjmp` is an example of such a function.
+メソッド、および [lib fun](c_bindings/fun.html) が2回リターンすることを指示します。こういった関数の例としては C の `setjmp` があげられます。
 
 ## Raises
 
-Marks a method or [lib fun](c_bindings/fun.html) as potentially raising an exception. This is explained in the [callbacks](c_bindings/callbacks.html) section.
+メソッド、および [lib fun](c_bindings/fun.html) が例外を発生させる可能性があることを指示します。詳細は[コールバック](c_bindings/callbacks.html)のセクションを参照してください。
 
 ## CallConvention
 
-Indicates the call convention of a [lib fun](c_bindings/fun.html). For example:
+[lib fun](c_bindings/fun.html) の呼出規約を指定します。例をあげます。
 
 ```crystal
 lib LibFoo
@@ -61,7 +61,7 @@ lib LibFoo
 end
 ```
 
-The list of valid call conventions is:
+有効な呼出規約は以下のとおりです。
 
 * C (the default)
 * Fast
@@ -71,8 +71,8 @@ The list of valid call conventions is:
 * X86_StdCall
 * X86_FastCall
 
-They are explained [here](http://llvm.org/docs/LangRef.html#calling-conventions).
+詳しい説明は[こちら](http://llvm.org/docs/LangRef.html#calling-conventions)の参照してください。
 
 ## Flags
 
-Marks an [enum](enum.html) as a "flags enum", which changes the behaviour of some of its methods, like `to_s`.
+[Enum](enum.html) を「Flags Enum」とします。これによって、`to_s` などのいくつかのメソッドの挙動が変更されます。

@@ -1,9 +1,9 @@
-# Global variables
+# グローバル変数
 
-Global variables start with a dollar sign (`$`). They are declared when you first assign them a value.
+変数名の先頭にドル記号 (`$`) をつけるとグローバル変数になります。その宣言は、はじめて値が代入されたときに行われます。
 
 ```crystal
 $year = 2014
 ```
 
-Their type is the combined type of all expressions that were assigned to them. Additionally, if your program reads a global variable before it was ever assigned a value it will also have the `Nil` type.
+型は代入された式の型を組み合わせたものになります。また、それまでに何も代入されていないグローバル変数をプログラムが読み込んだとき、その値は常に `Nil` 型になります。

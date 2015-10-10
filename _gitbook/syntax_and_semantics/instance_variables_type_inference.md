@@ -1,8 +1,8 @@
-# Instance variables type inference
+# インスタンス変数と型推論
 
-Did you notice that in all of the previous examples we never said the types of a `Person`'s `@name` and `@age`? This is because the compiler inferred them for us.
+これまでの例の中で、`Person` の `@name` と `@age` に対して特に型の指定をしていなかったことに気づいたでしょうか。その理由は、コンパイラには自動的に型を推論する機能があるからです。
 
-When we wrote:
+例えば、以下のように書いたとします。
 
 ```crystal
 class Person
@@ -18,9 +18,9 @@ john.name #=> "John"
 john.name.size #=> 4
 ```
 
-Since we invoked `Person.new` with a `String` argument, the compiler makes `@name` be a `String` too.
+ここで、`Person.new` を実行するときにその引数に `String` 型を与えています。そうすると、コンパイラが `@name` も 同様に`String` 型にしてくれます。
 
-If we had invoked `Person.new` with another type, `@name` would have taken a different type:
+もし、`Person.new` の引数が別の型だった場合は、`@name` もそれに応じて別の型になります。
 
 ```crystal
 one = Person.new 1
@@ -28,7 +28,7 @@ one.name #=> 1
 one.name + 2 #=> 3
 ```
 
-If you compile the previous programs with the `tool hierarchy` command, the compiler will show you a hierarchy graph with the types it inferred. In the first case:
+これらのプログラムに `tool hierarchy` コマンドでコンパイラを起動すると、推論された型を階層的に表示することができます。1つの例の場合:
 
 ```
 - class Object
@@ -40,7 +40,7 @@ If you compile the previous programs with the `tool hierarchy` command, the comp
             @age  : Int32
 ```
 
-In the second case:
+2つ目の例の場合:
 
 ```
 - class Object
@@ -52,14 +52,14 @@ In the second case:
             @age  : Int32
 ```
 
-What happens if we create two different people, one with a `String` and one with an `Int32`? Let's try it:
+それでは、もし2つの people を作るとき、一方は `String` 型でもう一方は `Int32` 型にした場合にはどうなるでしょうか？試してみましょう。
 
 ```crystal
 john = Person.new "John"
 one = Person.new 1
 ```
 
-Invoking the compiler with the `tool hierarchy` command we get:
+`tool hierarchy` コマンドでコンパイラを起動すると、結果は以下となります。
 
 ```
 - class Object
@@ -71,9 +71,9 @@ Invoking the compiler with the `tool hierarchy` command we get:
             @age  : Int32
 ```
 
-We can see that now `@name` has a type `(String | Int32)`, which is read as a *union* of `String` and `Int32`. The compiler made `@name` have all types assigned to it.
+`@name` の型が `(String | Int32)` となっていますね。これは、`String` と `Int32` 型の「組み合わせ (ユニオン)」を意味しています。このように、コンパイラは `@name` が与えられたすべての型を持つようにしています。
 
-In this case, the compiler will consider any usage of `@name` as always being either a `String` or an `Int32` and will give a compile time error if a method is not found for *both* types:
+このケースでは、コンパイラは `@name` は常に `String` か `Int32` のいずれかの型であるとして解釈します。したがって、もしその「両方」の型に存在しないメソッドが呼び出された場合にはコンパイルエラーが発生します。
 
 ```crystal
 john = Person.new "John"
@@ -86,7 +86,7 @@ john.name.size
 john.name + 3
 ```
 
-The compiler will even give an error if you first use a variable assuming it has a type and later you change that type:
+さらに、後から変数の型を変更されるときには、変更する前の時点でも同様のエラーが発生します。
 
 ```crystal
 john = Person.new "John"
@@ -94,7 +94,7 @@ john.name.size
 one = Person.new 1
 ```
 
-Gives this compile-time error:
+これはコンパイルエラーとなります。
 
 ```
 Error in foo.cr:14: instantiating 'Person:Class#new(Int32)'
@@ -110,13 +110,13 @@ john.name.size
           ^~~~~~
 ```
 
-That is, the compiler does global type inference and tells you whenever you make a mistake in the usage of a class or method. You can go ahead and put a type restriction like `def initialize(@name : String)`, but that makes the code a bit more verbose and also less generic: everything will work just fine if you create `Person` instance with types that have the same *interface* as a `String`, as long as you use a `Person`'s name like if it were a `String`.
+つまり、コンパイラの型推論はグローバルに働き、クラスやメソッドの誤った使用を常に検知できるようになっています。さらに一歩進んで、`def initialize(@name : String)` のように書くことで型を制約することも可能です。ただ、こうすると、コードが少し冗長になり、汎用性を欠いたものになってしまいます。`Person` の `name` を常に `String` として扱っている限り、`String` の「インターフェース」を持つ型で `Person` のインスタンスを作成すれば、すべては問題なく動作するでしょう。
 
-If you do want to have different `Person` types, one with `@name` being an `Int32` and one with `@name` being a `String`, you must use [generics](generics.html).
+もし、`@name` が `Int32` である `Person` 型と、`@name` が `String` である `Person` 型の2つを使いたい場合は、 [ジェネリクス](generics.html) を利用すべきです。
 
-## Nilable instance variables
+## Nil を許容する (nilable) インスタンス変数
 
-If an instance variable is not assigned in all of the `initialize` defined in a class, it will be considered as also having the type `Nil`:
+もし、あるインスタンス変数が、クラスで定義されているすべての `initialize` で初期化されなかったとき、そのインスタンス変数は `Nil` 型を持つと解釈されます。
 
 ```crystal
 class Person
@@ -138,7 +138,7 @@ john = Person.new "John"
 john.address = "Argentina"
 ```
 
-The hierarchy graph now shows:
+このプログラムの階層グラフは以下となります。
 
 ```
 - class Object
@@ -151,18 +151,18 @@ The hierarchy graph now shows:
             @address : String?
 ```
 
-You can see `@address` is `String?`, which is a short form notation of `String | Nil`. This means that the following gives a compile time error:
+`@address` が `String?` となっています。これは `String | Nil` の短縮表記です。このとき、以下はコンパイルエラーが発生します。
 
 ```crystal
 # Error: undefined method 'size' for Nil
 john.address.size
 ```
 
-To deal with `Nil`, and generally with union types, you have several options: use an [if var](if_var.html), [if var.is_a?](if_varis_a.html), [case](case.html) and [is_a?](is_a.html).
+`Nil` や型の組み合わせ (ユニオン型) を扱うときには、[if var](if_var.html)/[if var.is_a?](if_varis_a.html)/[case](case.html)/[is_a?](is_a.html) を利用することができます。
 
 ## Catch-all initialization
 
-Instance variables can also be initialized outside `initialize` methods:
+インスタンス変数を `initialize` メソッドの外側で初期化することもできます。
 
 ```crystal
 class Person
@@ -173,11 +173,11 @@ class Person
 end
 ```
 
-This will initialize `@age` to zero in every constructor. This is useful to avoid duplication, but also to avoid the `Nil` type when reopening a class and adding instance variables to it.
+上記の例では、`@age` はすべてのコンストラクタで0に初期化されます。これは、重複を避けることができるだけではなく、クラスを再オープンしてインスタンス変数を追加する際に`Nil` 型になるのを防ぐことにも役立ちます。
 
-## Specifying the types of instance variables
+## インスタンス変数の型を指定する
 
-In certain cases you want to tell the compiler to fix the type of an instance variable. You can do this with `::`:
+ときには、インスタンス変数の型をコンパイラに固定してもらいたいときもあるでしょう。その場合は、`::` を使って型を指定できます。
 
 ```crystal
 class Person
@@ -189,6 +189,6 @@ class Person
 end
 ```
 
-In this case, if we assign something that's not an `Int32` to `@age`, a compile-time error will be issued at the assignment location.
+こうしておくと、`@age` に `Int32` ではない値を代入しようとしたときに、その場所でコンパイルエラーが発生します。
 
-Note that you still have to initialize the instance variables, either with a catch-all initializer or within an `initialize` method: there are no "default" values for types.
+ただ、型に対する「デフォルト」の値というものは存在しないので、この場合においても、catch-all initializer か `initialize` メソッドでインスタンス変数の初期化を行う必要があることを覚えておいてください。

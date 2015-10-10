@@ -1,19 +1,19 @@
-# From sources
+# ソースコードからインストール
 
-If you want to contribute then you might want to install Crystal from sources. But Crystal is written in Crystal itself! So you first need to use one of the previous described methods to have a running compiler.
+もしコントリビュートしたいと考えているのであれば、Crystal をソースコードからインストールしたくなることと思います。実は、Crystal は Crystal 自身によって書かれています！したがって、まずはこれまでに紹介した方法のいずれかを使ってコンパイラをインストールする必要があります。
 
-You will also need LLVM 3.5 or 3.6 present in the path. If you are using Mac and the Homebrew formula, this will be automatically configured for you if you install Crystal adding `--with-llvm` flag.
+また、あわせて LLVM 3.5 または 3.6 も必要です。もし Mac を使っていて Homebrew のフォーミュラからインストールする場合は、`--with-llvm` フラグを与えてインストールすれば LLVM が自動的に構成されます。
 
-Then clone the repository:
+それから、リポジトリをクローンします。
 
 ```
 git clone https://github.com/manastech/crystal.git
 ```
 
-and you're ready to start hacking.
+これでハックする準備は OK です。
 
-To build your own version of the compiler, run `make`. The new compiler will be placed at `.build/crystal`.
+コンパイラをビルドするときは、`make` を実行してください。ビルドされたコンパイラは `.build/crystal` に格納されます。
 
-Make sure to install [all the required libraries](https://github.com/manastech/crystal/wiki/All-required-libraries). You might also want to read the [contributing guide](https://github.com/manastech/crystal/blob/master/Contributing.md).
+ただし、 [「すべての必要なライブラリ」](https://github.com/manastech/crystal/wiki/All-required-libraries)がインストールされている必要があることに注意してください。また、[コントリビューティング・ガイド](https://github.com/manastech/crystal/blob/master/Contributing.md) にも目を通しておくとよいでしょう。
 
-Inside the repository you will also find a wrapper script at `bin/crystal`. This script will execute the global installed compiler or the one that you just compiled (if present).
+リポジトリの中を見ると、`bin/crystal` というラッパースクリプトが存在することに気づくと思います。このスクリプトは、グローバルにインストールされたコンパイラ、もしくは自分でビルドしたコンパイラがあればそれを実行します。
