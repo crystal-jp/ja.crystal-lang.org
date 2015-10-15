@@ -2,31 +2,45 @@
 layout: default
 \---
 %section
-  %h1 Language Goals
+  %h1 設計思想
   %ul.goals
-    %li Ruby-inspired syntax.
-    %li Statically type-checked but without having to specify the type of variables or method arguments.
-    %li Be able to call C code by writing bindings to it in Crystal.
-    %li Have compile-time evaluation and generation of code, to avoid boilerplate code.
-    %li Compile to efficient native code.
+    %li Ruby 風な文法
+    %li 型推論による変数・メソッドの静的型付け
+    %li 容易に記述可能な C 言語バインディング
+    %li マクロとジェネリクスによるコンパイル時のコード生成
+    %li 高速なネイティブコードを出力
 
 %section
-  %h1 How it looks
+  %h1 サンプルコード
   .code_section
     {% include sample_code.md %}
 
 %section
-  %h1 Status
+  %h1 開発状況
   %p
     %ul.goals
-      %li The project is in alpha stage: we are still tweaking the language and standard library.
-      %li The compiler is written in Crystal.
+      %li 現在 Crystal は 「 アルファ版 」 です。言語仕様と標準ライブラリの修正を行っている段階です。
+      %li Crystal のコンパイラは既に Crystal で記述されています。
 
 %section
-  %h1 Community
+  %h1 コミュニティ
   %p
-    Post a question or suggest something in our
-    %i.ip.group
-    %a{href: "https://groups.google.com/forum/?fromgroups#!forum/crystal-lang", target: "_blank"} Google Group
-    or join our IRC channel #crystal-lang at irc.freenode.net
+    Crystal に関する質問や議論などありましたら、下記の手段をご利用ください。
 
+    %ul.goals
+      %li
+        %a{href: "http://crystal.pine.moe"}
+          Crystal-JP Slack [日本語]
+
+      %li
+        %a{href: "https://gitter.im/crystal-jp/issues"}
+          Crystal-JP Gitter [日本語]
+
+      %li
+        %a{href: "https://groups.google.com/forum/?fromgroups#!forum/crystal-lang", target: "_blank"}
+          公式 Google Group [英語]
+
+      %li
+        公式 IRC チャンネル
+        %ul
+          %li irc.freenode.net の #crystal-lang [英語]
