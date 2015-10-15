@@ -1,5 +1,5 @@
 {% highlight ruby %}
-# A very basic HTTP server
+# 簡易 HTTP サーバー
 require "http/server"
 
 server = HTTP::Server.new(8080) do |request|
