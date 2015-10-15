@@ -2,52 +2,56 @@
 layout: default
 ---
 <section>
-  <h1>Language Goals</h1>
+  <h1>設計思想</h1>
   <ul class='goals'>
-    <li>Ruby-inspired syntax.</li>
-    <li>Statically type-checked but without having to specify the type of variables or method arguments.</li>
-    <li>Be able to call C code by writing bindings to it in Crystal.</li>
-    <li>Have compile-time evaluation and generation of code, to avoid boilerplate code.</li>
-    <li>Compile to efficient native code.</li>
+    <li>Ruby 風な文法</li>
+    <li>型推論による変数・メソッドの静的型付け</li>
+    <li>容易に記述可能な C 言語バインディング</li>
+    <li>マクロとジェネリクスによるコンパイル時のコード生成</li>
+    <li>高速なネイティブコードを出力</li>
   </ul>
 </section>
 <section>
-  <h1>How it looks</h1>
+  <h1>サンプルコード</h1>
   <div class='code_section'>
     {% include sample_code.md %}
   </div>
 </section>
 <section>
-  <h1>Status</h1>
+  <h1>開発状況</h1>
   <p>
     <ul class='goals'>
-      <li>The project is in alpha stage: we are still tweaking the language and standard library.</li>
-      <li>The compiler is written in Crystal.</li>
+      <li>現在 Crystal は 「 アルファ版 」 です。言語仕様と標準ライブラリの修正を行っている段階です。</li>
+      <li>Crystal のコンパイラは既に Crystal で記述されています。</li>
     </ul>
   </p>
 </section>
 <section>
-  <h1>Community</h1>
+  <h1>コミュニティ</h1>
   <p>
-    Post a question or suggest something in our
-    <i class='ip group'></i>
-    <a href='https://groups.google.com/forum/?fromgroups#!forum/crystal-lang' target='_blank'>Google Group</a>
-    or join our IRC channel #crystal-lang at irc.freenode.net
+    Crystal に関する質問や議論などありましたら、下記の手段をご利用ください。
+    <ul class='goals'>
+      <li>
+        <a href='http://crystal.pine.moe'>
+          Crystal-JP Slack [日本語]
+        </a>
+      </li>
+      <li>
+        <a href='https://gitter.im/crystal-jp/issues'>
+          Crystal-JP Gitter [日本語]
+        </a>
+      </li>
+      <li>
+        <a href='https://groups.google.com/forum/?fromgroups#!forum/crystal-lang' target='_blank'>
+          公式 Google Group [英語]
+        </a>
+      </li>
+      <li>
+        公式 IRC チャンネル
+        <ul>
+          <li>irc.freenode.net の #crystal-lang [英語]</li>
+        </ul>
+      </li>
+    </ul>
   </p>
-</section>
-<section>
-  <h1>Entries from our blog</h1>
-  <div class='blog_roll'>
-    {% for post in site.posts %}
-    <article>
-      <div class='thumbnail'>
-        <p>{{ post.thumbnail }}</p>
-      </div>
-      <h3>
-        <a href='{{post.url}}'>{{ post.title }}</a>
-      </h3>
-      <p>{{ post.summary }}</p>
-    </article>
-    {% endfor %}
-  </div>
 </section>
