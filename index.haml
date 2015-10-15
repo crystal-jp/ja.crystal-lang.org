@@ -30,14 +30,3 @@ layout: default
     %a{href: "https://groups.google.com/forum/?fromgroups#!forum/crystal-lang", target: "_blank"} Google Group
     or join our IRC channel #crystal-lang at irc.freenode.net
 
-%section
-  %h1 Entries from our blog
-  .blog_roll
-    {% for post in site.posts %}
-    %article
-      .thumbnail
-        %p {{ post.thumbnail }}
-      %h3
-        %a{href: "{{post.url}}"} {{ post.title }}
-      %p {{ post.summary }}
-    {% endfor %}
