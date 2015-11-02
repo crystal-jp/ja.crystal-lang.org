@@ -6,7 +6,7 @@
 * [型引数](generics.html)の指定
 * [変数の宣言](declare_var.html)
 * [エイリアス](alias.html)の宣言
-* [typedef](type.html) の宣言
+* [typedef](c_bindings/type.html) の宣言
 * 擬似呼び出し [is_a?](is_a.html) の引数
 * [as](as.html) 式の引数
 * [sizeof](sizeof.html) 式の引数

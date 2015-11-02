@@ -86,4 +86,4 @@ change_it tz
 tz.minutes_west #=> 0
 ```
 
-構造体のフィールドに使用可能な型の指定方法については[型文法](type_grammar.html)を参照してください。
+構造体のフィールドに使用可能な型の指定方法については[型文法](../type_grammar.html)を参照してください。

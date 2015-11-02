@@ -34,4 +34,4 @@ lib C
 end
 ```
 
-alias の型を設定する際の記載方法については[型文法](type_grammar.html)を参照してください。
+alias の型を設定する際の記載方法については[型文法](../type_grammar.html)を参照してください。

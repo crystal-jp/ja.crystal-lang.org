@@ -74,7 +74,7 @@ C バインディングで利用できる型は以下の通りです。
 * `Void`: 戻り値なし
 * `NoReturn`: `Void` と似ているが、呼び出し後にコードを実行できないことをコンパイラが理解している
 
-fun 型 で利用できる型の指定方法については [型文法](type_grammar.html) を参照してください。
+fun 型 で利用できる型の指定方法については [型文法](../type_grammar.html)を参照してください。
 
 標準ライブラリには [LibC](https://github.com/manastech/crystal/blob/master/src/libc.cr) ライブラリが定義されており、`int`/`short`/`size_t` といった一般的な C の型のエイリアスを提供しています。それらはバインディングで以下のように利用できます。
 
