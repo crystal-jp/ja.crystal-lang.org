@@ -1,9 +1,8 @@
 # Mac OS X (Homebrew を利用)
 
-Mac に Crystal をインストールする場合、[Homebrew](http://brew.sh/) の [tap](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/brew-tap.md) を用意しているので、それを利用すると簡単です。
+[Homebrew](http://brew.sh/) を利用すると、簡単に Mac に Crystal をインストールすることができます。
 
 ```
-brew tap manastech/crystal
 brew update
 brew install crystal-lang
 ```

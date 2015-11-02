@@ -178,18 +178,6 @@ MyBox.new("hello") #:: MyBox(String)
 
 このようにして、ジェネリック型の扱いが冗長になってしまうことを軽減しています。
 
-## ジェネリック型のその他の用途
-
-通常、ジェネリック型はコンテナに関連していることが多いですが、それだけではなく、実行ファイルのサイズが大きくなることと引き換えに、実行時のパフォーマンスを向上させるために利用することもできます。これは、ジェネリック型を利用することで、実行時にメソッドのディスパッチが発生しないようにするということです。例えば、標準ライブラリに `BufferedIO(T)` というものがあります。 (訳注: `BufferedIO(T)` はクラスではなくモジュールに変更されたので、これ以降の内容は現在の Crystal には当てはまらないため翻訳していません。[An example code in the docs' "Generics" doesn't work](https://github.com/manastech/crystal/issues/1453))
-
-```crystal
-file = File.open("myfile.txt")
-io = BufferedIO.new(file) #:: BufferedIO(File)
-io.gets
-```
-
-That `io` variable is a specified `BufferedIO(File)` instance, so invoking `gets` on it will end up invoking `File#gets`. If `BufferedIO` wasn't generic, that `gets` call would make a dispatch over all the `IO` types that were used to create buffered IOs. It being generic avoids this dispatch and gives better opportunities for the optimizer to inline stuff. However, each instantiation of `BufferedIO` will repeat almost the same code, but this is usually not as important as execution performance. Furthermore, many method calls will be inlined.
-
 ## ジェネリックな構造体とモジュール
 
 構造体とモジュールをジェネリックにすることも可能です。ジェネリックなモジュールは以下のようにインクルードします。
