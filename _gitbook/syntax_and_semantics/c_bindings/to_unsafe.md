@@ -18,7 +18,7 @@ end
 
 wrapper = IntWrapper.new(1)
 C.exit(wrapper) # wrapper は Int32 ではないが、
-                # to_safe があるため、
+                # to_unsafe があるため、
                 # wrapper.to_unsafe が代わりに渡される
 ```
 
