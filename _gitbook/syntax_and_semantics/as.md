@@ -116,5 +116,5 @@ x = a.map { |f| f.name as String } # OK
 Person.new "John"
 
 a = [] of Person
-x = a.map { |f| f.name as String } # OK
+x = a.map { |f| f.name } # OK
 ```
