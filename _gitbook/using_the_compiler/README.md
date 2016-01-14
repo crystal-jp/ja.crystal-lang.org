@@ -46,7 +46,7 @@ $ crystal build some_program.cr --release
 
 ## プロジェクトやライブラリの作成
 
-`init` コマンドを使用すると、標準的なディレクトリ構成を持った Crystal プロジェクトを作成おすることができます。
+`init` コマンドを使用すると、標準的なディレクトリ構成を持った Crystal プロジェクトを作成することができます。
 
 ```
 $ crystal init lib MyCoolLib
