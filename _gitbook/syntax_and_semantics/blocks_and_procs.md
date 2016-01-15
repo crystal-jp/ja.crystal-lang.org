@@ -125,6 +125,43 @@ end
 
 ブロック変数 `second` は `Nil` 型を含んでいます。これは、最後の `yield` 式に2番目の引数が指定されていないためです。
 
+## 単一引数の場合の短縮記法
+
+ブロックが単一の引数を受け取り、それに対してメソッドを実行する場合には短縮記法を利用することができます。例えば、
+
+```crystal
+method do |argument|
+  argument.some_method
+end
+```
+
+上記は以下のように書くことができます。
+
+```crystal
+method &.some_method
+```
+
+または以下のように書きます。
+
+```crystal
+method &.some_method
+```
+
+これは単なるシンタックスシュガーであり、パフォーマンス上の欠点はありません。
+
+`some_method` に引数を渡すことも可能です。
+
+```crystal
+method &.some_method
+```
+
+演算子の場合も同様に実行することができます。
+
+```crystal
+method &.+(2)
+method &.[index]
+```
+
 ## yield の値
 
 `yield` 式自体も値を持っていて、それはブロックの最後の式となります。例をあげます。
