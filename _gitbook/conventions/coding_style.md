@@ -103,7 +103,7 @@ module Scorecard
           handle_match(match)
         end
       rescue err : ParseError
-        # ハラーハンドリング…
+        # エラーハンドリング…
       end
     end
   end
