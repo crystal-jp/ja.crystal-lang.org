@@ -51,10 +51,10 @@ tz = C::TimeZone.new
 
 C の構造体は、初期状態として、すべての値が「ゼロ」の状態になります。つまり、整数と浮動小数点数はゼロで、ポインタはゼロのアドレスを指している、などの状態です。
 
-このように初期化されることを避けたい場合は、`::` を利用します。
+このように初期化されることを避けたい場合は、`uninitialized` を利用します。
 
 ```crystal
-tz :: C::TimeZone
+tz = uninitialized C::TimeZone
 tz.minutes_west #=> 何かゴミの値
 ```
 

@@ -5,7 +5,7 @@
 ```crystal
 alias PInt32 = Pointer(Int32)
 
-ptr = PInt32.malloc(1) # :: Pointer(Int32)
+ptr = PInt32.malloc(1) # : Pointer(Int32)
 ```
 
 エイリアスはコンパイラによって、それらが参照している型に置き変えられます。

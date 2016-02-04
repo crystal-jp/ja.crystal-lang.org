@@ -32,10 +32,10 @@ end
 ```crystal
 case var
 when String
-  # var :: String
+  # var : String
   do_something
 when Int32
-  # var :: Int32
+  # var : Int32
   do_something_else
 else
   # ここでは var は String と Int32 のどちらでもない

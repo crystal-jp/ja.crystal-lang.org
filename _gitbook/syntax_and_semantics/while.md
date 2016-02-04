@@ -19,12 +19,12 @@ end
 ```crystal
 a = 1
 while some_condition
-  # a :: Int32 | String
+  # a : Int32 | String
   a = "hello"
-  # a :: String
+  # a : String
   a.size
 end
-# a :: Int32 | String
+# a : Int32 | String
 ```
 
 ## 条件によってループを抜ける

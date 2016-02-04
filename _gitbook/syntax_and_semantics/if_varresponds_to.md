@@ -12,7 +12,7 @@ end
 
 ```crystal
 a = some_condition ? 1 : "hello"
-# a :: Int32 | String
+# a : Int32 | String
 
 if a.responds_to?(:abs)
   # Int32#abs は存在するが String#abs は存在しないので、ここでは Int32 となる
