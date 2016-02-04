@@ -103,17 +103,16 @@ XML
 ```crystal
 # "Hello\n  world" と同じ
 <<-STRING
-  encode64 "hello" #=> "aGVsbG8="
-```
-    world, \
-  String |
+  Hello
+    world
+  STRING
 
 # "  Hello\n    world" と同じ
 <<-STRING
-    encode64 "hello" #=> "aGVsbG8="
+    Hello
+      world
+  STRING
 ```
-      world, \
-  String |
 
 ## 文字列埋め込み (String Interpolation)
 
