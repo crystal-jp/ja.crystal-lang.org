@@ -16,12 +16,12 @@ end
 
 ```crystal
 a = some_condition ? 1 : "hello"
-# a :: Int32 | String
+# a : Int32 | String
 
 if a.is_a?(Number)
-  # a :: Int32
+  # a : Int32
 else
-  # a :: String
+  # a : String
 end
 ```
 

@@ -20,9 +20,9 @@ status_ptr が指すオブジェクトに保持されている子プロセスか
 ```crystal
 pid = ...
 options = ...
-status_ptr :: Int32
+status_ptr = uninitialized Int32
 
-C.waitpid pid, pointerof(status_ptr), options
+C.waitpid(pid, pointerof(status_ptr), options)
 ```
 
 このとき、`status_ptr` のポインタを関数に渡し、値を設定してもらっています。
@@ -33,7 +33,7 @@ C.waitpid pid, pointerof(status_ptr), options
 pid = ...
 options = ...
 
-C.waitpid pid, out status_ptr, options
+C.waitpid(pid, out status_ptr, options)
 ```
 
 このとき、引数が `Int32*` であるため、コンパイラは自動的に `Int32` 型の `status_ptr` 変数を宣言します。

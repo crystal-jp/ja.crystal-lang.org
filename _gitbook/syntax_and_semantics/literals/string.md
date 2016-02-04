@@ -84,6 +84,37 @@
 %<hello <"world">> # "hello <\"world\">" と同じ
 ```
 
+## ヒアドキュメント
+
+文字列はヒアドキュメント (heredoc) を使って生成することも可能です。
+
+```crystal
+<<-XML
+<parent>
+  <child />
+</parent>
+XML
+```
+
+ヒアドキュメントは `<<-IDENT` のように書きます。`IDENT` というのは識別子であり、文字と数字の並びによって構成されます。ただし、識別子の最初は文字で開始する必要があります。ヒアドキュメントは `IDENT` から始まる行で終わります。このとき、先頭の空白は無視されます。
+
+ヒアドキュメントでは、終端の `IDENT` に指定されている先頭の空白の数にしたがって、ヒアドキュメントの内容から先頭の空白が削除されます。例をあげます。
+
+```crystal
+# "Hello\n  world" と同じ
+<<-STRING
+  encode64 "hello" #=> "aGVsbG8="
+```
+    world, \
+  String |
+
+# "  Hello\n    world" と同じ
+<<-STRING
+    encode64 "hello" #=> "aGVsbG8="
+```
+      world, \
+  String |
+
 ## 文字列埋め込み (String Interpolation)
 
 文字列の中には式を埋め込むことが可能です。これを文字列埋め込み (文字列補完/String Interpolation

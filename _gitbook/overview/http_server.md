@@ -5,8 +5,9 @@
 ```crystal
 require "http/server"
 
-server = HTTP::Server.new(8080) do |request|
-  HTTP::Response.ok "text/plain", "Hello world! The time is #{Time.now}"
+server = HTTP::Server.new(8080) do |context|
+  context.response.content_type = "text/plain"
+  context.response.print "Hello world! The time is #{Time.now}"
 end
 
 puts "Listening on http://0.0.0.0:8080"
@@ -41,7 +42,7 @@ server.listen
 * [ブロック](../syntax_and_semantics/blocks_and_procs.html)を使うと簡単にコードを再利用することができ、また、関数型の世界にあるいくつかの機能を利用することが可能になります
 
     ```crystal
-    HTTP::Server.new(8080) do |request|
+    HTTP::Server.new(8080) do |context|
       ...
     end
     ```

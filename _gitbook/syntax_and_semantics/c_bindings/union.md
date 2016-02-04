@@ -27,10 +27,10 @@ value = U::IntOrFloat.new
 
 C の共用体は、初期状態として、すべての値が「ゼロ」の状態になります。つまり、整数と浮動小数点数はゼロで、ポインタはゼロのアドレスを指している、などの状態です。
 
-このように初期化されることを避けたい場合は、`::` を利用します。
+このように初期化されることを避けたい場合は、`uninitialized` を利用します。
 
 ```crystal
-value :: U::IntOrFlaot
+value = uninitialized U::IntOrFlaot
 value.some_int #=> 何かゴミの値
 ```
 

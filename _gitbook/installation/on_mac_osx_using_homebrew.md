@@ -12,3 +12,18 @@ brew install crystal-lang
 ```
 brew install crystal-lang --with-llvm
 ```
+
+## OSX 10.11 (El Capitan) での注意
+
+以下のエラーが発生することがあります。
+
+```
+ld: library not found for -levent
+```
+
+この場合、Command Line Tools を再インストールした後、デフォルトのツールチェインを選択する必要がありあります。
+
+```
+$ xcode-select --install
+$ xcode-select --switch /Library/Developer/CommandLineTools
+```

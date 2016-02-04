@@ -39,25 +39,25 @@ if some_condition
 else
   a = true
 end
-# a :: String | Bool
+# a : String | Bool
 
 b = 1
 if some_condition
   b = "hello"
 end
-# b :: Int32 | String
+# b : Int32 | String
 
 if some_condition
   c = 1
 else
   c = "hello"
 end
-# c :: Int32 | String
+# c : Int32 | String
 
 if some_condition
   d = 1
 end
-# d :: Int32 | Nil
+# d : Int32 | Nil
 ```
 
 もし、変数がある分岐節の中で宣言されて、条件に合致せずその宣言の式が評価されなかった場合も、`if` の後でその変数は `Nil` 型を持っていることに注意してください。
@@ -68,10 +68,10 @@ end
 a = 1
 if some_condition
   a = "hello"
-  # a :: String
+  # a : String
   a.size
 end
-# a :: String | Int32
+# a : String | Int32
 ```
 
 つまり、変数の型は最後に代入された式によって決定されるということです。
@@ -83,8 +83,8 @@ if some_condition
   e = 1
 else
   e = "hello"
-  # e :: String
+  # e : String
   return
 end
-# e :: Int32
+# e : Int32
 ```
