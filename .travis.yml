@@ -7,8 +7,8 @@ cache:
     - $HOME/.npm
 before_install:
   - . $HOME/.nvm/nvm.sh
-  - nvm install stable
-  - nvm use stable
+  - nvm install 6.10
+  - nvm use 6.10
   - npm install -g gitbook-cli
   - bundle install --deployment --jobs=3 --retry=3
 script: test $TRAVIS_PULL_REQUEST != "false" || test $TRAVIS_BRANCH != "gh-pages" || ./travis-build.sh
