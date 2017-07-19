@@ -75,7 +75,9 @@ task :docs do
           "npm install -g gitbook-cli"
   end
 
-  system "pushd ./_gitbook && gitbook install && popd"
+  Dir.chdir('./_gitbook') do
+    system 'gitbook install'
+  end
 
   system "gitbook build ./_gitbook --gitbook=2.3.2"
 
