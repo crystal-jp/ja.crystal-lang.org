@@ -1,6 +1,6 @@
 .PHONY: locale/ja
 locale/ja:
-	rsync -Cav --include='*/' --exclude='*.md' --include='*' locale/en/ locale/ja/
+	rsync -Cav --include='*/' --exclude='.git' --exclude='*.md' --include='*' locale/en/ locale/ja/
 	rsync -Cav --include='*/' --include='*.md' --exclude='*' i18n/target/ locale/ja/
 
 .PHONY: i18n/source
