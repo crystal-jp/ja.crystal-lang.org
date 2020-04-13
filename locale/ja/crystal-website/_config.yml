@@ -1,0 +1,50 @@
+name: The Crystal Programming Language
+description: A compiled language with Ruby like syntax and type inference
+url: https://crystal-lang.org
+logo: /images/crystal-h.png
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      image: /images/icon.png
+      layout: default
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      image: /images/icon.png
+      layout: post
+      is_post: true
+  -
+    scope:
+      path: "install"
+      type: pages
+    values:
+      image: /images/icon.png
+      layout: install
+      permalink: /install/:basename/
+twitter:
+  username: CrystalLanguage
+
+highlighter: rouge
+markdown: kramdown
+exclude:
+- "*.haml"
+- docker-compose.yml
+- Gemfile
+- Gemfile.lock
+- Makefile
+- Rakefile
+- scripts/*.cr
+- vendor
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-assets
+  - jekyll-timeago
+
+google_calendar_api_key: 'AIzaSyCv-2Npqm0mwmwVCKX8xDPhwtP_8HwCWCE'
+google_calendar_id: '0s0pa4k3fov71e4itn79atlmeg@group.calendar.google.com'

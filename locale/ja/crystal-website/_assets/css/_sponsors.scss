@@ -1,0 +1,56 @@
+table {
+  border-color: $light-gray;
+  th {
+    color: $black;
+  }
+  .sponsor {
+    .logo {
+      img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+    }
+    .legend {
+      font-size: 13px;
+      color: #b5b5b5;
+      text-transform: uppercase;
+    }
+    &:not(:hover) .logo img {
+      @include grayscale(100%);
+      @include opacity(60);
+      @include transition(all .25s ease);
+    }
+  }
+  td:first-child, th:first-child {
+    position: relative;
+    &:before {
+      content: "";
+      border: solid 1px $light-gray;
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      bottom: -3px;
+      left: -4px;
+    }
+  }
+  td:last-child, th:last-child {
+    position: relative;
+    &:after {
+      content: "";
+      border: solid 1px $light-gray;
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      bottom: -3px;
+      right: -4px;
+    }
+  }
+}
+
+.sponsors-sidebar {
+  h3 {
+    line-height: 160%;
+  }
+}
