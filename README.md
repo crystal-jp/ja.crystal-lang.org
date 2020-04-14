@@ -24,7 +24,7 @@
 | `crystal-book/overview/cli.md`                                                                      | ○    |
 | `crystal-book/syntax_and_semantics/README.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/comments.md`                                                     | ○    |
-| `crystal-book/syntax_and_semantics/literals.md`                                                     | △    |
+| `crystal-book/syntax_and_semantics/literals.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/literals/nil.md`                                                 | ×    |
 | `crystal-book/syntax_and_semantics/literals/bool.md`                                                | ×    |
 | `crystal-book/syntax_and_semantics/literals/integers.md`                                            | △    |

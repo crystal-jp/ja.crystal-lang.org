@@ -1,8 +1,8 @@
-# Literals
+# リテラル
 
-Crystal provides several literals for creating values of some basic types.
+Crystal には、数多くの基本的な型に対応したリテラルが用意されています。
 
-| Literal | Sample values |
+| リテラル | 値のサンプル |
 |---                                                          |---                                                      |
 | [Nil](./literals/nil.html) | `nil` |
 | [真偽値 (Bool)](./literals/bool.html) | `true`, `false` |
@@ -12,9 +12,9 @@ Crystal provides several literals for creating values of some basic types.
 | [文字列 (String)](./literals/string.html) | `"foo\tbar"`, `%("あ")`, `%q(foo #{foo})` |
 | [シンボル (Symbol)](./literals/symbol.html) | `:symbol`, `:"foo bar"` |
 | [配列 (Array)](./literals/array.html) | `[1, 2, 3]`, `[1, 2, 3] of Int32`, `%w(one two three)` |
-| [Array-like](./literals/array.html#array-like-type-literal) | `Set{1, 2, 3}` |
+| [配列ライク](./literals/array.html#array-like-type-literal) | `Set{1, 2, 3}` |
 | [ハッシュ (Hash)](./literals/hash.html) | `{"foo" => 2}`, `{} of String => Int32` |
-| [Hash-like](./literals/hash.html#hash-like-type-literal) | `MyType{"foo" => "bar"}` |
+| [Hashライク](./literals/hash.html#hash-like-type-literal) | `MyType{"foo" => "bar"}` |
 | [範囲 (Range)](./literals/range.html) | `1..9`, `1...10`, `0..var` |
 | [正規表現 (Regex)](./literals/regex.html) | `/(foo)?bar/`, `/foo #{foo}/imx`, `%r(foo/)` |
 | [タプル (Tuple)](./literals/tuple.html) | `{1, "hello", 'x'}` |

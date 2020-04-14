@@ -6689,10 +6689,42 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt; `echo foo` &lt;/g1&gt;, &lt;g2&gt;%x(echo foo)&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000506Z" creationid="makenowjust" creationdate="20200414T000506Z">
+        <seg>&lt;g1&gt; `echo foo` &lt;/g1&gt;, &lt;g2&gt;%x(echo foo)&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;"foo\tbar"&lt;/g1&gt;, &lt;g2&gt;%("あ")&lt;/g2&gt;, &lt;g3&gt;%q(foo #{foo})&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000431Z" creationid="makenowjust" creationdate="20200414T000431Z">
+        <seg>&lt;g1&gt;"foo\tbar"&lt;/g1&gt;, &lt;g2&gt;%("あ")&lt;/g2&gt;, &lt;g3&gt;%q(foo #{foo})&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;&amp;&amp;&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170647Z" creationid="makenowjust" creationdate="20200413T170647Z">
         <seg>&lt;g1&gt;&amp;&amp;&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;'a'&lt;/g1&gt;, &lt;g2&gt;'\n'&lt;/g2&gt;, &lt;g3&gt;'あ'&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000429Z" creationid="makenowjust" creationdate="20200414T000429Z">
+        <seg>&lt;g1&gt;'a'&lt;/g1&gt;, &lt;g2&gt;'\n'&lt;/g2&gt;, &lt;g3&gt;'あ'&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;-&gt;(x : Int32, y : Int32) { x + y }&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000505Z" creationid="makenowjust" creationdate="20200414T000505Z">
+        <seg>&lt;g1&gt;-&gt;(x : Int32, y : Int32) { x + y }&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -6713,6 +6745,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;/(foo)?bar/&lt;/g1&gt;, &lt;g2&gt;/foo #{foo}/imx&lt;/g2&gt;, &lt;g3&gt;%r(foo/)&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000500Z" creationid="makenowjust" creationdate="20200414T000500Z">
+        <seg>&lt;g1&gt;/(foo)?bar/&lt;/g1&gt;, &lt;g2&gt;/foo #{foo}/imx&lt;/g2&gt;, &lt;g3&gt;%r(foo/)&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;/&lt;/g1&gt; contains a readme, any project configurations (eg, CI or editor configs), and any other project-level documentation (eg, changelog or contributing guide).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T204441Z" creationid="makenowjust" creationdate="20200412T204441Z">
@@ -6721,10 +6761,50 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;1..9&lt;/g1&gt;, &lt;g2&gt;1...10&lt;/g2&gt;, &lt;g3&gt;0..var&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000458Z" creationid="makenowjust" creationdate="20200414T000458Z">
+        <seg>&lt;g1&gt;1..9&lt;/g1&gt;, &lt;g2&gt;1...10&lt;/g2&gt;, &lt;g3&gt;0..var&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;1.0&lt;/g1&gt;, &lt;g2&gt;1.0_f32&lt;/g2&gt;, &lt;g3&gt;1e10&lt;/g3&gt;, &lt;g4&gt;-0.5&lt;/g4&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000428Z" creationid="makenowjust" creationdate="20200414T000428Z">
+        <seg>&lt;g1&gt;1.0&lt;/g1&gt;, &lt;g2&gt;1.0_f32&lt;/g2&gt;, &lt;g3&gt;1e10&lt;/g3&gt;, &lt;g4&gt;-0.5&lt;/g4&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;18&lt;/g1&gt;, &lt;g2&gt;-12&lt;/g2&gt;, &lt;g3&gt;19_i64&lt;/g3&gt;, &lt;g4&gt;14_u32&lt;/g4&gt;,&lt;g5&gt;64_u8&lt;/g5&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000426Z" creationid="makenowjust" creationdate="20200414T000426Z">
+        <seg>&lt;g1&gt;18&lt;/g1&gt;, &lt;g2&gt;-12&lt;/g2&gt;, &lt;g3&gt;19_i64&lt;/g3&gt;, &lt;g4&gt;14_u32&lt;/g4&gt;,&lt;g5&gt;64_u8&lt;/g5&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;:symbol&lt;/g1&gt;, &lt;g2&gt;:"foo bar"&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000432Z" creationid="makenowjust" creationdate="20200414T000432Z">
+        <seg>&lt;g1&gt;:symbol&lt;/g1&gt;, &lt;g2&gt;:"foo bar"&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Annotations&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171228Z" creationid="makenowjust" creationdate="20200413T171228Z">
         <seg>&lt;g1&gt;アノテーション&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Array-like&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000444Z" creationid="makenowjust" creationdate="20200414T000444Z">
+        <seg>&lt;g1&gt;配列ライク&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -7097,6 +7177,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Hash-like&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000452Z" creationid="makenowjust" creationdate="20200414T000452Z">
+        <seg>&lt;g1&gt;Hashライク&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Hash&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170223Z" creationid="makenowjust" creationdate="20200413T170223Z">
@@ -7257,6 +7345,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;MyType{"foo" =&gt; "bar"}&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000456Z" creationid="makenowjust" creationdate="20200414T000456Z">
+        <seg>&lt;g1&gt;MyType{"foo" =&gt; "bar"}&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; Inheriting documentation only works on &lt;g2&gt;instance&lt;/g2&gt;, non-constructor methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214227Z" creationid="makenowjust" creationdate="20200412T214227Z">
@@ -7365,6 +7461,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170839Z" creationid="makenowjust" creationdate="20200413T170839Z">
         <seg>&lt;g1&gt;戻り値の型&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Set{1, 2, 3}&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000446Z" creationid="makenowjust" creationdate="20200414T000446Z">
+        <seg>&lt;g1&gt;Set{1, 2, 3}&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -7617,6 +7721,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;[1, 2, 3]&lt;/g1&gt;, &lt;g2&gt;[1, 2, 3] of Int32&lt;/g2&gt;, &lt;g3&gt;%w(one two three)&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000434Z" creationid="makenowjust" creationdate="20200414T000434Z">
+        <seg>&lt;g1&gt;[1, 2, 3]&lt;/g1&gt;, &lt;g2&gt;[1, 2, 3] of Int32&lt;/g2&gt;, &lt;g3&gt;%w(one two three)&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;alias&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171127Z" creationid="makenowjust" creationdate="20200413T171117Z">
@@ -7785,6 +7897,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;nil&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000421Z" creationid="makenowjust" creationdate="20200414T000421Z">
+        <seg>&lt;g1&gt;nil&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;nil?&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171156Z" creationid="makenowjust" creationdate="20200413T171156Z">
@@ -7889,6 +8009,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;true&lt;/g1&gt;, &lt;g2&gt;false&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000424Z" creationid="makenowjust" creationdate="20200414T000424Z">
+        <seg>&lt;g1&gt;true&lt;/g1&gt;, &lt;g2&gt;false&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;type&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171425Z" creationid="makenowjust" creationdate="20200413T171425Z">
@@ -7933,6 +8061,30 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170637Z" creationid="makenowjust" creationdate="20200413T170637Z">
         <seg>&lt;g1&gt;while&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;{"foo" =&gt; 2}&lt;/g1&gt;, &lt;g2&gt;{} of String =&gt; Int32&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000447Z" creationid="makenowjust" creationdate="20200414T000447Z">
+        <seg>&lt;g1&gt;{"foo" =&gt; 2}&lt;/g1&gt;, &lt;g2&gt;{} of String =&gt; Int32&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;{1, "hello", 'x'}&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000502Z" creationid="makenowjust" creationdate="20200414T000502Z">
+        <seg>&lt;g1&gt;{1, "hello", 'x'}&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;{name: "Crystal", year: 2011}&lt;/g1&gt;, &lt;g2&gt;{"this is a key": 1}&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000503Z" creationid="makenowjust" creationdate="20200414T000503Z">
+        <seg>&lt;g1&gt;{name: "Crystal", year: 2011}&lt;/g1&gt;, &lt;g2&gt;{"this is a key": 1}&lt;/g2&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -10493,6 +10645,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T004656Z" creationid="hirofumiwakasugi" creationdate="20150930T004607Z">
         <seg>Crystal は型のリフレクションやキャスト、そしてイントロスペクションのための基本的なメソッドを提供しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Crystal provides several literals for creating values of some basic types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000352Z" creationid="makenowjust" creationdate="20200414T000352Z">
+        <seg>Crystal には、数多くの基本的な型に対応したリテラルが用意されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13148,6 +13308,22 @@ LibFoo.execute_callback
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000357Z" creationid="makenowjust" creationdate="20200414T000357Z">
+        <seg>リテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Literals</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000322Z" creationid="makenowjust" creationdate="20200414T000322Z">
+        <seg>リテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Local variables start with lowercase letters.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T053623Z" creationid="hirofumiwakasugi" creationdate="20150902T051653Z">
@@ -14375,6 +14551,14 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T063603Z" creationid="hirofumiwakasugi" creationdate="20160204T062415Z">
         <seg>STRING
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Sample values</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200414T000414Z" creationid="makenowjust" creationdate="20200414T000414Z">
+        <seg>値のサンプル</seg>
       </tuv>
     </tu>
     <tu>
