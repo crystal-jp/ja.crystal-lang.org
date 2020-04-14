@@ -10,7 +10,7 @@
 - △: 部分的に翻訳されている (以前翻訳されていた？)
 - ×: 未翻訳
 
-翻訳済み/全体 = 14/125
+翻訳済み/全体 = 15/125
 
 | ファイル名                                                                                          | 状況 |
 |:----------------------------------------------------------------------------------------------------|:----:|
@@ -26,7 +26,7 @@
 | `crystal-book/syntax_and_semantics/comments.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/literals.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/literals/nil.md`                                                 | ○    |
-| `crystal-book/syntax_and_semantics/literals/bool.md`                                                | ×    |
+| `crystal-book/syntax_and_semantics/literals/bool.md`                                                | ○    |
 | `crystal-book/syntax_and_semantics/literals/integers.md`                                            | △    |
 | `crystal-book/syntax_and_semantics/literals/floats.md`                                              | △    |
 | `crystal-book/syntax_and_semantics/literals/char.md`                                                | △    |

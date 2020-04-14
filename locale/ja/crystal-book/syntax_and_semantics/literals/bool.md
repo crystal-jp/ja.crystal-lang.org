@@ -1,9 +1,9 @@
-# Bool
+# 真偽値 (Bool)
 
-[Bool](http://crystal-lang.org/api/Bool.html) has only two possible values: `true` and `false`. They are constructed using the following literals:
+[Bool](http://crystal-lang.org/api/Bool.html)には`true`と`false`という2つの値だけが存在します。次のようなリテラルで利用できます。
 
 
 ```crystal
-true  # A Bool that is true
-false # A Bool that is false
+true  # 真の Bool 値
+false # 偽の Bool 値
 ```
