@@ -22,7 +22,7 @@
 | `crystal-book/overview/hello_world.md`                                                              | ○    |
 | `crystal-book/overview/http_server.md`                                                              | ○    |
 | `crystal-book/overview/cli.md`                                                                      | ○    |
-| `crystal-book/syntax_and_semantics/README.md`                                                       | △    |
+| `crystal-book/syntax_and_semantics/README.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/comments.md`                                                     | △    |
 | `crystal-book/syntax_and_semantics/literals.md`                                                     | △    |
 | `crystal-book/syntax_and_semantics/literals/nil.md`                                                 | ×    |
