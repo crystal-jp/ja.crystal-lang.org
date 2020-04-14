@@ -1,6 +1,6 @@
 # Nil
 
-The [Nil](http://crystal-lang.org/api/Nil.html) type is used to represent the absence of a value, similar to `null` in other languages. It only has a single value:
+[Nil](http://crystal-lang.org/api/Nil.html) 型は値が存在しないことを表す、他の言語にある`null`のようなものです。ただ1つの値を持ちます。
 
 ```crystal
 nil
