@@ -2,6 +2,11 @@
 
 このリポジトリは<https://ja.crystal-lang.org>の内容を管理するリポジトリです。
 
+ここには次のリポジトリを翻訳した結果が含まれます。
+
+  - [crystal-jp/crystal-website](https://github.com/crystal-jp/crystal-website)
+  - [crystal-lang/crystalbook](https://github.com/crystal-lang/crystal-book)
+
 ## ステータス
 
 各状況の意味:
