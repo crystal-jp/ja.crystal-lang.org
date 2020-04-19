@@ -6783,6 +6783,32 @@ Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>1.0      # Float64
+1.0_f32  # Float32
+1_f32    # Float32
+
+1e10     # Float64
+1.5e10   # Float64
+1.5e-7   # Float64
+
++1.3     # Float64
+-0.5     # Float64</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183139Z" creationid="makenowjust" creationdate="20200419T183139Z">
+        <seg>1.0      # Float64
+1.0_f32  # Float32
+1_f32    # Float32
+
+1e10     # Float64
+1.5e10   # Float64
+1.5e-7   # Float64
+
++1.3     # Float64
+-0.5     # Float64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>127</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182043Z" creationid="makenowjust" creationdate="20200419T182043Z">
@@ -6803,6 +6829,14 @@ Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182547Z" creationid="makenowjust" creationdate="20200419T182547Z">
         <seg>1_000_000 # better than 1000000</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1_000_000.111_111 # a lot more readable than 1000000.111111, yet functionally the same</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183142Z" creationid="makenowjust" creationdate="20200419T183142Z">
+        <seg>1_000_000.111_111 # a lot more readable than 1000000.111111, yet functionally the same</seg>
       </tuv>
     </tu>
     <tu>
@@ -10087,6 +10121,17 @@ and a line number, providing this location to the &lt;g5&gt;--location&lt;/g5&gt
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A floating point literal is an optional &lt;g1&gt;+&lt;/g1&gt; or &lt;g2&gt;-&lt;/g2&gt; sign, followed by
+a sequence of numbers or underscores, followed by a dot,
+followed by numbers or underscores, followed by an optional exponent suffix,
+followed by an optional type suffix.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183059Z" creationid="makenowjust" creationdate="20200419T183003Z">
+        <seg>浮動小数点リテラルは &lt;g1&gt;+&lt;/g1&gt; (オプション) または &lt;g2&gt;-&lt;/g2&gt; 符号に続く数値とアンダースコアからなり、さらに指数部分と型を表わすサフィックスを続けることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A floating point literal is an optional `+` or `-` sign, followed by
 a sequence of numbers or underscores, followed by a dot,
 followed by numbers or underscores, followed by an optional exponent suffix,
@@ -10823,8 +10868,8 @@ extra syntax to manipulate the AST nodes.</seg>
         <seg>An integer literal is an optional &lt;g1&gt;+&lt;/g1&gt; or &lt;g2&gt;-&lt;/g2&gt; sign, followed by
 a sequence of digits and underscores, optionally followed by a suffix.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200419T182341Z" creationid="makenowjust" creationdate="20200419T182341Z">
-        <seg>整数リテラルは&lt;g1&gt;+&lt;/g1&gt; (オプション) または&lt;g2&gt;-&lt;/g2&gt;符号に続く数値とアンダースコアからなり、さらにサフィックスを続けることができます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183112Z" creationid="makenowjust" creationdate="20200419T182341Z">
+        <seg>整数リテラルは &lt;g1&gt;+&lt;/g1&gt; (オプション) または &lt;g2&gt;-&lt;/g2&gt; 符号に続く数値とアンダースコアからなり、さらに型を表わすサフィックスを続けることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13481,6 +13526,14 @@ files inside that folder are appended.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T174642Z" creationid="makenowjust" creationdate="20200419T174642Z">
         <seg>コマンドが指定されなかった場合、&lt;g1&gt;install&lt;/g1&gt;がデフォルトでは実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If no suffix is present, the literal's type is &lt;g3&gt;Float64&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183137Z" creationid="makenowjust" creationdate="20200419T183137Z">
+        <seg>サフィックスがない場合はリテラルの型は&lt;g3&gt;Float64&lt;/g3&gt;となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18370,6 +18423,18 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T051737Z" creationid="hirofumiwakasugi" creationdate="20150901T051628Z">
         <seg>符号なし整数型にも、[UInt8](http://crystal-lang.org/api/UInt8.html)、[UInt16](http://crystal-lang.org/api/UInt16.html)、[UInt32](http://crystal-lang.org/api/UInt32.html) そして [UInt64](http://crystal-lang.org/api/UInt64.html) の4種類が存在します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There are two floating point types, &lt;g1&gt;Float32&lt;/g1&gt; and &lt;g2&gt;Float64&lt;/g2&gt;,
+which correspond to the &lt;g3&gt;binary32&lt;/g3&gt;
+and &lt;g4&gt;binary64&lt;/g4&gt;
+types defined by IEEE.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T182924Z" creationid="makenowjust" creationdate="20200419T182924Z">
+        <seg>浮動小数点数には&lt;g1&gt;Float32&lt;/g1&gt;と&lt;g2&gt;Float64&lt;/g2&gt;という2つ型があり、
+それぞれIEEEで定義されている&lt;g3&gt;binary32&lt;/g3&gt;と&lt;g4&gt;binary64&lt;/g4&gt;に対応しています。</seg>
       </tuv>
     </tu>
     <tu>
