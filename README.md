@@ -5,7 +5,7 @@
 ここには次のリポジトリの内容を翻訳した結果が含まれます。
 
   - [crystal-jp/crystal-website](https://github.com/crystal-jp/crystal-website)
-  - [crystal-lang/crystalbook](https://github.com/crystal-lang/crystal-book)
+  - [crystal-lang/crystal-book](https://github.com/crystal-lang/crystal-book)
 
 **注意**: 現在、一括して翻訳をしているためPull Request等を受け取れる状態にありません。
 
