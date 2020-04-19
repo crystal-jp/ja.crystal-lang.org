@@ -8,7 +8,7 @@ offsetof(Type, @ivar)
 
 This is a low-level primitive and only useful if a C API needs to directly interface with the data layout of a Crystal type.
 
-Example:
+例:
 ```cr
 struct Foo
   @x = 0_i64

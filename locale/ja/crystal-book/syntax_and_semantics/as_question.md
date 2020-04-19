@@ -2,7 +2,7 @@
 
 The `as?` pseudo-method is similar to `as`, except that it returns `nil` instead of raising an exception when the type doesn't match. It also can't be used to cast between pointer types and other types.
 
-Example:
+例:
 
 ```crystal
 value = rand < 0.5 ? -3 : nil

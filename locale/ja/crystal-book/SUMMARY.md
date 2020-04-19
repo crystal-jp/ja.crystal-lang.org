@@ -46,7 +46,7 @@
       * [until](syntax_and_semantics/until.md)
       * [&&](syntax_and_semantics/and.md)
       * [||](syntax_and_semantics/or.md)
-   * [ファイルのl require](syntax_and_semantics/requiring_files.md)
+   * [ファイルの require](syntax_and_semantics/requiring_files.md)
    * [型とメソッド](syntax_and_semantics/types_and_methods.md)
       * [すべてがオブジェクト](syntax_and_semantics/everything_is_an_object.md)
       * [プログラム](syntax_and_semantics/the_program.md)

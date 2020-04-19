@@ -42,7 +42,7 @@ If no command is given, `install` will be run by default.
 
 To see the available options for a particular command, use `--help` after a command.
 
-**Common options:**
+**よく使うオプション:**
 
 * `--version`: Prints the version of `shards`.
 * `-h, --help`: Prints usage synopsis.

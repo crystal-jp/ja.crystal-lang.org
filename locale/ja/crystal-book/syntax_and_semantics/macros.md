@@ -294,7 +294,7 @@ Foo.describe     # => "Class is Foo"
 
 When a macro is invoked you can access the method, the macro is in with a special instance variable: `@def`. The type of this variable is [`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html) unless the macro is outside of a method, in this case it's [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html).
 
-Example:
+例:
 
 ```crystal
 module Foo
@@ -414,7 +414,7 @@ greeting_for_bob "hola"    # => "¡hola bob!"
 
 Notice the variables in the inner macro are not available within the `verbatim` block. The contents of the block are transferred "as is", essentially as a string, until re-examined by the compiler.
 
-## Comments
+## コメント
 
 Macro expressions are evaluated both within comments as well as compilable sections of code. This may be used to provide relevant documentation for expansions:
 
