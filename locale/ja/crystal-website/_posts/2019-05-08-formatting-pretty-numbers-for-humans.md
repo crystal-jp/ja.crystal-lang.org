@@ -15,7 +15,7 @@ When showing numbers in a user interface, they need to be understandable by huma
 
 Meet the new [`Number#format`](https://crystal-lang.org/api/0.28.0/Number.html#format%28separator%3D%26%2339%3B.%26%2339%3B%2Cdelimiter%3D%26%2339%3B%2C%26%2339%3B%2Cdecimal_places%3AInt%3F%3Dnil%2C%2A%2Cgroup%3AInt%3D3%2Conly_significant%3ABool%3Dfalse%29%3AString-instance-method) method.
 
-It allows printing numbers in a customizable format, that can represent the way that numbers are usually written for humans.
+It allows printing numbers in a customizable format, that can represent the way that numbers are usually written for humans. 
 
 ## Number styles
 

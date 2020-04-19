@@ -61,8 +61,8 @@ class Foo
     foo
   end
 
-def initialize(@x)
-end
+  def initialize(@x)
+  end
 end
 
 Foo.new(1)
@@ -291,9 +291,9 @@ def raise_boom
 end
 
 if some_condition
-a = 1
+  a = 1
 else
-raise_boom
+  raise_boom
 end
 a.abs # ok
 {% endhighlight ruby %}</div>
@@ -328,9 +328,9 @@ class Object
 end
 
 class Nil
-def not_nil!
-raise "Nil assertion failed"
-end
+  def not_nil!
+    raise "Nil assertion failed"
+  end
 end
 
 a = some_condition ? 1 : nil
@@ -364,9 +364,9 @@ class Object
 end
 
 class Nil
-def try(&block)
-nil
-end
+  def try(&block)
+    nil
+  end
 end
 
 a = some_condition ? 1 : nil
@@ -392,7 +392,7 @@ end
 
 This makes sense: if ```a``` is truthy then it means it is not ```nil```. Not only this,
 but the compiler also makes ```a```'s type be that one after the ```if```, combined with
-whatever type ```a``` has in the ```else``` branch. 例をあげます。
+whatever type ```a``` has in the ```else``` branch. For example:
 
 <div class="code_section">{% highlight ruby %}
 a = some_condition ? 1 : nil
@@ -433,7 +433,7 @@ able to filter the types. On the contrary, the method ```nil?``` is not special 
 so the following won't work:
 
 <div class="code_section">{% highlight ruby %}
-a = some_condition ?1 : nil
+a = some_condition ? 1 : nil
 if a.nil?
 else
   a.abs # should be ok, but now gives error
@@ -456,13 +456,13 @@ end
 
 In conclusion, as was said in the beginning of this post, we want Crystal to behave
 as much as possible as Ruby, and if something is intuitive and makes sense for the programmer
-to make the compiler understand it too. 例をあげます。
+to make the compiler understand it too. For example:
 
 <div class="code_section">{% highlight ruby %}
 def foo(x)
   return unless x
 
-x.abs # ok
+  x.abs # ok
 end
 
 a = some_condition ? 1 : nil
@@ -482,7 +482,7 @@ def foo(x)
     return
   end
 
-x.abs # ok
+  x.abs # ok
 end
 {% endhighlight ruby %}</div>
 

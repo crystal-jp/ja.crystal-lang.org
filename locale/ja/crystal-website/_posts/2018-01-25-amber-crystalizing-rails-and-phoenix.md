@@ -24,7 +24,7 @@ Rails veterans will recognize many of these files and folders immediately:
 <div class="code_section">
 {% highlight plaintext %}
 .. (up a dir)
-&lt;/repositories/offline_pink/
+</repositories/offline_pink/
 ▸ db/migrations/
 ▾ src/
   ▾ controllers/
@@ -64,14 +64,14 @@ The compiler complains, notifies you of the problem, and even suggests a correct
 {% highlight ruby %}
 in macro 'macro_4598546880' expanded macro: embed:1, line 1:
 
-> 1. if domain.nam.blank?
-2. __kilt_io__ << "
-3. "
-4. __kilt_io__ << "<p"
-5. __kilt_io__ << ">"
-6. __kilt_io__ << HTML.escape(("No domain name").to_s).to_s(__kilt_io__)
-7. __kilt_io__ << "</p>"
-8. end
+>  1. if domain.nam.blank?
+   2. __kilt_io__ << "
+   3. "
+   4. __kilt_io__ << "<p"
+   5. __kilt_io__ << ">"
+   6. __kilt_io__ << HTML.escape(("No domain name").to_s).to_s(__kilt_io__)
+   7. __kilt_io__ << "</p>"
+   8. end
 
 undefined method 'nam' for Domain (did you mean 'name'?)
 {% endhighlight %}

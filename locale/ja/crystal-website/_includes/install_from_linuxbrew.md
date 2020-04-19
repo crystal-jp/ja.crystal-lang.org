@@ -7,7 +7,7 @@ brew update
 brew install crystal-lang
 {% endhighlight bash %}</div>
 
-If you're planning to contribute to the language itself you might find useful to install LLVM as well. その場合、最後の行を以下の通りに変更してください。
+If you're planning to contribute to the language itself you might find useful to install LLVM as well. So replace the last line with:
 
 <div class="code_section">{% highlight bash %}
 brew install crystal-lang --with-llvm

@@ -55,8 +55,8 @@ bind = "0.0.0.0"
 port = 8080
 
 server = HTTP::Server.new(bind, port) do |context|
-context.response.content_type = "text/plain"
-context.response << "Hello world, got #{context.request.path}"
+  context.response.content_type = "text/plain"
+  context.response << "Hello world, got #{context.request.path}"
 end
 
 puts "Listening on http://#{bind}:#{port}"
@@ -110,14 +110,14 @@ bind = "0.0.0.0"
 port = 8080
 
 OptionParser.parse! do |opts|
-opts.on("-p PORT", "--port PORT", "define port to run server") do |opt|
-port = opt.to_i
-end
+  opts.on("-p PORT", "--port PORT", "define port to run server") do |opt|
+    port = opt.to_i
+  end
 end
 
 server = HTTP::Server.new(bind, port) do |context|
-context.response.content_type = "text/plain"
-context.response << "Hello world, got #{context.request.path}"
+  context.response.content_type = "text/plain"
+  context.response << "Hello world, got #{context.request.path}"
 end
 
 puts "Listening on http://#{bind}:#{port}"

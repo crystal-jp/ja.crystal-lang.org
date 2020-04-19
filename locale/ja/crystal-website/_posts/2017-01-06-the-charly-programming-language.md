@@ -40,7 +40,7 @@ Below is an implementation of the [Bubblesort algorithm](https://en.wikipedia.or
     })
 
     sorted
-}
+  }
 {% endhighlight javascript %}
 </div>
 
@@ -67,9 +67,9 @@ This program prints out the [Mandelbrot set](https://en.wikipedia.org/wiki/Mande
     } else {
       write(".")
     }
-})
+  })
 
-write("\n")
+  write("\n")
 })
 {% endhighlight javascript %}
 </div>

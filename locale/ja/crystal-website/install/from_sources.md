@@ -2,7 +2,7 @@
 subtitle: From sources
 ---
 
-もしコントリビュートしたいと考えているのであれば、Crystal をソースコードからインストールしたくなることと思います。
+If you want to contribute then you might want to install Crystal from sources.
 
 1. [Install the latest Crystal release](/install). To compile Crystal, you need Crystal :).
 

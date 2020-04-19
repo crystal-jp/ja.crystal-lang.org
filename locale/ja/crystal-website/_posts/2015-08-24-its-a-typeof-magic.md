@@ -56,10 +56,10 @@ array = [1, 'a', true]
 # Rewritten to this, where <type_merge>(exp1, exp2, ...) computes
 # the union type of the expressions:
 Array(<type_merge>(1, 'a', true)).build(3) do |buffer|
-buffer[0] = 1
-buffer[1] = 'a'
-buffer[2] = true
-3
+  buffer[0] = 1
+  buffer[1] = 'a'
+  buffer[2] = true
+  3
 end
 {% endhighlight ruby %}</div>
 
@@ -92,11 +92,11 @@ Little did we know that `typeof` would bring a lot of power to the language.
 
 ## Simple uses of typeof
 
-One obvious use-case of typeof is to ask the compiler the inferred type of an expression. 例をあげます。
+One obvious use-case of typeof is to ask the compiler the inferred type of an expression. For example:
 
 <div class="code_section">{% highlight ruby %}
 puts typeof(1) #=> Int32
-puts typeof([1, 2, 3].map &amp;.to_s) #=> Array(String)
+puts typeof([1, 2, 3].map &.to_s) #=> Array(String)
 {% endhighlight ruby %}</div>
 
 At this point you might think that `typeof(exp)` is similar to `exp.class`. However,
@@ -175,7 +175,7 @@ class Array
   def compact
     result = Array(typeof(not_nil(self[0]))).new
     each do |element|
-      result &lt;&lt; element unless element.is_a?(Nil)
+      result << element unless element.is_a?(Nil)
     end
     result
   end
@@ -250,15 +250,15 @@ class Array
     result
   end
 
-private def append_flattened(object, result)
-if object.is_a?(Array)
-object.each do |sub_object|
-append_flattened(sub_object, result)
-end
-else
-result << object
-end
-end
+  private def append_flattened(object, result)
+    if object.is_a?(Array)
+      object.each do |sub_object|
+        append_flattened(sub_object, result)
+      end
+    else
+      result << object
+    end
+  end
 end
 {% endhighlight ruby %}</div>
 

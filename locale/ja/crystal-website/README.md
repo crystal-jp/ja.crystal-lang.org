@@ -1,3 +1,11 @@
+このリポジトリは [crystal-lang/crystal-website](https://github.com/crystal-lang/crystal-website) の日本語版向けの Fork です。
+ここでは主に日本語版向けにレイアウトの修正などを行なっていて、翻訳はこちらでは行いません。
+翻訳を含む Pull Request 等も基本的には受け入れないと思います。
+
+以下、オリジナルの`README.md`です。
+
+- - -
+
 Crystal Website
 ===============
 Powered by [Jekyll](https://jekyllrb.com/)

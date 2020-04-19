@@ -58,19 +58,19 @@ Compare this to some other language where you would have to add some types:
 
 <div class="code_section">{% highlight ruby %}
 interface Iterable<T>
-  def each(&amp;block : T ->)
+  def each(&block : T ->)
 end
 
 interface Addable<T>
-def +(other : T)
+  def +(other : T)
 end
 
 def sum(values : Iterable<T>) where T : Addable<T>
-count = 0
-values.each do |value|
-count += value
-end
-count
+  count = 0
+  values.each do |value|
+    count += value
+  end
+  count
 end
 {% endhighlight %}</div>
 

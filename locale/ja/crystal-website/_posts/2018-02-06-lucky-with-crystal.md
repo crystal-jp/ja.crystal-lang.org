@@ -73,11 +73,11 @@ Let’s say you have any action with a conditional like this:
 
 <div class="code_section">
 {% highlight ruby %}
-class SamlSignIns::Create &lt; BrowserAction
+class SamlSignIns::Create < BrowserAction
   action do
-    if user.present?&amp;&amp; sso_enabled?
+    if user.present? && sso_enabled?
       redirect to: SamlSignIns::New
-    elsif user.present?&amp;&amp; !sso_enabled?
+    elsif user.present? && !sso_enabled?
       flash.info = "This email address does not have SSO enabled"
       redirect to: SignIns::New
     end
@@ -94,8 +94,8 @@ SamlSignIns::Create returned Lucky::Response | Nil, but it must return a Lucky::
 
 Try this...
 
-▸ Make sure to use a method like `render`, `redirect`, or `json` at the end of your action.
-▸ If you are using a conditional, make sure all branches return a Lucky::Response.
+  ▸ Make sure to use a method like `render`, `redirect`, or `json` at the end of your action.
+  ▸ If you are using a conditional, make sure all branches return a Lucky::Response.
 {% endhighlight %}
 </div>
 

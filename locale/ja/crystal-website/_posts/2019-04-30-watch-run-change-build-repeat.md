@@ -19,7 +19,7 @@ Create a `./dev/build-exec.sh` file with the following content. This is the scri
 <div class="code_section">{% highlight shell %}
 #!/bin/bash
 cd $(dirname $0)/..
-shards build "$1" &amp;&amp; exec ./bin/"$1" "${@:2}"
+shards build "$1" && exec ./bin/"$1" "${@:2}"
 {% endhighlight shell %}</div>
 
 Create a `./dev/watch.sh` file with the following content. This script will watch for changes to your source files and execute the build when there are any.
@@ -49,8 +49,8 @@ name: awesome_app
 ... stripped ...
 
 targets:
-awesome_app:
-main: src/awesome_app.cr
+  awesome_app:
+    main: src/awesome_app.cr
 {% endhighlight shell %}</div>
 
 You can start running the app and watching for changes doing

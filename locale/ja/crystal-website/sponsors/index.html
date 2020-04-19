@@ -2,7 +2,6 @@
 title: Sponsors
 description: These are the companies and individuals contributing a monthly amount to help sustain Crystal's development.
 ---
-
 <div class="container">
 
   <div class="row">
@@ -16,17 +15,12 @@ description: These are the companies and individuals contributing a monthly amou
           <th>Since</th>
         </thead>
         <tbody>
-          
           {% for sp in site.data.sponsors %}
             {% capture sponsor_class %}level-{{sp.level}} sponsor{% endcapture %}
-            
             <tr class="{{sponsor_class}}">
               <td class="col-logo">
-                
                 {% if sp.logo %}
-                  
                   <div class="logo">
-                    
                     {% if sp.url %}
                       <a href="{{sp.url}}" target="_blank">
                         {% img '{{ assets[sp.logo].filename }}' %}
@@ -34,16 +28,12 @@ description: These are the companies and individuals contributing a monthly amou
                     {% else %}
                       {% img '{{ assets[sp.logo].filename }}' %}
                     {% endif %}
-                  
                   </div>
-                
                 {% else %}
                   &nbsp;
                 {% endif %}
-              
               </td>
               <td class="name">
-                
                 {% if sp.url %}
                   <a href="{{sp.url}}" target="_blank">
                     {{sp.name}}
@@ -51,36 +41,24 @@ description: These are the companies and individuals contributing a monthly amou
                 {% else %}
                   {{sp.name}}
                 {% endif %}
-              
               </td>
               <td class="this_month">
-                
                 {{sp.this_month}}
-              
               </td>
               <td class="all_time">
-                
                 {{sp.all_time}}
-              
               </td>
               <td class="since">
-                
                 {{sp.since}}
-              
               </td>
             </tr>
-          
           {% endfor %}
-        
         </tbody>
       </table>
     </div>
 
     <div class="col s12 m3 offset-m1 sponsors-sidebar">
-      
       {% include sponsors_sidebar.html %}
-
-      
 
       <div class="row original">
         <div class="col">

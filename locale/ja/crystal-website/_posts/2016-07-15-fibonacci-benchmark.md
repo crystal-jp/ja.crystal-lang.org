@@ -15,7 +15,7 @@ Let's compare the fibonacci function:
 <div class="code_section">{% highlight ruby %}
 # fib.cr
 def fib(n)
-  if n &lt;= 1
+  if n <= 1
     1
   else
     fib(n - 1) + fib(n - 2)
@@ -84,7 +84,7 @@ good performance, to favor correct behaviour. One can see this in this small exa
 $ irb
 irb(main):001:0> a = []
 => []
-irb(main):002:0> a &lt;&lt; a
+irb(main):002:0> a << a
 => [[...]]
 </pre>
 
@@ -104,7 +104,7 @@ irb(main):004:2>   end
 irb(main):005:1> end
 => :initialize
 irb(main):006:0> Foo.new
-=> #&lt;Foo:0x007fc7429bbe30 @self=#<Foo:0x007fc7429bbe30 ...>>
+=> #<Foo:0x007fc7429bbe30 @self=#<Foo:0x007fc7429bbe30 ...>>
 </pre>
 
 These subtleties aren't immediately visible in Ruby, but once you discover them they make
@@ -124,11 +124,11 @@ explicitly use big numbers. Let's do it:
 require "big"
 
 def fib(n)
-if n <= 1
-BigInt.new(1)
-else
-fib(n - 1) + fib(n - 2)
-end
+  if n <= 1
+    BigInt.new(1)
+  else
+    fib(n - 1) + fib(n - 2)
+  end
 end
 
 time = Time.now
@@ -161,13 +161,13 @@ creating too many BigInt instances. Let's try:
 require "big"
 
 def fib(n)
-a = BigInt.new(1)
-b = BigInt.new(1)
-n.times do
-a += b
-a, b = b, a
-end
-a
+  a = BigInt.new(1)
+  b = BigInt.new(1)
+  n.times do
+    a += b
+    a, b = b, a
+  end
+  a
 end
 
 time = Time.now
@@ -223,20 +223,20 @@ or a bottleneck in the program. Let's reopen Crystal's BigInt and make some chan
 require "big"
 
 struct BigInt
-def add!(other : BigInt) : BigInt
-LibGMP.add(self, self, other)
-self
-end
+  def add!(other : BigInt) : BigInt
+    LibGMP.add(self, self, other)
+    self
+  end
 end
 
 def fib(n)
-a = BigInt.new(1)
-b = BigInt.new(1)
-n.times do
-a.add!(b)
-a, b = b, a
-end
-a
+  a = BigInt.new(1)
+  b = BigInt.new(1)
+  n.times do
+    a.add!(b)
+    a, b = b, a
+  end
+  a
 end
 
 time = Time.now

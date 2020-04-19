@@ -25,12 +25,12 @@ In order to do that in CircleCI using the latest release of Crystal you need to 
 version: 2
 
 jobs:
-test:
-docker:
-# Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
-- image: crystallang/crystal:latest
-steps:
-- run: crystal --version
+  test:
+    docker:
+      # Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
+      - image: crystallang/crystal:latest
+    steps:
+      - run: crystal --version
 
       - checkout
 
@@ -39,10 +39,10 @@ steps:
       - run: crystal spec
 
 workflows:
-version: 2
-ci:
-jobs:
-- test
+  version: 2
+  ci:
+    jobs:
+      - test
 {% endhighlight yaml %}</div>
 
 It will show the specific compiler version used thanks to `crystal --version`. And you can force a specific version using `crystallang/crystal:VERSION` docker images instead of `crystallang/crystal:latest`.
@@ -59,21 +59,21 @@ Adding the `mysql:5.7` image with some environment configuration and giving it s
 version: 2
 
 dry:
-wait_for_db: &wait_for_db
-name: Wait for MySQL
-command: sleep 7
+  wait_for_db: &wait_for_db
+    name: Wait for MySQL
+    command: sleep 7
 
 jobs:
-test:
-docker:
-# Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
-- image: crystallang/crystal:latest
-- image: mysql:5.7
-environment:
-MYSQL_DATABASE: 'sample_app'
-MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-steps:
-- run: crystal --version
+  test:
+    docker:
+      # Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
+      - image: crystallang/crystal:latest
+      - image: mysql:5.7
+        environment:
+          MYSQL_DATABASE: 'sample_app'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    steps:
+      - run: crystal --version
 
       - checkout
 
@@ -84,10 +84,10 @@ steps:
       - run: crystal spec
 
 workflows:
-version: 2
-ci:
-jobs:
-- test
+  version: 2
+  ci:
+    jobs:
+      - test
 {% endhighlight yaml %}</div>
 
 **Note:** The `dry` key is not standard. It’s just a placeholder of values that will be used multiple times later or that helps reading the job’s steps. If prefered, you can inline their contents directly.
@@ -104,36 +104,36 @@ Adding steps to save and restore the path used as `SHARDS_CACHE_PATH` allows the
 version: 2
 
 dry:
-restore_shards_cache: &restore_shards_cache
-# Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
-keys:
-- {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
-- {% raw %}shards-cache-v1-{{ .Branch }}{% endraw %}
-- shards-cache-v1
+  restore_shards_cache: &restore_shards_cache
+    # Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
+    keys:
+      - {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
+      - {% raw %}shards-cache-v1-{{ .Branch }}{% endraw %}
+      - shards-cache-v1
 
-save_shards_cache: &save_shards_cache
-# Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
-key: {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
-paths:
-- ./shards-cache
+  save_shards_cache: &save_shards_cache
+    # Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
+    key: {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
+    paths:
+      - ./shards-cache
 
-wait_for_db: &wait_for_db
-name: Wait for MySQL
-command: sleep 7
+  wait_for_db: &wait_for_db
+    name: Wait for MySQL
+    command: sleep 7
 
 jobs:
-test:
-docker:
-# Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
-- image: crystallang/crystal:latest
-environment:
-SHARDS_CACHE_PATH: ./shards-cache
-- image: mysql:5.7
-environment:
-MYSQL_DATABASE: 'sample_app'
-MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-steps:
-- run: crystal --version
+  test:
+    docker:
+      # Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
+      - image: crystallang/crystal:latest
+        environment:
+          SHARDS_CACHE_PATH: ./shards-cache
+      - image: mysql:5.7
+        environment:
+          MYSQL_DATABASE: 'sample_app'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    steps:
+      - run: crystal --version
 
       - checkout
 
@@ -146,10 +146,10 @@ steps:
       - run: crystal spec
 
 workflows:
-version: 2
-ci:
-jobs:
-- test
+  version: 2
+  ci:
+    jobs:
+      - test
 {% endhighlight yaml %}</div>
 
 Notice how the cache key involves the checksum of the content of `shard.lock`. If you are using this for a shard, there should be no `shard.lock` file checked in and the `shard.yml` should be used instead.
@@ -168,36 +168,36 @@ So a not so minimalistic CircleCI config for a real app with dependencies, short
 version: 2
 
 dry:
-restore_shards_cache: &restore_shards_cache
-# Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
-keys:
-- {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
-- {% raw %}shards-cache-v1-{{ .Branch }}{% endraw %}
-- shards-cache-v1
+  restore_shards_cache: &restore_shards_cache
+    # Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
+    keys:
+      - {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
+      - {% raw %}shards-cache-v1-{{ .Branch }}{% endraw %}
+      - shards-cache-v1
 
-save_shards_cache: &save_shards_cache
-# Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
-key: {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
-paths:
-- ./shards-cache
+  save_shards_cache: &save_shards_cache
+    # Use {% raw %}{{ checksum "shard.yml" }}{% endraw %} if developing a shard instead of an app
+    key: {% raw %}shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}{% endraw %}
+    paths:
+      - ./shards-cache
 
-wait_for_db: &wait_for_db
-name: Wait for MySQL
-command: sleep 7
+  wait_for_db: &wait_for_db
+    name: Wait for MySQL
+    command: sleep 7
 
 jobs:
-test:
-docker:
-# Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
-- image: crystallang/crystal:latest
-environment:
-SHARDS_CACHE_PATH: ./shards-cache
-- image: mysql:5.7
-environment:
-MYSQL_DATABASE: 'sample_app'
-MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-steps:
-- run: crystal --version
+  test:
+    docker:
+      # Use crystallang/crystal:latest or specific crystallang/crystal:VERSION
+      - image: crystallang/crystal:latest
+        environment:
+          SHARDS_CACHE_PATH: ./shards-cache
+      - image: mysql:5.7
+        environment:
+          MYSQL_DATABASE: 'sample_app'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    steps:
+      - run: crystal --version
 
       - checkout
 
@@ -209,17 +209,17 @@ steps:
 
       - run: crystal spec
 
-test-on-nightly:
-docker:
-- image: crystallang/crystal:nightly
-environment:
-SHARDS_CACHE_PATH: ./shards-cache
-- image: mysql:5.7
-environment:
-MYSQL_DATABASE: 'sample_app'
-MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-steps:
-- run: crystal --version
+  test-on-nightly:
+    docker:
+      - image: crystallang/crystal:nightly
+        environment:
+          SHARDS_CACHE_PATH: ./shards-cache
+      - image: mysql:5.7
+        environment:
+          MYSQL_DATABASE: 'sample_app'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    steps:
+      - run: crystal --version
 
       - checkout
 
@@ -231,22 +231,22 @@ steps:
       - run: crystal spec
 
 workflows:
-version: 2
-# Run tests on every single commit
-ci:
-jobs:
-- test
-# Run tests every night using crystal nightly
-nightly:
-triggers:
-- schedule:
-cron: "0 2 * * *"
-filters:
-branches:
-only:
-- master
-jobs:
-- test-on-nightly
+  version: 2
+  # Run tests on every single commit
+  ci:
+    jobs:
+      - test
+  # Run tests every night using crystal nightly
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - test-on-nightly
 {% endhighlight yaml %}</div>
 
 That’s it! Thanks CircleCI for all the great features!

@@ -6,13 +6,13 @@ In Ubuntu derived distributions, you can use the official Crystal repository. [S
 
 ## Setup repository
 
-まずは、公式の Crystal リポジトリを追加するために Apt を構成します。簡単にその設定を行うためのスクリプトを用意していますので、以下のコマンドをそのまま実行してください。
+First you have to add the repository to your APT configuration. For easy setup just run in your command line:
 
 <div class="code_section">{% highlight bash %}
 curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
 {% endhighlight bash %}</div>
 
-これで、署名用のキーとリポジトリの設定が追加されます。If you prefer to do it manually, execute the following commands:
+That will add the signing key and the repository configuration. If you prefer to do it manually, execute the following commands:
 
 <div class="code_section">{% highlight bash %}
 curl -sL "https://keybase.io/crystal/pgp_keys.asc" | sudo apt-key add -
@@ -41,7 +41,7 @@ sudo apt install libz-dev        # for using crystal play
 
 ## Upgrade
 
-新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。
+When a new Crystal version is released you can upgrade your system using:
 
 <div class="code_section">{% highlight bash %}
 sudo apt update

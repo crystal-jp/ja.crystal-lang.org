@@ -116,7 +116,7 @@ def foo(x : Float)
 end
 
 def foo(x)
-yield
+  yield
 end
 
 foo 1, 1      # Invokes foo 1
@@ -146,10 +146,10 @@ class Foo
   # attr_reader, attr_writer and attr_accessor
   getter :value
 
-# Note the @value at the argument: this is similar to Coffeescript
-# and we think it's a nice syntax addition.
-def initialize(@value)
-end
+  # Note the @value at the argument: this is similar to Coffeescript
+  # and we think it's a nice syntax addition.
+  def initialize(@value)
+  end
 end
 
 foo = Foo.new(1)
@@ -170,8 +170,8 @@ you can use a generic class:
 class Foo(T)
   getter :value
 
-def initialize(@value : T)
-end
+  def initialize(@value : T)
+  end
 end
 
 foo = Foo.new(1)    # T is inferred to be an Int32, and foo is a Foo(Int32)
@@ -318,8 +318,8 @@ def foo
 end
 
 foo do |x|
-# Invokes "abs" on -1
-puts abs + x #=> 3
+  # Invokes "abs" on -1
+  puts abs + x #=> 3
 end
 {% endhighlight ruby %}</div>
 
@@ -338,19 +338,19 @@ library as well as the new compiler. Here's a sample spec for the Array class:
 require "spec"
 
 describe "Array" do
-describe "index" do
-it "performs without a block" do
-a = [1, 2, 3]
-a.index(3).should eq(2)
-a.index(4).should eq(-1)
-end
+  describe "index" do
+    it "performs without a block" do
+      a = [1, 2, 3]
+      a.index(3).should eq(2)
+      a.index(4).should eq(-1)
+    end
 
     it "performs with a block" do
       a = [1, 2, 3]
       a.index { |i| i > 1 }.should eq(1)
       a.index { |i| i > 3 }.should eq(-1)
     end
-end
+  end
 end
 {% endhighlight ruby %}</div>
 

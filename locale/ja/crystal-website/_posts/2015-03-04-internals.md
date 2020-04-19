@@ -49,20 +49,20 @@ In this way we can get a very simple and clean LLVM IR code file with just the c
 
 define i1 @__crystal_main(i32 %argc, i8** %argv) {
 alloca:
-%x = alloca i1
-br label %entry
+  %x = alloca i1
+  br label %entry
 
 entry:                                            ; preds = %alloca
-store i1 true, i1* %x
-ret i1 true
+  store i1 true, i1* %x
+  ret i1 true
 }
 
 declare i32 @printf(i8*, ...)
 
 define i32 @main(i32 %argc, i8** %argv) {
 entry:
-%0 = call i1 @__crystal_main(i32 %argc, i8** %argv)
-ret i32 0
+  %0 = call i1 @__crystal_main(i32 %argc, i8** %argv)
+  ret i32 0
 }
 {% endhighlight llvm %}</div>
 
@@ -111,22 +111,22 @@ target triple = "x86_64-apple-darwin14.1.0"
 
 define internal i32 @__crystal_main(i32 %argc, i8** %argv) {
 alloca:
-%x = alloca i32
-%y = alloca i32
-br label %entry
+  %x = alloca i32
+  %y = alloca i32
+  br label %entry
 
 entry:                                            ; preds = %alloca
-store i32 0, i32* %x
-store i32 1, i32* %y
-ret i32 1
+  store i32 0, i32* %x
+  store i32 1, i32* %y
+  ret i32 1
 }
 
 declare i32 @printf(i8*, ...)
 
 define i32 @main(i32 %argc, i8** %argv) {
 entry:
-%0 = call i32 @__crystal_main(i32 %argc, i8** %argv)
-ret i32 0
+  %0 = call i32 @__crystal_main(i32 %argc, i8** %argv)
+  ret i32 0
 }
 {% endhighlight llvm %}</div>
 
@@ -142,7 +142,7 @@ This makes symbols very attractive to use for small groups of constants, because
 
 ### Pointer
 
-A Pointer is a generic type that represents a typed pointer to some memory location. 例をあげます。
+A Pointer is a generic type that represents a typed pointer to some memory location. For example:
 
 <div class="code_section">{% highlight ruby %}
 x = Pointer(Int32).malloc(1_u64)
@@ -244,7 +244,7 @@ and also comfortable to use and to debug with (like, you get names instead of nu
 
 ### Proc
 
-A Proc is a function pointer with an optional closure data information. 例をあげます。
+A Proc is a function pointer with an optional closure data information. For example:
 
 <div class="code_section">{% highlight ruby %}
 f = ->(x : Int32) { x + 1 }
@@ -272,32 +272,32 @@ The LLVM IR code for the above is:
 
 define %"->" @__crystal_main(i32 %argc, i8** %argv) {
 alloca:
-%f = alloca %"->"
-%0 = alloca %"->"
-br label %entry
+  %f = alloca %"->"
+  %0 = alloca %"->"
+  br label %entry
 
 entry:                                            ; preds = %alloca
-%1 = getelementptr inbounds %"->"* %0, i32 0, i32 0
-store i8* bitcast (i32 (i32)* @"~fun_literal_1" to i8*), i8** %1
-%2 = getelementptr inbounds %"->"* %0, i32 0, i32 1
-store i8* null, i8** %2
-%3 = load %"->"* %0
-store %"->" %3, %"->"* %f
-ret %"->" %3
+  %1 = getelementptr inbounds %"->"* %0, i32 0, i32 0
+  store i8* bitcast (i32 (i32)* @"~fun_literal_1" to i8*), i8** %1
+  %2 = getelementptr inbounds %"->"* %0, i32 0, i32 1
+  store i8* null, i8** %2
+  %3 = load %"->"* %0
+  store %"->" %3, %"->"* %f
+  ret %"->" %3
 }
 
 declare i32 @printf(i8*, ...)
 
 define i32 @main(i32 %argc, i8** %argv) {
 entry:
-%0 = call %"->" @__crystal_main(i32 %argc, i8** %argv)
-ret i32 0
+  %0 = call %"->" @__crystal_main(i32 %argc, i8** %argv)
+  ret i32 0
 }
 
 define internal i32 @"~fun_literal_1"(i32 %x) {
 entry:
-%0 = add i32 %x, 1
-ret i32 %0
+  %0 = add i32 %x, 1
+  ret i32 %0
 }
 {% endhighlight llvm %}</div>
 
@@ -322,23 +322,23 @@ The LLVM IR code changes:
 
 define %"->" @__crystal_main(i32 %argc, i8** %argv) {
 alloca:
-%f = alloca %"->"
-%0 = alloca %"->"
-br label %entry
+  %f = alloca %"->"
+  %0 = alloca %"->"
+  br label %entry
 
 entry:                                            ; preds = %alloca
-%malloccall = tail call i8* @malloc(i32 ptrtoint (i32* getelementptr (i32* null, i32 1) to i32))
-%1 = bitcast i8* %malloccall to %closure*
-%a = getelementptr inbounds %closure* %1, i32 0, i32 0
-store i32 1, i32* %a
-%2 = bitcast %closure* %1 to i8*
-%3 = getelementptr inbounds %"->"* %0, i32 0, i32 0
-store i8* bitcast (i32 (i8*, i32)* @"~fun_literal_1" to i8*), i8** %3
-%4 = getelementptr inbounds %"->"* %0, i32 0, i32 1
-store i8* %2, i8** %4
-%5 = load %"->"* %0
-store %"->" %5, %"->"* %f
-ret %"->" %5
+  %malloccall = tail call i8* @malloc(i32 ptrtoint (i32* getelementptr (i32* null, i32 1) to i32))
+  %1 = bitcast i8* %malloccall to %closure*
+  %a = getelementptr inbounds %closure* %1, i32 0, i32 0
+  store i32 1, i32* %a
+  %2 = bitcast %closure* %1 to i8*
+  %3 = getelementptr inbounds %"->"* %0, i32 0, i32 0
+  store i8* bitcast (i32 (i8*, i32)* @"~fun_literal_1" to i8*), i8** %3
+  %4 = getelementptr inbounds %"->"* %0, i32 0, i32 1
+  store i8* %2, i8** %4
+  %5 = load %"->"* %0
+  store %"->" %5, %"->"* %f
+  ret %"->" %5
 }
 
 declare i32 @printf(i8*, ...)
@@ -347,18 +347,18 @@ declare noalias i8* @malloc(i32)
 
 define i32 @main(i32 %argc, i8** %argv) {
 entry:
-%0 = call %"->" @__crystal_main(i32 %argc, i8** %argv)
-ret i32 0
+  %0 = call %"->" @__crystal_main(i32 %argc, i8** %argv)
+  ret i32 0
 }
 
 define internal i32 @"~fun_literal_1"(i8*, i32 %x) {
 entry:
-%1 = bitcast i8* %0 to %closure*
-%a = getelementptr inbounds %closure* %1, i32 0, i32 0
-%2 = bitcast i8* %0 to %closure*
-%3 = load i32* %a
-%4 = add i32 %x, %3
-ret i32 %4
+  %1 = bitcast i8* %0 to %closure*
+  %a = getelementptr inbounds %closure* %1, i32 0, i32 0
+  %2 = bitcast i8* %0 to %closure*
+  %3 = load i32* %a
+  %4 = add i32 %x, %3
+  ret i32 %4
 }
 {% endhighlight llvm %}</div>
 
@@ -531,13 +531,13 @@ module Moo
 end
 
 class Foo
-def foo
-2
-end
+  def foo
+    2
+  end
 end
 
 class Bar < Foo
-include Moo
+  include Moo
 end
 
 class Baz < Bar
@@ -564,7 +564,7 @@ at the generated code you will see something like this:
 
 define internal i32 @"*Baz@Moo#foo<Baz>:Int32"(%Baz* %self) {
 entry:
-ret i32 1
+  ret i32 1
 }
 {% endhighlight llvm %}</div>
 
@@ -590,7 +590,7 @@ entry:
 
 define internal i32 @"*Baz@Moo#foo<Baz>:Int32"(%Baz* %self) {
 entry:
-ret i32 1
+  ret i32 1
 }
 {% endhighlight llvm %}</div>
 
@@ -618,15 +618,15 @@ class Foo
 end
 
 class Bar
-def foo
-1
-end
+  def foo
+    1
+  end
 end
 
 if 1 == 2
-obj = Foo.new
+  obj = Foo.new
 else
-obj = Bar.new
+  obj = Bar.new
 end
 obj.foo
 {% endhighlight ruby %}</div>
@@ -652,9 +652,9 @@ Consider this class hierarchy:
 
 <div class="code_section">{% highlight ruby %}
 class Foo; end
-class Bar &lt; Foo; end
-class Baz &lt; Bar; end
-class Qux &lt; Bar; end
+class Bar < Foo; end
+class Baz < Bar; end
+class Qux < Bar; end
 {% endhighlight ruby %}</div>
 
 Considering these types only, the compiler assigns type ids in a post-order way: first Baz gets assigned
@@ -672,9 +672,9 @@ class Foo
 end
 
 class Bar < Foo
-def foo
-2
-end
+  def foo
+    2
+  end
 end
 
 class Baz < Bar; end

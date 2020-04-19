@@ -43,18 +43,18 @@ Let's try with a slightly more complex, but made up, example:
 class Box
   getter :value
 
-def initialize(value)
-@value = value
-end
+  def initialize(value)
+    @value = value
+  end
 end
 
 def make_box(n)
-case n
-when 1, 2, 3
-Box.new(n * 2)
-when 4, 5, 6
-Box.new(n * 3)
-end
+  case n
+  when 1, 2, 3
+    Box.new(n * 2)
+  when 4, 5, 6
+    Box.new(n * 3)
+  end
 end
 
 n = ARGV.size
@@ -157,9 +157,9 @@ server = TCPServer.new(8080)
 socket = server.accept
 line = socket.gets
 if line
-puts line.capitalize
+  puts line.capitalize
 else
-puts "Nothing in the socket"
+  puts "Nothing in the socket"
 end
 {% endhighlight %}</div>
 

@@ -7,7 +7,7 @@ In Red Hat derived distributions, you can use the official Crystal repository.
 
 ## Setup repository
 
-まずは、公式の Crystal リポジトリを追加するために Yum を構成します。簡単にその設定を行うためのスクリプトを用意していますので、以下のコマンドをそのまま実行してください。
+First you have to add the repository to your YUM configuration. For easy setup just run in your command line:
 
 <div class="code_section">
 {% highlight bash %}
@@ -15,7 +15,7 @@ curl https://dist.crystal-lang.org/rpm/setup.sh | sudo bash
 {% endhighlight bash %}
 </div>
 
-これで、署名用のキーとリポジトリの設定が追加されます。もし手動で構成したいのであれば、以下の操作を実行してください。
+That will add the signing key and the repository configuration. If you prefer to do it manually execute:
 
 <div class="code_section">
 {% highlight bash %}
@@ -41,7 +41,7 @@ sudo yum install crystal
 
 ## Upgrade
 
-新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。
+When a new Crystal version is released you can upgrade your system using:
 
 <div class="code_section">
 {% highlight bash %}

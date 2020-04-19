@@ -28,13 +28,13 @@ class Queue
     # ...
   end
 
-# returns the next element and a queue
-# with the remaining elements
-# fails if queue is empty
-def pop
-raise EmptyQueueRuntimeError.new if empty?
-# ...
-end
+  # returns the next element and a queue
+  # with the remaining elements
+  # fails if queue is empty
+  def pop
+    raise EmptyQueueRuntimeError.new if empty?
+    # ...
+  end
 end
 {% endhighlight ruby %}</div>
 
@@ -56,14 +56,14 @@ class EmptyQueue
 end
 
 class Queue
-# Always return a Queue
-def push(e)
-# ...
-end
+  # Always return a Queue
+  def push(e)
+    # ...
+  end
 
-# Return Queue or EmptyQueue
-def pop
-end
+  # Return Queue or EmptyQueue
+  def pop
+  end
 end
 
 q = EmptyQueue.new
@@ -98,7 +98,7 @@ For this we will need:
 
 * A way to declare overloads `Queue(1)` and `Queue(N)` (with `N > 1`)
 * Be able to use Math operators in types: given `N`, return `Queue(N+1)`.
-   * And teach the type inference how to deduce these things so we don’t need to always write them.
+  * And teach the type inference how to deduce these things so we don’t need to always write them.
 
 Even if we added this, it’s a risky business: Let's imagine we want a `#filter` operation that will remove from the queue all elements that are equal to a certain value. What will be the return type of `Queue(N)#filter(e)`?
 

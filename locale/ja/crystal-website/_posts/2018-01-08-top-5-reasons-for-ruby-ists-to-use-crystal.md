@@ -20,7 +20,7 @@ How easy? Let's take a look at some code.
 {% highlight ruby %}
 module Year
   def self.leap?(year)
-    year % 400 == 0 || (year % 100 != 0 &amp;&amp; year % 4 == 0)
+    year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)
   end
 end
 {% endhighlight %}
@@ -57,7 +57,7 @@ Let's revisit the `Year::leap?` example from above. In Ruby, what happens when t
 <div class="code_section">
 {% highlight ruby %}
 Year.leap?("2016") #=> false
-Year.leap?(Date.new(2016, 1, 1)) #=> undefined method `%' for #<Date: 2016-01-01 ...>
+Year.leap?(Date.new(2016, 1, 1)) #=> undefined method `%' for #<Date: 2016-01-01 ... >
 {% endhighlight %}
 </div>
 
@@ -67,9 +67,9 @@ For a `String` we get the wrong answer, for a `Date` we get a runtime exception.
 {% highlight ruby %}
 module Year
   def self.leap?(input)
-    if input.is_a?Integer
-      input % 400 == 0 || (input % 100 != 0 &amp;&amp; input % 4 == 0)
-    elsif input.is_a?Date
+    if input.is_a? Integer
+      input % 400 == 0 || (input % 100 != 0 && input % 4 == 0)
+    elsif input.is_a? Date
       input.leap?
     else
       raise ArgumentError.new("must pass an Integer or Date.")
@@ -99,12 +99,12 @@ If we want to add support for `Time` (think `DateTime` in Ruby) in our module, w
 {% highlight ruby %}
 module Year
   def self.leap?(year : Int)
-    year % 400 == 0 || (year % 100 != 0 &amp;&amp; year % 4 == 0)
+    year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)
   end
 
-def self.leap?(time : Time)
-self.leap?(time.year)
-end
+  def self.leap?(time : Time)
+    self.leap?(time.year)
+  end
 end
 {% endhighlight %}
 </div>

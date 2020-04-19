@@ -37,13 +37,13 @@ We want to point out that this article is solely our personal experience and opi
 Here is a comparison between some of the parameters which were important to us:
 
 
-| Ruby | Crystal |
+Ruby|Crystal
 :---: | :---:
-| Dynamically typed | Statically typed |
-| Nil reference errors in runtime | Nil reference error checks at compile time |
-| Vast amount of existing libraries | Relatively small amount of existing libraries |
-| Limited runtime performance | Fast runtime performance |
-| Runs in virtual machine | Compiled native code |
+Dynamically typed | Statically typed
+Nil reference errors in runtime | Nil reference error checks at compile time
+Vast amount of existing libraries | Relatively small amount of existing libraries
+Limited runtime performance | Fast runtime performance
+Runs in virtual machine | Compiled native code
 
 
 

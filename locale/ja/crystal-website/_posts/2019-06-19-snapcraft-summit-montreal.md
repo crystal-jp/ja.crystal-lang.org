@@ -40,7 +40,7 @@ Travis needs to deal with a lot to support the different languages and configura
 
 Travis was eager to start giving support to languages through snaps, and we were eager to reestablish the availability of nightlies.
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Working on bringing back <a href="https://twitter.com/CrystalLanguage?ref_src=twsrc%5Etfw">@CrystalLanguage</a> nightlies in <a href="https://twitter.com/travisci?ref_src=twsrc%5Etfw">@travisci</a> with <a href="https://twitter.com/ana_rosas?ref_src=twsrc%5Etfw">@ana_rosas</a> at <a href="https://twitter.com/hashtag/snapcraftsummit?src=hash&amp;ref_src=twsrc%5Etfw">#snapcraftsummit</a> powered by <a href="https://twitter.com/snapcraftio?ref_src=twsrc%5Etfw">@snapcraftio</a> <a href="https://t.co/ayQum84Nbm">pic.twitter.com/ayQum84Nbm</a></p>— Brian J. Cardiff (@bcardiff) <a href="https://twitter.com/bcardiff/status/1138905956933414912?ref_src=twsrc%5Etfw">June 12, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working on bringing back <a href="https://twitter.com/CrystalLanguage?ref_src=twsrc%5Etfw">@CrystalLanguage</a> nightlies in <a href="https://twitter.com/travisci?ref_src=twsrc%5Etfw">@travisci</a> with <a href="https://twitter.com/ana_rosas?ref_src=twsrc%5Etfw">@ana_rosas</a> at <a href="https://twitter.com/hashtag/snapcraftsummit?src=hash&amp;ref_src=twsrc%5Etfw">#snapcraftsummit</a> powered by <a href="https://twitter.com/snapcraftio?ref_src=twsrc%5Etfw">@snapcraftio</a> <a href="https://t.co/ayQum84Nbm">pic.twitter.com/ayQum84Nbm</a></p>&mdash; Brian J. Cardiff (@bcardiff) <a href="https://twitter.com/bcardiff/status/1138905956933414912?ref_src=twsrc%5Etfw">June 12, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 [From now on](https://changelog.travis-ci.com/crystal-nightlies-support-105460), when using `crystal: nightly` in the `travis.yml` file, the snap in the edge channel will be used. For a couple of months the `crystal: latest` will still use the current `.deb` packages that are hosted in our package repository. Eventually, the snap in the stable channel will be used.
 
@@ -56,8 +56,8 @@ Assuming there is a `shard.yml` that declares targets, dependencies, etc.
 name: hello
 
 targets:
-hello:
-main: src/hello.cr
+  hello:
+    main: src/hello.cr
 
 # ... stripped ...
 {% endhighlight yaml %}</div>
@@ -74,12 +74,12 @@ grade: devel
 confinement: strict
 
 apps:
-crystal-hello:
-command: bin/hello
+  crystal-hello:
+    command: bin/hello
 
 parts:
-crystal-hello:
-plugin: crystal
+  crystal-hello:
+    plugin: crystal
 {% endhighlight yaml %}</div>
 
 After installing the generated snap, `$ crystal-hello` will invoke `./bin/hello`. Of course you can tweak the names and avoid the `crystal-` prefix.

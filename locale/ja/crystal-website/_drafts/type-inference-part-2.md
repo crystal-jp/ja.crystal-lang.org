@@ -71,11 +71,11 @@ def even(x)
 end
 
 def odd(x)
-if x == 0
-false
-else
-even(x-1)
-end
+  if x == 0
+    false
+  else
+    even(x-1)
+  end
 end
 
 p = even(7)

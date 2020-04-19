@@ -15,7 +15,7 @@ Alternative there are `.tar.gz` and `.pkg` files in each [release](https://githu
 
 ## Upgrade
 
-新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。
+When a new Crystal version is released you can upgrade your system using:
 
 <div class="code_section">{% highlight bash %}
 brew update
@@ -26,13 +26,13 @@ brew upgrade crystal
 
 ### On macOS 10.11 (El Capitan)
 
-以下のエラーが発生することがあります。
+If you get an error like:
 
 <div class="code_section">{% highlight txt %}
 ld: library not found for -levent
 {% endhighlight txt %}</div>
 
-この場合、Command Line Tools を再インストールした後、デフォルトのツールチェインを選択する必要がありあります。
+you need to reinstall the command line tools and then select the default active toolchain:
 
 <div class="code_section">{% highlight bash %}
 xcode-select --install
@@ -41,7 +41,7 @@ xcode-select --switch /Library/Developer/CommandLineTools
 
 ### On macOS 10.14 (Mojave)
 
-以下のエラーが発生することがあります。
+If you get an error like:
 
 <div class="code_section">{% highlight txt %}
 ld: library not found for -lssl (this usually means you need to install the development package for libssl)
