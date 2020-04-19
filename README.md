@@ -17,14 +17,14 @@
 - △: 部分的に翻訳されている (以前翻訳されていた？)
 - ×: 未翻訳
 
-翻訳済み/全体 = 16/125
+翻訳済み/全体 = 17/125
 
 | ファイル名                                                                                          | 状況 |
 |:----------------------------------------------------------------------------------------------------|:----:|
 | `crystal-book/SUMMARY.md`                                                                           | ○    |
 | `crystal-book/README.md`                                                                            | ○    |
 | `crystal-book/using_the_compiler/README.md`                                                         | ○    |
-| `crystal-book/the_shards_command/README.md`                                                         | ×    |
+| `crystal-book/the_shards_command/README.md`                                                         | ○    |
 | `crystal-book/overview/README.md`                                                                   | ○    |
 | `crystal-book/overview/hello_world.md`                                                              | ○    |
 | `crystal-book/overview/http_server.md`                                                              | ○    |

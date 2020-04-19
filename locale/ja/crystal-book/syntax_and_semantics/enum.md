@@ -115,7 +115,7 @@ Color::Blue.red?# => false
 
 Class variables are allowed, but instance variables are not.
 
-## Usage
+## 使い方
 
 Enums are a type-safe alternative to [Symbol](http://crystal-lang.org/api/Symbol.html). For example, an API's method can specify a [type restriction](type_restrictions.html) using an enum type:
 

@@ -1,55 +1,54 @@
-# The shards command
+# shards コマンド
 
-Crystal is typically accompanied by Shards, its dependency manager.
+Crystal には通常、依存関係管理ツールとして Shards が付随しています。
 
-It manages dependencies for Crystal projects and libraries with reproducible
-installs across computers and systems.
+これは Crystal のプロジェクトやライブラリの依存関係を管理して、あるシステムやコンピュータのまたがって再現可能なインストールを実現します。
 
-## Installation
+## インストール方法
 
-Shards is usually distributed with Crystal itself. Alternatively, a separate `shards` package may be available for your system.
+Shards 通常であれば Crystal 自身と共に配布されています。そうでなければ、分割された`shards`パッケージがあなたのシステムでは有効かもしれません。
 
-To install from source, download or clone [the repository](https://github.com/crystal-lang/shards) and run `make CRFLAGS=--release`. The compiled binary is in `bin/shards` and should be added to `PATH`.
+ソースコードからインストールするには、[リポジトリ](https://github.com/crystal-lang/shards)からソースコードをダウンロードかクローンしてきて、`make CRFLAGS=--release`を実行します。コンパイルされたバイナリは`bin/shards`にあるので、`PATH`にそれを追加してください。
 
-## Usage
+## 使い方
 
-`shards` requires the presence of a `shard.yml` file in the project folder (working directory). This file describes the project and lists dependencies that are required to build it.
-A default file can be created by running [`shards init`](#shards-install).
-The file's contents are explained in the [*Writing a Shard* guide](../guides/writing_shards.md) and a detailed description of the file format is provided by the [shard.yml specification](https://github.com/crystal-lang/shards/blob/master/SPEC.md).
+`shards`は`shard.yml`がプロジェクトのフォルダ (現在のディレクトリ) に置いてあることを要求します。このファイルはプロジェクトの説明と、ビルドに必要な依存関係のリストを含んでいます。
+デフォルトのファイルは[`shards init`](#shards-install)を実行することで生成できます。
+そのファイル内容は[*Shardの書き方*というガイド](../guides/writing_shards.md)で説明されていて、詳細な説明は[shard.yml の仕様 (英語)](https://github.com/crystal-lang/shards/blob/master/SPEC.md)にあります。
 
-Running [`shards install`](#shards-install) resolves and installs the specified dependencies.
-The installed versions are written into a `shard.lock` file for using the exact same dependency versions when running `shards install` again.
+[`shards install`](#shards-install)を実行すると、指定された依存関係の解決とインストールが行なわれます。
+`shards install`がもう一度実行されたときに同じバージョンがインストールされるために、インストールしたバージョンは`shard.lock`に書き出されます。
 
-If your shard builds an application, both `shard.yml` and `shard.lock` should be checked into version control to provide reproducible dependency installs.
-If it is only a library for other shards to depend on, `shard.lock` should *not* be checked in, only `shard.yml`. It's good advice to add it to `.gitignore` (the [`crystal init`](../using_the_compiler/README.md#crystal-init) does this automatically when initializing a `lib` repository).
+アプリケーションを開発しているのであれば、再現可能な依存関係のインストールを実現するために、`shard.yml`と`shard.lock`をバージョン管理下に置いてください。
+他のshardから依存されるようなライブラリである場合`shard.lock`はバージョン管理下に置くべき*ではあありません*。`shard.yml`のみを含めてください。`.gitignore`にそれを含めることをオススメします ([`crystal init`](../using_the_compiler/README.md#crystal-init) は`lib` リポジトリを初期化する際にそれを自動的に行います).
 
-## Shards commands
+## shards コマンド
 
 ```bash
 shards [<options>...] [<command>]
 ```
 
-If no command is given, `install` will be run by default.
+コマンドが指定されなかった場合、`install`がデフォルトでは実行されます。
 
-* [`shards build`](#shards-build): Builds an executable
-* [`shards check`](#shards-check): Verifies dependencies are installed
-* [`shards init`](#shards-init): Generates a new `shard.yml`
-* [`shards install`](#shards-install): Resolves and installs dependencies
-* [`shards list`](#shards-list): Lists installed dependencies
-* [`shards prune`](#shards-prune): Removes unused dependencies
-* [`shards update`](#shards-update): Resolves and updates dependencies
-* [`shards version`](#shards-version): Shows version of a shard
+* [`shards build`](#shards-build): 実行可能ファイルのビルド
+* [`shards check`](#shards-check): インストールされている依存関係の検証
+* [`shards init`](#shards-init): `shard.yml`を新規に生成
+* [`shards install`](#shards-install): 依存関係の解決とインストール
+* [`shards list`](#shards-list): インストールされた依存関係の一覧を表示
+* [`shards prune`](#shards-prune): 利用されていない依存関係の削除
+* [`shards update`](#shards-update): 依存関係の解決と更新
+* [`shards version`](#shards-version): shard のバージョンを表示
 
-To see the available options for a particular command, use `--help` after a command.
+特定のコマンドの有効なオプションを確認したい場合は、コマンド名のあとに`--help`を付けて実行してください。
 
 **よく使うオプション:**
 
-* `--version`: Prints the version of `shards`.
-* `-h, --help`: Prints usage synopsis.
-* `--no-color`: Disabled colored output.
-* `--production`: Runs in release mode. Development dependencies won't be installed and only locked dependencies will be installed. Commands will fail if dependencies in `shard.yml` and `shard.lock` are out of sync (used by `install`, `update`, `check` and `list` command)
-* `-q, --quiet`: Decreases the log verbosity, printing only warnings and errors.
-* `-v, --verbose`: Increases the log verbosity, printing all debug statements.
+* `--version`: `shards`のバージョンを表示
+* `-h, --help`: 使用方法をおおざっぱに表示
+* `--no-color`: 色付けされた出力を無効にする
+* `--production`: リリースモードで実行する。開発用の依存関係は実行されずロックされた依存関係のみがインストールされます。`shard.yml`と`shard.lock`の依存関係の同期が取れていない場合にコマンドは失敗します (`install`、`update`、`check`および`list`の場合)
+* `-q, --quiet`: ログの冗長さを減らして、警告およびエラーのみを表示するようにする
+* `-v, --verbose`: ログの冗長さを増して、すべてのデバッグ用のメッセージも表示するようにする
 
 ### `shards build`
 
@@ -57,10 +56,10 @@ To see the available options for a particular command, use `--help` after a comm
 shards build [<targets>] [<options>...]
 ```
 
-Builds the specified targets in `bin` path. If no targets are specified, all are built.
-This command ensures all dependencies are installed, so it is not necessary to run `shards install` before.
+`bin`にある指定したターゲットをビルドします。ターゲットが指定されていなければ、すべてがビルドされます。
+このコマンドはビルド前に依存関係をインストールするので、`shards install`を事前に実行することは必要ではありません。
 
-All options following the command are delegated to `crystal build`.
+コマンドに続くすべてのオプションは`crystal build`に渡されます。
 
 ### `shards check`
 
@@ -68,12 +67,12 @@ All options following the command are delegated to `crystal build`.
 shards check
 ```
 
-Verifies that all dependencies are installed and requirements are satisfied.
+すべての依存関係がインストールされていて、要求を満たしているか検証します。
 
-Exit status:
+終了コード:
 
-* `0`: Dependencies are satisfied.
-* `1`: Dependencies are not satisfied.
+* `0`: 依存関係は充足されています
+* `1`: 依存関係は充足されていません
 
 ### `shards init`
 
@@ -81,7 +80,7 @@ Exit status:
 shards init
 ```
 
-Initializes a shard folder and creates a `shard.yml`.
+shard用のフォルダを生成して`shard.yml`を生成します。
 
 ### `shards install`
 
@@ -89,10 +88,9 @@ Initializes a shard folder and creates a `shard.yml`.
 shards install
 ```
 
-Resolves and installs dependencies into the `lib` folder. If not already present, generates a `shard.lock` file from resolved dependencies, locking version
-numbers or Git commits.
+依存関係を解決して、それらを`lib`にインストールします。`shard.lock`が存在しない場合、解決した依存関係、ロックしたバージョンもしくはGitコミットから生成します。
 
-Reads and enforces locked versions and commits if a `shard.lock` file is present. The install command may fail if a locked version doesn't match a requirement, but may succeed if a new dependency was added, as long as it doesn't generate a conflict, thus generating a new `shard.lock` file.
+`shard.lock`がある場合は、そこからロックされたバージョンとコミットを読み込んで強制します。ロックされたバージョンが要求に一致しない場合、コマンドは失敗することがあります。しかし、衝突することなく新しい依存関係を追加できれば、新たな`shard.lock`ファイルを生成してコマンドは成功します。
 
 ### `shards list`
 
@@ -100,7 +98,7 @@ Reads and enforces locked versions and commits if a `shard.lock` file is present
 shards list
 ```
 
-Lists the installed dependencies and their versions.
+インストールされた依存関係とそれらのバージョンの一覧を表示します。
 
 ### `shards prune`
 
@@ -108,7 +106,7 @@ Lists the installed dependencies and their versions.
 shards prune
 ```
 
-Removes unused dependencies from lib folder.
+使われていない依存関係をlibフォルダから削除します。
 
 ### `shards update`
 
@@ -116,8 +114,7 @@ Removes unused dependencies from lib folder.
 shards update
 ```
 
-Resolves and updates all dependencies into the lib folder again, whatever the locked versions and commits in the `shard.lock` file. Eventually generates a
-new `shard.lock` file.
+`shard.lock`にロックされたバージョンやコミットがあるかどうかに関わらず、すべての依存関係を解決してlibフォルダの内容を再度更新します。最終的には新たな`shard.lock`を生成します。
 
 ### `shards version`
 
@@ -125,4 +122,4 @@ new `shard.lock` file.
 shards version [<path>]
 ```
 
-Prints the version of the shard.
+shard コマンドのバージョンを表示します。
