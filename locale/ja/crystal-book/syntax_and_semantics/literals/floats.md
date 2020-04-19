@@ -23,7 +23,7 @@ followed by an optional type suffix. If no suffix is present, the literal's type
 -0.5     # Float64
 ```
 
-The underscore `_` before the suffix is optional.
+サフィックスの前のアンダースコア (`_`) はオプションです。
 
 アンダースコアは、数値を読みやすくするためにも利用できます。
 

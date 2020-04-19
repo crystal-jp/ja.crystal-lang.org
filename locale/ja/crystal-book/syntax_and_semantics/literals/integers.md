@@ -1,8 +1,8 @@
-# Integers
+# 整数 (Integer)
 
-There are four signed integer types, and four unsigned integer types:
+4つ符号付き整数型と、4つの符号無し整数型が存在します。
 
-| Type | Length | Minimum Value | Maximum Value |
+| 型 | 大きさ | 最小値 | 最大値 |
  ---------- | -----------: | -----------: |-----------:
 | [Int8](http://crystal-lang.org/api/Int8.html) | 8 | -128 | 127 |
 | [Int16](http://crystal-lang.org/api/Int16.html) | 16 | −32,768 | 32,767 |
@@ -13,10 +13,8 @@ There are four signed integer types, and four unsigned integer types:
 | [UInt32](http://crystal-lang.org/api/UInt32.html) | 32 | 0 | 4,294,967,295 |
 | [UInt64](http://crystal-lang.org/api/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1 |
 
-An integer literal is an optional `+` or `-` sign, followed by
-a sequence of digits and underscores, optionally followed by a suffix.
-If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
-in which the number fits:
+整数リテラルは`+` (オプション) または`-`符号に続く数値とアンダースコアからなり、さらにサフィックスを続けることができます。
+サフィックスがない場合はリテラルの型は`Int32`か`Int64`または`UInt64`の中で、その数値に適した最小のものになります。
 
 ```crystal
 1      # Int32
@@ -38,7 +36,7 @@ in which the number fits:
 9223372036854775808 # UInt64
 ```
 
-The underscore `_` before the suffix is optional.
+サフィックスの前のアンダースコア (`_`) はオプションです。
 
 アンダースコアは、数値を読みやすくするためにも利用できます。
 
@@ -46,19 +44,19 @@ The underscore `_` before the suffix is optional.
 1_000_000 # better than 1000000
 ```
 
-Binary numbers start with `0b`:
+先頭に`0b`をつけると2進数になります。
 
 ```crystal
 0b1101 # == 13
 ```
 
-Octal numbers start with a `0o`:
+先頭に`0o`をつけると8進数になります。
 
 ```crystal
 0o123 # == 83
 ```
 
-Hexadecimal numbers start with `0x`:
+先頭に`0x`をつけると16進数になります。
 
 ```crystal
 0xFE012D # == 16646445
