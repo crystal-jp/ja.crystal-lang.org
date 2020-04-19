@@ -1,8 +1,8 @@
-# Char
+# 文字 (Char)
 
-A [Char](http://crystal-lang.org/api/Char.html) represents a 32-bit [Unicode](http://en.wikipedia.org/wiki/Unicode) [code point](http://en.wikipedia.org/wiki/Code_point).
+[Char](http://crystal-lang.org/api/Char.html)は32 bitの[Unicode](http://en.wikipedia.org/wiki/Unicode)[コードポイント](http://en.wikipedia.org/wiki/Code_point)を表現します。
 
-It is typically created with a char literal by enclosing an UTF-8 character in single quotes.
+通常、シングルクォートでUTF-8でエンコードされた文字を囲って文字リテラルを記述します。
 
 ```crystal
 'a'
@@ -12,28 +12,28 @@ It is typically created with a char literal by enclosing an UTF-8 character in s
 'あ'
 ```
 
-A backslash denotes a special character, which can either be a named escape sequence or a numerical representation of a unicode codepoint.
+バックスラッシュによる名前つきのエスケープスーケンスかコードポイントの数値表現で、特別な文字を記述できます。
 
-Available escape sequences:
+次のエスケープシーケンスが有効です。
 ```crystal
-'\''         # single quote
-'\\'         # backslash
-'\a'         # alert
-'\b'         # backspace
-'\e'         # escape
-'\f'         # form feed
-'\n'         # newline
-'\r'         # carriage return
-'\t'         # tab
-'\v'         # vertical tab
-'\uFFFF'     # hexadecimal unicode character
-'\u{10FFFF}' # hexadecimal unicode character
+'\''         # シングルクォート
+'\\'         # バックスラッシュ
+'\a'         # アラート
+'\b'         # バックスペース
+'\e'         # エスケープ
+'\f'         # フォームフィード (改ページ)
+'\n'         # 改行
+'\r'         # キャリッジリターン (復帰)
+'\t'         # タブ文字
+'\v'         # 垂直タブ
+'\uFFFF'     # 16進数でのユニコード文字
+'\u{10FFFF}' # 16進数でのユニコード文字
 ```
 
-A backslash followed by a `u` denotes a unicode codepoint. It can either be followed by exactly four hexadecimal characters representing the unicode bytes (`\u0000` to `\uFFFF`) or a number of one to six hexadecimal characters wrapped in curly braces (`\u{0}` to `\u{10FFFF}`.
+バックスラッシュに`u`を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (`\u0000` to `\uFFFF`) かひげ括弧で囲った6つまでの16進数の数値が利用できます (`\u{0}` to `\u{10FFFF}`
 
 ```crystal
 '\u0041'    # => 'A'
 '\u{41}'    # => 'A'
-'\u{1F52E}' # => '&#x1F52E;'
+'\u{1F52E}' # => '🔮'
 ```

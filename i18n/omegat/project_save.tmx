@@ -4745,6 +4745,64 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>'\''         # single quote
+'\\'         # backslash
+'\a'         # alert
+'\b'         # backspace
+'\e'         # escape
+'\f'         # form feed
+'\n'         # newline
+'\r'         # carriage return
+'\t'         # tab
+'\v'         # vertical tab
+'\uFFFF'     # hexadecimal unicode character
+'\u{10FFFF}' # hexadecimal unicode character</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190802Z" creationid="makenowjust" creationdate="20200419T185947Z">
+        <seg>'\''         # シングルクォート
+'\\'         # バックスラッシュ
+'\a'         # アラート
+'\b'         # バックスペース
+'\e'         # エスケープ
+'\f'         # フォームフィード (改ページ)
+'\n'         # 改行
+'\r'         # キャリッジリターン (復帰)
+'\t'         # タブ文字
+'\v'         # 垂直タブ
+'\uFFFF'     # 16進数によるユニコード文字
+'\u{10FFFF}' # 16進数によるユニコード文字</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>'\u0041'    # =&gt; 'A'
+'\u{41}'    # =&gt; 'A'
+'\u{1F52E}' # =&gt; '&amp;#x1F52E;'</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190630Z" creationid="makenowjust" creationdate="20200419T190547Z">
+        <seg>'\u0041'    # =&gt; 'A'
+'\u{41}'    # =&gt; 'A'
+'\u{1F52E}' # =&gt; '🔮'</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>'a'
+'z'
+'0'
+'_'
+'あ'</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T185803Z" creationid="makenowjust" creationdate="20200419T185803Z">
+        <seg>'a'
+'z'
+'0'
+'_'
+'あ'</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* C (the default)
 * Fast
 * Cold
@@ -6835,8 +6893,8 @@ Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
       <tuv lang="EN-US">
         <seg>1_000_000.111_111 # a lot more readable than 1000000.111111, yet functionally the same</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183142Z" creationid="makenowjust" creationdate="20200419T183142Z">
-        <seg>1_000_000.111_111 # a lot more readable than 1000000.111111, yet functionally the same</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T183618Z" creationid="makenowjust" creationdate="20200419T183142Z">
+        <seg>1_000_000.111_111 # 1000000.111111 を読みやすくしたものです</seg>
       </tuv>
     </tu>
     <tu>
@@ -9703,6 +9761,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Char&lt;/g1&gt; represents a 32-bit &lt;g2&gt;Unicode&lt;/g2&gt; &lt;g3&gt;code point&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T185658Z" creationid="makenowjust" creationdate="20200419T185658Z">
+        <seg>&lt;g1&gt;Char&lt;/g1&gt;は32 bitの&lt;g2&gt;Unicode&lt;/g2&gt;&lt;g3&gt;コードポイント&lt;/g3&gt;を表現します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g3&gt;lib&lt;/g3&gt; is a reusable library whereas &lt;g4&gt;app&lt;/g4&gt; describes
 an application not intended to be used as a dependency.</seg>
       </tuv>
@@ -9980,6 +10046,22 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T081044Z" creationid="hirofumiwakasugi" creationdate="20150901T081044Z">
         <seg>文字列中のいくつかの文字はバックスラッシュを使って表します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A backslash denotes a special character, which can either be a named escape sequence or a numerical representation of a unicode codepoint.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190155Z" creationid="makenowjust" creationdate="20200419T185928Z">
+        <seg>バックスラッシュによる名前つきのエスケープスーケンスかコードポイントの数値表現で、特別な文字を記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A backslash followed by a &lt;g1&gt;u&lt;/g1&gt; denotes a unicode codepoint.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190151Z" creationid="makenowjust" creationdate="20200419T190151Z">
+        <seg>バックスラッシュに&lt;g1&gt;u&lt;/g1&gt;を続けることでユニコードのコードポイントを記述できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11201,6 +11283,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Available escape sequences:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190544Z" creationid="makenowjust" creationdate="20200419T185946Z">
+        <seg>次のエスケープシーケンスが有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>BUG</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214451Z" creationid="makenowjust" creationdate="20200412T214451Z">
@@ -11634,6 +11724,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053825Z" creationid="hirofumiwakasugi" creationdate="20150918T053614Z">
         <seg>捕捉されたブロックと proc リテラルはローカル変数と `self` を閉包 (クロージャ) します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Char</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190417Z" creationid="makenowjust" creationdate="20200419T190417Z">
+        <seg>文字 (Char)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12482,6 +12580,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071434Z" creationid="hirofumiwakasugi" creationdate="20150919T071434Z">
         <seg>Float64 |</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Floats</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190701Z" creationid="makenowjust" creationdate="20200419T185611Z">
+        <seg>浮動小数点数 (Float)</seg>
       </tuv>
     </tu>
     <tu>
@@ -14627,6 +14733,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It can either be followed by exactly four hexadecimal characters representing the unicode bytes (&lt;g2&gt;\u0000&lt;/g2&gt; to &lt;g3&gt;\uFFFF&lt;/g3&gt;) or a number of one to six hexadecimal characters wrapped in curly braces (&lt;g4&gt;\u{0}&lt;/g4&gt; to &lt;g5&gt;\u{10FFFF}&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T190356Z" creationid="makenowjust" creationdate="20200419T190331Z">
+        <seg>ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (&lt;g2&gt;\u0000&lt;/g2&gt; to &lt;g3&gt;\uFFFF&lt;/g3&gt;) かひげ括弧で囲った6つまでの16進数の数値が利用できます (&lt;g4&gt;\u{0}&lt;/g4&gt; to &lt;g5&gt;\u{10FFFF}&lt;/g5&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is a pseudo-method because it only accepts a symbol literal as its argument, and is also treated specially by the compiler, as explained in [if var.responds_to?(...)](if_varresponds_to.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T014059Z" creationid="hirofumiwakasugi" creationdate="20150930T013944Z">
@@ -14671,6 +14785,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T062811Z" creationid="hirofumiwakasugi" creationdate="20150930T062630Z">
         <seg>これはジェネリックコードにおいて、コンパイラの型推論の力を利用したいときにしばしば使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is typically created with a char literal by enclosing an UTF-8 character in single quotes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T185801Z" creationid="makenowjust" creationdate="20200419T185801Z">
+        <seg>通常、シングルクォートでUTF-8でエンコードされた文字を囲って文字リテラルを記述します。</seg>
       </tuv>
     </tu>
     <tu>

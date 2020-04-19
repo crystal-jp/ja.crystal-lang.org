@@ -12,7 +12,7 @@ A String is typically created with a string literal enclosing UTF-8 characters i
 
 A backslash denotes a special character inside a string, which can either be a named escape sequence or a numerical representation of a unicode codepoint.
 
-Available escape sequences:
+次のエスケープシーケンスが有効です。
 ```crystal
 "\""                  # double quote
 "\\"                  # backslash
@@ -41,7 +41,7 @@ A backslash followed by at most three digits ranging from 0 to 7 denotes a code 
 "\1"   # string with one character with code point 1
 ```
 
-A backslash followed by a `u` denotes a unicode codepoint. It can either be followed by exactly four hexadecimal characters representing the unicode bytes (`\u0000` to `\uFFFF`) or a number of one to six hexadecimal characters wrapped in curly braces (`\u{0}` to `\u{10FFFF}`.
+バックスラッシュに`u`を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (`\u0000` to `\uFFFF`) かひげ括弧で囲った6つまでの16進数の数値が利用できます (`\u{0}` to `\u{10FFFF}`
 
 ```crystal
 "\u0041"    # => "A"
