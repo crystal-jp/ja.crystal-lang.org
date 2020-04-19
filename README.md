@@ -16,7 +16,7 @@
 |:----------------------------------------------------------------------------------------------------|:----:|
 | `crystal-book/SUMMARY.md`                                                                           | ○    |
 | `crystal-book/README.md`                                                                            | ○    |
-| `crystal-book/using_the_compiler/README.md`                                                         | ×    |
+| `crystal-book/using_the_compiler/README.md`                                                         | ○    |
 | `crystal-book/the_shards_command/README.md`                                                         | ×    |
 | `crystal-book/overview/README.md`                                                                   | ○    |
 | `crystal-book/overview/hello_world.md`                                                              | ○    |

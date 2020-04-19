@@ -1,10 +1,10 @@
-# Using the compiler
+# コンパイラの使い方
 
-Once [installed](https://crystal-lang.org/install/), the Crystal compiler should be available as `crystal` command.
+[インストール](https://crystal-lang.org/install/)が済んでいれば、`crystal`というコマンドでコンパイラを利用できます。
 
-## Compiling and running at once
+## コンパイルと同時に実行する
 
-To compile and run a program in a single shot, invoke [`crystal run`](#crystal-run) with a single filename:
+ファイル名を1つ指定して[`crystal run`](#crystal-run)コマンドを実行することで、プログラムのコンパイルと実行を一発で行うことができます。
 
 ```shell-session
 $ echo 'puts "Hello World!"' > hello_world.cr
@@ -12,13 +12,12 @@ $ crystal run hello_world.cr
 Hello World!
 ```
 
-The `run` command compiles the source file `hello_world.cr` to a binary executable in a temporary location
-and immediately executes it.
+`run`コマンドは`hello_world.cr`というソースコードをその場限りの実行可能バイナリにコンパイルして、即時にそれを実行します。
 
-## Creating an executable
+## 実行可能ファイルの生成
 
-The [`crystal build`](#crystal-build) command builds a binary executable.
-The output file has the same name as the source file minus the extension `.cr`.
+[`crystal build`](#crystal-build)コマンドで実行可能バイナリがビルドされます。
+出力されるファイルのファイル名はソースコードのファイル名から`.cr`という拡張子を除いたものになります。
 
 ```shell-session
 $ crystal build hello_world.cr
@@ -26,40 +25,39 @@ $ ./hello_world
 Hello World!
 ```
 
-### Release builds
+### リリースビルド
 
-By default, the generated executables are not fully optimized. The `--release` flag can be used to enable optimizations.
+デフォルトでは、生成された実行可能ファイルは完全には最適化されていません。`--release`というフラグを付けることで最適化を有効にできます。
 
 ```
 $ crystal build hello_world.cr --release
 ```
 
-Compiling without release mode is much faster and the resulting binaries still offer pretty good performance.
+リリースモードでないコンパイルは十分に早く、また生成されるバイナリもそれなりのパフォーマンスではあります。
 
-Building in release mode should be used for production-ready executables and when performing benchmarks.
-For simple development builds, there is usually no reason to do so.
+リリースモードでのビルドはプロダクションでの利用やベンチマークの測定の際に用いてください。
+開発時のビルドであれば、リリースビルドをする必要はありません。
 
-To reduce the binary size for distributable files, the `--no-debug` flag can be used. This removes debug symbols reducing file size, but obviously making debugging more difficult.
+配布するファイルのサイズを減らすには、`--no-debug`フラグを用いることが有効です。これはファイルサイズを減らすためにデバッグシンボルをファイルから削除しますが、一方、当然にデバッグは困難になります。
 
-### Creating a statically-linked executable
+### 静的リンクした実行可能ファイルの生成
 
-The `--static` flag can be used to build a statically-linked executable:
+`--static`フラグは、静的リンクした実行可能ファイルの生成に用います。
 
 ```
 $ crystal build hello_world.cr --release --static
 ```
 
-**NOTE:** Building fully statical linked executables is currently only supported on Alpine Linux.
+**注意:** 静的リンクした実行可能ファイルのビルドは現在Alpine Linux上でのみサポートされています。
 
-More information about statically linking [can be found on the wiki](https://github.com/crystal-lang/crystal/wiki/Static-Linking).
+静的リンクについてのより詳細な情報は[Wikiを参照](https://github.com/crystal-lang/crystal/wiki/Static-Linking)してください (英語)。
 
-The compiler uses the `CRYSTAL_LIBRARY_PATH` environment variable as a first lookup destination for static and dynamic libraries that are to be linked. This can be used to provide static versions of libraries that are also available as dynamic libraries.
+コンパイラは`CRYSTAL_LIBRARY_PATH`という環境変数を、静的もしくは動的にリンクするライブラリを最初に探索する場所とします。これは動的ライブラリとしても有効な、静的なバージョンのライブラリを提供することに使えます。
 
-### Creating a Crystal project
+### Crystal のプロジェクトの作成
 
-The [`crystal init`](#crystal-init) command helps to initialize a Crystal project folder, setting
-up a basic project structure. `crystal init app <name>` is used for an application,
-`crystal init lib <name>` for a library.
+[`crystal init`](#crystal-init) コマンドは基本的なディレクトリ構成を持った Crystal プロジェクトの初期化をするのに役に立ちます。`crystal init app <name>`はアプリケーション向けで、
+`crystal init lib <name>`はライブラリ向けです。
 
 ```shell
 $ crystal init app myapp
@@ -76,36 +74,36 @@ $ crystal init app myapp
 Initialized empty Git repository in /home/crystal/myapp/.git/
 ```
 
-Not all of these files are required for every project, and some might need more customization, but `crystal init` creates a good default environment for developing Crystal applications and libraries.
+すべてのファイルがあらゆるプロジェクトで必要になるわけではなく、カスタマイズが必要に感じる場合もあるでしょう。しかし、`crystal init`は Crystal のlアプリケーションやライブラリの開発に十分なデフォルトの環境を提供しています。
 
-## Compiler commands
+## コマンドの概要
 
-* [`crystal init`](#crystal-init): generate a new project
-* [`crystal build`](#crystal-build): build an executable
-* [`crystal docs`](#crystal-docs): generate documentation
-* [`crystal env`](#crystal-env): print Crystal environment information
-* [`crystal eval`](#crystal-eval): eval code from args or standard input
-* [`crystal play`](#crystal-play): starts crystal playground server
-* [`crystal run`](#crystal-run): build and run program
-* [`crystal spec`](#crystal-spec): build and run specs
-* [`crystal tool`](#crystal-tool): run a compiler tool
-* `crystal help`: show help about commands and options
-* [`crystal version`](#crystal-version): show version
+* [`crystal init`](#crystal-init): 新規プロジェクトの生成
+* [`crystal build`](#crystal-build): 実行可能ファイルのビルド
+* [`crystal docs`](#crystal-docs): ドキュメントの生成
+* [`crystal env`](#crystal-env): Crystal 環境の情報を表示
+* [`crystal eval`](#crystal-eval): 引数や標準入力からコードを評価
+* [`crystal play`](#crystal-play): Crystal プレイグラウンドを起動
+* [`crystal run`](#crystal-run): プログラムをビルドして実行
+* [`crystal spec`](#crystal-spec): spec をビルドして実行
+* [`crystal tool`](#crystal-tool): ツールの実行
+* `crystal help`: コマンドとオプションのヘルプの表示
+* [`crystal version`](#crystal-version): バージョンの表示
 
-To see the available options for a particular command, use `--help` after a command:
+特定のコマンドの有効なオプションを確認したい場合は、コマンド名のあとに`--help`を付けて実行してください。
 
 ### `crystal run`
 
-The `run` command compiles a source file to a binary executable and immediately runs it.
+`run`コマンドはソースコードを実行可能バイナリにコンパイルして、即時にそれを実行します。
 
 ```
 crystal [run] [<options>] <programfile> [-- <argument>...]
 ```
 
-Arguments to the compiled binary can be separated with double dash `--` from the compiler arguments.
-The binary executable is stored in a temporary location between compiling and running.
+コンパイルされたバイナリへの引数は、コンパイラへの引数のあとに2つのハイフン (`--`) で区切って渡します。
+コンパイルと実行の間、生成された実行可能ファイルは一時的な場所に保存されています。
 
-Example:
+例:
 
 ```shell-session
 $ echo 'puts "Hello #{ARGV[0]?}!"' > hello_world.cr
@@ -113,25 +111,25 @@ $ crystal run hello_world.cr -- Crystal
 Hello Crystal!
 ```
 
-**Common options:**
+**よく使うオプション:**
 
-* `--release`: Compile in release mode, doing extra work to apply optimizations to the generated code.
-* `--progress`: Show progress during compilation.
-* `--static`: Link statically.
+* `--release`: リリースモードを有効にして、生成されるバイナリに最適化をしてコンパイルする
+* `--progress`: コンパイルの進捗を逐次表示する
+* `--static`: 静的にリンクする
 
-More options are described in the integrated help: `crystal run --help` or man page `man crystal`.
+その他のオプションは統合されたヘルプにて説明されています。`crystal run --help`を使うか、`man crystal`で man ページを見てください。
 
 ### `crystal build`
 
-The `crystal build` command builds a dynamically-linked binary executable.
+`crystal build`コマンドは動的リンクした実行可能バイナリをビルドします。
 
 ```
 crystal build [<options>] <programfile>
 ```
 
-Unless specified, the resuling binary will have the same name as the source file minus the extension `.cr`.
+明示的に指定しなければ、生成されるバイナリはソースコードのファイル名から`.cr`という拡張子を除いたものになります。
 
-Example:
+例:
 
 ```shell-session
 $ echo 'puts "Hello #{ARGV[0]?}!"' > hello_world.cr
@@ -140,32 +138,32 @@ $ ./hello_world Crystal
 Hello Crystal!
 ```
 
-**Common options:**
+**よく使うオプション:**
 
-* `--cross-compile`: Generate a .o file, and print the command to generate an executable to stdout.
-* `-D FLAG, --define FLAG`: Define a compile-time flag.
-* `-o <output_file>`: Define the name of the binary executable.
-* `--release`: Compile in release mode, doing extra work to apply optimizations to the generated code.
-* `--link-flags FLAGS`: Additional flags to passs to the linker.
-* `--lto=thin`: Use ThinLTO, improving performance on release builds.
-* `--no-debug`: Skip any symbolic debug info, reducing the output file size.
-* `--progress`: Show progress during compilation.
-* `--static`: Link statically.
-* `--verbose`: Display executed commands.
+* `--cross-compile`: .o ファイルを生成して、実行可能ファイルを生成するためのコマンドを表示する
+* `-D FLAG, --define FLAG`: コンパイル時フラグを指定する
+* `-o <output_file>`: 出力されるバイナリのファイル名を指定する
+* `--release`: リリースモードを有効にして、生成されるバイナリに最適化をしてコンパイルする
+* `--link-flags FLAGS`: リンカに渡す追加のフラグを指定する
+* `--lto=thin`: リリースビルドのパフォーマンスを向上させるために ThinLTO を利用する。
+* `--no-debug`: ファイルサイズを減らすためにデバッグシンボルの生成をしないようにする
+* `--progress`: コンパイルの進捗を逐次表示する
+* `--static`: 静的にリンクする
+* `--verbose`: 内部的に実行したコマンドを表示する
 
-More options are described in the integrated help: `crystal build --help` or man page `man crystal`.
+その他のオプションは統合されたヘルプにて説明されています。`crystal build --help`を使うか、`man crystal` で man ページを見てください。
 
 ### `crystal eval`
 
-The `crystal eval` command reads Crystal source code from command line or stdin, compiles it to a binary executable and immediately runs it.
+`crystal eval`コマンドは Crystal のソースコードをコマンドラインか標準入力から読み込んで、それを実行可能ファイルにコンパイルして即時に実行します。
 
 ```
 crystal eval [<options>] [<source>]
 ```
 
-If no `source` argument is provided, the Crystal source is read from standard input. The binary executable is stored in a temporary location between compiling and running.
+`source`が引数で指定されなかった場合は、ソースコードを標準入力から読み込みます。コンパイルと実行の間、生成された実行可能ファイルは一時的な場所に保存されています。
 
-Example:
+例:
 
 ```shell-session
 $ crystal eval 'puts "Hello World"'
@@ -174,28 +172,28 @@ $ echo 'puts "Hello World"' | crystal eval
 Hello World!
 ```
 
-NOTE: When running interactively, stdin can usually be closed by typing the end of transmission character (`Ctrl+D`).
+注意: 対話的に実行したい場合、一般的には`Ctrl+D`を入力することで標準入力を閉じることができます。
 
-**Common options:**
+**よく使うオプション:**
 
-* `-o <output_file>`: Define the name of the binary executable.
-* `--release`: Compile in release mode, doing extra work to apply optimizations to the generated code.
-* `--lto=thin`: Use ThinLTO, improves performance.
-* `--no-debug`: Skip any symbolic debug info, reducing the output file size.
-* `--progress`: Show progress during compilation.
-* `--static`: Link statically.
+* `-o <output_file>`: 出力されるバイナリのファイル名を指定する
+* `--release`: リリースモードを有効にして、生成されるバイナリに最適化をしてコンパイルする
+* `--lto=thin`: パフォーマンスを向上させるために ThinLTO を利用する。
+* `--no-debug`: ファイルサイズを減らすためにデバッグシンボルの生成をしないようにする
+* `--progress`: コンパイルの進捗を逐次表示する
+* `--static`: 静的にリンクする
 
-More options are described in the integrated help: `crystal build --help` or man page `man crystal`.
+その他のオプションは統合されたヘルプにて説明されています。`crystal build --help`を使うか、`man crystal` で man ページを見てください。
 
 ### `crystal version`
 
-The `crystal version` command prints the Crystal version, LLVM version and default target triple.
+`crystal version`コマンドは Crystal のバージョンや LLVM のバージョン、そしてデフォルトで使うターゲットトリプルを出力します。
 
 ```
 crystal version
 ```
 
-Example:
+例:
 
 ```shell-session
 $ crystal version
@@ -207,17 +205,15 @@ Default target: x86_64-unknown-linux-gnu
 
 ### `crystal init`
 
-The `crystal init` command initializes a Crystal project folder.
+`crystal init`コマンドは Crystal プロジェクトに使うフォルダを初期化します。
 
 ```
 crystal init (lib|app) <name> [<dir>]
 ```
 
-The first argument is either `lib` or `app`. A `lib` is a reusable library whereas `app` describes
-an application not intended to be used as a dependency. A library doesn't have a `shard.lock` file
-in its repository and no build target in `shard.yml`, but instructions for using it as a dependency.
+最初の引数は`lib`か`app`のいずれかです。`lib`は再利用可能なライブラリで、`app`は依存関係に含めることのないアプリケーションであることを意図しています。ライブラリは自身のリポジトリに`shard.lock`を含めず、`shard.yml`にビルド目標を持ちませんが、依存関係としてどのように利用するかの説明があります。
 
-Example:
+例:
 ```shell-session
 $ crystal init lib my_cool_lib
     create  my_cool_lib/.gitignore
@@ -234,31 +230,30 @@ Initialized empty Git repository in ~/my_cool_lib/.git/
 
 ### `crystal docs`
 
-The `crystal docs` command generates API documentation from inline docstrings in Crystal files (see [documenting code](../conventions/documenting_code.html)).
+`crystal docs`コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します。 (詳しくは[コードのドキュメント化](../conventions/documenting_code.html)を参照).
 
 ```bash
 crystal docs [--output=<output_dir>] [--canonical-base-url=<url>] [<source_file>...]
 ```
 
-The command creates a static website in `output_dir` (default `./docs`), consisting of HTML files for each Crystal type,
-in a folder structure mirroring the Crystal namespaces. The entrypoint `docs/index.html` can be opened by any web browser.
-The entire API docs are also stored as a JSON document in `$output_dir/index.json`.
+このコマンドは`output_dir` (デフォルトでは `./docs`) に、 Crystal での名前を反映したディレクトリ構造で、各 HTML ファイルが1つ1つの型に対応するような、静的な Web サイトを生成します。Web ブラウザで見る際のエントリーポイントは `docs/index.html` になります。
+API ドキュメント全体は JSON として `$output_dir/index.json` に保存されています。
 
-By default, all Crystal files in `./src` will be appended (i.e. `src/**/*.cr`).
-In order to account for load-order dependencies, `source_file` can be used to specify one (or multiple)
-entrypoints for the docs generator.
+デフォルトでは、`./src` ディレクトリにあるすべてのファイルからドキュメント生成をします (つまり `src/**/*.cr` が指定されたような挙動です)。
+読む込む順序に依存する場合は、ドキュメントジェネレータに明示的に1つ (ないし複数) の`source_file` をエントリーポイントして指定してください。
 
 ```bash
 crystal docs src/my_app.cr
 ```
 
-**Common options:**
+**よく使うオプション:**
 
-* `--output=DIR, -o DIR`: Set the output directory (default: `./docs`)
-* `--canonical-base-url=URL, -b URL`: Set the [canonical base url](https://en.wikipedia.org/wiki/Canonical_link_element)
+* `--project-name=NAME`: プロジェクト名を設定する。可能な場合`shard.yml`にある名前をデフォルト値として利用します。デフォルト値が見つからない場合、このオプションは必須です
+* `--project-version=VERSION`: プロジェクトのバージョンを指定します。可能な場合`shard.yml`に指定されたものかgitのコミットからバージョンを取り出します。デフォルト値が見つからない場合、このオプションは必須です
+* `--output=DIR, -o DIR`: 出力先のディレクトリを指定する (デフォルト: `./docs`)
+* `--canonical-base-url=URL, -b URL`: [canonicalなベースURL](https://en.wikipedia.org/wiki/Canonical_link_element)を指定します。
 
-For the above example to output the docs at `public` with custom canonical base url, and entrypoint `src/my_app.cr`,
-the following arguments can be used:
+次の例ではcanonicalなベースURLを明示的に指定した上で、`public`を出力先のディレクトリにして, そして`src/my_app.cr`をエントリーポイントとしてドキュメントを生成しています。
 
 ```bash
 crystal docs --output public --canonical-base-url http://example.com/ src/my_app.cr
@@ -266,16 +261,15 @@ crystal docs --output public --canonical-base-url http://example.com/ src/my_app
 
 ### `crystal env`
 
-The `crystal env` command prints environment variables used by Crystal.
+`crystal env` コマンドは Crystal が使う環境変数を出力します。
 
 ```bash
 crystal env [<var>...]
 ```
 
-By default, it prints information as a shell script. If one or more `var` arguments are provided,
-the value of each named variable is printed on its own line.
+デフォルトではシェルスクリプトのように情報を出力します。もしいくつかの`var`引数が渡された場合、それらの変数の値がそれぞれの行に出力されます。
 
-Example:
+例:
 
 ```shell-session
 $ crystal env
@@ -289,39 +283,36 @@ $ crystal env CRYSTAL_VERSION
 
 ### `crystal spec`
 
-The `crystal spec` command compiles and runs a Crystal spec suite.
+`crystal spec` コマンドは Crystal の spec のコンパイルと実行を一度に行います。
 
 ```
 crystal spec [<options>] [<file>...] [-- [<runner_options>]]
 ```
 
-All `files` arguments are concatenated into a single Crystal source. If an argument points to a folder, all spec
-files inside that folder are appended. If no `files` argument is provided, the default is `./spec`. A filename can be suffixed by `:`
-and a line number, providing this location to the `--location` runner option (see below).
+`files`引数で指定されたすべてのファイルは1つの Crystal ソースコードとして結合されます。引数がフォルダを指していた場合、そのフォルダ中の spec をまとめて指定したことになります。何も`files`引数を指定しなかった場合は、デフォルト値として`./spec`が与えられます。すべてのファイル名は`:`と行番号をあとに続けることで、spec ランナーに対して `--location` で指定する場合と同様の指定ができます (この後に詳細)。
 
-Run `crystal spec --options` for available options.
+`crystal spec --options`で可能なオプションの一覧を見ることができます。
 
-**Runner options:**
+**spec ランナーに対するオプション:**
 
-`runner_options` are provided to the compiled binary executable which runs the specs. They should be separated from
-the other arguments by a double dash (`--`).
+`runner_options` はコンパイルされた spec を実行する際に渡すオプションを表しています。これらは他の引数とは `--` で区切る必要があります。
 
-* `--verbose`: Prints verbose output, including all example names.
-* `--profile`: Prints the 10 slowest specs.
-* `--fail-fast`: Abort the spec run on first failure.
-* `--junit_output <output_dir>`: Generates JUnit XML output.
+* `--verbose`: すべての spec 名を含むような詳細な出力をする
+* `--profile`: 実行に時間のかかった spec を10個まで表示する
+* `--fail-fast`: どれか1つでも spec が失敗したら即座に中断する
+* `--junit_output <output_dir>`: JUnit XML を生成する
 
-The following options can be combined to filter the list of specs to run.
+次のオプションは実行する spec の一覧をフィルターするために組み合わせられます。
 
-* `--example <name>`: Runs examples whose full nested names include `name`.
-* `--line <line>`: Runs examples whose line matches `line`.
-* `--location <file>:<line>`: Runs example(s) at `line` in `file` (multiple options allowed).
-* `--tag <tag>`: Runs examples with the specified tag, or excludes examples by adding `~` before the tag (multiple options allowed).
-   * `--tag a --tag b` will include specs tagged with `a` OR `b`.
-   * `--tag ~a --tag ~b` will include specs not tagged with `a` AND not tagged with `b`.
-   * `--tag a --tag ~b` will include specs tagged with `a`, but not tagged with `b`
+* `--example <name>`: `name` を含むような spec を実行する
+* `--line <line>`: 行番号が `line` に一致した spec を実行する
+* `--location <file>:<line>`: `file` の `line` にある spec を実行する (複数指定可能)
+* `--tag <tag>`: 指定されたタグを持つ spec を実行する、もしくは `~` に続けたタグを持つ spec を実行する spec の一覧から除く。
+   * `--tag a --tag b` という指定は、タグ `a` もしくはタグ `b` を持つ spec を含めることになります。
+   * `--tag ~a --tag ~b` という指定は タグ`a` もタグ`b` も持たない spec を含めることになります。
+   * `--tag a --tag ~b` という指定は、タグ `a` を持つがタグ `b` を持たないような spec を含めることになります。
 
-Example:
+例:
 
 ```shell-session
 $ crystal spec
@@ -347,40 +338,39 @@ crystal spec spec/myapp_spec.cr:6 # Myapp works
 
 ### `crystal play`
 
-The `crystal play` command starts a webserver serving an interactive Crystal playground.
+`crystal play` コマンドは対話的な Crystal のプレイグラウンドを提供する Web サーバーを起動します。
 
 ```
 crystal play [--port <port>] [--binding <host>] [--verbose] [file]
 ```
 
-![Screenshot of Crystal playground](crystal-play.png)
+![Crystal プレイグラウンドのスクリーンショット](crystal-play.png)
 
 ### `crystal tool`
 
-* `crystal tool context`: Show context for given location
-* `crystal tool expand`: Show macro expansion for given location
-* [`crystal tool format`](#crystal-tool-format): Format Crystal files
-* `crystal tool hierarchy`: Show type hierarchy
-* `crystal tool implementations`: Show implementations for given call in location
-* `crystal tool types`: Show types of main variables
+* `crystal tool context`: 与えられた位置でのコンテキストを表示
+* `crystal tool expand`: 与えられた位置のマクロを展開
+* [`crystal tool format`](#crystal-tool-format): Crystal ファイルのフォーマット
+* `crystal tool hierarchy`: 型の階層を表示
+* `crystal tool implementations`: 指定された位置で呼び出されているメソッドの実装がどこにあるかを表示
+* `crystal tool types`: 主要な変数の型を表示
 
 ### `crystal tool format`
 
-The `crystal tool format` command applies default format to Crystal source files.
+`crystal tool format` コマンドは Crystal のソースコードに標準的なフォーマットを適用します。
 
 ```
 crystal tool format [--check] [<path>...]
 ```
 
-`path` can be a file or folder name and include all Crystal files in that folder tree. Omitting `path` is equal to
-specifying the current working directory.
+`path` にはファイル名かフォルダ名が指定できて、フォルダ名の場合そのフォルダ中の Crystal ファイルを再帰的に辿ります。`path`が指定されなかった場合、現在のデイレクトリを指定したものとします。
 
-## Environment variables
+## 環境変数
 
-The following environment variables are used by the Crystal compiler if set in the environment. Otherwise the compiler will populate them with default values. Their values can be inspected using [`crystal env`](#crystal-env).
+これらの環境変数は、もしセットされていれば Crystal のコンパイラによって利用されます。指定されていなければ、コンパイラはデフォルト値を利用します。これらの値は[`crystal env`](#crystal-env)を使うことで確認できます。
 
-* `CRYSTAL_CACHE_DIR`: Defines path where Crystal caches partial compilation results for faster subsequent builds. This path is also used to temporarily store executables when Crystal programs are run with [`crystal run`](#crystal-run) rather than [`crystal build`](#crystal-build).
-   Default value is the first directory that either exists or can be created of `${XDG_CACHE_HOME}/crystal` (if `XDG_CACHE_HOME` is defined), `${HOME}/.cache/crystal`, `${HOME}/.crystal`, `./.crystal`. If `CRYSTAL_CACHE_DIR` is set but points to a path that is not writeable, the default values are used instead.
-* `CRYSTAL_PATH`: Defines paths where Crystal searches for required files.
-* `CRYSTAL_VERSION` is only available as output of [`crystal env`](#crystal-env). The compiler neither sets nor reads it.
-* `CRYSTAL_LIBRARY_PATH`: The compiler uses the paths in this variable as a first lookup destination for static and dynamic libraries that are to be linked. For example, if static libraries are put in `build/libs`, setting the environment variable accordingly will tell the compiler to look for libraries there.
+* `CRYSTAL_CACHE_DIR`: 続くビルドを高速化するために Crystal がキャッシュしている部分的なコンパイルの結果を保存するパスを指定します。このパスは[`crystal run`](#crystal-run)で一時的に保存される実行可能ファイルを保存する先としても利用されます ([`crystal build`](#crystal-build) では利用しません)。
+   デフォルト値は次に上げるディレクトリのうち最初に見つかったか作成可能だったものになります: `${XDG_CACHE_HOME}/crystal` (`XDG_CACHE_HOME`がある場合)、`${HOME}/.cache/crystal`、`${HOME}/.crystal`、もしくは`./.crystal`。`CRYSTAL_CACHE_DIR`で指定されたパスが書き込み不可能だった場合もデフォルト値が代わりに利用されます。
+* `CRYSTAL_PATH`: Crystal が require されたファイルを探索するパスを指定します。
+* `CRYSTAL_VERSION` は[`crystal env`](#crystal-env)の出力としてのみ有効です。これを明示的にセットすることもできず、コンパイラはこの変数を実際には利用しません。
+* `CRYSTAL_LIBRARY_PATH`: コンパイラはこの変数に指定されたパスを、静的もしくは動的にリンクするライブラリを最初に探索する場所として利用します。例えば静的ライブラリが`build/libs`に置かれていたとすると、環境変数をそれに応じて設定することでコンパイラがそこにライブラリを探索しに行くように伝えることができます。

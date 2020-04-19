@@ -3421,6 +3421,28 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># spec/myapp_spec.cr:7
+
+Finished in 880 microseconds
+1 examples, 1 failures, 0 errors, 0 pending
+
+Failed examples:
+
+crystal spec spec/myapp_spec.cr:6 # Myapp works</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165205Z" creationid="makenowjust" creationdate="20200419T165205Z">
+        <seg># spec/myapp_spec.cr:7
+
+Finished in 880 microseconds
+1 examples, 1 failures, 0 errors, 0 pending
+
+Failed examples:
+
+crystal spec spec/myapp_spec.cr:6 # Myapp works</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># struct</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053516Z" creationid="hirofumiwakasugi" creationdate="20151003T141453Z">
@@ -4459,6 +4481,80 @@ Showing last frame.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$ crystal build hello_world.cr
+$ ./hello_world
+Hello World!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150603Z" creationid="makenowjust" creationdate="20200419T150603Z">
+        <seg>$ crystal build hello_world.cr
+$ ./hello_world
+Hello World!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal build hello_world.cr --release</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150703Z" creationid="makenowjust" creationdate="20200419T150703Z">
+        <seg>$ crystal build hello_world.cr --release</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal build hello_world.cr --release --static</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152729Z" creationid="makenowjust" creationdate="20200419T152729Z">
+        <seg>$ crystal build hello_world.cr --release --static</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal env
+CRYSTAL_CACHE_DIR="/home/crystal/.cache/crystal"
+CRYSTAL_PATH="/usr/bin/../share/crystal/src:lib"
+CRYSTAL_VERSION="0.28.0"
+CRYSTAL_LIBRARY_PATH="/usr/bin/../lib/crystal/lib"
+$ crystal env CRYSTAL_VERSION
+0.28.0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163401Z" creationid="makenowjust" creationdate="20200419T163401Z">
+        <seg>$ crystal env
+CRYSTAL_CACHE_DIR="/home/crystal/.cache/crystal"
+CRYSTAL_PATH="/usr/bin/../share/crystal/src:lib"
+CRYSTAL_VERSION="0.28.0"
+CRYSTAL_LIBRARY_PATH="/usr/bin/../lib/crystal/lib"
+$ crystal env CRYSTAL_VERSION
+0.28.0</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal eval 'puts "Hello World"'
+Hello World!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160056Z" creationid="makenowjust" creationdate="20200419T160056Z">
+        <seg>$ crystal eval 'puts "Hello World"'
+Hello World!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal init app myapp</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153545Z" creationid="makenowjust" creationdate="20200419T153545Z">
+        <seg>$ crystal init app myapp</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal init lib my_cool_lib</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161504Z" creationid="makenowjust" creationdate="20200419T161504Z">
+        <seg>$ crystal init lib my_cool_lib</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$ crystal run ./twist_and_shout.cr -- -t
 
 Group members:
@@ -4481,6 +4577,20 @@ RINGO STARR</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>$ crystal spec
+F
+
+Failures:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165157Z" creationid="makenowjust" creationdate="20200419T165157Z">
+        <seg>$ crystal spec
+F
+
+Failures:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>$ crystal tool format file.cr</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215751Z" creationid="makenowjust" creationdate="20200412T215751Z">
@@ -4493,6 +4603,22 @@ RINGO STARR</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215826Z" creationid="makenowjust" creationdate="20200412T215826Z">
         <seg>$ crystal tool format src/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal version
+Crystal 0.25.1 [b782738ff] (2018-06-27)
+
+LLVM: 4.0.0
+Default target: x86_64-unknown-linux-gnu</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160758Z" creationid="makenowjust" creationdate="20200419T160758Z">
+        <seg>$ crystal version
+Crystal 0.25.1 [b782738ff] (2018-06-27)
+
+LLVM: 4.0.0
+Default target: x86_64-unknown-linux-gnu</seg>
       </tuv>
     </tu>
     <tu>
@@ -4511,6 +4637,54 @@ gitbook_1  | Starting server ...
 gitbook_1  | Serving book on http://localhost:4000
 gitbook_1  | Restart after change in file node_modules/.bin
 ...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ echo 'puts "Hello #{ARGV[0]?}!"' &gt; hello_world.cr
+$ crystal build hello_world.cr
+$ ./hello_world Crystal
+Hello Crystal!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155131Z" creationid="makenowjust" creationdate="20200419T155131Z">
+        <seg>$ echo 'puts "Hello #{ARGV[0]?}!"' &gt; hello_world.cr
+$ crystal build hello_world.cr
+$ ./hello_world Crystal
+Hello Crystal!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ echo 'puts "Hello #{ARGV[0]?}!"' &gt; hello_world.cr
+$ crystal run hello_world.cr -- Crystal
+Hello Crystal!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154709Z" creationid="makenowjust" creationdate="20200419T154709Z">
+        <seg>$ echo 'puts "Hello #{ARGV[0]?}!"' &gt; hello_world.cr
+$ crystal run hello_world.cr -- Crystal
+Hello Crystal!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ echo 'puts "Hello World!"' &gt; hello_world.cr
+$ crystal run hello_world.cr
+Hello World!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150249Z" creationid="makenowjust" creationdate="20200419T150249Z">
+        <seg>$ echo 'puts "Hello World!"' &gt; hello_world.cr
+$ crystal run hello_world.cr
+Hello World!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ echo 'puts "Hello World"' | crystal eval
+Hello World!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160058Z" creationid="makenowjust" creationdate="20200419T160058Z">
+        <seg>$ echo 'puts "Hello World"' | crystal eval
+Hello World!</seg>
       </tuv>
     </tu>
     <tu>
@@ -6511,6 +6685,14 @@ Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>1) Myapp works</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165159Z" creationid="makenowjust" creationdate="20200419T165159Z">
+        <seg>1) Myapp works</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>1.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T024431Z" creationid="hirofumiwakasugi" creationdate="20150909T024431Z">
@@ -6721,6 +6903,198 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--canonical-base-url=URL, -b URL&lt;/g1&gt;: Set the &lt;g2&gt;canonical base url&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163036Z" creationid="makenowjust" creationdate="20200419T162834Z">
+        <seg>&lt;g1&gt;--canonical-base-url=URL, -b URL&lt;/g1&gt;: &lt;g2&gt;canonicalなベースURL&lt;/g2&gt;を指定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--cross-compile&lt;/g1&gt;: Generate a .o file, and print the command to generate an executable to stdout.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155223Z" creationid="makenowjust" creationdate="20200419T155206Z">
+        <seg>&lt;g1&gt;--cross-compile&lt;/g1&gt;: .o ファイルを生成して、実行可能ファイルを生成するためのコマンドを表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--example &lt;name&gt;&lt;/g1&gt;: Runs examples whose full nested names include &lt;g2&gt;name&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164649Z" creationid="makenowjust" creationdate="20200419T164649Z">
+        <seg>&lt;g1&gt;--example &lt;name&gt;&lt;/g1&gt;: &lt;g2&gt;name&lt;/g2&gt; を含むような spec を実行する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--fail-fast&lt;/g1&gt;: Abort the spec run on first failure.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164440Z" creationid="makenowjust" creationdate="20200419T164440Z">
+        <seg>&lt;g1&gt;--fail-fast&lt;/g1&gt;: どれか1つでも spec が失敗したら即座に中断する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--junit_output &lt;output_dir&gt;&lt;/g1&gt;: Generates JUnit XML output.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164451Z" creationid="makenowjust" creationdate="20200419T164451Z">
+        <seg>&lt;g1&gt;--junit_output &lt;output_dir&gt;&lt;/g1&gt;: JUnit XML を生成する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--line &lt;line&gt;&lt;/g1&gt;: Runs examples whose line matches &lt;g2&gt;line&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164704Z" creationid="makenowjust" creationdate="20200419T164704Z">
+        <seg>&lt;g1&gt;--line &lt;line&gt;&lt;/g1&gt;: 行番号が &lt;g2&gt;line&lt;/g2&gt; に一致した spec を実行する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--link-flags FLAGS&lt;/g1&gt;: Additional flags to passs to the linker.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155358Z" creationid="makenowjust" creationdate="20200419T155358Z">
+        <seg>&lt;g1&gt;--link-flags FLAGS&lt;/g1&gt;: リンカに渡す追加のフラグを指定する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--location &lt;file&gt;:&lt;line&gt;&lt;/g1&gt;: Runs example(s) at &lt;g2&gt;line&lt;/g2&gt; in &lt;g3&gt;file&lt;/g3&gt; (multiple options allowed).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164745Z" creationid="makenowjust" creationdate="20200419T164745Z">
+        <seg>&lt;g1&gt;--location &lt;file&gt;:&lt;line&gt;&lt;/g1&gt;: &lt;g3&gt;file&lt;/g3&gt; の &lt;g2&gt;line&lt;/g2&gt; にある spec を実行する (複数指定可能)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--lto=thin&lt;/g1&gt;: Use ThinLTO, improves performance.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160340Z" creationid="makenowjust" creationdate="20200419T160340Z">
+        <seg>&lt;g1&gt;--lto=thin&lt;/g1&gt;: パフォーマンスを向上させるために ThinLTO を利用する。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--lto=thin&lt;/g1&gt;: Use ThinLTO, improving performance on release builds.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155432Z" creationid="makenowjust" creationdate="20200419T155432Z">
+        <seg>&lt;g1&gt;--lto=thin&lt;/g1&gt;: リリースビルドのパフォーマンスを向上させるために ThinLTO を利用する。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--no-debug&lt;/g1&gt;: Skip any symbolic debug info, reducing the output file size.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155505Z" creationid="makenowjust" creationdate="20200419T155505Z">
+        <seg>&lt;g1&gt;--no-debug&lt;/g1&gt;: ファイルサイズを減らすためにデバッグシンボルの生成をしないようにする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--output=DIR, -o DIR&lt;/g1&gt;: Set the output directory (default: &lt;g2&gt;./docs&lt;/g2&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162812Z" creationid="makenowjust" creationdate="20200419T162812Z">
+        <seg>&lt;g1&gt;--output=DIR, -o DIR&lt;/g1&gt;: 出力先のディレクトリを指定する (デフォルト: &lt;g2&gt;./docs&lt;/g2&gt;)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--profile&lt;/g1&gt;: Prints the 10 slowest specs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164420Z" creationid="makenowjust" creationdate="20200419T164416Z">
+        <seg>&lt;g1&gt;--profile&lt;/g1&gt;: 実行に時間のかかった spec を10個まで表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--progress&lt;/g1&gt;: Show progress during compilation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154839Z" creationid="makenowjust" creationdate="20200419T154839Z">
+        <seg>&lt;g1&gt;--progress&lt;/g1&gt;: コンパイルの進捗を逐次表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--project-name=NAME&lt;/g1&gt;: Set the project name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162549Z" creationid="makenowjust" creationdate="20200419T162456Z">
+        <seg>&lt;g1&gt;--project-name=NAME&lt;/g1&gt;: プロジェクト名を設定する。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--project-version=VERSION&lt;/g1&gt;: Set the project version.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162716Z" creationid="makenowjust" creationdate="20200419T162716Z">
+        <seg>&lt;g1&gt;--project-version=VERSION&lt;/g1&gt;: プロジェクトのバージョンを指定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--release&lt;/g1&gt;: Compile in release mode, doing extra work to apply optimizations to the generated code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160305Z" creationid="makenowjust" creationdate="20200419T154817Z">
+        <seg>&lt;g1&gt;--release&lt;/g1&gt;: リリースモードを有効にして、生成されるバイナリに最適化をしてコンパイルする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--static&lt;/g1&gt;: Link statically.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154845Z" creationid="makenowjust" creationdate="20200419T154845Z">
+        <seg>&lt;g1&gt;--static&lt;/g1&gt;: 静的にリンクする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--tag &lt;tag&gt;&lt;/g1&gt;: Runs examples with the specified tag, or excludes examples by adding &lt;g2&gt;~&lt;/g2&gt; before the tag (multiple options allowed).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164925Z" creationid="makenowjust" creationdate="20200419T164826Z">
+        <seg>&lt;g1&gt;--tag &lt;tag&gt;&lt;/g1&gt;: 指定されたタグを持つ spec を実行する、もしくは &lt;g2&gt;~&lt;/g2&gt; に続けたタグを持つ spec を実行する spec の一覧から除く。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--tag a --tag b&lt;/g1&gt; will include specs tagged with &lt;g2&gt;a&lt;/g2&gt; OR &lt;g3&gt;b&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165110Z" creationid="makenowjust" creationdate="20200419T165023Z">
+        <seg>&lt;g1&gt;--tag a --tag b&lt;/g1&gt; という指定は、タグ &lt;g2&gt;a&lt;/g2&gt; もしくはタグ &lt;g3&gt;b&lt;/g3&gt; を持つ spec を含めることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--tag a --tag ~b&lt;/g1&gt; will include specs tagged with &lt;g2&gt;a&lt;/g2&gt;, but not tagged with &lt;g3&gt;b&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165152Z" creationid="makenowjust" creationdate="20200419T165107Z">
+        <seg>&lt;g1&gt;--tag a --tag ~b&lt;/g1&gt; という指定は、タグ &lt;g2&gt;a&lt;/g2&gt; を持つがタグ &lt;g3&gt;b&lt;/g3&gt; を持たないような spec を含めることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--tag ~a --tag ~b&lt;/g1&gt; will include specs not tagged with &lt;g2&gt;a&lt;/g2&gt; AND not tagged with &lt;g3&gt;b&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165057Z" creationid="makenowjust" creationdate="20200419T165057Z">
+        <seg>&lt;g1&gt;--tag ~a --tag ~b&lt;/g1&gt; という指定は タグ&lt;g2&gt;a&lt;/g2&gt; もタグ&lt;g3&gt;b&lt;/g3&gt; も持たない spec を含めることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--verbose&lt;/g1&gt;: Display executed commands.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155521Z" creationid="makenowjust" creationdate="20200419T155521Z">
+        <seg>&lt;g1&gt;--verbose&lt;/g1&gt;: 内部的に実行したコマンドを表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--verbose&lt;/g1&gt;: Prints verbose output, including all example names.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164352Z" creationid="makenowjust" creationdate="20200419T164352Z">
+        <seg>&lt;g1&gt;--verbose&lt;/g1&gt;: すべての spec 名を含むような詳細な出力をする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;-&gt;(x : Int32, y : Int32) { x + y }&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000505Z" creationid="makenowjust" creationdate="20200414T000505Z">
@@ -6729,10 +7103,26 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;-D FLAG, --define FLAG&lt;/g1&gt;: Define a compile-time flag.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155309Z" creationid="makenowjust" creationdate="20200419T155220Z">
+        <seg>&lt;g1&gt;-D FLAG, --define FLAG&lt;/g1&gt;: コンパイル時フラグを指定する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;-h&lt;/g1&gt; / &lt;g2&gt;--help&lt;/g2&gt;: it will display the application help.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T172451Z" creationid="makenowjust" creationdate="20200413T172451Z">
         <seg>&lt;g1&gt;-h&lt;/g1&gt; / &lt;g2&gt;--help&lt;/g2&gt;: アプリケーションの利用方法を表示する。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;-o &lt;output_file&gt;&lt;/g1&gt;: Define the name of the binary executable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155332Z" creationid="makenowjust" creationdate="20200419T155306Z">
+        <seg>&lt;g1&gt;-o &lt;output_file&gt;&lt;/g1&gt;: 出力されるバイナリのファイル名を指定する</seg>
       </tuv>
     </tu>
     <tu>
@@ -6789,6 +7179,94 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000432Z" creationid="makenowjust" creationdate="20200414T000432Z">
         <seg>&lt;g1&gt;:symbol&lt;/g1&gt;, &lt;g2&gt;:"foo bar"&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt;: build an executable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154037Z" creationid="makenowjust" creationdate="20200419T154033Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt;: 実行可能ファイルのビルド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal docs&lt;/g2&gt;&lt;/g1&gt;: generate documentation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154044Z" creationid="makenowjust" creationdate="20200419T154044Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal docs&lt;/g2&gt;&lt;/g1&gt;: ドキュメントの生成</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal env&lt;/g2&gt;&lt;/g1&gt;: print Crystal environment information</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154116Z" creationid="makenowjust" creationdate="20200419T154116Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal env&lt;/g2&gt;&lt;/g1&gt;: Crystal 環境の情報を表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal eval&lt;/g2&gt;&lt;/g1&gt;: eval code from args or standard input</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154138Z" creationid="makenowjust" creationdate="20200419T154138Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal eval&lt;/g2&gt;&lt;/g1&gt;: 引数や標準入力からコードを評価</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal init&lt;/g2&gt;&lt;/g1&gt;: generate a new project</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153908Z" creationid="makenowjust" creationdate="20200419T153908Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal init&lt;/g2&gt;&lt;/g1&gt;: 新規プロジェクトの生成</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal play&lt;/g2&gt;&lt;/g1&gt;: starts crystal playground server</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154151Z" creationid="makenowjust" creationdate="20200419T154151Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal play&lt;/g2&gt;&lt;/g1&gt;: Crystal プレイグラウンドを起動</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal run&lt;/g2&gt;&lt;/g1&gt;: build and run program</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154203Z" creationid="makenowjust" creationdate="20200419T154203Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal run&lt;/g2&gt;&lt;/g1&gt;: プログラムをビルドして実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal spec&lt;/g2&gt;&lt;/g1&gt;: build and run specs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154216Z" creationid="makenowjust" creationdate="20200419T154216Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal spec&lt;/g2&gt;&lt;/g1&gt;: spec をビルドして実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal tool format&lt;/g2&gt;&lt;/g1&gt;: Format Crystal files</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165645Z" creationid="makenowjust" creationdate="20200419T165645Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal tool format&lt;/g2&gt;&lt;/g1&gt;: Crystal ファイルのフォーマット</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal tool&lt;/g2&gt;&lt;/g1&gt;: run a compiler tool</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154228Z" creationid="makenowjust" creationdate="20200419T154228Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal tool&lt;/g2&gt;&lt;/g1&gt;: ツールの実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal version&lt;/g2&gt;&lt;/g1&gt;: show version</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155621Z" creationid="makenowjust" creationdate="20200419T155621Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal version&lt;/g2&gt;&lt;/g1&gt;: バージョンの表示</seg>
       </tuv>
     </tu>
     <tu>
@@ -6897,6 +7375,38 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;CRYSTAL_CACHE_DIR&lt;/g1&gt;: Defines path where Crystal caches partial compilation results for faster subsequent builds.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170752Z" creationid="makenowjust" creationdate="20200419T170328Z">
+        <seg>&lt;g1&gt;CRYSTAL_CACHE_DIR&lt;/g1&gt;: 続くビルドを高速化するために Crystal がキャッシュしている部分的なコンパイルの結果を保存するパスを指定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;CRYSTAL_LIBRARY_PATH&lt;/g1&gt;: The compiler uses the paths in this variable as a first lookup destination for static and dynamic libraries that are to be linked.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170939Z" creationid="makenowjust" creationdate="20200419T170939Z">
+        <seg>&lt;g1&gt;CRYSTAL_LIBRARY_PATH&lt;/g1&gt;: コンパイラはこの変数に指定されたパスを、静的もしくは動的にリンクするライブラリを最初に探索する場所として利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;CRYSTAL_PATH&lt;/g1&gt;: Defines paths where Crystal searches for required files.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170747Z" creationid="makenowjust" creationdate="20200419T170747Z">
+        <seg>&lt;g1&gt;CRYSTAL_PATH&lt;/g1&gt;: Crystal が require されたファイルを探索するパスを指定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;CRYSTAL_VERSION&lt;/g1&gt; is only available as output of &lt;g2&gt;&lt;g3&gt;crystal env&lt;/g3&gt;&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170808Z" creationid="makenowjust" creationdate="20200419T170808Z">
+        <seg>&lt;g1&gt;CRYSTAL_VERSION&lt;/g1&gt; は&lt;g2&gt;&lt;g3&gt;crystal env&lt;/g3&gt;&lt;/g2&gt;の出力としてのみ有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Callbacks&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171442Z" creationid="makenowjust" creationdate="20200413T171442Z">
@@ -6981,6 +7491,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T165911Z" creationid="makenowjust" creationdate="20200413T165911Z">
         <seg>&lt;g1&gt;コメント&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Common options:&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154731Z" creationid="makenowjust" creationdate="20200419T154731Z">
+        <seg>&lt;g1&gt;よく使うオプション:&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -7361,6 +7879,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; Building fully statical linked executables is currently only supported on Alpine Linux.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153948Z" creationid="makenowjust" creationdate="20200419T152804Z">
+        <seg>&lt;g1&gt;注意:&lt;/g1&gt; 静的リンクした実行可能ファイルのビルドは現在Alpine Linux上でのみサポートされています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; Inheriting documentation only works on &lt;g2&gt;instance&lt;/g2&gt;, non-constructor methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214227Z" creationid="makenowjust" creationdate="20200412T214227Z">
@@ -7469,6 +7995,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170839Z" creationid="makenowjust" creationdate="20200413T170839Z">
         <seg>&lt;g1&gt;戻り値の型&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Runner options:&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164144Z" creationid="makenowjust" creationdate="20200419T164144Z">
+        <seg>&lt;g1&gt;spec ランナーに対するオプション:&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -7785,6 +8319,142 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal build&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155002Z" creationid="makenowjust" creationdate="20200419T155002Z">
+        <seg>&lt;g1&gt;crystal build&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal docs&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161515Z" creationid="makenowjust" creationdate="20200419T161515Z">
+        <seg>&lt;g1&gt;crystal docs&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal env&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163140Z" creationid="makenowjust" creationdate="20200419T163140Z">
+        <seg>&lt;g1&gt;crystal env&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal eval&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155649Z" creationid="makenowjust" creationdate="20200419T155649Z">
+        <seg>&lt;g1&gt;crystal eval&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal help&lt;/g1&gt;: show help about commands and options</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154247Z" creationid="makenowjust" creationdate="20200419T154247Z">
+        <seg>&lt;g1&gt;crystal help&lt;/g1&gt;: コマンドとオプションのヘルプの表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal init&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160802Z" creationid="makenowjust" creationdate="20200419T160802Z">
+        <seg>&lt;g1&gt;crystal init&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal play&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165209Z" creationid="makenowjust" creationdate="20200419T165209Z">
+        <seg>&lt;g1&gt;crystal play&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal run&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154427Z" creationid="makenowjust" creationdate="20200419T154427Z">
+        <seg>&lt;g1&gt;crystal run&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal spec&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163403Z" creationid="makenowjust" creationdate="20200419T163403Z">
+        <seg>&lt;g1&gt;crystal spec&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool context&lt;/g1&gt;: Show context for given location</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165617Z" creationid="makenowjust" creationdate="20200419T165617Z">
+        <seg>&lt;g1&gt;crystal tool context&lt;/g1&gt;: 与えられた位置でのコンテキストを表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool expand&lt;/g1&gt;: Show macro expansion for given location</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165636Z" creationid="makenowjust" creationdate="20200419T165636Z">
+        <seg>&lt;g1&gt;crystal tool expand&lt;/g1&gt;: 与えられた位置のマクロを展開</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool format&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165741Z" creationid="makenowjust" creationdate="20200419T165741Z">
+        <seg>&lt;g1&gt;crystal tool format&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool hierarchy&lt;/g1&gt;: Show type hierarchy</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165652Z" creationid="makenowjust" creationdate="20200419T165652Z">
+        <seg>&lt;g1&gt;crystal tool hierarchy&lt;/g1&gt;: 型の階層を表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool implementations&lt;/g1&gt;: Show implementations for given call in location</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165726Z" creationid="makenowjust" creationdate="20200419T165726Z">
+        <seg>&lt;g1&gt;crystal tool implementations&lt;/g1&gt;: 指定された位置で呼び出されているメソッドの実装がどこにあるかを表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool types&lt;/g1&gt;: Show types of main variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165739Z" creationid="makenowjust" creationdate="20200419T165739Z">
+        <seg>&lt;g1&gt;crystal tool types&lt;/g1&gt;: 主要な変数の型を表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal tool&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165602Z" creationid="makenowjust" creationdate="20200419T165602Z">
+        <seg>&lt;g1&gt;crystal tool&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal version&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160650Z" creationid="makenowjust" creationdate="20200419T160650Z">
+        <seg>&lt;g1&gt;crystal version&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;enum&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171416Z" creationid="makenowjust" creationdate="20200413T171416Z">
@@ -7953,6 +8623,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;path&lt;/g1&gt; can be a file or folder name and include all Crystal files in that folder tree.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165923Z" creationid="makenowjust" creationdate="20200419T165923Z">
+        <seg>&lt;g1&gt;path&lt;/g1&gt; にはファイル名かフォルダ名が指定できて、フォルダ名の場合そのフォルダ中の Crystal ファイルを再帰的に辿ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;pointerof&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171331Z" creationid="makenowjust" creationdate="20200413T171331Z">
@@ -7973,6 +8651,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171158Z" creationid="makenowjust" creationdate="20200413T171158Z">
         <seg>&lt;g1&gt;responds_to?&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;runner_options&lt;/g1&gt; are provided to the compiled binary executable which runs the specs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164228Z" creationid="makenowjust" creationdate="20200419T164228Z">
+        <seg>&lt;g1&gt;runner_options&lt;/g1&gt; はコンパイルされた spec を実行する際に渡すオプションを表しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8129,6 +8815,16 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g3&gt;crystal init app &lt;name&gt;&lt;/g3&gt; is used for an application,
+&lt;g4&gt;crystal init lib &lt;name&gt;&lt;/g4&gt; for a library.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153525Z" creationid="makenowjust" creationdate="20200419T153525Z">
+        <seg>&lt;g3&gt;crystal init app &lt;name&gt;&lt;/g3&gt;はアプリケーション向けで、
+&lt;g4&gt;crystal init lib &lt;name&gt;&lt;/g4&gt;はライブラリ向けです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;s0&gt;Chat room&lt;/s0&gt; &lt;i1&gt;&lt;/i1&gt; &lt;s2&gt;crystal-lang/crystal&lt;/s2&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T223215Z" creationid="makenowjust" creationdate="20200413T223105Z">
@@ -8157,6 +8853,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T223045Z" creationid="makenowjust" creationdate="20200413T223045Z">
         <seg>&lt;s0&gt;広い議論の場 (英語)&lt;/s0&gt; &lt;i1&gt;&lt;/i1&gt; &lt;s2&gt;crystal-lang&lt;/s2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;x1/&gt;Screenshot of Crystal playground&lt;x2/&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165337Z" creationid="makenowjust" creationdate="20200419T165337Z">
+        <seg>&lt;x1/&gt;Crystal プレイグラウンドのスクリーンショット&lt;x2/&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -8511,6 +9215,15 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T045444Z" creationid="hirofumiwakasugi" creationdate="20150903T005435Z">
         <seg>「真 (truthy)」の値というのは、`if`、`unless`、`while`、そして `until` の条件で真 (true) となる値を指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g3&gt;lib&lt;/g3&gt; is a reusable library whereas &lt;g4&gt;app&lt;/g4&gt; describes
+an application not intended to be used as a dependency.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161301Z" creationid="makenowjust" creationdate="20200419T161301Z">
+        <seg>&lt;g3&gt;lib&lt;/g3&gt;は再利用可能なライブラリで、&lt;g4&gt;app&lt;/g4&gt;は依存関係に含めることのないアプリケーションであることを意図しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8907,6 +9620,15 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A filename can be suffixed by &lt;g4&gt;:&lt;/g4&gt;
+and a line number, providing this location to the &lt;g5&gt;--location&lt;/g5&gt; runner option (see below).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164251Z" creationid="makenowjust" creationdate="20200419T164105Z">
+        <seg>すべてのファイル名は&lt;g4&gt;:&lt;/g4&gt;と行番号をあとに続けることで、spec ランナーに対して &lt;g5&gt;--location&lt;/g5&gt; で指定する場合と同様の指定ができます (この後に詳細)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A floating point literal is an optional `+` or `-` sign, followed by
 a sequence of numbers or underscores, followed by a dot,
 followed by numbers or underscores, followed by an optional exponent suffix,
@@ -8922,6 +9644,15 @@ followed by an optional type suffix.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072356Z" creationid="hirofumiwakasugi" creationdate="20150908T035149Z">
         <seg>自由変数は、型制約でジェネリック型を指定する場合に、そのパラメータの型を展開することにも使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A library doesn't have a &lt;g5&gt;shard.lock&lt;/g5&gt; file
+in its repository and no build target in &lt;g6&gt;shard.yml&lt;/g6&gt;, but instructions for using it as a dependency.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161500Z" creationid="makenowjust" creationdate="20200419T161500Z">
+        <seg>ライブラリは自身のリポジトリに&lt;g5&gt;shard.lock&lt;/g5&gt;を含めず、&lt;g6&gt;shard.yml&lt;/g6&gt;にビルド目標を持ちませんが、依存関係としてどのように利用するかの説明があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9251,6 +9982,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071328Z" creationid="hirofumiwakasugi" creationdate="20150919T071303Z">
         <seg>エイリアスを使うと長い名前の型を書かずに済むので便利です。しかし、それだけではなく、再帰的な型を扱うときにも利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>All &lt;g1&gt;files&lt;/g1&gt; arguments are concatenated into a single Crystal source.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163823Z" creationid="makenowjust" creationdate="20200419T163823Z">
+        <seg>&lt;g1&gt;files&lt;/g1&gt;引数で指定されたすべてのファイルは1つの Crystal ソースコードとして結合されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9744,6 +10483,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Arguments to the compiled binary can be separated with double dash &lt;g1&gt;--&lt;/g1&gt; from the compiler arguments.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154609Z" creationid="makenowjust" creationdate="20200419T154600Z">
+        <seg>コンパイルされたバイナリへの引数は、コンパイラへの引数のあとに2つのハイフン (&lt;g1&gt;--&lt;/g1&gt;) で区切って渡します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Array(T)
 end</seg>
       </tuv>
@@ -10103,6 +10850,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Building in release mode should be used for production-ready executables and when performing benchmarks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152249Z" creationid="makenowjust" creationdate="20200419T152249Z">
+        <seg>リリースモードでのビルドはプロダクションでの利用やベンチマークの測定の際に用いてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Built in commands allow dependencies to be easily specified through a YAML file and fetched from their respective repositories.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222219Z" creationid="makenowjust" creationdate="20200413T221853Z">
@@ -10219,6 +10974,30 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T213843Z" creationid="makenowjust" creationdate="20200412T211435Z">
         <seg>デフォルトでは&lt;g2&gt;docs&lt;/g2&gt;ディレクトリが生成され、&lt;g3&gt;docs/index.html&lt;/g3&gt;がエントリーポイントとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>By default, all Crystal files in &lt;g1&gt;./src&lt;/g1&gt; will be appended (i.e. &lt;g2&gt;src/**/*.cr&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162251Z" creationid="makenowjust" creationdate="20200419T162243Z">
+        <seg>デフォルトでは、&lt;g1&gt;./src&lt;/g1&gt; ディレクトリにあるすべてのファイルからドキュメント生成をします (つまり &lt;g2&gt;src/**/*.cr&lt;/g2&gt; が指定されたような挙動です)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>By default, it prints information as a shell script.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163228Z" creationid="makenowjust" creationdate="20200419T163228Z">
+        <seg>デフォルトではシェルスクリプトのように情報を出力します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>By default, the generated executables are not fully optimized.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150647Z" creationid="makenowjust" creationdate="20200419T150647Z">
+        <seg>デフォルトでは、生成された実行可能ファイルは完全には最適化されていません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10485,6 +11264,30 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Compiler commands</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153856Z" creationid="makenowjust" creationdate="20200419T153856Z">
+        <seg>コマンドの概要</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Compiling and running at once</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150204Z" creationid="makenowjust" creationdate="20200419T150204Z">
+        <seg>コンパイルと同時に実行する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Compiling without release mode is much faster and the resulting binaries still offer pretty good performance.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150814Z" creationid="makenowjust" creationdate="20200419T150814Z">
+        <seg>リリースモードでないコンパイルは十分に早く、また生成されるバイナリもそれなりのパフォーマンスではあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Concurrency Model</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221205Z" creationid="makenowjust" creationdate="20200413T221100Z">
@@ -10557,6 +11360,30 @@ Counter.new
 Counter.new
 Counter.instances #=&gt; 3
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creating a Crystal project</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153327Z" creationid="makenowjust" creationdate="20200419T153327Z">
+        <seg>Crystal のプロジェクトの作成</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creating a statically-linked executable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152639Z" creationid="makenowjust" creationdate="20200419T152542Z">
+        <seg>静的リンクした実行可能ファイルの生成</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creating an executable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150442Z" creationid="makenowjust" creationdate="20200419T150442Z">
+        <seg>実行可能ファイルの生成</seg>
       </tuv>
     </tu>
     <tu>
@@ -10748,6 +11575,14 @@ but also to format code samples included in documentation blocks.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Default value is the first directory that either exists or can be created of &lt;g6&gt;${XDG_CACHE_HOME}/crystal&lt;/g6&gt; (if &lt;g7&gt;XDG_CACHE_HOME&lt;/g7&gt; is defined), &lt;g8&gt;${HOME}/.cache/crystal&lt;/g8&gt;, &lt;g9&gt;${HOME}/.crystal&lt;/g9&gt;, &lt;g10&gt;./.crystal&lt;/g10&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170637Z" creationid="makenowjust" creationdate="20200419T170637Z">
+        <seg>デフォルト値は次に上げるディレクトリのうち最初に見つかったか作成可能だったものになります: &lt;g6&gt;${XDG_CACHE_HOME}/crystal&lt;/g6&gt; (&lt;g7&gt;XDG_CACHE_HOME&lt;/g7&gt;がある場合)、&lt;g8&gt;${HOME}/.cache/crystal&lt;/g8&gt;、&lt;g9&gt;${HOME}/.crystal&lt;/g9&gt;、もしくは&lt;g10&gt;./.crystal&lt;/g10&gt;。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Dependencies</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221554Z" creationid="makenowjust" creationdate="20200413T221554Z">
@@ -10874,6 +11709,14 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Environment variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165947Z" creationid="makenowjust" creationdate="20200419T165947Z">
+        <seg>環境変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even though the instance has two `Int32` fields, the compiler always includes an extra `Int32` field for the type id of the object.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T121004Z" creationid="hirofumiwakasugi" creationdate="20150906T120905Z">
@@ -10922,6 +11765,14 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Example:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163400Z" creationid="makenowjust" creationdate="20200419T154707Z">
+        <seg>例:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Example: &lt;g1&gt;overview/hello_world.md&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T164825Z" creationid="makenowjust" creationdate="20200413T164825Z">
@@ -10938,10 +11789,26 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Expected: true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165202Z" creationid="makenowjust" creationdate="20200419T165202Z">
+        <seg>Expected: true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>FIXME</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214454Z" creationid="makenowjust" creationdate="20200412T214454Z">
         <seg>FIXME</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Failure/Error: false.should eq(true)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165201Z" creationid="makenowjust" creationdate="20200419T165201Z">
+        <seg>Failure/Error: false.should eq(true)</seg>
       </tuv>
     </tu>
     <tu>
@@ -11190,6 +12057,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, if static libraries are put in &lt;g2&gt;build/libs&lt;/g2&gt;, setting the environment variable accordingly will tell the compiler to look for libraries there.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T171230Z" creationid="makenowjust" creationdate="20200419T171230Z">
+        <seg>例えば静的ライブラリが&lt;g2&gt;build/libs&lt;/g2&gt;に置かれていたとすると、環境変数をそれに応じて設定することでコンパイラがそこにライブラリを探索しに行くように伝えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, if we define a class that has a `+` method but isn't a `Number`, we can use the `add` method that doesn't have type restrictions, but we can't use the `add` method that has restrictions.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T014211Z" creationid="hirofumiwakasugi" creationdate="20150908T013756Z">
@@ -11342,10 +12217,27 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For simple development builds, there is usually no reason to do so.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152313Z" creationid="makenowjust" creationdate="20200419T152313Z">
+        <seg>開発時のビルドであれば、リリースビルドをする必要はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For starters, our applications already display information but (I think) we could do better.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T182942Z" creationid="makenowjust" creationdate="20200413T182942Z">
         <seg>はじめに、アプリケーションは現時点でも情報を表示してはいるけど、そこまで良い表示だとは言えません。.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For the above example to output the docs at &lt;g1&gt;public&lt;/g1&gt; with custom canonical base url, and entrypoint &lt;g2&gt;src/my_app.cr&lt;/g2&gt;,
+the following arguments can be used:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163130Z" creationid="makenowjust" creationdate="20200419T162946Z">
+        <seg>次の例ではcanonicalなベースURLを明示的に指定した上で、&lt;g1&gt;public&lt;/g1&gt;を出力先のディレクトリにして, そして&lt;g2&gt;src/my_app.cr&lt;/g2&gt;をエントリーポイントとしてドキュメントを生成しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11756,6 +12648,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If &lt;g11&gt;CRYSTAL_CACHE_DIR&lt;/g11&gt; is set but points to a path that is not writeable, the default values are used instead.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170714Z" creationid="makenowjust" creationdate="20200419T170714Z">
+        <seg>&lt;g11&gt;CRYSTAL_CACHE_DIR&lt;/g11&gt;で指定されたパスが書き込み不可能だった場合もデフォルト値が代わりに利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If Crystal isn't available in some system you can try cross-compiling it there.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T050816Z" creationid="hirofumiwakasugi" creationdate="20150909T050805Z">
@@ -11908,6 +12808,15 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If an argument points to a folder, all spec
+files inside that folder are appended.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165441Z" creationid="makenowjust" creationdate="20200419T163906Z">
+        <seg>引数がフォルダを指していた場合、そのフォルダ中の spec をまとめて指定したことになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If an exception is raised inside the `initialize` method, `finalize` won't be invoked.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T041925Z" creationid="hirofumiwakasugi" creationdate="20150910T041925Z">
@@ -11996,6 +12905,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If no &lt;g1&gt;source&lt;/g1&gt; argument is provided, the Crystal source is read from standard input.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160002Z" creationid="makenowjust" creationdate="20200419T160002Z">
+        <seg>&lt;g1&gt;source&lt;/g1&gt;が引数で指定されなかった場合は、ソースコードを標準入力から読み込みます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If no &lt;g2&gt;files&lt;/g2&gt; argument is provided, the default is &lt;g3&gt;./spec&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163939Z" creationid="makenowjust" creationdate="20200419T163939Z">
+        <seg>何も&lt;g2&gt;files&lt;/g2&gt;引数を指定しなかった場合は、デフォルト値として&lt;g3&gt;./spec&lt;/g3&gt;が与えられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If no suffix is present, the literal's type is `Float64`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T074014Z" creationid="hirofumiwakasugi" creationdate="20150901T074014Z">
@@ -12026,6 +12951,15 @@ in which the number fits:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T025816Z" creationid="hirofumiwakasugi" creationdate="20150903T012622Z">
         <seg>もし、ある分岐節が `if` の最後まで絶対に到達しない場合、例えば `return`/`next`/`break`/`raise` などが存在した場合には、`if` の後でその分岐節における型が考慮されることはありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If one or more &lt;g1&gt;var&lt;/g1&gt; arguments are provided,
+the value of each named variable is printed on its own line.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163353Z" creationid="makenowjust" creationdate="20200419T163353Z">
+        <seg>もしいくつかの&lt;g1&gt;var&lt;/g1&gt;引数が渡された場合、それらの変数の値がそれぞれの行に出力されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12409,6 +13343,14 @@ characters, you can use alternative literals:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In case no default can be found, this option is mandatory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162703Z" creationid="makenowjust" creationdate="20200419T162636Z">
+        <seg>デフォルト値が見つからない場合、このオプションは必須です</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In case we want to build richer CLI applications, there are libraries that can help us.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T190917Z" creationid="makenowjust" creationdate="20200413T185802Z">
@@ -12525,6 +13467,15 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T073043Z" creationid="hirofumiwakasugi" creationdate="20150919T072939Z">
         <seg>パックしていない構造体では、対象のシステムに応じて、フィールドの型の間にパディングが挿入されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In order to account for load-order dependencies, &lt;g3&gt;source_file&lt;/g3&gt; can be used to specify one (or multiple)
+entrypoints for the docs generator.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162432Z" creationid="makenowjust" creationdate="20200419T162432Z">
+        <seg>読む込む順序に依存する場合は、ドキュメントジェネレータに明示的に1つ (ないし複数) の&lt;g3&gt;source_file&lt;/g3&gt; をエントリーポイントして指定してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13552,6 +14503,30 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>More information about statically linking &lt;g1&gt;can be found on the wiki&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152900Z" creationid="makenowjust" creationdate="20200419T152900Z">
+        <seg>静的リンクについてのより詳細な情報は&lt;g1&gt;Wikiを参照&lt;/g1&gt;してください (英語)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>More options are described in the integrated help: &lt;g1&gt;crystal build --help&lt;/g1&gt; or man page &lt;g2&gt;man crystal&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155604Z" creationid="makenowjust" creationdate="20200419T155604Z">
+        <seg>その他のオプションは統合されたヘルプにて説明されています。&lt;g1&gt;crystal build --help&lt;/g1&gt;を使うか、&lt;g2&gt;man crystal&lt;/g2&gt; で man ページを見てください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>More options are described in the integrated help: &lt;g1&gt;crystal run --help&lt;/g1&gt; or man page &lt;g2&gt;man crystal&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155636Z" creationid="makenowjust" creationdate="20200419T155000Z">
+        <seg>その他のオプションは統合されたヘルプにて説明されています。&lt;g1&gt;crystal run --help&lt;/g1&gt;を使うか、&lt;g2&gt;man crystal&lt;/g2&gt;で man ページを見てください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>More release notes</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222713Z" creationid="makenowjust" creationdate="20200413T222713Z">
@@ -13620,6 +14595,14 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>NOTE: When running interactively, stdin can usually be closed by typing the end of transmission character (&lt;g1&gt;Ctrl+D&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160234Z" creationid="makenowjust" creationdate="20200419T160234Z">
+        <seg>注意: 対話的に実行したい場合、一般的には&lt;g1&gt;Ctrl+D&lt;/g1&gt;を入力することで標準入力を閉じることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Naming</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T202836Z" creationid="makenowjust" creationdate="20200412T202836Z">
@@ -13664,6 +14647,14 @@ MyBox(Int32).new("hello") # エラー
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T174146Z" creationid="makenowjust" creationdate="20200413T172828Z">
         <seg>いえいえ、実のところ魔法ではないのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Not all of these files are required for every project, and some might need more customization, but &lt;g1&gt;crystal init&lt;/g1&gt; creates a good default environment for developing Crystal applications and libraries.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153841Z" creationid="makenowjust" creationdate="20200419T153841Z">
+        <seg>すべてのファイルがあらゆるプロジェクトで必要になるわけではなく、カスタマイズが必要に感じる場合もあるでしょう。しかし、&lt;g1&gt;crystal init&lt;/g1&gt;は Crystal のlアプリケーションやライブラリの開発に十分なデフォルトの環境を提供しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13959,6 +14950,15 @@ end up in the resulting string.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Omitting &lt;g2&gt;path&lt;/g2&gt; is equal to
+specifying the current working directory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165942Z" creationid="makenowjust" creationdate="20200419T165942Z">
+        <seg>&lt;g2&gt;path&lt;/g2&gt;が指定されなかった場合、現在のデイレクトリを指定したものとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>On some linux 64 bits it will say "Linux x86_64".</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T045052Z" creationid="hirofumiwakasugi" creationdate="20150909T045052Z">
@@ -13971,6 +14971,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T190403Z" creationid="makenowjust" creationdate="20200413T190403Z">
         <seg>続いて、&lt;g1&gt;NCurses&lt;/g1&gt;(New Curses) の紹介です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once &lt;g1&gt;installed&lt;/g1&gt;, the Crystal compiler should be available as &lt;g2&gt;crystal&lt;/g2&gt; command.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150151Z" creationid="makenowjust" creationdate="20200419T150151Z">
+        <seg>&lt;g1&gt;インストール&lt;/g1&gt;が済んでいれば、&lt;g2&gt;crystal&lt;/g2&gt;というコマンドでコンパイラを利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14155,6 +15163,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052557Z" creationid="hirofumiwakasugi" creationdate="20150905T052521Z">
         <seg>そうでない場合は、結果は左辺の値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Otherwise the compiler will populate them with default values.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170107Z" creationid="makenowjust" creationdate="20200419T170107Z">
+        <seg>指定されていなければ、コンパイラはデフォルト値を利用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14497,6 +15513,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Release builds</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150611Z" creationid="makenowjust" creationdate="20200419T150611Z">
+        <seg>リリースビルド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Request for user input</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T180643Z" creationid="makenowjust" creationdate="20200413T180643Z">
@@ -14517,6 +15541,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T122136Z" creationid="hirofumiwakasugi" creationdate="20150904T121927Z">
         <seg>さて、これで person に対して、「名前を付けてインスタンスを生成する」ことと「名前と年齢を尋ねる」ことができるようになりました。しかし、年齢はずっと0歳のままで変更できませんし、まだまだ機能は不十分です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Run &lt;g1&gt;crystal spec --options&lt;/g1&gt; for available options.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164127Z" creationid="makenowjust" creationdate="20200419T164127Z">
+        <seg>&lt;g1&gt;crystal spec --options&lt;/g1&gt;で可能なオプションの一覧を見ることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15102,10 +16134,132 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;--release&lt;/g1&gt; flag can be used to enable optimizations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150702Z" creationid="makenowjust" creationdate="20200419T150702Z">
+        <seg>&lt;g1&gt;--release&lt;/g1&gt;というフラグを付けることで最適化を有効にできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;--static&lt;/g1&gt; flag can be used to build a statically-linked executable:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152727Z" creationid="makenowjust" creationdate="20200419T152556Z">
+        <seg>&lt;g1&gt;--static&lt;/g1&gt;フラグは、静的リンクした実行可能ファイルの生成に用います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt; command builds a binary executable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150522Z" creationid="makenowjust" creationdate="20200419T150522Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt;コマンドで実行可能バイナリがビルドされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;&lt;g2&gt;crystal init&lt;/g2&gt;&lt;/g1&gt; command helps to initialize a Crystal project folder, setting
+up a basic project structure.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153501Z" creationid="makenowjust" creationdate="20200419T153501Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;crystal init&lt;/g2&gt;&lt;/g1&gt; コマンドは基本的なディレクトリ構成を持った Crystal プロジェクトの初期化をするのに役に立ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;Nil&lt;/g1&gt; type is used to represent the absence of a value, similar to &lt;g2&gt;null&lt;/g2&gt; in other languages.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000904Z" creationid="makenowjust" creationdate="20200414T000713Z">
         <seg>&lt;g1&gt;Nil&lt;/g1&gt; 型は値が存在しないことを表す、他の言語にある&lt;g2&gt;null&lt;/g2&gt;のようなものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal build&lt;/g1&gt; command builds a dynamically-linked binary executable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155040Z" creationid="makenowjust" creationdate="20200419T155040Z">
+        <seg>&lt;g1&gt;crystal build&lt;/g1&gt;コマンドは動的リンクした実行可能バイナリをビルドします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal docs&lt;/g1&gt; command generates API documentation from inline docstrings in Crystal files (see &lt;g2&gt;documenting code&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161638Z" creationid="makenowjust" creationdate="20200419T161638Z">
+        <seg>&lt;g1&gt;crystal docs&lt;/g1&gt;コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します。 (詳しくは&lt;g2&gt;コードのドキュメント化&lt;/g2&gt;を参照).</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal env&lt;/g1&gt; command prints environment variables used by Crystal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163204Z" creationid="makenowjust" creationdate="20200419T163204Z">
+        <seg>&lt;g1&gt;crystal env&lt;/g1&gt; コマンドは Crystal が使う環境変数を出力します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal eval&lt;/g1&gt; command reads Crystal source code from command line or stdin, compiles it to a binary executable and immediately runs it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155922Z" creationid="makenowjust" creationdate="20200419T155922Z">
+        <seg>&lt;g1&gt;crystal eval&lt;/g1&gt;コマンドは Crystal のソースコードをコマンドラインか標準入力から読み込んで、それを実行可能ファイルにコンパイルして即時に実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal init&lt;/g1&gt; command initializes a Crystal project folder.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161040Z" creationid="makenowjust" creationdate="20200419T161040Z">
+        <seg>&lt;g1&gt;crystal init&lt;/g1&gt;コマンドは Crystal プロジェクトに使うフォルダを初期化します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal play&lt;/g1&gt; command starts a webserver serving an interactive Crystal playground.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165321Z" creationid="makenowjust" creationdate="20200419T165321Z">
+        <seg>&lt;g1&gt;crystal play&lt;/g1&gt; コマンドは対話的な Crystal のプレイグラウンドを提供する Web サーバーを起動します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal spec&lt;/g1&gt; command compiles and runs a Crystal spec suite.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163508Z" creationid="makenowjust" creationdate="20200419T163508Z">
+        <seg>&lt;g1&gt;crystal spec&lt;/g1&gt; コマンドは Crystal の spec のコンパイルと実行を一度に行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal tool format&lt;/g1&gt; command applies default format to Crystal source files.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165806Z" creationid="makenowjust" creationdate="20200419T165806Z">
+        <seg>&lt;g1&gt;crystal tool format&lt;/g1&gt; コマンドは Crystal のソースコードに標準的なフォーマットを適用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;crystal version&lt;/g1&gt; command prints the Crystal version, LLVM version and default target triple.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160737Z" creationid="makenowjust" creationdate="20200419T160737Z">
+        <seg>&lt;g1&gt;crystal version&lt;/g1&gt;コマンドは Crystal のバージョンや LLVM のバージョン、そしてデフォルトで使うターゲットトリプルを出力します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;run&lt;/g1&gt; command compiles a source file to a binary executable and immediately runs it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154454Z" creationid="makenowjust" creationdate="20200419T154454Z">
+        <seg>&lt;g1&gt;run&lt;/g1&gt;コマンドはソースコードを実行可能バイナリにコンパイルして、即時にそれを実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;run&lt;/g1&gt; command compiles the source file &lt;g2&gt;hello_world.cr&lt;/g2&gt; to a binary executable in a temporary location
+and immediately executes it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150428Z" creationid="makenowjust" creationdate="20200419T150428Z">
+        <seg>&lt;g1&gt;run&lt;/g1&gt;コマンドは&lt;g2&gt;hello_world.cr&lt;/g2&gt;というソースコードをその場限りの実行可能バイナリにコンパイルして、即時にそれを実行します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15526,6 +16680,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The binary executable is stored in a temporary location between compiling and running.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160050Z" creationid="makenowjust" creationdate="20200419T160050Z">
+        <seg>コンパイルと実行の間、生成された実行可能ファイルは一時的な場所に保存されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The block variable `second` also includes the `Nil` type because the last `yield` expression didn't include a second argument.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023329Z" creationid="hirofumiwakasugi" creationdate="20150916T023208Z">
@@ -15554,6 +16716,15 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072503Z" creationid="hirofumiwakasugi" creationdate="20150901T072444Z">
         <seg>伝統的な「hello world」プログラムを Crystal で書くと次のようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The command creates a static website in &lt;g1&gt;output_dir&lt;/g1&gt; (default &lt;g2&gt;./docs&lt;/g2&gt;), consisting of HTML files for each Crystal type,
+in a folder structure mirroring the Crystal namespaces.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161832Z" creationid="makenowjust" creationdate="20200419T161832Z">
+        <seg>このコマンドは&lt;g1&gt;output_dir&lt;/g1&gt; (デフォルトでは &lt;g2&gt;./docs&lt;/g2&gt;) に、 Crystal での名前を反映したディレクトリ構造で、各 HTML ファイルが1つ1つの型に対応するような、静的な Web サイトを生成します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15614,6 +16785,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The compiler neither sets nor reads it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170838Z" creationid="makenowjust" creationdate="20200419T170838Z">
+        <seg>これを明示的にセットすることもできず、コンパイラはこの変数を実際には利用しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The compiler uses the &lt;g1&gt;CRYSTAL_LIBRARY_PATH&lt;/g1&gt; environment variable as a first lookup destination for static and dynamic libraries that are to be linked.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153208Z" creationid="makenowjust" creationdate="20200419T153037Z">
+        <seg>コンパイラは&lt;g1&gt;CRYSTAL_LIBRARY_PATH&lt;/g1&gt;という環境変数を、静的もしくは動的にリンクするライブラリを最初に探索する場所とします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The compiler will always do this for classes under the same hierarchy: it will find the first superclass that's not `Reference` from which all types inherit from.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T033013Z" creationid="hirofumiwakasugi" creationdate="20150910T032332Z">
@@ -15658,6 +16845,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024400Z" creationid="hirofumiwakasugi" creationdate="20150914T024252Z">
         <seg>それらのデフォルト値を上書きすることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default value is extracted from &lt;g2&gt;shard.yml&lt;/g2&gt; if available.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162642Z" creationid="makenowjust" creationdate="20200419T162547Z">
+        <seg>可能な場合&lt;g2&gt;shard.yml&lt;/g2&gt;にある名前をデフォルト値として利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default value is extracted from current git commit or &lt;g2&gt;shard.yml&lt;/g2&gt; if available.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162753Z" creationid="makenowjust" creationdate="20200419T162753Z">
+        <seg>可能な場合&lt;g2&gt;shard.yml&lt;/g2&gt;に指定されたものかgitのコミットからバージョンを取り出します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15716,6 +16919,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The entire API docs are also stored as a JSON document in &lt;g4&gt;$output_dir/index.json&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162112Z" creationid="makenowjust" creationdate="20200419T162107Z">
+        <seg>API ドキュメント全体は JSON として &lt;g4&gt;$output_dir/index.json&lt;/g4&gt; に保存されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The entrypoint &lt;g3&gt;docs/index.html&lt;/g3&gt; can be opened by any web browser.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162021Z" creationid="makenowjust" creationdate="20200419T162021Z">
+        <seg>Web ブラウザで見る際のエントリーポイントは &lt;g3&gt;docs/index.html&lt;/g3&gt; になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The enum's body contains the values.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024231Z" creationid="hirofumiwakasugi" creationdate="20150914T024231Z">
@@ -15732,6 +16951,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The first argument is either &lt;g1&gt;lib&lt;/g1&gt; or &lt;g2&gt;app&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161107Z" creationid="makenowjust" creationdate="20200419T161107Z">
+        <seg>最初の引数は&lt;g1&gt;lib&lt;/g1&gt;か&lt;g2&gt;app&lt;/g2&gt;のいずれかです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The first call's value is 3 because the last expression of the `twice` method is `yield`, which gets the value of the block.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T024826Z" creationid="hirofumiwakasugi" creationdate="20150916T024826Z">
@@ -15744,6 +16971,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063731Z" creationid="hirofumiwakasugi" creationdate="20150912T063517Z">
         <seg>これは簡単に修正できます。[型制約](type_restrictions.html)を利用すればいいのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following environment variables are used by the Crystal compiler if set in the environment.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170016Z" creationid="makenowjust" creationdate="20200419T170016Z">
+        <seg>これらの環境変数は、もしセットされていれば Crystal のコンパイラによって利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following options can be combined to filter the list of specs to run.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164935Z" creationid="makenowjust" creationdate="20200419T164539Z">
+        <seg>次のオプションは実行する spec の一覧をフィルターするために組み合わせられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15900,6 +17143,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T005747Z" creationid="hirofumiwakasugi" creationdate="20150903T005731Z">
         <seg>`nil` と `false`、そしてヌルポインタ (メモリのアドレスが0のポインタ) のみが偽の値となり、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The output file has the same name as the source file minus the extension &lt;g3&gt;.cr&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150601Z" creationid="makenowjust" creationdate="20200419T150601Z">
+        <seg>出力されるファイルのファイル名はソースコードのファイル名から&lt;g3&gt;.cr&lt;/g3&gt;という拡張子を除いたものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16244,6 +17495,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Their values can be inspected using &lt;g1&gt;&lt;g2&gt;crystal env&lt;/g2&gt;&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170120Z" creationid="makenowjust" creationdate="20200419T170120Z">
+        <seg>これらの値は&lt;g1&gt;&lt;g2&gt;crystal env&lt;/g2&gt;&lt;/g1&gt;を使うことで確認できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Then `initialize` is invoked on it and then you get the instance.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T060852Z" creationid="hirofumiwakasugi" creationdate="20150904T060852Z">
@@ -16495,6 +17754,15 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>They should be separated from
+the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T164331Z" creationid="makenowjust" creationdate="20200419T164236Z">
+        <seg>これらは他の引数とは &lt;g2&gt;--&lt;/g2&gt; で区切る必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>ThirtyTwo = 1 &lt;&lt; 5</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052948Z" creationid="hirofumiwakasugi" creationdate="20151007T052948Z">
@@ -16555,6 +17823,14 @@ types defined by IEEE.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041847Z" creationid="hirofumiwakasugi" creationdate="20151005T041831Z">
         <seg>C の関数名は長い傾向があり、ライブラリ名で修飾されている場合が多いため、それらにより短くてわかりやすい名前をつけることにもこれを利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This can be used to provide static versions of libraries that are also available as dynamic libraries.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153315Z" creationid="makenowjust" creationdate="20200419T153315Z">
+        <seg>これは動的ライブラリとしても有効な、静的なバージョンのライブラリを提供することに使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16865,6 +18141,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This path is also used to temporarily store executables when Crystal programs are run with &lt;g2&gt;&lt;g3&gt;crystal run&lt;/g3&gt;&lt;/g2&gt; rather than &lt;g4&gt;&lt;g5&gt;crystal build&lt;/g5&gt;&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T170456Z" creationid="makenowjust" creationdate="20200419T170456Z">
+        <seg>このパスは&lt;g2&gt;&lt;g3&gt;crystal run&lt;/g3&gt;&lt;/g2&gt;で一時的に保存される実行可能ファイルを保存する先としても利用されます (&lt;g4&gt;&lt;g5&gt;crystal build&lt;/g5&gt;&lt;/g4&gt; では利用しません)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This procedure is usually done with the compiler itself to port it to new platforms where a compiler is not yet available.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T050134Z" creationid="hirofumiwakasugi" creationdate="20150909T045815Z">
@@ -16877,6 +18161,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T160344Z" creationid="hirofumiwakasugi" creationdate="20150905T160229Z">
         <seg>この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This removes debug symbols reducing file size, but obviously making debugging more difficult.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154021Z" creationid="makenowjust" creationdate="20200419T152527Z">
+        <seg>これはファイルサイズを減らすためにデバッグシンボルをファイルから削除しますが、一方、当然にデバッグは困難になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17106,6 +18398,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T071951Z" creationid="hirofumiwakasugi" creationdate="20150901T071951Z">
         <seg>ファイル名を1つ指定して `crystal` コマンドを実行することで、プログラムのコンパイルと実行を一発で行うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To compile and run a program in a single shot, invoke &lt;g1&gt;&lt;g2&gt;crystal run&lt;/g2&gt;&lt;/g1&gt; with a single filename:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150246Z" creationid="makenowjust" creationdate="20200419T150246Z">
+        <seg>ファイル名を1つ指定して&lt;g1&gt;&lt;g2&gt;crystal run&lt;/g2&gt;&lt;/g1&gt;コマンドを実行することで、プログラムのコンパイルと実行を一発で行うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17409,6 +18709,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To reduce the binary size for distributable files, the &lt;g1&gt;--no-debug&lt;/g1&gt; flag can be used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T152346Z" creationid="makenowjust" creationdate="20200419T152346Z">
+        <seg>配布するファイルのサイズを減らすには、&lt;g1&gt;--no-debug&lt;/g1&gt;フラグを用いることが有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To rescue any exception use a `begin ... rescue ... end` expression:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013109Z" creationid="hirofumiwakasugi" creationdate="20150907T011929Z">
@@ -17429,6 +18737,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072224Z" creationid="hirofumiwakasugi" creationdate="20150901T072224Z">
         <seg>あるコマンドに対して有効なオプションを確認するには、コマンドに続けて `--help` を入力してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To see the available options for a particular command, use &lt;g1&gt;--help&lt;/g1&gt; after a command:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154425Z" creationid="makenowjust" creationdate="20200419T154425Z">
+        <seg>特定のコマンドの有効なオプションを確認したい場合は、コマンド名のあとに&lt;g1&gt;--help&lt;/g1&gt;を付けて実行してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17601,6 +18917,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unless specified, the resuling binary will have the same name as the source file minus the extension &lt;g1&gt;.cr&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155127Z" creationid="makenowjust" creationdate="20200419T155127Z">
+        <seg>明示的に指定しなければ、生成されるバイナリはソースコードのファイル名から&lt;g1&gt;.cr&lt;/g1&gt;という拡張子を除いたものになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unlike C, `Int32` and `MyInt` are not interchangeable:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023152Z" creationid="hirofumiwakasugi" creationdate="20151008T023152Z">
@@ -17718,6 +19042,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T020204Z" creationid="hirofumiwakasugi" creationdate="20151002T020117Z">
         <seg>上記の例では `%x` として変数を宣言しています。こうすることで、現在のスコープのローカル変数と名前が衝突しないことを保証できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using the compiler</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T150106Z" creationid="makenowjust" creationdate="20200419T150106Z">
+        <seg>コンパイラの使い方</seg>
       </tuv>
     </tu>
     <tu>
@@ -18618,6 +19950,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052658Z" creationid="hirofumiwakasugi" creationdate="20150905T052658Z">
         <seg>したがって、`||` を `if` のシンタックスシュガーとして利用することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can use &lt;g1&gt;break&lt;/g1&gt; to break out of a &lt;g2&gt;while&lt;/g2&gt; loop:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200417T115411Z" creationid="makenowjust" creationdate="20200417T115411Z">
+        <seg>&lt;g2&gt;while&lt;/g2&gt;のループを抜けるためには&lt;g1&gt;break&lt;/g1&gt;を使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27669,6 +29009,16 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>a = 2
+while (a += 1) &lt; 20</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200417T115413Z" creationid="makenowjust" creationdate="20200417T115413Z">
+        <seg>a = 2
+while (a += 1) &lt; 20</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>a = @a
 if a.is_a?(String)</seg>
       </tuv>
@@ -28385,6 +29735,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>break # goes to 'puts a'</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200417T115450Z" creationid="makenowjust" creationdate="20200417T115416Z">
+        <seg>break # ループを抜けて 'puts a' に行く</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>break if some_condition
 end
 ```</seg>
@@ -28883,6 +30241,258 @@ Initialized empty Git repository in ~/MyCoolLib/.git/
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072146Z" creationid="hirofumiwakasugi" creationdate="20150901T072146Z">
         <seg>create  MyCoolLib/src/MyCoolLib/version.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/.editorconfig</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161507Z" creationid="makenowjust" creationdate="20200419T161507Z">
+        <seg>create  my_cool_lib/.editorconfig</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/.gitignore</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161506Z" creationid="makenowjust" creationdate="20200419T161506Z">
+        <seg>create  my_cool_lib/.gitignore</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/.travis.yml</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161509Z" creationid="makenowjust" creationdate="20200419T161509Z">
+        <seg>create  my_cool_lib/.travis.yml</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/LICENSE</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161508Z" creationid="makenowjust" creationdate="20200419T161508Z">
+        <seg>create  my_cool_lib/LICENSE</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/README.md</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161508Z" creationid="makenowjust" creationdate="20200419T161508Z">
+        <seg>create  my_cool_lib/README.md</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/shard.yml</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161510Z" creationid="makenowjust" creationdate="20200419T161510Z">
+        <seg>create  my_cool_lib/shard.yml</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/spec/my_cool_lib_spec.cr
+Initialized empty Git repository in ~/my_cool_lib/.git/</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161512Z" creationid="makenowjust" creationdate="20200419T161512Z">
+        <seg>create  my_cool_lib/spec/my_cool_lib_spec.cr
+Initialized empty Git repository in ~/my_cool_lib/.git/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/spec/spec_helper.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161511Z" creationid="makenowjust" creationdate="20200419T161511Z">
+        <seg>create  my_cool_lib/spec/spec_helper.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  my_cool_lib/src/my_cool_lib.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161511Z" creationid="makenowjust" creationdate="20200419T161511Z">
+        <seg>create  my_cool_lib/src/my_cool_lib.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/.editorconfig</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153550Z" creationid="makenowjust" creationdate="20200419T153550Z">
+        <seg>create  myapp/.editorconfig</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/.gitignore</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153549Z" creationid="makenowjust" creationdate="20200419T153549Z">
+        <seg>create  myapp/.gitignore</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/.travis.yml</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153605Z" creationid="makenowjust" creationdate="20200419T153605Z">
+        <seg>create  myapp/.travis.yml</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/LICENSE</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153551Z" creationid="makenowjust" creationdate="20200419T153551Z">
+        <seg>create  myapp/LICENSE</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/README.md</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153603Z" creationid="makenowjust" creationdate="20200419T153603Z">
+        <seg>create  myapp/README.md</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/shard.yml</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153606Z" creationid="makenowjust" creationdate="20200419T153606Z">
+        <seg>create  myapp/shard.yml</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/spec/myapp_spec.cr
+Initialized empty Git repository in /home/crystal/myapp/.git/</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153613Z" creationid="makenowjust" creationdate="20200419T153613Z">
+        <seg>create  myapp/spec/myapp_spec.cr
+Initialized empty Git repository in /home/crystal/myapp/.git/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/spec/spec_helper.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153611Z" creationid="makenowjust" creationdate="20200419T153611Z">
+        <seg>create  myapp/spec/spec_helper.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/src/myapp.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153608Z" creationid="makenowjust" creationdate="20200419T153608Z">
+        <seg>create  myapp/src/myapp.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>create  myapp/src/myapp/version.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T153609Z" creationid="makenowjust" creationdate="20200419T153609Z">
+        <seg>create  myapp/src/myapp/version.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal [run] [&lt;options&gt;] &lt;programfile&gt; [-- &lt;argument&gt;...]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T154456Z" creationid="makenowjust" creationdate="20200419T154456Z">
+        <seg>crystal [run] [&lt;options&gt;] &lt;programfile&gt; [-- &lt;argument&gt;...]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal build [&lt;options&gt;] &lt;programfile&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155041Z" creationid="makenowjust" creationdate="20200419T155041Z">
+        <seg>crystal build [&lt;options&gt;] &lt;programfile&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal docs --output public --canonical-base-url http://example.com/ src/my_app.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163139Z" creationid="makenowjust" creationdate="20200419T163139Z">
+        <seg>crystal docs --output public --canonical-base-url http://example.com/ src/my_app.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal docs [--output=&lt;output_dir&gt;] [--canonical-base-url=&lt;url&gt;] [&lt;source_file&gt;...]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161639Z" creationid="makenowjust" creationdate="20200419T161639Z">
+        <seg>crystal docs [--output=&lt;output_dir&gt;] [--canonical-base-url=&lt;url&gt;] [&lt;source_file&gt;...]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal docs src/my_app.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T162434Z" creationid="makenowjust" creationdate="20200419T162434Z">
+        <seg>crystal docs src/my_app.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal env [&lt;var&gt;...]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163205Z" creationid="makenowjust" creationdate="20200419T163205Z">
+        <seg>crystal env [&lt;var&gt;...]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal eval [&lt;options&gt;] [&lt;source&gt;]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T155924Z" creationid="makenowjust" creationdate="20200419T155924Z">
+        <seg>crystal eval [&lt;options&gt;] [&lt;source&gt;]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal init (lib|app) &lt;name&gt; [&lt;dir&gt;]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T161041Z" creationid="makenowjust" creationdate="20200419T161041Z">
+        <seg>crystal init (lib|app) &lt;name&gt; [&lt;dir&gt;]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal play [--port &lt;port&gt;] [--binding &lt;host&gt;] [--verbose] [file]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165322Z" creationid="makenowjust" creationdate="20200419T165322Z">
+        <seg>crystal play [--port &lt;port&gt;] [--binding &lt;host&gt;] [--verbose] [file]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal spec [&lt;options&gt;] [&lt;file&gt;...] [-- [&lt;runner_options&gt;]]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T163508Z" creationid="makenowjust" creationdate="20200419T163508Z">
+        <seg>crystal spec [&lt;options&gt;] [&lt;file&gt;...] [-- [&lt;runner_options&gt;]]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal tool format [--check] [&lt;path&gt;...]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165807Z" creationid="makenowjust" creationdate="20200419T165807Z">
+        <seg>crystal tool format [--check] [&lt;path&gt;...]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal version</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T160756Z" creationid="makenowjust" creationdate="20200419T160756Z">
+        <seg>crystal version</seg>
       </tuv>
     </tu>
     <tu>
@@ -30231,6 +31841,18 @@ end
       <tuv lang="EN-US">
         <seg>end
 end
+puts a # =&gt; 10</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200417T115452Z" creationid="makenowjust" creationdate="20200417T115452Z">
+        <seg>end
+end
+puts a # =&gt; 10</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
 puts a #=&gt; 10
 ```</seg>
       </tuv>
@@ -30795,6 +32417,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T025209Z" creationid="hirofumiwakasugi" creationdate="20150909T025209Z">
         <seg>getter x, y</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>got: false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T165203Z" creationid="makenowjust" creationdate="20200419T165203Z">
+        <seg>got: false</seg>
       </tuv>
     </tu>
     <tu>
