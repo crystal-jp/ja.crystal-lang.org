@@ -1,4 +1,4 @@
-# 浮動小数点数 (Float)s
+# 浮動小数点数 (Float)
 
 浮動小数点数には[Float32](http://crystal-lang.org/api/Float32.html)と[Float64](http://crystal-lang.org/api/Float64.html)という2つ型があり、
 それぞれIEEEで定義されている[binary32](http://en.wikipedia.org/wiki/Single_precision_floating-point_format)と[binary64](http://en.wikipedia.org/wiki/Double_precision_floating-point_format)に対応しています。

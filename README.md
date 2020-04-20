@@ -7,11 +7,11 @@
   - [crystal-jp/crystal-website](https://github.com/crystal-jp/crystal-website)
   - [crystal-lang/crystal-book](https://github.com/crystal-lang/crystal-book)
 
-**注意**: 現在、一括して翻訳をしているためPull Request等を受け取れる状態にありません。
+**注意**: 現在、一括して翻訳を進めているためPull Request等を受け取れる状態にありません。
 
 ## ステータス
 
-翻訳済み/全体 = 20/125
+翻訳済み/全体 = 21/125
 
 <details>
 
@@ -41,7 +41,7 @@
 | `crystal-book/syntax_and_semantics/literals/integers.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/literals/floats.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/literals/char.md`                                                | ○    |
-| `crystal-book/syntax_and_semantics/literals/string.md`                                              | △    |
+| `crystal-book/syntax_and_semantics/literals/string.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/literals/symbol.md`                                              | ×    |
 | `crystal-book/syntax_and_semantics/literals/array.md`                                               | ×    |
 | `crystal-book/syntax_and_semantics/literals/hash.md`                                                | ×    |

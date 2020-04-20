@@ -1,44 +1,44 @@
-# String
+# 文字列 (String)
 
-A [String](http://crystal-lang.org/api/String.html) represents an immutable sequence of UTF-8 characters.
+[String](http://crystal-lang.org/api/String.html)はUTF-8文字のイミュータブルな列を表します。
 
-A String is typically created with a string literal enclosing UTF-8 characters in double quotes (`"`):
+通常、ダブルクォート (`"`) で囲まれたUTF-8でエンコードされた文字の並びで文字列リテラルを記述します。
 
 ```crystal
 "hello world"
 ```
 
-## Escaping
+## エスケープ文字
 
-A backslash denotes a special character inside a string, which can either be a named escape sequence or a numerical representation of a unicode codepoint.
+文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。
 
 次のエスケープシーケンスが有効です。
 ```crystal
-"\""                  # double quote
-"\\"                  # backslash
-"\a"                  # alert
-"\b"                  # backspace
-"\e"                  # escape
-"\f"                  # form feed
-"\n"                  # newline
-"\r"                  # carriage return
-"\t"                  # tab
-"\v"                  # vertical tab
-"\888"                # octal ASCII character
-"\xFF"                # hexadecimal ASCII character
-"\uFFFF"              # hexadecimal unicode character
-"\u{0}".."\u{10FFFF}" # hexadecimal unicode character
+"\""                  # ダブルクォート
+"\\"                  # バックスラッシュ
+"\a"                  # アラート
+"\b"                  # バックスペース
+"\e"                  # エスケープ
+"\f"                  # フォームフィード (改ページ)
+"\n"                  # 改行
+"\r"                  # キャリッジリターン (復帰)
+"\t"                  # タブ文字
+"\v"                  # 垂直タブ
+"\888"                # 8進数による ASCII 文字
+"\xFF"                # 16進数による ASCII 文字
+"\uFFFF"              # 16進数によるユニコード文字
+"\u{0}".."\u{10FFFF}" # 16進数によるユニコード文字
 ```
 
-Any other character following a backslash is interpreted as the character itself.
+その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。
 
-A backslash followed by at most three digits ranging from 0 to 7 denotes a code point written in octal:
+バックスラッシュに続く最大3つの0から7までの数値は、8進数によるコードポイントの記述となります。
 
 ```crystal
 "\101" # => "A"
 "\123" # => "S"
 "\12"  # => "\n"
-"\1"   # string with one character with code point 1
+"\1"   # コードポイント1の文字が1つだけの文字列
 ```
 
 バックスラッシュに`u`を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (`\u0000` to `\uFFFF`) かひげ括弧で囲った6つまでの16進数の数値が利用できます (`\u{0}` to `\u{10FFFF}`
@@ -46,18 +46,18 @@ A backslash followed by at most three digits ranging from 0 to 7 denotes a code 
 ```crystal
 "\u0041"    # => "A"
 "\u{41}"    # => "A"
-"\u{1F52E}" # => "&#x1F52E;"
+"\u{1F52E}" # => "🔮"
 ```
 
-One curly brace can contain multiple unicode characters each separated by a whitespace.
+1つのひげ括弧の中にスペースで区切って複数のユニコード文字が記述できます。
 
 ```crystal
 "\u{48 45 4C 4C 4F}" # => "HELLO"
 ```
 
-## Interpolation
+## 文字列の補間
 
-A string literal with interpolation allows to embed expressions into the string which will be expanded at runtime.
+補間を伴う文字列リテラルは、文字列に実行時に展開される式を埋め込むことができます。
 
 ```crystal
 a = 1
@@ -65,18 +65,18 @@ b = 2
 "sum: #{a} + #{b} = #{a + b}" # => "sum: 1 + 2 = 3"
 ```
 
-String interpolation is also possible with [String#%](https://crystal-lang.org/api/String.html#%25%28other%29-instance-method).
+文字列の補間は[String#%](https://crystal-lang.org/api/String.html#%25%28other%29-instance-method)メソッドでも可能です。
 
-Any expression may be placed inside the interpolated section, but it’s best to keep the expression small for readability.
+任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。
 
-Interpolation can be disabled by escaping the `#` character with a backslash or by using a non-interpolating string literal like `%q()`.
+`#`をバックスラッシュでエスケープするか、`%q()`のような補間を許可しないような文字列リテラルを使うことで、補間を無効にできます。
 
 ```crystal
 "\#{a + b}"  # => "#{a + b}"
 %q(#{a + b}) # => "#{a + b}"
 ```
 
-Interpolation is implemented using a [String::Builder](http://crystal-lang.org/api/String/Builder.html) and invoking `Object#to_s(IO)` on each expression enclosed by `#{...}`. The expression `"sum: #{a} + #{b} = #{a + b}"` is equivalent to:
+補間は[String::Builder](http://crystal-lang.org/api/String/Builder.html)を使い、`#{...}`の中の式に対して`Object#to_s(IO)`を呼び出すことで実装されます。式`"sum: #{a} + #{b} = #{a + b}"`は次に等しいです。
 
 ```crystal
 String.build do |io|
@@ -89,11 +89,11 @@ String.build do |io|
 end
 ```
 
-# Percent string literals
+# パーセント文字列リテラル
 
-Besides double-quotes strings, Crystal also supports string literals indicated by a percent sign (`%`) and a pair of delimiters. Valid delimiters are parentheses `()`, square brackets `[]`, curly braces `{}`, angles `<>` and pipes `||`. Except for the pipes, all delimiters can be nested meaning a start delimiter inside the string escapes the next end delimiter.
+ダブルクォートによる文字列リテラルの他に、Crystalはパーセント記号 (`%`) と区切り文字の組による文字列リテラルもサポートしています。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
-These are handy to write strings that include double quotes which would have to be escaped in double-quoted strings.
+ダブルクォートを含むような文字列を書くのにこれらのリテラルはお手軽です。
 
 ```crystal
 %(hello ("world")) # => "hello (\"world\")"
@@ -103,7 +103,7 @@ These are handy to write strings that include double quotes which would have to 
 %|hello "world"|   # => "hello \"world\""
 ```
 
-A literal denoted by `%q` does not apply interpolation nor escapes while `%Q` has the same meaning as `%`.
+`%q`で記述される文字列リテラルは、文字列の補間とエスケープを受け付けません。また`%Q`は`%`と同じ意味を持ちます。
 
 ```crystal
 name = "world"
@@ -111,9 +111,9 @@ name = "world"
 %Q(hello \n #{name}) # => "hello \n world"
 ```
 
-## Percent string array literal
+## パーセント文字列配列リテラル
 
-Besides the single string literal, there is also a percent literal to create an [Array](https://crystal-lang.org/api/Array.html) of strings. It is indicated by `%w` and a pair of delimiters. Valid delimiters are as same as [percent string literals](#percent-string-literals).
+1つ文字列を表すリテラルの他に、文字列の[配列](https://crystal-lang.org/api/Array.html)を表わすパーセントリテラルがあります。それは`%w`と区切り文字の組によって記述します。有効な区切り文字は[パーセント文字列リテラル](#percent-string-literals)のときと同じです。
 
 ```crystal
 %w(foo bar baz)  # => ["foo", "bar", "baz"]
@@ -121,23 +121,22 @@ Besides the single string literal, there is also a percent literal to create an 
 %w(foo(bar) baz) # => ["foo(bar)", "baz"]
 ```
 
-Note that literal denoted by `%w` does not apply interpolation nor escapes expect spaces. Since strings are separated by a single space character (` `) which must be escaped to use it as a part of a string.
+`%w`で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。もちろん、エスケープされた1つのスペース (` `) では文字列は区切られません。
 
 ```crystal
 %w(foo\ bar baz) # => ["foo bar", "baz"]
 ```
 
-## Multiline strings
+## 複数行の文字列
 
-Any string literal can span multiple lines:
+任意の文字列リテラルは複数行にまたがって記述できます。
 
 ```crystal
 "hello
       world" # => "hello\n      world"
 ```
 
-上記の例で、先頭と末尾の空白、および改行が結果の文字列にも入っていることに注目してください。To avoid this a string can be split into multiple lines
-by joining multiple literals with a backslash:
+上の例では、先頭と末尾の空白、および改行が結果の文字列にも入っていることに注目してください。これを防ぐために、文字列リテラルを行毎に分割して、バックスラッシュで結合するという手段を取ることができます。
 
 ```crystal
 "hello " \
@@ -145,7 +144,7 @@ by joining multiple literals with a backslash:
 "no newlines" # same as "hello world, no newlines"
 ```
 
-Alternatively, a backslash followed by a newline can be inserted inside the string literal:
+もしくは、バックスラッシュに改行を続けたものを文字列中に追加する、という手段もあります。
 
 ```crystal
 "hello \
@@ -155,10 +154,10 @@ Alternatively, a backslash followed by a newline can be inserted inside the stri
 
 この場合、先頭の空白が結果の文字列に含まれることはありません。
 
-## Heredoc
+## ヒアドキュメント
 
-A *here document* or *heredoc* can be useful for writing strings spanning over multiple lines.
-A heredoc is denoted by `<<-` followed by an heredoc identifier which is an alphanumeric sequence starting with a letter (and may include underscores). The heredoc starts in the following line and ends with the next line that starts with the heredoc identifier (ignoring leading whitespace) and is either followed by a newline or a non-alphanumeric character.
+*ヒアドキュメント*ないし*heredoc*は複数行にまたがる文字列の便利な書き方です。
+ヒアドキュメントは`<<-`とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。ヒアドキュメントは続く行から開始して、最初に指定した識別子のみを含む行 (先頭の空白は無視されます) で終了します。また、ヒアドキュメントのあとには改行の他にアルファベットと数字の文字以外の文字が続く場合があります。
 
 ```crystal
 <<-XML
@@ -168,7 +167,7 @@ A heredoc is denoted by `<<-` followed by an heredoc identifier which is an alph
 XML
 ```
 
-Leading whitespace is removed from the heredoc contents according to the number of whitespace in the last line before the heredoc identifier.
+最後の行のヒアドキュメントの識別子の前の空白の個数分だけ、ヒアドキュメントの内容から先頭の空白文字が削除されます。
 
 ```crystal
 <<-STRING # => "Hello\n  world"
@@ -182,7 +181,7 @@ Leading whitespace is removed from the heredoc contents according to the number 
   STRING
 ```
 
-It is possible to directly call methods on heredoc string literals, or use them inside parentheses:
+ヒアドキュメントの直後にそれに対するメソッド呼び出しを続けたり、括弧の中でヒアドキュメントを使うことも可能です。
 
 ```crystal
 <<-SOME.upcase # => "HELLO"
@@ -198,9 +197,9 @@ upcase(<<-SOME) # => "HELLO"
   SOME
 ```
 
-A heredoc generally allows interpolation and escapes.
+ヒアドキュメントの中では一般的に補間とエスケープが有効になっています。
 
-To denote a heredoc without interpolation or escapes, the opening heredoc identifier is enclosed in single quotes:
+ヒアドキュメントの中で補間やエスケープを禁止したい場合、ヒアドキュメント冒頭の識別子をシングルクォートで囲ってください。
 
 ```crystal
 <<-'HERE' # => "hello \\n \#{world}"

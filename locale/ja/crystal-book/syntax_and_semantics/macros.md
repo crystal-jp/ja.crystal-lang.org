@@ -55,7 +55,7 @@ end
 Foo.emphasize(10) # => "***10***"
 ```
 
-## Interpolation
+## 文字列の補間
 
 You use `{{...}}` to paste, or interpolate, an AST node, as in the above example.
 

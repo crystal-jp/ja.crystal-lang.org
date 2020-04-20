@@ -202,12 +202,126 @@ option_parser = OptionParser.parse do |parser|</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>"\""                  # double quote
+"\\"                  # backslash
+"\a"                  # alert
+"\b"                  # backspace
+"\e"                  # escape
+"\f"                  # form feed
+"\n"                  # newline
+"\r"                  # carriage return
+"\t"                  # tab
+"\v"                  # vertical tab
+"\888"                # octal ASCII character
+"\xFF"                # hexadecimal ASCII character
+"\uFFFF"              # hexadecimal unicode character
+"\u{0}".."\u{10FFFF}" # hexadecimal unicode character</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191907Z" creationid="makenowjust" creationdate="20200419T191803Z">
+        <seg>"\""                  # ダブルクォート
+"\\"                  # バックスラッシュ
+"\a"                  # アラート
+"\b"                  # バックスペース
+"\e"                  # エスケープ
+"\f"                  # フォームフィード (改ページ)
+"\n"                  # 改行
+"\r"                  # キャリッジリターン (復帰)
+"\t"                  # タブ文字
+"\v"                  # 垂直タブ
+"\888"                # 8進数による ASCII 文字
+"\xFF"                # 16進数による ASCII 文字
+"\uFFFF"              # 16進数によるユニコード文字
+"\u{0}".."\u{10FFFF}" # 16進数によるユニコード文字</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"\#{a + b}"  # =&gt; "#{a + b}"
+%q(#{a + b}) # =&gt; "#{a + b}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192730Z" creationid="makenowjust" creationdate="20200419T192730Z">
+        <seg>"\#{a + b}"  # =&gt; "#{a + b}"
+%q(#{a + b}) # =&gt; "#{a + b}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"\101" # =&gt; "A"
+"\123" # =&gt; "S"
+"\12"  # =&gt; "\n"
+"\1"   # string with one character with code point 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192042Z" creationid="makenowjust" creationdate="20200419T192042Z">
+        <seg>"\101" # =&gt; "A"
+"\123" # =&gt; "S"
+"\12"  # =&gt; "\n"
+"\1"   # コードポイント1の文字が1つだけの文字列</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"\u0041"    # =&gt; "A"
+"\u{41}"    # =&gt; "A"
+"\u{1F52E}" # =&gt; "&amp;#x1F52E;"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192103Z" creationid="makenowjust" creationdate="20200419T192103Z">
+        <seg>"\u0041"    # =&gt; "A"
+"\u{41}"    # =&gt; "A"
+"\u{1F52E}" # =&gt; "🔮"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"\u{48 45 4C 4C 4F}" # =&gt; "HELLO"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192149Z" creationid="makenowjust" creationdate="20200419T192149Z">
+        <seg>"\u{48 45 4C 4C 4F}" # =&gt; "HELLO"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>"class"
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T011920Z" creationid="hirofumiwakasugi" creationdate="20151009T011920Z">
         <seg>"class"
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"hello</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194211Z" creationid="makenowjust" creationdate="20200419T194211Z">
+        <seg>"hello</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"hello " \
+"world, " \
+"no newlines" # same as "hello world, no newlines"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194658Z" creationid="makenowjust" creationdate="20200419T194658Z">
+        <seg>"hello " \
+"world, " \
+"no newlines" # same as "hello world, no newlines"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"hello \</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194800Z" creationid="makenowjust" creationdate="20200419T194800Z">
+        <seg>"hello \</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"hello world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191538Z" creationid="makenowjust" creationdate="20200419T191538Z">
+        <seg>"hello world"</seg>
       </tuv>
     </tu>
     <tu>
@@ -4729,10 +4843,46 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>%(hello ("world")) # =&gt; "hello (\"world\")"
+%[hello ["world"]] # =&gt; "hello [\"world\"]"
+%{hello {"world"}} # =&gt; "hello {\"world\"}"
+%&lt;hello &lt;"world"&gt;&gt; # =&gt; "hello &lt;\"world\"&gt;"
+%|hello "world"|   # =&gt; "hello \"world\""</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193502Z" creationid="makenowjust" creationdate="20200419T193502Z">
+        <seg>%(hello ("world")) # =&gt; "hello (\"world\")"
+%[hello ["world"]] # =&gt; "hello [\"world\"]"
+%{hello {"world"}} # =&gt; "hello {\"world\"}"
+%&lt;hello &lt;"world"&gt;&gt; # =&gt; "hello &lt;\"world\"&gt;"
+%|hello "world"|   # =&gt; "hello \"world\""</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>%name{index} = {{index}}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T021008Z" creationid="hirofumiwakasugi" creationdate="20151002T021008Z">
         <seg>%name{index} = {{index}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>%w(foo bar baz)  # =&gt; ["foo", "bar", "baz"]
+%w(foo\nbar baz) # =&gt; ["foo\\nbar", "baz"]
+%w(foo(bar) baz) # =&gt; ["foo(bar)", "baz"]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193934Z" creationid="makenowjust" creationdate="20200419T193934Z">
+        <seg>%w(foo bar baz)  # =&gt; ["foo", "bar", "baz"]
+%w(foo\nbar baz) # =&gt; ["foo\\nbar", "baz"]
+%w(foo(bar) baz) # =&gt; ["foo(bar)", "baz"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>%w(foo\ bar baz) # =&gt; ["foo bar", "baz"]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194135Z" creationid="makenowjust" creationdate="20200419T194135Z">
+        <seg>%w(foo\ bar baz) # =&gt; ["foo bar", "baz"]</seg>
       </tuv>
     </tu>
     <tu>
@@ -7119,10 +7269,64 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;&lt;-'HERE' # =&gt; "hello \\n \#{world}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034148Z" creationid="makenowjust" creationdate="20200420T034148Z">
+        <seg>&lt;&lt;-'HERE' # =&gt; "hello \\n \#{world}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;&lt;-SOME.upcase # =&gt; "HELLO"
+hello
+SOME
+
+def upcase(string)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
+        <seg>&lt;&lt;-SOME.upcase # =&gt; "HELLO"
+hello
+SOME
+
+def upcase(string)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;&lt;-STRING # =&gt; "Hello\n  world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033930Z" creationid="makenowjust" creationdate="20200420T033930Z">
+        <seg>&lt;&lt;-STRING # =&gt; "Hello\n  world"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;&lt;-XML
+&lt;parent&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033758Z" creationid="makenowjust" creationdate="20200420T033758Z">
+        <seg>&lt;&lt;-XML
+&lt;parent&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;a0&gt; {% img manas-orange.svg %} &lt;s1&gt;Manas Technology Solutions&lt;/s1&gt; &lt;/a0&gt; &lt;a2&gt; {% img sponsors/84.png %} &lt;s3&gt;84 codes&lt;/s3&gt; &lt;/a2&gt; &lt;a4&gt; {% img sponsors/nikola_motor_company.png %} &lt;s5&gt;Nikola Motor Company&lt;/s5&gt; &lt;/a4&gt; &lt;a6&gt; {% img sponsors/fly_io_.png %} &lt;s7&gt;Fly.io&lt;/s7&gt; &lt;/a6&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222539Z" creationid="makenowjust" creationdate="20200413T222539Z">
         <seg>&lt;a0&gt; {% img manas-orange.svg %} &lt;s1&gt;Manas Technology Solutions&lt;/s1&gt; &lt;/a0&gt; &lt;a2&gt; {% img sponsors/84.png %} &lt;s3&gt;84 codes&lt;/s3&gt; &lt;/a2&gt; &lt;a4&gt; {% img sponsors/nikola_motor_company.png %} &lt;s5&gt;Nikola Motor Company&lt;/s5&gt; &lt;/a4&gt; &lt;a6&gt; {% img sponsors/fly_io_.png %} &lt;s7&gt;Fly.io&lt;/s7&gt; &lt;/a6&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;child /&gt;
+&lt;/parent&gt;
+XML</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033759Z" creationid="makenowjust" creationdate="20200420T033759Z">
+        <seg>&lt;child /&gt;
+&lt;/parent&gt;
+XML</seg>
       </tuv>
     </tu>
     <tu>
@@ -9769,6 +9973,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;String&lt;/g1&gt; represents an immutable sequence of UTF-8 characters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191432Z" creationid="makenowjust" creationdate="20200419T191432Z">
+        <seg>&lt;g1&gt;String&lt;/g1&gt;はUTF-8文字のイミュータブルな列を表します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;here document&lt;/g1&gt; or &lt;g2&gt;heredoc&lt;/g2&gt; can be useful for writing strings spanning over multiple lines.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033420Z" creationid="makenowjust" creationdate="20200420T033420Z">
+        <seg>&lt;g1&gt;ヒアドキュメント&lt;/g1&gt;ないし&lt;g2&gt;heredoc&lt;/g2&gt;は複数行にまたがる文字列の便利な書き方です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g3&gt;lib&lt;/g3&gt; is a reusable library whereas &lt;g4&gt;app&lt;/g4&gt; describes
 an application not intended to be used as a dependency.</seg>
       </tuv>
@@ -9838,6 +10058,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T022254Z" creationid="hirofumiwakasugi" creationdate="20150902T022048Z">
         <seg>既存のメソッドから Proc を作ることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A String is typically created with a string literal enclosing UTF-8 characters in double quotes (&lt;g1&gt;"&lt;/g1&gt;):</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191537Z" creationid="makenowjust" creationdate="20200419T191537Z">
+        <seg>通常、ダブルクォート (&lt;g1&gt;"&lt;/g1&gt;) で囲まれたUTF-8でエンコードされた文字の並びで文字列リテラルを記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10050,6 +10278,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A backslash denotes a special character inside a string, which can either be a named escape sequence or a numerical representation of a unicode codepoint.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191704Z" creationid="makenowjust" creationdate="20200419T191704Z">
+        <seg>文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A backslash denotes a special character, which can either be a named escape sequence or a numerical representation of a unicode codepoint.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190155Z" creationid="makenowjust" creationdate="20200419T185928Z">
@@ -10062,6 +10298,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190151Z" creationid="makenowjust" creationdate="20200419T190151Z">
         <seg>バックスラッシュに&lt;g1&gt;u&lt;/g1&gt;を続けることでユニコードのコードポイントを記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A backslash followed by at most three digits ranging from 0 to 7 denotes a code point written in octal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192018Z" creationid="makenowjust" creationdate="20200419T192018Z">
+        <seg>バックスラッシュに続く最大3つの0から7までの数値は、8進数によるコードポイントの記述となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10233,11 +10477,35 @@ followed by an optional type suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A heredoc generally allows interpolation and escapes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034100Z" creationid="makenowjust" creationdate="20200420T034100Z">
+        <seg>ヒアドキュメントの中では一般的に補間とエスケープが有効になっています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A heredoc is denoted by &lt;g3&gt;&lt;&lt;-&lt;/g3&gt; followed by an heredoc identifier which is an alphanumeric sequence starting with a letter (and may include underscores).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033737Z" creationid="makenowjust" creationdate="20200420T033523Z">
+        <seg>ヒアドキュメントは&lt;g3&gt;&lt;&lt;-&lt;/g3&gt;とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A library doesn't have a &lt;g5&gt;shard.lock&lt;/g5&gt; file
 in its repository and no build target in &lt;g6&gt;shard.yml&lt;/g6&gt;, but instructions for using it as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T161500Z" creationid="makenowjust" creationdate="20200419T161500Z">
         <seg>ライブラリは自身のリポジトリに&lt;g5&gt;shard.lock&lt;/g5&gt;を含めず、&lt;g6&gt;shard.yml&lt;/g6&gt;にビルド目標を持ちませんが、依存関係としてどのように利用するかの説明があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A literal denoted by &lt;g1&gt;%q&lt;/g1&gt; does not apply interpolation nor escapes while &lt;g2&gt;%Q&lt;/g2&gt; has the same meaning as &lt;g3&gt;%&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193619Z" creationid="makenowjust" creationdate="20200419T193619Z">
+        <seg>&lt;g1&gt;%q&lt;/g1&gt;で記述される文字列リテラルは、文字列の補間とエスケープを受け付けません。また&lt;g2&gt;%Q&lt;/g2&gt;は&lt;g3&gt;%&lt;/g3&gt;と同じ意味を持ちます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10383,6 +10651,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T081302Z" creationid="hirofumiwakasugi" creationdate="20150901T081302Z">
         <seg>文字列は複数の行にまたがって記述することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A string literal with interpolation allows to embed expressions into the string which will be expanded at runtime.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192334Z" creationid="makenowjust" creationdate="20200419T192334Z">
+        <seg>補間を伴う文字列リテラルは、文字列に実行時に展開される式を埋め込むことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10655,6 +10931,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T104106Z" creationid="hirofumiwakasugi" creationdate="20150901T104106Z">
         <seg>また、改行の前のバックスラッシュは文字列リテラルの中に書くこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Alternatively, a backslash followed by a newline can be inserted inside the string literal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194758Z" creationid="makenowjust" creationdate="20200419T194758Z">
+        <seg>もしくは、バックスラッシュに改行を続けたものを文字列中に追加する、という手段もあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11069,10 +11353,34 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Any expression may be placed inside the interpolated section, but it’s best to keep the expression small for readability.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192513Z" creationid="makenowjust" creationdate="20200419T192513Z">
+        <seg>任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Any other character following a backslash is interpreted as the character itself.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191934Z" creationid="makenowjust" creationdate="20200419T191934Z">
+        <seg>その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Any other value is truthy.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T005754Z" creationid="hirofumiwakasugi" creationdate="20150903T005739Z">
         <seg>その他の値はすべて真となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Any string literal can span multiple lines:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194210Z" creationid="makenowjust" creationdate="20200419T194210Z">
+        <seg>任意の文字列リテラルは複数行にまたがって記述できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11370,6 +11678,22 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T023951Z" creationid="hirofumiwakasugi" creationdate="20151009T023945Z">
         <seg>制御式について説明する前に、まずは「真」と「偽」の値というものについて知る必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Besides double-quotes strings, Crystal also supports string literals indicated by a percent sign (&lt;g1&gt;%&lt;/g1&gt;) and a pair of delimiters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193048Z" creationid="makenowjust" creationdate="20200419T193048Z">
+        <seg>ダブルクォートによる文字列リテラルの他に、Crystalはパーセント記号 (&lt;g1&gt;%&lt;/g1&gt;) と区切り文字の組による文字列リテラルもサポートしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Besides the single string literal, there is also a percent literal to create an &lt;g1&gt;Array&lt;/g1&gt; of strings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193808Z" creationid="makenowjust" creationdate="20200419T193808Z">
+        <seg>1つ文字列を表すリテラルの他に、文字列の&lt;g1&gt;配列&lt;/g1&gt;を表わすパーセントリテラルがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12383,6 +12707,14 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Escaping</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191546Z" creationid="makenowjust" creationdate="20200419T191546Z">
+        <seg>エスケープ文字</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even though the instance has two `Int32` fields, the compiler always includes an extra `Int32` field for the type id of the object.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T121004Z" creationid="hirofumiwakasugi" creationdate="20150906T120905Z">
@@ -12452,6 +12784,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T164825Z" creationid="makenowjust" creationdate="20200413T164825Z">
         <seg>例: &lt;g1&gt;overview/hello_world.md&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Except for the pipes, all delimiters can be nested meaning a start delimiter inside the string escapes the next end delimiter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193305Z" creationid="makenowjust" creationdate="20200419T193305Z">
+        <seg>パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13045,6 +13385,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>HERE</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034149Z" creationid="makenowjust" creationdate="20200420T034149Z">
+        <seg>HERE</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>HTTP::Response.ok "text/plain", "Hello world! The time is #{Time.now}"
 end</seg>
       </tuv>
@@ -13197,6 +13545,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T015121Z" creationid="hirofumiwakasugi" creationdate="20150903T015044Z">
         <seg>`&amp;&amp;` 式の右辺が評価された場合、`a` が `Nil` でないことも同時に保証されることがわかると思います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Heredoc</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194817Z" creationid="makenowjust" creationdate="20200419T194817Z">
+        <seg>ヒアドキュメント</seg>
       </tuv>
     </tu>
     <tu>
@@ -14677,6 +15033,30 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Interpolation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192656Z" creationid="makenowjust" creationdate="20200419T192158Z">
+        <seg>文字列の補間</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Interpolation can be disabled by escaping the &lt;g1&gt;#&lt;/g1&gt; character with a backslash or by using a non-interpolating string literal like &lt;g2&gt;%q()&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192729Z" creationid="makenowjust" creationdate="20200419T192637Z">
+        <seg>&lt;g1&gt;#&lt;/g1&gt;をバックスラッシュでエスケープするか、&lt;g2&gt;%q()&lt;/g2&gt;のような補間を許可しないような文字列リテラルを使うことで、補間を無効にできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Interpolation is implemented using a &lt;g1&gt;String::Builder&lt;/g1&gt; and invoking &lt;g2&gt;Object#to_s(IO)&lt;/g2&gt; on each expression enclosed by &lt;g3&gt;#{...}&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192832Z" creationid="makenowjust" creationdate="20200419T192832Z">
+        <seg>補間は&lt;g1&gt;String::Builder&lt;/g1&gt;を使い、&lt;g3&gt;#{...}&lt;/g3&gt;の中の式に対して&lt;g2&gt;Object#to_s(IO)&lt;/g2&gt;を呼び出すことで実装されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Invoking the compiler with the `hierarchy` command we get:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T135700Z" creationid="hirofumiwakasugi" creationdate="20150904T135515Z">
@@ -14781,10 +15161,26 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is indicated by &lt;g2&gt;%w&lt;/g2&gt; and a pair of delimiters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193903Z" creationid="makenowjust" creationdate="20200419T193903Z">
+        <seg>それは&lt;g2&gt;%w&lt;/g2&gt;と区切り文字の組によって記述します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is often used in generic code, to make use of the compiler's type inference capabilities:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T062811Z" creationid="hirofumiwakasugi" creationdate="20150930T062630Z">
         <seg>これはジェネリックコードにおいて、コンパイラの型推論の力を利用したいときにしばしば使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is possible to directly call methods on heredoc string literals, or use them inside parentheses:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
+        <seg>ヒアドキュメントの直後にそれに対するメソッド呼び出しを続けたり、括弧の中でヒアドキュメントを使うことも可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14952,6 +15348,14 @@ DOCUMENTATION_URL = "http://crystal-lang.org/docs"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T212105Z" creationid="makenowjust" creationdate="20200413T212105Z">
         <seg>最新のリリース &lt;g1&gt;0.34.0&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Leading whitespace is removed from the heredoc contents according to the number of whitespace in the last line before the heredoc identifier.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033928Z" creationid="makenowjust" creationdate="20200420T033928Z">
+        <seg>最後の行のヒアドキュメントの識別子の前の空白の個数分だけ、ヒアドキュメントの内容から先頭の空白文字が削除されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15405,6 +15809,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Multiline strings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194151Z" creationid="makenowjust" creationdate="20200419T194151Z">
+        <seg>複数行の文字列</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Multiple `rescue` clauses can be specified:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T012443Z" creationid="hirofumiwakasugi" creationdate="20150907T012443Z">
@@ -15596,8 +16008,8 @@ MyBox(Int32).new("hello") # エラー
         <seg>Note that in the above example trailing and leading spaces, as well as newlines,
 end up in the resulting string.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T103911Z" creationid="hirofumiwakasugi" creationdate="20150901T081345Z">
-        <seg>上記の例で、先頭と末尾の空白、および改行が結果の文字列にも入っていることに注目してください。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194223Z" creationid="hirofumiwakasugi" creationdate="20150901T081345Z">
+        <seg>上の例では、先頭と末尾の空白、および改行が結果の文字列にも入っていることに注目してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15622,6 +16034,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T072041Z" creationid="hirofumiwakasugi" creationdate="20150906T071909Z">
         <seg>コンパイラは、`yield` が含まれていることを検知して、そのメソッドがブロックをとるメソッドであることを判断します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that literal denoted by &lt;g1&gt;%w&lt;/g1&gt; does not apply interpolation nor escapes expect spaces.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194010Z" creationid="makenowjust" creationdate="20200419T194010Z">
+        <seg>&lt;g1&gt;%w&lt;/g1&gt;で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15909,6 +16329,14 @@ specifying the current working directory.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>One curly brace can contain multiple unicode characters each separated by a whitespace.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192147Z" creationid="makenowjust" creationdate="20200419T192147Z">
+        <seg>1つのひげ括弧の中にスペースで区切って複数のユニコード文字が記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Only `Exception` instances or subclasses can be raised.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013043Z" creationid="hirofumiwakasugi" creationdate="20150907T011513Z">
@@ -16103,6 +16531,22 @@ Earth::RADIUS #=&gt; 6_371_000
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021616Z" creationid="hirofumiwakasugi" creationdate="20150904T021616Z">
         <seg>メソッド実行時のカッコは省略することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Percent string array literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193635Z" creationid="makenowjust" creationdate="20200419T193635Z">
+        <seg>パーセント文字列配列リテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Percent string literals</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192901Z" creationid="makenowjust" creationdate="20200419T192901Z">
+        <seg>パーセント文字列リテラル</seg>
       </tuv>
     </tu>
     <tu>
@@ -16471,6 +16915,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>SOME</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034041Z" creationid="makenowjust" creationdate="20200420T034041Z">
+        <seg>SOME</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>STDERR.puts ""</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T180426Z" creationid="makenowjust" creationdate="20200413T180426Z">
@@ -16507,6 +16959,18 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T063558Z" creationid="hirofumiwakasugi" creationdate="20160204T062354Z">
         <seg>STRING</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>STRING
+
+&lt;&lt;-STRING # =&gt; "  Hello\n    world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033933Z" creationid="makenowjust" creationdate="20200420T033933Z">
+        <seg>STRING
+
+&lt;&lt;-STRING # =&gt; "  Hello\n    world"</seg>
       </tuv>
     </tu>
     <tu>
@@ -16599,6 +17063,14 @@ recursively forms a union type out of nested type paramters:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T010313Z" creationid="hirofumiwakasugi" creationdate="20150930T062833Z">
         <seg>`typeof` は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since strings are separated by a single space character (&lt;g2&gt; &lt;/g2&gt;) which must be escaped to use it as a part of a string.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194133Z" creationid="makenowjust" creationdate="20200419T194133Z">
+        <seg>もちろん、エスケープされた1つのスペース (&lt;g2&gt; &lt;/g2&gt;) では文字列は区切られません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16832,10 +17304,34 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T191350Z" creationid="makenowjust" creationdate="20200419T191350Z">
+        <seg>文字列 (String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>String interpolation is also possible with &lt;g1&gt;String#%&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192404Z" creationid="makenowjust" creationdate="20200419T192357Z">
+        <seg>文字列の補間は&lt;g1&gt;String#%&lt;/g1&gt;メソッドでも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>String |</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071434Z" creationid="hirofumiwakasugi" creationdate="20150919T071434Z">
         <seg>String |</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>String.build do |io|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192845Z" creationid="makenowjust" creationdate="20200419T192845Z">
+        <seg>String.build do |io|</seg>
       </tuv>
     </tu>
     <tu>
@@ -17869,6 +18365,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The expression &lt;g4&gt;"sum: #{a} + #{b} = #{a + b}"&lt;/g4&gt; is equivalent to:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192844Z" creationid="makenowjust" creationdate="20200419T192844Z">
+        <seg>式&lt;g4&gt;"sum: #{a} + #{b} = #{a + b}"&lt;/g4&gt;は次に等しいです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The file's contents are explained in the &lt;g5&gt;&lt;g6&gt;Writing a Shard&lt;/g6&gt; guide&lt;/g5&gt; and a detailed description of the file format is provided by the &lt;g7&gt;shard.yml specification&lt;/g7&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173857Z" creationid="makenowjust" creationdate="20200419T173814Z">
@@ -17957,6 +18461,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015414Z" creationid="hirofumiwakasugi" creationdate="20151001T014916Z">
         <seg>生成されたコードは正しい Crystal コードでなくてはいけません。例えば、対応する `end` のない `def` や、`case` の `when` 式単体のものなどは、完全な式として正しいものではないので生成することができません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The heredoc starts in the following line and ends with the next line that starts with the heredoc identifier (ignoring leading whitespace) and is either followed by a newline or a non-alphanumeric character.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T033757Z" creationid="makenowjust" creationdate="20200420T033551Z">
+        <seg>ヒアドキュメントは続く行から開始して、最初に指定した識別子のみを含む行 (先頭の空白は無視されます) で終了します。また、ヒアドキュメントのあとには改行の他にアルファベットと数字の文字以外の文字が続く場合があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18632,6 +19144,14 @@ types defined by IEEE.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T005940Z" creationid="hirofumiwakasugi" creationdate="20151009T005833Z">
         <seg>これらは特に [C バインディング](c_bindings/index.html)を書くときに有効ですが、上記した箇所であればどこでも利用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These are handy to write strings that include double quotes which would have to be escaped in double-quoted strings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193500Z" creationid="makenowjust" creationdate="20200419T193500Z">
+        <seg>ダブルクォートを含むような文字列を書くのにこれらのリテラルはお手軽です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19355,6 +19875,15 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To avoid this a string can be split into multiple lines
+by joining multiple literals with a backslash:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194654Z" creationid="makenowjust" creationdate="20200419T194654Z">
+        <seg>これを防ぐために、文字列リテラルを行毎に分割して、バックスラッシュで結合するという手段を取ることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To avoid this initialization you can use `::`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T050313Z" creationid="hirofumiwakasugi" creationdate="20151007T050218Z">
@@ -19497,6 +20026,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T014400Z" creationid="hirofumiwakasugi" creationdate="20150916T014258Z">
         <seg>ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはブロックを受け取るメソッドであることを理解します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To denote a heredoc without interpolation or escapes, the opening heredoc identifier is enclosed in single quotes:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034422Z" creationid="makenowjust" creationdate="20200420T034147Z">
+        <seg>ヒアドキュメントの中で補間やエスケープを禁止したい場合、ヒアドキュメント冒頭の識別子をシングルクォートで囲ってください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20100,6 +20637,22 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025540Z" creationid="hirofumiwakasugi" creationdate="20150908T025529Z">
         <seg>例えば、`Int32` の型に制約したとき、メソッドは `Int32` のインスタンスのみしか受け入れません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Valid delimiters are as same as &lt;g3&gt;percent string literals&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193932Z" creationid="makenowjust" creationdate="20200419T193932Z">
+        <seg>有効な区切り文字は&lt;g3&gt;パーセント文字列リテラル&lt;/g3&gt;のときと同じです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Valid delimiters are parentheses &lt;g2&gt;()&lt;/g2&gt;, square brackets &lt;g3&gt;[]&lt;/g3&gt;, curly braces &lt;g4&gt;{}&lt;/g4&gt;, angles &lt;g5&gt;&lt;&gt;&lt;/g5&gt; and pipes &lt;g6&gt;||&lt;/g6&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193151Z" creationid="makenowjust" creationdate="20200419T193151Z">
+        <seg>有効な区切り文字は、括弧&lt;g2&gt;()&lt;/g2&gt;、角括弧&lt;g3&gt;[]&lt;/g3&gt;、ひげ括弧&lt;g4&gt;{}&lt;/g4&gt;、三角括弧&lt;g5&gt;&lt;&gt;&lt;/g5&gt;そしてパイプ文字&lt;g6&gt;||&lt;/g6&gt;です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29985,6 +30538,18 @@ end</seg>
       <tuv lang="EN-US">
         <seg>a = 1
 b = 2
+"sum: #{a} + #{b} = #{a + b}" # =&gt; "sum: 1 + 2 = 3"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192338Z" creationid="makenowjust" creationdate="20200419T192338Z">
+        <seg>a = 1
+b = 2
+"sum: #{a} + #{b} = #{a + b}" # =&gt; "sum: 1 + 2 = 3"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+b = 2
 C.printf "%d + %d = %d\n", a, b, a + b
 ```</seg>
       </tuv>
@@ -33505,6 +34070,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>hello</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034039Z" creationid="makenowjust" creationdate="20200420T034039Z">
+        <seg>hello</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>hello \n #{world}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034149Z" creationid="makenowjust" creationdate="20200420T034149Z">
+        <seg>hello \n #{world}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>hierarchy                show type hierarchy</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072216Z" creationid="hirofumiwakasugi" creationdate="20150901T072216Z">
@@ -33959,6 +34540,56 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>io &lt;&lt; " + "</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192848Z" creationid="makenowjust" creationdate="20200419T192848Z">
+        <seg>io &lt;&lt; " + "</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; " = "</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192850Z" creationid="makenowjust" creationdate="20200419T192850Z">
+        <seg>io &lt;&lt; " = "</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; "sum: "</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192846Z" creationid="makenowjust" creationdate="20200419T192846Z">
+        <seg>io &lt;&lt; "sum: "</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192847Z" creationid="makenowjust" creationdate="20200419T192847Z">
+        <seg>io &lt;&lt; a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; a + b
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192851Z" creationid="makenowjust" creationdate="20200419T192851Z">
+        <seg>io &lt;&lt; a + b
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; b</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T192849Z" creationid="makenowjust" creationdate="20200419T192849Z">
+        <seg>io &lt;&lt; b</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>is exactly the same as writing this:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T031436Z" creationid="hirofumiwakasugi" creationdate="20150916T031436Z">
@@ -34357,6 +34988,18 @@ model.save # "Saved!" と出力
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>name = "world"
+%q(hello \n #{name}) # =&gt; "hello \\n \#{name}"
+%Q(hello \n #{name}) # =&gt; "hello \n world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193621Z" creationid="makenowjust" creationdate="20200419T193621Z">
+        <seg>name = "world"
+%q(hello \n #{name}) # =&gt; "hello \\n \#{name}"
+%Q(hello \n #{name}) # =&gt; "hello \n world"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>nest = [1, ["b", [:c, ['d']]]]
 flat = Array(typeof(Array.elem_type(nest))).new
 typeof(nest) #=&gt; Array(Int32 | Array(String | Array(Symbol | Array(Char))))
@@ -34413,6 +35056,14 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T013522Z" creationid="hirofumiwakasugi" creationdate="20150903T013522Z">
         <seg>nil
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>no newlines" # same as "hello world, no newlines"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194806Z" creationid="makenowjust" creationdate="20200419T194806Z">
+        <seg>no newlines" # same as "hello world, no newlines"</seg>
       </tuv>
     </tu>
     <tu>
@@ -36103,6 +36754,20 @@ rescue</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>string.upcase
+end
+
+upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T034039Z" creationid="makenowjust" creationdate="20200420T034039Z">
+        <seg>string.upcase
+end
+
+upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>struct Node</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T045919Z" creationid="hirofumiwakasugi" creationdate="20151007T045919Z">
@@ -36515,6 +37180,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T063555Z" creationid="hirofumiwakasugi" creationdate="20160204T062353Z">
         <seg>world</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>world" # =&gt; "hello\n      world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200419T194215Z" creationid="makenowjust" creationdate="20200419T194215Z">
+        <seg>world" # =&gt; "hello\n      world"</seg>
       </tuv>
     </tu>
     <tu>
