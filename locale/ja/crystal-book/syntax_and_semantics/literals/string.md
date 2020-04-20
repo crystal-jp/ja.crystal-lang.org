@@ -113,7 +113,7 @@ name = "world"
 
 ## パーセント文字列配列リテラル
 
-1つ文字列を表すリテラルの他に、文字列の[配列](https://crystal-lang.org/api/Array.html)を表わすパーセントリテラルがあります。それは`%w`と区切り文字の組によって記述します。有効な区切り文字は[パーセント文字列リテラル](#percent-string-literals)のときと同じです。
+1つの文字列を表すリテラルの他に、文字列の[配列](https://crystal-lang.org/api/Array.html)を表わすパーセントリテラルがあります。それは`%w`と区切り文字の組によって記述します。有効な区切り文字は[パーセント文字列リテラル](#percent-string-literals)のときと同じです。
 
 ```crystal
 %w(foo bar baz)  # => ["foo", "bar", "baz"]

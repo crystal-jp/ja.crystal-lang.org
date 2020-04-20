@@ -5,7 +5,7 @@ It will be substituted at runtime by the captured output from executing the stri
 
 The same [escaping](./string.md#escaping) and [interpolation rules](./string.md#interpolation) apply as for regular strings.
 
-Similar to percent string literals, valid delimiters for `%x` are parentheses `()`, square brackets `[]`, curly braces `{}`, angles `<>` and pipes `||`. Except for the pipes, all delimiters can be nested; meaning a start delimiter inside the string escapes the next end delimiter.
+Similar to percent string literals, valid delimiters for `%x` are parentheses `()`, square brackets `[]`, curly braces `{}`, angles `<>` and pipes `||`. パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
 The special variable `$?` holds the exit status of the command as a [`Process::Status`](https://crystal-lang.org/api/0.27.0/Process/Status.html). It is only available in the same scope as the command literal.
 

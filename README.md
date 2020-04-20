@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 21/125
+翻訳済み/全体 = 22/125
 
 <details>
 
@@ -42,7 +42,7 @@
 | `crystal-book/syntax_and_semantics/literals/floats.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/literals/char.md`                                                | ○    |
 | `crystal-book/syntax_and_semantics/literals/string.md`                                              | ○    |
-| `crystal-book/syntax_and_semantics/literals/symbol.md`                                              | ×    |
+| `crystal-book/syntax_and_semantics/literals/symbol.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/literals/array.md`                                               | ×    |
 | `crystal-book/syntax_and_semantics/literals/hash.md`                                                | ×    |
 | `crystal-book/syntax_and_semantics/literals/range.md`                                               | ×    |

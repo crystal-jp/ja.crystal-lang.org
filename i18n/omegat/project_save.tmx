@@ -4939,6 +4939,26 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>%i(foo bar baz)  # =&gt; [:foo, :bar, :baz]
+%i(foo\nbar baz) # =&gt; [:"foo\nbar", :baz]
+%i(foo(bar) baz) # =&gt; [:"foo(bar)", :baz]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172121Z" creationid="makenowjust" creationdate="20200420T172121Z">
+        <seg>%i(foo bar baz)  # =&gt; [:foo, :bar, :baz]
+%i(foo\nbar baz) # =&gt; [:"foo\nbar", :baz]
+%i(foo(bar) baz) # =&gt; [:"foo(bar)", :baz]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>%i(foo\ bar baz) # =&gt; [:"foo bar", :baz]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172244Z" creationid="makenowjust" creationdate="20200420T172244Z">
+        <seg>%i(foo\ bar baz) # =&gt; [:"foo bar", :baz]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>%name{index} = {{index}}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T021008Z" creationid="hirofumiwakasugi" creationdate="20151002T021008Z">
@@ -7341,10 +7361,108 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>:+
+:-
+:*
+:/
+:%
+:&amp;
+:|
+:^
+:**
+:&gt;&gt;
+:&lt;&lt;
+:==
+:!=
+:&lt;
+:&lt;=
+:&gt;
+:&gt;=
+:&lt;=&gt;
+:===
+:[]
+:[]?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171631Z" creationid="makenowjust" creationdate="20200420T171631Z">
+        <seg>:+
+:-
+:*
+:/
+:%
+:&amp;
+:|
+:^
+:**
+:&gt;&gt;
+:&lt;&lt;
+:==
+:!=
+:&lt;
+:&lt;=
+:&gt;
+:&gt;=
+:&lt;=&gt;
+:===
+:[]
+:[]?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>::baz(4, 2) #=&gt; 6</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021413Z" creationid="hirofumiwakasugi" creationdate="20150904T021413Z">
         <seg>::baz(4, 2) #=&gt; 6</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>:[]=
+:!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171633Z" creationid="makenowjust" creationdate="20200420T171633Z">
+        <seg>:[]=
+:!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>:exclamation!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171553Z" creationid="makenowjust" creationdate="20200420T171553Z">
+        <seg>:exclamation!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>:question?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171552Z" creationid="makenowjust" creationdate="20200420T171552Z">
+        <seg>:question?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>:unquoted_symbol
+:"quoted symbol"
+:"a" # identical to :a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171102Z" creationid="makenowjust" creationdate="20200420T171050Z">
+        <seg>:unquoted_symbol
+:"quoted symbol"
+:"a" # :a に等しい</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>:~
+:!~
+:=~</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171635Z" creationid="makenowjust" creationdate="20200420T171635Z">
+        <seg>:~
+:!~
+:=~</seg>
       </tuv>
     </tu>
     <tu>
@@ -10061,6 +10179,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Symbol&lt;/g1&gt; represents a unique name inside the entire source code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T170817Z" creationid="makenowjust" creationdate="20200420T170817Z">
+        <seg>&lt;g1&gt;Symbol&lt;/g1&gt;はソースコード全体でユニークな名前を表します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;here document&lt;/g1&gt; or &lt;g2&gt;heredoc&lt;/g2&gt; can be useful for writing strings spanning over multiple lines.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T033420Z" creationid="makenowjust" creationdate="20200420T033420Z">
@@ -10510,6 +10636,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A double-quoted identifier can contain any unicode character including white spaces and accepts the same escape sequences as a &lt;g1&gt;string literal&lt;/g1&gt;, yet no interpolation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171238Z" creationid="makenowjust" creationdate="20200420T171238Z">
+        <seg>ダブルクォートで囲まれた識別子は空白を含む任意のユニコード文字を含むことができて、&lt;g1&gt;文字列リテラル&lt;/g1&gt;で利用できるものと同じエスケープシーケンスを受け付けますが、補間はできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A dummy transformation method:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T024142Z" creationid="hirofumiwakasugi" creationdate="20150916T023809Z">
@@ -10923,6 +11057,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071328Z" creationid="hirofumiwakasugi" creationdate="20150919T071303Z">
         <seg>エイリアスを使うと長い名前の型を書かずに済むので便利です。しかし、それだけではなく、再帰的な型を扱うときにも利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>All &lt;g1&gt;Crystal operators&lt;/g1&gt; can be used as symbol names unquoted:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171630Z" creationid="makenowjust" creationdate="20200420T171630Z">
+        <seg>すべての&lt;g1&gt;Crystal の演算子&lt;/g1&gt;もシンボルのダブルクォートで囲われていない識別子として有効です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11772,8 +11914,16 @@ end
       <tuv lang="EN-US">
         <seg>Besides the single string literal, there is also a percent literal to create an &lt;g1&gt;Array&lt;/g1&gt; of strings.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200419T193808Z" creationid="makenowjust" creationdate="20200419T193808Z">
-        <seg>1つ文字列を表すリテラルの他に、文字列の&lt;g1&gt;配列&lt;/g1&gt;を表わすパーセントリテラルがあります。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171748Z" creationid="makenowjust" creationdate="20200419T193808Z">
+        <seg>1つの文字列を表すリテラルの他に、文字列の&lt;g1&gt;配列&lt;/g1&gt;を表わすパーセントリテラルがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Besides the single symbol literal, there is also a percent literal to create an &lt;g1&gt;Array&lt;/g1&gt; of symbols.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172446Z" creationid="makenowjust" creationdate="20200420T171732Z">
+        <seg>1つのシンボルを表すリテラルの他に、シンボルの&lt;g1&gt;配列&lt;/g1&gt;を表すパーセントリテラルがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12876,6 +13026,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Except for the pipes, all delimiters can be nested; meaning a start delimiter inside the string escapes the next end delimiter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172119Z" creationid="makenowjust" creationdate="20200420T172119Z">
+        <seg>パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Exception handling has a short syntax form: assume a method definition is an implicit `begin ... end` expression, then specify `rescue`, `ensure` and `else` clauses:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T014221Z" creationid="hirofumiwakasugi" creationdate="20150907T014221Z">
@@ -13058,6 +13216,14 @@ Foo.new.yield_normally { one }  # =&gt; "one"
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T035907Z" creationid="hirofumiwakasugi" creationdate="20150906T035438Z">
         <seg>[Reference](http://crystal-lang.org/api/Reference.html) 型である場合は、そのサイズはポインタのサイズと同じになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For an unquoted identifier the same naming rules apply as for methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171342Z" creationid="makenowjust" creationdate="20200420T171342Z">
+        <seg>ダブルクォートで囲まれていない識別子の場合は、メソッド名として受け入れられるものと同じ規則の名前が受け入れられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13779,6 +13945,14 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T022114Z" creationid="hirofumiwakasugi" creationdate="20151008T022114Z">
         <seg>INFO_CAPTURECOUNT = 2
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Identifiers may contain any unicode characters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172146Z" creationid="makenowjust" creationdate="20200420T172146Z">
+        <seg>識別子には任意のユニコード文字を含むことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15001,6 +15175,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Individual symbols are separated by a single space character (&lt;g1&gt; &lt;/g1&gt;) which must be escaped to use it as a part of an identifier.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172243Z" creationid="makenowjust" creationdate="20200420T172243Z">
+        <seg>個々のシンボルは1つのスペース (&lt;g1&gt; &lt;/g1&gt;) で区切られていて、スペースを1つの部分に含めたい場合はエスケープが必要です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Inheriting Documentation</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T212923Z" creationid="makenowjust" creationdate="20200412T212923Z">
@@ -15113,6 +15295,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Internally, symbols are implemented as constants with a numeric value of type &lt;g1&gt;Int32&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171712Z" creationid="makenowjust" creationdate="20200420T171712Z">
+        <seg>内部的には、シンボルは&lt;g1&gt;Int32&lt;/g1&gt;型の定数値として実装されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Interpolation</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192656Z" creationid="makenowjust" creationdate="20200419T192158Z">
@@ -15193,6 +15383,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It can contain alphanumeric characters, underscore (&lt;g1&gt;_&lt;/g1&gt;) or characters with a code point greater than &lt;g2&gt;159&lt;/g2&gt;(&lt;g3&gt;0x9F&lt;/g3&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171453Z" creationid="makenowjust" creationdate="20200420T171453Z">
+        <seg>つまり、アルファベットや数値、アンダースコア (&lt;g1&gt;_&lt;/g1&gt;) 、もしくは &lt;g2&gt;159&lt;/g2&gt;(&lt;g3&gt;0x9F&lt;/g3&gt;) より大きいコードポイントの文字をシンボルの識別子に利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It can either be followed by exactly four hexadecimal characters representing the unicode bytes (&lt;g2&gt;\u0000&lt;/g2&gt; to &lt;g3&gt;\uFFFF&lt;/g3&gt;) or a number of one to six hexadecimal characters wrapped in curly braces (&lt;g4&gt;\u{0}&lt;/g4&gt; to &lt;g5&gt;\u{10FFFF}&lt;/g5&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190356Z" creationid="makenowjust" creationdate="20200419T190331Z">
@@ -15237,6 +15435,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T074441Z" creationid="hirofumiwakasugi" creationdate="20150901T074441Z">
         <seg>UTF-8 の文字をシングルクォートで囲んで記述します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is indicated by &lt;g2&gt;%i&lt;/g2&gt; and a pair of delimiters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171905Z" creationid="makenowjust" creationdate="20200420T171905Z">
+        <seg>それは&lt;g2&gt;%i&lt;/g2&gt;と区切り文字の組によって記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15318,6 +15524,14 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012131Z" creationid="hirofumiwakasugi" creationdate="20151009T012120Z">
         <seg>それはすべてにマッチすることを示します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It must not start with a number and may end with an exclamation mark (&lt;g4&gt;!&lt;/g4&gt;) or question mark (&lt;g5&gt;?&lt;/g5&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171551Z" creationid="makenowjust" creationdate="20200420T171551Z">
+        <seg>そして、数字から識別子をはじめることはできず、識別子の最後にエクストラメーションマーク (&lt;g4&gt;!&lt;/g4&gt;) やクエスチョンマーク (&lt;g5&gt;?&lt;/g5&gt;) を続けることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16631,6 +16845,14 @@ Earth::RADIUS #=&gt; 6_371_000
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Percent symbol array literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171722Z" creationid="makenowjust" creationdate="20200420T171722Z">
+        <seg>パーセントシンボル配列リテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Person.compare(john, peter) # OK
 ```</seg>
       </tuv>
@@ -17436,6 +17658,22 @@ some_method  # OK, 1
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T140120Z" creationid="hirofumiwakasugi" creationdate="20151010T140120Z">
         <seg>その後で、詳細と使用方法をその後に記載する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Symbol</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T170733Z" creationid="makenowjust" creationdate="20200420T170733Z">
+        <seg>シンボル (Symbol)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Symbols are interpreted at compile time and cannot be created dynamically.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T170934Z" creationid="makenowjust" creationdate="20200420T170934Z">
+        <seg>シンボルはコンパイル時に解釈されるもので、動的に生成することはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18561,6 +18799,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The identifier may optionally be enclosed in double quotes (&lt;g2&gt;"&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171049Z" creationid="makenowjust" creationdate="20200420T171049Z">
+        <seg>識別子の部分はダブルクォート (&lt;g2&gt;"&lt;/g2&gt;) で囲むこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The install command may fail if a locked version doesn't match a requirement, but may succeed if a new dependency was added, as long as it doesn't generate a conflict, thus generating a new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T181020Z" creationid="makenowjust" creationdate="20200419T180911Z">
@@ -18685,6 +18931,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T005747Z" creationid="hirofumiwakasugi" creationdate="20150903T005731Z">
         <seg>`nil` と `false`、そしてヌルポインタ (メモリのアドレスが0のポインタ) のみが偽の値となり、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The only way to create a Symbol is by using a symbol literal, denoted by a colon (&lt;g1&gt;:&lt;/g1&gt;) followed by an identifier.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T171027Z" creationid="makenowjust" creationdate="20200420T171027Z">
+        <seg>シンボルを生成する唯一の方法はシンボルリテラルを使うことです。それは、コロン (&lt;g1&gt;:&lt;/g1&gt;) のあとに識別子を続けて記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20733,6 +20987,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T193151Z" creationid="makenowjust" creationdate="20200419T193151Z">
         <seg>有効な区切り文字は、括弧&lt;g2&gt;()&lt;/g2&gt;、角括弧&lt;g3&gt;[]&lt;/g3&gt;、ひげ括弧&lt;g4&gt;{}&lt;/g4&gt;、三角括弧&lt;g5&gt;&lt;&gt;&lt;/g5&gt;そしてパイプ文字&lt;g6&gt;||&lt;/g6&gt;です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Valid delimiters are parentheses &lt;g3&gt;()&lt;/g3&gt;, square brackets &lt;g4&gt;[]&lt;/g4&gt;, curly braces &lt;g5&gt;{}&lt;/g5&gt;, angles &lt;g6&gt;&lt;&gt;&lt;/g6&gt; and pipes &lt;g7&gt;||&lt;/g7&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T172050Z" creationid="makenowjust" creationdate="20200420T172050Z">
+        <seg>有効な区切り文字は、括弧&lt;g3&gt;()&lt;/g3&gt;、角括弧&lt;g4&gt;[]&lt;/g4&gt;、ひげ括弧&lt;g5&gt;{}&lt;/g5&gt;、三角括弧&lt;g6&gt;&lt;&gt;&lt;/g6&gt;そしてパイプ文字&lt;g7&gt;||&lt;/g7&gt;です。</seg>
       </tuv>
     </tu>
     <tu>

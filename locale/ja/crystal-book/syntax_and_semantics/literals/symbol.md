@@ -1,25 +1,25 @@
-# Symbol
+# シンボル (Symbol)
 
-A [Symbol](http://crystal-lang.org/api/Symbol.html) represents a unique name inside the entire source code.
+[Symbol](http://crystal-lang.org/api/Symbol.html)はソースコード全体でユニークな名前を表します。
 
-Symbols are interpreted at compile time and cannot be created dynamically. The only way to create a Symbol is by using a symbol literal, denoted by a colon (`:`) followed by an identifier. The identifier may optionally be enclosed in double quotes (`"`).
+シンボルはコンパイル時に解釈されるもので、動的に生成することはできません。シンボルを生成する唯一の方法はシンボルリテラルを使うことです。それは、コロン (`:`) のあとに識別子を続けて記述します。識別子の部分はダブルクォート (`"`) で囲むこともできます。
 
 ```crystal
 :unquoted_symbol
 :"quoted symbol"
-:"a" # identical to :a
+:"a" # :a に等しい
 ```
 
-A double-quoted identifier can contain any unicode character including white spaces and accepts the same escape sequences as a [string literal](./string.html), yet no interpolation.
+ダブルクォートで囲まれた識別子は空白を含む任意のユニコード文字を含むことができて、[文字列リテラル](./string.html)で利用できるものと同じエスケープシーケンスを受け付けますが、補間はできません。
 
-For an unquoted identifier the same naming rules apply as for methods. It can contain alphanumeric characters, underscore (`_`) or characters with a code point greater than `159`(`0x9F`). It must not start with a number and may end with an exclamation mark (`!`) or question mark (`?`).
+ダブルクォートで囲まれていない識別子の場合は、メソッド名として受け入れられるものと同じ規則の名前が受け入れられます。つまり、アルファベットや数値、アンダースコア (`_`) 、もしくは `159`(`0x9F`) より大きいコードポイントの文字をシンボルの識別子に利用できます。そして、数字から識別子をはじめることはできず、識別子の最後にエクストラメーションマーク (`!`) やクエスチョンマーク (`?`) を続けることができます。
 
 ```crystal
 :question?
 :exclamation!
 ```
 
-All [Crystal operators](../operators.html) can be used as symbol names unquoted:
+すべての[Crystal の演算子](../operators.html)もシンボルのダブルクォートで囲われていない識別子として有効です。
 ```crystal
 :+
 :-
@@ -49,11 +49,11 @@ All [Crystal operators](../operators.html) can be used as symbol names unquoted:
 :=~
 ```
 
-Internally, symbols are implemented as constants with a numeric value of type `Int32`.
+内部的には、シンボルは`Int32`型の定数値として実装されています。
 
-## Percent symbol array literal
+## パーセントシンボル配列リテラル
 
-Besides the single symbol literal, there is also a percent literal to create an [Array](https://crystal-lang.org/api/Array.html) of symbols. It is indicated by `%i` and a pair of delimiters. Valid delimiters are parentheses `()`, square brackets `[]`, curly braces `{}`, angles `<>` and pipes `||`. Except for the pipes, all delimiters can be nested; meaning a start delimiter inside the string escapes the next end delimiter.
+1つのシンボルを表すリテラルの他に、シンボルの[配列](https://crystal-lang.org/api/Array.html)を表すパーセントリテラルがあります。それは`%i`と区切り文字の組によって記述します。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
 ```crystal
 %i(foo bar baz)  # => [:foo, :bar, :baz]
@@ -61,7 +61,7 @@ Besides the single symbol literal, there is also a percent literal to create an 
 %i(foo(bar) baz) # => [:"foo(bar)", :baz]
 ```
 
-Identifiers may contain any unicode characters. Individual symbols are separated by a single space character (` `) which must be escaped to use it as a part of an identifier.
+識別子には任意のユニコード文字を含むことができます。個々のシンボルは1つのスペース (` `) で区切られていて、スペースを1つの部分に含めたい場合はエスケープが必要です。
 
 ```crystal
 %i(foo\ bar baz) # => [:"foo bar", :baz]
