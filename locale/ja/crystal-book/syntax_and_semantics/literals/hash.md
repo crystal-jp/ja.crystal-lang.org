@@ -8,7 +8,7 @@ Hashes are typically created with a hash literal denoted by curly braces (`{ }`)
 {"one" => 1, "two" => 2}
 ```
 
-# Generic Type Argument
+# ジェネリック型引数
 
 The generic type arguments for keys `K` and values `V` are inferred from the types of the keys or values inside the literal, respectively. When all have the same type, `K`/`V` equals to that. Otherwise it will be a union of all key types or value types respectively.
 
@@ -59,7 +59,7 @@ my_hash["foo"] = 1
 my_hash["bar"] = "baz"
 ```
 
-The type arguments can be explicitly specified as part of the type name:
+型引数は型名の部分で明示的に指定することもできます。
 
 ```crystal
 MyHash(String, String | Int32){"foo" => "bar"}

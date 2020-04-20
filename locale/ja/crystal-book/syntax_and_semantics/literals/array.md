@@ -1,23 +1,23 @@
-# Array
+# 配列 (Array)
 
-An [Array](http://crystal-lang.org/api/Array.html) is an ordered and integer-indexed generic collection of elements of a specific type `T`.
+[Array](http://crystal-lang.org/api/Array.html)は順番に意味があり整数でインデックスされた、`T`型の値を要素として持つジェネリックなコレクションです。
 
-Arrays are typically created with an array literal denoted by square brackets (`[]`) and individual elements separated by a comma (`,`).
+配列は通常、角括弧 (`[]`) とコンマ (`,`) によって区切られた個々の要素による配列リテラルで生成されます。
 
 ```crystal
 [1, 2, 3]
 ```
 
-## Generic Type Argument
+## ジェネリック型引数
 
-The array's generic type argument `T` is inferred from the types of the elements inside the literal. When all elements of the array have the same type, `T` equals to that. Otherwise it will be a union of all element types.
+配列のジェネリック型引数`T`はリテラルの要素の型から推論されます。すべての要素が同じ型を持っていた場合、`T`はそれに等しくなります。そうでなければ、すべての要素の型のユニオン型となります。
 
 ```crystal
 [1, 2, 3]         # => Array(Int32)
 [1, "hello", 'x'] # => Array(Int32 | String | Char)
 ```
 
-An explicit type can be specified by immediately following the closing bracket with `of` and a type, each separated by whitespace. This overwrites the inferred type and can be used for example to create an array that holds only some types initially but can accept other types later.
+閉じ角括弧のあとに続けて`of`と型を置くことで、明示的に型を指定することもできます。これは推論された型を置き換えるので、生成時には同じ型しか入っていないけれど、あとで別の型が入ってくるような場合に対応できます。
 
 ```crystal
 array_of_numbers = [1, 2, 3] of Float64 | Int32 # => Array(Float64 | Int32)
@@ -27,37 +27,37 @@ array_of_int_or_string = [1, 2, 3] of Int32 | String # => Array(Int32 | String)
 array_of_int_or_string << "foo"                      # => [1, 2, 3, "foo"]
 ```
 
-Empty array literals always need a type specification:
+空の配列リテラルは常に型を指定する必要があります。
 
 ```crystal
 [] of Int32 # => Array(Int32).new
 ```
 
-## Percent Array Literals
+## パーセント配列リテラル
 
-[Arrays of strings](./string.html#percent-string-array-literal) and [arrays of symbols](./symbol.html#percent-symbol-array-literal) can be created with percent array literals:
+[文字列の配列](./string.html#percent-string-array-literal)と[シンボルの配列](./symbol.html#percent-symbol-array-literal)をパーセント配列リテラルで生成できます。
 
 ```crystal
 %w(one two three) # => ["one", "two", "three"]
 %i(one two three) # => [:one, :two, :three]
 ```
 
-## Array-like Type Literal
+## 配列ライクな型のリテラル
 
-Crystal supports an additional literal for arrays and array-like types. It consists of the name of the type followed by a list of elements enclosed in curly braces (`{}`) and individual elements separated by a comma (`,`).
+Crystal はさらに、配列ライクな型のためのリテラルをサポートしています。型の名前にひげ括弧 (`{}`) とコンマ (`,`) によって区切られた個々の要素を続けることで利用できます。
 
 ```crystal
 Array{1, 2, 3}
 ```
 
-This literal can be used with any type as long as it has an argless constructor and responds to `<<`.
+引数を持たないコンストラクタと`<<`を持つ任意の型に対して、この構文は利用できます。
 
 ```crystal
 IO::Memory{1, 2, 3}
 Set{1, 2, 3}
 ```
 
-For a non-generic type like `IO::Memory`, this is equivalent to:
+ジェネリック型ではない型`IO::Memory`に対しては、上の例は以下と等しいものになります。
 
 ```crystal
 array_like = IO::Memory.new
@@ -66,7 +66,7 @@ array_like << 2
 array_like << 3
 ```
 
-For a generic type like `Set`, the generic type `T` is inferred from the types of the elements in the same way as with the array literal. The above is equivalent to:
+ジェネリック型である`Set`に対しては、ジェネリック型 `T` が配列リテラルと同様の方法で要素の型から推論されます。よって、上の例は以下と等しいものになります。
 
 ```crystal
 array_like = Set(typeof(1, 2, 3)).new
@@ -75,7 +75,7 @@ array_like << 2
 array_like << 3
 ```
 
-The type arguments can be explicitly specified as part of the type name:
+型引数は型名の部分で明示的に指定することもできます。
 
 ```crystal
 Set(Int32){1, 2, 3}
