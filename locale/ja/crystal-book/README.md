@@ -53,4 +53,4 @@ gitbook_1  | Restart after change in file node_modules/.bin
 
 ### ページの追加方法
 
-ページを追加する場合、Markdown ファイルを希望の場所に配置してください。例: `overview/hello_world.md`そして、言語リファレンスのナビゲーションである`SUMMARY.md`にリンクを追加してください。
+ページを追加する場合、Markdown ファイルを希望の場所に配置してください。例: `overview/hello_world.md`。そして、言語リファレンスのナビゲーションである`SUMMARY.md`にリンクを追加してください。
