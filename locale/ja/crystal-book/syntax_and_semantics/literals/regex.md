@@ -1,8 +1,8 @@
-# Regular Expressions
+# 正規表現
 
-Regular expressions are represented by the [Regex](http://crystal-lang.org/api/Regex.html) class.
+正規表現は[Regex](http://crystal-lang.org/api/Regex.html)クラスによって表現されます。
 
-A Regex is typically created with a regex literal using [PCRE](http://pcre.org/pcre.txt) syntax. It consists of a string of UTF-8 character enclosed in forward slashes (`/`):
+正規表現には[PCRE](http://pcre.org/pcre.txt)の構文を使います。リテラルとしては、UTF-8の文字列をスラッシュ (`/`) で囲んで記述します。
 
 ```crystal
 /foo|bar/
@@ -13,7 +13,7 @@ A Regex is typically created with a regex literal using [PCRE](http://pcre.org/p
 
 ## エスケープ文字
 
-Regular expressions support the same [escape sequences as String literals](./string.html).
+正規表現では[文字列リテラルと同様のエスケープシーケンス](./string.html)をサポートしています。
 
 ```crystal
 /\//         # slash
@@ -31,19 +31,19 @@ Regular expressions support the same [escape sequences as String literals](./str
 /\x{10FFFF}/ # hexadecimal unicode character
 ```
 
-The delimiter character `/` must be escaped inside slash-delimited regular expression literals.
-Note that special characters of the PCRE syntax need to be escaped if they are intended as literal characters.
+区切り文字である `/` は正規表現中ではエスケープされる必要があります。
+PCRE の構文上意味のある文字を通常の文字として扱いたい場合もエスケープが必要です。
 
 ## 文字列の補間
 
-Interpolation works in regular expression literals just as it does in [string literals](./string.html). Be aware that using this feature will cause an exception to be raised at runtime, if the resulting string results in an invalid regular expression.
+文字列の補間は正規表現リテラル中でも[文字列リテラル](./string.html)の場合と同様に機能します。この方法で正規表現を生成した場合、構文エラーなどはコンパイル時に検出できず実行時に起こる例外になるということに注意してください。
 
-## Modifiers
-The closing delimiter may be followed by a number of optional modifiers to adjust the matching behaviour of the regular expression.
+## 修飾子
+区切り文字を閉じたあとに、いくつかの修飾子を続けることで、正規表現のマッチの挙動を変更できます。
 
-* `i`: case-insensitive matching (`PCRE_CASELESS`):  Unicode letters in the pattern match both upper and lower case letters in the subject string.
-* `m`: multiline matching (`PCRE_MULTILINE`): The *start of line* (`^`) and *end of line* (`$`) metacharacters match immediately following or immediately before internal newlines in the subject string, respectively, as well as at the very start and end.
-* `x`: extended whitespace matching (`PCRE_EXTENDED`): Most white space characters in the pattern are totally ignored except when ignore or inside a character class. Unescaped hash characters `#` denote the start of a comment ranging to the end of the line.
+* `i`: 大文字と小文字を区別しないマッチを行う (`PCRE_CASELESS`) 。ユニコード文字の大文字と小文字も区別しないようになります。
+* `m`: 複数行マッチを行う (`PCRE_MULTILINE`)。*行の開始* (`^`) と *行の終わり* (`$`) を表すメタ文字が、文字列の冒頭や末尾に加えて、改行の直前や直後にもマッチするようになります。
+* `x`: 空白文字を無視するようにします (`PCRE_EXTENDED`)。文字クラスの内部を除くパターン中の空白文字を飛ばしてマッチを行います。また、エスケープされていないハッシュ `#` は行コメントの始まりと見なされ、次の改行文字まで飛ばしてマッチを行います。
 
 ```crystal
 /foo/i.match("FOO")         # => #<Regex::MatchData "FOO">
@@ -52,11 +52,11 @@ The closing delimiter may be followed by a number of optional modifiers to adjus
 /foo /imx.match("bar\nFOO") # => #<Regex::MatchData "FOO">
 ```
 
-## Percent regex literals
+## パーセント正規表現リテラル
 
-Besides slash-delimited literals, regular expressions may also be expressed as a percent literal indicated by `%r` and a pair of delimiters. 有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。Except for the pipes, all delimiters can be nested; meaning a start delimiter inside the literal escapes the next end delimiter.
+スラッシュ区切りのリテラルの他に、正規表現リテラルは`%r`と区切り文字の組からなるパーセントリテラルを使って表現することもできます。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
-These are handy to write regular expressions that include slashes which would have to be escaped in slash-delimited literals.
+スラッシュを含むような正規表現を書くのにこれらのリテラルは便利です。
 
 ```crystal
 %r((/)) # => /(\/)/

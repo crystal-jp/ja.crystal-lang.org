@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 25/125
+翻訳済み/全体 = 26/125
 
 <details>
 
@@ -46,7 +46,7 @@
 | `crystal-book/syntax_and_semantics/literals/array.md`                                               | ○    |
 | `crystal-book/syntax_and_semantics/literals/hash.md`                                                | ○    |
 | `crystal-book/syntax_and_semantics/literals/range.md`                                               | ○    |
-| `crystal-book/syntax_and_semantics/literals/regex.md`                                               | △    |
+| `crystal-book/syntax_and_semantics/literals/regex.md`                                               | ○    |
 | `crystal-book/syntax_and_semantics/literals/tuple.md`                                               | ×    |
 | `crystal-book/syntax_and_semantics/literals/named_tuple.md`                                         | ×    |
 | `crystal-book/syntax_and_semantics/literals/proc.md`                                                | △    |

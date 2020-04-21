@@ -4967,6 +4967,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>%r((/)) # =&gt; /(\/)/
+%r[[/]] # =&gt; /[\/]/
+%r{{/}} # =&gt; /{\/}/
+%r&lt;&lt;/&gt;&gt; # =&gt; /&lt;\/&gt;/
+%r|/|   # =&gt; /\//</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042413Z" creationid="makenowjust" creationdate="20200421T042413Z">
+        <seg>%r((/)) # =&gt; /(\/)/
+%r[[/]] # =&gt; /[\/]/
+%r{{/}} # =&gt; /{\/}/
+%r&lt;&lt;/&gt;&gt; # =&gt; /&lt;\/&gt;/
+%r|/|   # =&gt; /\//</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>%w(foo bar baz)  # =&gt; ["foo", "bar", "baz"]
 %w(foo\nbar baz) # =&gt; ["foo\\nbar", "baz"]
 %w(foo(bar) baz) # =&gt; ["foo(bar)", "baz"]</seg>
@@ -6949,6 +6965,38 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>/\//         # slash
+/\\/         # backslash
+/\b/         # backspace
+/\e/         # escape
+/\f/         # form feed
+/\n/         # newline
+/\r/         # carriage return
+/\t/         # tab
+/\v/         # vertical tab
+/\NNN/       # octal ASCII character
+/\xNN/       # hexadecimal ASCII character
+/\x{FFFF}/   # hexadecimal unicode character
+/\x{10FFFF}/ # hexadecimal unicode character</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041155Z" creationid="makenowjust" creationdate="20200421T041155Z">
+        <seg>/\//         # slash
+/\\/         # backslash
+/\b/         # backspace
+/\e/         # escape
+/\f/         # form feed
+/\n/         # newline
+/\r/         # carriage return
+/\t/         # tab
+/\v/         # vertical tab
+/\NNN/       # octal ASCII character
+/\xNN/       # hexadecimal ASCII character
+/\x{FFFF}/   # hexadecimal unicode character
+/\x{10FFFF}/ # hexadecimal unicode character</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>/blog</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222644Z" creationid="makenowjust" creationdate="20200413T222644Z">
@@ -6969,6 +7017,34 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222857Z" creationid="makenowjust" creationdate="20200413T222857Z">
         <seg>/community</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/foo/i.match("FOO")         # =&gt; #&lt;Regex::MatchData "FOO"&gt;
+/foo/m.match("bar\nfoo")    # =&gt; #&lt;Regex::MatchData "foo"&gt;
+/foo /x.match("foo")        # =&gt; #&lt;Regex::MatchData "foo"&gt;
+/foo /imx.match("bar\nFOO") # =&gt; #&lt;Regex::MatchData "FOO"&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042200Z" creationid="makenowjust" creationdate="20200421T042200Z">
+        <seg>/foo/i.match("FOO")         # =&gt; #&lt;Regex::MatchData "FOO"&gt;
+/foo/m.match("bar\nfoo")    # =&gt; #&lt;Regex::MatchData "foo"&gt;
+/foo /x.match("foo")        # =&gt; #&lt;Regex::MatchData "foo"&gt;
+/foo /imx.match("bar\nFOO") # =&gt; #&lt;Regex::MatchData "FOO"&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>/foo|bar/
+/h(e+)llo/
+/\d+/
+/あ/</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T040544Z" creationid="makenowjust" creationdate="20200421T040544Z">
+        <seg>/foo|bar/
+/h(e+)llo/
+/\d+/
+/あ/</seg>
       </tuv>
     </tu>
     <tu>
@@ -9387,6 +9463,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;i&lt;/g1&gt;: case-insensitive matching (&lt;g2&gt;PCRE_CASELESS&lt;/g2&gt;):  Unicode letters in the pattern match both upper and lower case letters in the subject string.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041704Z" creationid="makenowjust" creationdate="20200421T041704Z">
+        <seg>&lt;g1&gt;i&lt;/g1&gt;: 大文字と小文字を区別しないマッチを行う (&lt;g2&gt;PCRE_CASELESS&lt;/g2&gt;) 。ユニコード文字の大文字と小文字も区別しないようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;if !&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170629Z" creationid="makenowjust" creationdate="20200413T170629Z">
@@ -9463,6 +9547,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171409Z" creationid="makenowjust" creationdate="20200413T171409Z">
         <seg>&lt;g1&gt;lib&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;m&lt;/g1&gt;: multiline matching (&lt;g2&gt;PCRE_MULTILINE&lt;/g2&gt;): The &lt;g3&gt;start of line&lt;/g3&gt; (&lt;g4&gt;^&lt;/g4&gt;) and &lt;g5&gt;end of line&lt;/g5&gt; (&lt;g6&gt;$&lt;/g6&gt;) metacharacters match immediately following or immediately before internal newlines in the subject string, respectively, as well as at the very start and end.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041833Z" creationid="makenowjust" creationdate="20200421T041715Z">
+        <seg>&lt;g1&gt;m&lt;/g1&gt;: 複数行マッチを行う (&lt;g2&gt;PCRE_MULTILINE&lt;/g2&gt;)。&lt;g3&gt;行の開始&lt;/g3&gt; (&lt;g4&gt;^&lt;/g4&gt;) と &lt;g5&gt;行の終わり&lt;/g5&gt; (&lt;g6&gt;$&lt;/g6&gt;) を表すメタ文字が、文字列の冒頭や末尾に加えて、改行の直前や直後にもマッチするようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9751,6 +9843,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T034309Z" creationid="makenowjust" creationdate="20200421T034309Z">
         <seg>&lt;g1&gt;x..y&lt;/g1&gt;: 2つのドットは右の値を含む範囲を表します。つまり&lt;g2&gt;x&lt;/g2&gt;と&lt;g3&gt;y&lt;/g3&gt;、およびその間のすべての値を含みます (数学的には閉区間 &lt;g4&gt;[x, y]&lt;/g4&gt; です)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;x&lt;/g1&gt;: extended whitespace matching (&lt;g2&gt;PCRE_EXTENDED&lt;/g2&gt;): Most white space characters in the pattern are totally ignored except when ignore or inside a character class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042105Z" creationid="makenowjust" creationdate="20200421T041946Z">
+        <seg>&lt;g1&gt;x&lt;/g1&gt;: 空白文字を無視するようにします (&lt;g2&gt;PCRE_EXTENDED&lt;/g2&gt;)。文字クラスの内部を除くパターン中の空白文字を飛ばしてマッチを行います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10340,6 +10440,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T022254Z" creationid="hirofumiwakasugi" creationdate="20150902T022048Z">
         <seg>既存のメソッドから Proc を作ることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A Regex is typically created with a regex literal using &lt;g1&gt;PCRE&lt;/g1&gt; syntax.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T040449Z" creationid="makenowjust" creationdate="20200421T040449Z">
+        <seg>正規表現には&lt;g1&gt;PCRE&lt;/g1&gt;の構文を使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11977,6 +12085,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Be aware that using this feature will cause an exception to be raised at runtime, if the resulting string results in an invalid regular expression.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041445Z" creationid="makenowjust" creationdate="20200421T041445Z">
+        <seg>この方法で正規表現を生成した場合、構文エラーなどはコンパイル時に検出できず実行時に起こる例外になるということに注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Be statically type-checked, but without having to specify the type of variables or method arguments.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T221404Z" creationid="makenowjust" creationdate="20200412T221404Z">
@@ -12048,6 +12164,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T193048Z" creationid="makenowjust" creationdate="20200419T193048Z">
         <seg>ダブルクォートによる文字列リテラルの他に、Crystalはパーセント記号 (&lt;g1&gt;%&lt;/g1&gt;) と区切り文字の組による文字列リテラルもサポートしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Besides slash-delimited literals, regular expressions may also be expressed as a percent literal indicated by &lt;g1&gt;%r&lt;/g1&gt; and a pair of delimiters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042321Z" creationid="makenowjust" creationdate="20200421T042321Z">
+        <seg>スラッシュ区切りのリテラルの他に、正規表現リテラルは&lt;g1&gt;%r&lt;/g1&gt;と区切り文字の組からなるパーセントリテラルを使って表現することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13193,6 +13317,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
         <seg>Except for the pipes, all delimiters can be nested meaning a start delimiter inside the string escapes the next end delimiter.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T193305Z" creationid="makenowjust" creationdate="20200419T193305Z">
+        <seg>パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Except for the pipes, all delimiters can be nested; meaning a start delimiter inside the literal escapes the next end delimiter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042334Z" creationid="makenowjust" creationdate="20200421T042334Z">
         <seg>パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</seg>
       </tuv>
     </tu>
@@ -15613,6 +15745,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Interpolation works in regular expression literals just as it does in &lt;g1&gt;string literals&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041326Z" creationid="makenowjust" creationdate="20200421T041326Z">
+        <seg>文字列の補間は正規表現リテラル中でも&lt;g1&gt;文字列リテラル&lt;/g1&gt;の場合と同様に機能します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Invoking the compiler with the `hierarchy` command we get:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T135700Z" creationid="hirofumiwakasugi" creationdate="20150904T135515Z">
@@ -15681,6 +15821,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190356Z" creationid="makenowjust" creationdate="20200419T190331Z">
         <seg>ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (&lt;g2&gt;\u0000&lt;/g2&gt; to &lt;g3&gt;\uFFFF&lt;/g3&gt;) かひげ括弧で囲った6つまでの16進数の数値が利用できます (&lt;g4&gt;\u{0}&lt;/g4&gt; to &lt;g5&gt;\u{10FFFF}&lt;/g5&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It consists of a string of UTF-8 character enclosed in forward slashes (&lt;g2&gt;/&lt;/g2&gt;):</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041152Z" creationid="makenowjust" creationdate="20200421T040543Z">
+        <seg>リテラルとしては、UTF-8の文字列をスラッシュ (&lt;g2&gt;/&lt;/g2&gt;) で囲んで記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16331,6 +16479,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Modifiers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041506Z" creationid="makenowjust" creationdate="20200421T041506Z">
+        <seg>修飾子</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Modules serve two purposes:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T150909Z" creationid="hirofumiwakasugi" creationdate="20150911T130338Z">
@@ -16662,6 +16818,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T194010Z" creationid="makenowjust" creationdate="20200419T194010Z">
         <seg>&lt;g1&gt;%w&lt;/g1&gt;で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that special characters of the PCRE syntax need to be escaped if they are intended as literal characters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041251Z" creationid="makenowjust" creationdate="20200421T041251Z">
+        <seg>PCRE の構文上意味のある文字を通常の文字として扱いたい場合もエスケープが必要です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17179,6 +17343,14 @@ Earth::RADIUS #=&gt; 6_371_000
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Percent regex literals</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041525Z" creationid="makenowjust" creationdate="20200421T041525Z">
+        <seg>パーセント正規表現リテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Percent string array literal</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T193635Z" creationid="makenowjust" creationdate="20200419T193635Z">
@@ -17471,10 +17643,34 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Regular Expressions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T040354Z" creationid="makenowjust" creationdate="20200421T040354Z">
+        <seg>正規表現</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Regular expressions are represented by the &lt;g1&gt;Regex&lt;/g1&gt; class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T040416Z" creationid="makenowjust" creationdate="20200421T040402Z">
+        <seg>正規表現は&lt;g1&gt;Regex&lt;/g1&gt;クラスによって表現されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Regular expressions are represented by the [Regex](http://crystal-lang.org/api/Regex.html) class, which is usually created with a literal:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T015736Z" creationid="hirofumiwakasugi" creationdate="20150902T015736Z">
         <seg>正規表現 (Regular Expression) を表すのは [Regex](http://crystal-lang.org/api/Regex.html) クラスです。そして、通常それは以下の正規表現リテラルによって作られます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Regular expressions support the same &lt;g1&gt;escape sequences as String literals&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T040734Z" creationid="makenowjust" creationdate="20200421T040624Z">
+        <seg>正規表現では&lt;g1&gt;文字列リテラルと同様のエスケープシーケンス&lt;/g1&gt;をサポートしています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18850,6 +19046,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The closing delimiter may be followed by a number of optional modifiers to adjust the matching behaviour of the regular expression.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041719Z" creationid="makenowjust" creationdate="20200421T041613Z">
+        <seg>区切り文字を閉じたあとに、いくつかの修飾子を続けることで、正規表現のマッチの挙動を変更できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The command creates a static website in &lt;g1&gt;output_dir&lt;/g1&gt; (default &lt;g2&gt;./docs&lt;/g2&gt;), consisting of HTML files for each Crystal type,
 in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
@@ -19007,6 +19211,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T012919Z" creationid="hirofumiwakasugi" creationdate="20150904T012820Z">
         <seg>オブジェクトの定義は、突き詰めると以下に要約することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The delimiter character &lt;g1&gt;/&lt;/g1&gt; must be escaped inside slash-delimited regular expression literals.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T041224Z" creationid="makenowjust" creationdate="20200421T041137Z">
+        <seg>区切り文字である &lt;g1&gt;/&lt;/g1&gt; は正規表現中ではエスケープされる必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19900,6 +20112,14 @@ types defined by IEEE.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T005940Z" creationid="hirofumiwakasugi" creationdate="20151009T005833Z">
         <seg>これらは特に [C バインディング](c_bindings/index.html)を書くときに有効ですが、上記した箇所であればどこでも利用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These are handy to write regular expressions that include slashes which would have to be escaped in slash-delimited literals.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042412Z" creationid="makenowjust" creationdate="20200421T042412Z">
+        <seg>スラッシュを含むような正規表現を書くのにこれらのリテラルは便利です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21272,6 +21492,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T052402Z" creationid="hirofumiwakasugi" creationdate="20150901T052402Z">
         <seg>アンダースコアは、数値を読みやすくするためにも利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unescaped hash characters &lt;g3&gt;#&lt;/g3&gt; denote the start of a comment ranging to the end of the line.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T042159Z" creationid="makenowjust" creationdate="20200421T042159Z">
+        <seg>また、エスケープされていないハッシュ &lt;g3&gt;#&lt;/g3&gt; は行コメントの始まりと見なされ、次の改行文字まで飛ばしてマッチを行います。</seg>
       </tuv>
     </tu>
     <tu>
