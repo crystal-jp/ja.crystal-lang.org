@@ -1,24 +1,24 @@
-# Range
+# 範囲 (Range)
 
-A [Range](http://crystal-lang.org/api/Range.html) represents an interval between two values. It is typically constructed with a range literal, consisting of two or three dots:
+[Range](http://crystal-lang.org/api/Range.html)は2つ値の区間を表します。通常、範囲は2つもしくは3つのドットからなる範囲リテラルによって生成されます。
 
-* `x..y`: Two dots denote an inclusive range, including `x` and `y` and all values in between (in mathematics: `[x, y]`) .
-* `x...y`: Three dots denote an exclusive range, including `x` and all values up to but not including `y` (in mathematics: `[x, y)`).
+* `x..y`: 2つのドットは右の値を含む範囲を表します。つまり`x`と`y`、およびその間のすべての値を含みます (数学的には閉区間 `[x, y]` です)。
+* `x...y`: 3つのドットは右の値を含まない範囲を表します。つまり`x`と`y`までの値すべてを含みます (数学的には左閉右開区間 `[x, y)` です)。
 
 ```cr
 (0..5).to_a  # => [0, 1, 2, 3, 4, 5]
 (0...5).to_a # => [0, 1, 2, 3, 4]
 ```
 
-**NOTE:** Range literals are often wrapped in parentheses, for example if it is meant to be used as the receiver of a call. `0..5.to_a` without parentheses would be semantically equivalent to `0..(5.to_a)` because method calls and other operators have higher precedence than the range literal.
+**注意:** 範囲リテラルをレシーバにしてメソッド呼び出しを続けるような場合、範囲リテラルを括弧で囲う必要があります。`0..5.to_a` のように括弧で囲わなかった場合、範囲リテラルよりもメソッド呼び出しの方が優先度が高いため `0..(5.to_a)` として解釈されます。
 
-An easy way to remember which one is inclusive and which one is exclusive it to think of the extra dot as if it pushes *y* further away, thus leaving it outside of the range.
+上記の「右の値を含む/含まない」記法の簡単な覚え方を紹介します。ドットが1つ多くついていると、それだけ*y*が外に押し出されているのをイメージしてください。だから、そのとき範囲に*y*は含まれないのです。
 
-The literal `x..y` is semantically equivalent to the explicit constructor `Range.new(x, y)` and `x...y` to `Range.new(x, y, true)`.
+明示的にコンストラクタを呼ぶ場合、`x..y` は `Range.new(x, y)` と等しく、 `x...y` は`Range.new(x, y, true)` と等しいです。
 
-The begin and end values do not necessarily need to be of the same type: `true..1` is a valid range, although pretty useless `Enumerable` methods won't work with incompatible types. They need at least to be comparable.
+右と左の値は必ずしも同じ型である必要はありません。例えば `true..1` は有効な範囲です。しかしこの場合2つの型は比較不能のため、 `Enumerable` のメソッド群がほとんど使えず、あまり便利な場面はありません。2つの型は少なくとも比較可能である方が好ましいです。
 
-Ranges with `nil` as begin are called begin-less and `nil` as end are called end-less ranges. In the literal notation, `nil` can be omitted: `x..` is an end-less range starting from `x`, and `..x` is an begin-less range ending at `x`.
+左の値として`nil`が与えられた範囲を begin-less 範囲、右の値として `nil` が与えられた範囲を end-less 範囲と呼びます。リテラルを書く上では `nil` は省略できます。つまり `x..` は `x` から始まる end-less 範囲で、`..x` は`x`で終わる begin-less 範囲です。
 
 ```cr
 numbers = [1, 10, 3, 4, 5, 8]
@@ -29,4 +29,4 @@ numbers[2..] = [3, 4, 5, 8]
 numbers[..2] = [1, 10, 3]
 ```
 
-A range that is both begin-less and end-less is valid and can be expressed as `..` or `...` but it's typically not very useful.
+`..` や `...` のような begin-less かつ end-less な範囲もリテラルとして有効ですが、あまり使いどころはないでしょう。

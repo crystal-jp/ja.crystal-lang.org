@@ -5063,6 +5063,16 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>(0..5).to_a  # =&gt; [0, 1, 2, 3, 4, 5]
+(0...5).to_a # =&gt; [0, 1, 2, 3, 4]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T034445Z" creationid="makenowjust" creationdate="20200421T034445Z">
+        <seg>(0..5).to_a  # =&gt; [0, 1, 2, 3, 4, 5]
+(0...5).to_a # =&gt; [0, 1, 2, 3, 4]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>* C (the default)
 * Fast
 * Cold
@@ -8753,6 +8763,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; Range literals are often wrapped in parentheses, for example if it is meant to be used as the receiver of a call.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T034529Z" creationid="makenowjust" creationdate="20200421T034529Z">
+        <seg>&lt;g1&gt;注意:&lt;/g1&gt; 範囲リテラルをレシーバにしてメソッド呼び出しを続けるような場合、範囲リテラルを括弧で囲う必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;NamedTuple&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170323Z" creationid="makenowjust" creationdate="20200413T170323Z">
@@ -9721,6 +9739,22 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;x...y&lt;/g1&gt;: Three dots denote an exclusive range, including &lt;g2&gt;x&lt;/g2&gt; and all values up to but not including &lt;g3&gt;y&lt;/g3&gt; (in mathematics: &lt;g4&gt;[x, y)&lt;/g4&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035016Z" creationid="makenowjust" creationdate="20200421T034412Z">
+        <seg>&lt;g1&gt;x...y&lt;/g1&gt;: 3つのドットは右の値を含まない範囲を表します。つまり&lt;g2&gt;x&lt;/g2&gt;と&lt;g3&gt;y&lt;/g3&gt;までの値すべてを含みます (数学的には左閉右開区間 &lt;g4&gt;[x, y)&lt;/g4&gt; です)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;x..y&lt;/g1&gt;: Two dots denote an inclusive range, including &lt;g2&gt;x&lt;/g2&gt; and &lt;g3&gt;y&lt;/g3&gt; and all values in between (in mathematics: &lt;g4&gt;[x, y]&lt;/g4&gt;) .</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T034309Z" creationid="makenowjust" creationdate="20200421T034309Z">
+        <seg>&lt;g1&gt;x..y&lt;/g1&gt;: 2つのドットは右の値を含む範囲を表します。つまり&lt;g2&gt;x&lt;/g2&gt;と&lt;g3&gt;y&lt;/g3&gt;、およびその間のすべての値を含みます (数学的には閉区間 &lt;g4&gt;[x, y]&lt;/g4&gt; です)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;{"foo" =&gt; 2}&lt;/g1&gt;, &lt;g2&gt;{} of String =&gt; Int32&lt;/g2&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000447Z" creationid="makenowjust" creationdate="20200414T000447Z">
@@ -9749,6 +9783,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170648Z" creationid="makenowjust" creationdate="20200413T170648Z">
         <seg>&lt;g1&gt;||&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g2&gt;0..5.to_a&lt;/g2&gt; without parentheses would be semantically equivalent to &lt;g3&gt;0..(5.to_a)&lt;/g3&gt; because method calls and other operators have higher precedence than the range literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T034628Z" creationid="makenowjust" creationdate="20200421T034628Z">
+        <seg>&lt;g2&gt;0..5.to_a&lt;/g2&gt; のように括弧で囲わなかった場合、範囲リテラルよりもメソッド呼び出しの方が優先度が高いため &lt;g3&gt;0..(5.to_a)&lt;/g3&gt; として解釈されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10193,6 +10235,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T174939Z" creationid="makenowjust" creationdate="20200420T174912Z">
         <seg>&lt;g1&gt;Hash&lt;/g1&gt;は&lt;g2&gt;K&lt;/g2&gt;型のキーと&lt;g3&gt;V&lt;/g3&gt;型の値のペアの対応付けからなるジェネリックなコレクションです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Range&lt;/g1&gt; represents an interval between two values.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T033759Z" creationid="makenowjust" creationdate="20200421T033759Z">
+        <seg>&lt;g1&gt;Range&lt;/g1&gt;は2つ値の区間を表します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10823,6 +10873,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A range that is both begin-less and end-less is valid and can be expressed as &lt;g1&gt;..&lt;/g1&gt; or &lt;g2&gt;...&lt;/g2&gt; but it's typically not very useful.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035825Z" creationid="makenowjust" creationdate="20200421T035825Z">
+        <seg>&lt;g1&gt;..&lt;/g1&gt; や &lt;g2&gt;...&lt;/g2&gt; のような begin-less かつ end-less な範囲もリテラルとして有効ですが、あまり使いどころはないでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A real-world example of a recursive type is json:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071427Z" creationid="hirofumiwakasugi" creationdate="20150919T071400Z">
@@ -11403,6 +11461,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T015144Z" creationid="hirofumiwakasugi" creationdate="20150902T014911Z">
         <seg>上記の「右側の値を含む/含まない」記法の簡単な覚え方を紹介します。ドットが1つ多くついているから、それだけ *y* が遠くに押し出されているのをイメージしてください。だからそのとき遠くの *y* は範囲に含まれない、というわけです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An easy way to remember which one is inclusive and which one is exclusive it to think of the extra dot as if it pushes &lt;g1&gt;y&lt;/g1&gt; further away, thus leaving it outside of the range.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035153Z" creationid="makenowjust" creationdate="20200421T035153Z">
+        <seg>上記の「右の値を含む/含まない」記法の簡単な覚え方を紹介します。ドットが1つ多くついていると、それだけ&lt;g1&gt;y&lt;/g1&gt;が外に押し出されているのをイメージしてください。だから、そのとき範囲に&lt;g1&gt;y&lt;/g1&gt;は含まれないのです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15251,6 +15317,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the literal notation, &lt;g3&gt;nil&lt;/g3&gt; can be omitted: &lt;g4&gt;x..&lt;/g4&gt; is an end-less range starting from &lt;g5&gt;x&lt;/g5&gt;, and &lt;g6&gt;..x&lt;/g6&gt; is an begin-less range ending at &lt;g7&gt;x&lt;/g7&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035741Z" creationid="makenowjust" creationdate="20200421T035741Z">
+        <seg>リテラルを書く上では &lt;g3&gt;nil&lt;/g3&gt; は省略できます。つまり &lt;g4&gt;x..&lt;/g4&gt; は &lt;g5&gt;x&lt;/g5&gt; から始まる end-less 範囲で、&lt;g6&gt;..x&lt;/g6&gt; は&lt;g7&gt;x&lt;/g7&gt;で終わる begin-less 範囲です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the next sections a dollar sign (`$`) denotes the command line.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T071925Z" creationid="hirofumiwakasugi" creationdate="20150901T071925Z">
@@ -15695,6 +15769,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
         <seg>ヒアドキュメントの直後にそれに対するメソッド呼び出しを続けたり、括弧の中でヒアドキュメントを使うことも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is typically constructed with a range literal, consisting of two or three dots:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T033825Z" creationid="makenowjust" creationdate="20200421T033825Z">
+        <seg>通常、範囲は2つもしくは3つのドットからなる範囲リテラルによって生成されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17185,6 +17267,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023548Z" creationid="hirofumiwakasugi" creationdate="20150907T023519Z">
         <seg>例外を発生させることはメモリの割り当てを伴うので、一般的に例外処理は遅くなる傾向があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Range</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T033744Z" creationid="makenowjust" creationdate="20200421T033744Z">
+        <seg>範囲 (Range)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Ranges with &lt;g1&gt;nil&lt;/g1&gt; as begin are called begin-less and &lt;g2&gt;nil&lt;/g2&gt; as end are called end-less ranges.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035630Z" creationid="makenowjust" creationdate="20200421T035630Z">
+        <seg>左の値として&lt;g1&gt;nil&lt;/g1&gt;が与えられた範囲を begin-less 範囲、右の値として &lt;g2&gt;nil&lt;/g2&gt; が与えられた範囲を end-less 範囲と呼びます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18696,6 +18794,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The begin and end values do not necessarily need to be of the same type: &lt;g1&gt;true..1&lt;/g1&gt; is a valid range, although pretty useless &lt;g2&gt;Enumerable&lt;/g2&gt; methods won't work with incompatible types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035445Z" creationid="makenowjust" creationdate="20200421T035445Z">
+        <seg>右と左の値は必ずしも同じ型である必要はありません。例えば &lt;g1&gt;true..1&lt;/g1&gt; は有効な範囲です。しかしこの場合2つの型は比較不能のため、 &lt;g2&gt;Enumerable&lt;/g2&gt; のメソッド群がほとんど使えず、あまり便利な場面はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The best examples of this are [Enumerable#map](http://crystal-lang.org/api/Enumerable.html#map%28%26block%20%3A%20T%20-%3E%20U%29-instance-method) and [Enumerable#select](http://crystal-lang.org/api/Enumerable.html#select%28%26block%20%3A%20T%20-%3E%20%29-instance-method):</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023811Z" creationid="hirofumiwakasugi" creationdate="20150916T023734Z">
@@ -19151,6 +19257,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T074512Z" creationid="hirofumiwakasugi" creationdate="20150919T074401Z">
         <seg>有効な呼出規約は以下のとおりです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The literal &lt;g1&gt;x..y&lt;/g1&gt; is semantically equivalent to the explicit constructor &lt;g2&gt;Range.new(x, y)&lt;/g2&gt; and &lt;g3&gt;x...y&lt;/g3&gt; to &lt;g4&gt;Range.new(x, y, true)&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035300Z" creationid="makenowjust" creationdate="20200421T035300Z">
+        <seg>明示的にコンストラクタを呼ぶ場合、&lt;g1&gt;x..y&lt;/g1&gt; は &lt;g2&gt;Range.new(x, y)&lt;/g2&gt; と等しく、 &lt;g3&gt;x...y&lt;/g3&gt; は&lt;g4&gt;Range.new(x, y, true)&lt;/g4&gt; と等しいです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19898,6 +20012,14 @@ types defined by IEEE.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055321Z" creationid="hirofumiwakasugi" creationdate="20150913T055321Z">
         <seg>定数の先頭は大文字である必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They need at least to be comparable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035513Z" creationid="makenowjust" creationdate="20200421T035508Z">
+        <seg>2つの型は少なくとも比較可能である方が好ましいです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35872,6 +35994,24 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T045919Z" creationid="hirofumiwakasugi" creationdate="20151007T045919Z">
         <seg>node : Node*</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>numbers = [1, 10, 3, 4, 5, 8]
+numbers.select(6..) # =&gt; [10, 8]
+numbers.select(..6) # =&gt; [1, 3, 4, 5]
+
+numbers[2..] = [3, 4, 5, 8]
+numbers[..2] = [1, 10, 3]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200421T035742Z" creationid="makenowjust" creationdate="20200421T035742Z">
+        <seg>numbers = [1, 10, 3, 4, 5, 8]
+numbers.select(6..) # =&gt; [10, 8]
+numbers.select(..6) # =&gt; [1, 3, 4, 5]
+
+numbers[2..] = [3, 4, 5, 8]
+numbers[..2] = [1, 10, 3]</seg>
       </tuv>
     </tu>
     <tu>

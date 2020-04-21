@@ -166,7 +166,7 @@ ones.
 <td><code>||</code></td>
 </tr>
 <tr>
-<td>Range</td>
+<td>範囲 (Range)</td>
 <td><code>..</code>, <code>...</code></td>
 </tr>
 <tr>
@@ -324,7 +324,7 @@ proven faster than equality).
 </tbody>
 </table>
 
-### Range
+### 範囲 (Range)
 
 The range operators are used in [Range](literals/range.md)
 literals.
