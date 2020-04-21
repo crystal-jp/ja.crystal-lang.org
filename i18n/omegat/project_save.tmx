@@ -10189,6 +10189,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Hash&lt;/g1&gt; is a generic collection of key-value pairs mapping keys of type &lt;g2&gt;K&lt;/g2&gt; to values of type &lt;g3&gt;V&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T174939Z" creationid="makenowjust" creationdate="20200420T174912Z">
+        <seg>&lt;g1&gt;Hash&lt;/g1&gt;は&lt;g2&gt;K&lt;/g2&gt;型のキーと&lt;g3&gt;V&lt;/g3&gt;型の値のペアの対応付けからなるジェネリックなコレクションです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;String&lt;/g1&gt; represents an immutable sequence of UTF-8 characters.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T191432Z" creationid="makenowjust" creationdate="20200419T191432Z">
@@ -12794,6 +12802,14 @@ Counter.instances #=&gt; 3
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Crystal supports an additional literal for hashes and hash-like types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175914Z" creationid="makenowjust" creationdate="20200420T175914Z">
+        <seg>Crystal はさらにハッシュライクな型のためのリテラルをサポートしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Crystal top sponsors</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221957Z" creationid="makenowjust" creationdate="20200413T221957Z">
@@ -13003,6 +13019,14 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Empty hash literals always need type specifications:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175829Z" creationid="makenowjust" creationdate="20200420T175829Z">
+        <seg>空のハッシュリテラルは常に型を指定する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Enums are a type-safe alternative to [Symbol](http://crystal-lang.org/api/Symbol.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012004Z" creationid="hirofumiwakasugi" creationdate="20150916T011713Z">
@@ -13136,6 +13160,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T165202Z" creationid="makenowjust" creationdate="20200419T165202Z">
         <seg>Expected: true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Explicit types can be specified by immediately following the closing bracket with &lt;g1&gt;of&lt;/g1&gt; (separated by whitespace), a key type (&lt;g2&gt;K&lt;/g2&gt;) followed by &lt;g3&gt;=&gt;&lt;/g3&gt; as delimiter and a value type (&lt;g4&gt;V&lt;/g4&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175704Z" creationid="makenowjust" creationdate="20200420T175704Z">
+        <seg>閉じひげ括弧のあとに続けて&lt;g1&gt;of&lt;/g1&gt;とキーの型 (&lt;g2&gt;K&lt;/g2&gt;)、さらに &lt;g3&gt;=&gt;&lt;/g3&gt; に続けて値の型 (&lt;g4&gt;V&lt;/g4&gt;) を置くことで、明示的に型を指定することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13306,6 +13338,22 @@ Foo.new.yield_normally { one }  # =&gt; "one"
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T174630Z" creationid="makenowjust" creationdate="20200420T173722Z">
         <seg>ジェネリック型である&lt;g1&gt;Set&lt;/g1&gt;に対しては、ジェネリック型 &lt;g2&gt;T&lt;/g2&gt; が配列リテラルと同様の方法で要素の型から推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For a generic type, the generic types are inferred from the types of the keys and values in the same way as with the hash literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180533Z" creationid="makenowjust" creationdate="20200420T180533Z">
+        <seg>ジェネリック型の場合、型引数はハッシュリテラルと同様の方法でキーと値の型から推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For a non-generic type like &lt;g1&gt;HTTP::Headers&lt;/g1&gt;, this is equivalent to:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180255Z" creationid="makenowjust" creationdate="20200420T180255Z">
+        <seg>ジェネリック型でない型&lt;g1&gt;HTTP::Headers&lt;/g1&gt;に対しては、上の例は以下と等しいものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13745,6 +13793,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>HTTP::Headers{"foo" =&gt; "bar"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180228Z" creationid="makenowjust" creationdate="20200420T180228Z">
+        <seg>HTTP::Headers{"foo" =&gt; "bar"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>HTTP::Response.ok "text/plain", "Hello world! The time is #{Time.now}"
 end</seg>
       </tuv>
@@ -13817,6 +13873,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Hash</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T174742Z" creationid="makenowjust" creationdate="20200420T174742Z">
+        <seg>ハッシュ (Hash)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Hash(String, Type)
 end
 ```</seg>
@@ -13825,6 +13889,30 @@ end
         <seg>Hash(String, Type)
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hash-like Type Literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175838Z" creationid="makenowjust" creationdate="20200420T175838Z">
+        <seg>ハッシュライクな型のリテラル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hashes are typically created with a hash literal denoted by curly braces (&lt;g1&gt;{ }&lt;/g1&gt;) enclosing a list of pairs using &lt;g2&gt;=&gt;&lt;/g2&gt; as delimiter between key and value and separated by commas &lt;g3&gt;,&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175320Z" creationid="makenowjust" creationdate="20200420T175046Z">
+        <seg>ハッシュは通常、ひげ括弧 (&lt;g1&gt;{ }&lt;/g1&gt;) に囲われた中に、キーと値を &lt;g2&gt;=&gt;&lt;/g2&gt; で組にしてコンマ &lt;g3&gt;,&lt;/g3&gt; で区切って並べたものである、ハッシュリテラルによって生成されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hash{"one" =&gt; 1, "two" =&gt; 2}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180031Z" creationid="makenowjust" creationdate="20200420T180031Z">
+        <seg>Hash{"one" =&gt; 1, "two" =&gt; 2}</seg>
       </tuv>
     </tu>
     <tu>
@@ -14077,6 +14165,14 @@ Set{1, 2, 3}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T170714Z" creationid="makenowjust" creationdate="20200419T170714Z">
         <seg>&lt;g11&gt;CRYSTAL_CACHE_DIR&lt;/g11&gt;で指定されたパスが書き込み不可能だった場合もデフォルト値が代わりに利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If &lt;g1&gt;MyHash&lt;/g1&gt; is generic, the above is equivalent to this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180557Z" creationid="makenowjust" creationdate="20200420T180557Z">
+        <seg>ここで&lt;g1&gt;MyHash&lt;/g1&gt;がジェネリック型であれば、上の例は以下と等しいものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15515,6 +15611,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It consists of the name of the type followed by a list of  comma separated key-value pairs enclosed in curly braces (&lt;g1&gt;{}&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180029Z" creationid="makenowjust" creationdate="20200420T180029Z">
+        <seg>型の名前のあとに続けたひげ括弧 (&lt;g1&gt;{}&lt;/g1&gt;) の中に、コンマ区切りのキーと値の組を並べることで利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It consists of the name of the type followed by a list of elements enclosed in curly braces (&lt;g1&gt;{}&lt;/g1&gt;) and individual elements separated by a comma (&lt;g2&gt;,&lt;/g2&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T174210Z" creationid="makenowjust" creationdate="20200420T173502Z">
@@ -16263,6 +16367,22 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>MyHash(String, String | Int32){"foo" =&gt; "bar"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180600Z" creationid="makenowjust" creationdate="20200420T180600Z">
+        <seg>MyHash(String, String | Int32){"foo" =&gt; "bar"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>MyHash{"foo" =&gt; 1, "bar" =&gt; "baz"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180534Z" creationid="makenowjust" creationdate="20200420T180534Z">
+        <seg>MyHash{"foo" =&gt; 1, "bar" =&gt; "baz"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>NOTE</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214455Z" creationid="makenowjust" creationdate="20200412T214455Z">
@@ -16871,6 +16991,14 @@ specifying the current working directory.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173034Z" creationid="makenowjust" creationdate="20200420T173034Z">
         <seg>そうでなければ、すべての要素の型のユニオン型となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Otherwise it will be a union of all key types or value types respectively.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180735Z" creationid="makenowjust" creationdate="20200420T175604Z">
+        <seg>そうでなければ、すべてのキーの型のユニオン型ないし値の型のユニオン型となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18947,6 +19075,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The generic type arguments for keys &lt;g1&gt;K&lt;/g1&gt; and values &lt;g2&gt;V&lt;/g2&gt; are inferred from the types of the keys or values inside the literal, respectively.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175514Z" creationid="makenowjust" creationdate="20200420T175514Z">
+        <seg>キーの型の &lt;g1&gt;K&lt;/g1&gt; と値の型の &lt;g2&gt;V&lt;/g2&gt; というジェネリック型引数は、それぞれリテラル中のキーと値の型から推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The heredoc starts in the following line and ends with the next line that starts with the heredoc identifier (ignoring leading whitespace) and is either followed by a newline or a non-alphanumeric character.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T033757Z" creationid="makenowjust" creationdate="20200420T033551Z">
@@ -20107,8 +20243,16 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       <tuv lang="EN-US">
         <seg>This literal can be used with any type as long as it has an argless constructor and responds to &lt;g1&gt;&lt;&lt;&lt;/g1&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200420T174225Z" creationid="makenowjust" creationdate="20200420T173552Z">
-        <seg>引数を持たないコンストラクタと&lt;g1&gt;&lt;&lt;&lt;/g1&gt;を持つ任意の型に対して、この構文は利用できます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180221Z" creationid="makenowjust" creationdate="20200420T173552Z">
+        <seg>引数を持たないコンストラクタと&lt;g1&gt;&lt;&lt;&lt;/g1&gt;メソッドを持つ任意の型に対して、この構文は利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This literal can be used with any type as long as it has an argless constructor and responds to &lt;g1&gt;[]=&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180154Z" creationid="makenowjust" creationdate="20200420T180154Z">
+        <seg>引数を持たないコンストラクタと&lt;g1&gt;[]=&lt;/g1&gt;メソッドを持つ任意の型に対して、この構文は利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20181,6 +20325,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T174023Z" creationid="makenowjust" creationdate="20200420T173237Z">
         <seg>これは推論された型を置き換えるので、生成時には同じ型しか入っていないけれど、あとで別の型が入ってくるような場合に対応できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This overwrites the inferred types and can be used for example to create a hash that holds only some types initially but can accept other types as well.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175810Z" creationid="makenowjust" creationdate="20200420T175810Z">
+        <seg>これは推論された型を置き換えるので、初期化時には同じ型のみを持っているが、他の型も受け入れる必要があるようなハッシュを生成したい場合に対応できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21475,6 +21627,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173013Z" creationid="makenowjust" creationdate="20200420T173013Z">
         <seg>すべての要素が同じ型を持っていた場合、&lt;g2&gt;T&lt;/g2&gt;はそれに等しくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When all have the same type, &lt;g3&gt;K&lt;/g3&gt;/&lt;g4&gt;V&lt;/g4&gt; equals to that.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175532Z" creationid="makenowjust" creationdate="20200420T175532Z">
+        <seg>すべて同じ型であれば、&lt;g3&gt;K&lt;/g3&gt;および&lt;g4&gt;V&lt;/g4&gt;はそれに等しくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34670,6 +34830,16 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>headers = HTTP::Headers.new
+headers["foo"] = "bar"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180256Z" creationid="makenowjust" creationdate="20200420T180256Z">
+        <seg>headers = HTTP::Headers.new
+headers["foo"] = "bar"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>hello</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034039Z" creationid="makenowjust" creationdate="20200420T034039Z">
@@ -35592,6 +35762,18 @@ model.save # "Saved!" と出力
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T205020Z" creationid="makenowjust" creationdate="20200412T205020Z">
         <seg>module Scorecard</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>my_hash = MyHash(typeof("foo", "bar"), typeof(1, "baz")).new
+my_hash["foo"] = 1
+my_hash["bar"] = "baz"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T180558Z" creationid="makenowjust" creationdate="20200420T180558Z">
+        <seg>my_hash = MyHash(typeof("foo", "bar"), typeof(1, "baz")).new
+my_hash["foo"] = 1
+my_hash["bar"] = "baz"</seg>
       </tuv>
     </tu>
     <tu>
@@ -38238,6 +38420,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{"one" =&gt; 1, "two" =&gt; 2}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175322Z" creationid="makenowjust" creationdate="20200420T175322Z">
+        <seg>{"one" =&gt; 1, "two" =&gt; 2}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% assign articles = site.posts | where_exp: "item","item.release_notes != true" %} {% for post in articles limit: 3 %} {% include blog_row.html post=post %} {% endfor %}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222643Z" creationid="makenowjust" creationdate="20200413T222643Z">
@@ -38503,6 +38693,16 @@ require "http/server"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{1 =&gt; 2, 3 =&gt; 4}   # Hash(Int32, Int32)
+{1 =&gt; 2, 'a' =&gt; 3} # Hash(Int32 | Char, Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175605Z" creationid="makenowjust" creationdate="20200420T175605Z">
+        <seg>{1 =&gt; 2, 3 =&gt; 4}   # Hash(Int32, Int32)
+{1 =&gt; 2, 'a' =&gt; 3} # Hash(Int32 | Char, Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{{ 'bounty.png' | asset_path }}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T210328Z" creationid="makenowjust" creationdate="20200413T210328Z">
@@ -38595,6 +38795,14 @@ puts build_date{% endhighlight %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040429Z" creationid="hirofumiwakasugi" creationdate="20151001T040429Z">
         <seg>{{value}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{} of Int32 =&gt; Int32 # =&gt; Hash(Int32, Int32).new</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200420T175831Z" creationid="makenowjust" creationdate="20200420T175831Z">
+        <seg>{} of Int32 =&gt; Int32 # =&gt; Hash(Int32, Int32).new</seg>
       </tuv>
     </tu>
     <tu>
