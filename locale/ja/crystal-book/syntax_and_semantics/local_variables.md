@@ -1,4 +1,4 @@
-# Local variables
+# ローカル変数
 
 変数名の先頭が小文字の変数はローカル変数です。その宣言は、はじめて値が代入されたときに行われます。
 
@@ -13,10 +13,10 @@ age = 1
 
 ```crystal
 flower = "Tulip"
-# At this point 'flower' is a String
+# この時点では flower は String 型
 
 flower = 1
-# At this point 'flower' is an Int32
+# この時点では 'flower' は Int32 型
 ```
 
 アンダースコアを変数名の先頭につけることも可能ですが、それらの名前はコンパイラによって予約されているため、先頭がアンダースコアの変数名は推奨されません (コードの見た目や読みやすさという点でもあまり美しくないですよね) 。

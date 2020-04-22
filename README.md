@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 31/125
+翻訳済み/全体 = 32/125
 
 <details>
 
@@ -52,7 +52,7 @@
 | `crystal-book/syntax_and_semantics/literals/proc.md`                                                | ○    |
 | `crystal-book/syntax_and_semantics/literals/command.md`                                             | ○    |
 | `crystal-book/syntax_and_semantics/assignment.md`                                                   | ○    |
-| `crystal-book/syntax_and_semantics/local_variables.md`                                              | △    |
+| `crystal-book/syntax_and_semantics/local_variables.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/control_expressions.md`                                          | ×    |
 | `crystal-book/syntax_and_semantics/truthy_and_falsey_values.md`                                     | △    |
 | `crystal-book/syntax_and_semantics/if.md`                                                           | △    |
