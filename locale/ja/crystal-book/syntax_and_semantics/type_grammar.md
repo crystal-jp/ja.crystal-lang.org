@@ -75,7 +75,7 @@ alias Int32_8 = StaticArray(Int32, 8)
 
 In regular code, `Int32[8]` means invoking the `[]` method on `Int32` with `8` as an argument.
 
-## Tuple
+## タプル (Tuple)
 
 ```crystal
 alias Int32StringTuple = {Int32, String}

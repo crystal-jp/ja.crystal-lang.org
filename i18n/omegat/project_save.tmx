@@ -828,6 +828,16 @@ if (a = @a).responds_to?(:abs)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># An array of tuples of Int32, String and Char
+Array({Int32, String, Char})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165146Z" creationid="makenowjust" creationdate="20200422T165146Z">
+        <seg># Int32、String、Char のタプルの配列の型
+Array({Int32, String, Char})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># An indexed assignment
 objects.[]=(2, 3)</seg>
       </tuv>
@@ -2336,6 +2346,16 @@ while !some_condition</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054447Z" creationid="hirofumiwakasugi" creationdate="20150902T054433Z">
         <seg># 上記は以下の演算子でも有効
 # +, -, *, /, %, |, &amp;, ^, **, &lt;&lt;, &gt;&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># The type denoting a tuple of Int32, String and Char
+Tuple(Int32, String, Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165007Z" creationid="makenowjust" creationdate="20200422T164945Z">
+        <seg># Int32、String、Char のタプルの型を表す
+Tuple(Int32, String, Char)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10363,6 +10383,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Tuple&lt;/g1&gt; is typically created with a tuple literal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T164921Z" creationid="makenowjust" creationdate="20200422T164921Z">
+        <seg>&lt;g1&gt;Tuple&lt;/g1&gt;は通常タプルリテラルによって生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;here document&lt;/g1&gt; or &lt;g2&gt;heredoc&lt;/g2&gt; can be useful for writing strings spanning over multiple lines.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T033420Z" creationid="makenowjust" creationdate="20200420T033420Z">
@@ -15581,6 +15609,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T114215Z" creationid="hirofumiwakasugi" creationdate="20150906T113517Z">
         <seg>このように、デフォルト引数と名前付き引数には密接な関係があります。つまり、デフォルト引数を指定した場合、同事に呼び出し側がその名前で引数を指定できるようになるということです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In type restrictions, generic type arguments and other places where a type is expected, you can use a shorter syntax, as explained in the &lt;g1&gt;type grammar&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165341Z" creationid="makenowjust" creationdate="20200422T165130Z">
+        <seg>型制約の中やジェネリック型の型引数など型が期待される場所であれば、より短かい記法でこの型を書くことができます。詳細は&lt;g1&gt;型の文法&lt;/g1&gt;で説明しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20982,6 +21018,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To create an empty tuple use &lt;g1&gt;Tuple.new&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T164934Z" creationid="makenowjust" creationdate="20200422T164934Z">
+        <seg>空のタプルを作るには&lt;g1&gt;Tuple.new&lt;/g1&gt;を使ってください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To create an empty tuple use [Tuple.new](http://crystal-lang.org/api/Tuple.html#new%28%2Aargs%29-class-method).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T020813Z" creationid="hirofumiwakasugi" creationdate="20150902T020813Z">
@@ -21050,6 +21094,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034422Z" creationid="makenowjust" creationdate="20200420T034147Z">
         <seg>ヒアドキュメントの中で補間やエスケープを禁止したい場合、ヒアドキュメント冒頭の識別子をシングルクォートで囲ってください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To denote a tuple type you can write:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T164944Z" creationid="makenowjust" creationdate="20200422T164944Z">
+        <seg>タプルの型は次のようして書けます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21404,6 +21456,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T030646Z" creationid="hirofumiwakasugi" creationdate="20150917T030547Z">
         <seg>もし `yield` で十分な場合には、このようなブロックのフォワーディングは使わないようにしましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Tuple</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T164905Z" creationid="makenowjust" creationdate="20200422T164905Z">
+        <seg>タプル (Tuple)</seg>
       </tuv>
     </tu>
     <tu>
@@ -38088,6 +38148,20 @@ false # A Bool that is false</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T001212Z" creationid="makenowjust" creationdate="20200414T001143Z">
         <seg>true  # 真の Bool 値
 false # 偽の Bool 値</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
+tuple[0]                  # =&gt; 1       (Int32)
+tuple[1]                  # =&gt; "hello" (String)
+tuple[2]                  # =&gt; 'x'     (Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T164922Z" creationid="makenowjust" creationdate="20200422T164922Z">
+        <seg>tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
+tuple[0]                  # =&gt; 1       (Int32)
+tuple[1]                  # =&gt; "hello" (String)
+tuple[2]                  # =&gt; 'x'     (Char)</seg>
       </tuv>
     </tu>
     <tu>
