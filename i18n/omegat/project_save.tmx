@@ -760,6 +760,28 @@ def number_of_horns</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># A Proc accepting a single Int32 argument and returning a String
+Proc(Int32, String)
+
+# A proc accepting no arguments and returning Void
+Proc(Void)
+
+# A proc accepting two arguments (one Int32 and one String) and returning a Char
+Proc(Int32, String, Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171910Z" creationid="makenowjust" creationdate="20200422T171536Z">
+        <seg># Int32 の引数を受け付けて、String を返す Proc の型を表す
+Proc(Int32, String)
+
+# 引数を受け付けず Void を返す Proc の型を表す
+Proc(Void)
+
+# Int32 と String という2つの引数を受け付け Char を返す Proc の型を表す
+Proc(Int32, String, Char)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># A bit more useful: any two arguments Proc that returns an Int32:
 def foo(x : _, _ -&gt; Int32)
 end
@@ -816,6 +838,28 @@ if (a = @a).responds_to?(:abs)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># A proc without arguments
+-&gt;{ 1 } # Proc(Int32)
+
+# A proc with one argument
+-&gt;(x : Int32) { x.to_s } # Proc(Int32, String)
+
+# A proc with two arguments:
+-&gt;(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171144Z" creationid="makenowjust" creationdate="20200422T171102Z">
+        <seg># 引数を持たない Proc
+-&gt;{ 1 } # Proc(Int32)
+
+# 1つの引数を持つ Proc
+-&gt;(x : Int32) { x.to_s } # Proc(Int32, String)
+
+# 2つの引数を持つ Proc
+-&gt;(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># A unicorn is a **legendary animal** (see the `Legendary` module) that has been
 # described since antiquity as a beast with a large, spiraling horn projecting
 # from its forehead.</seg>
@@ -824,6 +868,16 @@ if (a = @a).responds_to?(:abs)</seg>
         <seg># A unicorn is a **legendary animal** (see the `Legendary` module) that has been
 # described since antiquity as a beast with a large, spiraling horn projecting
 # from its forehead.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># An array of Proc(Int32, String, Char)
+Array(Int32, String -&gt; Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171851Z" creationid="makenowjust" creationdate="20200422T171847Z">
+        <seg># Proc(Int32, String, Char) の配列の型を表す
+Array(Int32, String -&gt; Char)</seg>
       </tuv>
     </tu>
     <tu>
@@ -7151,6 +7205,22 @@ end</seg>
       <tuv lang="EN-US">
         <seg>1
 end
+
+proc = -&gt;one
+proc.call # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172020Z" creationid="makenowjust" creationdate="20200422T172020Z">
+        <seg>1
+end
+
+proc = -&gt;one
+proc.call # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T073144Z" creationid="hirofumiwakasugi" creationdate="20150919T073144Z">
@@ -10387,6 +10457,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Proc&lt;/g1&gt; represents a function pointer with an optional context (the closure data).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171059Z" creationid="makenowjust" creationdate="20200422T171059Z">
+        <seg>&lt;g1&gt;Proc&lt;/g1&gt;は追加のコンテキスト (クロージャ) を持つ関数ポインタです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;Range&lt;/g1&gt; represents an interval between two values.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T033759Z" creationid="makenowjust" creationdate="20200421T033759Z">
@@ -11081,6 +11159,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072545Z" creationid="hirofumiwakasugi" creationdate="20150901T072545Z">
         <seg>もう少し興味深いプログラムを見てみましょう。こちらは HTTP サーバーの例になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A special &lt;g1&gt;new&lt;/g1&gt; method is provided too:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171400Z" creationid="makenowjust" creationdate="20200422T171314Z">
+        <seg>また、&lt;g1&gt;new&lt;/g1&gt; を使って Proc を作ることもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13951,6 +14037,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>From methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172018Z" creationid="makenowjust" creationdate="20200422T172018Z">
+        <seg>メソッドから Proc を生成する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>From this you can see that the main routine is simply the program itself: there's no need to define a "main" function or something similar.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072454Z" creationid="hirofumiwakasugi" creationdate="20150901T072454Z">
@@ -15657,6 +15751,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In type restrictions, generic type arguments and other places where a type is expected, you can use a shorter syntax, as explained in the &lt;g1&gt;type&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171839Z" creationid="makenowjust" creationdate="20200422T171839Z">
+        <seg>型制約やジェネリック型の型引数など型が期待される場所であれば、&lt;g1&gt;型の文法&lt;/g1&gt;で説明しているような短い記法で型を書けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Indicates the call convention of a [lib fun](c_bindings/fun.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T074352Z" creationid="hirofumiwakasugi" creationdate="20150919T074346Z">
@@ -15821,6 +15923,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T041326Z" creationid="makenowjust" creationdate="20200421T041326Z">
         <seg>文字列の補間は正規表現リテラル中でも&lt;g1&gt;文字列リテラル&lt;/g1&gt;の場合と同様に機能します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Invoking</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171920Z" creationid="makenowjust" creationdate="20200422T171920Z">
+        <seg>Proc の呼び出し</seg>
       </tuv>
     </tu>
     <tu>
@@ -17505,6 +17615,22 @@ Earth::RADIUS #=&gt; 6_371_000
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Proc</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170959Z" creationid="makenowjust" creationdate="20200422T170959Z">
+        <seg>Proc</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171401Z" creationid="makenowjust" creationdate="20200422T171401Z">
+        <seg>Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Programming Command Line Interface applications (CLI applications) is one of the most entertaining tasks a developer may do.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T163517Z" creationid="makenowjust" creationdate="20200413T163517Z">
@@ -18662,6 +18788,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The Proc type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171411Z" creationid="makenowjust" creationdate="20200422T171411Z">
+        <seg>Proc の型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The String version just creates a new [Exception](http://crystal-lang.org/api/Exception.html) instance with that message.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011436Z" creationid="hirofumiwakasugi" creationdate="20150907T011436Z">
@@ -19627,8 +19761,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The number of arguments must match the proc's type:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T022011Z" creationid="hirofumiwakasugi" creationdate="20150902T021953Z">
-        <seg>そのとき、引数の数は Proc の型と一致している必要があります。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172007Z" creationid="hirofumiwakasugi" creationdate="20150902T021953Z">
+        <seg>そのとき引数の型は Proc の型と一致している必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19763,7 +19897,7 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The return type is inferred from the proc's body.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T021428Z" creationid="hirofumiwakasugi" creationdate="20150902T021428Z">
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171338Z" creationid="hirofumiwakasugi" creationdate="20150902T021428Z">
         <seg>戻り値の型は Proc の内容から推論されます。</seg>
       </tuv>
     </tu>
@@ -19935,6 +20069,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T041330Z" creationid="hirofumiwakasugi" creationdate="20151001T041330Z">
         <seg>この変数の型は `TypeNode` で、コンパイル時の型情報にアクセスすることを可能にします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The types of the arguments are mandatory, except when directly sending a proc literal to a lib &lt;g1&gt;fun&lt;/g1&gt; in C bindings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171259Z" creationid="makenowjust" creationdate="20200422T171259Z">
+        <seg>引数の型指定は必須です。ただし、C原語バインディングの &lt;g1&gt;fun&lt;/g1&gt; に対して直接 Proc リテラルを渡すときだけは例外です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21142,6 +21284,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To denote a Proc type you can write:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171424Z" creationid="makenowjust" creationdate="20200422T171424Z">
+        <seg>Proc の型は次のようにして書けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To denote a heredoc without interpolation or escapes, the opening heredoc identifier is enclosed in single quotes:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034422Z" creationid="makenowjust" creationdate="20200420T034147Z">
@@ -21306,6 +21456,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173505Z" creationid="makenowjust" creationdate="20200419T173505Z">
         <seg>ソースコードからインストールするには、&lt;g1&gt;リポジトリ&lt;/g1&gt;からソースコードをダウンロードかクローンしてきて、&lt;g2&gt;make CRFLAGS=--release&lt;/g2&gt;を実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To invoke a Proc, you invoke the &lt;g1&gt;call&lt;/g1&gt; method on it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T171948Z" creationid="makenowjust" creationdate="20200422T171948Z">
+        <seg>Proc を呼び出す (実行する) ためには、&lt;g1&gt;call&lt;/g1&gt; メソッドを使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33886,6 +34044,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def plus_one(x)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172025Z" creationid="makenowjust" creationdate="20200422T172025Z">
+        <seg>def plus_one(x)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def print_greeting</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010358Z" creationid="hirofumiwakasugi" creationdate="20151010T010358Z">
@@ -36804,6 +36970,16 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>proc = -&gt;(x : Int32, y : Int32) { x + y }
+proc.call(1, 2) # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172008Z" creationid="makenowjust" creationdate="20200422T172008Z">
+        <seg>proc = -&gt;(x : Int32, y : Int32) { x + y }
+proc.call(1, 2) # =&gt; 3</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>proc = -&gt;one
 proc.call #=&gt; 1
 ```</seg>
@@ -38024,6 +38200,20 @@ rescue</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>str = "hello"
+proc = -&gt;str.count(Char)
+proc.call('e') # =&gt; 1
+proc.call('l') # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172029Z" creationid="makenowjust" creationdate="20200422T172029Z">
+        <seg>str = "hello"
+proc = -&gt;str.count(Char)
+proc.call('e') # =&gt; 1
+proc.call('l') # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>strawberry = true</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T180422Z" creationid="makenowjust" creationdate="20200413T180422Z">
@@ -38546,6 +38736,22 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T022126Z" creationid="hirofumiwakasugi" creationdate="20150902T022126Z">
         <seg>x + 1
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + 1
+end
+
+proc = -&gt;plus_one(Int32)
+proc.call(41) # =&gt; 42</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172026Z" creationid="makenowjust" creationdate="20200422T172026Z">
+        <seg>x + 1
+end
+
+proc = -&gt;plus_one(Int32)
+proc.call(41) # =&gt; 42</seg>
       </tuv>
     </tu>
     <tu>

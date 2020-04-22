@@ -1,23 +1,23 @@
 # Proc
 
-A [Proc](http://crystal-lang.org/api/Proc.html) represents a function pointer with an optional context (the closure data). 通常、Proc リテラルを使って生成します。
+[Proc](http://crystal-lang.org/api/Proc.html)は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。
 
 ```crystal
-# A proc without arguments
+# 引数を持たない Proc
 ->{ 1 } # Proc(Int32)
 
-# A proc with one argument
+# 1つの引数を持つ Proc
 ->(x : Int32) { x.to_s } # Proc(Int32, String)
 
-# A proc with two arguments:
+# 2つの引数を持つ Proc
 ->(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)
 ```
 
-The types of the arguments are mandatory, except when directly sending a proc literal to a lib `fun` in C bindings.
+引数の型指定は必須です。ただし、C原語バインディングの `fun` に対して直接 Proc リテラルを渡すときだけは例外です。
 
 戻り値の型は Proc の内容から推論されます。
 
-A special `new` method is provided too:
+また、`new` を使って Proc を作ることもできます。
 
 ```crystal
 Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
@@ -25,38 +25,38 @@ Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
 
 この形式の場合、戻り値の型を指定することができるため、Proc の本体の戻り値が正しい型であるかをチェックすることが可能です。
 
-## The Proc type
+## Proc の型
 
-To denote a Proc type you can write:
+Proc の型は次のようにして書けます。
 
 ```crystal
-# A Proc accepting a single Int32 argument and returning a String
+# Int32 の引数を受け付けて、String を返す Proc の型を表す
 Proc(Int32, String)
 
-# A proc accepting no arguments and returning Void
+# 引数を受け付けず Void を返す Proc の型を表す
 Proc(Void)
 
-# A proc accepting two arguments (one Int32 and one String) and returning a Char
+# Int32 と String という2つの引数を受け付け Char を返す Proc の型を表す
 Proc(Int32, String, Char)
 ```
 
-In type restrictions, generic type arguments and other places where a type is expected, you can use a shorter syntax, as explained in the [type](../type_grammar.html):
+型制約やジェネリック型の型引数など型が期待される場所であれば、[型の文法](../type_grammar.html)で説明しているような短い記法で型を書けます。
 
 ```crystal
-# An array of Proc(Int32, String, Char)
+# Proc(Int32, String, Char) の配列の型を表す
 Array(Int32, String -> Char)
 ```
 
-## Invoking
+## Proc の呼び出し
 
-To invoke a Proc, you invoke the `call` method on it. そのとき、引数の数は Proc の型と一致している必要があります。
+Proc を呼び出す (実行する) ためには、`call` メソッドを使います。そのとき引数の型は Proc の型と一致している必要があります。
 
 ```crystal
 proc = ->(x : Int32, y : Int32) { x + y }
 proc.call(1, 2) # => 3
 ```
 
-## From methods
+## メソッドから Proc を生成する
 
 既存のメソッドから Proc を作ることもできます。
 
