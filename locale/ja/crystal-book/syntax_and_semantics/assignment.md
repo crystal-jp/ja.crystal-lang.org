@@ -1,91 +1,91 @@
-# Assignment
+# 代入
 
-Assignment is done using the equals sign (`=`).
+代入にはイコール記号 (`=`) を使います。
 
 ```crystal
-# Assigns to a local variable
+# ローカル変数への代入
 local = 1
 
-# Assigns to an instance variable
+# インスタンス変数への代入
 @instance = 2
 
-# Assigns to a class variable
+# クラス変数への代入
 @@class = 3
 ```
 
 上記のそれぞれの変数の種類については改めて説明します。
 
-Some syntax sugar that contains the `=` character is available:
+`=` を使った代入のためのシンタックスシュガーがいくつか用意されています。
 
 ```crystal
-local += 1  # same as: local = local + 1
+local += 1  # local = local + 1 と同じ
 
-# The above is valid with these operators:
+# 上記は以下の演算子でも有効
 # +, -, *, /, %, |, &, ^, **, <<, >>
 
-local ||= 1 # same as: local || (local = 1)
-local &&= 1 # same as: local && (local = 1)
+local ||= 1 # local || (local = 1) と同じ
+local &&= 1 # local && (local = 1) と同じ
 ```
 
-A method invocation that ends with `=` has syntax sugar:
+メソッド名が `=` で終わるメソッドの実行にもシンタックスシュガーがあります。
 
 ```crystal
-# A setter
+# セッターメソッドの呼び出し
 person.name=("John")
 
-# The above can be written as:
+# 上記は次ように書ける
 person.name = "John"
 
-# An indexed assignment
+# インデックスに対する代入
 objects.[]=(2, 3)
 
-# The above can be written as:
+# 上記は次のように書ける
 objects[2] = 3
 
-# Not assignment-related, but also syntax sugar:
+# 代入とは関係ないけれど、こういうシンタックスシュガーも
 objects.[](2, 3)
 
-# The above can be written as:
+# 上記は次のように書ける
 objects[2, 3]
 ```
 
-The `=` operator syntax sugar is also available to setters and indexers. Note that `||` and `&&` use the `[]?` method to check for key presence.
+`=` のシンタックスシュガーはセッターやインデックス代入に対しても有効です。このとき `||` と `&&` は、 `[]?` メソッドをキーの存在のチェックに使うことに注意してください。
 
 ```crystal
-person.age += 1 # same as: person.age = person.age + 1
+person.age += 1 # person.age = person.age + 1 と同じ
 
-person.name ||= "John" # same as: person.name || (person.name = "John")
-person.name &&= "John" # same as: person.name && (person.name = "John")
+person.name ||= "John" # person.name || (person.name = "John") と同じ
+person.name &&= "John" # person.name && (person.name = "John") と同じ
 
-objects[1] += 2 # same as: objects[1] = objects[1] + 2
+objects[1] += 2 # objects[1] = objects[1] + 2 と同じ
 
-objects[1] ||= 2 # same as: objects[1]? || (objects[1] = 2)
-objects[1] &&= 2 # same as: objects[1]? && (objects[1] = 2)
+objects[1] ||= 2 # objects[1]? || (objects[1] = 2) と同じ
+objects[1] &&= 2 # objects[1]? && (objects[1] = 2) と同じ
 ```
 
-# Chained assignment
+# 連続した代入
 
-You can assign the same value to multiple variables using chained assignment:
+連続した代入を用いることで、同じ値を複数の変数に一度に代入することができます。
 
 ```crystal
 a = b = c = 123
 
-# Now a, b and c have the same value:
+# このとき a, b, c は同じ値になる
 a # => 123
 b # => 123
 c # => 123
 ```
 
-The chained assignment is not only available to [local variables](local_variables.md) but also to [instance variables](methods_and_instance_variables.md), [class variables](class_variables.md) and setter methods (methods that end with `=`).
+連続した代入は[ローカル変数](local_variables.md)に限らず[インスタンス変数](methods_and_instance_variables.md)や[クラス変数](class_variables.md)、セッターメソッド (名前が `=` で終わるメソッド) に対して利用できます。
 
-# Multiple assignment
+# 多重代入
 
-You can declare/assign multiple variables at the same time by separating expressions with a comma (`,`):
+複数の式をカンマ記号 (`,`) で区切って代入すると、複数の変数に対して同時に宣言/代入を行うことができます。
 
 ```crystal
 name, age = "Crystal", 1
 
-# The above is the same as this:
+# 上記は以下と同じ
 temp1 = "Crystal"
 temp2 = 1
 name = temp1
@@ -102,36 +102,36 @@ a # => 2
 b # => 1
 ```
 
-If the right-hand side contains just one expression, the type is indexed for each variable on the left-hand side like so:
+代入式の右辺に1つしか式が無かった場合、次の例のように各変数に順にインデックスして代入していきます。
 
 ```crystal
 name, age, source = "Crystal, 123, GitHub".split(", ")
 
-# The above is the same as this:
+# 上記は以下に同じ
 temp = "Crystal, 123, GitHub".split(", ")
 name = temp[0]
 age = temp[1]
 source = temp[2]
 ```
 
-Multiple assignment is also available to methods that end with `=`:
+多重代入は名前が`=`で終わるメソッドに対しても有効です。
 
 ```crystal
 person.name, person.age = "John", 32
 
-# Same as:
+# 以下に同じ
 temp1 = "John"
 temp2 = 32
 person.name = temp1
 person.age = temp2
 ```
 
-And it is also available to [index assignments](operators.md#assignments) (`[]=`):
+そして、[インデックス指定の代入](operators.md#assignments) (`[]=`) の場合にも同様に有効です。
 
 ```crystal
 objects[1], objects[2] = 3, 4
 
-# Same as:
+#以下に同じ
 temp1 = 3
 temp2 = 4
 objects[1] = temp1

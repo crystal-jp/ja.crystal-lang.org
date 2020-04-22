@@ -174,7 +174,7 @@ ones.
 <td><code>?:</code></td>
 </tr>
 <tr>
-<td>Assignment</td>
+<td>代入</td>
 <td><code>=</code>, <code>[]=</code>, <code>+=</code>, <code>&amp;+=</code>, <code>-=</code>, <code>&amp;-=</code>, <code>*=</code>, <code>&amp;*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>|=</code>, <code>&amp;=</code>,<code>^=</code>,<code>**=</code>,<code>&lt;&lt;=</code>,<code>>>=</code>, <code>||=</code>, <code>&amp;&amp;=</code></td>
 </tr>
 </tbody>

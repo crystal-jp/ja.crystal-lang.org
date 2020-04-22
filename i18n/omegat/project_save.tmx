@@ -868,6 +868,46 @@ if (a = @a).responds_to?(:abs)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># A setter
+person.name=("John")
+
+# The above can be written as:
+person.name = "John"
+
+# An indexed assignment
+objects.[]=(2, 3)
+
+# The above can be written as:
+objects[2] = 3
+
+# Not assignment-related, but also syntax sugar:
+objects.[](2, 3)
+
+# The above can be written as:
+objects[2, 3]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174603Z" creationid="makenowjust" creationdate="20200422T174507Z">
+        <seg># セッターメソッドの呼び出し
+person.name=("John")
+
+# 上記は次ように書ける
+person.name = "John"
+
+# インデックスに対する代入
+objects.[]=(2, 3)
+
+# 上記は次のように書ける
+objects[2] = 3
+
+# 代入とは関係ないけれど、こういうシンタックスシュガーも
+objects.[](2, 3)
+
+# 上記は次のように書ける
+objects[2, 3]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># A unicorn is a **legendary animal** (see the `Legendary` module) that has been
 # described since antiquity as a beast with a large, spiraling horn projecting
 # from its forehead.</seg>
@@ -982,6 +1022,28 @@ $global = 4
         <seg># グローバル変数への代入
 $global = 4
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Assigns to a local variable
+local = 1
+
+# Assigns to an instance variable
+@instance = 2
+
+# Assigns to a class variable
+@@class = 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174245Z" creationid="makenowjust" creationdate="20200422T174221Z">
+        <seg># ローカル変数への代入
+local = 1
+
+# インスタンス変数への代入
+@instance = 2
+
+# クラス変数への代入
+@@class = 3</seg>
       </tuv>
     </tu>
     <tu>
@@ -5119,6 +5181,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T020012Z" creationid="hirofumiwakasugi" creationdate="20151002T020012Z">
         <seg>%x = 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;&amp; (objects[1] = 2)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174929Z" creationid="makenowjust" creationdate="20200422T174929Z">
+        <seg>&amp;&amp; (objects[1] = 2) と同じ</seg>
       </tuv>
     </tu>
     <tu>
@@ -11099,6 +11169,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A method invocation that ends with &lt;g1&gt;=&lt;/g1&gt; has syntax sugar:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174431Z" creationid="makenowjust" creationdate="20200422T174431Z">
+        <seg>メソッド名が &lt;g1&gt;=&lt;/g1&gt; で終わるメソッドの実行にもシンタックスシュガーがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A method invocation that ends with `=` has syntax sugar:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054634Z" creationid="hirofumiwakasugi" creationdate="20150902T054634Z">
@@ -11909,6 +11987,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>And it is also available to &lt;g1&gt;index assignments&lt;/g1&gt; (&lt;g2&gt;[]=&lt;/g2&gt;):</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175652Z" creationid="makenowjust" creationdate="20200422T175652Z">
+        <seg>そして、&lt;g1&gt;インデックス指定の代入&lt;/g1&gt; (&lt;g2&gt;[]=&lt;/g2&gt;) の場合にも同様に有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>And it is also available to indexers (`[]=`):</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T060316Z" creationid="hirofumiwakasugi" creationdate="20150902T060316Z">
@@ -12187,6 +12273,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053055Z" creationid="hirofumiwakasugi" creationdate="20151007T053055Z">
         <seg>上記のように、要素の値には `+`/`-`/`*`/`/`/`&amp;`/`|`/`&lt;&lt;`/`&gt;&gt;`/`%` といった基本的な計算を使うこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Assignment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175715Z" creationid="makenowjust" creationdate="20200422T174153Z">
+        <seg>代入</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Assignment is done using the equals sign (&lt;g1&gt;=&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174210Z" creationid="makenowjust" creationdate="20200422T174210Z">
+        <seg>代入にはイコール記号 (&lt;g1&gt;=&lt;/g1&gt;) を使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12716,6 +12818,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053825Z" creationid="hirofumiwakasugi" creationdate="20150918T053614Z">
         <seg>捕捉されたブロックと proc リテラルはローカル変数と `self` を閉包 (クロージャ) します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Chained assignment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174937Z" creationid="makenowjust" creationdate="20200422T174937Z">
+        <seg>連続した代入</seg>
       </tuv>
     </tu>
     <tu>
@@ -14995,6 +15105,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the right-hand side contains just one expression, the type is indexed for each variable on the left-hand side like so:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175549Z" creationid="makenowjust" creationdate="20200422T175540Z">
+        <seg>代入式の右辺に1つしか式が無かった場合、次の例のように各変数に順にインデックスして代入していきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If there are conditional breaks, the call's return value type will be a union of the type of the block's value and the type of the many `break`s:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T025313Z" creationid="hirofumiwakasugi" creationdate="20150916T024921Z">
@@ -16831,6 +16949,22 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Multiple assignment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175158Z" creationid="makenowjust" creationdate="20200422T175158Z">
+        <seg>多重代入</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Multiple assignment is also available to methods that end with &lt;g1&gt;=&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175618Z" creationid="makenowjust" creationdate="20200422T175618Z">
+        <seg>多重代入は名前が&lt;g1&gt;=&lt;/g1&gt;で終わるメソッドに対しても有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Multiple assignment is also available to methods that end with `=`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T060243Z" creationid="hirofumiwakasugi" creationdate="20150902T060243Z">
@@ -16943,6 +17077,14 @@ MyBox(Int32).new("hello") # エラー
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153841Z" creationid="makenowjust" creationdate="20200419T153841Z">
         <seg>すべてのファイルがあらゆるプロジェクトで必要になるわけではなく、カスタマイズが必要に感じる場合もあるでしょう。しかし、&lt;g1&gt;crystal init&lt;/g1&gt;は Crystal のlアプリケーションやライブラリの開発に十分なデフォルトの環境を提供しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that &lt;g2&gt;||&lt;/g2&gt; and &lt;g3&gt;&amp;&amp;&lt;/g3&gt; use the &lt;g4&gt;[]?&lt;/g4&gt; method to check for key presence.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174831Z" creationid="makenowjust" creationdate="20200422T174831Z">
+        <seg>このとき &lt;g2&gt;||&lt;/g2&gt; と &lt;g3&gt;&amp;&amp;&lt;/g3&gt; は、 &lt;g4&gt;[]?&lt;/g4&gt; メソッドをキーの存在のチェックに使うことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18385,6 +18527,14 @@ recursively forms a union type out of nested type paramters:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Some syntax sugar that contains the &lt;g1&gt;=&lt;/g1&gt; character is available:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174317Z" creationid="makenowjust" creationdate="20200422T174317Z">
+        <seg>&lt;g1&gt;=&lt;/g1&gt; を使った代入のためのシンタックスシュガーがいくつか用意されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Some syntax sugar that contains the `=` character is available:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054415Z" creationid="hirofumiwakasugi" creationdate="20150902T054404Z">
@@ -18751,6 +18901,14 @@ up a basic project structure.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153501Z" creationid="makenowjust" creationdate="20200419T153501Z">
         <seg>&lt;g1&gt;&lt;g2&gt;crystal init&lt;/g2&gt;&lt;/g1&gt; コマンドは基本的なディレクトリ構成を持った Crystal プロジェクトの初期化をするのに役に立ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;=&lt;/g1&gt; operator syntax sugar is also available to setters and indexers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174726Z" creationid="makenowjust" creationdate="20200422T174726Z">
+        <seg>&lt;g1&gt;=&lt;/g1&gt; のシンタックスシュガーはセッターやインデックス代入に対しても有効です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19320,6 +19478,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T115943Z" creationid="hirofumiwakasugi" creationdate="20150906T115731Z">
         <seg>このとき、バッファはヒープではなくスタックに割り当てられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The chained assignment is not only available to &lt;g1&gt;local variables&lt;/g1&gt; but also to &lt;g2&gt;instance variables&lt;/g2&gt;, &lt;g3&gt;class variables&lt;/g3&gt; and setter methods (methods that end with &lt;g4&gt;=&lt;/g4&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175303Z" creationid="makenowjust" creationdate="20200422T175154Z">
+        <seg>連続した代入は&lt;g1&gt;ローカル変数&lt;/g1&gt;に限らず&lt;g2&gt;インスタンス変数&lt;/g2&gt;や&lt;g3&gt;クラス変数&lt;/g3&gt;、セッターメソッド (名前が &lt;g4&gt;=&lt;/g4&gt; で終わるメソッド) に対して利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22769,10 +22935,26 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can assign the same value to multiple variables using chained assignment:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175031Z" creationid="makenowjust" creationdate="20200422T175031Z">
+        <seg>連続した代入を用いることで、同じ値を複数の変数に一度に代入することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can bind to variadic functions:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T040908Z" creationid="hirofumiwakasugi" creationdate="20151005T040821Z">
         <seg>可変長引数を持つ関数にバインディングすることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can declare/assign multiple variables at the same time by separating expressions with a comma (&lt;g1&gt;,&lt;/g1&gt;):</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175351Z" creationid="makenowjust" creationdate="20200422T175351Z">
+        <seg>複数の式をカンマ記号 (&lt;g1&gt;,&lt;/g1&gt;) で区切って代入すると、複数の変数に対して同時に宣言/代入を行うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32029,6 +32211,22 @@ C.printf "%d + %d = %d\n", a, b, a + b
     <tu>
       <tuv lang="EN-US">
         <seg>a = 1
+b = 2
+a, b = b, a
+a # =&gt; 2
+b # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175405Z" creationid="makenowjust" creationdate="20200422T175405Z">
+        <seg>a = 1
+b = 2
+a, b = b, a
+a # =&gt; 2
+b # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
 begin</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023235Z" creationid="hirofumiwakasugi" creationdate="20150907T023235Z">
@@ -32144,6 +32342,24 @@ x = a.map { |f| f.name } # OK
         <seg>a = [] of Person
 x = a.map { |f| f.name } # OK
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = b = c = 123
+
+# Now a, b and c have the same value:
+a # =&gt; 123
+b # =&gt; 123
+c # =&gt; 123</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175053Z" creationid="makenowjust" creationdate="20200422T175053Z">
+        <seg>a = b = c = 123
+
+# このとき a, b, c は同じ値になる
+a # =&gt; 123
+b # =&gt; 123
+c # =&gt; 123</seg>
       </tuv>
     </tu>
     <tu>
@@ -36358,6 +36574,26 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>local += 1  # same as: local = local + 1
+
+# The above is valid with these operators:
+# +, -, *, /, %, |, &amp;, ^, **, &lt;&lt;, &gt;&gt;
+
+local ||= 1 # same as: local || (local = 1)
+local &amp;&amp;= 1 # same as: local &amp;&amp; (local = 1)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174406Z" creationid="makenowjust" creationdate="20200422T174406Z">
+        <seg>local += 1  # local = local + 1 と同じ
+
+# 上記は以下の演算子でも有効
+# +, -, *, /, %, |, &amp;, ^, **, &lt;&lt;, &gt;&gt;
+
+local ||= 1 # local || (local = 1) と同じ
+local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>local ||= 1 # same as: local || (local = 1)
 local &amp;&amp;= 1 # same as: local &amp;&amp; (local = 1)
 ```</seg>
@@ -36548,6 +36784,46 @@ my_hash["bar"] = "baz"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>name, age = "Crystal", 1
+
+# The above is the same as this:
+temp1 = "Crystal"
+temp2 = 1
+name = temp1
+age = temp2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175403Z" creationid="makenowjust" creationdate="20200422T175403Z">
+        <seg>name, age = "Crystal", 1
+
+# 上記は以下と同じ
+temp1 = "Crystal"
+temp2 = 1
+name = temp1
+age = temp2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>name, age, source = "Crystal, 123, GitHub".split(", ")
+
+# The above is the same as this:
+temp = "Crystal, 123, GitHub".split(", ")
+name = temp[0]
+age = temp[1]
+source = temp[2]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175556Z" creationid="makenowjust" creationdate="20200422T175556Z">
+        <seg>name, age, source = "Crystal, 123, GitHub".split(", ")
+
+# 上記は以下に同じ
+temp = "Crystal, 123, GitHub".split(", ")
+name = temp[0]
+age = temp[1]
+source = temp[2]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>nest = [1, ["b", [:c, ['d']]]]
 flat = Array(typeof(Array.elem_type(nest))).new
 typeof(nest) #=&gt; Array(Int32 | Array(String | Array(Symbol | Array(Char))))
@@ -36668,6 +36944,26 @@ objects[1] &amp;&amp;= 2       # same as: objects[1]? &amp;&amp; (objects[1] = 2
         <seg>objects[1] ||= 2       # objects[1]? || (objects[1] = 2) と同じ
 objects[1] &amp;&amp;= 2       # objects[1]? &amp;&amp; (objects[1] = 2) と同じ
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>objects[1], objects[2] = 3, 4
+
+# Same as:
+temp1 = 3
+temp2 = 4
+objects[1] = temp1
+objects[2] = temp2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175709Z" creationid="makenowjust" creationdate="20200422T175709Z">
+        <seg>objects[1], objects[2] = 3, 4
+
+#以下に同じ
+temp1 = 3
+temp2 = 4
+objects[1] = temp1
+objects[2] = temp2</seg>
       </tuv>
     </tu>
     <tu>
@@ -36918,6 +37214,28 @@ person.instance_vars_names #=&gt; ["name", "age"]
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>person.age += 1 # same as: person.age = person.age + 1
+
+person.name ||= "John" # same as: person.name || (person.name = "John")
+person.name &amp;&amp;= "John" # same as: person.name &amp;&amp; (person.name = "John")
+
+objects[1] += 2 # same as: objects[1] = objects[1] + 2
+
+objects[1] ||= 2 # same as: objects[1]?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174912Z" creationid="makenowjust" creationdate="20200422T174838Z">
+        <seg>person.age += 1 # person.age = person.age + 1 と同じ
+
+person.name ||= "John" # person.name || (person.name = "John") と同じ
+person.name &amp;&amp;= "John" # person.name &amp;&amp; (person.name = "John") と同じ
+
+objects[1] += 2 # objects[1] = objects[1] + 2 と同じ
+
+objects[1] ||= 2 # objects[1]? </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>person.become_older
 person.age #=&gt; 1</seg>
       </tuv>
@@ -36962,6 +37280,26 @@ person.name &amp;&amp;= "John" # same as: person.name &amp;&amp; (person.name = 
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T055108Z" creationid="hirofumiwakasugi" creationdate="20150902T055102Z">
         <seg>person.name ||= "John" # person.name || (person.name = "John") と同じ
 person.name &amp;&amp;= "John" # person.name &amp;&amp; (person.name = "John") と同じ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>person.name, person.age = "John", 32
+
+# Same as:
+temp1 = "John"
+temp2 = 32
+person.name = temp1
+person.age = temp2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T175627Z" creationid="makenowjust" creationdate="20200422T175627Z">
+        <seg>person.name, person.age = "John", 32
+
+# 以下に同じ
+temp1 = "John"
+temp2 = 32
+person.name = temp1
+person.age = temp2</seg>
       </tuv>
     </tu>
     <tu>
@@ -39693,6 +40031,16 @@ puts build_date{% endhighlight %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063041Z" creationid="hirofumiwakasugi" creationdate="20150912T063041Z">
         <seg>|      @value : String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>|| (objects[1] = 2)
+objects[1] &amp;&amp;= 2 # same as: objects[1]?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T174925Z" creationid="makenowjust" creationdate="20200422T174925Z">
+        <seg>|| (objects[1] = 2) と同じ
+objects[1] &amp;&amp;= 2 # objects[1]? </seg>
       </tuv>
     </tu>
     <tu>
