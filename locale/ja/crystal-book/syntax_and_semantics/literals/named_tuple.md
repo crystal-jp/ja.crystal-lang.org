@@ -1,6 +1,6 @@
-# NamedTuple
+# 名前付きタプル (NamedTuple)
 
-A [NamedTuple](http://crystal-lang.org/api/NamedTuple.html) is typically created with a named tuple literal:
+[NamedTuple](http://crystal-lang.org/api/NamedTuple.html)は通常名前付きタプルリテラルによって生成します。
 
 ```crystal
 tuple = {name: "Crystal", year: 2011} # NamedTuple(name: String, year: Int32)
@@ -8,21 +8,21 @@ tuple[:name]                          # => "Crystal" (String)
 tuple[:year]                          # => 2011      (Int32)
 ```
 
-To denote a named tuple type you can write:
+名前付きタプルの型は次のようにして書けます。
 
 ```crystal
-# The type denoting a named tuple of x: Int32, y: String
+# x が Int32 で y が String であるような名前付きタプルの型を表す
 NamedTuple(x: Int32, y: String)
 ```
 
-型制約の中やジェネリック型の型引数など型が期待される場所であれば、より短かい記法でこの型を書くことができます。詳細は[型の文法](../type_grammar.html)で説明しています。
+型制約やジェネリック型の型引数など型が期待される場所であれば、[型の文法](../type_grammar.html)で説明しているような短い記法で型を書けます。
 
 ```crystal
-# An array of named tuples of x: Int32, y: String
+# x が Int32、 y が String であるような名前付きタプルの配列の型を表す
 Array({x: Int32, y: String})
 ```
 
-A named tuple key can also be a string literal:
+名前付きタプルのキーには文字列リテラルを使うこともできます。
 
 ```crystal
 {"this is a key": 1}

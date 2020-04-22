@@ -18,9 +18,9 @@ tuple[2]                  # => 'x'     (Char)
 Tuple(Int32, String, Char)
 ```
 
-型制約の中やジェネリック型の型引数など型が期待される場所であれば、より短かい記法でこの型を書くことができます。詳細は[型の文法](../type_grammar.html)で説明しています。
+型制約やジェネリック型の型引数など型が期待される場所であれば、[型の文法](../type_grammar.html)で説明しているような短い記法で型を書けます。
 
 ```crystal
-# Int32、String、Char のタプルの配列の型
+# Int32、String、Char のタプルの配列の型を表す
 Array({Int32, String, Char})
 ```

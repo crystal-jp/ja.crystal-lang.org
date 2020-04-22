@@ -828,11 +828,21 @@ if (a = @a).responds_to?(:abs)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># An array of named tuples of x: Int32, y: String
+Array({x: Int32, y: String})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170128Z" creationid="makenowjust" creationdate="20200422T170128Z">
+        <seg># x が Int32、 y が String であるような名前付きタプルの配列の型を表す
+Array({x: Int32, y: String})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># An array of tuples of Int32, String and Char
 Array({Int32, String, Char})</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165146Z" creationid="makenowjust" creationdate="20200422T165146Z">
-        <seg># Int32、String、Char のタプルの配列の型
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170138Z" creationid="makenowjust" creationdate="20200422T165146Z">
+        <seg># Int32、String、Char のタプルの配列の型を表す
 Array({Int32, String, Char})</seg>
       </tuv>
     </tu>
@@ -2346,6 +2356,16 @@ while !some_condition</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054447Z" creationid="hirofumiwakasugi" creationdate="20150902T054433Z">
         <seg># 上記は以下の演算子でも有効
 # +, -, *, /, %, |, &amp;, ^, **, &lt;&lt;, &gt;&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># The type denoting a named tuple of x: Int32, y: String
+NamedTuple(x: Int32, y: String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170014Z" creationid="makenowjust" creationdate="20200422T165947Z">
+        <seg># x が Int32 で y が String であるような名前付きタプルの型を表す
+NamedTuple(x: Int32, y: String)</seg>
       </tuv>
     </tu>
     <tu>
@@ -10359,6 +10379,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;NamedTuple&lt;/g1&gt; is typically created with a named tuple literal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165933Z" creationid="makenowjust" creationdate="20200422T165933Z">
+        <seg>&lt;g1&gt;NamedTuple&lt;/g1&gt;は通常名前付きタプルリテラルによって生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;Range&lt;/g1&gt; represents an interval between two values.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T033759Z" creationid="makenowjust" creationdate="20200421T033759Z">
@@ -10997,6 +11025,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T150636Z" creationid="hirofumiwakasugi" creationdate="20150911T150636Z">
         <seg>モジュールをインスタンス化することはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A named tuple key can also be a string literal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170054Z" creationid="makenowjust" creationdate="20200422T170054Z">
+        <seg>名前付きタプルのキーには文字列リテラルを使うこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15615,8 +15651,8 @@ entrypoints for the docs generator.</seg>
       <tuv lang="EN-US">
         <seg>In type restrictions, generic type arguments and other places where a type is expected, you can use a shorter syntax, as explained in the &lt;g1&gt;type grammar&lt;/g1&gt;:</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165341Z" creationid="makenowjust" creationdate="20200422T165130Z">
-        <seg>型制約の中やジェネリック型の型引数など型が期待される場所であれば、より短かい記法でこの型を書くことができます。詳細は&lt;g1&gt;型の文法&lt;/g1&gt;で説明しています。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170522Z" creationid="makenowjust" creationdate="20200422T170522Z">
+        <seg>型制約やジェネリック型の型引数など型が期待される場所であれば、&lt;g1&gt;型の文法&lt;/g1&gt;で説明しているような短い記法で型を書けます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16567,8 +16603,8 @@ with the `yield` keyword.</seg>
       <tuv lang="EN-US">
         <seg>More options are described in the integrated help: &lt;g1&gt;crystal eval --help&lt;/g1&gt; or man page &lt;g2&gt;man crystal&lt;/g2&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165745Z" creationid="makenowjust" creationdate="20200422T165745Z">
-        <seg>その他のオプションは統合されたヘルプにて説明されています。&lt;g1&gt;crystal eval --help&lt;/g1&gt;を使うか、&lt;g2&gt;man crystal&lt;/g2&gt;で man ページを見てください。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165909Z" creationid="makenowjust" creationdate="20200422T165745Z">
+        <seg>lgstその他のオプションは統合されたヘルプにて説明されています。&lt;g1&gt;crystal eval --help&lt;/g1&gt;を使うか、&lt;g2&gt;man crystal&lt;/g2&gt;で man ページを見てください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16677,6 +16713,14 @@ MyBox(Int32).new("hello") # エラー
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T160234Z" creationid="makenowjust" creationdate="20200419T160234Z">
         <seg>注意: 対話的に実行したい場合、一般的には&lt;g1&gt;Ctrl+D&lt;/g1&gt;を入力することで標準入力を閉じることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>NamedTuple</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165920Z" creationid="makenowjust" creationdate="20200422T165920Z">
+        <seg>名前付きタプル (NamedTuple)</seg>
       </tuv>
     </tu>
     <tu>
@@ -21102,6 +21146,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034422Z" creationid="makenowjust" creationdate="20200420T034147Z">
         <seg>ヒアドキュメントの中で補間やエスケープを禁止したい場合、ヒアドキュメント冒頭の識別子をシングルクォートで囲ってください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To denote a named tuple type you can write:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165946Z" creationid="makenowjust" creationdate="20200422T165946Z">
+        <seg>名前付きタプルの型は次のようにして書けます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -38174,6 +38226,18 @@ tuple[2]                  # =&gt; 'x'     (Char)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>tuple = {name: "Crystal", year: 2011} # NamedTuple(name: String, year: Int32)
+tuple[:name]                          # =&gt; "Crystal" (String)
+tuple[:year]                          # =&gt; 2011      (Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T165934Z" creationid="makenowjust" creationdate="20200422T165934Z">
+        <seg>tuple = {name: "Crystal", year: 2011} # NamedTuple(name: String, year: Int32)
+tuple[:name]                          # =&gt; "Crystal" (String)
+tuple[:year]                          # =&gt; 2011      (Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>twice &amp;-&gt;say_hello
 ```</seg>
       </tuv>
@@ -38874,6 +38938,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T175322Z" creationid="makenowjust" creationdate="20200420T175322Z">
         <seg>{"one" =&gt; 1, "two" =&gt; 2}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{"this is a key": 1}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T170054Z" creationid="makenowjust" creationdate="20200422T170054Z">
+        <seg>{"this is a key": 1}</seg>
       </tuv>
     </tu>
     <tu>

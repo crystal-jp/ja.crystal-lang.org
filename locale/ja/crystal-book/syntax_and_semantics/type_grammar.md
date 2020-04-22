@@ -89,7 +89,7 @@ alias Int32StringTuple = Tuple(Int32, String)
 
 In regular code, `{Int32, String}` is a tuple instance containing `Int32` and `String` as its elements. This is different than the above tuple **type**.
 
-## NamedTuple
+## 名前付きタプル (NamedTuple)
 
 ```crystal
 alias Int32StringNamedTuple = {x: Int32, y: String}
