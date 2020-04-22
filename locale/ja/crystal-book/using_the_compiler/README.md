@@ -183,7 +183,7 @@ Hello World!
 * `--progress`: コンパイルの進捗を逐次表示する
 * `--static`: 静的にリンクする
 
-More options are described in the integrated help: `crystal eval --help` or man page `man crystal`.
+その他のオプションは統合されたヘルプにて説明されています。`crystal eval --help`を使うか、`man crystal`で man ページを見てください。
 
 ### `crystal version`
 
