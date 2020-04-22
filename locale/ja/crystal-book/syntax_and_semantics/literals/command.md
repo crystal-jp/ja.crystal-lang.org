@@ -1,33 +1,33 @@
-# Command literal
+# コマンドリテラル
 
-A command literal is a string delimited by backticks `` ` `` or a `%x` percent literal.
-It will be substituted at runtime by the captured output from executing the string in a subshell.
+コマンドリテラルとは、バックティック `` ` `` で囲まれた文字列、もしくは `%x` パーセントリテラルのことです。
+実行時に文字列の内容をコマンドとしてサブシェルで実行して、その出力の文字列が結果の値となります。
 
-The same [escaping](./string.md#escaping) and [interpolation rules](./string.md#interpolation) apply as for regular strings.
+[エスケープシーケンス](./string.md#escaping)と[補間](./string.md#interpolation)は通常の文字列と同様に利用できます。
 
-Similar to percent string literals, valid delimiters for `%x` are parentheses `()`, square brackets `[]`, curly braces `{}`, angles `<>` and pipes `||`. パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
+パーセントリテラルの形式の場合、他のパーセントリテラルと同様に`%x`では、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ`||`といった区切り文字が有効です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
-The special variable `$?` holds the exit status of the command as a [`Process::Status`](https://crystal-lang.org/api/0.27.0/Process/Status.html). It is only available in the same scope as the command literal.
+特殊変数 `$?` はコマンドの実行結果の [`Process::Status`](https://crystal-lang.org/api/0.27.0/Process/Status.html) オブジェクトになります。この特殊変数はコマンドリテラルと同じスコープに限り有効です。
 
 ```cr
 `echo foo`  # => "foo"
 $?.success? # => true
 ```
 
-Internally, the compiler rewrites command literals to calls to the top-level method [`` `()``](https://crystal-lang.org/api/latest/toplevel.html#%60(command):String-class-method) with a string literal containing the command as argument: `` `echo #{argument}` `` and `%x(echo #{argument})` are rewritten to `` `("echo #{argument}")``.
+内部的にはコンパイラはコマンドリテラルを [`` `()``](https://crystal-lang.org/api/latest/toplevel.html#%60(command):String-class-method) メソッドに文字列リテラルを渡すように書き換えています。つまり `` `echo #{argument}` `` と `%x(echo #{argument})` は `` `("echo #{argument}")`` のように書き換えられています。
 
-## Security concerns
+## セキュリティ上の懸念
 
-While command literals may prove useful for simple script-like tools, special caution is advised when interpolating user input because it may easily lead to command injection.
+コマンドリテラルはスクリプトのような簡易的な利用時に便利ですが、補間を使う場合にはコマンドインジェクションが起こらないように注意する特別の注意を払う必要があります。
 
 ```cr
 user_input = "hello; rm -rf *"
 `echo #{user_input}`
 ```
 
-This command will write `hello` and subsequently delete all files and folders in the current working directory.
+このコマンドは `hello` と出力したあとに現在のディレクトリのファイルとフォルダを全て削除します。
 
-To avoid this, command literals should generally not be used with interpolated user input. [`Process`](https://crystal-lang.org/api/latest/Process.html) from the standard library offers a safe way to provide user input as command arguments:
+これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。また標準ライブラリにある [`Process`](https://crystal-lang.org/api/latest/Process.html) を使うとユーザーの入力を安全にコマンドの引数として渡すことができます
 
 ```cr
 user_input = "hello; rm -rf *"

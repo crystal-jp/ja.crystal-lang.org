@@ -760,6 +760,14 @@ def number_of_horns</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># =&gt; true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173841Z" creationid="makenowjust" creationdate="20200422T173841Z">
+        <seg># =&gt; true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># A Proc accepting a single Int32 argument and returning a String
 Proc(Int32, String)
 
@@ -8133,6 +8141,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;&lt;g2&gt;Process&lt;/g2&gt;&lt;/g1&gt; from the standard library offers a safe way to provide user input as command arguments:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173319Z" creationid="makenowjust" creationdate="20200422T173319Z">
+        <seg>また標準ライブラリにある &lt;g1&gt;&lt;g2&gt;Process&lt;/g2&gt;&lt;/g1&gt; を使うとユーザーの入力を安全にコマンドの引数として渡すことができます</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt;: build an executable</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T154037Z" creationid="makenowjust" creationdate="20200419T154033Z">
@@ -10890,6 +10906,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A command literal is a string delimited by backticks &lt;g1&gt; ` &lt;/g1&gt; or a &lt;g2&gt;%x&lt;/g2&gt; percent literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172434Z" creationid="makenowjust" creationdate="20200422T172434Z">
+        <seg>コマンドリテラルとは、バックティック &lt;g1&gt; ` &lt;/g1&gt; で囲まれた文字列、もしくは &lt;g2&gt;%x&lt;/g2&gt; パーセントリテラルのことです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A comment using &lt;g1&gt;:&lt;/g1&gt; is used for showing the type of a variable.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T162834Z" creationid="makenowjust" creationdate="20200413T162834Z">
@@ -12814,6 +12838,14 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T165626Z" creationid="makenowjust" creationdate="20200413T163121Z">
         <seg>CLI アプリケーション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Command literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172340Z" creationid="makenowjust" creationdate="20200422T172340Z">
+        <seg>コマンドリテラル</seg>
       </tuv>
     </tu>
     <tu>
@@ -15895,6 +15927,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Internally, the compiler rewrites command literals to calls to the top-level method &lt;g1&gt;&lt;g2&gt; `()&lt;/g2&gt;&lt;/g1&gt; with a string literal containing the command as argument: &lt;g3&gt; `echo #{argument}` &lt;/g3&gt; and &lt;g4&gt;%x(echo #{argument})&lt;/g4&gt; are rewritten to &lt;g5&gt; `("echo #{argument}")&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172958Z" creationid="makenowjust" creationdate="20200422T172958Z">
+        <seg>内部的にはコンパイラはコマンドリテラルを &lt;g1&gt;&lt;g2&gt; `()&lt;/g2&gt;&lt;/g1&gt; メソッドに文字列リテラルを渡すように書き換えています。つまり &lt;g3&gt; `echo #{argument}` &lt;/g3&gt; と &lt;g4&gt;%x(echo #{argument})&lt;/g4&gt; は &lt;g5&gt; `("echo #{argument}")&lt;/g5&gt; のように書き換えられています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Interpolation</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192656Z" creationid="makenowjust" creationdate="20200419T192158Z">
@@ -16095,6 +16135,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is only available in the same scope as the command literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172851Z" creationid="makenowjust" creationdate="20200422T172851Z">
+        <seg>この特殊変数はコマンドリテラルと同じスコープに限り有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is possible to directly call methods on heredoc string literals, or use them inside parentheses:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
@@ -16196,6 +16244,14 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012331Z" creationid="hirofumiwakasugi" creationdate="20151009T012331Z">
         <seg>渡された式の型の組み合わせ (ユニオン型) を返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It will be substituted at runtime by the captured output from executing the string in a subshell.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172827Z" creationid="makenowjust" creationdate="20200422T172520Z">
+        <seg>実行時に文字列の内容をコマンドとしてサブシェルで実行して、その出力の文字列が結果の値となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18079,6 +18135,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Security concerns</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173004Z" creationid="makenowjust" creationdate="20200422T173004Z">
+        <seg>セキュリティ上の懸念</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Serving book on http://localhost:4000</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T164552Z" creationid="makenowjust" creationdate="20200413T164552Z">
@@ -18131,6 +18195,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052118Z" creationid="hirofumiwakasugi" creationdate="20150905T052118Z">
         <seg>`if` の場合と同様に、`while` の条件に変数が与えられている場合は、本体の中ではその変数が `nil` ではないことが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Similar to percent string literals, valid delimiters for &lt;g1&gt;%x&lt;/g1&gt; are parentheses &lt;g2&gt;()&lt;/g2&gt;, square brackets &lt;g3&gt;[]&lt;/g3&gt;, curly braces &lt;g4&gt;{}&lt;/g4&gt;, angles &lt;g5&gt;&lt;&gt;&lt;/g5&gt; and pipes &lt;g6&gt;||&lt;/g6&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172733Z" creationid="makenowjust" creationdate="20200422T172733Z">
+        <seg>パーセントリテラルの形式の場合、他のパーセントリテラルと同様に&lt;g1&gt;%x&lt;/g1&gt;では、括弧&lt;g2&gt;()&lt;/g2&gt;、角括弧&lt;g3&gt;[]&lt;/g3&gt;、ひげ括弧&lt;g4&gt;{}&lt;/g4&gt;、三角括弧&lt;g5&gt;&lt;&gt;&lt;/g5&gt;そしてパイプ&lt;g6&gt;||&lt;/g6&gt;といった区切り文字が有効です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19903,6 +19975,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The same &lt;g1&gt;escaping&lt;/g1&gt; and &lt;g2&gt;interpolation rules&lt;/g2&gt; apply as for regular strings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172608Z" creationid="makenowjust" creationdate="20200422T172608Z">
+        <seg>&lt;g1&gt;エスケープシーケンス&lt;/g1&gt;と&lt;g2&gt;補間&lt;/g2&gt;は通常の文字列と同様に利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The second call's value is "hello" because a `break` was performed.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T024925Z" creationid="hirofumiwakasugi" creationdate="20150916T024913Z">
@@ -19931,6 +20011,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T172801Z" creationid="makenowjust" creationdate="20200419T172801Z">
         <seg>shards コマンド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The special variable &lt;g1&gt;$?&lt;/g1&gt; holds the exit status of the command as a &lt;g2&gt;&lt;g3&gt;Process::Status&lt;/g3&gt;&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T172819Z" creationid="makenowjust" creationdate="20200422T172742Z">
+        <seg>特殊変数 &lt;g1&gt;$?&lt;/g1&gt; はコマンドの実行結果の &lt;g2&gt;&lt;g3&gt;Process::Status&lt;/g3&gt;&lt;/g2&gt; オブジェクトになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20579,6 +20667,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This command will write &lt;g1&gt;hello&lt;/g1&gt; and subsequently delete all files and folders in the current working directory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173213Z" creationid="makenowjust" creationdate="20200422T173213Z">
+        <seg>このコマンドは &lt;g1&gt;hello&lt;/g1&gt; と出力したあとに現在のディレクトリのファイルとフォルダを全て削除します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This ends up invoking `Object#to_s(IO)` on each expression enclosed by `#{...}`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T105524Z" creationid="hirofumiwakasugi" creationdate="20150901T105524Z">
@@ -21142,6 +21238,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061506Z" creationid="hirofumiwakasugi" creationdate="20160204T061457Z">
         <seg>このように初期化されることを避けたい場合は、`uninitialized` を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To avoid this, command literals should generally not be used with interpolated user input.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173241Z" creationid="makenowjust" creationdate="20200422T173241Z">
+        <seg>これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22399,6 +22503,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T005824Z" creationid="hirofumiwakasugi" creationdate="20151009T005824Z">
         <seg>以下の場合、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>While command literals may prove useful for simple script-like tools, special caution is advised when interpolating user input because it may easily lead to command injection.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173138Z" creationid="makenowjust" creationdate="20200422T173138Z">
+        <seg>コマンドリテラルはスクリプトのような簡易的な利用時に便利ですが、補間を使う場合にはコマンドインジェクションが起こらないように注意する特別の注意を払う必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31768,6 +31880,16 @@ X.callback -&gt;(x) { x + y } # エラー: クロージャは</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>`echo foo`  # =&gt; "foo"
+$?.success?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173821Z" creationid="makenowjust" creationdate="20200422T173821Z">
+        <seg>`echo foo`  # =&gt; "foo"
+$?.success? </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>`ensure` clauses are usually used for clean up, freeing resources, etc.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013731Z" creationid="hirofumiwakasugi" creationdate="20150907T013731Z">
@@ -38540,6 +38662,30 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052210Z" creationid="hirofumiwakasugi" creationdate="20151007T052210Z">
         <seg>union IntOrFloat</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>user_input = "hello; rm -rf *"
+`echo #{user_input}`</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173139Z" creationid="makenowjust" creationdate="20200422T173139Z">
+        <seg>user_input = "hello; rm -rf *"
+`echo #{user_input}`</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>user_input = "hello; rm -rf *"
+process = Process.new("echo", [user_input], output: Process::Redirect::Pipe)
+process.output.gets_to_end # =&gt; "hello; rm -rf *"
+process.wait.success?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200422T173608Z" creationid="makenowjust" creationdate="20200422T173320Z">
+        <seg>user_input = "hello; rm -rf *"
+process = Process.new("echo", [user_input], output: Process::Redirect::Pipe)
+process.output.gets_to_end # =&gt; "hello; rm -rf *"
+process.wait.success?      </seg>
       </tuv>
     </tu>
     <tu>
