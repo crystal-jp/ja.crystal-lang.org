@@ -3,7 +3,7 @@
 変数が`if`の条件式に使われたとき、`then`節の中ではその変数は`Nil`型を持たないと判断されます。
 
 ```crystal
-a = some_condition ?nil : 3
+a = some_condition ? nil : 3
 # a is Int32 or Nil
 
 if a
