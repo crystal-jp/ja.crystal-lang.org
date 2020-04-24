@@ -3327,6 +3327,60 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># here `@@a` can be nil
+end
+
+a = nil
+closure = -&gt;{ a = "foo" }
+
+if a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081935Z" creationid="makenowjust" creationdate="20200424T081935Z">
+        <seg># ここでも `@@a` が nil の可能性がある
+end
+
+a = nil
+closure = -&gt;{ a = "foo" }
+
+if a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here `@a` can be nil
+end
+
+if @@a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081921Z" creationid="makenowjust" creationdate="20200424T081921Z">
+        <seg># ここでも `@a` が nil の可能性がある
+end
+
+if @@a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here `a` can be nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081953Z" creationid="makenowjust" creationdate="20200424T081941Z">
+        <seg># ここでも `a` が nil の可能性がある
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here `a` can't be nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082106Z" creationid="makenowjust" creationdate="20200424T082106Z">
+        <seg># ここで `a` は nil にはならない
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># here a can't be nil
 end</seg>
       </tuv>
@@ -3416,6 +3470,16 @@ end
     <tu>
       <tuv lang="EN-US">
         <seg># here a is not nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081440Z" creationid="makenowjust" creationdate="20200424T081440Z">
+        <seg># ここでは a は nil ではない
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a is not nil
 end
 ```</seg>
       </tuv>
@@ -3469,6 +3533,16 @@ end
         <seg># b は必ず Number
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here both a and b are guaranteed not to be Nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081528Z" creationid="makenowjust" creationdate="20200424T081528Z">
+        <seg># ここでは a も b も Nil ではないことが保証される
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -12113,6 +12187,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Another option is to use &lt;g1&gt;&lt;g2&gt;Object#try&lt;/g2&gt;&lt;/g1&gt; found in the standard library which only executes the block if the value is not &lt;g3&gt;nil&lt;/g3&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082201Z" creationid="makenowjust" creationdate="20200424T082201Z">
+        <seg>他の手法として、標準ライブラリの&lt;g1&gt;&lt;g2&gt;Object#try&lt;/g2&gt;&lt;/g1&gt;メソッドを使うこともできます。これは&lt;g3&gt;nil&lt;/g3&gt;でない場合にのみブロックを実行する、というメソッドです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Another reason is that another thread could change that instance variable after checking the condition.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T015945Z" creationid="hirofumiwakasugi" creationdate="20150903T015447Z">
@@ -14581,6 +14663,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Here, the right-hand side of the &lt;g1&gt;&amp;&amp;&lt;/g1&gt; expression is also guaranteed to have &lt;g2&gt;a&lt;/g2&gt; as not &lt;g3&gt;Nil&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081606Z" creationid="makenowjust" creationdate="20200424T081606Z">
+        <seg>&lt;g1&gt;&amp;&amp;&lt;/g1&gt; 式の右辺が評価された場合、&lt;g2&gt;a&lt;/g2&gt;が&lt;g3&gt;Nil&lt;/g3&gt;ではないことも同様に保証されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here, the right-hand side of the `&amp;&amp;` expression is also guaranteed to have `a` as not `Nil`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T015121Z" creationid="hirofumiwakasugi" creationdate="20150903T015044Z">
@@ -14893,6 +14983,14 @@ Set{1, 2, 3}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T044331Z" creationid="hirofumiwakasugi" creationdate="20151005T044331Z">
         <seg>もし、ある型に `to_unsafe` メソッドが定義されていた場合、C に渡されるのはそのメソッドからの戻り値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a variable is the condition of an &lt;g1&gt;if&lt;/g1&gt;, inside the &lt;g2&gt;then&lt;/g2&gt; branch the variable will be considered as not having the &lt;g3&gt;Nil&lt;/g3&gt; type:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081334Z" creationid="makenowjust" creationdate="20200424T081329Z">
+        <seg>変数が&lt;g1&gt;if&lt;/g1&gt;の条件式に使われたとき、&lt;g2&gt;then&lt;/g2&gt;節の中ではその変数は&lt;g3&gt;Nil&lt;/g3&gt;型を持たないと判断されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16259,6 +16357,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It also does not work with constants.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081903Z" creationid="makenowjust" creationdate="20200424T081903Z">
+        <seg>また、定数に対しても機能しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It basically allocates the necessary memory for it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T060757Z" creationid="hirofumiwakasugi" creationdate="20150904T060739Z">
@@ -16311,6 +16417,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T174210Z" creationid="makenowjust" creationdate="20200420T173502Z">
         <seg>型の名前にひげ括弧 (&lt;g1&gt;{}&lt;/g1&gt;) とコンマ (&lt;g2&gt;,&lt;/g2&gt;) によって区切られた個々の要素を続けることで利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It doesn’t work with instance variables, class variables, or variables bound in a closure.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081803Z" creationid="makenowjust" creationdate="20200424T081803Z">
+        <seg>インスタンス変数、クラス変数、クロージャに束縛された変数に関してはこの機能は機能しません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16743,6 +16857,14 @@ LibFoo.execute_callback
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Limitations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082037Z" creationid="makenowjust" creationdate="20200424T081649Z">
+        <seg>制約</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Lists the installed dependencies and their versions.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T181040Z" creationid="makenowjust" creationdate="20200419T181040Z">
@@ -16908,6 +17030,14 @@ code that is pasted into a program.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222530Z" creationid="makenowjust" creationdate="20200413T222530Z">
         <seg>一覧はこちら</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Method calls</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082209Z" creationid="makenowjust" creationdate="20200424T082209Z">
+        <seg>メソッド呼び出し</seg>
       </tuv>
     </tu>
     <tu>
@@ -17526,6 +17656,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T052538Z" creationid="hirofumiwakasugi" creationdate="20150901T052506Z">
         <seg>先頭にゼロをつけると8進数になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Of course, reassigning a variable inside the &lt;g1&gt;then&lt;/g1&gt; branch makes that variable have a new type based on the expression assigned.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081645Z" creationid="makenowjust" creationdate="20200424T081645Z">
+        <seg>もちろん、&lt;g1&gt;then&lt;/g1&gt;節の中で変数へ再代入を行なった場合は、その代入された式に応じて変数の型が変わります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19481,6 +19619,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The above logic works &lt;g1&gt;only for local variables&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081723Z" creationid="makenowjust" creationdate="20200424T081723Z">
+        <seg>これまで書いてきたことは&lt;g1&gt;ローカル変数に対してのみ機能します&lt;/g1&gt;。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The above makes it impossible to deal with a single box of a fixed type:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T060953Z" creationid="hirofumiwakasugi" creationdate="20150912T060523Z">
@@ -20576,6 +20722,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The value of these kinds of variables could potentially be affected by another fiber after the condition was checked, rendering it &lt;g2&gt;nil&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081847Z" creationid="makenowjust" creationdate="20200424T081847Z">
+        <seg>なぜならこれらの変数の値は別のファイバーによって&lt;g2&gt;nil&lt;/g2&gt;に変更される可能性があるからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The way this really works is by making each type have a list of ancestors, or parents.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T140039Z" creationid="hirofumiwakasugi" creationdate="20150911T134914Z">
@@ -20952,6 +21106,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This also applies when a variable is assigned in an &lt;g1&gt;if&lt;/g1&gt;'s condition:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081423Z" creationid="makenowjust" creationdate="20200424T081410Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;の条件式中で変数への代入が行われた場合にも、この判断がなされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This also applies when a variable is assigned in an `if`'s condition:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T014720Z" creationid="hirofumiwakasugi" creationdate="20150903T014453Z">
@@ -20980,6 +21142,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041847Z" creationid="hirofumiwakasugi" creationdate="20151005T041831Z">
         <seg>C の関数名は長い傾向があり、ライブラリ名で修飾されている場合が多いため、それらにより短くてわかりやすい名前をつけることにもこれを利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This can be circumvented by assigning the value to a new local variable:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082054Z" creationid="makenowjust" creationdate="20200424T082032Z">
+        <seg>この制約は値をローカル変数に代入することで回避できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21270,6 +21440,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T180154Z" creationid="makenowjust" creationdate="20200420T180154Z">
         <seg>引数を持たないコンストラクタと&lt;g1&gt;[]=&lt;/g1&gt;メソッドを持つ任意の型に対して、この構文は利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This logic also applies if there are ands (&lt;g1&gt;&amp;&amp;&lt;/g1&gt;) in the condition:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T081513Z" creationid="makenowjust" creationdate="20200424T081513Z">
+        <seg>条件式でかつ (&lt;g1&gt;&amp;&amp;&lt;/g1&gt;) が使われた場合にも同様です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -36525,6 +36703,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if method # first call to a method that can return Int32 or Nil</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082248Z" creationid="makenowjust" creationdate="20200424T082248Z">
+        <seg>if method # 最初の呼び出しでメソッドは Int32 か Nil を返す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if num % 2 == 0</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T015356Z" creationid="hirofumiwakasugi" creationdate="20150904T015356Z">
@@ -37071,6 +37257,16 @@ end
         <seg>method  # しかし、2回目の呼び出しは、また Int32 か Nil のどちらかを返す
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>method # second call can still return Int32 or Nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082325Z" creationid="makenowjust" creationdate="20200424T082325Z">
+        <seg>method # 2度目の呼び出しでも Int32 か Nil を返す
+end</seg>
       </tuv>
     </tu>
     <tu>

@@ -1,6 +1,6 @@
 # if var
 
-If a variable is the condition of an `if`, inside the `then` branch the variable will be considered as not having the `Nil` type:
+変数が`if`の条件式に使われたとき、`then`節の中ではその変数は`Nil`型を持たないと判断されます。
 
 ```crystal
 a = some_condition ?nil : 3
@@ -13,71 +13,71 @@ if a
 end
 ```
 
-This also applies when a variable is assigned in an `if`'s condition:
+`if`の条件式中で変数への代入が行われた場合にも、この判断がなされます。
 
 ```crystal
 if a = some_expression
-  # here a is not nil
+  # ここでは a は nil ではない
 end
 ```
 
-This logic also applies if there are ands (`&&`) in the condition:
+条件式でかつ (`&&`) が使われた場合にも同様です。
 
 ```crystal
 if a && b
-  # here both a and b are guaranteed not to be Nil
+  # ここでは a も b も Nil ではないことが保証される
 end
 ```
 
-Here, the right-hand side of the `&&` expression is also guaranteed to have `a` as not `Nil`.
+`&&` 式の右辺が評価された場合、`a`が`Nil`ではないことも同様に保証されています。
 
-Of course, reassigning a variable inside the `then` branch makes that variable have a new type based on the expression assigned.
+もちろん、`then`節の中で変数へ再代入を行なった場合は、その代入された式に応じて変数の型が変わります。
 
-## Limitations
+## 制約
 
-The above logic works **only for local variables**. It doesn’t work with instance variables, class variables, or variables bound in a closure. The value of these kinds of variables could potentially be affected by another fiber after the condition was checked, rendering it `nil`. It also does not work with constants.
+これまで書いてきたことは**ローカル変数に対してのみ機能します**。インスタンス変数、クラス変数、クロージャに束縛された変数に関してはこの機能は機能しません。なぜならこれらの変数の値は別のファイバーによって`nil`に変更される可能性があるからです。また、定数に対しても機能しません。
 
 ```crystal
 if @a
-  # here `@a` can be nil
+  # ここでも `@a` が nil の可能性がある
 end
 
 if @@a
-  # here `@@a` can be nil
+  # ここでも `@@a` が nil の可能性がある
 end
 
 a = nil
 closure = ->{ a = "foo" }
 
 if a
-  # here `a` can be nil
+  # ここでも `a` が nil の可能性がある
 end
 ```
 
-This can be circumvented by assigning the value to a new local variable:
+この制約は値をローカル変数に代入することで回避できます。
 
 ```crystal
 if a = @a
-  # here `a` can't be nil
+  # ここで `a` は nil にはならない
 end
 ```
 
-Another option is to use [`Object#try`](https://crystal-lang.org/api/Object.html#try%28%26block%29-instance-method) found in the standard library which only executes the block if the value is not `nil`:
+他の手法として、標準ライブラリの[`Object#try`](https://crystal-lang.org/api/Object.html#try%28%26block%29-instance-method)メソッドを使うこともできます。これは`nil`でない場合にのみブロックを実行する、というメソッドです。
 
 ```crystal
 @a.try do |a|
-  # here `a` can't be nil
+  # ここで `a` は nil にはならない
 end
 ```
 
-## Method calls
+## メソッド呼び出し
 
 Proc やメソッドの呼び出し (ゲッターやプロパティも含む) の場合にも当てはまりません。なぜなら、Nil を許容する (もしくは、複数の型の組み合わせとなるユニオン型の場合がより一般的でしょう) Proc やメソッドの呼び出しの場合、連続した呼び出しであっても、それらが常に同じ型を返すとは限らないからです。
 
 ```crystal
-if method # first call to a method that can return Int32 or Nil
+if method # 最初の呼び出しでメソッドは Int32 か Nil を返す
   # ここで、最初の呼び出しが Nil を返していないことはわかっている
-  method # second call can still return Int32 or Nil
+  method # 2度目の呼び出しでも Int32 か Nil を返す
 end
 ```
 
