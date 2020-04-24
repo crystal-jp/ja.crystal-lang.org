@@ -3445,6 +3445,26 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># here a is Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085246Z" creationid="makenowjust" creationdate="20200424T085246Z">
+        <seg># ここで a は Int32 型
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a is Nil
+else</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085239Z" creationid="makenowjust" creationdate="20200424T085239Z">
+        <seg># ここで a は Nil 型
+else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># here a is a String
 end</seg>
       </tuv>
@@ -15187,6 +15207,14 @@ Set{1, 2, 3}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T080544Z" creationid="makenowjust" creationdate="20200424T080544Z">
         <seg>&lt;g1&gt;if&lt;/g1&gt;が評価する分岐節が空、もしくは存在しない場合、そこに&lt;g2&gt;nil&lt;/g2&gt;が与えられていたのと同じ挙動になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If an &lt;g1&gt;if&lt;/g1&gt;'s condition is &lt;g2&gt;var.nil?&lt;/g2&gt; then the type of &lt;g3&gt;var&lt;/g3&gt; in the &lt;g4&gt;then&lt;/g4&gt; branch is known by the compiler to be &lt;g5&gt;Nil&lt;/g5&gt;, and to be known as non-&lt;g6&gt;Nil&lt;/g6&gt; in the &lt;g7&gt;else&lt;/g7&gt; branch:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085223Z" creationid="makenowjust" creationdate="20200424T085223Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;の条件が&lt;g2&gt;var.nil?&lt;/g2&gt;のようになっていると、コンパイラは&lt;g4&gt;then&lt;/g4&gt;節では&lt;g3&gt;var&lt;/g3&gt;が&lt;g5&gt;Nil&lt;/g5&gt;型だと判断して、&lt;g7&gt;else&lt;/g7&gt;では&lt;g6&gt;Nil&lt;/g6&gt;型以外の型だと判断します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -37063,6 +37091,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if var.nil?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085224Z" creationid="makenowjust" creationdate="20200424T085224Z">
+        <seg>if var.nil?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if var.responds_to?(...)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T083705Z" creationid="makenowjust" creationdate="20200424T083705Z">
@@ -37831,6 +37867,16 @@ if a</seg>
 # a is Int32 or Nil
 
 if a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nil : 3
+if a.nil?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085227Z" creationid="makenowjust" creationdate="20200424T085227Z">
+        <seg>nil : 3
+if a.nil?</seg>
       </tuv>
     </tu>
     <tu>
