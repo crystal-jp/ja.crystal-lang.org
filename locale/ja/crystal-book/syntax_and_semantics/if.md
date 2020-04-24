@@ -1,7 +1,6 @@
 # if
 
-An `if` evaluates the given branch if its condition is *truthy*. Otherwise, it
-evaluates the `else` branch if present.
+`if`は与えられた条件式が*真*である場合にthen節を評価します。偽の場合、`else`節があればそちらを評価します。
 
 ```crystal
 a = 1
@@ -19,7 +18,7 @@ end
 b # => 20
 ```
 
-To write a chain of if-else-if you use `elsif`:
+複数の条件分岐を連続させるには`elsif`を使います。
 
 ```crystal
 if some_condition
@@ -31,7 +30,7 @@ else
 end
 ```
 
-After an `if`, a variable’s type depends on the type of the expressions used in both branches.
+ある変数が`if`の分岐節の中で使われたとき、その後の変数の型は分岐節の中での使われ方に依存します。
 
 ```crystal
 a = 1
@@ -61,9 +60,9 @@ end
 # d : Int32 | Nil
 ```
 
-Note that if a variable is declared inside one of the branches but not in the other one, at the end of the `if` it will also contain the `Nil` type.
+もし一方の節である変数が宣言されて、もう一方ではされなかったとき、`if`の後でその変数は`Nil`型を持つこととに注意してください。
 
-Inside an `if`'s branch the type of a variable is the one it got assigned in that branch, or the one that it had before the branch if it was not reassigned:
+`if`の分岐節の中である変数に代入が行なわれたとき、変数の型は代入された式の型になりますが、もし条件に合致せずその代入式が評価されなかった場合、以前の型のままで変更されることはありません。
 
 ```crystal
 a = 1
@@ -77,7 +76,7 @@ end
 
 つまり、変数の型は最後に代入された式によって決定されるということです。
 
-If one of the branches never reaches past the end of an `if`, like in the case of a `return`, `next`, `break` or `raise`, that type is not considered at the end of the `if`:
+ある分岐節が`if`の最後まで絶対に到達しない場合 (`return`や`next`、`break`、`raise`などがある場合)、 `if`の後でその分岐節における型が考慮されることはありません。
 
 ```crystal
 if some_condition
