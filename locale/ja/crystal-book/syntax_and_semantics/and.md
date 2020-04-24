@@ -1,13 +1,13 @@
-# && - Logical AND Operator
+# && - 論理積 (かつ) 演算子
 
-An `&&` (and) evaluates its left hand side. If it's *truthy*, it evaluates its right hand side and has that value. そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせ (ユニオン型）です。
+`&&` (かつ) 演算子はまず左辺の式を評価します。それが*真となる*値であれば、右辺の値を評価し、その値を結果とします。そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせ (ユニオン型）です。
 
-You can think an `&&` as syntax sugar of an `if`:
+したがって`&&`は`if`のシンタックスシュガーのように考えられます。
 
 ```crystal
 some_exp1 && some_exp2
 
-# The above is the same as:
+# 上記は以下に同じ
 tmp = some_exp1
 if tmp
   some_exp2

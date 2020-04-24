@@ -1,13 +1,13 @@
-# || - Logical OR Operator
+# || - 論理和 (または) 演算子
 
-An `||` (or) evaluates its left hand side. If it's *falsey*, it evaluates its right hand side and has that value. そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせ (ユニオン型）です。
+`||` (また) 演算子はまず左辺を評価します。それが*偽となる*値であれば、右辺を評価し、それを結果の値とします。そうでない場合は、結果は左辺の値となります。その型は両辺の型の組み合わせ (ユニオン型）です。
 
-You can think an `||` as syntax sugar of an `if`:
+したがって`||`は`if`のシンタックスシュガーのように考えられます。
 
 ```crystal
 some_exp1 || some_exp2
 
-# The above is the same as:
+# 上記は以下に同じ
 tmp = some_exp1
 if tmp
   tmp

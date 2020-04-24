@@ -5519,6 +5519,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&amp;&amp; - Logical AND Operator</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101705Z" creationid="makenowjust" creationdate="20200424T101507Z">
+        <seg>&amp;&amp; - 論理積 (かつ) 演算子</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&amp;&amp; value2.odd?</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T093739Z" creationid="makenowjust" creationdate="20200424T093739Z">
@@ -12171,6 +12179,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;&amp;&amp;&lt;/g1&gt; (and) evaluates its left hand side.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101530Z" creationid="makenowjust" creationdate="20200424T101530Z">
+        <seg>&lt;g1&gt;&amp;&amp;&lt;/g1&gt; (かつ) 演算子はまず左辺の式を評価します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An &lt;g1&gt;Array&lt;/g1&gt; is an ordered and integer-indexed generic collection of elements of a specific type &lt;g2&gt;T&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173906Z" creationid="makenowjust" creationdate="20200420T172810Z">
@@ -12207,6 +12223,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T101002Z" creationid="makenowjust" creationdate="20200424T101002Z">
         <seg>&lt;g1&gt;until&lt;/g1&gt;は条件式が&lt;g2&gt;真となる&lt;/g2&gt;まで繰り返し本体を実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;||&lt;/g1&gt; (or) evaluates its left hand side.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T102238Z" creationid="makenowjust" creationdate="20200424T101722Z">
+        <seg>&lt;g1&gt;||&lt;/g1&gt; (または) 演算子はまず左辺を評価します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15618,6 +15642,22 @@ files inside that folder are appended.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052514Z" creationid="hirofumiwakasugi" creationdate="20150905T052514Z">
         <seg>もしそれが「真」の場合のみ、右辺に対して評価を行い、結果の値が右辺の値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If it's &lt;g2&gt;falsey&lt;/g2&gt;, it evaluates its right hand side and has that value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101746Z" creationid="makenowjust" creationdate="20200424T101746Z">
+        <seg>それが&lt;g2&gt;偽となる&lt;/g2&gt;値であれば、右辺を評価し、それを結果の値とします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If it's &lt;g2&gt;truthy&lt;/g2&gt;, it evaluates its right hand side and has that value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T102259Z" creationid="makenowjust" creationdate="20200424T101601Z">
+        <seg>それが&lt;g2&gt;真となる&lt;/g2&gt;値であれば、右辺の値を評価し、その値を結果とします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24160,6 +24200,22 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043200Z" creationid="hirofumiwakasugi" creationdate="20150908T043119Z">
         <seg>フラグのチェックには `ifdef` を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can think an &lt;g1&gt;&amp;&amp;&lt;/g1&gt; as syntax sugar of an &lt;g2&gt;if&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101627Z" creationid="makenowjust" creationdate="20200424T101627Z">
+        <seg>したがって&lt;g1&gt;&amp;&amp;&lt;/g1&gt;は&lt;g2&gt;if&lt;/g2&gt;のシンタックスシュガーのように考えられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can think an &lt;g1&gt;||&lt;/g1&gt; as syntax sugar of an &lt;g2&gt;if&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101806Z" creationid="makenowjust" creationdate="20200424T101806Z">
+        <seg>したがって&lt;g1&gt;||&lt;/g1&gt;は&lt;g2&gt;if&lt;/g2&gt;のシンタックスシュガーのように考えられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -40357,12 +40413,54 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>some_exp1 &amp;&amp; some_exp2
+
+# The above is the same as:
+tmp = some_exp1
+if tmp</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101634Z" creationid="makenowjust" creationdate="20200424T101634Z">
+        <seg>some_exp1 &amp;&amp; some_exp2
+
+# 上記は以下に同じ
+tmp = some_exp1
+if tmp</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>some_exp1 || some_exp2
+
+# The above is the same as:
+tmp = some_exp1
+if tmp</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101813Z" creationid="makenowjust" creationdate="20200424T101813Z">
+        <seg>some_exp1 || some_exp2
+
+# 上記は以下に同じ
+tmp = some_exp1
+if tmp</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>some_exp2
 else</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052621Z" creationid="hirofumiwakasugi" creationdate="20150905T052621Z">
         <seg>some_exp2
 else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>some_exp2
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101814Z" creationid="makenowjust" creationdate="20200424T101814Z">
+        <seg>some_exp2
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -40609,6 +40707,16 @@ else</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052659Z" creationid="hirofumiwakasugi" creationdate="20150905T052659Z">
         <seg>tmp
 else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>tmp
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101635Z" creationid="makenowjust" creationdate="20200424T101635Z">
+        <seg>tmp
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -41928,6 +42036,14 @@ objects[1] &amp;&amp;= 2 # same as: objects[1]?</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T174925Z" creationid="makenowjust" creationdate="20200422T174925Z">
         <seg>|| (objects[1] = 2) と同じ
 objects[1] &amp;&amp;= 2 # objects[1]? </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>|| - Logical OR Operator</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101655Z" creationid="makenowjust" creationdate="20200424T101655Z">
+        <seg>|| - 論理和 (または) 演算子</seg>
       </tuv>
     </tu>
     <tu>
