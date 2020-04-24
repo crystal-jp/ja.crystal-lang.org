@@ -1,6 +1,6 @@
 # next
 
-You can use `next` to try to execute the next iteration of a `while` loop. After executing `next`, the `while`'s condition is checked and, if *truthy*, the body will be executed.
+`while`のループで`next`を使うと、次の繰り返しにジャンプすることができます。`next`が実行されたあと、`while`の条件がチェックされ、*真となれば*本体が再度実行されます。
 
 ```crystal
 a = 1
@@ -12,10 +12,10 @@ while a < 5
   puts a
 end
 
-# The above prints the numbers 2, 4 and 5
+# 上記を実行すると2、4、5と表示する
 ```
 
-`next` can also be used to exit from a block, for example:
+`next`はブロックを終了するためにも利用できます。
 
 ```crystal
 def block
@@ -28,10 +28,10 @@ block do
   puts "world"
 end
 
-# The above prints "hello"
+# 上記を実行すると "hello" と表示する
 ```
 
-Similar to [`break`](break.md), `next` can also take a parameter which will then be returned by `yield`.
+[`break`](break.md)同様、`next`は引数を受けとることも可能で、その場合には`yield`戻り値となります。
 
 ```crystal
 def block
@@ -42,5 +42,5 @@ block do
   next "hello"
 end
 
-# The above prints "hello"
+# 上記を実行すると "hello" と表示する
 ```

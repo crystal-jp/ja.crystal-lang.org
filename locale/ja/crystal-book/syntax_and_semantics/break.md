@@ -12,7 +12,7 @@ end
 puts a # => 10
 ```
 
-`break` can also take a parameter which will then be the value that gets returned:
+`break`は引数を受けとることも可能で、その場合にはそれがメソッドの戻り値となります。
 
 ```crystal
 def foo

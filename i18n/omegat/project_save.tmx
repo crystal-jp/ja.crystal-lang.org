@@ -9893,6 +9893,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;break&lt;/g1&gt; can also take a parameter which will then be the value that gets returned:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100858Z" creationid="makenowjust" creationdate="20200424T095659Z">
+        <seg>&lt;g1&gt;break&lt;/g1&gt;は引数を受けとることも可能で、その場合にはそれがメソッドの戻り値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;case&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170636Z" creationid="makenowjust" creationdate="20200413T170636Z">
@@ -10169,6 +10177,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170640Z" creationid="makenowjust" creationdate="20200413T170640Z">
         <seg>&lt;g1&gt;next&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;next&lt;/g1&gt; can also be used to exit from a block, for example:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095951Z" creationid="makenowjust" creationdate="20200424T095951Z">
+        <seg>&lt;g1&gt;next&lt;/g1&gt;はブロックを終了するためにも利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11935,6 +11951,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T025750Z" creationid="hirofumiwakasugi" creationdate="20150903T011247Z">
         <seg>ある変数が `if` の分岐節の中で使われたとき、その型は評価された式によって決まります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>After executing &lt;g3&gt;next&lt;/g3&gt;, the &lt;g4&gt;while&lt;/g4&gt;'s condition is checked and, if &lt;g5&gt;truthy&lt;/g5&gt;, the body will be executed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095900Z" creationid="makenowjust" creationdate="20200424T095900Z">
+        <seg>&lt;g3&gt;next&lt;/g3&gt;が実行されたあと、&lt;g4&gt;while&lt;/g4&gt;の条件がチェックされ、&lt;g5&gt;真となれば&lt;/g5&gt;本体が再度実行されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19096,6 +19120,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Similar to &lt;g1&gt;&lt;g2&gt;break&lt;/g2&gt;&lt;/g1&gt;, &lt;g3&gt;next&lt;/g3&gt; can also take a parameter which will then be returned by &lt;g4&gt;yield&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100848Z" creationid="makenowjust" creationdate="20200424T100343Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;break&lt;/g2&gt;&lt;/g1&gt;同様、&lt;g3&gt;next&lt;/g3&gt;は引数を受けとることも可能で、その場合には&lt;g4&gt;yield&lt;/g4&gt;の戻り値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Similar to an &lt;g1&gt;if&lt;/g1&gt;, if a &lt;g2&gt;while&lt;/g2&gt;'s condition is a variable, the variable is guaranteed to not be &lt;g3&gt;nil&lt;/g3&gt; inside the body.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T094859Z" creationid="makenowjust" creationdate="20200424T094859Z">
@@ -24128,6 +24160,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200417T115411Z" creationid="makenowjust" creationdate="20200417T115411Z">
         <seg>&lt;g2&gt;while&lt;/g2&gt;のループを抜けるためには&lt;g1&gt;break&lt;/g1&gt;を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can use &lt;g1&gt;next&lt;/g1&gt; to try to execute the next iteration of a &lt;g2&gt;while&lt;/g2&gt; loop.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095815Z" creationid="makenowjust" creationdate="20200424T095742Z">
+        <seg>&lt;g2&gt;while&lt;/g2&gt;のループで&lt;g1&gt;next&lt;/g1&gt;を使うと、次の繰り返しにジャンプすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33230,6 +33270,16 @@ if some_condition</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>a = 1
+while a &lt; 5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095903Z" creationid="makenowjust" creationdate="20200424T095903Z">
+        <seg>a = 1
+while a &lt; 5</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
 while some_condition</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T095122Z" creationid="makenowjust" creationdate="20200424T095122Z">
@@ -34179,6 +34229,14 @@ box.value.size # Error: undefined method 'size' for Int32
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052249Z" creationid="hirofumiwakasugi" creationdate="20150905T052249Z">
         <seg>break</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>break "bar"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095705Z" creationid="makenowjust" creationdate="20200424T095705Z">
+        <seg>break "bar"</seg>
       </tuv>
     </tu>
     <tu>
@@ -35353,6 +35411,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def block</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095957Z" creationid="makenowjust" creationdate="20200424T095957Z">
+        <seg>def block</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def date_of_birth</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010347Z" creationid="hirofumiwakasugi" creationdate="20151010T010347Z">
@@ -35389,6 +35455,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010346Z" creationid="hirofumiwakasugi" creationdate="20151010T010346Z">
         <seg>def first_name</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095700Z" creationid="makenowjust" creationdate="20200424T095700Z">
+        <seg>def foo</seg>
       </tuv>
     </tu>
     <tu>
@@ -36527,6 +36601,20 @@ puts ""
 puts "Group members:"
 puts "=============="
 members.each do |member|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+puts foo # =&gt; "bar"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095706Z" creationid="makenowjust" creationdate="20200424T095706Z">
+        <seg>end
+end
+
+puts foo # =&gt; "bar"</seg>
       </tuv>
     </tu>
     <tu>
@@ -38393,6 +38481,20 @@ typeof(flat) #=&gt; Array(String | Int32 | Symbol | Char)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>next "hello"
+end
+
+# The above prints "hello"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100428Z" creationid="makenowjust" creationdate="20200424T100403Z">
+        <seg>next "hello"
+end
+
+# 上記を実行すると "hello" と表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>next 10</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T030107Z" creationid="hirofumiwakasugi" creationdate="20150916T030107Z">
@@ -39589,10 +39691,32 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "hello"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100255Z" creationid="makenowjust" creationdate="20200424T100255Z">
+        <seg>puts "hello"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "version 1.0"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T172459Z" creationid="makenowjust" creationdate="20200413T172459Z">
         <seg>puts "version 1.0"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "world"
+end
+
+# The above prints "hello"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100424Z" creationid="makenowjust" creationdate="20200424T100258Z">
+        <seg>puts "world"
+end
+
+# 上記を実行すると "hello" と表示する</seg>
       </tuv>
     </tu>
     <tu>
@@ -39603,6 +39727,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T020012Z" creationid="hirofumiwakasugi" creationdate="20151002T020012Z">
         <seg>puts %x
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts a
+end
+
+# The above prints the numbers 2, 4 and 5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100414Z" creationid="makenowjust" creationdate="20200424T095923Z">
+        <seg>puts a
+end
+
+# 上記を実行すると2、4、5と表示する</seg>
       </tuv>
     </tu>
     <tu>
@@ -39765,6 +39903,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T022218Z" creationid="hirofumiwakasugi" creationdate="20150916T022218Z">
         <seg>puts x + y + z
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts yield
+end
+
+block do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100344Z" creationid="makenowjust" creationdate="20200424T100344Z">
+        <seg>puts yield
+end
+
+block do</seg>
       </tuv>
     </tu>
     <tu>
@@ -41161,6 +41313,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T013506Z" creationid="hirofumiwakasugi" creationdate="20150916T013506Z">
         <seg>yield
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yield
+end
+
+block do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095959Z" creationid="makenowjust" creationdate="20200424T095959Z">
+        <seg>yield
+end
+
+block do</seg>
       </tuv>
     </tu>
     <tu>
