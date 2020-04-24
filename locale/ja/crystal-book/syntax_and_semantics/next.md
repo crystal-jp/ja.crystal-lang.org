@@ -31,7 +31,7 @@ end
 # 上記を実行すると "hello" と表示する
 ```
 
-[`break`](break.md)同様、`next`は引数を受けとることも可能で、その場合には`yield`戻り値となります。
+[`break`](break.md)同様、`next`は引数を受けとることも可能で、その場合には`yield`の戻り値となります。
 
 ```crystal
 def block

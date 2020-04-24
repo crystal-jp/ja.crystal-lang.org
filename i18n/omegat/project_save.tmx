@@ -9893,6 +9893,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;break&lt;/g1&gt; and &lt;g2&gt;next&lt;/g2&gt; can also be used inside an &lt;g3&gt;until&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101120Z" creationid="makenowjust" creationdate="20200424T101120Z">
+        <seg>&lt;g3&gt;until&lt;/g3&gt;の中でも&lt;g1&gt;break&lt;/g1&gt;と&lt;g2&gt;next&lt;/g2&gt;は利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;break&lt;/g1&gt; can also take a parameter which will then be the value that gets returned:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T100858Z" creationid="makenowjust" creationdate="20200424T095659Z">
@@ -12191,6 +12199,22 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T090448Z" creationid="makenowjust" creationdate="20200424T090448Z">
         <seg>&lt;g1&gt;unless&lt;/g1&gt;は条件式が&lt;g2&gt;偽となる&lt;/g2&gt;ときにthen節を評価して、そうでないときに&lt;g3&gt;else&lt;/g3&gt;節があれば評価します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;until&lt;/g1&gt; executes its body until its condition is &lt;g2&gt;truthy&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101002Z" creationid="makenowjust" creationdate="20200424T101002Z">
+        <seg>&lt;g1&gt;until&lt;/g1&gt;は条件式が&lt;g2&gt;真となる&lt;/g2&gt;まで繰り返し本体を実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g3&gt;until&lt;/g3&gt; is just syntax sugar for a &lt;g4&gt;while&lt;/g4&gt; with the condition negated:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101247Z" creationid="makenowjust" creationdate="20200424T101046Z">
+        <seg>&lt;g3&gt;until&lt;/g3&gt;は&lt;g4&gt;while&lt;/g4&gt;に条件式を否定したもの与えられた場合のシンタックスシュガーになっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -36293,6 +36317,22 @@ end</seg>
       <tuv lang="EN-US">
         <seg>do_this
 end
+
+# The above is the same as:
+while !some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101056Z" creationid="makenowjust" creationdate="20200424T101056Z">
+        <seg>do_this
+end
+
+# 上記は以下に同じ
+while !some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>do_this
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052045Z" creationid="hirofumiwakasugi" creationdate="20150905T052045Z">
@@ -40793,6 +40833,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T090502Z" creationid="makenowjust" creationdate="20200424T090502Z">
         <seg>unless some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>until</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T100933Z" creationid="makenowjust" creationdate="20200424T100933Z">
+        <seg>until</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>until some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T101047Z" creationid="makenowjust" creationdate="20200424T101047Z">
+        <seg>until some_condition</seg>
       </tuv>
     </tu>
     <tu>
