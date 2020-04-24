@@ -685,6 +685,16 @@ end{% endhighlight %}</seg>
     <tu>
       <tuv lang="EN-US">
         <seg># ...
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093557Z" creationid="makenowjust" creationdate="20200424T093557Z">
+        <seg># ...
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># ...
 ensure</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013615Z" creationid="hirofumiwakasugi" creationdate="20150907T013615Z">
@@ -710,6 +720,16 @@ rescue ex1 : MyException</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T012446Z" creationid="hirofumiwakasugi" creationdate="20150907T012446Z">
         <seg># ...
 rescue ex1 : MyException</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># ...
+when {1, 2, 3} # Syntax error: wrong number of tuple elements (given 3, expected 2)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093534Z" creationid="makenowjust" creationdate="20200424T093534Z">
+        <seg># ...
+when {1, 2, 3} # Syntax error: wrong number of tuple elements (given 3, expected 2)</seg>
       </tuv>
     </tu>
     <tu>
@@ -1730,6 +1750,42 @@ def speak</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Matches if 0 === value1, no test done against value2
+when {_, 0}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093648Z" creationid="makenowjust" creationdate="20200424T093648Z">
+        <seg># 0 === value1 の場合にマッチして、 value2 に対するチェックは行なわれない
+when {_, 0}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Matches if 0 === value2, no test done against value1
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094429Z" creationid="makenowjust" creationdate="20200424T093707Z">
+        <seg># 0 === value2 の場合にマッチして、 value1 に対するチェックは行なわれない
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Matches if value1.even?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093746Z" creationid="makenowjust" creationdate="20200424T093727Z">
+        <seg># value1.even? &amp;&amp; value2.even? のときにマッチ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Matches if value1.is_a?(String) &amp;&amp; value2.is_a?(Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093847Z" creationid="makenowjust" creationdate="20200424T093847Z">
+        <seg># value1.is_a?(String) &amp;&amp; value2.is_a?(Int32) のときにマッチ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Methods and instance variables</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T121622Z" creationid="hirofumiwakasugi" creationdate="20150904T121612Z">
@@ -2504,6 +2560,14 @@ Tuple(Int32, String, Char)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># The type of value1 is known to be a String by the compiler,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093920Z" creationid="makenowjust" creationdate="20200424T093920Z">
+        <seg># このとき value1 と String 型 となることが保証され、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Then print them</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T021032Z" creationid="hirofumiwakasugi" creationdate="20151002T021012Z">
@@ -2945,6 +3009,16 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T031129Z" creationid="hirofumiwakasugi" creationdate="20151009T031028Z">
         <seg># そして、それを含んでいるかのチェックをランタイムに行う必要がある</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># and the type of value2 is known to be an Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093932Z" creationid="makenowjust" creationdate="20200424T093932Z">
+        <seg># value2 は Int32 型となることが保証される
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -5441,6 +5515,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T174929Z" creationid="makenowjust" creationdate="20200422T174929Z">
         <seg>&amp;&amp; (objects[1] = 2) と同じ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&amp;&amp; value2.odd?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093739Z" creationid="makenowjust" creationdate="20200424T093739Z">
+        <seg></seg>
       </tuv>
     </tu>
     <tu>
@@ -10911,6 +10993,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;case&lt;/g1&gt; is a control expression which functions a bit like pattern matching.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090838Z" creationid="makenowjust" creationdate="20200424T090838Z">
+        <seg>&lt;g1&gt;case&lt;/g1&gt;はパターンマッチのような雰囲気の制御式です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;here document&lt;/g1&gt; or &lt;g2&gt;heredoc&lt;/g2&gt; can be useful for writing strings spanning over multiple lines.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T033420Z" creationid="makenowjust" creationdate="20200420T033420Z">
@@ -11731,8 +11821,8 @@ extra syntax to manipulate the AST nodes.</seg>
       <tuv lang="EN-US">
         <seg>Additionally, if the case expression is a variable or a variable assignment the type of the variable is restricted:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T010025Z" creationid="hirofumiwakasugi" creationdate="20151001T010025Z">
-        <seg>そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制限が加えられます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091733Z" creationid="hirofumiwakasugi" creationdate="20151001T010025Z">
+        <seg>そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制約が加えられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13432,6 +13522,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Comparing against a type will perform an is_a?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094344Z" creationid="makenowjust" creationdate="20200424T093814Z">
+        <seg>型に対しては is_a? で比較されます</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Compile and &lt;g1&gt;run the application&lt;/g1&gt;, all in one command.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T175709Z" creationid="makenowjust" creationdate="20200413T174308Z">
@@ -14142,6 +14240,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Finally, you can omit the &lt;g1&gt;case&lt;/g1&gt;'s value:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093314Z" creationid="makenowjust" creationdate="20200424T093314Z">
+        <seg>そして、&lt;g1&gt;case&lt;/g1&gt;の値を部分を省略することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Finally, you can ommit the `case`'s value:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T010125Z" creationid="hirofumiwakasugi" creationdate="20151001T010125Z">
@@ -14296,6 +14402,14 @@ Foo.new.yield_normally { one }  # =&gt; "one"
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For comparing an expression against a &lt;g1&gt;case&lt;/g1&gt;'s value the &lt;g2&gt;case equality operator&lt;/g2&gt; &lt;g3&gt;===&lt;/g3&gt; is used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091706Z" creationid="makenowjust" creationdate="20200424T091002Z">
+        <seg>&lt;g1&gt;case&lt;/g1&gt;において、対象の値と条件式は&lt;g2&gt;case 等価性演算子&lt;/g2&gt; (&lt;g3&gt;===&lt;/g3&gt;) によって比較されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For easy setup just run in your command line:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T062024Z" creationid="hirofumiwakasugi" creationdate="20150831T052806Z">
@@ -14366,6 +14480,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T203904Z" creationid="makenowjust" creationdate="20200412T203904Z">
         <seg>例えば、&lt;g2&gt;HTTP&lt;/g2&gt;や&lt;g3&gt;LibXML&lt;/g3&gt;などです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, &lt;g6&gt;&lt;g7&gt;Class&lt;/g7&gt;&lt;/g6&gt; defines case equality as when an object is an instance of that class, &lt;g8&gt;&lt;g9&gt;Regex&lt;/g9&gt;&lt;/g8&gt; as when the value matches the regular expression and &lt;g10&gt;&lt;g11&gt;Range&lt;/g11&gt;&lt;/g10&gt; as when the value is included in that range.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091406Z" creationid="makenowjust" creationdate="20200424T091406Z">
+        <seg>例えば、&lt;g6&gt;&lt;g7&gt;Class&lt;/g7&gt;&lt;/g6&gt; 型では case 等価性が「比較対象のオブジェクトがそのクラスのインスタンスかどうか」として定義されていたり、&lt;g8&gt;&lt;g9&gt;Regex&lt;/g9&gt;&lt;/g8&gt; では「比較対象の文字列にマッチするかどうか」で、&lt;g10&gt;&lt;g11&gt;Range&lt;/g11&gt;&lt;/g10&gt;では「比較対象の値が含まれるかどうか」で定義されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15147,6 +15269,14 @@ Set{1, 2, 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a &lt;g1&gt;when&lt;/g1&gt;'s expression is a type, &lt;g2&gt;is_a?&lt;/g2&gt; is used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091439Z" creationid="makenowjust" creationdate="20200424T091439Z">
+        <seg>もし&lt;g1&gt;when&lt;/g1&gt;節の条件式に型が与えられていれば、代わりに&lt;g2&gt;is_a?&lt;/g2&gt;が使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a C function executes a user-provided callback that might raise, it must be annotated with the `@[Raises]` attribute.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T051733Z" creationid="hirofumiwakasugi" creationdate="20151008T030306Z">
@@ -15864,6 +15994,14 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150915T052016Z" creationid="hirofumiwakasugi" creationdate="20150915T051414Z">
         <seg>また、このとき Enum には、`None` と `All` が暗黙的に追加されます。`None` の値は `0` で、`All` はすべての定数の「OR」をとったときの値となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Implicit-object allowed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094341Z" creationid="makenowjust" creationdate="20200424T093716Z">
+        <seg>暗黙のオブジェクト指定が利用できます</seg>
       </tuv>
     </tu>
     <tu>
@@ -16623,8 +16761,8 @@ entrypoints for the docs generator.</seg>
       <tuv lang="EN-US">
         <seg>It allows writing a chain of if-else-if with a small change in semantic and some more powerful constructs.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T025309Z" creationid="hirofumiwakasugi" creationdate="20150903T023143Z">
-        <seg>これは、多少異なる点もありますが、`if` 文で if-else-if の形で複数の条件分岐を構築することに近いです。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090846Z" creationid="hirofumiwakasugi" creationdate="20150903T023143Z">
+        <seg>これは、多少異なる点もありますが、if 文で if-else-if の形で複数の条件分岐を構築することに近いです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16737,6 +16875,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T074441Z" creationid="hirofumiwakasugi" creationdate="20150901T074441Z">
         <seg>UTF-8 の文字をシングルクォートで囲んで記述します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is defined as a method on &lt;g4&gt;&lt;g5&gt;Object&lt;/g5&gt;&lt;/g4&gt; and can be overridden by subclasses to provide meaningful semantics in case statements.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091145Z" creationid="makenowjust" creationdate="20200424T091145Z">
+        <seg>これは&lt;g4&gt;&lt;g5&gt;Object&lt;/g5&gt;&lt;/g4&gt;に定義されたメソッドで、case 文で使う際に意味があるようにサブクラスでオーバライドされています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22645,6 +22791,22 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Tuple literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094307Z" creationid="makenowjust" creationdate="20200424T093339Z">
+        <seg>タプルリテラルの利用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Tuple size must match</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094329Z" creationid="makenowjust" creationdate="20200424T093449Z">
+        <seg>タプルの大きさは等しい必要があります</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Twenty = 10 * 2</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052948Z" creationid="hirofumiwakasugi" creationdate="20151007T052948Z">
@@ -22713,6 +22875,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043620Z" creationid="hirofumiwakasugi" creationdate="20150908T042427Z">
         <seg>型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Underscore allowed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094335Z" creationid="makenowjust" creationdate="20200424T093620Z">
+        <seg>アンダースコアが利用できます</seg>
       </tuv>
     </tu>
     <tu>
@@ -23166,6 +23336,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T035003Z" creationid="hirofumiwakasugi" creationdate="20150910T034728Z">
         <seg>`Animal` のインスタンス化には意味がないため、`Animal` を直接インスタンス化することは絶対にあり得ないでしょう。ただ、コンパイラにはその事情がわかりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When a case expression is a tuple literal there are a few semantic differences if a &lt;g1&gt;when&lt;/g1&gt; condition is also a tuple literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094320Z" creationid="makenowjust" creationdate="20200424T093432Z">
+        <seg>caseの式にタプルリテラルで、&lt;g1&gt;when&lt;/g1&gt;の条件式もタプルリテラルの場合、少し異なる挙動をします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23720,6 +23898,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can invoke a method on the &lt;g1&gt;case&lt;/g1&gt;'s expression in a &lt;g2&gt;when&lt;/g2&gt; by using the implicit-object syntax:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093129Z" creationid="makenowjust" creationdate="20200424T093129Z">
+        <seg>暗黙的なオブジェクト指定の構文を使って、&lt;g1&gt;case&lt;/g1&gt;の式に対して&lt;g2&gt;when&lt;/g2&gt;でメソッドを呼ぶことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can invoke a method on the `case`'s expression in a `when` by using the implicit-object syntax:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T010100Z" creationid="hirofumiwakasugi" creationdate="20151001T010100Z">
@@ -24030,6 +24216,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T184712Z" creationid="makenowjust" creationdate="20200413T184712Z">
         <seg>&lt;g1&gt;利用できる色&lt;/g1&gt;や&lt;g2&gt;テキストの装飾&lt;/g2&gt;の一覧は&lt;g3&gt;API ドキュメント&lt;/g3&gt;で確認できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You may use &lt;g1&gt;then&lt;/g1&gt; after the &lt;g2&gt;when&lt;/g2&gt; condition to place the body on a single line.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093220Z" creationid="makenowjust" creationdate="20200424T093220Z">
+        <seg>&lt;g2&gt;when&lt;/g2&gt;の条件のあとに&lt;g1&gt;then&lt;/g1&gt;を置くことで、1行で本体を書くことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34009,10 +34203,114 @@ else</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>case</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090854Z" creationid="makenowjust" creationdate="20200424T090854Z">
+        <seg>case</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case
+when cond1, cond2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093315Z" creationid="makenowjust" creationdate="20200424T093315Z">
+        <seg>case
+when cond1, cond2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>case color</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011821Z" creationid="hirofumiwakasugi" creationdate="20150916T011821Z">
         <seg>case color</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case exp
+when value1, value2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090855Z" creationid="makenowjust" creationdate="20200424T090855Z">
+        <seg>case exp
+when value1, value2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case exp
+when value1, value2 then do_something
+when value3         then do_something_else
+else                     do_another_thing
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093253Z" creationid="makenowjust" creationdate="20200424T093253Z">
+        <seg>case exp
+when value1, value2 then do_something
+when value3         then do_something_else
+else                     do_another_thing
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case num
+when .even?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093131Z" creationid="makenowjust" creationdate="20200424T093131Z">
+        <seg>case num
+when .even?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case var
+when String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T091450Z" creationid="makenowjust" creationdate="20200424T091450Z">
+        <seg>case var
+when String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case {value1, value2}
+when {.even?, .odd?}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093721Z" creationid="makenowjust" creationdate="20200424T093721Z">
+        <seg>case {value1, value2}
+when {.even?, .odd?}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case {value1, value2}
+when {0, 0} # OK, 2 elements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093519Z" creationid="makenowjust" creationdate="20200424T093519Z">
+        <seg>case {value1, value2}
+when {0, 0} # 大きさが2で等しいのでOK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case {value1, value2}
+when {0, _}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093624Z" creationid="makenowjust" creationdate="20200424T093624Z">
+        <seg>case {value1, value2}
+when {0, _}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case {value1, value2}
+when {String, Int32}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093838Z" creationid="makenowjust" creationdate="20200424T093838Z">
+        <seg>case {value1, value2}
+when {String, Int32}</seg>
       </tuv>
     </tu>
     <tu>
@@ -34031,6 +34329,14 @@ name = Crystal
 baseurl = http://dist.crystal-lang.org/rpm/
 END
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>check</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093828Z" creationid="makenowjust" creationdate="20200424T093828Z">
+        <seg></seg>
       </tuv>
     </tu>
     <tu>
@@ -35567,6 +35873,40 @@ end</seg>
       <tuv lang="EN-US">
         <seg>do_another_thing
 end
+
+# The above is the same as:
+if var.is_a?(String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T092929Z" creationid="makenowjust" creationdate="20200424T092929Z">
+        <seg>do_another_thing
+end
+
+# 上記は以下と同じ
+if var.is_a?(String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>do_another_thing
+end
+
+# The above is the same as:
+tmp = exp
+if value1 === tmp || value2 === tmp</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090907Z" creationid="makenowjust" creationdate="20200424T090907Z">
+        <seg>do_another_thing
+end
+
+# 上記は以下と同じ
+tmp = exp
+if value1 === tmp || value2 === tmp</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>do_another_thing
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T023611Z" creationid="hirofumiwakasugi" creationdate="20150903T023611Z">
@@ -35691,6 +36031,40 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T010104Z" creationid="hirofumiwakasugi" creationdate="20151001T010104Z">
         <seg>do_something_else
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>do_something_else
+end
+
+# The above is the same as:
+if cond1 || cond2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093325Z" creationid="makenowjust" creationdate="20200424T093325Z">
+        <seg>do_something_else
+end
+
+# 上記は以下に同じ
+if cond1 || cond2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>do_something_else
+end
+
+# The above is the same as:
+tmp = num
+if tmp.even?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T093140Z" creationid="makenowjust" creationdate="20200424T093140Z">
+        <seg>do_something_else
+end
+
+# 上記は以下に同じ
+tmp = num
+if tmp.even?</seg>
       </tuv>
     </tu>
     <tu>

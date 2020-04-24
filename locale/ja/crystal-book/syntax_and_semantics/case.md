@@ -1,6 +1,6 @@
 # case
 
-A `case` is a control expression which functions a bit like pattern matching. これは、多少異なる点もありますが、`if` 文で if-else-if の形で複数の条件分岐を構築することに近いです。
+`case`はパターンマッチのような雰囲気の制御式です。これは、多少異なる点もありますが、if 文で if-else-if の形で複数の条件分岐を構築することに近いです。
 
 基本的な書き方は以下のような形で、値と値のマッチングによって制御します。
 
@@ -14,7 +14,7 @@ else
   do_another_thing
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 tmp = exp
 if value1 === tmp || value2 === tmp
   do_something
@@ -25,9 +25,9 @@ else
 end
 ```
 
-For comparing an expression against a `case`'s value the *case equality operator* `===` is used. It is defined as a method on [`Object`](https://crystal-lang.org/api/Object.html#%3D%3D%3D%28other%29-instance-method) and can be overridden by subclasses to provide meaningful semantics in case statements. For example, [`Class`](https://crystal-lang.org/api/Class.html#%3D%3D%3D%28other%29-instance-method) defines case equality as when an object is an instance of that class, [`Regex`](https://crystal-lang.org/api/Regex.html#%3D%3D%3D%28other%3AString%29-instance-method) as when the value matches the regular expression and [`Range`](https://crystal-lang.org/api/Range.html#%3D%3D%3D%28value%29-instance-method) as when the value is included in that range.
+`case`において、対象の値と条件式は*case 等価性演算子* (`===`) によって比較されます。これは[`Object`](https://crystal-lang.org/api/Object.html#%3D%3D%3D%28other%29-instance-method)に定義されたメソッドで、case 文で使う際に意味があるようにサブクラスでオーバライドされています。例えば、[`Class`](https://crystal-lang.org/api/Class.html#%3D%3D%3D%28other%29-instance-method) 型では case 等価性が「比較対象のオブジェクトがそのクラスのインスタンスかどうか」として定義されていたり、[`Regex`](https://crystal-lang.org/api/Regex.html#%3D%3D%3D%28other%3AString%29-instance-method) では「比較対象の文字列にマッチするかどうか」で、[`Range`](https://crystal-lang.org/api/Range.html#%3D%3D%3D%28value%29-instance-method)では「比較対象の値が含まれるかどうか」で定義されています。
 
-If a `when`'s expression is a type, `is_a?` is used. そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制限が加えられます。
+もし`when`節の条件式に型が与えられていれば、代わりに`is_a?`が使われます。そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制約が加えられます。
 
 ```crystal
 case var
@@ -42,7 +42,7 @@ else
   do_another_thing
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 if var.is_a?(String)
   do_something
 elsif var.is_a?(Int32)
@@ -52,7 +52,7 @@ else
 end
 ```
 
-You can invoke a method on the `case`'s expression in a `when` by using the implicit-object syntax:
+暗黙的なオブジェクト指定の構文を使って、`case`の式に対して`when`でメソッドを呼ぶことができます。
 
 ```crystal
 case num
@@ -62,7 +62,7 @@ when .odd?
   do_something_else
 end
 
-# The above is the same as:
+# 上記は以下に同じ
 tmp = num
 if tmp.even?
   do_something
@@ -71,7 +71,7 @@ elsif tmp.odd?
 end
 ```
 
-You may use `then` after the `when` condition to place the body on a single line.
+`when`の条件のあとに`then`を置くことで、1行で本体を書くことができます。
 
 ```crystal
 case exp
@@ -81,7 +81,7 @@ else                     do_another_thing
 end
 ```
 
-Finally, you can omit the `case`'s value:
+そして、`case`の値を部分を省略することもできます。
 
 ```crystal
 case
@@ -91,7 +91,7 @@ when cond3
   do_something_else
 end
 
-# The above is the same as:
+# 上記は以下に同じ
 if cond1 || cond2
   do_something
 elsif cond3
@@ -101,48 +101,48 @@ end
 
 この方がコードが読みやすくなる場合もあるでしょう。
 
-## Tuple literal
+## タプルリテラルの利用
 
-When a case expression is a tuple literal there are a few semantic differences if a `when` condition is also a tuple literal.
+caseの式にタプルリテラルで、`when`の条件式もタプルリテラルの場合、少し異なる挙動をします。
 
-### Tuple size must match
+### タプルの大きさは等しい必要があります
 
 ```crystal
 case {value1, value2}
-when {0, 0} # OK, 2 elements
+when {0, 0} # 大きさが2で等しいのでOK
   # ...
 when {1, 2, 3} # Syntax error: wrong number of tuple elements (given 3, expected 2)
   # ...
 end
 ```
 
-### Underscore allowed
+### アンダースコアが利用できます
 
 ```crystal
 case {value1, value2}
 when {0, _}
-  # Matches if 0 === value1, no test done against value2
+  # 0 === value1 の場合にマッチして、 value2 に対するチェックは行なわれない
 when {_, 0}
-  # Matches if 0 === value2, no test done against value1
+  # 0 === value2 の場合にマッチして、 value1 に対するチェックは行なわれない
 end
 ```
 
-### Implicit-object allowed
+### 暗黙のオブジェクト指定が利用できます
 
 ```crystal
 case {value1, value2}
 when {.even?, .odd?}
-  # Matches if value1.even?&& value2.odd?
+  # value1.even? && value2.even? のときにマッチ
 end
 ```
 
-### Comparing against a type will perform an is_a? check
+### 型に対しては is_a? で比較されます
 
 ```crystal
 case {value1, value2}
 when {String, Int32}
-  # Matches if value1.is_a?(String) && value2.is_a?(Int32)
-  # The type of value1 is known to be a String by the compiler,
-  # and the type of value2 is known to be an Int32
+  # value1.is_a?(String) && value2.is_a?(Int32) のときにマッチ
+  # このとき value1 と String 型 となることが保証され、
+  # value2 は Int32 型となることが保証される
 end
 ```
