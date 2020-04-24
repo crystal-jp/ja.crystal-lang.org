@@ -1,6 +1,6 @@
 # while
 
-A `while` executes its body as long as its condition is *truthy*.
+`while`は条件式が*真となる*間は繰り返して本体を実行します。
 
 ```crystal
 while some_condition
@@ -8,13 +8,13 @@ while some_condition
 end
 ```
 
-The condition is first tested and, if *truthy*, the body is executed. これはつまり、本体が1度も実行されない場合もあるということです。
+まず条件式に対して判定が行なわれて、*真であった*ときに本体が実行されます。これはつまり、本体が1度も実行されない場合もあるということです。
 
-A `while`'s type is always `Nil`.
+`while`の型が常に`Nil`です。
 
-Similar to an `if`, if a `while`'s condition is a variable, the variable is guaranteed to not be `nil` inside the body. If the condition is an `var.is_a?(Type)` test, `var` is guaranteed to be of type `Type` inside the body. And if the condition is a `var.responds_to?(:method)`, `var` is guaranteed to be of a type that responds to that method.
+`if`のように、`while`の条件式が変数であった場合、本体ではその変数は`nil`ではないことが保証されます。条件式が`var.is_a?(Type)`という形なら、本体では`var`は`Type`型であることが保証されます。さらに、`var.responds_to?(:method)`という形なら、本体では`var`がそのメソッドを持つことが保証されます。
 
-The type of a variable after a `while` depends on the type it had before the `while` and the type it had before leaving the `while`'s body:
+`while`を実行したあとの変数の型は、`while`以前の型と、`while`を抜ける直前の型によって決まります。
 
 ```crystal
 a = 1
@@ -27,7 +27,7 @@ end
 # a : Int32 | String
 ```
 
-## Checking the condition at the end of a loop
+## 条件によってループを抜ける
 
 ループを抜けるための条件を設定することで、必ず1回は本体を実行することができます。
 
@@ -38,7 +38,7 @@ while true
 end
 ```
 
-Or use `loop`, found in the standard library:
+標準ライブラリの`loop`を利用しても同じことが可能です。
 
 ```crystal
 loop do

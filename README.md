@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 45/125
+翻訳済み/全体 = 46/125
 
 <details>
 
@@ -66,7 +66,7 @@
 | `crystal-book/syntax_and_semantics/not.md`                                                          | ○    |
 | `crystal-book/syntax_and_semantics/unless.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/case.md`                                                         | ○    |
-| `crystal-book/syntax_and_semantics/while.md`                                                        | △    |
+| `crystal-book/syntax_and_semantics/while.md`                                                        | ○    |
 | `crystal-book/syntax_and_semantics/break.md`                                                        | ×    |
 | `crystal-book/syntax_and_semantics/next.md`                                                         | ×    |
 | `crystal-book/syntax_and_semantics/until.md`                                                        | ×    |

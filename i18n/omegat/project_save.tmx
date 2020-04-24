@@ -11017,6 +11017,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;while&lt;/g1&gt; executes its body as long as its condition is &lt;g2&gt;truthy&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095554Z" creationid="makenowjust" creationdate="20200424T094708Z">
+        <seg>&lt;g1&gt;while&lt;/g1&gt;は条件式が&lt;g2&gt;真となる&lt;/g2&gt;間は繰り返して本体を実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;while&lt;/g1&gt;'s type is always &lt;g2&gt;Nil&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094808Z" creationid="makenowjust" creationdate="20200424T094808Z">
+        <seg>&lt;g1&gt;while&lt;/g1&gt;の型が常に&lt;g2&gt;Nil&lt;/g2&gt;です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g3&gt;lib&lt;/g3&gt; is a reusable library whereas &lt;g4&gt;app&lt;/g4&gt; describes
 an application not intended to be used as a dependency.</seg>
       </tuv>
@@ -12461,6 +12477,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>And if the condition is a &lt;g7&gt;var.responds_to?(:method)&lt;/g7&gt;, &lt;g8&gt;var&lt;/g8&gt; is guaranteed to be of a type that responds to that method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095031Z" creationid="makenowjust" creationdate="20200424T094959Z">
+        <seg>さらに、&lt;g7&gt;var.responds_to?(:method)&lt;/g7&gt;という形なら、本体では&lt;g8&gt;var&lt;/g8&gt;がそのメソッドを持つことが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>And if the condition is a `var.responds_to?(:method)`, `var` is guaranteed to be of a type that responds to that method.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052139Z" creationid="hirofumiwakasugi" creationdate="20150905T052139Z">
@@ -13348,6 +13372,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190417Z" creationid="makenowjust" creationdate="20200419T190417Z">
         <seg>文字 (Char)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Checking the condition at the end of a loop</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095147Z" creationid="makenowjust" creationdate="20200424T095147Z">
+        <seg>条件によってループを抜ける</seg>
       </tuv>
     </tu>
     <tu>
@@ -15671,6 +15703,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T024655Z" creationid="hirofumiwakasugi" creationdate="20151008T024642Z">
         <seg>もし、クロージャが渡されていることがコンパイル時に検出されるとエラーが発生します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the condition is an &lt;g4&gt;var.is_a?(Type)&lt;/g4&gt; test, &lt;g5&gt;var&lt;/g5&gt; is guaranteed to be of type &lt;g6&gt;Type&lt;/g6&gt; inside the body.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095007Z" creationid="makenowjust" creationdate="20200424T094954Z">
+        <seg>条件式が&lt;g4&gt;var.is_a?(Type)&lt;/g4&gt;という形なら、本体では&lt;g5&gt;var&lt;/g5&gt;は&lt;g6&gt;Type&lt;/g6&gt;型であることが保証されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18287,6 +18327,14 @@ specifying the current working directory.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Or use &lt;g1&gt;loop&lt;/g1&gt;, found in the standard library:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095208Z" creationid="makenowjust" creationdate="20200424T095208Z">
+        <seg>標準ライブラリの&lt;g1&gt;loop&lt;/g1&gt;を利用しても同じことが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Or use `loop`, found in the standard library:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052206Z" creationid="hirofumiwakasugi" creationdate="20150905T052206Z">
@@ -19044,6 +19092,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222912Z" creationid="makenowjust" creationdate="20200413T222912Z">
         <seg>すべて表示</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Similar to an &lt;g1&gt;if&lt;/g1&gt;, if a &lt;g2&gt;while&lt;/g2&gt;'s condition is a variable, the variable is guaranteed to not be &lt;g3&gt;nil&lt;/g3&gt; inside the body.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094859Z" creationid="makenowjust" creationdate="20200424T094859Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;のように、&lt;g2&gt;while&lt;/g2&gt;の条件式が変数であった場合、本体ではその変数は&lt;g3&gt;nil&lt;/g3&gt;ではないことが保証されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20398,6 +20454,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The condition is first tested and, if &lt;g1&gt;truthy&lt;/g1&gt;, the body is executed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094757Z" creationid="makenowjust" creationdate="20200424T094757Z">
+        <seg>まず条件式に対して判定が行なわれて、&lt;g1&gt;真であった&lt;/g1&gt;ときに本体が実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The default receiver within a captured block can't be changed by using `with ... yield`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T062029Z" creationid="hirofumiwakasugi" creationdate="20150918T062028Z">
@@ -21070,6 +21134,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T061901Z" creationid="hirofumiwakasugi" creationdate="20150916T040308Z">
         <seg>このとき、`proc` の型は [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html) で、単一の `Int32` の引数を受け取り、`Int32` の戻り値を返す関数となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of a variable after a &lt;g1&gt;while&lt;/g1&gt; depends on the type it had before the &lt;g2&gt;while&lt;/g2&gt; and the type it had before leaving the &lt;g3&gt;while&lt;/g3&gt;'s body:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095118Z" creationid="makenowjust" creationdate="20200424T095118Z">
+        <seg>&lt;g1&gt;while&lt;/g1&gt;を実行したあとの変数の型は、&lt;g2&gt;while&lt;/g2&gt;以前の型と、&lt;g3&gt;while&lt;/g3&gt;を抜ける直前の型によって決まります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33157,6 +33229,16 @@ if some_condition</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>a = 1
+while some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095122Z" creationid="makenowjust" creationdate="20200424T095122Z">
+        <seg>a = 1
+while some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>a = 1 + 2
 a #=&gt; 3</seg>
       </tuv>
@@ -33447,6 +33529,18 @@ end
 end
 # a :: String | Int32
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a.size
+end
+# a : Int32 | String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095139Z" creationid="makenowjust" creationdate="20200424T095139Z">
+        <seg>a.size
+end
+# a : Int32 | String</seg>
       </tuv>
     </tu>
     <tu>
@@ -34113,6 +34207,16 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200417T115450Z" creationid="makenowjust" creationdate="20200417T115416Z">
         <seg>break # ループを抜けて 'puts a' に行く</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>break if some_condition
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095154Z" creationid="makenowjust" creationdate="20200424T095154Z">
+        <seg>break if some_condition
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -38019,6 +38123,14 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>loop do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095209Z" creationid="makenowjust" creationdate="20200424T095209Z">
+        <seg>loop do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>macro compile_time_date</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T200748Z" creationid="makenowjust" creationdate="20200413T200704Z">
@@ -40659,6 +40771,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>while</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094511Z" creationid="makenowjust" creationdate="20200424T094511Z">
+        <seg>while</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>while a &lt; 10</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055808Z" creationid="hirofumiwakasugi" creationdate="20150913T055808Z">
@@ -40671,6 +40791,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T032023Z" creationid="hirofumiwakasugi" creationdate="20150916T032023Z">
         <seg>while i &lt; self</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>while some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T094710Z" creationid="makenowjust" creationdate="20200424T094710Z">
+        <seg>while some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>while true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T095151Z" creationid="makenowjust" creationdate="20200424T095151Z">
+        <seg>while true</seg>
       </tuv>
     </tu>
     <tu>
