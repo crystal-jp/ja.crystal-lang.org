@@ -1,7 +1,7 @@
 .PHONY: locale/ja
 locale/ja:
 	rsync -Cav --exclude='.git' --exclude-from=translate-files.txt locale/en/ locale/ja/
-	rsync -Cav i18n/target/ locale/ja/
+	rsync -Cav --exclude='.gitkeep' i18n/target/ locale/ja/
 
 .PHONY: i18n/source
 i18n/source:
