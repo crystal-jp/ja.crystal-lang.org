@@ -7555,6 +7555,22 @@ end</seg>
       <tuv lang="EN-US">
         <seg>3
 end
+
+# The above is the same as:
+if 1 &gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080553Z" creationid="makenowjust" creationdate="20200424T080553Z">
+        <seg>3
+end
+
+# 上記は以下に同じ
+if 1 &gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>3
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T013601Z" creationid="hirofumiwakasugi" creationdate="20150903T013601Z">
@@ -11697,6 +11713,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;if&lt;/g1&gt; can be written as an expression’s suffix:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080325Z" creationid="makenowjust" creationdate="20200424T080325Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;は式に後置して使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An &lt;g1&gt;if&lt;/g1&gt; evaluates the given branch if its condition is &lt;g2&gt;truthy&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T074633Z" creationid="makenowjust" creationdate="20200424T074152Z">
@@ -12237,10 +12261,26 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As a suffix</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080313Z" creationid="makenowjust" creationdate="20200424T080313Z">
+        <seg>後置 if</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As an example, consider a `Person` class.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T022414Z" creationid="hirofumiwakasugi" creationdate="20150904T022016Z">
         <seg>このセクションでは、`Person` というクラスを例として説明します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As an expression</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080407Z" creationid="makenowjust" creationdate="20200424T080407Z">
+        <seg>式としての if</seg>
       </tuv>
     </tu>
     <tu>
@@ -14847,6 +14887,14 @@ Set{1, 2, 3}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T014316Z" creationid="hirofumiwakasugi" creationdate="20150903T014120Z">
         <seg>もしある変数が `if` の条件になっているとき、`then` の分岐内においては、その値が `Nil` 型ではないと判断されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If an &lt;g1&gt;if&lt;/g1&gt; branch is empty, or it’s missing, it’s considered as if it had &lt;g2&gt;nil&lt;/g2&gt; in it:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080544Z" creationid="makenowjust" creationdate="20200424T080544Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;が評価する分岐節が空、もしくは存在しない場合、そこに&lt;g2&gt;nil&lt;/g2&gt;が与えられていたのと同じ挙動になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20478,6 +20526,14 @@ server.listen</seg>
 * 静的配列 (`StaticArray(Int32, 8)`, which can also be written as `Int32[8]`)
 * 関数型 (`Function(Int32, Int32)`, which can also be written as `Int32 -&gt; Int32`)
 * その他、事前に宣言されている `struct`/`union`/`enum`/`type`/`alias`</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The value of an &lt;g1&gt;if&lt;/g1&gt; is the value of the last expression found in each of its branches:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080439Z" creationid="makenowjust" creationdate="20200424T080439Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;は式としても利用できて、その値は評価された分岐節の最後の式の値になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32441,6 +32497,20 @@ while (a += 1) &lt; 20</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>a = 2 if some_condition
+
+# The above is the same as:
+if some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080341Z" creationid="makenowjust" creationdate="20200424T080341Z">
+        <seg>a = 2 if some_condition
+
+# 上記は以下と同じ
+if some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>a = @a
 if a.is_a?(String)</seg>
       </tuv>
@@ -32511,6 +32581,14 @@ c # =&gt; 123</seg>
 a # =&gt; 123
 b # =&gt; 123
 c # =&gt; 123</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = if 2 &gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080441Z" creationid="makenowjust" creationdate="20200424T080441Z">
+        <seg>a = if 2 &gt; 1</seg>
       </tuv>
     </tu>
     <tu>
@@ -35252,6 +35330,16 @@ employee.greet # "Hi, I'm John"
     <tu>
       <tuv lang="EN-US">
         <seg>end
+a # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080445Z" creationid="makenowjust" creationdate="20200424T080445Z">
+        <seg>end
+a # =&gt; 3</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
 a #=&gt; 3
 ```</seg>
       </tuv>
@@ -36327,6 +36415,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if 1 &gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080545Z" creationid="makenowjust" creationdate="20200424T080545Z">
+        <seg>if 1 &gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if a</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T014259Z" creationid="hirofumiwakasugi" creationdate="20150903T014259Z">
@@ -37141,6 +37237,24 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T013522Z" creationid="hirofumiwakasugi" creationdate="20150903T013522Z">
         <seg>nil
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nil
+end
+
+# Another example:
+if 1 &gt; 2
+else</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T080609Z" creationid="makenowjust" creationdate="20200424T080604Z">
+        <seg>nil
+end
+
+# 他の例
+if 1 &gt; 2
+else</seg>
       </tuv>
     </tu>
     <tu>

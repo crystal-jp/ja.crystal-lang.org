@@ -1,6 +1,6 @@
-# As an expression
+# 式としての if
 
-The value of an `if` is the value of the last expression found in each of its branches:
+`if`は式としても利用できて、その値は評価された分岐節の最後の式の値になります。
 
 ```crystal
 a = if 2 > 1
@@ -11,27 +11,27 @@ a = if 2 > 1
 a # => 3
 ```
 
-If an `if` branch is empty, or it’s missing, it’s considered as if it had `nil` in it:
+`if`が評価する分岐節が空、もしくは存在しない場合、そこに`nil`が与えられていたのと同じ挙動になります。
 
 ```crystal
 if 1 > 2
   3
 end
 
-# The above is the same as:
+# 上記は以下に同じ
 if 1 > 2
   3
 else
   nil
 end
 
-# Another example:
+# 他の例
 if 1 > 2
 else
   3
 end
 
-# The above is the same as:
+# 上記は以下に同じ
 if 1 > 2
   nil
 else
