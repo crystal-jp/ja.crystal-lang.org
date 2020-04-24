@@ -1,11 +1,11 @@
-# Ternary if
+# 3項演算子
 
-The ternary `if` allows writing an `if` in a shorter way:
+`if`をより簡潔に書く方法として、3項演算子という構文があります。
 
 ```crystal
 a = 1 > 2 ?3 : 4
 
-# The above is the same as:
+# 上記は以下と同じ
 a = if 1 > 2
       3
     else
