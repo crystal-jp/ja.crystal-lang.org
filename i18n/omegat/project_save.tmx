@@ -12057,6 +12057,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;unless&lt;/g1&gt; evaluates the then branch if its condition is &lt;g2&gt;falsey&lt;/g2&gt;, and evaluates the &lt;g3&gt;else branch&lt;/g3&gt;, if there’s any, otherwise.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090448Z" creationid="makenowjust" creationdate="20200424T090448Z">
+        <seg>&lt;g1&gt;unless&lt;/g1&gt;は条件式が&lt;g2&gt;偽となる&lt;/g2&gt;ときにthen節を評価して、そうでないときに&lt;g3&gt;else&lt;/g3&gt;節があれば評価します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An Array can have mixed types, meaning `T` will be a union of types, but these are determined when the array is created, either by specifying T or by using an array literal.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T010241Z" creationid="hirofumiwakasugi" creationdate="20150901T132140Z">
@@ -19365,6 +19373,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T012353Z" creationid="hirofumiwakasugi" creationdate="20150903T012212Z">
         <seg>つまり、変数の型は最後に代入された式によって決定されるということです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That is, it behaves in the opposite way of an &lt;g4&gt;if&lt;/g4&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090500Z" creationid="makenowjust" creationdate="20200424T090500Z">
+        <seg>要するに、&lt;g4&gt;if&lt;/g4&gt;と反対の動きをします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35845,6 +35861,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>else_expression
+end
+
+# The above is the same as:
+if some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090523Z" creationid="makenowjust" creationdate="20200424T090523Z">
+        <seg>else_expression
+end
+
+# 上記は以下に同じ
+if some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>employee = Employee.new "John"
 employee.greet # "Hi, I'm John"
 ```</seg>
@@ -39869,6 +39901,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>then_expression
+end
+
+# Can also be written as a suffix
+close_door unless door_closed?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090541Z" creationid="makenowjust" creationdate="20200424T090541Z">
+        <seg>then_expression
+end
+
+# このように後置して使うこともできる
+close_door unless door_closed?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>thrice do |i|</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T024343Z" creationid="hirofumiwakasugi" creationdate="20150916T024343Z">
@@ -40091,6 +40139,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052210Z" creationid="hirofumiwakasugi" creationdate="20151007T052210Z">
         <seg>union IntOrFloat</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>unless</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090401Z" creationid="makenowjust" creationdate="20200424T090401Z">
+        <seg>unless</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>unless some_condition</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090502Z" creationid="makenowjust" creationdate="20200424T090502Z">
+        <seg>unless some_condition</seg>
       </tuv>
     </tu>
     <tu>

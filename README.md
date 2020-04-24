@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 43/125
+翻訳済み/全体 = 44/125
 
 <details>
 
@@ -64,7 +64,7 @@
 | `crystal-book/syntax_and_semantics/if_varresponds_to.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/if_var_nil.md`                                                   | ○    |
 | `crystal-book/syntax_and_semantics/not.md`                                                          | ○    |
-| `crystal-book/syntax_and_semantics/unless.md`                                                       | ×    |
+| `crystal-book/syntax_and_semantics/unless.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/case.md`                                                         | △    |
 | `crystal-book/syntax_and_semantics/while.md`                                                        | △    |
 | `crystal-book/syntax_and_semantics/break.md`                                                        | ×    |

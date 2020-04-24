@@ -2,7 +2,7 @@
 
 否定 (`!`) 演算子は[真かどうか](truthy_and_falsey_values.html)を反転させた`Bool`型の値を返します。
 
-`if`の条件式の論理積の中で`is_a?`や`responds_to?`、`nil?`に対してこれを使うと、コンパイラはそれに応じて変数の型を適切に制約します。
+`if`の条件式の論理積の中の`is_a?`や`responds_to?`、`nil?`に対してこれを使うと、コンパイラはそれに応じて変数の型を適切に制約します。
 
 ```crystal
 a = some_condition ? nil : 3

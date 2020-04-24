@@ -1,6 +1,6 @@
 # unless
 
-An `unless` evaluates the then branch if its condition is *falsey*, and evaluates the `else branch`, if there’s any, otherwise. That is, it behaves in the opposite way of an `if`:
+`unless`は条件式が*偽となる*ときにthen節を評価して、そうでないときに`else`節があれば評価します。要するに、`if`と反対の動きをします。
 
 ```crystal
 unless some_condition
@@ -9,13 +9,13 @@ else
   else_expression
 end
 
-# The above is the same as:
+# 上記は以下に同じ
 if some_condition
   else_expression
 else
   then_expression
 end
 
-# Can also be written as a suffix
+# このように後置して使うこともできる
 close_door unless door_closed?
 ```
