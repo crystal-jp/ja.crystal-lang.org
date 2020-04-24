@@ -17,9 +17,10 @@ locale/ja:
 	rsync -Cav --exclude='.gitkeep' i18n/target/ locale/ja/
     # `crystal-book/book.json` から `ga` (Google Analytics) プラグインを外して、`edit-link` プラグインの設定を更新する。
     # TODO: この部分は別スクリプトにすべき？
-	@echo 'jq "...update book.json..." locale/en/crystal-book/book.json > locale/ja/crystal-book/book.json'
-	@jq '\
-	    del(.pluginsConfig.ga) | .plugins = [.plugins[] | select(. != "ga")] |\
-	    .pluginsConfig["edit-link"].base = "https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book" |\
-	    .pluginsConfig["edit-link"].label = "このページを編集" \
-	' locale/en/crystal-book/book.json > locale/ja/crystal-book/book.json
+	@[[ locale/en/crystal-book/book.json -nt locale/ja/crystal-book/book.json ]] && \
+	    echo 'jq "...update book.json..." locale/en/crystal-book/book.json > locale/ja/crystal-book/book.json' && \
+	    jq '\
+	        del(.pluginsConfig.ga) | .plugins = [.plugins[] | select(. != "ga")] |\
+	        .pluginsConfig["edit-link"].base = "https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book" |\
+	        .pluginsConfig["edit-link"].label = "このページを編集" \
+	    ' locale/en/crystal-book/book.json > locale/ja/crystal-book/book.json || true
