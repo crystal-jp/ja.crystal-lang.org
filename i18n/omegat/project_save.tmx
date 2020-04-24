@@ -3353,6 +3353,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># here @a is not guaranteed to respond to `abs`
+end
+
+a = @a
+if a.responds_to?(:abs)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084105Z" creationid="makenowjust" creationdate="20200424T084105Z">
+        <seg># ここでも @a は `abs` メソッドを持つことが保証されない
+end
+
+a = @a
+if a.responds_to?(:abs)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># here `@@a` can be nil
 end
 
@@ -3525,6 +3541,22 @@ end</seg>
       <tuv lang="EN-US">
         <seg># here a is guaranteed to respond to `abs`
 end
+
+# A bit shorter:
+if (a = @a).responds_to?(:abs)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084130Z" creationid="makenowjust" creationdate="20200424T084130Z">
+        <seg># ここでは a が `abs` メソッドを持つことが保証されます
+end
+
+# より簡潔な書き方:
+if (a = @a).responds_to?(:abs)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a is guaranteed to respond to `abs`
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T030646Z" creationid="hirofumiwakasugi" creationdate="20150903T030646Z">
@@ -3560,9 +3592,19 @@ end
         <seg># here a will be Int32, since Int32#abs exists but String#abs doesn't
 else</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T030525Z" creationid="hirofumiwakasugi" creationdate="20150903T030437Z">
-        <seg># Int32#abs は存在するが String#abs は存在しないので、ここでは Int32 となる
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084037Z" creationid="hirofumiwakasugi" creationdate="20150903T030437Z">
+        <seg># Int32#abs は存在するが String#abs は存在しないので、ここでは Int32 となり、
 else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a will be String
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084046Z" creationid="makenowjust" creationdate="20200424T084019Z">
+        <seg># ここでは a は String となる
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -3575,6 +3617,16 @@ end
         <seg># ここでは String となる
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a's type will be reduced to those responding to the 'abs' method
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083929Z" creationid="makenowjust" creationdate="20200424T083929Z">
+        <seg># ここで a の型は 'abs' メソッドを持つ型のみに縮小されている
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -7514,11 +7566,25 @@ Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
 
 if a.is_a?(Number)</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083250Z" creationid="makenowjust" creationdate="20200424T083250Z">
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084321Z" creationid="makenowjust" creationdate="20200424T084321Z">
         <seg>1 : "hello"
 # a : Int32 | String
 
 if a.is_a?(Number)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1 : "hello"
+# a : Int32 | String
+
+if a.responds_to?(:abs)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084009Z" creationid="makenowjust" creationdate="20200424T084009Z">
+        <seg>1 : "hello"
+# a : Int32 | String
+
+if a.responds_to?(:abs)</seg>
       </tuv>
     </tu>
     <tu>
@@ -11619,6 +11685,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, in the &lt;g1&gt;else&lt;/g1&gt; branch the type of the variable is guaranteed to be restricted to the types that don’t respond to that method:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084006Z" creationid="makenowjust" creationdate="20200424T084006Z">
+        <seg>くわえて、&lt;g1&gt;else&lt;/g1&gt;節では変数がそのメソッドを持たないような型であることが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, in the &lt;g1&gt;else&lt;/g1&gt; branch the type of the variable is guaranteed to not be restricted by that type:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T082956Z" creationid="makenowjust" creationdate="20200424T082956Z">
@@ -15117,10 +15191,18 @@ Set{1, 2, 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If an &lt;g1&gt;if&lt;/g1&gt;'s condition is a &lt;g2&gt;responds_to?&lt;/g2&gt; test, in the &lt;g3&gt;then&lt;/g3&gt; branch the type of a variable is guaranteed to be restricted to the types that respond to that method:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083811Z" creationid="makenowjust" creationdate="20200424T083723Z">
+        <seg> &lt;g1&gt;if&lt;/g1&gt;の条件で&lt;g2&gt;responds_to?&lt;/g2&gt;によるチェックを行なうと、&lt;g3&gt;then&lt;/g3&gt;節ではその変数がそのメソッドを持つ型に制限されていることが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If an &lt;g1&gt;if&lt;/g1&gt;'s condition is an &lt;g2&gt;is_a?&lt;/g2&gt; test, the type of a variable is guaranteed to be restricted by that type in the &lt;g3&gt;then&lt;/g3&gt; branch.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200424T082847Z" creationid="makenowjust" creationdate="20200424T082734Z">
-        <seg>&lt;g1&gt;if&lt;/g1&gt;の条件式で&lt;g2&gt;is_a?&lt;/g2&gt;によるチェックが行うと、&lt;g3&gt;then&lt;/g3&gt;節で変数がその型に制限されていることが保証されます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083726Z" creationid="makenowjust" creationdate="20200424T082734Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;の条件式で&lt;g2&gt;is_a?&lt;/g2&gt;によるチェックを行うと、&lt;g3&gt;then&lt;/g3&gt;節で変数がその型に制限されていることが保証されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32793,8 +32875,8 @@ a #=&gt; 3</seg>
       <tuv lang="EN-US">
         <seg>a = 1 &gt; 2 ?</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083425Z" creationid="makenowjust" creationdate="20200424T083425Z">
-        <seg>a = 1 &gt; 2 ?</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084550Z" creationid="makenowjust" creationdate="20200424T083425Z">
+        <seg>a = 1 &gt; 2 ? </seg>
       </tuv>
     </tu>
     <tu>
@@ -32959,8 +33041,8 @@ c # =&gt; 123</seg>
       <tuv lang="EN-US">
         <seg>a = some_condition ?</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083248Z" creationid="makenowjust" creationdate="20200424T083248Z">
-        <seg>a = some_condition ?</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084316Z" creationid="makenowjust" creationdate="20200424T083248Z">
+        <seg>a = some_condition ? </seg>
       </tuv>
     </tu>
     <tu>
@@ -36813,6 +36895,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if @a.responds_to?(:abs)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T084051Z" creationid="makenowjust" creationdate="20200424T084051Z">
+        <seg>if @a.responds_to?(:abs)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if a</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T014259Z" creationid="hirofumiwakasugi" creationdate="20150903T014259Z">
@@ -36969,6 +37059,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T083244Z" creationid="makenowjust" creationdate="20200424T083244Z">
         <seg>if var.is_a?(...)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>if var.responds_to?(...)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T083705Z" creationid="makenowjust" creationdate="20200424T083705Z">
+        <seg>if var.responds_to?(...)</seg>
       </tuv>
     </tu>
     <tu>

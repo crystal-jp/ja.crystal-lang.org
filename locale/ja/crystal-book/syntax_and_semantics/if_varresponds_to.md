@@ -1,23 +1,23 @@
 # if var.responds_to?(...)
 
-If an `if`'s condition is a `responds_to?` test, in the `then` branch the type of a variable is guaranteed to be restricted to the types that respond to that method:
+ `if`の条件で`responds_to?`によるチェックを行なうと、`then`節ではその変数がそのメソッドを持つ型に制限されていることが保証されます。
 
 ```crystal
 if a.responds_to?(:abs)
-  # here a's type will be reduced to those responding to the 'abs' method
+  # ここで a の型は 'abs' メソッドを持つ型のみに縮小されている
 end
 ```
 
-Additionally, in the `else` branch the type of the variable is guaranteed to be restricted to the types that don’t respond to that method:
+くわえて、`else`節では変数がそのメソッドを持たないような型であることが保証されます。
 
 ```crystal
-a = some_condition ?1 : "hello"
+a = some_condition ? 1 : "hello"
 # a : Int32 | String
 
 if a.responds_to?(:abs)
-  # Int32#abs は存在するが String#abs は存在しないので、ここでは Int32 となる
+  # Int32#abs は存在するが String#abs は存在しないので、ここでは Int32 となり、
 else
-  # here a will be String
+  # ここでは a は String となる
 end
 ```
 
@@ -25,15 +25,15 @@ end
 
 ```crystal
 if @a.responds_to?(:abs)
-  # here @a is not guaranteed to respond to `abs`
+  # ここでも @a は `abs` メソッドを持つことが保証されない
 end
 
 a = @a
 if a.responds_to?(:abs)
-  # here a is guaranteed to respond to `abs`
+  # ここでは a が `abs` メソッドを持つことが保証されます
 end
 
-# A bit shorter:
+# より簡潔な書き方:
 if (a = @a).responds_to?(:abs)
   # ここでは a が `abs` に応答することが保証される
 end

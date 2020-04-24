@@ -1,6 +1,6 @@
 # if var.is_a?(...)
 
-`if`の条件式で`is_a?`によるチェックが行うと、`then`節で変数がその型に制限されていることが保証されます。
+`if`の条件式で`is_a?`によるチェックを行うと、`then`節で変数がその型に制限されていることが保証されます。
 
 ```crystal
 if a.is_a?(String)
@@ -15,7 +15,7 @@ end
 くわえて、`else`節では変数がそれ以外の型であることが保証されます。
 
 ```crystal
-a = some_condition ?1 : "hello"
+a = some_condition ? 1 : "hello"
 # a : Int32 | String
 
 if a.is_a?(Number)
