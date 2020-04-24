@@ -77,7 +77,7 @@
 | `crystal-book/syntax_and_semantics/everything_is_an_object.md`                                      | △    |
 | `crystal-book/syntax_and_semantics/the_program.md`                                                  | △    |
 | `crystal-book/syntax_and_semantics/classes_and_methods.md`                                          | △    |
-| `crystal-book/syntax_and_semantics/new,_initialize_and_allocate.md`                                 | △    |
+| `crystal-book/syntax_and_semantics/new_initialize_and_allocate.md`                                  | △    |
 | `crystal-book/syntax_and_semantics/methods_and_instance_variables.md`                               | △    |
 | `crystal-book/syntax_and_semantics/type_inference.md`                                               | △    |
 | `crystal-book/syntax_and_semantics/union_types.md`                                                  | △    |
