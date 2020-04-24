@@ -1,5 +1,5 @@
-# Truthy and falsey values
+# 真になる値と偽になる値
 
-A *truthy* value is a value that is considered true for an `if`, `unless`, `while` or `until` guard. A *falsey* value is a value that is considered false in those places.
+*真になる*値というのは、`if`、`unless`、`while`、そして`until`の条件で真 (true) となる値を指します。一方、*偽になる*値は、上記で偽 (false) となる値です。
 
-The only falsey values are `nil`, `false` and null pointers (pointers whose memory address is zero). その他の値はすべて真となります。
+`nil`と`false`そしてヌルポインタ (メモリのアドレスが0のポインタ) のみが偽の値となり、その他の値はすべて真となります。
