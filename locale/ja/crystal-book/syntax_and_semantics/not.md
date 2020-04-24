@@ -1,21 +1,21 @@
 # if !
 
-The `!` operator returns a `Bool` that results from negating the [truthyness](truthy_and_falsey_values.html) of a value.
+否定 (`!`) 演算子は[真かどうか](truthy_and_falsey_values.html)を反転させた`Bool`型の値を返します。
 
-When used in an `if` in conjunction with a variable, `is_a?`, `responds_to?` or `nil?` the compiler will restrict the types accordingly:
+`if`の条件式の論理積の中で`is_a?`や`responds_to?`、`nil?`に対してこれを使うと、コンパイラはそれに応じて変数の型を適切に制約します。
 
 ```crystal
 a = some_condition ? nil : 3
 if !a
-  # here a is Nil because a is falsey in this branch
+  # この節は a が偽となる場合に評価されるので、ここで a は Nil 型
 else
-  # here a is Int32, because a is truthy in this branch
+  # この節は a が真となる場合に評価されるので、ここで a は Int32 型
 end
 ```
 
 ```crystal
 b = some_condition ? 1 : "x"
 if !b.is_a?(Int32)
-  # here b is String because it's not an Int32
+  # b が Int32 ではないときに評価されるので、ここで b は String 型
 end
 ```

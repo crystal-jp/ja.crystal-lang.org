@@ -3455,11 +3455,31 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># here a is Int32, because a is truthy in this branch
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085848Z" creationid="makenowjust" creationdate="20200424T085848Z">
+        <seg># この節は a が真となる場合に評価されるので、ここで a は Int32 型
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># here a is Nil
 else</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T085239Z" creationid="makenowjust" creationdate="20200424T085239Z">
         <seg># ここで a は Nil 型
+else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here a is Nil because a is falsey in this branch
+else</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085824Z" creationid="makenowjust" creationdate="20200424T085818Z">
+        <seg># この節は a が偽となる場合に評価されるので、ここで a は Nil 型
 else</seg>
       </tuv>
     </tu>
@@ -3659,6 +3679,16 @@ end
         <seg># ここでは、a の型は必ず 'abs' メソッドに応答するものに制限される
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># here b is String because it's not an Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085920Z" creationid="makenowjust" creationdate="20200424T085920Z">
+        <seg># b が Int32 ではないときに評価されるので、ここで b は String 型
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -7605,6 +7635,16 @@ if a.responds_to?(:abs)</seg>
 # a : Int32 | String
 
 if a.responds_to?(:abs)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1 : "x"
+if !b.is_a?(Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085855Z" creationid="makenowjust" creationdate="20200424T085855Z">
+        <seg>1 : "x"
+if !b.is_a?(Int32)</seg>
       </tuv>
     </tu>
     <tu>
@@ -19401,6 +19441,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;!&lt;/g1&gt; operator returns a &lt;g2&gt;Bool&lt;/g2&gt; that results from negating the &lt;g3&gt;truthyness&lt;/g3&gt; of a value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085543Z" creationid="makenowjust" creationdate="20200424T085543Z">
+        <seg>否定 (&lt;g1&gt;!&lt;/g1&gt;) 演算子は&lt;g3&gt;真かどうか&lt;/g3&gt;を反転させた&lt;g2&gt;Bool&lt;/g2&gt;型の値を返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;--release&lt;/g1&gt; flag can be used to enable optimizations.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150702Z" creationid="makenowjust" creationdate="20200419T150702Z">
@@ -23262,6 +23310,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T182110Z" creationid="makenowjust" creationdate="20200413T182038Z">
         <seg>ユーザーが&lt;g5&gt;Enter&lt;/g5&gt;を押すと、実行が再開して&lt;g6&gt;user_input&lt;/g6&gt;にユーザーの入力した値が入ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When used in an &lt;g1&gt;if&lt;/g1&gt; in conjunction with a variable, &lt;g2&gt;is_a?&lt;/g2&gt;, &lt;g3&gt;responds_to?&lt;/g3&gt; or &lt;g4&gt;nil?&lt;/g4&gt; the compiler will restrict the types accordingly:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T090210Z" creationid="makenowjust" creationdate="20200424T085742Z">
+        <seg>&lt;g1&gt;if&lt;/g1&gt;の条件式の論理積の中の&lt;g2&gt;is_a?&lt;/g2&gt;や&lt;g3&gt;responds_to?&lt;/g3&gt;、&lt;g4&gt;nil?&lt;/g4&gt;に対してこれを使うと、コンパイラはそれに応じて変数の型を適切に制約します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33683,6 +33739,14 @@ b #=&gt; 20
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>b = some_condition ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085852Z" creationid="makenowjust" creationdate="20200424T085852Z">
+        <seg>b = some_condition ? </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>bar.cr</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T155853Z" creationid="hirofumiwakasugi" creationdate="20150905T155853Z">
@@ -36907,6 +36971,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if !</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085449Z" creationid="makenowjust" creationdate="20200424T085449Z">
+        <seg>if !</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if 1 &gt; 2</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T080545Z" creationid="makenowjust" creationdate="20200424T080545Z">
@@ -37867,6 +37939,16 @@ if a</seg>
 # a is Int32 or Nil
 
 if a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nil : 3
+if !a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200424T085746Z" creationid="makenowjust" creationdate="20200424T085746Z">
+        <seg>nil : 3
+if !a</seg>
       </tuv>
     </tu>
     <tu>
