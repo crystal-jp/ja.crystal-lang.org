@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 39/125
+翻訳済み/全体 = 40/125
 
 <details>
 
@@ -60,7 +60,7 @@
 | `crystal-book/syntax_and_semantics/as_an_expression.md`                                             | ○    |
 | `crystal-book/syntax_and_semantics/ternary_if.md`                                                   | ○    |
 | `crystal-book/syntax_and_semantics/if_var.md`                                                       | ○    |
-| `crystal-book/syntax_and_semantics/if_varis_a.md`                                                   | △    |
+| `crystal-book/syntax_and_semantics/if_varis_a.md`                                                   | ○    |
 | `crystal-book/syntax_and_semantics/if_varresponds_to.md`                                            | △    |
 | `crystal-book/syntax_and_semantics/if_var_nil.md`                                                   | ×    |
 | `crystal-book/syntax_and_semantics/not.md`                                                          | ×    |

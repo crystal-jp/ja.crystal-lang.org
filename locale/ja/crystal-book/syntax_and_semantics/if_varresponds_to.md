@@ -21,7 +21,7 @@ else
 end
 ```
 
-The above **doesn’t** work with instance variables or class variables. それらの場合には、まず変数への代入を行ってください。
+そしてこれはインスタンス変数やクラス変数では**機能しません**。それらの場合には、まず変数への代入を行ってください。
 
 ```crystal
 if @a.responds_to?(:abs)

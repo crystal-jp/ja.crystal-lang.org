@@ -5,7 +5,7 @@ The `!` operator returns a `Bool` that results from negating the [truthyness](tr
 When used in an `if` in conjunction with a variable, `is_a?`, `responds_to?` or `nil?` the compiler will restrict the types accordingly:
 
 ```crystal
-a = some_condition ? nil : 3
+a = some_condition ?nil : 3
 if !a
   # here a is Nil because a is falsey in this branch
 else

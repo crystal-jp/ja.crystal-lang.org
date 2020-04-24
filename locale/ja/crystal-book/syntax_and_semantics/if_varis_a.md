@@ -1,18 +1,18 @@
 # if var.is_a?(...)
 
-If an `if`'s condition is an `is_a?` test, the type of a variable is guaranteed to be restricted by that type in the `then` branch.
+`if`の条件式で`is_a?`によるチェックが行うと、`then`節で変数がその型に制限されていることが保証されます。
 
 ```crystal
 if a.is_a?(String)
-  # here a is a String
+  # ここで a は String 型
 end
 
 if b.is_a?(Number)
-  # here b is a Number
+  # ここで b は Number 型
 end
 ```
 
-Additionally, in the `else` branch the type of the variable is guaranteed to not be restricted by that type:
+くわえて、`else`節では変数がそれ以外の型であることが保証されます。
 
 ```crystal
 a = some_condition ?1 : "hello"
@@ -25,29 +25,29 @@ else
 end
 ```
 
-Note that you can use any type as an `is_a?` test, like abstract classes and modules.
+`is_a?`によるチェックは、モジュールや抽象クラスなど、いかなる型でもチェックできます。
 
-The above also works if there are ands (`&&`) in the condition:
+これは、条件でかつ (`&&`) が使われた場合も同様に機能します。
 
 ```crystal
 if a.is_a?(String) && b.is_a?(Number)
-  # here a is a String and b is a Number
+  # ここで a は String 型で b は Number 型
 end
 ```
 
-The above **doesn’t** work with instance variables or class variables. それらの場合には、まず変数への代入を行ってください。
+そしてこれはインスタンス変数やクラス変数では**機能しません**。それらの場合には、まず変数への代入を行ってください。
 
 ```crystal
 if @a.is_a?(String)
-  # here @a is not guaranteed to be a String
+  # ここでも @a が String であることは保証されない
 end
 
 a = @a
 if a.is_a?(String)
-  # here a is guaranteed to be a String
+  # ここで a は String であることが保証される
 end
 
-# A bit shorter:
+# より簡潔な書き方:
 if (a = @a).is_a?(String)
   # ここでは a が String であることが保証される
 end
