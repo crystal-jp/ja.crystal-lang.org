@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 58/125
+翻訳済み/全体 = 59/125
 
 <details>
 
@@ -79,7 +79,7 @@
 | `crystal-book/syntax_and_semantics/classes_and_methods.md`                                          | ○    |
 | `crystal-book/syntax_and_semantics/new,_initialize_and_allocate.md`                                 | ○    |
 | `crystal-book/syntax_and_semantics/methods_and_instance_variables.md`                               | ○    |
-| `crystal-book/syntax_and_semantics/type_inference.md`                                               | △    |
+| `crystal-book/syntax_and_semantics/type_inference.md`                                               | ○    |
 | `crystal-book/syntax_and_semantics/union_types.md`                                                  | △    |
 | `crystal-book/syntax_and_semantics/overloading.md`                                                  | △    |
 | `crystal-book/syntax_and_semantics/default_and_named_arguments.md`                                  | △    |
