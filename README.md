@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 51/125
+翻訳済み/全体 = 52/125
 
 <details>
 
@@ -72,7 +72,7 @@
 | `crystal-book/syntax_and_semantics/until.md`                                                        | ○    |
 | `crystal-book/syntax_and_semantics/and.md`                                                          | ○    |
 | `crystal-book/syntax_and_semantics/or.md`                                                           | ○    |
-| `crystal-book/syntax_and_semantics/requiring_files.md`                                              | △    |
+| `crystal-book/syntax_and_semantics/requiring_files.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/types_and_methods.md`                                            | ×    |
 | `crystal-book/syntax_and_semantics/everything_is_an_object.md`                                      | △    |
 | `crystal-book/syntax_and_semantics/the_program.md`                                                  | △    |
