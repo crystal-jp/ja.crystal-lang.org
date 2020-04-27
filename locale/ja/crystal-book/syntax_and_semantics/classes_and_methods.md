@@ -1,10 +1,10 @@
-# Classes and methods
+# クラスとメソッド
 
-クラスはオブジェクトの設計図であり、それを使って、それぞれの独立したオブジェクトを作ることができます。As an example, consider a `Person` class. 以下のようにクラスを定義します。
+クラスはオブジェクトの設計図であり、それを使って、それぞれの独立したオブジェクトを作ることができます。ここでは`Person`というクラスを例として説明します。以下のようにクラスを定義します。
 
 ```crystal
 class Person
 end
 ```
 
-Class names, and indeed all type names, begin with a capital letter in Crystal.
+Crystal ではクラス名を含め型の名前は大文字ではじめる必要があります。
