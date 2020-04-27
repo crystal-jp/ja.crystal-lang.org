@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 54/125
+翻訳済み/全体 = 55/125
 
 <details>
 
@@ -75,7 +75,7 @@
 | `crystal-book/syntax_and_semantics/requiring_files.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/types_and_methods.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/everything_is_an_object.md`                                      | ○    |
-| `crystal-book/syntax_and_semantics/the_program.md`                                                  | △    |
+| `crystal-book/syntax_and_semantics/the_program.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/classes_and_methods.md`                                          | △    |
 | `crystal-book/syntax_and_semantics/new_initialize_and_allocate.md`                                  | △    |
 | `crystal-book/syntax_and_semantics/methods_and_instance_variables.md`                               | △    |
