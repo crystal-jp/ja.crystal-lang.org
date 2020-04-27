@@ -1,8 +1,8 @@
-# Type inference
+# 型推論
 
-Crystal's philosophy is to require as few type restrictions as possible. However, some restrictions are required.
+Crystal の哲学は型制約をなるべく減らすことです。しかし、どうしても型制約が必要になる場合もあります。
 
-Consider a class definition like this:
+このようなクラスの定義を考えてください。
 
 ```crystal
 class Person
@@ -12,20 +12,20 @@ class Person
 end
 ```
 
-We can quickly see that `@age` is an integer, but we don't know the type of `@name`. The compiler could infer its type from all uses of the `Person` class. However, doing so has a few issues:
+`@age`が整数型だということは一目で分かりますが、`@name`の型は分かりません。`Person` クラスでのすべての使われ方から型を推論することは不可能ではありません。ですが、そのようにするといくつかの問題が生じます。
 
-* The type is not obvious for a human reading the code: they would also have to check all uses of `Person` to find this out.
-* Some compiler optimizations, like having to analyze a method just once, and incremental compilation, are nearly impossible to do.
+* コード読む際に型が明確でない。型を知るためには`Person`中でどのように使われているかすべてを確認する必要があります。
+* コンパイル速度の問題。メソッドの解析を一度に処理したり、インクリメンタルコンパイルをすることがほとんど不可能になります。
 
-As a code base grows, these issues gain more relevance: understanding a project becomes harder, and compile times become unbearable.
+コードベースが育ってきたときにこれらの問題は顕著になります。プロジェクトの全容の把握は困難になり、コンパイル時間は耐え難いほど長くなるでしょう。
 
-For this reason, Crystal needs to know, in an obvious way (as obvious as to a human), the types of instance and [class](class_variables.html) variables.
+これらの理由から、Crystal ではインスタンス変数と[クラス](class_variables.html)変数の型ははっきり分かるように書くことを要求します。
 
-There are several ways to let Crystal know this.
+Crystal に型を理解させる方法はいくつかあります。
 
-## With type restrictions
+## 型制約を指定する
 
-The easiest, but probably most tedious, way is to use explicit type restrictions.
+もっとも単純で、そしておそらくもっとも面白くない方法が、明示的に型制約を指定することです。
 
 ```crystal
 class Person
@@ -38,15 +38,15 @@ class Person
 end
 ```
 
-## Without type restrictions
+## 型制約を指定しない
 
-If you omit an explicit type restriction, the compiler will try to infer the type of instance and class variables using a bunch of syntactic rules.
+明示的に型制約をしなかった場合、コンパイラは構文上の規則からインスタンス変数・クラス変数の型を推論することを試みます。
 
-For a given instance/class variable, when a rule can be applied and a type can be guessed, the type is added to a set. When no more rules can be applied, the inferred type will be the [union](union_types.html) of those types. Additionally, if the compiler infers that an instance variable isn't always initialized, it will also include the [Nil](literals/nil.html) type.
+あるインスタンス変数・クラス変数について、その規則が適用されて型が予想できたとき、その型は一旦記憶されます。そして、これ以上適用する規則がなくなったとき、記憶された型の[ユニオン型](union_types.html)として推論されます。さらに、コンパイラが型を推論した変数が初期化されていないとき、[Nil](literals/nil.html) も型に加えられます。
 
-The rules are many, but usually the first three are most used. There's no need to remember them all. If the compiler gives an error saying that the type of an instance variable can't be inferred you can always add an explicit type restriction.
+規則はいくつかありますが、ほとんどの場合最初のものを利用することになるでしょう。他のものは記憶しなくてもよいです。コンパイラがインスタンス変数の型を推論できずエラーが起こったときは、明示的に型制限を追加することもできます。
 
-The following rules only mention instance variables, but they apply to class variables as well. They are:
+これらの規則はインスタンス変数とクラス変数に関するものです。They are:
 
 ### 1. Assigning a literal value
 
