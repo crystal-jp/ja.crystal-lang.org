@@ -1,26 +1,26 @@
-# Requiring files
+# ファイルの require
 
 小さなプログラムやベンチマーク用途のコードであれば1つのファイルに書いても OK ですが、大きなプログラムの場合は、複数のファイルに分けることでメンテナンスが楽になり、また理解もしやすくなります。
 
-To make the compiler process other files you use `require "..."`. 引数には1つの文字列リテラルをとり、その書き方によって様々な形式で対象を指定することができます。
+コンパイラに別のファイルを処理させたいときは`require "..."`を使用します。引数には1つの文字列リテラルをとり、その書き方によって様々な形式で対象を指定することができます。
 
-Once a file is required, the compiler remembers its absolute path and later `require`s of that same file will be ignored.
+ファイルが一度`require`されると、 コンパイラはその絶対パスを記憶し、以降ではそのファイルは読み込まれなくなります。
 
 ## require "filename"
 
-このように記述した場合、require パスの中で「ファイル名」のファイルを探します。
+このように記述した場合、require パスの中で "filename" に対応するファイルを探します。
 
-By default the require path is the location of the standard library that comes with the compiler, and the "lib" directory relative to the current working directory (given by `pwd` in a Unix shell). 探索の対象となるディレクトリはこれらのみです。
+デフォルトの require パスは、コンパイラとあわせて提供される標準ライブラリと、カレントディレクトリ (UNIX シェルで言う `pwd`) から相対的に指定される lib ディレクトリとなっています。探索の対象となるディレクトリはこれらのみです。
 
 ファイルの探索は以下の流れで処理されます。
 
-* If a file named "filename.cr" is found in the require path, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* If a directory named "filename" is found with a directory "src" in it and it contains a file named "filename.cr" directly underneath it, it is required.
-* If a directory named "filename" is found with a directory "src" in it and it contains a directory named "filename" directly underneath it with a "filename.cr" file inside it, it is required.
-* Otherwise a compile-time error is issued.
+* "filename.cr" という名前のファイルが require パスで見つかれば、そのファイルが読み込まれます。
+* "filename" という名前のディレクトリの中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。
+* "filename" という名前のディレクトリの中の "src" ディレクトリ中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。
+* "filename" という名前のディレクトリの中の "src" ディレクトリ中に "filename" というディレクトリがあり、その中に "filename.cr" があれば、そのファイルが読み込まれます。
+* それ以外の場合はコンパイルエラーとなります。
 
-The second rule means that in addition to having this:
+2番目の規則は、次のようになっているときに、
 
 ```
 - project
@@ -31,7 +31,7 @@ The second rule means that in addition to having this:
     - file.cr (requires "./file/*")
 ```
 
-you can have it like this:
+このようにすることができることも意味しています。
 
 ```
 - project
@@ -42,9 +42,9 @@ you can have it like this:
       - sub2.cr
 ```
 
-which might be a bit cleaner depending on your taste.
+こちらの方が良いと感じる人もいるでしょう。
 
-The third rule is very convenient because of the typical directory structure of a project:
+3番目の規則はプロジェクトの典型的なディレクトリ構造にマッチしているためとても便利です。
 
 ```
 - project
@@ -61,41 +61,41 @@ The third rule is very convenient because of the typical directory structure of 
     - project_spec.cr
 ```
 
-That is, inside "lib/{project}" each project's directory exists (`src`, `spec`, `README.md` and so on)
+つまり、各 "lib/{project}" が `src` や `spec`、`README.md` があるようなプロジェクトのディレクトリ構造になっています。
 
-For example, if you put `require "foo"` in `project.cr` and run `crystal src/project.cr` in the project's root directory, it will find `foo` in `lib/foo/foo.cr`.
+このとき `project.cr` に `require "foo"` を加えて `crystal src/project.cr` をプロジェクトのルートディレクトリで実行すると、コンパイラは `foo` として `lib/foo/foo.cr` を発見します。
 
-The fourth rule is the second rule applied to the third rule.
+4番目の規則は2番目の規則に3番目の規則を適用したものです。
 
-If you run the compiler from somewhere else, say the `src` folder, `lib` will not be in the path and `require "foo"` can't be resolved.
+プロジェクトのルートディレクトリ以外の場所からコンパイラを実行すると (例えば  `src` ディレクトリの中から、など)、 `lib` は require パスに追加されず `require "foo"` はうまく解決できません。
 
 ## require "./filename"
 
-このように記述した場合、require を実行したファイルから相対的に「ファイル名」のファイルを探します。
+このように記述した場合、require を実行したファイルから相対的に "filename" に対応するファイルを探します。
 
 ファイルの探索は以下の流れで処理されます。
 
-* If a file named "filename.cr" is found relative to the current file, it is required.
-* If a directory named "filename" is found and it contains a file named "filename.cr" directly underneath it, it is required.
-* Otherwise a compile-time error is issued.
+* "filename.cr" という名前のファイルが現在のディレクトリから相対的な位置で見つかれば、そのファイルを読み込まれます。
+* "filename" という名前のディレクトリの中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。
+* それ以外の場合はコンパイルエラーとなります。
 
-この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。It is also used to refer to code from [specs](../guides/testing.md):
+この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、[specs](../guides/testing.md) からコードを参照する場合にも利用されます。
 
 ```crystal
-# in spec/project_spec.cr
+# spec/project_spec.cr
 require "../src/project"
 ```
 
-## Other forms
+## その他の形式
 
 上記したどちらのケースでも、ネストされた形式で名前を指定することが可能で、その場合にはネストされたデイレクトリを探索します。
 
-* `require "foo/bar/baz"` will lookup "foo/bar/baz.cr", "foo/bar/baz/baz.cr", "foo/src/bar/baz.cr" or "foo/src/bar/baz/baz.cr" in the require path.
-* `require "./foo/bar/baz"` will lookup "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" relative to the current file.
+* `require "foo/bar/baz"` は require パスから "foo/bar/baz.cr" や "foo/bar/baz/baz.cr"、 "foo/src/bar/baz.cr"、 "foo/src/bar/baz/baz.cr" を探します。
+* `require "./foo/bar/baz"` は現在のファイルから相対的に "foo/bar/baz.cr" or "foo/bar/baz/baz.cr" を探します。
 
-You can also use "../" to access parent directories relative to the current file, so `require "../../foo/bar"` works as well.
+また、 "../" を使えば現在のファイルの親ディレクトリを指定することができ、`require "../../foo/bar"` のように書くこともできます。
 
-In all of these cases you can use the special `*` and `**` suffixes:
+これらのすべての場合で、末尾に `*` と `**` という特別な記号を利用できます。
 
-* `require "foo/*"` will require all ".cr" files below the "foo" directory, but not below directories inside "foo".
-* `require "foo/**"` will require all ".cr" files below the "foo" directory, and below directories inside "foo", recursively.
+* `require "foo/*"` は "foo" ディレクトリ中のすべての ".cr" ファイルを読み込むが、"foo" 中のディレクトリまでは読み込みません。
+* `require "foo/**"` は "foo" ディレクトリ中のすべての ".cr" ファイルにくわえて、"foo" 中のディレクトリも再帰的に読み込みます。
