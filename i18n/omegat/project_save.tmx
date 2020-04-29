@@ -2580,6 +2580,26 @@ while !some_condition</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># The compile-time type
+typeof(a) # =&gt; Int32 | String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143922Z" creationid="makenowjust" creationdate="20200429T143922Z">
+        <seg># コンパイル時の型
+typeof(a) # =&gt; Int32 | String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># The runtime type
+a.class # =&gt; Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143900Z" creationid="makenowjust" creationdate="20200429T143900Z">
+        <seg># 実行時の型
+a.class # =&gt; Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># The type denoting a named tuple of x: Int32, y: String
 NamedTuple(x: Int32, y: String)</seg>
       </tuv>
@@ -4123,6 +4143,18 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># set the compile-time type
+a = 0.as(Int32 | Nil | String)
+typeof(a) # =&gt; Int32 | Nil | String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144538Z" creationid="makenowjust" creationdate="20200429T144538Z">
+        <seg># コンパイル時の型を設定する
+a = 0.as(Int32 | Nil | String)
+typeof(a) # =&gt; Int32 | Nil | String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># sizeof</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T035215Z" creationid="hirofumiwakasugi" creationdate="20150906T035215Z">
@@ -4231,6 +4263,20 @@ end
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T024730Z" creationid="hirofumiwakasugi" creationdate="20151008T024714Z">
         <seg># C の関数には渡せない
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># to_s is defined for Int32 and String, it returns String
+a.to_s # =&gt; String
+
+a + 1 # Error, because String#+(Int32) isn't defined</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144444Z" creationid="makenowjust" creationdate="20200429T144444Z">
+        <seg># to_s は Int32 と String で定義されていて、どちらも String を返す
+a.to_s # =&gt; String
+
+a + 1 # String#+(Int32) は存在しないのでエラーになる</seg>
       </tuv>
     </tu>
     <tu>
@@ -12241,6 +12287,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A union can consist of an arbitrary large number of types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144151Z" creationid="makenowjust" creationdate="20200429T144151Z">
+        <seg>ユニオン型はいくらでもたくさんの型から構成することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A variable can be marked as thread local with an attribute:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053859Z" creationid="hirofumiwakasugi" creationdate="20151007T053828Z">
@@ -13441,6 +13495,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>At runtime, &lt;g3&gt;a&lt;/g3&gt; will of course be of one type only.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143837Z" creationid="makenowjust" creationdate="20200429T143837Z">
+        <seg>実行時には、&lt;g3&gt;a&lt;/g3&gt; はただ1つの型の値になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>At start our CLI application will have two options:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T172425Z" creationid="makenowjust" creationdate="20200413T172425Z">
@@ -13461,6 +13523,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T071731Z" creationid="akiji" creationdate="20200429T145324Z">
         <seg>そのため、3回目の&lt;g1&gt;receive&lt;/g1&gt;はメインファイバをブロックされて他のファイバに処理が移り、さらに値が送信されたり、終了したりします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>At the end of the if, &lt;g1&gt;a&lt;/g1&gt; will have the &lt;g2&gt;Int32 | String&lt;/g2&gt; type, read "the union of Int32 and String".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143809Z" creationid="makenowjust" creationdate="20200429T143800Z">
+        <seg>if 式の終わりでは、&lt;g1&gt;a&lt;/g1&gt; は &lt;g2&gt;Int32 | String&lt;/g2&gt; という型になります。この型は「Int32 と String のユニオン型」と表します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15538,6 +15608,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, when assigning to a same variable inside different &lt;g1&gt;if&lt;/g1&gt; branches:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143709Z" creationid="makenowjust" creationdate="20200429T143658Z">
+        <seg>例えば、異なる&lt;g1&gt;if&lt;/g1&gt;の分岐節で同じ変数に代入したときを考えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example:</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T150831Z" creationid="hirofumiwakasugi" creationdate="20150901T072338Z">
@@ -16223,6 +16301,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, there are a few cases where the resulting type is a different type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145841Z" creationid="makenowjust" creationdate="20200429T144653Z">
+        <seg>ですが、いくつかの場合にそれとは異なる型になることがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, there's a tiny flaw in the above code.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063505Z" creationid="hirofumiwakasugi" creationdate="20150912T063130Z">
@@ -16295,6 +16381,14 @@ Set{1, 2, 3}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T180557Z" creationid="makenowjust" creationdate="20200420T180557Z">
         <seg>ここで&lt;g1&gt;MyHash&lt;/g1&gt;がジェネリック型であれば、上の例は以下と等しいものになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If &lt;g1&gt;T1&lt;/g1&gt; and &lt;g2&gt;T2&lt;/g2&gt; are under the same hierarchy, and their nearest common ancestor &lt;g3&gt;Parent&lt;/g3&gt; is not &lt;g4&gt;Reference&lt;/g4&gt;, &lt;g5&gt;Struct&lt;/g5&gt;, &lt;g6&gt;Int&lt;/g6&gt;, &lt;g7&gt;Float&lt;/g7&gt; nor &lt;g8&gt;Value&lt;/g8&gt;, the resulting type is &lt;g9&gt;Parent+&lt;/g9&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145159Z" creationid="makenowjust" creationdate="20200429T144856Z">
+        <seg>&lt;g1&gt;T1&lt;/g1&gt; と &lt;g2&gt;T2&lt;/g2&gt; が継承元を共有していて、共通する祖先の型 &lt;g3&gt;Parent&lt;/g3&gt; が &lt;g4&gt;Reference&lt;/g4&gt;、&lt;g5&gt;Struct&lt;/g5&gt;、&lt;g6&gt;Int&lt;/g6&gt;、&lt;g7&gt;Float&lt;/g7&gt; もしくは &lt;g8&gt;Value&lt;/g8&gt; ではないとき、2つからユニオン型を構成しようとしたときの結果の型は &lt;g9&gt;Parent+&lt;/g9&gt; となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16656,6 +16750,14 @@ files inside that folder are appended.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T102259Z" creationid="makenowjust" creationdate="20200424T101601Z">
         <seg>それが&lt;g2&gt;真となる&lt;/g2&gt;値であれば、右辺の値を評価し、その値を結果とします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If necessary a variable can be defined as a union type at compile time</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144525Z" creationid="makenowjust" creationdate="20200429T144525Z">
+        <seg>コンパイル時に、変数をユニオン型として定義するには次のようにします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17665,6 +17767,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142655Z" creationid="makenowjust" creationdate="20200427T142655Z">
         <seg>次の例で、&lt;g1&gt;name&lt;/g1&gt; のデフォルト値は文字列リテラルで、それが &lt;g2&gt;@name&lt;/g2&gt; に代入されているため、結果 &lt;g3&gt;String&lt;/g3&gt; に推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the general case, when two types &lt;g1&gt;T1&lt;/g1&gt; and &lt;g2&gt;T2&lt;/g2&gt; are combined, the result is a union &lt;g3&gt;T1 | T2&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145148Z" creationid="makenowjust" creationdate="20200429T144638Z">
+        <seg>一般的に、&lt;g1&gt;T1&lt;/g1&gt; と &lt;g2&gt;T2&lt;/g2&gt; からユニオン型を構成するとき、その結果のユニオン型は &lt;g3&gt;T1 | T2&lt;/g3&gt; となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22083,6 +22193,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The compile-time type can be seen by using &lt;g1&gt;typeof&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143914Z" creationid="makenowjust" creationdate="20200429T143914Z">
+        <seg>コンパイル時の型は &lt;g1&gt;typeof&lt;/g1&gt; を使うことで確認できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The compiled binary is in &lt;g3&gt;bin/shards&lt;/g3&gt; and should be added to &lt;g4&gt;PATH&lt;/g4&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173527Z" creationid="makenowjust" creationdate="20200419T173527Z">
@@ -22709,6 +22827,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The order of the keys will be the ones from the tuple on the left hand side.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145436Z" creationid="makenowjust" creationdate="20200429T145412Z">
+        <seg>キーの順序は左辺の型の順序のものとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The output file has the same name as the source file minus the extension &lt;g3&gt;.cr&lt;/g3&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150601Z" creationid="makenowjust" creationdate="20200419T150601Z">
@@ -23087,10 +23213,26 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The type of a variable or expression can consist of multiple types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143609Z" creationid="makenowjust" creationdate="20200429T143602Z">
+        <seg>変数や式の型は複数の式から構成されることがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The type of an enum member is `Int32` by default, even if you specify a different type in a constant value:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053220Z" creationid="hirofumiwakasugi" creationdate="20151007T053220Z">
         <seg>enum の要素の型はデフォルトで `Int32` です。これは、定数の値に別の型を指定した場合であっても同様です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of the method call is the union type of the return types of those methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144405Z" creationid="makenowjust" creationdate="20200429T144405Z">
+        <seg>また、その呼び出しの型は、すべての型での呼び出し結果の型のユニオン型になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23139,6 +23281,22 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T052345Z" creationid="hirofumiwakasugi" creationdate="20150901T052342Z">
         <seg>サフィックスの前のアンダースコア (`_`) はオプションです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The union of two named tuples with the same keys (regardless of their order) results in a named tuple type that has the union of the types in each key.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145420Z" creationid="makenowjust" creationdate="20200429T145406Z">
+        <seg>キーの同じ(順序は考慮しない)名前付きタプル同士のユニオン型は、名前付きタプルの対応するキーの型同士のユニオン型となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The union of two tuples of the same size results in a tuple type that has the union of the types in each position.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145249Z" creationid="makenowjust" creationdate="20200429T145249Z">
+        <seg>同じ大きさのタプル同士のユニオン型は、タプルの各型のユニオン型とったものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23689,6 +23847,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can be seen by invoking the &lt;g4&gt;class&lt;/g4&gt; method:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143854Z" creationid="makenowjust" creationdate="20200429T143854Z">
+        <seg>この型は &lt;g4&gt;class&lt;/g4&gt; メソッドを呼び出すことで確認できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This can be used to provide static versions of libraries that are also available as dynamic libraries.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153315Z" creationid="makenowjust" creationdate="20200419T153315Z">
@@ -23894,6 +24060,22 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T071037Z" creationid="hirofumiwakasugi" creationdate="20150906T071037Z">
         <seg>これを「メソッドのオーバーロード」と呼びます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is called a union type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143614Z" creationid="makenowjust" creationdate="20200429T143614Z">
+        <seg>これをユニオン型と呼びます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is called a virtual type, which basically means the compiler will now see the type as being &lt;g10&gt;Parent&lt;/g10&gt; or any of its subtypes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145025Z" creationid="makenowjust" creationdate="20200429T145025Z">
+        <seg>この型はバーチャル型と呼ばれるものです。コンパイラはこれを、&lt;g10&gt;Parent&lt;/g10&gt; もしくはそのサブクラスを表すものと見なします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24255,6 +24437,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T181130Z" creationid="makenowjust" creationdate="20200413T163844Z">
         <seg>このトピックでは、次の話題に関連することを扱っていきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This union type is created automatically by the compiler.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143822Z" creationid="makenowjust" creationdate="20200429T143822Z">
+        <seg>ユニオン型はコンパイラによって自動的に作られます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25188,6 +25378,46 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Union of classes and structs under the same hierarchy</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144729Z" creationid="makenowjust" creationdate="20200429T144729Z">
+        <seg>継承元の同じクラス/構造体のユニオン型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Union of named tuples with the same keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145314Z" creationid="makenowjust" creationdate="20200429T145314Z">
+        <seg>キーの同じ名前付きタプルのユニオン型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Union of tuples of the same size</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145210Z" creationid="makenowjust" creationdate="20200429T145130Z">
+        <seg>同じ大きさのタプルのユニオン型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Union types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143540Z" creationid="makenowjust" creationdate="20200429T143540Z">
+        <seg>ユニオン型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Union types rules</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144545Z" creationid="makenowjust" creationdate="20200429T144545Z">
+        <seg>ユニオン型に関する規則</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unless specified, the resuling binary will have the same name as the source file minus the extension &lt;g1&gt;.cr&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T155127Z" creationid="makenowjust" creationdate="20200419T155127Z">
@@ -25837,6 +26067,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T024526Z" creationid="hirofumiwakasugi" creationdate="20151009T024526Z">
         <seg>継承する際はに、具体的な型を指定するか、もしくは型変数を移譲することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When invoking a method on an expression whose type is a union type, all types in the union must respond to the method, otherwise a compile-time error is given.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T144316Z" creationid="makenowjust" creationdate="20200429T144316Z">
+        <seg>ユニオン型の式に対してメソッドを呼び出すとき、ユニオン型の中のすべての型でそのメソッドが飛び出せる必要があります。そうでなければコンパイル時にエラーとなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35616,6 +35854,20 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>a = "hello"
+end
+
+a # : Int32 | String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143701Z" creationid="makenowjust" creationdate="20200429T143701Z">
+        <seg>a = "hello"
+end
+
+a # : Int32 | String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>a = 0</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055807Z" creationid="hirofumiwakasugi" creationdate="20150913T055807Z">
@@ -36554,6 +36806,16 @@ b #=&gt; 20
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>bar : baz
+typeof(foo) # =&gt; Foo+</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145203Z" creationid="makenowjust" creationdate="20200429T145203Z">
+        <seg>bar : baz
+typeof(foo) # =&gt; Foo+</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>bar.cr</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T155853Z" creationid="hirofumiwakasugi" creationdate="20150905T155853Z">
@@ -37064,6 +37326,44 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021116Z" creationid="hirofumiwakasugi" creationdate="20150904T021116Z">
         <seg>class Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+class Baz &lt; Foo
+end
+
+bar = Bar.new
+baz = Baz.new
+
+# Here foo's type will be Bar | Baz,
+# but because both Bar and Baz inherit from Foo,
+# the resulting type is Foo+
+foo = rand &lt; 0.5 ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145112Z" creationid="makenowjust" creationdate="20200429T145112Z">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+class Baz &lt; Foo
+end
+
+bar = Bar.new
+baz = Baz.new
+
+# ここで foo の型は Bar | Baz となりそうだが、
+# Bar も Baz も Foo を継承しているので、
+# 結果的に型は Foo+ となる。
+foo = rand &lt; 0.5 ? </seg>
       </tuv>
     </tu>
     <tu>
@@ -40322,6 +40622,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if 1 + 2 == 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143659Z" creationid="makenowjust" creationdate="20200429T143659Z">
+        <seg>if 1 + 2 == 3</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if 1 &gt; 2</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T080545Z" creationid="makenowjust" creationdate="20200424T080545Z">
@@ -43390,6 +43698,54 @@ sum 1, 2, 3, 4.5 #=&gt; 10.5
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T024800Z" creationid="hirofumiwakasugi" creationdate="20150910T024800Z">
         <seg>super("another message")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>t1 : t2
+typeof(t3) # NamedTuple(x: Int32 | Nil, y: String | Bool)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145441Z" creationid="makenowjust" creationdate="20200429T145441Z">
+        <seg>t1 : t2
+typeof(t3) # NamedTuple(x: Int32 | Nil, y: String | Bool)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>t1 : t2
+typeof(t3) # Tuple(Int32 | Bool, String | Nil)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145443Z" creationid="makenowjust" creationdate="20200429T145443Z">
+        <seg>t1 : t2
+typeof(t3) # Tuple(Int32 | Bool, String | Nil)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>t1 = {1, "hi"}   # Tuple(Int32, String)
+t2 = {true, nil} # Tuple(Bool, Nil)
+
+t3 = rand &lt; 0.5 ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145255Z" creationid="makenowjust" creationdate="20200429T145255Z">
+        <seg>t1 = {1, "hi"}   # Tuple(Int32, String)
+t2 = {true, nil} # Tuple(Bool, Nil)
+
+t3 = rand &lt; 0.5 ? </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>t1 = {x: 1, y: "hi"}   # Tuple(x: Int32, y: String)
+t2 = {y: true, x: nil} # Tuple(y: Bool, x: Nil)
+
+t3 = rand &lt; 0.5 ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T145440Z" creationid="makenowjust" creationdate="20200429T145440Z">
+        <seg>t1 = {x: 1, y: "hi"}   # Tuple(x: Int32, y: String)
+t2 = {y: true, x: nil} # Tuple(y: Bool, x: Nil)
+
+t3 = rand &lt; 0.5 ? </seg>
       </tuv>
     </tu>
     <tu>
