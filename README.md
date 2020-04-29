@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 62/125
+翻訳済み/全体 = 63/125
 
 <details>
 
@@ -83,7 +83,7 @@
 | `crystal-book/syntax_and_semantics/union_types.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/overloading.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/default_and_named_arguments.md`                                  | ○    |
-| `crystal-book/syntax_and_semantics/splats_and_tuples.md`                                            | ×    |
+| `crystal-book/syntax_and_semantics/splats_and_tuples.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/type_restrictions.md`                                            | △    |
 | `crystal-book/syntax_and_semantics/return_types.md`                                                 | △    |
 | `crystal-book/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md` | △    |

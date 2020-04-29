@@ -2138,6 +2138,14 @@ loop do</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Return the captured named arguments as a NamedTuple</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155133Z" creationid="makenowjust" creationdate="20200429T155116Z">
+        <seg># NamedTuple としてキャプチャした名前付き引数を返す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Return types</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T024222Z" creationid="hirofumiwakasugi" creationdate="20150901T130925Z">
@@ -3219,6 +3227,22 @@ some_method y: 10 # Error, missing argument: x</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T012732Z" creationid="hirofumiwakasugi" creationdate="20150903T012732Z">
         <seg># e :: String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># elements is Tuple(Int32, Int32, Int32)
+sum 1, 2, 3
+
+# elements is Tuple(Int32, Int32, Int32, Float64)
+sum 1, 2, 3, 4.5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154234Z" creationid="makenowjust" creationdate="20200429T154234Z">
+        <seg># elements は Tuple(Int32, Int32, Int32) になる
+sum 1, 2, 3
+
+# elements は Tuple(Int32, Int32, Int32, Float64) になる
+sum 1, 2, 3, 4.5</seg>
       </tuv>
     </tu>
     <tu>
@@ -7854,6 +7878,20 @@ end</seg>
         <seg>1
 end
 
+def foo(*elements, y)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154620Z" creationid="makenowjust" creationdate="20200429T154620Z">
+        <seg>1
+end
+
+def foo(*elements, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1
+end
+
 proc = -&gt;one
 proc.call # =&gt; 1</seg>
       </tuv>
@@ -8097,6 +8135,22 @@ person.age # =&gt; 28</seg>
         <seg>1e10     # Float64
 1.5e10   # Float64
 1.5e-7   # Float64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>2
+end
+
+foo x: "something" # =&gt; 1
+foo y: "something" # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154621Z" creationid="makenowjust" creationdate="20200429T154621Z">
+        <seg>2
+end
+
+foo x: "something" # =&gt; 1
+foo y: "something" # =&gt; 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -11393,6 +11447,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;NamedTuple&lt;/g1&gt; can be splat into a method call by using &lt;g2&gt;**&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155213Z" creationid="makenowjust" creationdate="20200429T155213Z">
+        <seg>&lt;g1&gt;NamedTuple&lt;/g1&gt; はメソッド呼び出しで &lt;g2&gt;**&lt;/g2&gt; を使うことで引数に展開されて渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;NamedTuple&lt;/g1&gt; is typically created with a named tuple literal:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T165933Z" creationid="makenowjust" creationdate="20200422T165933Z">
@@ -11429,6 +11491,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T170817Z" creationid="makenowjust" creationdate="20200420T170817Z">
         <seg>&lt;g1&gt;Symbol&lt;/g1&gt;はソースコード全体でユニークな名前を表します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;Tuple&lt;/g1&gt; can be splat into a method call by using &lt;g2&gt;*&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154935Z" creationid="makenowjust" creationdate="20200429T154935Z">
+        <seg>&lt;g1&gt;タプル&lt;/g1&gt; はメソッド呼び出しで &lt;g2&gt;*&lt;/g2&gt; を使うことで引数に展開されて渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11986,6 +12056,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A double splat (&lt;g1&gt;**&lt;/g1&gt;) captures named arguments that were not matched by other arguments.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155120Z" creationid="makenowjust" creationdate="20200429T155036Z">
+        <seg>二重 splat 展開 (&lt;g1&gt;**&lt;/g1&gt;) はその他の引数にマッチしなかったすべての名前付き引数をキャプチャします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A double-quoted identifier can contain any unicode character including white spaces and accepts the same escape sequences as a &lt;g1&gt;string literal&lt;/g1&gt;, yet no interpolation.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T171238Z" creationid="makenowjust" creationdate="20200420T171238Z">
@@ -12119,6 +12197,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042349Z" creationid="hirofumiwakasugi" creationdate="20150907T042024Z">
         <seg>メソッドは、「splat 展開 (`*`)」を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずどの場所にでも指定可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A method can receive a variable number of arguments by using a &lt;g1&gt;splat&lt;/g1&gt; (&lt;g2&gt;*&lt;/g2&gt;), which can appear only once and in any position:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154140Z" creationid="makenowjust" creationdate="20200429T154004Z">
+        <seg>メソッドは &lt;g1&gt;splat 展開&lt;/g1&gt; (&lt;g2&gt;*&lt;/g2&gt;) を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずにどの場所にでも指定可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13233,6 +13319,22 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160115T153137Z" creationid="hirofumiwakasugi" creationdate="20160115T153137Z">
         <seg>`some_method` に引数を渡すことも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Arguments past the splat argument can only be passed as named arguments:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154336Z" creationid="makenowjust" creationdate="20200429T154312Z">
+        <seg>仮引数で splat 指定された引数のあとの引数は、名前付き引数としてのみ渡すことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Arguments past the splat method without a default value are required named arguments:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154419Z" creationid="makenowjust" creationdate="20200429T154419Z">
+        <seg>splat 指定された引数のあとの引数でデフォルト値が無い場合は、名前付き引数として渡さなければいけない引数となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14889,6 +14991,22 @@ Returns the name of `self`.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T210059Z" creationid="makenowjust" creationdate="20200412T210059Z">
         <seg>コードのドキュメント化</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Double splats and named tuples</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154952Z" creationid="makenowjust" creationdate="20200429T154952Z">
+        <seg>二重 splat 展開と名前付きタプル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Double splatting a named tuple</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155154Z" creationid="makenowjust" creationdate="20200429T155148Z">
+        <seg>名前付きタプルの二重 splat 展開</seg>
       </tuv>
     </tu>
     <tu>
@@ -21190,6 +21308,22 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Splats and tuples</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T153905Z" creationid="makenowjust" creationdate="20200429T153905Z">
+        <seg>splat 展開とタプル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Splatting a tuple</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154735Z" creationid="makenowjust" creationdate="20200429T154735Z">
+        <seg>タプルの splat 展開</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Start learning Crystal with the Language Reference</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T210829Z" creationid="makenowjust" creationdate="20200413T210829Z">
@@ -22951,6 +23085,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The passed arguments become a &lt;g1&gt;Tuple&lt;/g1&gt; in the method's body:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154212Z" creationid="makenowjust" creationdate="20200429T154212Z">
+        <seg>渡された引数はメソッドの中で &lt;g1&gt;タプル&lt;/g1&gt; として扱うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The passed arguments become a [Tuple](http://crystal-lang.org/api/Tuple.html) in the method's body:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042155Z" creationid="hirofumiwakasugi" creationdate="20150907T042150Z">
@@ -23065,8 +23207,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The reason is that understanding how arguments are matched becomes very difficult; positional arguments are easier to reason about in this case.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200429T153333Z" creationid="makenowjust" creationdate="20200429T153020Z">
-        <seg>これはスプラット展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T153729Z" creationid="makenowjust" creationdate="20200429T153020Z">
+        <seg>これは splat 展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23179,6 +23321,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T172819Z" creationid="makenowjust" creationdate="20200422T172742Z">
         <seg>特殊変数 &lt;g1&gt;$?&lt;/g1&gt; はコマンドの実行結果の &lt;g2&gt;&lt;g3&gt;Process::Status&lt;/g3&gt;&lt;/g2&gt; オブジェクトになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The splat argument can also be left unnamed, with the meaning "after this, named arguments follow":</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154722Z" creationid="makenowjust" creationdate="20200429T154722Z">
+        <seg>splat 指定された引数は名前をつけないこともできて、その場合、以降の引数は「名前付き引数として渡さなければいけない」ということになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23341,6 +23491,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053220Z" creationid="hirofumiwakasugi" creationdate="20151007T053220Z">
         <seg>enum の要素の型はデフォルトで `Int32` です。これは、定数の値に別の型を指定した場合であっても同様です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of the argument is a &lt;g2&gt;NamedTuple&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155104Z" creationid="makenowjust" creationdate="20200429T155104Z">
+        <seg>この引数の型は &lt;g2&gt;NamedTuple&lt;/g2&gt; となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25422,6 +25580,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Two methods with different required named arguments overload between each other:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154618Z" creationid="makenowjust" creationdate="20200429T154618Z">
+        <seg>2つの引数の名前のみが違うメソッドはおたがいにオーバーロードされています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Two methods, one that yields and another that doesn't, are considered different overloads, as explained in the [overloading](overloading.html) section.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T022820Z" creationid="hirofumiwakasugi" creationdate="20150916T015525Z">
@@ -26125,8 +26291,8 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       <tuv lang="EN-US">
         <seg>When a method specifies a splat (explained in the next section), named arguments can't be used.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152811Z" creationid="makenowjust" creationdate="20200429T152811Z">
-        <seg>メソッドがスプラット展開を持っている場合 (これについては次の章で説明します)、名前付き引数を使うことはできません。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154036Z" creationid="makenowjust" creationdate="20200429T152811Z">
+        <seg>メソッドに splat 展開 (これについては次の章で説明します) が指定されている場合、名前付き引数を使うことはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -38460,6 +38626,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def foo(*elements, x)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154619Z" creationid="makenowjust" creationdate="20200429T154619Z">
+        <seg>def foo(*elements, x)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def foo(x : Int32.class)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T011920Z" creationid="hirofumiwakasugi" creationdate="20151009T011920Z">
@@ -38472,6 +38646,40 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025812Z" creationid="hirofumiwakasugi" creationdate="20150908T025812Z">
         <seg>def foo(x : String.class)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x, **other)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155105Z" creationid="makenowjust" creationdate="20200429T155105Z">
+        <seg>def foo(x, **other)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x, y)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154935Z" creationid="makenowjust" creationdate="20200429T154935Z">
+        <seg>def foo(x, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x, y, *, z)
+end
+
+foo 1, 2, 3    # Error, wrong number of arguments (given 3, expected 2)
+foo 1, 2       # Error, missing argument: z
+foo 1, 2, z: 3 # OK</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154724Z" creationid="makenowjust" creationdate="20200429T154724Z">
+        <seg>def foo(x, y, *, z)
+end
+
+foo 1, 2, 3    # Error, wrong number of arguments (given 3, expected 2)
+foo 1, 2       # Error, missing argument: z
+foo 1, 2, z: 3 # OK</seg>
       </tuv>
     </tu>
     <tu>
@@ -38936,6 +39144,30 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T144055Z" creationid="hirofumiwakasugi" creationdate="20151010T144055Z">
         <seg>def speak</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def sum(*elements)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154142Z" creationid="makenowjust" creationdate="20200429T154142Z">
+        <seg>def sum(*elements)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def sum(*elements, initial = 0)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154313Z" creationid="makenowjust" creationdate="20200429T154313Z">
+        <seg>def sum(*elements, initial = 0)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def sum(*elements, initial)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154419Z" creationid="makenowjust" creationdate="20200429T154419Z">
+        <seg>def sum(*elements, initial)</seg>
       </tuv>
     </tu>
     <tu>
@@ -42120,6 +42352,22 @@ one_more.say "hello" # one_more が Person だが</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>other
+end
+
+foo 1, y: 2, z: 3    # =&gt; {y: 2, z: 3}
+foo y: 2, x: 1, z: 3 # =&gt; {y: 2, z: 3}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155135Z" creationid="makenowjust" creationdate="20200429T155135Z">
+        <seg>other
+end
+
+foo 1, y: 2, z: 3    # =&gt; {y: 2, z: 3}
+foo y: 2, x: 1, z: 3 # =&gt; {y: 2, z: 3}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>other = Person.new "Other"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T032731Z" creationid="hirofumiwakasugi" creationdate="20150909T032731Z">
@@ -44174,6 +44422,54 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>total
+end
+
+sum 1, 2, 3              # =&gt; 6
+sum 1, 2, 3, initial: 10 # =&gt; 16</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154317Z" creationid="makenowjust" creationdate="20200429T154317Z">
+        <seg>total
+end
+
+sum 1, 2, 3              # =&gt; 6
+sum 1, 2, 3, initial: 10 # =&gt; 16</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>total
+end
+
+sum 1, 2, 3              # Error, missing argument: initial
+sum 1, 2, 3, initial: 10 # =&gt; 16</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154423Z" creationid="makenowjust" creationdate="20200429T154423Z">
+        <seg>total
+end
+
+sum 1, 2, 3              # Error, missing argument: initial
+sum 1, 2, 3, initial: 10 # =&gt; 16</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>total
+end
+
+sum 1, 2, 3      # =&gt; 6
+sum 1, 2, 3, 4.5 # =&gt; 10.5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154145Z" creationid="makenowjust" creationdate="20200429T154145Z">
+        <seg>total
+end
+
+sum 1, 2, 3      # =&gt; 6
+sum 1, 2, 3, 4.5 # =&gt; 10.5</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>total += value</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042106Z" creationid="hirofumiwakasugi" creationdate="20150907T042106Z">
@@ -44186,6 +44482,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042105Z" creationid="hirofumiwakasugi" creationdate="20150907T042105Z">
         <seg>total = 0</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>total = initial</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154314Z" creationid="makenowjust" creationdate="20200429T154314Z">
+        <seg>total = initial</seg>
       </tuv>
     </tu>
     <tu>
@@ -44700,6 +45004,22 @@ class Foo</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>x + y
+end
+
+tuple = {1, 2}
+foo *tuple # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T154936Z" creationid="makenowjust" creationdate="20200429T154936Z">
+        <seg>x + y
+end
+
+tuple = {1, 2}
+foo *tuple # =&gt; 3</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>x + y # error: undefined local variable or method 'x'
 end</seg>
       </tuv>
@@ -44728,6 +45048,22 @@ add(2)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021414Z" creationid="hirofumiwakasugi" creationdate="20150904T021414Z">
         <seg>x - y</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x - y
+end
+
+tuple = {y: 3, x: 10}
+foo **tuple # =&gt; 7</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155214Z" creationid="makenowjust" creationdate="20200429T155214Z">
+        <seg>x - y
+end
+
+tuple = {y: 3, x: 10}
+foo **tuple # =&gt; 7</seg>
       </tuv>
     </tu>
     <tu>

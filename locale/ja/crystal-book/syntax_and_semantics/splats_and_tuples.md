@@ -1,6 +1,6 @@
-# Splats and tuples
+# splat 展開とタプル
 
-A method can receive a variable number of arguments by using a *splat* (`*`), which can appear only once and in any position:
+メソッドは *splat 展開* (`*`) を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずにどの場所にでも指定可能です。
 
 ```crystal
 def sum(*elements)
@@ -15,17 +15,17 @@ sum 1, 2, 3      # => 6
 sum 1, 2, 3, 4.5 # => 10.5
 ```
 
-The passed arguments become a [Tuple](http://crystal-lang.org/api/Tuple.html) in the method's body:
+渡された引数はメソッドの中で [タプル](http://crystal-lang.org/api/Tuple.html) として扱うことができます。
 
 ```crystal
-# elements is Tuple(Int32, Int32, Int32)
+# elements は Tuple(Int32, Int32, Int32) になる
 sum 1, 2, 3
 
-# elements is Tuple(Int32, Int32, Int32, Float64)
+# elements は Tuple(Int32, Int32, Int32, Float64) になる
 sum 1, 2, 3, 4.5
 ```
 
-Arguments past the splat argument can only be passed as named arguments:
+仮引数で splat 指定された引数のあとの引数は、名前付き引数としてのみ渡すことができます。
 
 ```crystal
 def sum(*elements, initial = 0)
@@ -40,7 +40,7 @@ sum 1, 2, 3              # => 6
 sum 1, 2, 3, initial: 10 # => 16
 ```
 
-Arguments past the splat method without a default value are required named arguments:
+splat 指定された引数のあとの引数でデフォルト値が無い場合は、名前付き引数として渡さなければいけない引数となります。
 
 ```crystal
 def sum(*elements, initial)
@@ -55,7 +55,7 @@ sum 1, 2, 3              # Error, missing argument: initial
 sum 1, 2, 3, initial: 10 # => 16
 ```
 
-Two methods with different required named arguments overload between each other:
+2つの引数の名前のみが違うメソッドはおたがいにオーバーロードされています。
 
 ```crystal
 def foo(*elements, x)
@@ -70,7 +70,7 @@ foo x: "something" # => 1
 foo y: "something" # => 2
 ```
 
-The splat argument can also be left unnamed, with the meaning "after this, named arguments follow":
+splat 指定された引数は名前をつけないこともできて、その場合、以降の引数は「名前付き引数として渡さなければいけない」ということになります。
 
 ```crystal
 def foo(x, y, *, z)
@@ -81,9 +81,9 @@ foo 1, 2       # Error, missing argument: z
 foo 1, 2, z: 3 # OK
 ```
 
-## Splatting a tuple
+## タプルの splat 展開
 
-A `Tuple` can be splat into a method call by using `*`:
+`タプル` はメソッド呼び出しで `*` を使うことで引数に展開されて渡されます。
 
 ```crystal
 def foo(x, y)
@@ -94,13 +94,13 @@ tuple = {1, 2}
 foo *tuple # => 3
 ```
 
-## Double splats and named tuples
+## 二重 splat 展開と名前付きタプル
 
-A double splat (`**`) captures named arguments that were not matched by other arguments. The type of the argument is a `NamedTuple`:
+二重 splat 展開 (`**`) はその他の引数にマッチしなかったすべての名前付き引数をキャプチャします。この引数の型は `NamedTuple` となります。
 
 ```crystal
 def foo(x, **other)
-  # Return the captured named arguments as a NamedTuple
+  # NamedTuple としてキャプチャした名前付き引数を返す
   other
 end
 
@@ -108,9 +108,9 @@ foo 1, y: 2, z: 3    # => {y: 2, z: 3}
 foo y: 2, x: 1, z: 3 # => {y: 2, z: 3}
 ```
 
-## Double splatting a named tuple
+## 名前付きタプルの二重 splat 展開
 
-A `NamedTuple` can be splat into a method call by using `**`:
+`NamedTuple` はメソッド呼び出しで `**` を使うことで引数に展開されて渡されます。
 
 ```crystal
 def foo(x, y)
