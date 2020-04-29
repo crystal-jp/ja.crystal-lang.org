@@ -3183,6 +3183,30 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># do something...
+end
+
+some_method 10                   # x: 10, y: 1, z: 2, w: 3
+some_method 10, z: 10            # x: 10, y: 1, z: 10, w: 3
+some_method 10, w: 1, y: 2, z: 3 # x: 10, y: 2, z: 3, w: 1
+some_method y: 10, x: 20         # x: 20, y: 10, z: 2, w: 3
+
+some_method y: 10 # Error, missing argument: x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152713Z" creationid="makenowjust" creationdate="20200429T152713Z">
+        <seg># いろいろする
+end
+
+some_method 10                   # x: 10, y: 1, z: 2, w: 3
+some_method 10, z: 10            # x: 10, y: 1, z: 10, w: 3
+some_method 10, w: 1, y: 2, z: 3 # x: 10, y: 2, z: 3, w: 1
+some_method y: 10, x: 20         # x: 20, y: 10, z: 2, w: 3
+
+some_method y: 10 # Error, missing argument: x</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># e : String</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061715Z" creationid="hirofumiwakasugi" creationdate="20160204T061715Z">
@@ -12539,6 +12563,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>All arguments can also be specified, in addition to their position, by their name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152550Z" creationid="makenowjust" creationdate="20200429T152550Z">
+        <seg>引数は順番に指定していく他に、引数の名前によって指定することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All enums inherit from [Enum](http://crystal-lang.org/api/Enum.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024729Z" creationid="hirofumiwakasugi" creationdate="20150914T024722Z">
@@ -14781,6 +14813,14 @@ but also to format code samples included in documentation blocks.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T170637Z" creationid="makenowjust" creationdate="20200419T170637Z">
         <seg>デフォルト値は次に上げるディレクトリのうち最初に見つかったか作成可能だったものになります: &lt;g6&gt;${XDG_CACHE_HOME}/crystal&lt;/g6&gt; (&lt;g7&gt;XDG_CACHE_HOME&lt;/g7&gt;がある場合)、&lt;g8&gt;${HOME}/.cache/crystal&lt;/g8&gt;、&lt;g9&gt;${HOME}/.crystal&lt;/g9&gt;、もしくは&lt;g10&gt;./.crystal&lt;/g10&gt;。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Default values</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152437Z" creationid="makenowjust" creationdate="20200429T152437Z">
+        <seg>デフォルト値</seg>
       </tuv>
     </tu>
     <tu>
@@ -19266,6 +19306,14 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Named arguments</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152447Z" creationid="makenowjust" creationdate="20200429T152447Z">
+        <seg>名前付き引数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>NamedTuple</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T165920Z" creationid="makenowjust" creationdate="20200422T165920Z">
@@ -23015,6 +23063,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The reason is that understanding how arguments are matched becomes very difficult; positional arguments are easier to reason about in this case.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T153333Z" creationid="makenowjust" creationdate="20200429T153020Z">
+        <seg>これはスプラット展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The recommended thing to do is to use enums whenever possible, only use symbols for the internal implementation of an API, and avoid symbols for public APIs.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012608Z" creationid="hirofumiwakasugi" creationdate="20150916T012326Z">
@@ -26067,6 +26123,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When a method specifies a splat (explained in the next section), named arguments can't be used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152811Z" creationid="makenowjust" creationdate="20200429T152811Z">
+        <seg>メソッドがスプラット展開を持っている場合 (これについては次の章で説明します)、名前付き引数を使うことはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When a module is generic you include it like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150924T061110Z" creationid="hirofumiwakasugi" creationdate="20150924T061050Z">
@@ -26271,6 +26335,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103721Z" creationid="akiji" creationdate="20200429T141638Z">
         <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When there are many arguments, the order of the names in the invocation doesn't matter, as long as all required arguments are covered:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152653Z" creationid="makenowjust" creationdate="20200429T152653Z">
+        <seg>いくつもの引数を持つ場合、すべての引数を正しく渡していれば、どのような順序で指定したかは重要ではありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -38852,6 +38924,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def some_method(x, y = 1, z = 2, w = 3)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152716Z" creationid="makenowjust" creationdate="20200429T152716Z">
+        <seg>def some_method(x, y = 1, z = 2, w = 3)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def speak</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T144055Z" creationid="hirofumiwakasugi" creationdate="20151010T144055Z">
@@ -39588,6 +39668,34 @@ end
 
 generate_method_downcase "HELLO"
 hello{% endhighlight %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+john = Person.new "John"
+john.age # =&gt; 0
+
+john.become_older
+john.age # =&gt; 1
+
+john.become_older 2
+john.age # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152439Z" creationid="makenowjust" creationdate="20200429T152439Z">
+        <seg>end
+end
+
+john = Person.new "John"
+john.age # =&gt; 0
+
+john.become_older
+john.age # =&gt; 1
+
+john.become_older 2
+john.age # =&gt; 3</seg>
       </tuv>
     </tu>
     <tu>
@@ -41426,6 +41534,14 @@ john.age #=&gt; 6
         <seg>john.become_older 5
 john.age #=&gt; 6
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>john.become_older by: 5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152657Z" creationid="makenowjust" creationdate="20200429T152657Z">
+        <seg>john.become_older by: 5</seg>
       </tuv>
     </tu>
     <tu>
