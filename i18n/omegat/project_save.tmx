@@ -367,6 +367,16 @@ end</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>"hello"
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141149Z" creationid="makenowjust" creationdate="20200430T141149Z">
+        <seg>"hello"
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"hello"
 end
 ```</seg>
       </tuv>
@@ -7987,6 +7997,20 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>1 + 2
+end
+
+some_method # =&gt; nil</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141327Z" creationid="makenowjust" creationdate="20200430T141327Z">
+        <seg>1 + 2
+end
+
+some_method # =&gt; nil</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>1 + 2             # =&gt; 3
 Unicorn.new.speak # =&gt; "I'm a unicorn"</seg>
       </tuv>
@@ -9849,6 +9873,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NoReturn&lt;/g1&gt; can be explicitly set as return type of a method or function definition but will usually be inferred by the compiler.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T143046Z" creationid="makenowjust" creationdate="20200430T143038Z">
+        <seg>&lt;g1&gt;NoReturn&lt;/g1&gt; を明示的にメソッドもしくは関数の返り値の型制約として指定することもできますが、通常はコンパイラによって推論されるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Note&lt;/g1&gt;: a &lt;g2&gt;new&lt;/g2&gt; method might be redefined by a type.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T140127Z" creationid="makenowjust" creationdate="20200427T140127Z">
@@ -10965,6 +10997,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215149Z" creationid="makenowjust" creationdate="20200412T213743Z">
         <seg>&lt;g3&gt;:inherit:&lt;/g3&gt;を子クラスのドキュメントに親クラスのものを挿入するためにも利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g3&gt;NoReturn&lt;/g3&gt; does not show up in a union type because it would essentially be included in every expression's type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142728Z" creationid="makenowjust" creationdate="20200430T142728Z">
+        <seg>&lt;g3&gt;NoReturn&lt;/g3&gt; は他の全ての型に含まれるため、ユニオン型の中には現れません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15081,6 +15121,14 @@ Returns the name of `self`.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Documenting that the method's return value is of no interest</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141637Z" creationid="makenowjust" creationdate="20200430T141637Z">
+        <seg>返り値に意味がないということをドキュメントに表示できる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Double splats and named tuples</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T154952Z" creationid="makenowjust" creationdate="20200429T154952Z">
@@ -15250,6 +15298,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T023224Z" creationid="hirofumiwakasugi" creationdate="20150910T023224Z">
         <seg>クラス階層のルートクラスである `Object` を除き、すべてのクラスは他のクラス (スーパークラス) を継承しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Every expression whose code paths all result in &lt;g1&gt;NoReturn&lt;/g1&gt; will be &lt;g2&gt;NoReturn&lt;/g2&gt; as well.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142633Z" creationid="makenowjust" creationdate="20200430T142633Z">
+        <seg>どのように分岐しても &lt;g1&gt;NoReturn&lt;/g1&gt; になる場合は、結果の型も &lt;g2&gt;NoReturn&lt;/g2&gt; になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18716,6 +18772,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is only used when an expression will never return to the current scope.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142838Z" creationid="makenowjust" creationdate="20200430T142750Z">
+        <seg>実行元に戻ってこない場合だけにこの型は利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is possible to directly call methods on heredoc string literals, or use them inside parentheses:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
@@ -19257,10 +19321,26 @@ code that is pasted into a program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Making sure a method returns &lt;g1&gt;nil&lt;/g1&gt; without needing to add an extra &lt;g2&gt;nil&lt;/g2&gt; at the end, or at every return point</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141641Z" creationid="makenowjust" creationdate="20200430T141558Z">
+        <seg>追加で末尾に &lt;g2&gt;nil&lt;/g2&gt; を置いて返り値を設定しなくても、明確に &lt;g1&gt;nil&lt;/g1&gt; を返せる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Marking a class as abstract will also prevent us from creating an instance of it:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T035618Z" creationid="hirofumiwakasugi" creationdate="20150910T035546Z">
         <seg>abstract クラスとすることで、そのクラスを直接インスタンス化するのを避けることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Marking a method as returning &lt;g1&gt;Nil&lt;/g1&gt; will make it return &lt;g2&gt;nil&lt;/g2&gt; regardless of what it actually returns:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141324Z" creationid="makenowjust" creationdate="20200430T141324Z">
+        <seg>戻り値の型に &lt;g1&gt;Nil&lt;/g1&gt; を指定すると、明示的に &lt;g2&gt;nil&lt;/g2&gt; を返さなくても &lt;g2&gt;nil&lt;/g2&gt; が返るようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19608,6 +19688,14 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Nil return type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142645Z" creationid="makenowjust" creationdate="20200430T141237Z">
+        <seg>Nil</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>No language is 100% safe: some parts will inevitably be low-level, interface with the operating system and involve pointer manipulation.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T013343Z" creationid="hirofumiwakasugi" creationdate="20151009T012743Z">
@@ -19628,6 +19716,14 @@ MyBox(Int32).new("hello") # エラー
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T174146Z" creationid="makenowjust" creationdate="20200413T172828Z">
         <seg>いえいえ、実のところ魔法ではないのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>NoReturn return type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142648Z" creationid="makenowjust" creationdate="20200430T141905Z">
+        <seg>NoReturn</seg>
       </tuv>
     </tu>
     <tu>
@@ -20927,6 +21023,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Return types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141916Z" creationid="makenowjust" creationdate="20200430T141916Z">
+        <seg>戻り値の型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Right now the code containing the logic of each of the applications always gets executed with the &lt;g1&gt;OptionParser&lt;/g1&gt;, i.e. there is no way to include that file without running the whole application.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T185530Z" creationid="makenowjust" creationdate="20200413T185401Z">
@@ -21189,6 +21293,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since &lt;g4&gt;typeof(raise "Empty input")&lt;/g4&gt; is &lt;g5&gt;NoReturn&lt;/g5&gt; the execution would not return to the current scope in that case.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142807Z" creationid="makenowjust" creationdate="20200430T142539Z">
+        <seg>&lt;g4&gt;typeof(raise "Empty input")&lt;/g4&gt; は実行されたとすると返ってこないため、 &lt;g5&gt;NoReturn&lt;/g5&gt; 型となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since `typeof` doesn't actually evaluate the expression, it can be
 used on methods at compile time, such as in this example, which
 recursively forms a union type out of nested type paramters:</seg>
@@ -21379,6 +21491,14 @@ recursively forms a union type out of nested type paramters:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214140Z" creationid="makenowjust" creationdate="20200412T214140Z">
         <seg>Some documentation specific to *id*'s usage within `Child`.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Some expressions won't return to the current scope and therefore have no return type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142758Z" creationid="makenowjust" creationdate="20200430T142217Z">
+        <seg>いくつかのメソッドは実行元に戻って来ず、戻り値の型を持たない場合があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21804,6 +21924,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T071013Z" creationid="hirofumiwakasugi" creationdate="20150906T070908Z">
         <seg>上記からわかるように、同じ名前で引数の数が異なるメソッドを定義することが可能で、それぞれが別のメソッドとして扱われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That leaves only &lt;g6&gt;String&lt;/g6&gt; as resulting type of the expression.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142607Z" creationid="makenowjust" creationdate="20200430T142607Z">
+        <seg>そのため最終的に &lt;g6&gt;String&lt;/g6&gt; のみが式の結果の型として残ります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22723,6 +22851,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The compiler recognizes that in case &lt;g1&gt;string&lt;/g1&gt; is &lt;g2&gt;Nil&lt;/g2&gt;, the right hand side of the expression &lt;g3&gt;string || raise&lt;/g3&gt; will be evaluated.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142416Z" creationid="makenowjust" creationdate="20200430T142416Z">
+        <seg>&lt;g1&gt;string&lt;/g1&gt; が &lt;g2&gt;Nil&lt;/g2&gt; のときは &lt;g3&gt;string || raise&lt;/g3&gt; の右辺を評価するものというようにコンパイラは解釈します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The compiler uses the &lt;g1&gt;CRYSTAL_LIBRARY_PATH&lt;/g1&gt; environment variable as a first lookup destination for static and dynamic libraries that are to be linked.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153208Z" creationid="makenowjust" creationdate="20200419T153037Z">
@@ -23453,6 +23589,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The return type follows the &lt;g1&gt;type grammar&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141214Z" creationid="makenowjust" creationdate="20200430T141214Z">
+        <seg>戻り値の型は&lt;g1&gt;型の文法&lt;/g1&gt;の記法に従います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The return type follows the [type grammar](type_grammar.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T024720Z" creationid="hirofumiwakasugi" creationdate="20150909T024710Z">
@@ -24160,6 +24304,14 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These methods usually imply a side effect.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141732Z" creationid="makenowjust" creationdate="20200430T141732Z">
+        <seg>このようなにすることは通常、メソッドに副作用があることを仄めかしています</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These parts of the language are considered unsafe:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012609Z" creationid="hirofumiwakasugi" creationdate="20151009T012440Z">
@@ -24643,6 +24795,22 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is expressed as the special return type &lt;g1&gt;NoReturn&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142240Z" creationid="makenowjust" creationdate="20200430T142240Z">
+        <seg>そのようなものは &lt;g1&gt;NoReturn&lt;/g1&gt; という特別な型によって表現れます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is for example useful for deconstructing union types:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142340Z" creationid="makenowjust" creationdate="20200430T142340Z">
+        <seg>これはユニオン型を分解する際に便利なことがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is in general necessary when dealing with a collection of objects.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T061129Z" creationid="hirofumiwakasugi" creationdate="20150912T060711Z">
@@ -24671,6 +24839,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T221000Z" creationid="makenowjust" creationdate="20200412T221000Z">
         <seg>本ドキュメントは「Crystal」というプログラミング言語について記載するものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is useful for two reasons:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141342Z" creationid="makenowjust" creationdate="20200430T141342Z">
+        <seg>これは次の2つの点で有用です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25554,6 +25730,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To make sure that the method returns the type that you want</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141140Z" creationid="makenowjust" creationdate="20200430T141140Z">
+        <seg>メソッドが返す戻り値の型を明確にする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To make sure that the method returns the type that you want
 2.</seg>
       </tuv>
@@ -25916,6 +26100,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Typical examples for non-returning methods and keywords are &lt;g1&gt;return&lt;/g1&gt;, &lt;g2&gt;exit&lt;/g2&gt;, &lt;g3&gt;raise&lt;/g3&gt;, &lt;g4&gt;next&lt;/g4&gt;, and &lt;g5&gt;break&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142316Z" creationid="makenowjust" creationdate="20200430T142316Z">
+        <seg>&lt;g1&gt;return&lt;/g1&gt; や &lt;g2&gt;exit&lt;/g2&gt;、&lt;g3&gt;raise&lt;/g3&gt;、&lt;g4&gt;next&lt;/g4&gt;、そして &lt;g5&gt;break&lt;/g5&gt; といったキーワードがこの型になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Underscore allowed</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T094335Z" creationid="makenowjust" creationdate="20200424T093620Z">
@@ -26121,6 +26313,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T185719Z" creationid="makenowjust" creationdate="20200413T185719Z">
         <seg>&lt;g1&gt;Readline&lt;/g1&gt;と&lt;g2&gt;NCurses&lt;/g2&gt;の利用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using &lt;g1&gt;Void&lt;/g1&gt; is the same, but &lt;g2&gt;Nil&lt;/g2&gt; is more idiomatic: &lt;g3&gt;Void&lt;/g3&gt; is preferred in C bindings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141902Z" creationid="makenowjust" creationdate="20200430T141902Z">
+        <seg>&lt;g1&gt;Void&lt;/g1&gt; を使っても同様の結果を得られますが、&lt;g3&gt;Void&lt;/g3&gt; は C バインディング向けの型のため、&lt;g2&gt;Nil&lt;/g2&gt; を使う方が自然です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -39568,6 +39768,22 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def some_method : Nil</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141326Z" creationid="makenowjust" creationdate="20200430T141326Z">
+        <seg>def some_method : Nil</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def some_method : String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T141149Z" creationid="makenowjust" creationdate="20200430T141149Z">
+        <seg>def some_method : String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def some_method(x, y = 1, z = 2, w = 3)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T152716Z" creationid="makenowjust" creationdate="20200429T152716Z">
@@ -44756,6 +44972,16 @@ proc.call('l') # =&gt; 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>string = STDIN.gets
+typeof(string)                        # =&gt; String?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142341Z" creationid="makenowjust" creationdate="20200430T142341Z">
+        <seg>string = STDIN.gets
+typeof(string)                        # =&gt; String?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>string.upcase
 end
 
@@ -45164,6 +45390,16 @@ end
         <seg>type MyInt = Int32
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>typeof(raise "Empty input")           # =&gt; NoReturn
+typeof(string || raise "Empty input") # =&gt; String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T142342Z" creationid="makenowjust" creationdate="20200430T142342Z">
+        <seg>typeof(raise "Empty input")           # =&gt; NoReturn
+typeof(string || raise "Empty input") # =&gt; String</seg>
       </tuv>
     </tu>
     <tu>
