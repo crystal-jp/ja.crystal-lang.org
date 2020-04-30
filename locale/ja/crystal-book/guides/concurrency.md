@@ -244,7 +244,7 @@ value = channel.receive
 puts value # => 2
 ```
 
-Output:
+出力はこうなります。
 
 ```text
 Before first receive
@@ -325,7 +325,7 @@ Fiber.yield
 puts "After yield"
 ```
 
-Output:
+出力はこうなります。
 
 ```text
 Before yield
@@ -364,7 +364,7 @@ end
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 Before send 1

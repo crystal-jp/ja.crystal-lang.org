@@ -1,73 +1,73 @@
-# Performance
+# パフォーマンス
 
-Follow these tips to get the best out of your programs, both in speed and memory terms.
+これらのTipsに従って、あなたのプログラムを速度とメモリ使用の両面で最高のものにしましょう。
 
-## Premature optimization
+## 早まった最適化
 
-Donald Knuth once said:
+かつてドナルド・クヌースは言いました。
 
-> We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
+> 小さな効率化については忘れるべきだ。その97％までにおいて、早まった最適化は諸悪の根源である。ただし、クリティカルな3%についてまでその機会を逃すべきではない。
 
-However, if you are writing a program and you realize that writing a semantically equivalent, faster version involves just minor changes, you shouldn't miss that opportunity.
+とはいえ、もしプログラムを書いている際に、意味的に同じでより早く実行できるバージョンを、ちょっとした変更で実現できるのであれば、その機会を逃す手はありません。
 
-And always be sure to profile your program to learn what its bottlenecks are. For profiling, on macOS you can use [Instruments Time Profiler](https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html), which comes with XCode. On Linux, any program that can profile C/C++ programs, like [perf](https://perf.wiki.kernel.org/index.php/Main_Page) or [Callgrind](http://valgrind.org/docs/manual/cl-manual.html), should work.
+そして、常に自分のプログラムをプロファイリングして、ボトルネックがどこにあるのかを確認するようにしましょう。プロファイリングには、macOS上であればXCodeに含まれている [Instruments Time Profiler](https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html)が利用できます。Linuxであれば、[perf](https://perf.wiki.kernel.org/index.php/Main_Page) や [Callgrind](http://valgrind.org/docs/manual/cl-manual.html)のような、C/C++プログラムをプロファイリング可能な仕組みなら大抵は動作するでしょう。
 
-Make sure to always profile programs by compiling or running them with the `--release` flag, which turns on optimizations.
+プログラムのプロファイリングを行う際は、必ずコンパイルや実行に `--release` フラグをつけて最適化を有効にするようにしてください。
 
-## Avoiding memory allocations
+## メモリの割り当てを避ける
 
-One of the best optimizations you can do in a program is avoiding extra/useless memory allocation. A memory allocation happens when you create an instance of a **class**, which ends up allocating heap memory. Creating an instance of a **struct** uses stack memory and doesn't incur a performance penalty. If you don't know the difference between stack and heap memory, be sure to [read this](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap).
+プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。メモリの割り当ては**class**のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。**struct**のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。スタックメモリとヒープメモリの違いがわからない場合は、 [ここを読んでみてください](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)。
 
-Allocating heap memory is slow, and it puts more pressure on the Garbage Collector (GC) as it will later have to free that memory.
+ヒープメモリの割り当ては低速で、後々そのメモリを解放するガーベジコレクタ（GC）に負荷をかけます。
 
-There are several ways to avoid heap memory allocations. The standard library is designed in a way to help you do that.
+ヒープメモリの割り当てを回避する方法はいくつかあります。標準ライブラリはそのようにデザインされているので、そうした際の参考になるでしょう。
 
-### Don't create intermediate strings when writing to an IO
+### IOに書き込む際に中間的な文字列を生成しない
 
-To print a number to the standard output you write:
+数値を標準出力へ書き出す際にはこう書きます。
 
 ```
 puts 123
 ```
 
-In many programming languages what will happen is that `to_s`, or a similar method for converting the object to its string representation, will be invoked, and then that string will be written to the standard output. This works, but it has a flaw: it creates an intermediate string, in heap memory, only to write it and then discard it. This, involves a heap memory allocation and gives a bit of work to the GC.
+多くのプログラミング言語でこうした時に何をしているかと言うと、`to_s`やそれと同じようなオブジェクトを文字列表現に変換するメソッドを実行し、その文字列を標準出力へ書き込みます。この方法でも動作はしますが、書き込んだらあとは廃棄するだけの中間的な文字列がヒープメモリ上に生成されることになります。このことで、ヒープメモリの割り当てが発生して、GCにちょっとした負荷がかかります。
 
-In Crystal, `puts` will invoke `to_s(io)` on the object, passing it the IO to which the string representation should be written.
+Crystalでは、 `puts`はそれぞれのオブジェクトの`to_s(io)`に、そのオブジェクトの文字列表現を書き出したいIOを渡して実行します。
 
-So, you should never do this:
+ですので、以下のようなことは決してしないでください。
 
 ```
 puts 123.to_s
 ```
 
-as it will create an intermediate string. Always append an object directly to an IO.
+これでは、わざわざ中間文字列を作ってしまいます。常にIOへ直接オブジェクトを追加するようにしましょう。
 
-When writing custom types, always be sure to override `to_s(io)`, not `to_s`, and avoid creating intermediate strings in that method. 例をあげます。
+独自の型を書く場合は、必ず`to_s`ではなく`to_s(io)`をオーバーライドするようにして、その中でも中間的な文字列を生成しないように注意してください。例をあげます。
 
 ```crystal
 class MyClass
-  # Good
+  # 良い方法
   def to_s(io)
-    # appends "1, 2" to IO without creating intermediate strings
+    # 中間的な文字列を生成せずに "1, 2" を IO に追加する
     x = 1
     y = 2
     io << x << ", " << y
   end
 
-  # Bad
+  # 良くない方法
   def to_s(io)
     x = 1
     y = 2
-    # using a string interpolation creates an intermediate string.
-    # this should be avoided
+    # 文字列の式展開で中間的な文字列を生成している
+    # これは避けるべき
     io << "#{x}, #{y}"
   end
 end
 ```
 
-This philosophy of appending to an IO instead of returning an intermediate string results in better performance than handling intermediate strings. You should use this strategy in your API definitions too.
+中間文字列を返すのではなくIOに追加する、という哲学は、中間的な文字列を扱うよりも結果的に良いパフォーマンスを実現します。こうした戦略をあなた自身のAPI定義でも使用すべきです。
 
-Let's compare the times:
+実行時間を比較してみましょう。
 
 ```crystal
 # io_benchmark.cr
@@ -88,7 +88,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release io_benchmark.cr
@@ -96,22 +96,22 @@ without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest
    with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower
 ```
 
-Always remember that it's not just the time that has improved: memory usage is also decreased.
+常に忘れてならないのは、これが単に実行時間が短縮したというだけでなく、メモリ使用量の削減という面でも効果があると言うことです。
 
-### Use string interpolation instead of concatenation
+### 文字列の結合ではなく式展開を使う
 
-Sometimes you need to work directly with strings built from combining string literals with other values. You shouldn't just concatenate these strings with `String#+(String)` but rather use [string interpolation](../syntax_and_semantics/literals/string.html#interpolation) which allows to embed expressions into a string literal: `"Hello, #{name}"` is better than `"Hello, " +  name.to_s`.
+しばしば、文字列リテラルと他の値とを組み合わせて文字列を直接構築しなければならいことがあります。このような文字列の構築では、`String#+(String)`メソッドによって文字列を結合するのではなく、文字列リテラルの中に式を埋め込める[文字列の式展開](../syntax_and_semantics/literals/string.html#interpolation)を使用しましょう。 `"Hello, #{name}"` の方が、`"Hello, " +  name.to_s`よりも良い結果になります。
 
-Interpolated strings are transformed by the compiler to append to a string IO so that it automatically avoids intermediate strings. The example above translates to:
+文字列の式展開は、コンパイラによって文字列IOに対する追加へ変換され、自動的に中間文字列の生成を回避します。上の例はこのように変換されます。
 ```crystal
 String.build do |io|
   io << "Hello, " << name
 end
 ```
 
-### Avoid IO allocation for string building
+### 文字列の構築にIOの割り当てを避ける
 
-Prefer to use the dedicated `String.build` optimized for building strings, instead of creating an intermediate `IO::Memory` allocation.
+文字列の構築には、中間的な`IO::Memory`を使用するのではなく、文字列構築に最適化された`String.build`を使用するようにしましょう。
 
 ```crystal
 require "benchmark"
@@ -135,7 +135,7 @@ Benchmark.ips do |bm|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release str_benchmark.cr
@@ -144,9 +144,9 @@ String.build 597.57k (  1.67µs) (± 5.52%)       fastest
 ```
 
 
-### Avoid creating temporary objects over and over
+### 何度も何度も一時的なオブジェクトを生成しない
 
-Consider this program:
+以下のプログラムについて考えてみましょう。
 
 ```crystal
 lines_with_language_reference = 0
@@ -158,11 +158,11 @@ end
 puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
 ```
 
-The above program works but has a big performance problem: on every iteration a new array is created for `["crystal", "ruby", "java"]`. Remember: an array literal is just syntax sugar for creating an instance of an array and adding some values to it, and this will happen over and over on each iteration.
+上記のプログラムはちゃんと動作しますが、繰り返しのたびに`["crystal", "ruby", "java"]`を新しい配列として生成するという大きなパフォーマンス上の問題を抱えています。配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理の糖衣構文でしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。
 
-There are two ways to solve this:
+これを解決するには2つの方法があります。
 
-1. Use a tuple. If you use `{"crystal", "ruby", "java"}` in the above program it will work the same way, but since a tuple doesn't involve heap memory it will be faster, consume less memory, and give more chances for the compiler to optimize the program.
+1. タプルを使う。上記プログラムで `{"crystal", "ruby", "java"}`を使用すると、同じようにちゃんと動作しますが、タプルはヒープメモリをつかわないため、より高速でメモリ消費が少なく、コンパイラに対してプログラムを最適化するより多くの機会を提供できます。
 
 ```crystal
 lines_with_language_reference = 0
@@ -174,7 +174,7 @@ end
 puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
 ```
 
-2. Move the array to a constant.
+2. 配列を定数にする
 
 ```crystal
 LANGS = ["crystal", "ruby", "java"]
@@ -188,15 +188,15 @@ end
 puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
 ```
 
-Using tuples is the preferred way.
+タプルを使用する方が推奨される方法です。
 
-Explicit array literals in loops is one way to create temporary objects, but these can also be created via method calls. For example `Hash#keys` will return a new array with the keys each time it's invoked. Instead of doing that, you can use `Hash#each_key`, `Hash#has_key?` and other methods.
+ループ内での明示的に配列リテラルを使うことは、一時的なオブジェクトが生成される状況の1つのですが、一時的なオブジェクトはメソッドの呼び出しによっても生成される場合があります。例えば、`Hash#keys` 実行されるたびにキーを含む新しい配列を返します。代わりに`Hash#each_key`や`Hash#has_key?`といった他のメソッドを使用しましょう。
 
-### Use structs when possible
+### 可能な場合には struct を使用する
 
-If you declare your type as a **struct** instead of a **class**, creating an instance of it will use stack memory, which is much cheaper than heap memory and doesn't put pressure on the GC.
+独自の型を  **class** ではなく **struct** として定義すると、ヒープメモリよりも安価でGCに負担もかけないスタックメモリ上にインスタンスを生成します。
 
-You shouldn't always use a struct, though. Structs are passed by value, so if you pass one to a method and the method makes changes to it, the caller won't see those changes, so they can be bug-prone. The best thing to do is to only use structs with immutable objects, especially if they are small.
+しかし、いつでも struct を使えば良いわけではありません。struct は値渡しされるので、メソッドに渡した struct がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。structs は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。
 
 例をあげます。
 
@@ -226,7 +226,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release class_vs_struct.cr
@@ -234,11 +234,11 @@ $ crystal run --release class_vs_struct.cr
 struct 430.82M (± 6.58%)       fastest
 ```
 
-## Iterating strings
+## 文字列に対する繰り返し処理
 
-Strings in Crystal always contain UTF-8 encoded bytes. UTF-8 is a variable-length encoding: a character may be represented by several bytes, although characters in the ASCII range are always represented by a single byte. Because of this, indexing a string with `String#[]` is not an `O(1)` operation, as the bytes need to be decoded each time to find the character at the given position. There's an optimization that Crystal's `String` does here: if it knows all the characters in the string are ASCII, then `String#[]` can be implemented in `O(1)`. However, this isn't generally true.
+Crystalの文字列は常にUTF-8のコードポイントを含んでいます。UTF-8は可変長のエンコーディングで、アスキー文字の範囲では1文字を1バイトで表現しますが、そうでなければ1つの文字を複数バイトで表現します。そのため、`String#[]`は、インデックスが示す場所の文字を見つけるために毎回バイトデータをデコードする必要があり、`O(1)` オーダーの処理ではありません。こうした場合にCrystalの `String`は最適化を行っていて、文字列にASCII文字しか含まれていなければ、`String#[]`を`O(1)`オーダーで処理できるよう実装されています。しかし、一般的にはそんなことはありません。
 
-For this reason, iterating a String in this way is not optimal, and in fact has a complexity of `O(n^2)`:
+こうした理由から、文字列に対するの繰り返し処理は効率的とはいえず、実際 `O(n^2)`オーダーの複雑性を有しています。
 
 ```crystal
 string = "foo"
@@ -248,9 +248,10 @@ while i < string.size
 end
 ```
 
-There's a second problem with the above: computing the `size` of a String is also slow, because it's not simply the number of bytes in the string (the `bytesize`). However, once a String's size has been computed, it is cached.
+実は上記にのコードには、文字列の `size`（文字数）は単純に`bytesize`（バイト数）からは得られないため、その計算にも時間がかかるという2つ目の問題があります。
+ただし、Stringの文字数は一度計算されるとその値がキャッシュされます。
 
-The way to improve performance in this case is to either use one of the iteration methods (`each_char`, `each_byte`, `each_codepoint`), or use the more low-level `Char::Reader` struct. For example, using `each_char`:
+この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（(`each_char`や`each_byte`、`each_codepoint`など）のいずれかを使用するか、より低レベルの`Char::Reader`を使用することです。`each_char`を使用した例はこうなります。
 
 ```crystal
 string = "foo"

@@ -1086,6 +1086,14 @@ local = 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Bad</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130104Z" creationid="akiji" creationdate="20200430T130057Z">
+        <seg># 良くない方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Bad: This is not attached to any class.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T033552Z" creationid="hirofumiwakasugi" creationdate="20151010T033519Z">
@@ -1516,6 +1524,14 @@ john.name.size</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T053417Z" creationid="hirofumiwakasugi" creationdate="20150902T053409Z">
         <seg># グローバル変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Good</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130043Z" creationid="akiji" creationdate="20200430T130043Z">
+        <seg># 良い方法</seg>
       </tuv>
     </tu>
     <tu>
@@ -3035,6 +3051,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># appends "1, 2" to IO without creating intermediate strings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T125949Z" creationid="akiji" creationdate="20200430T125949Z">
+        <seg># 中間的な文字列を生成せずに "1, 2" を IO に追加する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># as</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T014115Z" creationid="hirofumiwakasugi" creationdate="20150930T014115Z">
@@ -4153,6 +4177,14 @@ crystal spec spec/myapp_spec.cr:6 # Myapp works</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># this should be avoided</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130142Z" creationid="akiji" creationdate="20200430T130142Z">
+        <seg># これは避けるべき</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># this will always be executed
 end
 ```</seg>
@@ -4219,6 +4251,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052352Z" creationid="hirofumiwakasugi" creationdate="20150905T052352Z">
         <seg># until</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># using a string interpolation creates an intermediate string.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130133Z" creationid="akiji" creationdate="20200430T130133Z">
+        <seg># 文字列の式展開で中間的な文字列を生成している</seg>
       </tuv>
     </tu>
     <tu>
@@ -11757,6 +11797,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A memory allocation happens when you create an instance of a &lt;g1&gt;class&lt;/g1&gt;, which ends up allocating heap memory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084428Z" creationid="akiji" creationdate="20200430T084428Z">
+        <seg>メモリの割り当ては&lt;g1&gt;class&lt;/g1&gt;のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A method can receive a variable number of arguments by using a *splat* (`*`), which can appear only once and in any position:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042349Z" creationid="hirofumiwakasugi" creationdate="20150907T042024Z">
@@ -12205,6 +12253,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Allocating heap memory is slow, and it puts more pressure on the Garbage Collector (GC) as it will later have to free that memory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120345Z" creationid="akiji" creationdate="20200430T120345Z">
+        <seg>ヒープメモリの割り当ては低速で、後々そのメモリを解放するガーベジコレクタ（GC）に負荷をかけます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Allows marking a [C struct](c_bindings/struct.html) as packed, which makes the alignment of the struct to be one byte, and that there is no padding between the elements.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T072942Z" creationid="hirofumiwakasugi" creationdate="20150919T072853Z">
@@ -12297,6 +12353,22 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055520Z" creationid="hirofumiwakasugi" creationdate="20150913T055520Z">
         <seg>また、これはコンパイラに強制されることではありませんが、一般的に定数名はすべて大文字とし、単語はアンダースコアで区切ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Always append an object directly to an IO.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120947Z" creationid="akiji" creationdate="20200430T120947Z">
+        <seg>常にIOへ直接オブジェクトを追加するようにしましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Always remember that it's not just the time that has improved: memory usage is also decreased.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130818Z" creationid="akiji" creationdate="20200430T130818Z">
+        <seg>常に忘れてならないのは、これが単に実行時間が短縮したというだけでなく、メモリ使用量の削減という面でも効果があると言うことです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12659,6 +12731,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T013204Z" creationid="hirofumiwakasugi" creationdate="20151009T012742Z">
         <seg>また、C バインディングは、普通は、NULL ポインタやバウンドチェックを含むより安全なラッパーで包みます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And always be sure to profile your program to learn what its bottlenecks are.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084212Z" creationid="akiji" creationdate="20200430T084212Z">
+        <seg>そして、常に自分のプログラムをプロファイリングして、ボトルネックがどこにあるのかを確認するようにしましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13069,6 +13149,30 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Avoid IO allocation for string building</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131417Z" creationid="akiji" creationdate="20200430T131417Z">
+        <seg>文字列の構築にIOの割り当てを避ける</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid creating temporary objects over and over</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131504Z" creationid="akiji" creationdate="20200430T131504Z">
+        <seg>何度も何度も一時的なオブジェクトを生成しない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoiding memory allocations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084325Z" creationid="akiji" creationdate="20200430T084325Z">
+        <seg>メモリの割り当てを避ける</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>BUG</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214451Z" creationid="makenowjust" creationdate="20200412T214451Z">
@@ -13140,6 +13244,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041348Z" creationid="hirofumiwakasugi" creationdate="20151005T041240Z">
         <seg>Crystal ではユーザー名は小文字で始まる必要があるため、`fun` の名前も同様に小文字で始まらなくてはなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because of this, indexing a string with &lt;g1&gt;String#[]&lt;/g1&gt; is not an &lt;g2&gt;O(1)&lt;/g2&gt; operation, as the bytes need to be decoded each time to find the character at the given position.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132356Z" creationid="akiji" creationdate="20200430T132356Z">
+        <seg>そのため、&lt;g1&gt;String#[]&lt;/g1&gt;は、インデックスが示す場所の文字を見つけるために毎回バイトデータをデコードする必要があり、&lt;g2&gt;O(1)&lt;/g2&gt; オーダーの処理ではありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13820,6 +13932,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Consider this program:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131525Z" creationid="akiji" creationdate="20200430T131525Z">
+        <seg>以下のプログラムについて考えてみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Constants can be declared at the top level or inside other types.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055233Z" creationid="hirofumiwakasugi" creationdate="20150913T055233Z">
@@ -13908,6 +14028,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150442Z" creationid="makenowjust" creationdate="20200419T150442Z">
         <seg>実行可能ファイルの生成</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creating an instance of a &lt;g2&gt;struct&lt;/g2&gt; uses stack memory and doesn't incur a performance penalty.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084449Z" creationid="akiji" creationdate="20200430T084449Z">
+        <seg>&lt;g2&gt;struct&lt;/g2&gt;のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14199,6 +14327,22 @@ Returns the name of `self`.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Don't create intermediate strings when writing to an IO</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120503Z" creationid="akiji" creationdate="20200430T120503Z">
+        <seg>IOに書き込む際に中間的な文字列を生成しない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Donald Knuth once said:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084030Z" creationid="akiji" creationdate="20200430T084030Z">
+        <seg>かつてドナルド・クヌースは言いました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Download the file for your platform and uncompress it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T055747Z" creationid="hirofumiwakasugi" creationdate="20150831T055747Z">
@@ -14418,6 +14562,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Explicit array literals in loops is one way to create temporary objects, but these can also be created via method calls.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131908Z" creationid="akiji" creationdate="20200430T131908Z">
+        <seg>ループ内での明示的に配列リテラルを使うことは、一時的なオブジェクトが生成される状況の1つのですが、一時的なオブジェクトはメソッドの呼び出しによっても生成される場合があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Explicit types can be specified by immediately following the closing bracket with &lt;g1&gt;of&lt;/g1&gt; (separated by whitespace), a key type (&lt;g2&gt;K&lt;/g2&gt;) followed by &lt;g3&gt;=&gt;&lt;/g3&gt; as delimiter and a value type (&lt;g4&gt;V&lt;/g4&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T175704Z" creationid="makenowjust" creationdate="20200420T175704Z">
@@ -14554,6 +14706,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Follow these tips to get the best out of your programs, both in speed and memory terms.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T083404Z" creationid="akiji" creationdate="20200430T083404Z">
+        <seg>これらのTipsに従って、あなたのプログラムを速度とメモリ使用の両面で最高のものにしましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Foo.new
 end
 ```</seg>
@@ -14656,6 +14816,14 @@ Foo.new.yield_normally { one }  # =&gt; "one"
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T020139Z" creationid="hirofumiwakasugi" creationdate="20150902T020139Z">
         <seg>例をあげます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example &lt;g1&gt;Hash#keys&lt;/g1&gt; will return a new array with the keys each time it's invoked.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131935Z" creationid="akiji" creationdate="20200430T131935Z">
+        <seg>例えば、&lt;g1&gt;Hash#keys&lt;/g1&gt; 実行されるたびにキーを含む新しい配列を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14838,6 +15006,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, using &lt;g5&gt;each_char&lt;/g5&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132813Z" creationid="akiji" creationdate="20200430T132813Z">
+        <seg>&lt;g5&gt;each_char&lt;/g5&gt;を使用した例はこうなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, we can define four different `become_older` methods:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T071421Z" creationid="hirofumiwakasugi" creationdate="20150906T071338Z">
@@ -14926,6 +15102,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For profiling, on macOS you can use &lt;g1&gt;Instruments Time Profiler&lt;/g1&gt;, which comes with XCode.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084216Z" creationid="akiji" creationdate="20200430T084216Z">
+        <seg>プロファイリングには、macOS上であればXCodeに含まれている &lt;g1&gt;Instruments Time Profiler&lt;/g1&gt;が利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For simple development builds, there is usually no reason to do so.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T152313Z" creationid="makenowjust" creationdate="20200419T152313Z">
@@ -14955,6 +15139,14 @@ the following arguments can be used:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T180120Z" creationid="makenowjust" creationdate="20200413T180120Z">
         <seg>2つの状況に応じて、&lt;g3&gt;OptionParser&lt;/g3&gt;クラスは&lt;g4&gt;#invalid_option&lt;/g4&gt;と&lt;g5&gt;#missing_option&lt;/g5&gt;という2つメソッドを持っています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For this reason, iterating a String in this way is not optimal, and in fact has a complexity of &lt;g1&gt;O(n^2)&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132657Z" creationid="akiji" creationdate="20200430T132657Z">
+        <seg>こうした理由から、文字列に対するの繰り返し処理は効率的とはいえず、実際 &lt;g1&gt;O(n^2)&lt;/g1&gt;オーダーの複雑性を有しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15363,6 +15555,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, if you are writing a program and you realize that writing a semantically equivalent, faster version involves just minor changes, you shouldn't miss that opportunity.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T133420Z" creationid="akiji" creationdate="20200430T084137Z">
+        <seg>とはいえ、もしプログラムを書いている際に、意味的に同じでより早く実行できるバージョンを、ちょっとした変更で実現できるのであれば、その機会を逃す手はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, once a String's size has been computed, it is cached.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132750Z" creationid="akiji" creationdate="20200430T132750Z">
+        <seg>ただし、Stringの文字数は一度計算されるとその値がキャッシュされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, regular code usually never involves pointer manipulation or uninitialized variables.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012935Z" creationid="hirofumiwakasugi" creationdate="20151009T012742Z">
@@ -15407,6 +15615,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063505Z" creationid="hirofumiwakasugi" creationdate="20150912T063130Z">
         <seg>ただ、上記のコードにはわずかな欠点があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, this isn't generally true.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132517Z" creationid="akiji" creationdate="20200430T132517Z">
+        <seg>しかし、一般的にはそんなことはありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16125,6 +16341,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you declare your type as a &lt;g1&gt;struct&lt;/g1&gt; instead of a &lt;g2&gt;class&lt;/g2&gt;, creating an instance of it will use stack memory, which is much cheaper than heap memory and doesn't put pressure on the GC.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132012Z" creationid="akiji" creationdate="20200430T132012Z">
+        <seg>独自の型を  &lt;g2&gt;class&lt;/g2&gt; ではなく &lt;g1&gt;struct&lt;/g1&gt; として定義すると、ヒープメモリよりも安価でGCに負担もかけないスタックメモリ上にインスタンスを生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you define the function inline in the same call you can omit the argument types, the compiler will add the types for you based on the `fun` signature:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T024506Z" creationid="hirofumiwakasugi" creationdate="20151008T024506Z">
@@ -16137,6 +16361,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T045923Z" creationid="hirofumiwakasugi" creationdate="20150905T045504Z">
         <seg>もし、`@name` が `Int32` である `Person` 型と、`@name` が `String` である `Person` 型の2つを使いたい場合は、 [ジェネリクス](generics.html) を利用すべきです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you don't know the difference between stack and heap memory, be sure to &lt;g3&gt;read this&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120232Z" creationid="akiji" creationdate="20200430T120232Z">
+        <seg>スタックメモリとヒープメモリの違いがわからない場合は、 &lt;g3&gt;ここを読んでみてください&lt;/g3&gt;。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16220,6 +16452,14 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T090700Z" creationid="makenowjust" creationdate="20200427T090700Z">
         <seg>プロジェクトのルートディレクトリ以外の場所からコンパイラを実行すると (例えば  &lt;g1&gt;src&lt;/g1&gt; ディレクトリの中から、など)、 &lt;g2&gt;lib&lt;/g2&gt; は require パスに追加されず &lt;g3&gt;require "foo"&lt;/g3&gt; はうまく解決できません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you use &lt;g1&gt;{"crystal", "ruby", "java"}&lt;/g1&gt; in the above program it will work the same way, but since a tuple doesn't involve heap memory it will be faster, consume less memory, and give more chances for the compiler to optimize the program.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131728Z" creationid="akiji" creationdate="20200430T131728Z">
+        <seg>上記プログラムで &lt;g1&gt;{"crystal", "ruby", "java"}&lt;/g1&gt;を使用すると、同じようにちゃんと動作しますが、タプルはヒープメモリをつかわないため、より高速でメモリ消費が少なく、コンパイラに対してプログラムを最適化するより多くの機会を提供できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16324,6 +16564,14 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T012652Z" creationid="hirofumiwakasugi" creationdate="20150904T012652Z">
         <seg>Crystal ではすべてのものがオブジェクトです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In Crystal, &lt;g1&gt;puts&lt;/g1&gt; will invoke &lt;g2&gt;to_s(io)&lt;/g2&gt; on the object, passing it the IO to which the string representation should be written.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120831Z" creationid="akiji" creationdate="20200430T120831Z">
+        <seg>Crystalでは、 &lt;g1&gt;puts&lt;/g1&gt;はそれぞれのオブジェクトの&lt;g2&gt;to_s(io)&lt;/g2&gt;に、そのオブジェクトの文字列表現を書き出したいIOを渡して実行します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16476,6 +16724,14 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T030258Z" creationid="hirofumiwakasugi" creationdate="20151009T030258Z">
         <seg>マクロの定義では、引数は AST ノードとして渡され、マクロ展開 (`{{some_macro_argument}}`) を使ってそれらにアクセスすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In many programming languages what will happen is that &lt;g1&gt;to_s&lt;/g1&gt;, or a similar method for converting the object to its string representation, will be invoked, and then that string will be written to the standard output.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120701Z" creationid="akiji" creationdate="20200430T120701Z">
+        <seg>多くのプログラミング言語でこうした時に何をしているかと言うと、&lt;g1&gt;to_s&lt;/g1&gt;やそれと同じようなオブジェクトを文字列表現に変換するメソッドを実行し、その文字列を標準出力へ書き込みます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16961,6 +17217,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Instead of doing that, you can use &lt;g2&gt;Hash#each_key&lt;/g2&gt;, &lt;g3&gt;Hash#has_key?&lt;/g3&gt; and other methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131951Z" creationid="akiji" creationdate="20200430T131951Z">
+        <seg>代わりに&lt;g2&gt;Hash#each_key&lt;/g2&gt;や&lt;g3&gt;Hash#has_key?&lt;/g3&gt;といった他のメソッドを使用しましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instead of overriding you can define specialized methods by using type restrictions:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T024415Z" creationid="hirofumiwakasugi" creationdate="20150910T024330Z">
@@ -17005,6 +17269,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T172958Z" creationid="makenowjust" creationdate="20200422T172958Z">
         <seg>内部的にはコンパイラはコマンドリテラルを &lt;g1&gt;&lt;g2&gt; `()&lt;/g2&gt;&lt;/g1&gt; メソッドに文字列リテラルを渡すように書き換えています。つまり &lt;g3&gt; `echo #{argument}` &lt;/g3&gt; と &lt;g4&gt;%x(echo #{argument})&lt;/g4&gt; は &lt;g5&gt; `("echo #{argument}")&lt;/g5&gt; のように書き換えられています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Interpolated strings are transformed by the compiler to append to a string IO so that it automatically avoids intermediate strings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131308Z" creationid="akiji" creationdate="20200430T131017Z">
+        <seg>文字列の式展開は、コンパイラによって文字列IOに対する追加へ変換され、自動的に中間文字列の生成を回避します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17390,6 +17662,14 @@ installs across computers and systems.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Iterating strings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132205Z" creationid="akiji" creationdate="20200430T132205Z">
+        <seg>文字列に対する繰り返し処理</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Its type is the union of the types of both sides.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T010053Z" creationid="hirofumiwakasugi" creationdate="20150905T052607Z">
@@ -17493,6 +17773,14 @@ By default (i.e. no options given) the application will display the names of the
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T175858Z" creationid="makenowjust" creationdate="20200413T174655Z">
         <seg>続けて、デフォルトでは (オプションが与えられなかったときに) The Fab Four のメンバーの名前を表示する、という機能を持った、&lt;g1&gt;ファビュラスな&lt;/g1&gt;アプリケーションを作ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's compare the times:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130322Z" creationid="akiji" creationdate="20200430T130322Z">
+        <seg>実行時間を比較してみましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17714,6 +18002,14 @@ code that is pasted into a program.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015527Z" creationid="hirofumiwakasugi" creationdate="20151001T015417Z">
         <seg>トップレベルで宣言されたマクロはどこからでもアクセス可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Make sure to always profile programs by compiling or running them with the &lt;g1&gt;--release&lt;/g1&gt; flag, which turns on optimizations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084316Z" creationid="akiji" creationdate="20200430T084316Z">
+        <seg>プログラムのプロファイリングを行う際は、必ずコンパイルや実行に &lt;g1&gt;--release&lt;/g1&gt; フラグをつけて最適化を有効にするようにしてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17941,6 +18237,14 @@ with the `yield` keyword.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T211227Z" creationid="makenowjust" creationdate="20200413T211227Z">
         <seg>さらに、Crystal は型推論も備えています。ほとんどの場合、型注釈は必要ありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Move the array to a constant.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131740Z" creationid="akiji" creationdate="20200430T131740Z">
+        <seg>配列を定数にする</seg>
       </tuv>
     </tu>
     <tu>
@@ -18449,6 +18753,14 @@ specifying the current working directory.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>On Linux, any program that can profile C/C++ programs, like &lt;g2&gt;perf&lt;/g2&gt; or &lt;g3&gt;Callgrind&lt;/g3&gt;, should work.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084258Z" creationid="akiji" creationdate="20200430T084258Z">
+        <seg>Linuxであれば、&lt;g2&gt;perf&lt;/g2&gt; や &lt;g3&gt;Callgrind&lt;/g3&gt;のような、C/C++プログラムをプロファイリング可能な仕組みなら大抵は動作するでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>On some linux 64 bits it will say "Linux x86_64".</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T045052Z" creationid="hirofumiwakasugi" creationdate="20150909T045052Z">
@@ -18557,6 +18869,14 @@ specifying the current working directory.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192147Z" creationid="makenowjust" creationdate="20200419T192147Z">
         <seg>1つのひげ括弧の中にスペースで区切って複数のユニコード文字が記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One of the best optimizations you can do in a program is avoiding extra/useless memory allocation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084407Z" creationid="akiji" creationdate="20200430T084407Z">
+        <seg>プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18754,6 +19074,14 @@ evaluates the &lt;g3&gt;else&lt;/g3&gt; branch if present.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Output:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130800Z" creationid="akiji" creationdate="20200430T130800Z">
+        <seg>出力はこうなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Overview</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170040Z" creationid="makenowjust" creationdate="20200413T170040Z">
@@ -18848,6 +19176,14 @@ Earth::RADIUS #=&gt; 6_371_000
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Performance</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T083356Z" creationid="akiji" creationdate="20200430T083356Z">
+        <seg>パフォーマンス</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Person.compare(john, peter) # OK
 ```</seg>
       </tuv>
@@ -18870,6 +19206,22 @@ Earth::RADIUS #=&gt; 6_371_000
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T120623Z" creationid="hirofumiwakasugi" creationdate="20150906T120623Z">
         <seg>Point.new 1, 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Prefer to use the dedicated &lt;g1&gt;String.build&lt;/g1&gt; optimized for building strings, instead of creating an intermediate &lt;g2&gt;IO::Memory&lt;/g2&gt; allocation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131447Z" creationid="akiji" creationdate="20200430T131447Z">
+        <seg>文字列の構築には、中間的な&lt;g2&gt;IO::Memory&lt;/g2&gt;を使用するのではなく、文字列構築に最適化された&lt;g1&gt;String.build&lt;/g1&gt;を使用するようにしましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Premature optimization</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084006Z" creationid="akiji" creationdate="20200430T084006Z">
+        <seg>早まった最適化</seg>
       </tuv>
     </tu>
     <tu>
@@ -19184,6 +19536,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150611Z" creationid="makenowjust" creationdate="20200419T150611Z">
         <seg>リリースビルド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Remember: an array literal is just syntax sugar for creating an instance of an array and adding some values to it, and this will happen over and over on each iteration.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131555Z" creationid="akiji" creationdate="20200430T131555Z">
+        <seg>配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理の糖衣構文でしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19604,6 +19964,14 @@ recursively forms a union type out of nested type paramters:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>So, you should never do this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120853Z" creationid="akiji" creationdate="20200430T120853Z">
+        <seg>ですので、以下のようなことは決してしないでください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Some documentation common to every *id*.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214141Z" creationid="makenowjust" creationdate="20200412T214141Z">
@@ -19668,6 +20036,14 @@ some_method  # OK, 1
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T061819Z" creationid="hirofumiwakasugi" creationdate="20150930T061819Z">
         <seg>コンパイラがブロックの型を推論できない場合があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Sometimes you need to work directly with strings built from combining string literals with other values.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130845Z" creationid="akiji" creationdate="20200430T130845Z">
+        <seg>しばしば、文字列リテラルと他の値とを組み合わせて文字列を直接構築しなければならいことがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19745,10 +20121,26 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Strings in Crystal always contain UTF-8 encoded bytes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132242Z" creationid="akiji" creationdate="20200430T132242Z">
+        <seg>Crystalの文字列は常にUTF-8のコードポイントを含んでいます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Structs and modules can be generic too.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150924T060955Z" creationid="hirofumiwakasugi" creationdate="20150924T060938Z">
         <seg>構造体とモジュールをジェネリックにすることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Structs are passed by value, so if you pass one to a method and the method makes changes to it, the caller won't see those changes, so they can be bug-prone.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132118Z" creationid="akiji" creationdate="20200430T132118Z">
+        <seg>struct は値渡しされるので、メソッドに渡した struct がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20543,6 +20935,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The above program works but has a big performance problem: on every iteration a new array is created for &lt;g1&gt;["crystal", "ruby", "java"]&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131543Z" creationid="akiji" creationdate="20200430T131543Z">
+        <seg>上記のプログラムはちゃんと動作しますが、繰り返しのたびに&lt;g1&gt;["crystal", "ruby", "java"]&lt;/g1&gt;を新しい配列として生成するという大きなパフォーマンス上の問題を抱えています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The above works because when we do `MyBox(Int32)`, `T` becomes `Int32`, and when we invoke the constructor, the value passed to it must match `T`, which is `Int32`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T064851Z" creationid="hirofumiwakasugi" creationdate="20150912T063956Z">
@@ -20611,6 +21011,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023811Z" creationid="hirofumiwakasugi" creationdate="20150916T023734Z">
         <seg>その最もわかりやすい例は [Enumerable#map](http://crystal-lang.org/api/Enumerable.html#map%28%26block%20%3A%20T%20-%3E%20U%29-instance-method) と [Enumerable#select](http://crystal-lang.org/api/Enumerable.html#select%28%26block%20%3A%20T%20-%3E%20%29-instance-method) でしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The best thing to do is to only use structs with immutable objects, especially if they are small.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132150Z" creationid="akiji" creationdate="20200430T132150Z">
+        <seg>structs は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20914,6 +21322,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024231Z" creationid="hirofumiwakasugi" creationdate="20150914T024231Z">
         <seg>Enum はその本体に値を持ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The example above translates to:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131344Z" creationid="akiji" creationdate="20200430T131336Z">
+        <seg>上の例はこのように変換されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21386,6 +21802,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The standard library is designed in a way to help you do that.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120429Z" creationid="akiji" creationdate="20200430T120429Z">
+        <seg>標準ライブラリはそのようにデザインされているので、そうした際の参考になるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The standard library usually doesn't have a namespace as its types and methods are very common, to avoid writing long names.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T132615Z" creationid="hirofumiwakasugi" creationdate="20150911T131641Z">
@@ -21630,6 +22054,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The way to improve performance in this case is to either use one of the iteration methods (&lt;g1&gt;each_char&lt;/g1&gt;, &lt;g2&gt;each_byte&lt;/g2&gt;, &lt;g3&gt;each_codepoint&lt;/g3&gt;), or use the more low-level &lt;g4&gt;Char::Reader&lt;/g4&gt; struct.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132807Z" creationid="akiji" creationdate="20200430T132807Z">
+        <seg>この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（(&lt;g1&gt;each_char&lt;/g1&gt;や&lt;g2&gt;each_byte&lt;/g2&gt;、&lt;g3&gt;each_codepoint&lt;/g3&gt;など）のいずれかを使用するか、より低レベルの&lt;g4&gt;Char::Reader&lt;/g4&gt;を使用することです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The whole type definition must be defined separately.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T043730Z" creationid="hirofumiwakasugi" creationdate="20150909T043730Z">
@@ -21742,6 +22174,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There are several ways to avoid heap memory allocations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120358Z" creationid="akiji" creationdate="20200430T120358Z">
+        <seg>ヒープメモリの割り当てを回避する方法はいくつかあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There are two floating point types, &lt;g1&gt;Float32&lt;/g1&gt; and &lt;g2&gt;Float64&lt;/g2&gt;,
 which correspond to the &lt;g3&gt;binary32&lt;/g3&gt;
 and &lt;g4&gt;binary64&lt;/g4&gt;
@@ -21773,10 +22213,27 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There are two ways to solve this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131610Z" creationid="akiji" creationdate="20200430T131610Z">
+        <seg>これを解決するには2つの方法があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There is also a docker environment to avoid installing dependencies globally:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T164714Z" creationid="makenowjust" creationdate="20200413T164714Z">
         <seg>依存関係をシステム全体にインストールしないで、Docker 環境を利用することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There's a second problem with the above: computing the &lt;g1&gt;size&lt;/g1&gt; of a String is also slow, because it's not simply the number of bytes in the string (the &lt;g2&gt;bytesize&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132719Z" creationid="akiji" creationdate="20200430T132719Z">
+        <seg>実は上記にのコードには、文字列の &lt;g1&gt;size&lt;/g1&gt;（文字数）は単純に&lt;g2&gt;bytesize&lt;/g2&gt;（バイト数）からは得られないため、その計算にも時間がかかるという2つ目の問題があります。
+</seg>
       </tuv>
     </tu>
     <tu>
@@ -21801,6 +22258,14 @@ types defined by IEEE.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T032352Z" creationid="hirofumiwakasugi" creationdate="20150917T032352Z">
         <seg>加えて、捕捉されたブロックでは `break` と `next` を使用することができないという問題もあります。例えば、以下は `&amp;block` でフォワーディングした場合には動作しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There's an optimization that Crystal's &lt;g3&gt;String&lt;/g3&gt; does here: if it knows all the characters in the string are ASCII, then &lt;g4&gt;String#[]&lt;/g4&gt; can be implemented in &lt;g5&gt;O(1)&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132621Z" creationid="akiji" creationdate="20200430T132423Z">
+        <seg>こうした場合にCrystalの &lt;g3&gt;String&lt;/g3&gt;は最適化を行っていて、文字列にASCII文字しか含まれていなければ、&lt;g4&gt;String#[]&lt;/g4&gt;を&lt;g5&gt;O(1)&lt;/g5&gt;オーダーで処理できるよう実装されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22432,6 +22897,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This philosophy of appending to an IO instead of returning an intermediate string results in better performance than handling intermediate strings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130255Z" creationid="akiji" creationdate="20200430T130255Z">
+        <seg>中間文字列を返すのではなくIOに追加する、という哲学は、中間的な文字列を扱うよりも結果的に良いパフォーマンスを実現します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This procedure is usually done with the compiler itself to port it to new platforms where a compiler is not yet available.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T050134Z" creationid="hirofumiwakasugi" creationdate="20150909T045815Z">
@@ -22540,6 +23013,22 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T044201Z" creationid="hirofumiwakasugi" creationdate="20151005T044201Z">
         <seg>これは、引数がその型のポインタである場合には、どのような型に対しても有効です (もちろん、ポインタが指す値が関数によって設定されることが前提です) 。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This works, but it has a flaw: it creates an intermediate string, in heap memory, only to write it and then discard it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120739Z" creationid="akiji" creationdate="20200430T120739Z">
+        <seg>この方法でも動作はしますが、書き込んだらあとは廃棄するだけの中間的な文字列がヒープメモリ上に生成されることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This, involves a heap memory allocation and gives a bit of work to the GC.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120805Z" creationid="akiji" creationdate="20200430T120805Z">
+        <seg>このことで、ヒープメモリの割り当てが発生して、GCにちょっとした負荷がかかります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23073,6 +23562,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To print a number to the standard output you write:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120524Z" creationid="akiji" creationdate="20200430T120524Z">
+        <seg>数値を標準出力へ書き出す際にはこう書きます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To reduce the binary size for distributable files, the &lt;g1&gt;--no-debug&lt;/g1&gt; flag can be used.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T152346Z" creationid="makenowjust" creationdate="20200419T152346Z">
@@ -23321,6 +23818,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>UTF-8 is a variable-length encoding: a character may be represented by several bytes, although characters in the ASCII range are always represented by a single byte.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132245Z" creationid="akiji" creationdate="20200430T132245Z">
+        <seg>UTF-8は可変長のエンコーディングで、アスキー文字の範囲では1文字を1バイトで表現しますが、そうでなければ1つの文字を複数バイトで表現します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Underscore allowed</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T094335Z" creationid="makenowjust" creationdate="20200424T093620Z">
@@ -23441,6 +23946,30 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Use a tuple.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131624Z" creationid="akiji" creationdate="20200430T131624Z">
+        <seg>タプルを使う。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Use string interpolation instead of concatenation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130834Z" creationid="akiji" creationdate="20200430T130834Z">
+        <seg>文字列の結合ではなく式展開を使う</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Use structs when possible</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132001Z" creationid="akiji" creationdate="20200430T132001Z">
+        <seg>可能な場合には struct を使用する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Use the `init` command to create a Crystal project with the standard directory structure.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160119T161946Z" creationid="hirofumiwakasugi" creationdate="20150901T072144Z">
@@ -23502,6 +24031,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T045355Z" creationid="hirofumiwakasugi" creationdate="20150909T045301Z">
         <seg>これらの2つのフラグを使うことで、Linux で動作するプログラムを Mac 上でコンパイルすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using tuples is the preferred way.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T131800Z" creationid="akiji" creationdate="20200430T131800Z">
+        <seg>タプルを使用する方が推奨される方法です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23710,6 +24247,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T185711Z" creationid="makenowjust" creationdate="20200413T185711Z">
         <seg>これを読者の課題とします。.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T084042Z" creationid="akiji" creationdate="20200430T084042Z">
+        <seg>小さな効率化については忘れるべきだ。その97％までにおいて、早まった最適化は諸悪の根源である。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23974,6 +24519,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When writing custom types, always be sure to override &lt;g1&gt;to_s(io)&lt;/g1&gt;, not &lt;g2&gt;to_s&lt;/g2&gt;, and avoid creating intermediate strings in that method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T121025Z" creationid="akiji" creationdate="20200430T121025Z">
+        <seg>独自の型を書く場合は、必ず&lt;g2&gt;to_s&lt;/g2&gt;ではなく&lt;g1&gt;to_s(io)&lt;/g1&gt;をオーバーライドするようにして、その中でも中間的な文字列を生成しないように注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When you invoke `super`, the first type in this ancestors list is used.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T140534Z" creationid="hirofumiwakasugi" creationdate="20150911T140534Z">
@@ -24160,6 +24713,14 @@ end
         <seg>Yellow      # 6 (5 + 1)
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Yet we should not pass up our opportunities in that critical 3%.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T133021Z" creationid="akiji" creationdate="20200430T084109Z">
+        <seg>ただし、クリティカルな3%についてまでその機会を逃すべきではない。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24730,6 +25291,30 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011037Z" creationid="hirofumiwakasugi" creationdate="20150907T010852Z">
         <seg>例外を発生させるにはトップレベルの `raise` メソッドを使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should use this strategy in your API definitions too.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130312Z" creationid="akiji" creationdate="20200430T130312Z">
+        <seg>こうした戦略をあなた自身のAPI定義でも使用すべきです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You shouldn't always use a struct, though.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T132034Z" creationid="akiji" creationdate="20200430T132034Z">
+        <seg>しかし、いつでも struct を使えば良いわけではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You shouldn't just concatenate these strings with &lt;g1&gt;String#+(String)&lt;/g1&gt; but rather use &lt;g2&gt;string interpolation&lt;/g2&gt; which allows to embed expressions into a string literal: &lt;g3&gt;"Hello, #{name}"&lt;/g3&gt; is better than &lt;g4&gt;"Hello, " +  name.to_s&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T130907Z" creationid="akiji" creationdate="20200430T130907Z">
+        <seg>このような文字列の構築では、&lt;g1&gt;String#+(String)&lt;/g1&gt;メソッドによって文字列を結合するのではなく、文字列リテラルの中に式を埋め込める&lt;g2&gt;文字列の式展開&lt;/g2&gt;を使用しましょう。 &lt;g3&gt;"Hello, #{name}"&lt;/g3&gt; の方が、&lt;g4&gt;"Hello, " +  name.to_s&lt;/g4&gt;よりも良い結果になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34355,6 +34940,14 @@ ary2 &lt;&lt; 1.5 # OK
         <seg>ary2 #:: Array(Int32 | Float64)
 ary2 &lt;&lt; 1.5 # OK
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>as it will create an intermediate string.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200430T120914Z" creationid="akiji" creationdate="20200430T120914Z">
+        <seg>これでは、わざわざ中間文字列を作ってしまいます。</seg>
       </tuv>
     </tu>
     <tu>

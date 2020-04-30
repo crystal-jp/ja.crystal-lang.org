@@ -455,7 +455,7 @@ h.each do |key, value|
 end
 ```
 
-## Performance
+## パフォーマンス
 
 When using blocks with `yield`, the blocks are **always** inlined: no closures, calls or function pointers are involved. これは次のことを意味しています。
 
