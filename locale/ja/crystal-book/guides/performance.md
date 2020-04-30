@@ -88,7 +88,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release io_benchmark.cr
@@ -135,7 +135,7 @@ Benchmark.ips do |bm|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release str_benchmark.cr
@@ -226,7 +226,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 $ crystal run --release class_vs_struct.cr
