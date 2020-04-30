@@ -866,6 +866,16 @@ spawn do</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># A class that has a + method but isn't a Number
+class Six</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160552Z" creationid="makenowjust" creationdate="20200429T160552Z">
+        <seg># + メソッドを持っているけれど Number ではないクラス
+class Six</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># A proc with one argument
 -&gt;(x : Int32) { x.to_s } # Proc(Int32, String)</seg>
       </tuv>
@@ -1314,6 +1324,16 @@ def add(x, y)</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T095915Z" creationid="makenowjust" creationdate="20200427T095915Z">
         <seg># プログラムにメソッドを定義
 def add(x, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Do something with *path*
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160816Z" creationid="makenowjust" creationdate="20200429T160816Z">
+        <seg># *path* を使う
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -2714,6 +2734,16 @@ class Hello</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T101234Z" creationid="makenowjust" creationdate="20200427T101234Z">
         <seg># "Hello" と表示するプログラム
 class Hello</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># This is the empty-tuple case
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T162206Z" creationid="makenowjust" creationdate="20200429T162206Z">
+        <seg># タプルが空の場合
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -12137,8 +12167,8 @@ followed by an optional type suffix.</seg>
       <tuv lang="EN-US">
         <seg>A free variable can be used to extract the type parameter of a generic type within a type restriction:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072356Z" creationid="hirofumiwakasugi" creationdate="20150908T035149Z">
-        <seg>自由変数は、型制約でジェネリック型を指定する場合に、そのパラメータの型を展開することにも使えます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135753Z" creationid="hirofumiwakasugi" creationdate="20150908T035149Z">
+        <seg>自由変数は、型制約の中のジェネリック型の、型パラメータを取り出すことにも使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12321,6 +12351,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A simple way to match against one or more elements of any type is to use &lt;g1&gt;Object&lt;/g1&gt; as a restriction:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T162302Z" creationid="makenowjust" creationdate="20200429T162254Z">
+        <seg>どんな型の1つ以上の引数に対してもマッチするようにしたい場合、&lt;g1&gt;Object&lt;/g1&gt; を型制約に指定するのが単純です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A slightly more interesting example is an HTTP Server:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072545Z" creationid="hirofumiwakasugi" creationdate="20150901T072545Z">
@@ -12357,6 +12395,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T142945Z" creationid="hirofumiwakasugi" creationdate="20150901T142743Z">
         <seg>キーがシンボルである場合は、以下の特別な記法を使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A special type restriction is &lt;g1&gt;self&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160852Z" creationid="makenowjust" creationdate="20200429T160852Z">
+        <seg>&lt;g1&gt;self&lt;/g1&gt; という特別な型制約があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13365,6 +13411,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Array(T)
+end
+
+foo(Int32)  # =&gt; Array(Int32)
+foo(String) # =&gt; Array(String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135855Z" creationid="makenowjust" creationdate="20200430T135855Z">
+        <seg>Array(T)
+end
+
+foo(Int32)  # =&gt; Array(Int32)
+foo(String) # =&gt; Array(String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Array(Type) |</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071434Z" creationid="hirofumiwakasugi" creationdate="20150919T071434Z">
@@ -13433,6 +13495,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T211636Z" creationid="makenowjust" creationdate="20200413T211636Z">
         <seg>要するに、コンパイラはコンパイル時に自動的に null 参照をチェックしてくれる、ということです。これは&lt;a0&gt;1億ドルの損失&lt;/a0&gt;から免れる助けになるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a side note, since &lt;g1&gt;Person&lt;/g1&gt; inherits &lt;g2&gt;Reference&lt;/g2&gt; the second definition of &lt;g3&gt;==&lt;/g3&gt; is not needed, since it's already defined in &lt;g4&gt;Reference&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161214Z" creationid="makenowjust" creationdate="20200429T161214Z">
+        <seg>また、これは補足ですが、&lt;g1&gt;Person&lt;/g1&gt; は &lt;g2&gt;Reference&lt;/g2&gt; を継承しているため、実際には2つ目の &lt;g3&gt;==&lt;/g3&gt; を定義する必要はありません。同様のメソッドが &lt;g4&gt;Reference&lt;/g4&gt; で定義されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14082,6 +14152,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>But, in general, &lt;g3&gt;self&lt;/g3&gt; is the same as writing the type that will finally own that method, which, when modules are involved, becomes more useful.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161119Z" creationid="makenowjust" creationdate="20200429T161119Z">
+        <seg>しかし、&lt;g3&gt;self&lt;/g3&gt; と書くことは最終的にそのメソッドが呼び出される際の自身の型となるので、モジュールのメソッドなどの場合に便利です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>But, in general, `self` is the same as writing the type that will finally own that method, which, when modules are involved, becomes more useful.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T024726Z" creationid="hirofumiwakasugi" creationdate="20150908T024107Z">
@@ -14374,6 +14452,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T101925Z" creationid="makenowjust" creationdate="20200427T101925Z">
         <seg>クラスとメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Classes as restrictions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161607Z" creationid="makenowjust" creationdate="20200429T161607Z">
+        <seg>クラスによる制約</seg>
       </tuv>
     </tu>
     <tu>
@@ -15101,6 +15187,24 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Error in foo.cr:6: instantiating 'add(Bool, Bool)'
+
+add true, false
+^~~
+
+in foo.cr:2: undefined method '+' for Bool</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160120Z" creationid="makenowjust" creationdate="20200429T160120Z">
+        <seg>Error in foo.cr:6: instantiating 'add(Bool, Bool)'
+
+add true, false
+^~~
+
+in foo.cr:2: undefined method '+' for Bool</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Escaping</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T191546Z" creationid="makenowjust" creationdate="20200419T191546Z">
@@ -15682,6 +15786,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, if we define a class that has a &lt;g1&gt;+&lt;/g1&gt; method but isn't a &lt;g2&gt;Number&lt;/g2&gt;, we can use the &lt;g3&gt;add&lt;/g3&gt; method that doesn't have type restrictions, but we can't use the &lt;g4&gt;add&lt;/g4&gt; method that has restrictions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160535Z" creationid="makenowjust" creationdate="20200429T160535Z">
+        <seg>例えば、&lt;g2&gt;Number&lt;/g2&gt; ではないクラスが &lt;g1&gt;+&lt;/g1&gt; メソッドを持っている場合を考えてみてください。もし &lt;g3&gt;add&lt;/g3&gt; というメソッドが型制約を持たない場合、そのクラスを渡すことができますがが、&lt;g4&gt;add&lt;/g4&gt; メソッドが型制約を持っている場合はそれができません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, if we define a class that has a `+` method but isn't a `Number`, we can use the `add` method that doesn't have type restrictions, but we can't use the `add` method that has restrictions.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T014211Z" creationid="hirofumiwakasugi" creationdate="20150908T013756Z">
@@ -15919,6 +16031,14 @@ the following arguments can be used:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T150623Z" creationid="hirofumiwakasugi" creationdate="20150911T150305Z">
         <seg>ただ、名前が衝突する可能性も高くなってしまうため、モジュールに関連したメソッド名にしておくことがこのパターンを有効に活用するコツになるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Free variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T162322Z" creationid="makenowjust" creationdate="20200429T162322Z">
+        <seg>自由変数</seg>
       </tuv>
     </tu>
     <tu>
@@ -17364,6 +17484,14 @@ characters, you can use alternative literals:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you want a method to only accept the type Int32 (not instances of it), you use &lt;g1&gt;.class&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161745Z" creationid="makenowjust" creationdate="20200429T161745Z">
+        <seg>もし、メソッドが(インスタンスではなく) Int32 クラスだけを受け入れるようにしたい場合、&lt;g1&gt;.class&lt;/g1&gt; を使用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you want a method to only accept the type Int32 (not instances of it), you use `.class`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025720Z" creationid="hirofumiwakasugi" creationdate="20150908T025544Z">
@@ -17993,6 +18121,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T071925Z" creationid="hirofumiwakasugi" creationdate="20150901T071925Z">
         <seg>なお、以降ではドル記号 (`$`) でコマンドラインを示します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the previous example &lt;g1&gt;self&lt;/g1&gt; is the same as writing &lt;g2&gt;Person&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160943Z" creationid="makenowjust" creationdate="20200429T160943Z">
+        <seg>上記の例では &lt;g1&gt;self&lt;/g1&gt; を指定するのは、そのまま &lt;g2&gt;Person&lt;/g2&gt; と書くことと同じです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19380,6 +19516,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Multiple free variables can be specified too, for matching types of multiple arguments:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135934Z" creationid="makenowjust" creationdate="20200430T135934Z">
+        <seg>複数の引数に対して、複数の自由変数を指定することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>MyBox(Int32).new(1)       # OK
 MyBox(Int32).new("hello") # Error
 ```</seg>
@@ -19496,6 +19640,14 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note that &lt;g1&gt;self&lt;/g1&gt; always represents a match against an instance type, even in class methods:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161322Z" creationid="makenowjust" creationdate="20200429T161226Z">
+        <seg>そして、クラスメソッドの中でも &lt;g1&gt;self&lt;/g1&gt; はインスタンスの型を表すことに注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Note that &lt;g2&gt;||&lt;/g2&gt; and &lt;g3&gt;&amp;&amp;&lt;/g3&gt; use the &lt;g4&gt;[]?&lt;/g4&gt; method to check for key presence.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T174831Z" creationid="makenowjust" creationdate="20200422T174831Z">
@@ -19580,6 +19732,14 @@ MyBox(Int32).new("hello") # エラー
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T061941Z" creationid="hirofumiwakasugi" creationdate="20150918T061941Z">
         <seg>戻り値の型が指定されていないとき、proc の呼び出しは何も返さないことに注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that if we had defined &lt;g1&gt;add&lt;/g1&gt; without type restrictions, we would also have gotten a compile time error:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160116Z" creationid="makenowjust" creationdate="20200429T160116Z">
+        <seg>ただし、&lt;g1&gt;add&lt;/g1&gt; に型制約をしていなかった場合でも、このコードはコンパイルエラーになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19685,6 +19845,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041249Z" creationid="hirofumiwakasugi" creationdate="20151005T041031Z">
         <seg>C の関数を実行するときに (後に説明する `to_unsafe` を除いては) 暗黙的な変換が行われないことに注意してください。つまり、期待される型を正確に渡さなければなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that type restrictions do not apply to the variables inside the actual methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160806Z" creationid="makenowjust" creationdate="20200429T160806Z">
+        <seg>実際のメソッドの本体での引数の型が型制約によって制約されているわけではないことには注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20531,6 +20699,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T124807Z" creationid="makenowjust" creationdate="20200427T124807Z">
         <seg>メソッドの再定義とprevious_def</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in type restrictions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160711Z" creationid="makenowjust" creationdate="20200429T160711Z">
+        <seg>型制約に指定する型の記法については、&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21454,6 +21630,38 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>T
+end
+
+foo(1)       # =&gt; Int32
+foo("hello") # =&gt; String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135334Z" creationid="makenowjust" creationdate="20200430T135334Z">
+        <seg>T
+end
+
+foo(1)       # =&gt; Int32
+foo("hello") # =&gt; String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>T
+end
+
+foo([1, 2])   # =&gt; Int32
+foo([1, "a"]) # =&gt; (Int32 | String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135755Z" creationid="makenowjust" creationdate="20200430T135755Z">
+        <seg>T
+end
+
+foo([1, 2])   # =&gt; Int32
+foo([1, "a"]) # =&gt; (Int32 | String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>TEN #=&gt; 10
 ```</seg>
       </tuv>
@@ -21524,6 +21732,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T164534Z" creationid="makenowjust" creationdate="20200413T164534Z">
         <seg>貢献よろしくお願いします!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That is, &lt;g1&gt;T&lt;/g1&gt; becomes the type that was effectively used to instantiate the method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135720Z" creationid="makenowjust" creationdate="20200430T135354Z">
+        <seg>ここで、&lt;g1&gt;T&lt;/g1&gt; は実体化の際に実際に利用された型となっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22997,6 +23213,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The next section talks about the &lt;g2&gt;.class&lt;/g2&gt; suffix in type restrictions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161642Z" creationid="makenowjust" creationdate="20200429T161600Z">
+        <seg>次で型制約における &lt;g2&gt;.class&lt;/g2&gt; サフィックスについては説明します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The next section talks about the `.class` suffix in type restrictions.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025355Z" creationid="hirofumiwakasugi" creationdate="20150908T025355Z">
@@ -24322,6 +24546,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is because when you invoke &lt;g1&gt;add&lt;/g1&gt;, it is instantiated with the types of the arguments: every method invocation with a different type combination results in a different method instantiation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T140622Z" creationid="makenowjust" creationdate="20200429T160250Z">
+        <seg>この理由は &lt;g1&gt;add&lt;/g1&gt; を呼び出すとき、そのメソッドは引数の型にしたがって実体化される、ということによります。異なる型を与えたメソッドは、それぞれ別のものとして実体化されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is because when you invoke `add`, it is instantiated with the types of the arguments: every method invocation with a different type combination results in a different method instantiation.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T043530Z" creationid="hirofumiwakasugi" creationdate="20150907T043119Z">
@@ -25002,6 +25234,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To create a method that accepts a type name, rather than an instance of a type, append &lt;g1&gt;.class&lt;/g1&gt; to a free variable in the type restriction:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135851Z" creationid="makenowjust" creationdate="20200430T135851Z">
+        <seg>インスタンスの型ではなくクラスの型を受け取るメソッドの場合、自由変数に &lt;g1&gt;.class&lt;/g1&gt; を付けたものを型制約に使ってください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To create a method that accepts a type name, rather than an instance of a type, append `.class` to a free variable in the type restriction:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T040533Z" creationid="hirofumiwakasugi" creationdate="20150908T040233Z">
@@ -25612,6 +25852,22 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Type restrictions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T155913Z" creationid="makenowjust" creationdate="20200429T155913Z">
+        <seg>型制約</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Type restrictions are applied to method arguments to restrict the types accepted by that method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160041Z" creationid="makenowjust" creationdate="20200429T160041Z">
+        <seg>型制約はメソッドの引数に適用されて、受け取ることができる型を制約するものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Type restrictions are type annotations put to method arguments to restrict the types accepted by that method.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T042629Z" creationid="hirofumiwakasugi" creationdate="20150907T042601Z">
@@ -25624,6 +25880,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072234Z" creationid="hirofumiwakasugi" creationdate="20150912T070257Z">
         <seg>もし型引数が指定されなかった場合、ジェネリック型のコンストラクタに設定された型制約は自由変数として扱われ、それが型推論に利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Type restrictions in splats</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161813Z" creationid="makenowjust" creationdate="20200429T161813Z">
+        <seg>splat 展開での型制約</seg>
       </tuv>
     </tu>
     <tu>
@@ -25905,6 +26169,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T045355Z" creationid="hirofumiwakasugi" creationdate="20150909T045301Z">
         <seg>これらの2つのフラグを使うことで、Linux で動作するプログラムを Mac 上でコンパイルすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using, for example, &lt;g1&gt;Int32&lt;/g1&gt; as a type restriction makes the method only accept instances of &lt;g2&gt;Int32&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161650Z" creationid="makenowjust" creationdate="20200429T161640Z">
+        <seg>例えば &lt;g1&gt;Int32&lt;/g1&gt; を型制約に指定したとき、メソッドは &lt;g2&gt;Int32&lt;/g2&gt; のインスタンスのみしか受け入れません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27023,6 +27295,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can make a type restriction take the type of an argument, or part of the type of an argument, using &lt;g1&gt;forall&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135331Z" creationid="makenowjust" creationdate="20200430T135249Z">
+        <seg>&lt;g1&gt;forall&lt;/g1&gt;を使うことで、型制約で引数の型や型の一部分を受け取ることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can make this more evident by declaring a dummy block argument, indicated as a last argument prefixed with ampersand (`&amp;`):</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T014659Z" creationid="hirofumiwakasugi" creationdate="20150916T014318Z">
@@ -27165,6 +27445,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T095815Z" creationid="makenowjust" creationdate="20200424T095742Z">
         <seg>&lt;g2&gt;while&lt;/g2&gt;のループで&lt;g1&gt;next&lt;/g1&gt;を使うと、次の繰り返しにジャンプすることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can use &lt;g1&gt;self.class&lt;/g1&gt; to restrict to the Person type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161429Z" creationid="makenowjust" creationdate="20200429T161429Z">
+        <seg>制約の対象を Person クラスにする場合には、&lt;g1&gt;self.class&lt;/g1&gt; を使用してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27471,6 +27759,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173303Z" creationid="makenowjust" creationdate="20200420T173303Z">
         <seg>[] of Int32 # =&gt; Array(Int32).new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>^</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160140Z" creationid="makenowjust" creationdate="20200429T160140Z">
+        <seg>^</seg>
       </tuv>
     </tu>
     <tu>
@@ -36920,6 +37216,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>array &lt;&lt; element
+end
+
+push(4, [1, 2, 3])      # OK
+push("oops", [1, 2, 3]) # Error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135935Z" creationid="makenowjust" creationdate="20200430T135935Z">
+        <seg>array &lt;&lt; element
+end
+
+push(4, [1, 2, 3])      # OK
+push("oops", [1, 2, 3]) # Error</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>array = MyArray.new</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T031035Z" creationid="hirofumiwakasugi" creationdate="20150909T031035Z">
@@ -38424,6 +38736,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def add(x : Number, y : Number)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160043Z" creationid="makenowjust" creationdate="20200429T160043Z">
+        <seg>def add(x : Number, y : Number)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def add(x, y)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T100354Z" creationid="makenowjust" creationdate="20200427T100354Z">
@@ -38616,6 +38936,50 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def foo(*args : Int32)
+end
+
+def foo(*args : String)
+end
+
+foo 1, 2, 3       # OK, invokes first overload
+foo "a", "b", "c" # OK, invokes second overload
+foo 1, 2, "hello" # Error
+foo()             # Error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161816Z" creationid="makenowjust" creationdate="20200429T161816Z">
+        <seg>def foo(*args : Int32)
+end
+
+def foo(*args : String)
+end
+
+foo 1, 2, 3       # OK, invokes first overload
+foo "a", "b", "c" # OK, invokes second overload
+foo 1, 2, "hello" # Error
+foo()             # Error</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(*args : Object)
+end
+
+foo()       # Error
+foo(1)      # OK
+foo(1, "x") # OK</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T162324Z" creationid="makenowjust" creationdate="20200429T162324Z">
+        <seg>def foo(*args : Object)
+end
+
+foo()       # Error
+foo(1)      # OK
+foo(1, "x") # OK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def foo(*args : String)
 end</seg>
       </tuv>
@@ -38634,6 +38998,30 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def foo(x : Array(T)) forall T</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135754Z" creationid="makenowjust" creationdate="20200430T135754Z">
+        <seg>def foo(x : Array(T)) forall T</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x : Int32)
+end
+
+foo 1       # OK
+foo "hello" # Error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161651Z" creationid="makenowjust" creationdate="20200429T161651Z">
+        <seg>def foo(x : Int32)
+end
+
+foo 1       # OK
+foo "hello" # Error</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def foo(x : Int32.class)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T011920Z" creationid="hirofumiwakasugi" creationdate="20151009T011920Z">
@@ -38642,10 +39030,42 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def foo(x : Int32.class)
+end
+
+foo Int32  # OK
+foo String # Error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161746Z" creationid="makenowjust" creationdate="20200429T161746Z">
+        <seg>def foo(x : Int32.class)
+end
+
+foo Int32  # OK
+foo String # Error</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def foo(x : String.class)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025812Z" creationid="hirofumiwakasugi" creationdate="20150908T025812Z">
         <seg>def foo(x : String.class)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x : T) forall T</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135251Z" creationid="makenowjust" creationdate="20200430T135251Z">
+        <seg>def foo(x : T) forall T</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def foo(x : T.class) forall T</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135851Z" creationid="makenowjust" creationdate="20200430T135851Z">
+        <seg>def foo(x : T.class) forall T</seg>
       </tuv>
     </tu>
     <tu>
@@ -38704,6 +39124,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T024146Z" creationid="hirofumiwakasugi" creationdate="20150910T024146Z">
         <seg>def greet(msg)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def handle_path(path : String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160807Z" creationid="makenowjust" creationdate="20200429T160807Z">
+        <seg>def handle_path(path : String)</seg>
       </tuv>
     </tu>
     <tu>
@@ -39008,6 +39436,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010358Z" creationid="hirofumiwakasugi" creationdate="20151010T010358Z">
         <seg>def print_greeting</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def push(element : T, array : Array(T)) forall T</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200430T135935Z" creationid="makenowjust" creationdate="20200430T135935Z">
+        <seg>def push(element : T, array : Array(T)) forall T</seg>
       </tuv>
     </tu>
     <tu>
@@ -39831,6 +40267,22 @@ end</seg>
         <seg>end
 end
 
+# add method without type restrictions
+def add(x, y)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160607Z" creationid="makenowjust" creationdate="20200429T160607Z">
+        <seg>end
+end
+
+# 型制約を持たない add メソッド
+def add(x, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 alias NumericValue = Float32 | Float64 | Int32 | Int64
 
 lib LibYAML
@@ -39908,6 +40360,32 @@ hello{% endhighlight %}</seg>
 end
 
 john = Person.new "John"
+another_john = Person.new "John"
+peter = Person.new "Peter"
+
+john == another_john # =&gt; true
+john == peter        # =&gt; false (names differ)
+john == 1            # =&gt; false (because 1 is not a Person)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160921Z" creationid="makenowjust" creationdate="20200429T160921Z">
+        <seg>end
+end
+
+john = Person.new "John"
+another_john = Person.new "John"
+peter = Person.new "Peter"
+
+john == another_john # =&gt; true
+john == peter        # =&gt; false (名前が異なるため)
+john == 1            # =&gt; false (1 は Person 型ではないため)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+john = Person.new "John"
 john.age # =&gt; 0
 
 john.become_older
@@ -39974,6 +40452,26 @@ end
 john = Person.new "John"
 john.age = 32
 john.age # =&gt; 32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+john = Person.new "John"
+peter = Person.new "Peter"
+
+Person.compare(john, peter) # OK</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161326Z" creationid="makenowjust" creationdate="20200429T161326Z">
+        <seg>end
+end
+
+john = Person.new "John"
+peter = Person.new "Peter"
+
+Person.compare(john, peter) # OK</seg>
       </tuv>
     </tu>
     <tu>
@@ -40834,6 +41332,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T131931Z" creationid="hirofumiwakasugi" creationdate="20150904T131931Z">
         <seg>getter name</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>getter name : String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161323Z" creationid="makenowjust" creationdate="20200429T161323Z">
+        <seg>getter name : String</seg>
       </tuv>
     </tu>
     <tu>
@@ -42518,6 +43024,14 @@ p.greet "everyone" # "Hi, everyone"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>path = Path.new(path) # *path* is now of the type Path</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160831Z" creationid="makenowjust" creationdate="20200429T160807Z">
+        <seg>path = Path.new(path) # *path* はこれによって Path 型になった</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>person = Person.new</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T033520Z" creationid="hirofumiwakasugi" creationdate="20150909T033520Z">
@@ -43132,12 +43646,42 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "Got Int32"
+end
+
+def foo(x : String.class)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161750Z" creationid="makenowjust" creationdate="20200429T161750Z">
+        <seg>puts "Got Int32"
+end
+
+def foo(x : String.class)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "Got String"
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025813Z" creationid="hirofumiwakasugi" creationdate="20150908T025813Z">
         <seg>puts "Got String"
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Got String"
+end
+
+foo Int32  # prints "Got Int32"
+foo String # prints "Got String"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T161804Z" creationid="makenowjust" creationdate="20200429T161804Z">
+        <seg>puts "Got String"
+end
+
+foo Int32  # "Got Int32" と表示
+foo String # "Got String" と表示</seg>
       </tuv>
     </tu>
     <tu>
@@ -43896,6 +44440,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011445Z" creationid="hirofumiwakasugi" creationdate="20150916T011445Z">
         <seg>self == Color::Red</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>self restriction</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160838Z" creationid="makenowjust" creationdate="20200429T160838Z">
+        <seg>self 型制約</seg>
       </tuv>
     </tu>
     <tu>
@@ -44977,6 +45529,22 @@ end</seg>
         <seg>x + y
 end
 
+# Error: no overload matches 'restricted_add' with types Six, Int32
+restricted_add Six.new, 10</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160633Z" creationid="makenowjust" creationdate="20200429T160633Z">
+        <seg>x + y
+end
+
+# Error: no overload matches 'restricted_add' with types Six, Int32
+restricted_add Six.new, 10</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + y
+end
+
 # Invokes the add method in the program
 add(1, 2) # =&gt; 3</seg>
       </tuv>
@@ -44986,6 +45554,64 @@ end
 
 # プログラムでメソッドを呼び出す
 add(1, 2) # =&gt; 3</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + y
+end
+
+# OK
+add Six.new, 10
+
+# add method with type restrictions
+def restricted_add(x : Number, y : Number)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160630Z" creationid="makenowjust" creationdate="20200429T160630Z">
+        <seg>x + y
+end
+
+# OK
+add Six.new, 10
+
+# 型制約を持つ add メソッド
+def restricted_add(x : Number, y : Number)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + y
+end
+
+# Ok
+add 1, 2
+
+# Error: no overload matches 'add' with types Bool, Bool
+add true, false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160047Z" creationid="makenowjust" creationdate="20200429T160047Z">
+        <seg>x + y
+end
+
+# Ok
+add 1, 2
+
+# Error: no overload matches 'add' with types Bool, Bool
+add true, false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + y
+end
+
+add true, false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T160118Z" creationid="makenowjust" creationdate="20200429T160118Z">
+        <seg>x + y
+end
+
+add true, false</seg>
       </tuv>
     </tu>
     <tu>

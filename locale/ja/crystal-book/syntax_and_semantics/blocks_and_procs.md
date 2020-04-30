@@ -257,7 +257,7 @@ transform(1) { |x| x + 1 } # => 2
 
 The result of the last expression is `2` because the last expression of the `transform` method is `yield`, whose value is the last expression of the block.
 
-## Type restrictions
+## 型制約
 
 The type of the block in a method that uses `yield` can be restricted using the `&block` syntax. 例をあげます。
 
