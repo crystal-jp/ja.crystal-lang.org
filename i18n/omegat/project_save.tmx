@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="4.3.2_0_6a661c5e0" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="4.3.2_0_6a661c5e" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -17161,10 +17161,26 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It has the same effect as writing &lt;g1&gt;is_a?(Nil)&lt;/g1&gt; but it's shorter and easier to read and write.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="tobias" changedate="20200501T145248Z" creationid="tobias" creationdate="20200501T145248Z">
+        <seg>それは&lt;g1&gt;is_a?(Nil)&lt;/g1&gt;と書くのと同じですが、より短く読み書きが簡単です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is a pseudo-method because it only accepts a symbol literal as its argument, and is also treated specially by the compiler, as explained in [if var.responds_to?(...)](if_varresponds_to.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T014059Z" creationid="hirofumiwakasugi" creationdate="20150930T013944Z">
         <seg>これが擬似メソッドである理由は、[if 変数.responds_to?(...)](if_varresponds_to.html) で説明したように、引数にシンボルのリテラルのみを受け取り、そして、コンパイラによって特別な扱いを受けるからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is a pseudo-method because the compiler knows about it and it can affect type information, as explained in &lt;g1&gt;if var.nil?(...)&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="tobias" changedate="20200501T145108Z" creationid="tobias" creationdate="20200501T145108Z">
+        <seg>これが疑似メソッドである理由は、&lt;g1&gt;if var.nil?(...)&lt;/g1&gt;で説明したように、このメソッドはコンパイラによって参照され、それによって型情報を設定することができるためです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21254,6 +21270,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T050358Z" creationid="hirofumiwakasugi" creationdate="20150901T050314Z">
         <seg>プログラムのソースコードは UTF-8 でエンコードされている必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The pseudo-method &lt;g1&gt;nil?&lt;/g1&gt; determines whether an expression's runtime type is &lt;g2&gt;Nil&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="tobias" changedate="20200501T143151Z" creationid="tobias" creationdate="20200501T143151Z">
+        <seg>&lt;g1&gt;nil?&lt;/g1&gt;という疑似メソッドを使うと、ある式の実行時の型が&lt;g2&gt;Nil&lt;/g2&gt;かどうかを判定できます。</seg>
       </tuv>
     </tu>
     <tu>
