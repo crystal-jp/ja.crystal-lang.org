@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 52/125
+翻訳済み/全体 = 53/125
 
 <details>
 
@@ -109,7 +109,7 @@
 | `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | △    |
 | `crystal-book/syntax_and_semantics/type_reflection.md`                                              | △    |
 | `crystal-book/syntax_and_semantics/is_a.md`                                                         | △    |
-| `crystal-book/syntax_and_semantics/nil_question.md`                                                 | △    |
+| `crystal-book/syntax_and_semantics/nil_question.md`                                                 | ○    |
 | `crystal-book/syntax_and_semantics/responds_to.md`                                                  | △    |
 | `crystal-book/syntax_and_semantics/as.md`                                                           | △    |
 | `crystal-book/syntax_and_semantics/as_question.md`                                                  | ×    |
