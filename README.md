@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 66/125
+翻訳済み/全体 = 67/125
 
 <details>
 
@@ -86,7 +86,7 @@
 | `crystal-book/syntax_and_semantics/splats_and_tuples.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/type_restrictions.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/return_types.md`                                                 | ○    |
-| `crystal-book/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md` | △    |
+| `crystal-book/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md` | ○    |
 | `crystal-book/syntax_and_semantics/operators.md`                                                    | ×    |
 | `crystal-book/syntax_and_semantics/visibility.md`                                                   | △    |
 | `crystal-book/syntax_and_semantics/inheritance.md`                                                  | △    |
