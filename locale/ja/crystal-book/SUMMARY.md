@@ -57,7 +57,7 @@
          * [ユニオン型](syntax_and_semantics/union_types.md)
          * [オーバーロード](syntax_and_semantics/overloading.md)
          * [デフォルト引数と名前付き引数](syntax_and_semantics/default_and_named_arguments.md)
-         * [splat 展開とタプル](syntax_and_semantics/splats_and_tuples.md)
+         * [スプラット展開とタプル](syntax_and_semantics/splats_and_tuples.md)
          * [型制約](syntax_and_semantics/type_restrictions.md)
          * [戻り値の型](syntax_and_semantics/return_types.md)
          * [メソッドの引数](syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md)
