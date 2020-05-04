@@ -78,7 +78,7 @@ What happens with the `strukt` here:
 `Klass` is a class, so it is passed by reference to `modify`, and `object.array = ["new"]` saves the reference to the newly created array in the original `klass` object, not in the copy as it was with the `strukt`.
 
 
-## Inheritance
+## 継承
 
 * A struct implicitly inherits from [Struct](http://crystal-lang.org/api/Struct.html), which inherits from [Value](http://crystal-lang.org/api/Value.html). A class implicitly inherits from [Reference](http://crystal-lang.org/api/Reference.html).
 * A struct cannot inherit from a non-abstract struct.

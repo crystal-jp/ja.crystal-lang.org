@@ -1,8 +1,8 @@
-# Inheritance
+# 継承
 
-Every class except `Object`, the hierarchy root, inherits from another class (its superclass). If you don't specify one it defaults to `Reference` for classes and `Struct` for structs.
+クラス階層の頂点である`Object`を覗き、すべてのクラスは他のクラス (スーパークラス) を継承しています。継承元を明示的に指定せず定義した場合、クラスであれば `Reference` を、構造体であれば `Struct` がスーパークラスになります。
 
-A class inherits all instance variables and all instance and class methods of a superclass, including its constructors (`new` and `initialize`).
+クラスを継承したとき、すべてのインスタンス変数、およびインスタンスメソッドとクラスメソッドがスーパークラスから引き継がれます。その中にはコンストラクタ (`new` と `initialize`) も含まれます。
 
 ```crystal
 class Person
@@ -21,7 +21,7 @@ employee = Employee.new "John"
 employee.greet # "Hi, I'm John"
 ```
 
-If a class defines a `new` or `initialize` then its superclass constructors are not inherited:
+クラスが`new` や `initialize` を定義した場合は、スーパークラスのコンストラクタは継承されません。
 
 ```crystal
 class Person
@@ -83,7 +83,7 @@ e.greet 1 # "Hi, this is a number: 1"
 
 ## super
 
-You can invoke a superclass' method using `super`:
+`super` を使うと、スーパークラスのメソッドを実行することが可能です。
 
 ```crystal
 class Person
@@ -100,11 +100,11 @@ class Employee < Person
 end
 ```
 
-Without arguments or parentheses, `super` receives the same arguments as the method's arguments. 上記に当てはまらない場合には、指定した引数が渡されます。
+引数も括弧もない場合、`super` には呼び出し元のメソッドと同じ引数がそのまま渡されます。上記に当てはまらない場合には、指定した引数が渡されます。
 
-## Covariance and Contravariance
+## 共変性と反変性
 
-One place inheritance can get a little tricky is with arrays. We have to be careful when declaring an array of objects where inheritance is used. For example, consider the following
+継承が少し厄介なのは、配列の場合です。配列の要素に継承されたものが使われた場合は、十分に注意すべきです。例えば、次のような例を考えてみましょう。
 
 ```crystal
 class Foo
@@ -115,12 +115,12 @@ end
 
 foo_arr = [Bar.new] of Foo  # => [#<Bar:0x10215bfe0>] : Array(Foo)
 bar_arr = [Bar.new]         # => [#<Bar:0x10215bfd0>] : Array(Bar)
-bar_arr2 = [Foo.new] of Bar # compiler error
+bar_arr2 = [Foo.new] of Bar # コンパイルエラー
 ```
 
-A Foo array can hold both Foo's and Bar's, but an array of Bar can only hold Bar and its subclasses.
+Foo の配列は Foo と Bar を持つことができますが、Bar の配列は Bar とそのサブクラスしか持つことができません。
 
-One place this might trip you up is when automatic casting comes into play. For example, the following won't work:
+これは自動キャストが作用しているときに、悩ましい結果を引き起こすことがあります。例えば、次は動作しません。
 
 ```crystal
 class Foo
@@ -138,9 +138,9 @@ class Test
 end
 ```
 
-we've declared `@arr` as type `Array(Foo)` so we may be tempted to think that we can start putting `Bar`s in there. Not quite. In the `initialize`, the type of the `[Bar.new]` expression is `Array(Bar)`, period. And `Array(Bar)` is *not* assignable to an `Array(Foo)` instance var.
+`@arr` を `Array(Foo)` として宣言したので、このインスタンス変数に対して `Bar` の配列を代入できるように感じます。しかし、そうはいきません。`initialize` での `[Bar.new]` という式の型は `Array(Bar)` です。そして `Array(Bar)` は `Array(Foo)` のインスタンス変数に代入することは*できません*。
 
-What's the right way to do this? Change the expression so that it *is* of the right type: `Array(Foo)` (see example above).
+どのようにするのが正しい方法でしょうか？*式の型を*正しい型にしましょう。つまり `Array(Foo)` のように (具体的な方法は以下で)。
 
 ```crystal
 class Foo
@@ -158,6 +158,6 @@ class Test
 end
 ```
 
-This is just one type (Array) and one operation (assignment), the logic of the above will be applied differently for other types and assignments, in general [Covariance and Contravariance][1] is not fully supported.
+この例は特定の型 (配列) と特定の操作 (代入) に対するもので、上記の方法は他の型の場合や代入意外の操作の場合にも同様に適用できるわけではありません。一般的な[共変性と反変性][1]は完全にはサポートされていません。
 
 [1]: https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29

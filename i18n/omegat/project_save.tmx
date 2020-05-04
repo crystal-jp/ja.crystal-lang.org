@@ -12683,6 +12683,30 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@arr : Array(Foo)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105255Z" creationid="makenowjust" creationdate="20200504T105255Z">
+        <seg>@arr : Array(Foo)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@arr = [Bar.new]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105256Z" creationid="makenowjust" creationdate="20200504T105256Z">
+        <seg>@arr = [Bar.new]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@arr = [Bar.new] of Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105719Z" creationid="makenowjust" creationdate="20200504T105719Z">
+        <seg>@arr = [Bar.new] of Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>@horns</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T144053Z" creationid="hirofumiwakasugi" creationdate="20151010T144053Z">
@@ -13136,6 +13160,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A Foo array can hold both Foo's and Bar's, but an array of Bar can only hold Bar and its subclasses.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104714Z" creationid="makenowjust" creationdate="20200504T104714Z">
+        <seg>Foo の配列は Foo と Bar を持つことができますが、Bar の配列は Bar とそのサブクラスしか持つことができません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A Hash can have mixed types, both for the keys and values, meaning `K`/`V` will be union types, but these are determined when the hash is created, either by specifying `K` and `V` or by using a hash literal.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T010300Z" creationid="hirofumiwakasugi" creationdate="20150901T141745Z">
@@ -13444,6 +13476,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T054141Z" creationid="hirofumiwakasugi" creationdate="20150913T053929Z">
         <seg>一方クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A class inherits all instance variables and all instance and class methods of a superclass, including its constructors (&lt;g1&gt;new&lt;/g1&gt; and &lt;g2&gt;initialize&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103653Z" creationid="makenowjust" creationdate="20200504T103653Z">
+        <seg>クラスを継承したとき、すべてのインスタンス変数、およびインスタンスメソッドとクラスメソッドがスーパークラスから引き継がれます。その中にはコンストラクタ (&lt;g1&gt;new&lt;/g1&gt; と &lt;g2&gt;initialize&lt;/g2&gt;) も含まれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14720,6 +14760,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012105Z" creationid="hirofumiwakasugi" creationdate="20151009T012105Z">
         <seg>型制約でアンダースコアを使うことが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And &lt;g7&gt;Array(Bar)&lt;/g7&gt; is &lt;g8&gt;not&lt;/g8&gt; assignable to an &lt;g9&gt;Array(Foo)&lt;/g9&gt; instance var.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105607Z" creationid="makenowjust" creationdate="20200504T105607Z">
+        <seg>そして &lt;g7&gt;Array(Bar)&lt;/g7&gt; は &lt;g9&gt;Array(Foo)&lt;/g9&gt; のインスタンス変数に代入することは&lt;g8&gt;できません&lt;/g8&gt;。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16003,6 +16051,14 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Change the expression so that it &lt;g1&gt;is&lt;/g1&gt; of the right type: &lt;g2&gt;Array(Foo)&lt;/g2&gt; (see example above).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105717Z" creationid="makenowjust" creationdate="20200504T105717Z">
+        <seg>&lt;g1&gt;式の型を&lt;/g1&gt;正しい型にしましょう。つまり &lt;g2&gt;Array(Foo)&lt;/g2&gt; のように (具体的な方法は以下で)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Char</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190417Z" creationid="makenowjust" creationdate="20200419T190417Z">
@@ -16421,6 +16477,14 @@ Counter.new
 Counter.new
 Counter.instances #=&gt; 3
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Covariance and Contravariance</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104008Z" creationid="makenowjust" creationdate="20200504T104008Z">
+        <seg>共変性と反変性</seg>
       </tuv>
     </tu>
     <tu>
@@ -16986,6 +17050,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T181247Z" creationid="makenowjust" creationdate="20200419T181247Z">
         <seg>最終的には新たな&lt;g2&gt;shard.lock&lt;/g2&gt;を生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Every class except &lt;g1&gt;Object&lt;/g1&gt;, the hierarchy root, inherits from another class (its superclass).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103536Z" creationid="makenowjust" creationdate="20200504T103536Z">
+        <seg>クラス階層の頂点である&lt;g1&gt;Object&lt;/g1&gt;を覗き、すべてのクラスは他のクラス (スーパークラス) を継承しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17622,6 +17694,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, consider the following</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104628Z" creationid="makenowjust" creationdate="20200504T104628Z">
+        <seg>例えば、次のような例を考えてみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, if assigning an &lt;g1&gt;if&lt;/g1&gt; expression, type will be inferred from the &lt;g2&gt;then&lt;/g2&gt; and &lt;g3&gt;else&lt;/g3&gt; branches:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143439Z" creationid="makenowjust" creationdate="20200427T143436Z">
@@ -17706,6 +17786,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T045122Z" creationid="hirofumiwakasugi" creationdate="20151005T045122Z">
         <seg>例えば、`String` クラスが `UInt8*` を返す `to_unsafe` を実装している場合を考えてみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the following won't work:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105252Z" creationid="makenowjust" creationdate="20200504T105252Z">
+        <seg>例えば、次は動作しません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18631,6 +18719,14 @@ Set{1, 2, 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a class defines a &lt;g1&gt;new&lt;/g1&gt; or &lt;g2&gt;initialize&lt;/g2&gt; then its superclass constructors are not inherited:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103733Z" creationid="makenowjust" creationdate="20200504T103733Z">
+        <seg>クラスが&lt;g1&gt;new&lt;/g1&gt; や &lt;g2&gt;initialize&lt;/g2&gt; を定義した場合は、スーパークラスのコンストラクタは継承されません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a class defines a `finalize` method, when an instance of that class is garbage-collected that method will be invoked:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T041749Z" creationid="hirofumiwakasugi" creationdate="20150910T041614Z">
@@ -19280,6 +19376,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you don't specify one it defaults to &lt;g2&gt;Reference&lt;/g2&gt; for classes and &lt;g3&gt;Struct&lt;/g3&gt; for structs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103607Z" creationid="makenowjust" creationdate="20200504T103607Z">
+        <seg>継承元を明示的に指定せず定義した場合、クラスであれば &lt;g2&gt;Reference&lt;/g2&gt; を、構造体であれば &lt;g3&gt;Struct&lt;/g3&gt; がスーパークラスになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you don't specify one it defaults to `Reference` for classes and `Struct` for structs.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T023456Z" creationid="hirofumiwakasugi" creationdate="20150910T023444Z">
@@ -19821,6 +19925,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the &lt;g4&gt;initialize&lt;/g4&gt;, the type of the &lt;g5&gt;[Bar.new]&lt;/g5&gt; expression is &lt;g6&gt;Array(Bar)&lt;/g6&gt;, period.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105536Z" creationid="makenowjust" creationdate="20200504T105536Z">
+        <seg>&lt;g4&gt;initialize&lt;/g4&gt; での &lt;g5&gt;[Bar.new]&lt;/g5&gt; という式の型は &lt;g6&gt;Array(Bar)&lt;/g6&gt; です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the above case, &lt;g1&gt;@lucky_number&lt;/g1&gt; will be inferred to be &lt;g2&gt;Int32 | Nil&lt;/g2&gt;: &lt;g3&gt;Int32&lt;/g3&gt; because 42 was assigned to it, and &lt;g4&gt;Nil&lt;/g4&gt; because it wasn't assigned in all of the class' initialize methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T135655Z" creationid="makenowjust" creationdate="20200427T135655Z">
@@ -20202,6 +20314,14 @@ item or map entry.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T172243Z" creationid="makenowjust" creationdate="20200420T172243Z">
         <seg>個々のシンボルは1つのスペース (&lt;g1&gt; &lt;/g1&gt;) で区切られていて、スペースを1つの部分に含めたい場合はエスケープが必要です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Inheritance</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103503Z" creationid="makenowjust" creationdate="20200504T103503Z">
+        <seg>継承</seg>
       </tuv>
     </tu>
     <tu>
@@ -21698,6 +21818,14 @@ MyBox(Int32).new("hello") # エラー
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Not quite.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105517Z" creationid="makenowjust" creationdate="20200504T105517Z">
+        <seg>しかし、そうはいきません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Note that &lt;g1&gt;private&lt;/g1&gt; methods are visible by subclasses:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T105515Z" creationid="makenowjust" creationdate="20200502T105515Z">
@@ -22298,6 +22426,22 @@ confusing and behaves unexpectedly.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T075009Z" creationid="akiji" creationdate="20200428T075009Z">
         <seg>この問題を解決留守方法の一つは、&lt;g1&gt;sleep&lt;/g1&gt;を使うことです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One place inheritance can get a little tricky is with arrays.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104527Z" creationid="makenowjust" creationdate="20200504T104527Z">
+        <seg>継承が少し厄介なのは、配列の場合です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One place this might trip you up is when automatic casting comes into play.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105242Z" creationid="makenowjust" creationdate="20200504T105242Z">
+        <seg>これは自動キャストが作用しているときに、悩ましい結果を引き起こすことがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27288,6 +27432,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is just one type (Array) and one operation (assignment), the logic of the above will be applied differently for other types and assignments, in general &lt;x1/&gt;Covariance and Contravariance&lt;x2/&gt;&lt;x3/&gt;&lt;x4/&gt;&lt;x5/&gt; is not fully supported.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105912Z" creationid="makenowjust" creationdate="20200504T105912Z">
+        <seg>この例は特定の型 (配列) と特定の操作 (代入) に対するもので、上記の方法は他の型の場合や代入意外の操作の場合にも同様に適用できるわけではありません。一般的な&lt;x1/&gt;共変性と反変性&lt;x2/&gt;&lt;x3/&gt;&lt;x4/&gt;&lt;x5/&gt;は完全にはサポートされていません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is the documentation for the Crystal programming language.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T083707Z" creationid="hirofumiwakasugi" creationdate="20150831T050600Z">
@@ -29173,6 +29325,14 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We have to be careful when declaring an array of objects where inheritance is used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104943Z" creationid="makenowjust" creationdate="20200504T104618Z">
+        <seg>配列の要素に継承されたものが使われた場合は、十分に注意すべきです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We have two ways &lt;g1&gt;using the compiler&lt;/g1&gt;:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T175657Z" creationid="makenowjust" creationdate="20200413T174225Z">
@@ -29269,6 +29429,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103716Z" creationid="akiji" creationdate="20200429T135104Z">
         <seg>&lt;g2&gt;send&lt;/g2&gt; が実行されると、そのチャネルを待ち受けていたファイバの実行が再開されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>What's the right way to do this?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105618Z" creationid="makenowjust" creationdate="20200504T105618Z">
+        <seg>どのようにするのが正しい方法でしょうか？</seg>
       </tuv>
     </tu>
     <tu>
@@ -29708,8 +29876,16 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
       <tuv lang="EN-US">
         <seg>Without arguments or parentheses, &lt;g1&gt;previous_def&lt;/g1&gt; receives the same arguments as the method's arguments.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200427T124926Z" creationid="makenowjust" creationdate="20200427T124926Z">
-        <seg>引数も括弧もない場合、&lt;g1&gt;previous_def&lt;/g1&gt; は呼び出し元のメソッドと同じ引数を受け取ります。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103944Z" creationid="makenowjust" creationdate="20200427T124926Z">
+        <seg>引数も括弧もない場合、&lt;g1&gt;previous_def&lt;/g1&gt; には呼び出し元のメソッドと同じ引数がそのまま渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Without arguments or parentheses, &lt;g1&gt;super&lt;/g1&gt; receives the same arguments as the method's arguments.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103919Z" creationid="makenowjust" creationdate="20200504T103914Z">
+        <seg>引数も括弧もない場合、&lt;g1&gt;super&lt;/g1&gt; には呼び出し元のメソッドと同じ引数がそのまま渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30020,6 +30196,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T010100Z" creationid="hirofumiwakasugi" creationdate="20151001T010100Z">
         <seg>`case` 式に対してメソッドを実行することも可能です。このとき、`when` 節では暗黙的なオブジェクト指定の記法を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can invoke a superclass' method using &lt;g1&gt;super&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103839Z" creationid="makenowjust" creationdate="20200504T103839Z">
+        <seg>&lt;g1&gt;super&lt;/g1&gt; を使うと、スーパークラスのメソッドを実行することが可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -40917,6 +41101,50 @@ foo = rand &lt; 0.5 ? </seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+class Test</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105253Z" creationid="makenowjust" creationdate="20200504T105253Z">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+class Test</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+foo_arr = [Bar.new] of Foo  # =&gt; [#&lt;Bar:0x10215bfe0&gt;] : Array(Foo)
+bar_arr = [Bar.new]         # =&gt; [#&lt;Bar:0x10215bfd0&gt;] : Array(Bar)
+bar_arr2 = [Foo.new] of Bar # compiler error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T104635Z" creationid="makenowjust" creationdate="20200504T104635Z">
+        <seg>class Foo
+end
+
+class Bar &lt; Foo
+end
+
+foo_arr = [Bar.new] of Foo  # =&gt; [#&lt;Bar:0x10215bfe0&gt;] : Array(Foo)
+bar_arr = [Bar.new]         # =&gt; [#&lt;Bar:0x10215bfd0&gt;] : Array(Bar)
+bar_arr2 = [Foo.new] of Bar # コンパイルエラー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>class Foo(U)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150924T061138Z" creationid="hirofumiwakasugi" creationdate="20150924T061138Z">
@@ -42219,6 +42447,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def initialize(@name : String, @company_name : String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103736Z" creationid="makenowjust" creationdate="20200504T103736Z">
+        <seg>def initialize(@name : String, @company_name : String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def initialize(@name = "John Doe")</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142719Z" creationid="makenowjust" creationdate="20200427T142719Z">
@@ -43350,6 +43586,22 @@ def add(x, y)</seg>
         <seg>end
 end
 
+Employee.new "John", "Acme" # OK
+Employee.new "Peter"        # Error: wrong number of arguments for 'Employee:Class#new' (1 for 2)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103737Z" creationid="makenowjust" creationdate="20200504T103737Z">
+        <seg>end
+end
+
+Employee.new "John", "Acme" # OK
+Employee.new "Peter"        # Error: wrong number of arguments for 'Employee:Class#new' (1 for 2)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 Greeter.greet # =&gt; "Hello"
 
 # In file two.cr
@@ -43462,6 +43714,42 @@ class Child &lt; Parent</seg>
         <seg>end
 end
 
+class Employee &lt; Person</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103735Z" creationid="makenowjust" creationdate="20200504T103735Z">
+        <seg>end
+end
+
+class Employee &lt; Person</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+class Employee &lt; Person
+end
+
+employee = Employee.new "John"
+employee.greet # "Hi, I'm John"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103703Z" creationid="makenowjust" creationdate="20200504T103703Z">
+        <seg>end
+end
+
+class Employee &lt; Person
+end
+
+employee = Employee.new "John"
+employee.greet # "Hi, I'm John"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 class Parent::Sub</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T112625Z" creationid="makenowjust" creationdate="20200502T112625Z">
@@ -43483,6 +43771,26 @@ class Person</seg>
 end
 
 class Person</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+e = Employee.new
+e.greet "everyone" # "Hi, everyone"
+
+e.greet 1 # "Hi, this is a number: 1"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103751Z" creationid="makenowjust" creationdate="20200504T103751Z">
+        <seg>end
+end
+
+e = Employee.new
+e.greet "everyone" # "Hi, everyone"
+
+e.greet 1 # "Hi, this is a number: 1"</seg>
       </tuv>
     </tu>
     <tu>
@@ -43743,6 +44051,28 @@ one_more.say "hello" # one_more は Person だけど現在の型は Program な�
 # 2 の場合の例
 
 module Namespace</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+p = Person.new
+p.greet "everyone" # "Hi, everyone"
+
+e = Employee.new
+e.greet "everyone" # "Hello, everyone"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103743Z" creationid="makenowjust" creationdate="20200504T103743Z">
+        <seg>end
+end
+
+p = Person.new
+p.greet "everyone" # "Hi, everyone"
+
+e = Employee.new
+e.greet "everyone" # "Hello, everyone"</seg>
       </tuv>
     </tu>
     <tu>
@@ -48491,6 +48821,14 @@ sum 1, 2, 3, 4.5 #=&gt; 10.5
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>super</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T103756Z" creationid="makenowjust" creationdate="20200504T103756Z">
+        <seg>super</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>super # Same as: super(msg)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T024800Z" creationid="hirofumiwakasugi" creationdate="20150910T024800Z">
@@ -49063,6 +49401,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T055924Z" creationid="hirofumiwakasugi" creationdate="20150912T055916Z">
         <seg>すると、結果は以下となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>we've declared &lt;g1&gt;@arr&lt;/g1&gt; as type &lt;g2&gt;Array(Foo)&lt;/g2&gt; so we may be tempted to think that we can start putting &lt;g3&gt;Bar&lt;/g3&gt;s in there.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T105436Z" creationid="makenowjust" creationdate="20200504T105436Z">
+        <seg>&lt;g1&gt;@arr&lt;/g1&gt; を &lt;g2&gt;Array(Foo)&lt;/g2&gt; として宣言したので、このインスタンス変数に対して &lt;g3&gt;Bar&lt;/g3&gt; の配列を代入できるように感じます。</seg>
       </tuv>
     </tu>
     <tu>
