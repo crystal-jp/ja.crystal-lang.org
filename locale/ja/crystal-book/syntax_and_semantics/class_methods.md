@@ -1,6 +1,6 @@
-# Class methods
+# クラスメソッド
 
-Class methods are methods associated to a class or module instead of a specific instance.
+クラスメソッドは、特定のインスタンスではなくクラスやモジュール自身に紐付いたメソッドです。
 
 ```crystal
 module CaesarCipher
@@ -12,7 +12,7 @@ end
 CaesarCipher.encrypt("HELLO") # => "URYYB"
 ```
 
-Class methods are defined by prefixing the method name with the type name and a period.
+クラスメソッドは型名とドットのあとに名前を続ける形式でも定義できます。
 
 ```crystal
 def CaesarCipher.decrypt(string : String)
@@ -20,14 +20,14 @@ def CaesarCipher.decrypt(string : String)
 end
 ```
 
-When they're defined inside a class or module scope it is easier to use `self` instead of the class name.
+クラスもしくはモジュールのスコープではより簡潔に、クラス名の代わりに`self`を使う形式でも定義できます。
 
-Class methods can also be defined by [extending a `Module`](modules.md#extend-self).
+また、クラスメソッドは[`Module`を拡張 (extend)](modules.md#extend-self)することでも定義できます。
 
-A class method can be called under the same name as it was defined (`CaesarCipher.decrypt("HELLO")`).
-When called from within the same class or module scope the receiver can be `self` or implicit (like `encrypt(string)`).
+クラスメソッドは定義したときと同じ形で呼び出すことができます (`CaesarCipher.decrypt("HELLO")`)。
+同じスコープのクラスメソッドを呼び出す場合は、レシーバとして `self` を指定する、もしくは暗黙のものとすることができます (`encrypt(string)` のように)。
 
-# Constructors
+# コンストラクタ
 
-Constructors are normal class methods which [create a new instance of the class](new,_initialize_and_allocate.md).
-By default all classes in Crystal have at least one constructor called `new`, but they may also define other constructors with different names.
+コンストラクタは[クラスのインスタンスを作成する](new,_initialize_and_allocate.md)通常のクラスメソッドです。
+デフォルトではCrystalのすべてのクラスは `new` というコンストラクタを少なくとも1つは持ちます。しかし、異なる名前の異なるコンストラクタを定義することも可能です。

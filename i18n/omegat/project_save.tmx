@@ -13520,6 +13520,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A class method can be called under the same name as it was defined (&lt;g1&gt;CaesarCipher.decrypt("HELLO")&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130637Z" creationid="makenowjust" creationdate="20200504T130508Z">
+        <seg>クラスメソッドは定義したときと同じ形で呼び出すことができます (&lt;g1&gt;CaesarCipher.decrypt("HELLO")&lt;/g1&gt;)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A command literal is a string delimited by backticks &lt;g1&gt; ` &lt;/g1&gt; or a &lt;g2&gt;%x&lt;/g2&gt; percent literal.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T172434Z" creationid="makenowjust" creationdate="20200422T172434Z">
@@ -13624,6 +13632,15 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A few operators are defined directly by the compiler and cannot be redefined
+in user code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200502T083128Z" creationid="makenowjust" creationdate="20200502T083128Z">
+        <seg>いくつかの少数の演算子はコンパイラによって直接実装され、ユーザーが再定義することはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A fiber is an execution unit that is more lightweight than a thread.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T055854Z" creationid="akiji" creationdate="20200428T055854Z">
@@ -13644,15 +13661,6 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T065835Z" creationid="akiji" creationdate="20200428T062234Z">
         <seg>ファイバはラインタイムスケジューラに対して、明示的に「他のファイバへ処理を切り替えて良い」と伝える必要があります。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>A few operators are defined directly by the compiler and cannot be redefined
-in user code.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200502T083128Z" creationid="makenowjust" creationdate="20200502T083128Z">
-        <seg>いくつかの少数の演算子はコンパイラによって直接実装され、ユーザーが再定義することはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15371,6 +15379,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>At the end of the if, &lt;g1&gt;a&lt;/g1&gt; will have the &lt;g2&gt;Int32 | String&lt;/g2&gt; type, read "the union of Int32 and String".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143809Z" creationid="makenowjust" creationdate="20200429T143800Z">
+        <seg>if 式の終わりでは、&lt;g1&gt;a&lt;/g1&gt; は &lt;g2&gt;Int32 | String&lt;/g2&gt; という型になります。この型は「Int32 と String のユニオン型」と表します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>At the moment of this writing, Crystal has concurrency support but not parallelism: several tasks can be executed, and a bit of time will be spent on each of these, but two code paths are never executed at the same exact time.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T071836Z" creationid="akiji" creationdate="20200428T053912Z">
@@ -15383,14 +15399,6 @@ end
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T071731Z" creationid="akiji" creationdate="20200429T145324Z">
         <seg>そのため、3回目の&lt;g1&gt;receive&lt;/g1&gt;はメインファイバをブロックされて他のファイバに処理が移り、さらに値が送信されたり、終了したりします。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>At the end of the if, &lt;g1&gt;a&lt;/g1&gt; will have the &lt;g2&gt;Int32 | String&lt;/g2&gt; type, read "the union of Int32 and String".</seg>
-      </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200429T143809Z" creationid="makenowjust" creationdate="20200429T143800Z">
-        <seg>if 式の終わりでは、&lt;g1&gt;a&lt;/g1&gt; は &lt;g2&gt;Int32 | String&lt;/g2&gt; という型になります。この型は「Int32 と String のユニオン型」と表します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15509,18 +15517,18 @@ names and treats them as operators, including their precedence rules.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Because at this moment there's only a single thread executing your code, accessing and modifying a class variable in different fibers will work just fine.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150722Z" creationid="akiji" creationdate="20200428T063755Z">
-        <seg>現時点ではシングルスレッドでしかコードを実行できなため、複数のファイバから同じクラス変数を参照や変更しても問題なく動作します。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Because arguments (without a default value) after the splat method argument must be passed by name, two methods with different required named arguments overload:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T160754Z" creationid="makenowjust" creationdate="20200501T160534Z">
         <seg>スプラット指定された引数のあとの引数は必ず名前付き引数として渡されるため、その名前によってメソッドのオーバロードをすることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because at this moment there's only a single thread executing your code, accessing and modifying a class variable in different fibers will work just fine.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200429T150722Z" creationid="akiji" creationdate="20200428T063755Z">
+        <seg>現時点ではシングルスレッドでしかコードを実行できなため、複数のファイバから同じクラス変数を参照や変更しても問題なく動作します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15894,6 +15902,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>By default all classes in Crystal have at least one constructor called &lt;g2&gt;new&lt;/g2&gt;, but they may also define other constructors with different names.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130801Z" creationid="makenowjust" creationdate="20200504T130801Z">
+        <seg>デフォルトではCrystalのすべてのクラスは &lt;g2&gt;new&lt;/g2&gt; というコンストラクタを少なくとも1つは持ちます。しかし、異なる名前の異なるコンストラクタを定義することも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>By default the require path is the location of the standard library that comes with the compiler, and the "lib" directory relative to the current working directory (given by &lt;g1&gt;pwd&lt;/g1&gt; in a Unix shell).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T084639Z" creationid="makenowjust" creationdate="20200427T084639Z">
@@ -16074,22 +16090,6 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Channels</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T102700Z" creationid="akiji" creationdate="20200428T055134Z">
-        <seg>チャネル（Channel）</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Channels, to communicate data between fibers.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T103702Z" creationid="akiji" creationdate="20200428T055724Z">
-        <seg>ファイバ間でデータをやりとりする「チャネル」</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Chained sequences of operator calls are restructured by the compiler in order
 to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       </tuv>
@@ -16103,6 +16103,22 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105717Z" creationid="makenowjust" creationdate="20200504T105717Z">
         <seg>&lt;g1&gt;式の型を&lt;/g1&gt;正しい型にしましょう。つまり &lt;g2&gt;Array(Foo)&lt;/g2&gt; のように (具体的な方法は以下で)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Channels</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102700Z" creationid="akiji" creationdate="20200428T055134Z">
+        <seg>チャネル（Channel）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Channels, to communicate data between fibers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103702Z" creationid="akiji" creationdate="20200428T055724Z">
+        <seg>ファイバ間でデータをやりとりする「チャネル」</seg>
       </tuv>
     </tu>
     <tu>
@@ -16139,6 +16155,38 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T014446Z" creationid="hirofumiwakasugi" creationdate="20151002T014446Z">
         <seg>Child.new.child #=&gt; 1
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Class methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130016Z" creationid="makenowjust" creationdate="20200504T130016Z">
+        <seg>クラスメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Class methods are defined by prefixing the method name with the type name and a period.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130117Z" creationid="makenowjust" creationdate="20200504T130117Z">
+        <seg>クラスメソッドは型名とドットのあとに名前を続ける形式でも定義できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Class methods are methods associated to a class or module instead of a specific instance.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130043Z" creationid="makenowjust" creationdate="20200504T130043Z">
+        <seg>クラスメソッドは、特定のインスタンスではなくクラスやモジュール自身に紐付いたメソッドです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Class methods can also be defined by &lt;g1&gt;extending a &lt;g2&gt;Module&lt;/g2&gt;&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T131031Z" creationid="makenowjust" creationdate="20200504T130247Z">
+        <seg>また、クラスメソッドは&lt;g1&gt;&lt;g2&gt;Module&lt;/g2&gt;を拡張 (extend)&lt;/g1&gt;することでも定義できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16389,14 +16437,6 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Concurrency</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T053245Z" creationid="akiji" creationdate="20200428T053245Z">
-        <seg>並行処理</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Components of a method call</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T144910Z" creationid="makenowjust" creationdate="20200430T144910Z">
@@ -16409,6 +16449,14 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T143838Z" creationid="makenowjust" creationdate="20200430T143838Z">
         <seg>メソッド定義のコンポーネント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Concurrency</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T053245Z" creationid="akiji" creationdate="20200428T053245Z">
+        <seg>並行処理</seg>
       </tuv>
     </tu>
     <tu>
@@ -16465,6 +16513,22 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143821Z" creationid="makenowjust" creationdate="20200427T143821Z">
         <seg>これはコンパイラにとって (そして人間からしても) 容易な場合、定数を使った場合も上手く動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Constructors</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130643Z" creationid="makenowjust" creationdate="20200504T130643Z">
+        <seg>コンストラクタ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Constructors are normal class methods which &lt;g1&gt;create a new instance of the class&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130705Z" creationid="makenowjust" creationdate="20200504T130705Z">
+        <seg>コンストラクタは&lt;g1&gt;クラスのインスタンスを作成する&lt;/g1&gt;通常のクラスメソッドです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17224,18 +17288,18 @@ operator &lt;g2&gt;=&lt;/g2&gt;, &lt;g3&gt;combined assignment operators&lt;/g3&
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Execution of a program</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T072511Z" creationid="akiji" creationdate="20200428T055342Z">
-        <seg>プログラムの実行</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Exceptions to the general expansion formula are the logical operators:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T095130Z" creationid="makenowjust" creationdate="20200502T095130Z">
         <seg>例外として、論理演算子に対する複合代入は次のように変換されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Execution of a program</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072511Z" creationid="akiji" creationdate="20200428T055342Z">
+        <seg>プログラムの実行</seg>
       </tuv>
     </tu>
     <tu>
@@ -18330,7 +18394,15 @@ end
       </tuv>
     </tu>
     <tu>
-      <tuv lang="en-us">
+      <tuv lang="EN-US">
+        <seg>Here &lt;g1&gt;@values&lt;/g1&gt; is inferred to be &lt;g2&gt;Array(Int32)&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200427T140100Z" creationid="makenowjust" creationdate="20200427T140100Z">
+        <seg>この例で、&lt;g1&gt;@values&lt;/g1&gt; は &lt;g2&gt;Array(Int32)&lt;/g2&gt; に推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here &lt;g1&gt;channel.send&lt;/g1&gt; is executed first, but since there's no one waiting for a value (yet), execution continues in other fibers.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T142136Z" creationid="akiji" creationdate="20200429T142136Z">
@@ -18338,11 +18410,11 @@ end
       </tuv>
     </tu>
     <tu>
-      <tuv lang="en-us">
-        <seg>Here &lt;g1&gt;@values&lt;/g1&gt; is inferred to be &lt;g2&gt;Array(Int32)&lt;/g2&gt;.</seg>
+      <tuv lang="EN-US">
+        <seg>Here rule 5 (argument's default value) is used, and because the constant resolves to an integer literal, &lt;g1&gt;@lucky_number&lt;/g1&gt; is inferred to be &lt;g2&gt;Int32&lt;/g2&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200427T140100Z" creationid="makenowjust" creationdate="20200427T140100Z">
-        <seg>この例で、&lt;g1&gt;@values&lt;/g1&gt; は &lt;g2&gt;Array(Int32)&lt;/g2&gt; に推論されます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200427T143908Z" creationid="makenowjust" creationdate="20200427T143908Z">
+        <seg>ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、&lt;g1&gt;@lucky_number&lt;/g1&gt; は &lt;g2&gt;Int32&lt;/g2&gt; に推論されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18375,14 +18447,6 @@ end
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T150802Z" creationid="akiji" creationdate="20200428T064350Z">
         <seg>ここには、2つのファイバがあります。1つ目はソケットから何かを読み出すもので、もう一つは&lt;g1&gt;sleep&lt;/g1&gt;するものです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Here rule 5 (argument's default value) is used, and because the constant resolves to an integer literal, &lt;g1&gt;@lucky_number&lt;/g1&gt; is inferred to be &lt;g2&gt;Int32&lt;/g2&gt;.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200427T143908Z" creationid="makenowjust" creationdate="20200427T143908Z">
-        <seg>ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、&lt;g1&gt;@lucky_number&lt;/g1&gt; は &lt;g2&gt;Int32&lt;/g2&gt; に推論されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19772,18 +19836,18 @@ or &lt;g5&gt;&lt;g6&gt;IndexError&lt;/g6&gt;&lt;/g5&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>In general, the standard library already takes care of doing all of this so you don't have to.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T074523Z" creationid="akiji" creationdate="20200428T074523Z">
-        <seg>基本的に、標準ライブラリは使用者がそうした一切を気にかける必要がないように配慮されています。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>In fact, the above code doesn't need the return type restriction in &lt;g1&gt;self.unknown&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T141943Z" creationid="makenowjust" creationdate="20200427T141943Z">
         <seg>実際のところ、上記のコードでは&lt;g1&gt;self.unknown&lt;/g1&gt;の型制約は必要ありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In general, the standard library already takes care of doing all of this so you don't have to.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T074523Z" creationid="akiji" creationdate="20200428T074523Z">
+        <seg>基本的に、標準ライブラリは使用者がそうした一切を気にかける必要がないように配慮されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22478,14 +22542,6 @@ confusing and behaves unexpectedly.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>One way to solve it is to do a &lt;g1&gt;sleep&lt;/g1&gt;:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T075009Z" creationid="akiji" creationdate="20200428T075009Z">
-        <seg>この問題を解決留守方法の一つは、&lt;g1&gt;sleep&lt;/g1&gt;を使うことです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>One place inheritance can get a little tricky is with arrays.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T104527Z" creationid="makenowjust" creationdate="20200504T104527Z">
@@ -22498,6 +22554,14 @@ confusing and behaves unexpectedly.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105242Z" creationid="makenowjust" creationdate="20200504T105242Z">
         <seg>これは自動キャストが作用しているときに、悩ましい結果を引き起こすことがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One way to solve it is to do a &lt;g1&gt;sleep&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T075009Z" creationid="akiji" creationdate="20200428T075009Z">
+        <seg>この問題を解決留守方法の一つは、&lt;g1&gt;sleep&lt;/g1&gt;を使うことです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23845,18 +23909,18 @@ recursively forms a union type out of nested type paramters:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>So, the main fiber, the one that spawns the above fiber, finishes its execution and the program exits.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T070515Z" creationid="akiji" creationdate="20200428T074948Z">
-        <seg>そのため、上の例でファイバを生成したメインファイバはそのまま終わりに達してプログラムも終了してしまいました。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>So, the above can be simply written like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142209Z" creationid="makenowjust" creationdate="20200427T142209Z">
         <seg>よって、上記は次のように簡潔に書けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>So, the main fiber, the one that spawns the above fiber, finishes its execution and the program exits.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070515Z" creationid="akiji" creationdate="20200428T074948Z">
+        <seg>そのため、上の例でファイバを生成したメインファイバはそのまま終わりに達してプログラムも終了してしまいました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24592,14 +24656,6 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The Event Loop, which is just another fiber, being in charge of async tasks, like for example files, sockets, pipes, signals and timers (like doing a &lt;g1&gt;sleep&lt;/g1&gt;).</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T065624Z" creationid="akiji" creationdate="20200428T055714Z">
-        <seg>ファイルやソケット、パイプ、シグナル、タイマ（&lt;g1&gt;sleep&lt;/g1&gt;したときなど）による非同期タスクを扱うための「イベントループ」（これもファイバの1種）</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>The Crystal &lt;g1&gt;Standard Library&lt;/g1&gt; provides macros which simplify the definition of getter and setter methods:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T124526Z" creationid="makenowjust" creationdate="20200427T124526Z">
@@ -24608,10 +24664,26 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The Event Loop, which is just another fiber, being in charge of async tasks, like for example files, sockets, pipes, signals and timers (like doing a &lt;g1&gt;sleep&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065624Z" creationid="akiji" creationdate="20200428T055714Z">
+        <seg>ファイルやソケット、パイプ、シグナル、タイマ（&lt;g1&gt;sleep&lt;/g1&gt;したときなど）による非同期タスクを扱うための「イベントループ」（これもファイバの1種）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The Proc type</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T171411Z" creationid="makenowjust" creationdate="20200422T171411Z">
         <seg>Proc の型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The Program</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200427T095903Z" creationid="makenowjust" creationdate="20200427T095903Z">
+        <seg>プログラム</seg>
       </tuv>
     </tu>
     <tu>
@@ -24636,14 +24708,6 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T055641Z" creationid="akiji" creationdate="20200428T055641Z">
         <seg>すべてのファイバを適切なタイミングで起動するための「ランタイムスケジューラ」</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>The Program</seg>
-      </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200427T095903Z" creationid="makenowjust" creationdate="20200427T095903Z">
-        <seg>プログラム</seg>
       </tuv>
     </tu>
     <tu>
@@ -25379,18 +25443,18 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The components of a program are:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055543Z" creationid="akiji" creationdate="20200428T055543Z">
-        <seg>プログラムを構成するコンポーネントは以下の通りです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>The compiler will try to be as smart as possible to require less explicit type restrictions.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143343Z" creationid="makenowjust" creationdate="20200427T143343Z">
         <seg>なるべく明示的な型制約を少なくできるよう、コンパイラは賢く動作しようとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The components of a program are:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T055543Z" creationid="akiji" creationdate="20200428T055543Z">
+        <seg>プログラムを構成するコンポーネントは以下の通りです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25625,7 +25689,7 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
     </tu>
     <tu>
-      <tuv lang="en-us">
+      <tuv lang="EN-US">
         <seg>The first one creates a TCPServer, accepts one connection and reads lines from it, sending them to the channel.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103723Z" creationid="akiji" creationdate="20200429T132835Z">
@@ -25633,7 +25697,7 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
     </tu>
     <tu>
-      <tuv lang="en-us">
+      <tuv lang="EN-US">
         <seg>The first operand is either a variable (in this case the operator can't
 be redefined) or a call (in this case the operator can be redefined).</seg>
       </tuv>
@@ -26151,14 +26215,6 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The reason why &lt;g1&gt;socket.gets&lt;/g1&gt; and &lt;g2&gt;sleep&lt;/g2&gt; behave like this is because their implementations talk directly with the Runtime Scheduler and the Event Loop, there's nothing magical about it.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T071126Z" creationid="akiji" creationdate="20200428T071126Z">
-        <seg>&lt;g1&gt;socket.gets&lt;/g1&gt;や&lt;g2&gt;sleep&lt;/g2&gt;がこのように動作する理由は、それらがラインタイムスケジューラやイベントループと直接会話できるように実装されているからで、魔法でもなんでもありません。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>The reason is that the compiler will also look at a class method's body and if it can apply one of the previous rules (it's a &lt;g2&gt;new&lt;/g2&gt; method, or it's a literal, etc.) it will infer the type from that expression.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142154Z" creationid="makenowjust" creationdate="20200427T142154Z">
@@ -26171,6 +26227,14 @@ literals.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T153729Z" creationid="makenowjust" creationdate="20200429T153020Z">
         <seg>これは splat 展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The reason why &lt;g1&gt;socket.gets&lt;/g1&gt; and &lt;g2&gt;sleep&lt;/g2&gt; behave like this is because their implementations talk directly with the Runtime Scheduler and the Event Loop, there's nothing magical about it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T071126Z" creationid="akiji" creationdate="20200428T071126Z">
+        <seg>&lt;g1&gt;socket.gets&lt;/g1&gt;や&lt;g2&gt;sleep&lt;/g2&gt;がこのように動作する理由は、それらがラインタイムスケジューラやイベントループと直接会話できるように実装されているからで、魔法でもなんでもありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26691,18 +26755,18 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Then the main fiber continues executing and finishes, so the program exits without giving the other fiber a chance to print "After send".</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T132442Z" creationid="akiji" creationdate="20200429T132442Z">
-        <seg>その後、メインファイバは実行を続けて終了してしまうため、プログラムは "After send" を出力する機会のないまま終了してしまいます。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Then named arguments are matched, by name, with any argument in the method (it can be before or after the splat method argument).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T155151Z" creationid="makenowjust" creationdate="20200501T155036Z">
         <seg>続けて、名前付き引数がその名前によって、対応する引数にマッチします。このマッチする引数はスプラット指定された引数の前でも後でも構いません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Then the main fiber continues executing and finishes, so the program exits without giving the other fiber a chance to print "After send".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200429T132442Z" creationid="akiji" creationdate="20200429T132442Z">
+        <seg>その後、メインファイバは実行を続けて終了してしまうため、プログラムは "After send" を出力する機会のないまま終了してしまいます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26826,14 +26890,6 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>There's a second fiber reading lines from standard input.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T141816Z" creationid="akiji" creationdate="20200429T133004Z">
-        <seg>2つ目のファイバは標準入力から行を読み込むものです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>There is another special case when &lt;g1&gt;a&lt;/g1&gt; is an index accessor (&lt;g2&gt;[]&lt;/g2&gt;), it is
 changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:</seg>
       </tuv>
@@ -26847,6 +26903,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T103644Z" creationid="makenowjust" creationdate="20200502T103644Z">
         <seg>そのため &lt;g1&gt;public&lt;/g1&gt; キーワードは存在しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There's a second fiber reading lines from standard input.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200429T141816Z" creationid="akiji" creationdate="20200429T133004Z">
+        <seg>2つ目のファイバは標準入力から行を読み込むものです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26875,14 +26939,6 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>There, one can spawn many other fibers.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T072617Z" creationid="akiji" creationdate="20200428T055527Z">
-        <seg>そして、そのメインファイバは、さらに多くの他のファイバを生成することができます。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>There's also the possibility of making a method only receive named arguments (and list them), by placing the star at the beginning:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T160237Z" creationid="makenowjust" creationdate="20200501T160237Z">
@@ -26895,6 +26951,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T134518Z" creationid="makenowjust" creationdate="20200427T134518Z">
         <seg>他のものは記憶しなくてもよいです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There, one can spawn many other fibers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072617Z" creationid="akiji" creationdate="20200428T055527Z">
+        <seg>そして、そのメインファイバは、さらに多くの他のファイバを生成することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27238,18 +27302,18 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>This doesn't happen with block arguments.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080820Z" creationid="akiji" creationdate="20200428T080820Z">
-        <seg>こうした問題はブロック引数では発生しません。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>This covers two uses cases.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T161144Z" creationid="makenowjust" creationdate="20200501T161144Z">
         <seg>これには2つのユースケースがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This doesn't happen with block arguments.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T080820Z" creationid="akiji" creationdate="20200428T080820Z">
+        <seg>こうした問題はブロック引数では発生しません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27278,18 +27342,18 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>This fiber wants to sleep for 5 seconds, so the Event Loop is told to continue with this fiber in 5 seconds.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T070307Z" creationid="akiji" creationdate="20200428T070307Z">
-        <seg>こちらのファイバは5秒間スリープし、イベントループに5秒経ったらこちらのファイバを再開するよう伝えます。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>This extra rule is very convenient because it's very common to have "constructor-like" class methods in addition to &lt;g1&gt;new&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142340Z" creationid="makenowjust" creationdate="20200427T142340Z">
         <seg>この追加の規則は、よくある&lt;g1&gt;new&lt;/g1&gt;を呼ぶだけのコンストラクタ的なメソッドに対して動作するため非常に便利です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This fiber wants to sleep for 5 seconds, so the Event Loop is told to continue with this fiber in 5 seconds.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T070307Z" creationid="akiji" creationdate="20200428T070307Z">
+        <seg>こちらのファイバは5秒間スリープし、イベントループに5秒経ったらこちらのファイバを再開するよう伝えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27512,18 +27576,18 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>This is mostly useful with local variables that change at iterations.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T070910Z" creationid="akiji" creationdate="20200428T080804Z">
-        <seg>この方法は、繰り返し処理の中でローカル変数の値が変化するような場合には便利な方法です。。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>This is just one type (Array) and one operation (assignment), the logic of the above will be applied differently for other types and assignments, in general &lt;x1/&gt;Covariance and Contravariance&lt;x2/&gt;&lt;x3/&gt;&lt;x4/&gt;&lt;x5/&gt; is not fully supported.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105912Z" creationid="makenowjust" creationdate="20200504T105912Z">
         <seg>この例は特定の型 (配列) と特定の操作 (代入) に対するもので、上記の方法は他の型の場合や代入意外の操作の場合にも同様に適用できるわけではありません。一般的な&lt;x1/&gt;共変性と反変性&lt;x2/&gt;&lt;x3/&gt;&lt;x4/&gt;&lt;x5/&gt;は完全にはサポートされていません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is mostly useful with local variables that change at iterations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070910Z" creationid="akiji" creationdate="20200428T080804Z">
+        <seg>この方法は、繰り返し処理の中でローカル変数の値が変化するような場合には便利な方法です。。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29117,18 +29181,18 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Using it, we end up with:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080717Z" creationid="akiji" creationdate="20200428T080717Z">
-        <seg>それを使い、最終的にはこうなりました。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Using an &lt;g1&gt;out&lt;/g1&gt; lib expression</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143021Z" creationid="makenowjust" creationdate="20200427T143021Z">
         <seg>lib 式の &lt;g1&gt;out&lt;/g1&gt; の利用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using it, we end up with:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200428T080717Z" creationid="akiji" creationdate="20200428T080717Z">
+        <seg>それを使い、最終的にはこうなりました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29553,18 +29617,18 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>When &lt;g2&gt;send&lt;/g2&gt; is executed, execution continues with the fiber that was waiting on that channel.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T103716Z" creationid="akiji" creationdate="20200429T135104Z">
-        <seg>&lt;g2&gt;send&lt;/g2&gt; が実行されると、そのチャネルを待ち受けていたファイバの実行が再開されます。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>What's the right way to do this?</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105618Z" creationid="makenowjust" creationdate="20200504T105618Z">
         <seg>どのようにするのが正しい方法でしょうか？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When &lt;g2&gt;send&lt;/g2&gt; is executed, execution continues with the fiber that was waiting on that channel.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103716Z" creationid="akiji" creationdate="20200429T135104Z">
+        <seg>&lt;g2&gt;send&lt;/g2&gt; が実行されると、そのチャネルを待ち受けていたファイバの実行が再開されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29685,6 +29749,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T213937Z" creationid="makenowjust" creationdate="20200412T213212Z">
         <seg>インスタンスメソッドがドキュメンテーションコメントを持たないが、親クラスで同じシグネチャのメソッドがあるときは、ドキュメントは親クラスのものから継承されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When called from within the same class or module scope the receiver can be &lt;g2&gt;self&lt;/g2&gt; or implicit (like &lt;g3&gt;encrypt(string)&lt;/g3&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130634Z" creationid="makenowjust" creationdate="20200504T130537Z">
+        <seg>同じスコープのクラスメソッドを呼び出す場合は、レシーバとして &lt;g2&gt;self&lt;/g2&gt; を指定する、もしくは暗黙のものとすることができます (&lt;g3&gt;encrypt(string)&lt;/g3&gt; のように)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29825,6 +29897,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When there are many arguments, the order of the names in the invocation doesn't matter, as long as all required arguments are covered:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152653Z" creationid="makenowjust" creationdate="20200429T152653Z">
+        <seg>いくつもの引数を持つ場合、すべての引数を正しく渡していれば、どのような順序で指定したかは重要ではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When there are no other fibers ready to be executed, the event loop checks if there is any async operation that is ready, and then executes the fiber waiting for that operation.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T150654Z" creationid="akiji" creationdate="20200428T063200Z">
@@ -29833,18 +29913,18 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>When this fiber will have to wait for I/O, other fibers will be able to continue executing code until I/O is ready, and finally when the value is ready and sent through the channel, the main fiber will receive it.</seg>
+        <seg>When they're defined inside a class or module scope it is easier to use &lt;g1&gt;self&lt;/g1&gt; instead of the class name.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T103721Z" creationid="akiji" creationdate="20200429T141638Z">
-        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130206Z" creationid="makenowjust" creationdate="20200504T130206Z">
+        <seg>クラスもしくはモジュールのスコープではより簡潔に、クラス名の代わりに&lt;g1&gt;self&lt;/g1&gt;を使う形式でも定義できます。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>When there are many arguments, the order of the names in the invocation doesn't matter, as long as all required arguments are covered:</seg>
+        <seg>When this fiber will have to wait for I/O, other fibers will be able to continue executing code until I/O is ready, and finally when the value is ready and sent through the channel, the main fiber will receive it.</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200429T152653Z" creationid="makenowjust" creationdate="20200429T152653Z">
-        <seg>いくつもの引数を持つ場合、すべての引数を正しく渡していれば、どのような順序で指定したかは重要ではありません。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103721Z" creationid="akiji" creationdate="20200429T141638Z">
+        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -42057,6 +42137,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def CaesarCipher.decrypt(string : String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130120Z" creationid="makenowjust" creationdate="20200504T130120Z">
+        <seg>def CaesarCipher.decrypt(string : String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def [](index)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T031030Z" creationid="hirofumiwakasugi" creationdate="20150909T031030Z">
@@ -42945,6 +43033,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def self.encrypt(string : String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130044Z" creationid="makenowjust" creationdate="20200504T130044Z">
+        <seg>def self.encrypt(string : String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def self.greet</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T113024Z" creationid="makenowjust" creationdate="20200502T113024Z">
@@ -43703,6 +43799,16 @@ employee.greet # "Hi, I'm John"
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>encrypt(string)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130121Z" creationid="makenowjust" creationdate="20200504T130121Z">
+        <seg>encrypt(string)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072643Z" creationid="hirofumiwakasugi" creationdate="20150901T072643Z">
@@ -43765,6 +43871,20 @@ end
 
 # 型制約を持たない add メソッド
 def add(x, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+CaesarCipher.encrypt("HELLO") # =&gt; "URYYB"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130048Z" creationid="makenowjust" creationdate="20200504T130048Z">
+        <seg>end
+end
+
+CaesarCipher.encrypt("HELLO") # =&gt; "URYYB"</seg>
       </tuv>
     </tu>
     <tu>
@@ -46411,6 +46531,14 @@ model.save # "Saved!" と出力
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module CaesarCipher</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130046Z" creationid="makenowjust" creationdate="20200504T130046Z">
+        <seg>module CaesarCipher</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>module Earth</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055323Z" creationid="hirofumiwakasugi" creationdate="20150913T055323Z">
@@ -48989,6 +49117,14 @@ typeof(string)                        # =&gt; String?</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T142341Z" creationid="makenowjust" creationdate="20200430T142341Z">
         <seg>string = STDIN.gets
 typeof(string)                        # =&gt; String?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>string.chars.map { |char| ((char.upcase.ord - 52) % 26 + 65).chr }.join</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T130047Z" creationid="makenowjust" creationdate="20200504T130047Z">
+        <seg>string.chars.map { |char| ((char.upcase.ord - 52) % 26 + 65).chr }.join</seg>
       </tuv>
     </tu>
     <tu>
