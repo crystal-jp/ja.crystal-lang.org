@@ -849,8 +849,8 @@ channel = Channel(Int32).new(2)
 
 spawn do</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T144030Z" creationid="akiji" creationdate="20200429T144030Z">
-        <seg># 容量が2のバッファ付きチャンネル
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103759Z" creationid="akiji" creationdate="20200429T144030Z">
+        <seg># 容量が2のバッファ付きチャネル
 channel = Channel(Int32).new(2)
 
 spawn do</seg>
@@ -11276,8 +11276,8 @@ an application not intended to be used as a dependency.</seg>
       <tuv lang="EN-US">
         <seg>A Crystal program executes in a single operating system thread, except the Garbage Collector (GC) which implements a concurrent mark-and-sweep (currently &lt;g1&gt;Boehm GC&lt;/g1&gt;).</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150045Z" creationid="akiji" creationdate="20200428T054020Z">
-        <seg>コンカレント・マーク＆スイープ方式で実装されたガーベージコレクタ（GC）（現時点では&lt;g1&gt;Boehm GC&lt;/g1&gt;）を除いて、Crystalのプログラムは単一のOSスレッド上で実行されます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102819Z" creationid="akiji" creationdate="20200428T054020Z">
+        <seg>コンカレント・マーク＆スイープ方式で実装されたガーベジコレクタ（GC）（現時点では&lt;g1&gt;Boehm GC&lt;/g1&gt;）を除いて、Crystalのプログラムは単一のOSスレッド上で実行されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13414,8 +13414,8 @@ end
       <tuv lang="EN-US">
         <seg>Buffered channels</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T143347Z" creationid="akiji" creationdate="20200429T143347Z">
-        <seg>バッファ付きチャンネル</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103742Z" creationid="akiji" creationdate="20200429T143347Z">
+        <seg>バッファ付きチャネル</seg>
       </tuv>
     </tu>
     <tu>
@@ -13478,8 +13478,8 @@ end
       <tuv lang="EN-US">
         <seg>But because 32-bit machines are starting to become obsolete, we'll bet on the future and focus more on 64-bit machines.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150647Z" creationid="akiji" creationdate="20200428T062748Z">
-        <seg>しかし，32ビットマシンはもはや使用されなくなりつつありますので、我々は将来を見据えて64ビットマシンにより注力しています。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103224Z" creationid="akiji" creationdate="20200428T062748Z">
+        <seg>しかし、32ビットマシンはもはや使用されなくなりつつありますので、我々は将来を見据えて64ビットマシンにより注力しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13706,16 +13706,16 @@ end
       <tuv lang="EN-US">
         <seg>Channels</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055134Z" creationid="akiji" creationdate="20200428T055134Z">
-        <seg>チャンネル（Channel）</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102700Z" creationid="akiji" creationdate="20200428T055134Z">
+        <seg>チャネル（Channel）</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>Channels, to communicate data between fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055724Z" creationid="akiji" creationdate="20200428T055724Z">
-        <seg>ファイバ間でデータをやりとりする「チャンネル」</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103702Z" creationid="akiji" creationdate="20200428T055724Z">
+        <seg>ファイバ間でデータをやりとりする「チャネル」</seg>
       </tuv>
     </tu>
     <tu>
@@ -14144,8 +14144,8 @@ Counter.instances #=&gt; 3
       <tuv lang="EN-US">
         <seg>Crystal has Channels inspired by &lt;g1&gt;CSP&lt;/g1&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T065243Z" creationid="akiji" creationdate="20200428T055203Z">
-        <seg>Crystalは&lt;g1&gt;CSP&lt;/g1&gt;を参考にしたチャンネルを有しています。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102704Z" creationid="akiji" creationdate="20200428T055203Z">
+        <seg>Crystalは&lt;g1&gt;CSP&lt;/g1&gt;を参考にしたチャネルを有しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14924,8 +14924,8 @@ Foo.new.yield_normally { one }  # =&gt; "one"
       <tuv lang="EN-US">
         <seg>For example if there's I/O to be waited on, a fiber will tell the scheduler "Look, I have to wait for this I/O to be available, you continue executing other fibers and come back to me when that I/O is ready".</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150623Z" creationid="akiji" creationdate="20200428T062404Z">
-        <seg>例えばI/O による待ちが発生していた場合、ファイバはランタイムスケジューラに対して「おーい，自分はIOが使えるようになるまで待たないといけないから、他のファイバを実行していいよ。IOの準備ができたら帰ってきてね」と告げます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102850Z" creationid="akiji" creationdate="20200428T062404Z">
+        <seg>例えばI/O による待ちが発生していた場合、ファイバはランタイムスケジューラに対して「おーい，自分はI/Oが使えるようになるまで待たないといけないから、他のファイバを実行していいよ。I/Oの準備ができたら帰ってきてね」と告げます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15263,8 +15263,8 @@ the following arguments can be used:</seg>
       <tuv lang="EN-US">
         <seg>Garbage Collector: to clean up "no longer used" memory.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055808Z" creationid="akiji" creationdate="20200428T055808Z">
-        <seg>"もう使用されない" メモリを掃除する「ガーベージコレクタ」</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102737Z" creationid="akiji" creationdate="20200428T055808Z">
+        <seg>"もう使用されない" メモリを掃除する「ガーベジコレクタ」</seg>
       </tuv>
     </tu>
     <tu>
@@ -15539,8 +15539,8 @@ end
       <tuv lang="EN-US">
         <seg>Here the two values are received and the channel is depleted.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T144608Z" creationid="akiji" creationdate="20200429T144608Z">
-        <seg>ここで2つの値が取り出されてチャンネルが空になります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103808Z" creationid="akiji" creationdate="20200429T144608Z">
+        <seg>ここで2つの値が取り出されてチャネルが空になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15675,16 +15675,16 @@ end
       <tuv lang="EN-US">
         <seg>However, in the third send the channel's buffer is full, so execution goes to the main fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T144550Z" creationid="akiji" creationdate="20200429T144329Z">
-        <seg>しかし、3回目のsendではチャンネルのバッファがいっぱいになっているため、メインファイバに処理が移ります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103802Z" creationid="akiji" creationdate="20200429T144329Z">
+        <seg>しかし、3回目のsendではチャネルのバッファがいっぱいになっているため、メインファイバに処理が移ります。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>However, once multiple threads (parallelism) is introduced in the language, it might break.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T070057Z" creationid="akiji" creationdate="20200428T063842Z">
-        <seg>しかし、一旦マルチスレーッド（並列処理）が言語に導入されると、そういう訳にもいかなくなります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102917Z" creationid="akiji" creationdate="20200428T063842Z">
+        <seg>しかし、一旦マルチスレッド（並列処理）が言語に導入されると、そういう訳にもいかなくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16688,8 +16688,8 @@ characters, you can use alternative literals:</seg>
       <tuv lang="EN-US">
         <seg>In a 32-bit machine we can only spawn 512 fibers, which is not a lot.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T065938Z" creationid="akiji" creationdate="20200428T062725Z">
-        <seg>32ビットマシンの場合はそれほど多くはなく、生成できるファイバは512本だけです。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103133Z" creationid="akiji" creationdate="20200428T062725Z">
+        <seg>32ビットマシンの場合はそれほど多くはなく、生成できるファイバは512個だけです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17361,8 +17361,8 @@ entrypoints for the docs generator.</seg>
       <tuv lang="EN-US">
         <seg>Internally, a channel implements all the locking mechanisms to avoid data races, but from the outside you use them as communication primitives, so you (the user) don't have to use locks.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T070157Z" creationid="akiji" creationdate="20200428T064113Z">
-        <seg>チャンネルは内部的にデータ競合を避けるためのロック機構を実装していますが、外から使う分にはロックを考慮する必要のないデータの送受信手法として使用できます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103031Z" creationid="akiji" creationdate="20200428T064113Z">
+        <seg>チャネルは内部的にデータ競合を避けるためのロック機構を実装していますが、外から使う分にはロックを考慮する必要のないデータの送受信手法として使用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18678,8 +18678,8 @@ end up in the resulting string.</seg>
       <tuv lang="EN-US">
         <seg>Note that when the program executes a &lt;g1&gt;receive&lt;/g1&gt;, that fiber blocks and execution continues with the other fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T071128Z" creationid="akiji" creationdate="20200429T134829Z">
-        <seg>プログラムがいつ&lt;g1&gt;receive&lt;/g1&gt;を実行したか、つまりファイバをブロックして他のファイバに実行が切り替わったおかに注目してください。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T104633Z" creationid="akiji" creationdate="20200429T134829Z">
+        <seg>プログラムがいつ&lt;g1&gt;receive&lt;/g1&gt;を実行したか、つまりいつそのファイバをブロックして他のファイバに実行が切り替わったかに注目してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18750,8 +18750,8 @@ end up in the resulting string.</seg>
       <tuv lang="EN-US">
         <seg>Now it works because we are creating a &lt;g1&gt;Proc&lt;/g1&gt; and we invoke it passing &lt;g2&gt;i&lt;/g2&gt;, so the value gets copied and now the spawned fiber receives a copy.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080507Z" creationid="akiji" creationdate="20200428T080507Z">
-        <seg>今度は正しく動作しました。ばぜかと言うと、&lt;g1&gt;Proc&lt;/g1&gt;を生成してそれに&lt;g2&gt;i&lt;/g2&gt;を渡しているからです。こうすることで、&lt;g2&gt;i&lt;/g2&gt;の値がコピーされ、生成されたファイバが使用するのはそのコピーになります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103403Z" creationid="akiji" creationdate="20200428T080507Z">
+        <seg>今度は正しく動作しました。なぜかと言うと、&lt;g1&gt;Proc&lt;/g1&gt;を生成してそれに&lt;g2&gt;i&lt;/g2&gt;を渡しているからです。こうすることで、&lt;g2&gt;i&lt;/g2&gt;の値がコピーされ、生成されたファイバが使用するのはそのコピーになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18881,8 +18881,8 @@ specifying the current working directory.</seg>
       <tuv lang="EN-US">
         <seg>On a 64-bit machine it lets us spawn millions and millions of fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T065926Z" creationid="akiji" creationdate="20200428T062651Z">
-        <seg>64ビットマシンでは数百万ものファイバを生成することができます</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103041Z" creationid="akiji" creationdate="20200428T062651Z">
+        <seg>64ビットマシンでは数百万ものファイバを生成することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20140,8 +20140,8 @@ recursively forms a union type out of nested type paramters:</seg>
       <tuv lang="EN-US">
         <seg>Some time-consuming operations are delegated to it, and while the event loop waits for that operation to finish the program can continue executing other fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T072010Z" creationid="akiji" creationdate="20200428T055014Z">
-        <seg>おかげで、たとえ時間のかかる処理がIOに対して行われていてイベントループがその終了を待っている状態でも、プログラムは別のファイバを実行することができます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102638Z" creationid="akiji" creationdate="20200428T055014Z">
+        <seg>おかげで、たとえ時間のかかる処理がI/Oに対して行われていてイベントループがその終了を待っている状態でも、プログラムは別のファイバを実行することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20517,8 +20517,8 @@ end</seg>
       <tuv lang="EN-US">
         <seg>That's why the recommended mechanism to communicate data is using channels and sending messages between them.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T070140Z" creationid="akiji" creationdate="20200428T064012Z">
-        <seg>このことが、データのやりとりにチャンネルを使い、メッセージをチャンネル経由で送受信することが推奨される理由です。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103136Z" creationid="akiji" creationdate="20200428T064012Z">
+        <seg>このことが、データのやりとりにチャネルを使い、メッセージをチャネル経由で送受信することが推奨される理由です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20719,8 +20719,8 @@ and immediately executes it.</seg>
       <tuv lang="EN-US">
         <seg>The Runtime Scheduler will coordinate fibers and channels for their communication.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055740Z" creationid="akiji" creationdate="20200428T055740Z">
-        <seg>ラインタイムスケジューラはデータをやりとるするためにファイバとチャンネルの間を調整します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103706Z" creationid="akiji" creationdate="20200428T055740Z">
+        <seg>ラインタイムスケジューラはデータをやりとるするためにファイバとチャネルの間を調整します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20991,8 +20991,8 @@ and immediately executes it.</seg>
       <tuv lang="EN-US">
         <seg>The above examples use unbuffered channels: when sending a value, if a fiber is waiting on that channel then execution continues on that fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T143940Z" creationid="akiji" creationdate="20200429T143759Z">
-        <seg>上の例ではバッファのないチャンネル、つまり値を送信した際にそのチャンネルの値を待っているファイバがあればそちらに処理が移るもの、を使用しました。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103750Z" creationid="akiji" creationdate="20200429T143759Z">
+        <seg>上の例ではバッファのないチャネル、つまり値を送信した際にそのチャネルの値を待っているファイバがあればそちらに処理が移るもの、を使用しました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21598,8 +21598,8 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       <tuv lang="EN-US">
         <seg>The first one creates a TCPServer, accepts one connection and reads lines from it, sending them to the channel.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T141839Z" creationid="akiji" creationdate="20200429T132835Z">
-        <seg>1つ目のファイバはTCPサーバを立ててコネクションを1つ受け入れ、そこから行を読み込んでチャンネルに渡すもの。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103723Z" creationid="akiji" creationdate="20200429T132835Z">
+        <seg>1つ目のファイバはTCPサーバを立ててコネクションを1つ受け入れ、そこから行を読み込んでチャネルに渡すもの。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21770,8 +21770,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The main fiber reads the first 3 messages sent to the channel, either from the socket or stdin, then the program exits.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T071418Z" creationid="akiji" creationdate="20200429T133441Z">
-        <seg>メインファイバは、ソケットから読み込まれたのか標準入力から読み込まれたのかにかかわらず、チャンネルに渡されたメッセージを3回読み込んだら終了します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103726Z" creationid="akiji" creationdate="20200429T133441Z">
+        <seg>メインファイバは、ソケットから読み込まれたのか標準入力から読み込まれたのかにかかわらず、チャネルに渡されたメッセージを3回読み込んだら終了します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21898,8 +21898,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The problem is that there's only one variable &lt;g1&gt;i&lt;/g1&gt; that all spawned fibers refer to, and when &lt;g2&gt;Fiber.yield&lt;/g2&gt; is executed its value is 10.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080252Z" creationid="akiji" creationdate="20200428T080252Z">
-        <seg>ここでの問題は、1つの変数を &lt;g1&gt;i&lt;/g1&gt; を全てのファイバが参照していて、&lt;g2&gt;Fiber.yield&lt;/g2&gt; が実行された頃にはその値が10になってしまっている点です。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103356Z" creationid="akiji" creationdate="20200428T080252Z">
+        <seg>ここでの問題は、1つの変数 &lt;g1&gt;i&lt;/g1&gt; を全てのファイバが参照していて、&lt;g2&gt;Fiber.yield&lt;/g2&gt; が実行された頃にはその値が10になってしまっている点です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22026,8 +22026,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The second fiber is executed, there's a value on the channel, it's obtained, and execution continues, first with the first fiber, then with the main fiber, because &lt;g2&gt;Fiber.yield&lt;/g2&gt; puts a fiber at the end of the execution queue.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T143336Z" creationid="akiji" creationdate="20200429T142452Z">
-        <seg>2つ目のファイバが実行されると、チャンネルにすでに値があるのでそれを受け取って実行を続け、その後まず1つ目のファイバが実行され、最後にメインファイバが実行されます。こうした順序になる理由は、&lt;g2&gt;Fiber.yield&lt;/g2&gt;がそのファイバを実行キューの最後に置くためです。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103732Z" creationid="akiji" creationdate="20200429T142452Z">
+        <seg>2つ目のファイバが実行されると、チャネルにすでに値があるのでそれを受け取って実行を続け、その後まず1つ目のファイバが実行され、最後にメインファイバが実行されます。こうした順序になる理由は、&lt;g2&gt;Fiber.yield&lt;/g2&gt;がそのファイバを実行キューの最後に置くためです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22613,8 +22613,8 @@ types defined by IEEE.</seg>
       <tuv lang="EN-US">
         <seg>They allow communicating data between fibers without sharing memory and without having to worry about locks, semaphores or other special structures.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T072313Z" creationid="akiji" creationdate="20200428T055322Z">
-        <seg>チャンネルによって、メモリの共有やロックやセマフォなどといった特別な機構を気にかけることなく、異なるファイバ間でのデータのやりとりが可能になります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T102708Z" creationid="akiji" creationdate="20200428T055322Z">
+        <seg>チャネルによって、メモリの共有やロックやセマフォなどといった特別な機構を気にかけることなく、異なるファイバ間でのデータのやりとりが可能になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24474,8 +24474,8 @@ Crystal itself.</seg>
       <tuv lang="EN-US">
         <seg>We can also use channels to communicate values between fibers:</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T132638Z" creationid="akiji" creationdate="20200429T132617Z">
-        <seg>チャンネルを使って以下のようにファイバ間で値を受け渡すこともできます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103714Z" creationid="akiji" creationdate="20200429T132617Z">
+        <seg>チャネルを使って以下のようにファイバ間で値を受け渡すこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24514,8 +24514,8 @@ Crystal itself.</seg>
       <tuv lang="EN-US">
         <seg>We can use a channel for this:</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080929Z" creationid="akiji" creationdate="20200428T080929Z">
-        <seg>そのような時にもチャンネルが使えます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103712Z" creationid="akiji" creationdate="20200428T080929Z">
+        <seg>そのような時にもチャネルが使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24654,8 +24654,8 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       <tuv lang="EN-US">
         <seg>When &lt;g2&gt;send&lt;/g2&gt; is executed, execution continues with the fiber that was waiting on that channel.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T135104Z" creationid="akiji" creationdate="20200429T135104Z">
-        <seg>&lt;g2&gt;send&lt;/g2&gt; が実行されると、そのチャンネルを待ち受けていたファイバの実行が再開されます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103716Z" creationid="akiji" creationdate="20200429T135104Z">
+        <seg>&lt;g2&gt;send&lt;/g2&gt; が実行されると、そのチャネルを待ち受けていたファイバの実行が再開されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24854,8 +24854,8 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       <tuv lang="EN-US">
         <seg>When this fiber will have to wait for I/O, other fibers will be able to continue executing code until I/O is ready, and finally when the value is ready and sent through the channel, the main fiber will receive it.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T071342Z" creationid="akiji" creationdate="20200429T141638Z">
-        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャンネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103721Z" creationid="akiji" creationdate="20200429T141638Z">
+        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24942,8 +24942,8 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       <tuv lang="EN-US">
         <seg>With a buffered channel, invoking &lt;g1&gt;send&lt;/g1&gt; won't switch to another fiber unless the buffer is full:</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T143951Z" creationid="akiji" creationdate="20200429T143851Z">
-        <seg>バッファ付きのチャンネルを使った場合、&lt;g1&gt;send&lt;/g1&gt;が実行されてもバッファが一杯になるまでは他のファイバに処理が切り替わりません。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T103753Z" creationid="akiji" creationdate="20200429T143851Z">
+        <seg>バッファ付きのチャネルを使った場合、&lt;g1&gt;send&lt;/g1&gt;が実行されてもバッファが一杯になるまでは他のファイバに処理が切り替わりません。</seg>
       </tuv>
     </tu>
     <tu>
