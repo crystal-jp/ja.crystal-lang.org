@@ -1,6 +1,6 @@
-# Generics
+# ジェネリクス
 
-Generics allow you to parameterize a type based on other type. Consider a Box type:
+ジェネリクスによってある型を元にしたパラメーター化した型を作ることができます。Box 型を考えてみてください。
 
 ```crystal
 class MyBox(T)
@@ -21,7 +21,7 @@ string_box.value # => "hello" (String)
 another_box = MyBox(String).new(1) # Error, Int32 doesn't match String
 ```
 
-Generics are especially useful for implementing collection types. `Array`, `Hash`, `Set` are generic types, as is `Pointer`.
+ジェネリクスは特にコレクション型を実装するに便利です。`Array`、`Hash`、`Set`や`Pointer`などはジェネリック型です。
 
 型引数は複数設定することが可能です。
 
@@ -30,14 +30,14 @@ class MyDictionary(K, V)
 end
 ```
 
-Any name can be used for type arguments:
+型引数の名前にはどんな名前でも使うこともできます。
 
 ```crystal
 class MyDictionary(KeyType, ValueType)
 end
 ```
 
-## Type variables inference
+## 型変数の推論
 
 もし型引数が指定されなかった場合、ジェネリック型のコンストラクタに設定された型制約は自由変数として扱われ、それが型推論に利用されます。例をあげます。
 
@@ -46,14 +46,14 @@ MyBox.new(1)       # : MyBox(Int32)
 MyBox.new("hello") # : MyBox(String)
 ```
 
-In the above code we didn't have to specify the type arguments of `MyBox`, the compiler inferred them following this process:
+上記では、`MyBox` に型引数を与えていません。このとき、コンパイラは以下の流れで推論を行います。
 
-* `MyBox.new(value)` delegates to `initialize(@value : T)`
-* `T` isn't bound to a type yet, so the compiler binds it to the type of the given argument
+* `MyBox.new(value)` は `initialize(@value : T)` を呼び出す
+* `T` の型はまだ設定されていないので、この引数の型に設定する
 
 このようにして、ジェネリック型の扱いが冗長になってしまうことを軽減しています。
 
-## Generic structs and modules
+## ジェネリックな構造体とモジュール
 
 構造体とモジュールをジェネリックにすることも可能です。ジェネリックなモジュールは以下のようにインクルードします。
 
@@ -75,9 +75,9 @@ foo = Foo.new(1)
 foo.t # Int32
 ```
 
-Note that in the above example `T` becomes `Int32` because `Foo.new(1)` makes `U` become `Int32`, which in turn makes `T` become `Int32` via the inclusion of the generic module.
+上記で `T` は `Int32` となります。これは `Foo.new(1)` によって `U` が `Int32` となり、そしてジェネリックなモジュールをインクールドすることで `T` が `Int32` となるためです。
 
-## Generic types inheritance
+## ジェネリック型の継承
 
 ジェネリックなクラスとモジュールを継承することも可能です。継承する際はに、具体的な型を指定するか、もしくは型変数を移譲することができます。
 
