@@ -10671,8 +10671,8 @@ XML
       <tuv lang="EN-US">
         <seg>&lt;g2&gt;sleep&lt;/g2&gt; is more useful when spawning more than one fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080001Z" creationid="akiji" creationdate="20200428T080001Z">
-        <seg>&lt;g2&gt;sleep&lt;/g2&gt;は複数のファイバを生成する場合にとても便利です。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070717Z" creationid="akiji" creationdate="20200428T080001Z">
+        <seg>&lt;g2&gt;sleep&lt;/g2&gt;は、複数のファイバを生成する場合にはさらに有用です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11732,16 +11732,16 @@ an application not intended to be used as a dependency.</seg>
       <tuv lang="EN-US">
         <seg>A fiber is in a way similar to an operating system thread except that it's much more lightweight and its execution is managed internally by the process.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150121Z" creationid="akiji" creationdate="20200428T054214Z">
-        <seg>ファイバはOSスレッドとよく似ていますが、より軽量で、その実行はプロセス内部で管理されています。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T064844Z" creationid="akiji" creationdate="20200428T054214Z">
+        <seg>ファイバはOSスレッドとよく似ていますがより軽量で、その実行はプロセスによって内部的に管理されています。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>A fiber must explicitly tell the Runtime Scheduler to switch to another fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150556Z" creationid="akiji" creationdate="20200428T062234Z">
-        <seg>ファイバはラインタイムスケジューラに対して、明示的に他のファイバへ処理を切り替えて良いことを伝える必要があります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065835Z" creationid="akiji" creationdate="20200428T062234Z">
+        <seg>ファイバはラインタイムスケジューラに対して、明示的に「他のファイバへ処理を切り替えて良い」と伝える必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11941,8 +11941,8 @@ extra syntax to manipulate the AST nodes.</seg>
       <tuv lang="EN-US">
         <seg>A simple example of this is waiting for data to come through a socket.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055118Z" creationid="akiji" creationdate="20200428T055118Z">
-        <seg>こうした時間がかかる処理の一例は、ソケット経由でのデータの受信でしょう。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065200Z" creationid="akiji" creationdate="20200428T055118Z">
+        <seg>ソケット経由でのデータの受信操作などは、こうした時間がかかる処理の一例です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13141,16 +13141,16 @@ end
       <tuv lang="EN-US">
         <seg>At the moment of this writing, Crystal has concurrency support but not parallelism: several tasks can be executed, and a bit of time will be spent on each of these, but two code paths are never executed at the same exact time.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150038Z" creationid="akiji" creationdate="20200428T053912Z">
-        <seg>これを書いている時点では，Crystal は「並行処理」をサポートしていますが、「並列処理」はサポートしていません。つまり、いくつものタスクを実行することができて、それぞれのタスクに少しずつ時間を割り当てはしますが、完全に同じタイミングで2つのコードパスが実行されることはありません。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071836Z" creationid="akiji" creationdate="20200428T053912Z">
+        <seg>これを書いている時点では，Crystal は「並行処理」をサポートしていますが、「並列処理」はサポートしていません。つまり、いくつものタスクを実行することができて、それぞれのタスクに少しずつ時間を割り当てることも可能ですが、完全に同じタイミングで2つのコードパスが実行されることはありません。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>At the third &lt;g1&gt;receive&lt;/g1&gt; the main fiber blocks and execution goes to the other fiber, which sends more values, finishes, etc.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T145324Z" creationid="akiji" creationdate="20200429T145324Z">
-        <seg>そのため、3回目の&lt;g1&gt;receive&lt;/g1&gt;はメインファイバをブロックして、他のファイバに処理が移ってさらに値が送信され、終了したり、諸々します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071731Z" creationid="akiji" creationdate="20200429T145324Z">
+        <seg>そのため、3回目の&lt;g1&gt;receive&lt;/g1&gt;はメインファイバをブロックされて他のファイバに処理が移り、さらに値が送信されたり、終了したりします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14144,8 +14144,8 @@ Counter.instances #=&gt; 3
       <tuv lang="EN-US">
         <seg>Crystal has Channels inspired by &lt;g1&gt;CSP&lt;/g1&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055203Z" creationid="akiji" creationdate="20200428T055203Z">
-        <seg>Crystalには&lt;g1&gt;CSP&lt;/g1&gt;を参考にしたチャンネルがあります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065243Z" creationid="akiji" creationdate="20200428T055203Z">
+        <seg>Crystalは&lt;g1&gt;CSP&lt;/g1&gt;を参考にしたチャンネルを有しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14594,8 +14594,8 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       <tuv lang="EN-US">
         <seg>Execution of a program</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055342Z" creationid="akiji" creationdate="20200428T055342Z">
-        <seg>プログラムの実行可能</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072511Z" creationid="akiji" creationdate="20200428T055342Z">
+        <seg>プログラムの実行</seg>
       </tuv>
     </tu>
     <tu>
@@ -14892,8 +14892,8 @@ Foo.new.yield_normally { one }  # =&gt; "one"
       <tuv lang="EN-US">
         <seg>For everything I/O related there's an event loop.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T054702Z" creationid="akiji" creationdate="20200428T054702Z">
-        <seg>I/Oに関係するものは全てイベントループを使っています。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065005Z" creationid="akiji" creationdate="20200428T054702Z">
+        <seg>I/Oに関係するものであればなんでも、イベントループのお世話になっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15683,8 +15683,8 @@ end
       <tuv lang="EN-US">
         <seg>However, once multiple threads (parallelism) is introduced in the language, it might break.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T063842Z" creationid="akiji" creationdate="20200428T063842Z">
-        <seg>しかし、一旦マルチスレーッド（並列処理）が言語仕様に導入されると、そういう訳にもいかなくなります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070057Z" creationid="akiji" creationdate="20200428T063842Z">
+        <seg>しかし、一旦マルチスレーッド（並列処理）が言語に導入されると、そういう訳にもいかなくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16688,8 +16688,8 @@ characters, you can use alternative literals:</seg>
       <tuv lang="EN-US">
         <seg>In a 32-bit machine we can only spawn 512 fibers, which is not a lot.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T062725Z" creationid="akiji" creationdate="20200428T062725Z">
-        <seg>32ビットマシンの場合はそれほど多くはなく、生成できるファイバは512本です。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065938Z" creationid="akiji" creationdate="20200428T062725Z">
+        <seg>32ビットマシンの場合はそれほど多くはなく、生成できるファイバは512本だけです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17361,8 +17361,8 @@ entrypoints for the docs generator.</seg>
       <tuv lang="EN-US">
         <seg>Internally, a channel implements all the locking mechanisms to avoid data races, but from the outside you use them as communication primitives, so you (the user) don't have to use locks.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150749Z" creationid="akiji" creationdate="20200428T064113Z">
-        <seg>内部的にはチャンネルはデータ競合を避けるためのロック機構を実装していますが、外から使う分にはロックを考慮する必要のないデータの送受信手法として使用できます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070157Z" creationid="akiji" creationdate="20200428T064113Z">
+        <seg>チャンネルは内部的にデータ競合を避けるためのロック機構を実装していますが、外から使う分にはロックを考慮する必要のないデータの送受信手法として使用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17738,8 +17738,8 @@ installs across computers and systems.</seg>
       <tuv lang="EN-US">
         <seg>It's a small object that has an associated &lt;g1&gt;stack&lt;/g1&gt; of 8MB, which is what is usually assigned to an operating system thread.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T060158Z" creationid="akiji" creationdate="20200428T060032Z">
-        <seg>ファイバは、通常OSスレッド上の &lt;g1&gt;stack&lt;/g1&gt; に8MBが割り当てられた小さなオブジェクトです。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065753Z" creationid="akiji" creationdate="20200428T060032Z">
+        <seg>ファイバは、通常OSスレッド上の &lt;g1&gt;スタックメモリ&lt;/g1&gt; 上に8MBが割り当てられた小さなオブジェクトです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18678,8 +18678,8 @@ end up in the resulting string.</seg>
       <tuv lang="EN-US">
         <seg>Note that when the program executes a &lt;g1&gt;receive&lt;/g1&gt;, that fiber blocks and execution continues with the other fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T135136Z" creationid="akiji" creationdate="20200429T134829Z">
-        <seg>プログラムがいつ&lt;g1&gt;receive&lt;/g1&gt;を実行したか、つまりファイバをブロックして他のファイバに実行が切り替わっのかに注目してください。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071128Z" creationid="akiji" creationdate="20200429T134829Z">
+        <seg>プログラムがいつ&lt;g1&gt;receive&lt;/g1&gt;を実行したか、つまりファイバをブロックして他のファイバに実行が切り替わったおかに注目してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18710,8 +18710,8 @@ end up in the resulting string.</seg>
       <tuv lang="EN-US">
         <seg>Note, however, that fibers don't get executed right away.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T074807Z" creationid="akiji" creationdate="20200428T074612Z">
-        <seg>ただし、ファイバが即座に実行されないことに注意してください。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070334Z" creationid="akiji" creationdate="20200428T074612Z">
+        <seg>ただし、ファイバが（生成後）即座に実行されるわけではないことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18881,7 +18881,7 @@ specifying the current working directory.</seg>
       <tuv lang="EN-US">
         <seg>On a 64-bit machine it lets us spawn millions and millions of fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T062651Z" creationid="akiji" creationdate="20200428T062651Z">
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065926Z" creationid="akiji" creationdate="20200428T062651Z">
         <seg>64ビットマシンでは数百万ものファイバを生成することができます</seg>
       </tuv>
     </tu>
@@ -20052,8 +20052,8 @@ recursively forms a union type out of nested type paramters:</seg>
       <tuv lang="EN-US">
         <seg>So, a program will spawn multiple fibers and Crystal will make sure to execute them when the time is right.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T054347Z" creationid="akiji" creationdate="20200428T054325Z">
-        <seg>そして、プログラムは複数のファイバを生成することができ、Crystalが適切なタイミングでそれらを実行してくれます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T064903Z" creationid="akiji" creationdate="20200428T054325Z">
+        <seg>そして、プログラムは複数のファイバを生成することができ、Crystalは適切なタイミングでそれらを実行してくれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20084,8 +20084,8 @@ recursively forms a union type out of nested type paramters:</seg>
       <tuv lang="EN-US">
         <seg>So, the main fiber, the one that spawns the above fiber, finishes its execution and the program exits.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T074948Z" creationid="akiji" creationdate="20200428T074948Z">
-        <seg>そのため、上の例でファイバを生成したメインファイバはそのまま終了し、プログラムも終了してしまいました。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070515Z" creationid="akiji" creationdate="20200428T074948Z">
+        <seg>そのため、上の例でファイバを生成したメインファイバはそのまま終わりに達してプログラムも終了してしまいました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20140,8 +20140,8 @@ recursively forms a union type out of nested type paramters:</seg>
       <tuv lang="EN-US">
         <seg>Some time-consuming operations are delegated to it, and while the event loop waits for that operation to finish the program can continue executing other fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150131Z" creationid="akiji" creationdate="20200428T055014Z">
-        <seg>たとえ，時間のかかる処理がIOに対して行われていてイベントループがその終了を待っている状態であっても、プログラムは別のファイバを実行することができます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072010Z" creationid="akiji" creationdate="20200428T055014Z">
+        <seg>おかげで、たとえ時間のかかる処理がIOに対して行われていてイベントループがその終了を待っている状態でも、プログラムは別のファイバを実行することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20517,8 +20517,8 @@ end</seg>
       <tuv lang="EN-US">
         <seg>That's why the recommended mechanism to communicate data is using channels and sending messages between them.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150737Z" creationid="akiji" creationdate="20200428T064012Z">
-        <seg>このことが、データのやりとりする方式にチャンネルを使い、メッセージをチャンネル経由で送受信することが推奨される理由です。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070140Z" creationid="akiji" creationdate="20200428T064012Z">
+        <seg>このことが、データのやりとりにチャンネルを使い、メッセージをチャンネル経由で送受信することが推奨される理由です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20662,8 +20662,8 @@ up a basic project structure.</seg>
       <tuv lang="EN-US">
         <seg>The &lt;g1&gt;gets&lt;/g1&gt; calls will block the fibers and tell the Event Loop to continue from there if data comes.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T134238Z" creationid="akiji" creationdate="20200429T134238Z">
-        <seg>&lt;g1&gt;gets&lt;/g1&gt; の呼び出しはファイバをブロックして、イベーンとループに読み出す値が到着したら再開してくれるように伝えます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071442Z" creationid="akiji" creationdate="20200429T134238Z">
+        <seg>&lt;g1&gt;gets&lt;/g1&gt; の呼び出しは、そのファイバをブロックして、イベントループに読み出す値が到着したら再開してくれるように伝えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20695,8 +20695,8 @@ and immediately executes it.</seg>
       <tuv lang="EN-US">
         <seg>The Event Loop, which is just another fiber, being in charge of async tasks, like for example files, sockets, pipes, signals and timers (like doing a &lt;g1&gt;sleep&lt;/g1&gt;).</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150316Z" creationid="akiji" creationdate="20200428T055714Z">
-        <seg>ファイルやソケット、パイプ、シグナル、タイマ（&lt;g1&gt;sleep&lt;/g1&gt;したとき）などによる非同期タスクを扱うための「イベントループ」（これもファイバの1種）</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T065624Z" creationid="akiji" creationdate="20200428T055714Z">
+        <seg>ファイルやソケット、パイプ、シグナル、タイマ（&lt;g1&gt;sleep&lt;/g1&gt;したときなど）による非同期タスクを扱うための「イベントループ」（これもファイバの1種）</seg>
       </tuv>
     </tu>
     <tu>
@@ -21770,8 +21770,8 @@ a `def` without a matching `end`, or a single `when` expression of a
       <tuv lang="EN-US">
         <seg>The main fiber reads the first 3 messages sent to the channel, either from the socket or stdin, then the program exits.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T133441Z" creationid="akiji" creationdate="20200429T133441Z">
-        <seg>名ファイバは、ソケットから読み込まれたのか標準入力から読み込まれたのかにかかわらず、チャンネルに渡されたメッセージを3回読み込んだら終了します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071418Z" creationid="akiji" creationdate="20200429T133441Z">
+        <seg>メインファイバは、ソケットから読み込まれたのか標準入力から読み込まれたのかにかかわらず、チャンネルに渡されたメッセージを3回読み込んだら終了します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22525,8 +22525,8 @@ types defined by IEEE.</seg>
       <tuv lang="EN-US">
         <seg>There, one can spawn many other fibers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T055527Z" creationid="akiji" creationdate="20200428T055527Z">
-        <seg>そして、そのファイバから多くの他のファイバを生成することができます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072617Z" creationid="akiji" creationdate="20200428T055527Z">
+        <seg>そして、そのメインファイバは、さらに多くの他のファイバを生成することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22613,8 +22613,8 @@ types defined by IEEE.</seg>
       <tuv lang="EN-US">
         <seg>They allow communicating data between fibers without sharing memory and without having to worry about locks, semaphores or other special structures.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150226Z" creationid="akiji" creationdate="20200428T055322Z">
-        <seg>チャンネルによって、メモリの共有も必要なく、ロックやセマフォなどといった特別な機構を気にかけることなく、異なるファイバ間でデータをやりとりすることができるようになります。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T072313Z" creationid="akiji" creationdate="20200428T055322Z">
+        <seg>チャンネルによって、メモリの共有やロックやセマフォなどといった特別な機構を気にかけることなく、異なるファイバ間でのデータのやりとりが可能になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22927,8 +22927,8 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
       <tuv lang="EN-US">
         <seg>This is because the &lt;g1&gt;sleep&lt;/g1&gt; call will schedule the main fiber to be executed in a second, and then executes another "ready to execute" fiber, which in this case is the one above.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T075516Z" creationid="akiji" creationdate="20200428T075237Z">
-        <seg>これは &lt;g1&gt;sleep&lt;/g1&gt;によってメインファイバは1秒後に再開するようスケジューリングされ、その間に他の "実行可能な" （この場合はすぐ上で生成されていた）ファイバが実行されるためです。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070530Z" creationid="akiji" creationdate="20200428T075237Z">
+        <seg>これは &lt;g1&gt;sleep&lt;/g1&gt;によってメインファイバが1秒後に再開するようスケジューリングされ、その間に他の "実行可能な" （この場合はすぐ上で生成されていた）ファイバが実行されるためです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23024,8 +23024,8 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       <tuv lang="EN-US">
         <seg>This is mostly useful with local variables that change at iterations.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T080804Z" creationid="akiji" creationdate="20200428T080804Z">
-        <seg>この方法は、繰り返し処理の中でローカル変数の値が変化するような倍には大抵役に立ちます。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070910Z" creationid="akiji" creationdate="20200428T080804Z">
+        <seg>この方法は、繰り返し処理の中でローカル変数の値が変化するような場合には便利な方法です。。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23280,8 +23280,8 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       <tuv lang="EN-US">
         <seg>This time &lt;g1&gt;Fiber.yield&lt;/g1&gt; will tell the scheduler to execute the other fiber.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200428T075336Z" creationid="akiji" creationdate="20200428T075336Z">
-        <seg>今度は &lt;g1&gt;Fiber.yield&lt;/g1&gt; がスケジューラに他のフィバが実行可能であることを伝えています。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T070615Z" creationid="akiji" creationdate="20200428T075336Z">
+        <seg>今度は &lt;g1&gt;Fiber.yield&lt;/g1&gt; がスケジューラに対して他のファイバを実行して良いと伝えています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24854,8 +24854,8 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       <tuv lang="EN-US">
         <seg>When this fiber will have to wait for I/O, other fibers will be able to continue executing code until I/O is ready, and finally when the value is ready and sent through the channel, the main fiber will receive it.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T141638Z" creationid="akiji" creationdate="20200429T141638Z">
-        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャンネルを通じてそれが送信されると、メインファイバがその値を受診します。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T071342Z" creationid="akiji" creationdate="20200429T141638Z">
+        <seg>ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャンネルを通じてそれが送信されると、メインファイバがその値を受信します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25454,8 +25454,8 @@ https://github.com/crystal-lang/crystal-book</seg>
       <tuv lang="EN-US">
         <seg>You can think of yourself being in the kitchen cooking: you chop an onion, put it to fry, and while it's being fried you chop a tomato, but you are not doing all of those things at the same time: you distribute your time between those tasks.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200429T150016Z" creationid="akiji" creationdate="20200428T053704Z">
-        <seg>キッチンで料理をしているところを考えてみましょう。あなたは玉ねぎをきざんでフライパンに放り込み、それが炒め上がるまでの間にトマトを切ったりできます。ただし、すべての動作を同時に行うのではなく、それぞれのタスクにあなたの時間を割り振って処理することでしょう。</seg>
+      <tuv lang="JA" changeid="akiji" changedate="20200504T064705Z" creationid="akiji" creationdate="20200428T053704Z">
+        <seg>キッチンで料理をしているところを考えてみましょう。あなたは玉ねぎをきざんでフライパンに放り込み、それが炒め上がるまでの間にトマトを切ったりできます。しかし、すべての動作を同時に行うのではなく、それぞれのタスクにあなたの時間を割り振って処理することでしょう。</seg>
       </tuv>
     </tu>
     <tu>
