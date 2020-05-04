@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 70/125
+翻訳済み/全体 = 71/125
 
 <details>
 
@@ -90,7 +90,7 @@
 | `crystal-book/syntax_and_semantics/operators.md`                                                    | ○    |
 | `crystal-book/syntax_and_semantics/visibility.md`                                                   | ○    |
 | `crystal-book/syntax_and_semantics/inheritance.md`                                                  | ○    |
-| `crystal-book/syntax_and_semantics/virtual_and_abstract_types.md`                                   | △    |
+| `crystal-book/syntax_and_semantics/virtual_and_abstract_types.md`                                   | ○    |
 | `crystal-book/syntax_and_semantics/class_methods.md`                                                | ×    |
 | `crystal-book/syntax_and_semantics/class_variables.md`                                              | △    |
 | `crystal-book/syntax_and_semantics/finalize.md`                                                     | △    |
