@@ -13047,6 +13047,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;module&lt;/g1&gt; can include other modules, so when a method is not found in it it will be looked up in the included modules.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141605Z" creationid="makenowjust" creationdate="20200504T141605Z">
+        <seg>&lt;g1&gt;module&lt;/g1&gt; が別のモジュールをインクルードすることも可能です。そのとき、モジュールにメソッドが見つからなかった場合は、インクルードされたモジュールの中を探します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;private&lt;/g1&gt; method can only be invoked without a receiver, that is, without something before the dot.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T105415Z" creationid="makenowjust" creationdate="20200502T105350Z">
@@ -13588,6 +13596,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061331Z" creationid="hirofumiwakasugi" creationdate="20160204T061331Z">
         <seg>また、コメントの `:` は、変数の型を示すために利用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A common pattern for modules is &lt;g1&gt;extend self&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141736Z" creationid="makenowjust" creationdate="20200504T141736Z">
+        <seg>モジュールでよく使われるパターンに &lt;g1&gt;extend self&lt;/g1&gt; というものがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14491,6 +14507,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;extend&lt;/g1&gt; makes a type include methods defined in that module as class methods:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141628Z" creationid="makenowjust" creationdate="20200504T141628Z">
+        <seg>&lt;g1&gt;extend&lt;/g1&gt; はモジュールで定義されたメソッドをクラスメソッドとして利用できるようにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An &lt;g1&gt;if&lt;/g1&gt; can be written as an expression’s suffix:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T080325Z" creationid="makenowjust" creationdate="20200424T080325Z">
@@ -14503,6 +14527,14 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T074633Z" creationid="makenowjust" creationdate="20200424T074152Z">
         <seg>&lt;g1&gt;if&lt;/g1&gt;は与えられた条件式が&lt;g2&gt;真&lt;/g2&gt;である場合にthen節を評価します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;include&lt;/g1&gt; makes a type include methods defined in that module as instance methods:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141242Z" creationid="makenowjust" creationdate="20200504T141242Z">
+        <seg>&lt;g1&gt;include&lt;/g1&gt; はモジュールで定義されたメソッドをインスタンスメソッドとして利用できるようにします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15280,6 +15312,14 @@ foo(String) # =&gt; Array(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As modules are included they are &lt;g3&gt;prepended&lt;/g3&gt; to this list.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141448Z" creationid="makenowjust" creationdate="20200504T141448Z">
+        <seg>モジュールがインクルードされたとき、モジュールはそのリストの&lt;g3&gt;先頭に追加&lt;/g3&gt;されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As stated in the documentation for the &lt;g1&gt;GNU Readline Library&lt;/g1&gt;, &lt;g2&gt;Readline&lt;/g2&gt; is a library that provides a set of functions for use by applications that allow users to edit command lines as they are typed in.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T190155Z" creationid="makenowjust" creationdate="20200413T190015Z">
@@ -15490,6 +15530,14 @@ names and treats them as operators, including their precedence rules.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T110037Z" creationid="makenowjust" creationdate="20200502T110037Z">
         <seg>Bar      # OK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Base64.encode64 "hello" # =&gt; "aGVsbG8="</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141740Z" creationid="makenowjust" creationdate="20200504T141740Z">
+        <seg>Base64.encode64 "hello" # =&gt; "aGVsbG8="</seg>
       </tuv>
     </tu>
     <tu>
@@ -15771,6 +15819,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071433Z" creationid="hirofumiwakasugi" creationdate="20150919T071433Z">
         <seg>Bool |</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Both &lt;g1&gt;include&lt;/g1&gt; and &lt;g2&gt;extend&lt;/g2&gt; make constants defined in the module available to the including/extending type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141715Z" creationid="makenowjust" creationdate="20200504T141715Z">
+        <seg>また、&lt;g1&gt;include&lt;/g1&gt; と &lt;g2&gt;extend&lt;/g2&gt; のどちらを使った場合も、モジュールで定義された定数を利用できるようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19477,6 +19533,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If we define two modules with names &lt;g1&gt;A&lt;/g1&gt; and &lt;g2&gt;B&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141831Z" creationid="makenowjust" creationdate="20200504T141831Z">
+        <seg>2つのモジュールが &lt;g1&gt;A&lt;/g1&gt; と &lt;g2&gt;B&lt;/g2&gt; を考えてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If we had invoked `Person.new` with another type, `@name` would have taken a different type:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T134631Z" creationid="hirofumiwakasugi" creationdate="20150904T134510Z">
@@ -20232,6 +20296,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053936Z" creationid="hirofumiwakasugi" creationdate="20150918T053758Z">
         <seg>上記の例において、`x` はローカル変数であるにも関わらず、proc リテラルによって捕捉されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the above example, it is as if we pasted the &lt;g1&gt;size&lt;/g1&gt; method from the module into the &lt;g2&gt;Items&lt;/g2&gt; class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141411Z" creationid="makenowjust" creationdate="20200504T141411Z">
+        <seg>上記の例では、まるでモジュールの &lt;g1&gt;size&lt;/g1&gt; メソッドを &lt;g2&gt;Items&lt;/g2&gt; クラスに貼り付けたようになっていることが分かるでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21743,6 +21815,30 @@ with the `yield` keyword.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T041506Z" creationid="makenowjust" creationdate="20200421T041506Z">
         <seg>修飾子</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Module Type Checking</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141810Z" creationid="makenowjust" creationdate="20200504T141748Z">
+        <seg>モジュールの型検査</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Modules</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141127Z" creationid="makenowjust" creationdate="20200504T141127Z">
+        <seg>モジュール</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Modules can also be used for type checking.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141807Z" creationid="makenowjust" creationdate="20200504T141807Z">
+        <seg>モジュールは型を検査するのにも使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27139,6 +27235,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These can be included into classes:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141841Z" creationid="makenowjust" creationdate="20200504T141841Z">
+        <seg>これらをクラスにインクルードします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These flags are by default the result of executing `uname -m -s`, split by whitespace and lowercased.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T042959Z" creationid="hirofumiwakasugi" creationdate="20150908T042946Z">
@@ -27314,6 +27418,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052244Z" creationid="hirofumiwakasugi" creationdate="20151007T052244Z">
         <seg>これによって、スタックに共用体が割り当てられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This allows you to define arrays and methods based on module type instead of class:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T142013Z" creationid="makenowjust" creationdate="20200504T142013Z">
+        <seg>これによって、クラスの代わりにモジュールに基づく配列を作ったりすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28860,6 +28972,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To use a module as a partial type you use &lt;g1&gt;include&lt;/g1&gt; or &lt;g2&gt;extend&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141150Z" creationid="makenowjust" creationdate="20200504T141150Z">
+        <seg>モジュールを部分的な型として使いたい場合、&lt;g1&gt;include&lt;/g1&gt; もしくは &lt;g2&gt;extend&lt;/g2&gt; を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To use a module as a partial type you use `include` or `extend`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T132729Z" creationid="hirofumiwakasugi" creationdate="20150911T132232Z">
@@ -29566,6 +29686,15 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We can then type check against instances of these classes with not only their class, but the
+included modules as well:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141922Z" creationid="makenowjust" creationdate="20200504T141922Z">
+        <seg>このとき、クラスによって型検査をするだけではなく、モジュールで型検査をすることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We can use a channel for this:</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103712Z" creationid="akiji" creationdate="20200428T080929Z">
@@ -30102,6 +30231,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T131930Z" creationid="hirofumiwakasugi" creationdate="20150904T131930Z">
         <seg>例えば、以下のように書いたとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When you invoke &lt;g4&gt;super&lt;/g4&gt;, the first type in this ancestors list is used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141527Z" creationid="makenowjust" creationdate="20200504T141527Z">
+        <seg>また、&lt;g4&gt;super&lt;/g4&gt; を実行したときには、その祖先リストの先頭の型が対象となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -40744,6 +40881,22 @@ ary2 &lt;&lt; 1.5 # OK
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>as namespaces for defining other types, methods and constants</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141046Z" creationid="makenowjust" creationdate="20200504T141023Z">
+        <seg>型やメソッド、定数を定義する名前空間としての役割</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>as partial types that can be mixed in other types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141121Z" creationid="makenowjust" creationdate="20200504T141121Z">
+        <seg>他の型へ mixin する部分的な型としての役割</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>b = "hello"
 end
 # b : Int32 | String</seg>
@@ -41648,6 +41801,14 @@ end
         <seg>class MyOtherException &lt; Exception
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class One</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141841Z" creationid="makenowjust" creationdate="20200504T141841Z">
+        <seg>class One</seg>
       </tuv>
     </tu>
     <tu>
@@ -44075,6 +44236,20 @@ Counter.instances # =&gt; 3</seg>
         <seg>end
 end
 
+Curses::Window.new</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141129Z" creationid="makenowjust" creationdate="20200504T141129Z">
+        <seg>end
+end
+
+Curses::Window.new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 Employee.new "John", "Acme" # OK
 Employee.new "Peter"        # Error: wrong number of arguments for 'Employee:Class#new' (1 for 2)</seg>
       </tuv>
@@ -44283,6 +44458,20 @@ employee.greet # "Hi, I'm John"</seg>
         <seg>end
 end
 
+class Items</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141248Z" creationid="makenowjust" creationdate="20200504T141248Z">
+        <seg>end
+end
+
+class Items</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 class Parent::Sub</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T112625Z" creationid="makenowjust" creationdate="20200502T112625Z">
@@ -44340,6 +44529,42 @@ end
 
 generate_method_downcase "HELLO"
 hello{% endhighlight %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+include SomeModule
+
+SomeType.new # OK, same as SomeModule::SomeType
+some_method  # OK, 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141720Z" creationid="makenowjust" creationdate="20200504T141720Z">
+        <seg>end
+end
+
+include SomeModule
+
+SomeType.new # OK, same as SomeModule::SomeType
+some_method  # OK, 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+items = Items.new
+items.size # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141250Z" creationid="makenowjust" creationdate="20200504T141250Z">
+        <seg>end
+end
+
+items = Items.new
+items.size # =&gt; 3</seg>
       </tuv>
     </tu>
     <tu>
@@ -44962,6 +45187,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T092316Z" creationid="hirofumiwakasugi" creationdate="20151009T092316Z">
         <seg>extend SomeSize
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>extend SomeSize
+end
+
+Items.size # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141636Z" creationid="makenowjust" creationdate="20200504T141636Z">
+        <seg>extend SomeSize
+end
+
+Items.size # =&gt; 3</seg>
       </tuv>
     </tu>
     <tu>
@@ -46094,6 +46333,56 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>include A
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141843Z" creationid="makenowjust" creationdate="20200504T141843Z">
+        <seg>include A
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>include A
+end
+
+class Two</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141842Z" creationid="makenowjust" creationdate="20200504T141842Z">
+        <seg>include A
+end
+
+class Two</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>include B
+end
+
+class Three &lt; Two</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141842Z" creationid="makenowjust" creationdate="20200504T141842Z">
+        <seg>include B
+end
+
+class Three &lt; Two</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>include Base64
+
+encode64 "hello" # =&gt; "aGVsbG8="</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141742Z" creationid="makenowjust" creationdate="20200504T141742Z">
+        <seg>include Base64
+
+encode64 "hello" # =&gt; "aGVsbG8="</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>include ItemsLength</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T133854Z" creationid="hirofumiwakasugi" creationdate="20150911T133854Z">
@@ -46752,10 +47041,38 @@ model.save # "Saved!" と出力
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module A; end
+
+module B; end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141833Z" creationid="makenowjust" creationdate="20200504T141833Z">
+        <seg>module A; end
+
+module B; end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module Base64</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141736Z" creationid="makenowjust" creationdate="20200504T141736Z">
+        <seg>module Base64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>module CaesarCipher</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T130046Z" creationid="makenowjust" creationdate="20200504T130046Z">
         <seg>module CaesarCipher</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module Curses</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141122Z" creationid="makenowjust" creationdate="20200504T141122Z">
+        <seg>module Curses</seg>
       </tuv>
     </tu>
     <tu>
@@ -46776,6 +47093,14 @@ model.save # "Saved!" と出力
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module ItemsSize</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141246Z" creationid="makenowjust" creationdate="20200504T141246Z">
+        <seg>module ItemsSize</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>module Money</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T205212Z" creationid="makenowjust" creationdate="20200412T205212Z">
@@ -46784,10 +47109,40 @@ model.save # "Saved!" と出力
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module Moo
+end
+
+Moo.new # undefined method 'new' for Moo:Module</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141747Z" creationid="makenowjust" creationdate="20200504T141747Z">
+        <seg>module Moo
+end
+
+Moo.new # undefined method 'new' for Moo:Module</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>module Scorecard</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T205020Z" creationid="makenowjust" creationdate="20200412T205020Z">
         <seg>module Scorecard</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module SomeModule</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141718Z" creationid="makenowjust" creationdate="20200504T141718Z">
+        <seg>module SomeModule</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module SomeSize</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141633Z" creationid="makenowjust" creationdate="20200504T141633Z">
+        <seg>module SomeSize</seg>
       </tuv>
     </tu>
     <tu>
@@ -47168,6 +47523,54 @@ temp1 = 3
 temp2 = 4
 objects[1] = temp1
 objects[2] = temp2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>one = One.new
+two = Two.new
+three = Three.new
+
+new_array = Array(A).new
+new_array &lt;&lt; one   # Ok, One inherits module A
+new_array &lt;&lt; three # Ok, Three includes module A
+
+new_array &lt;&lt; two # Error, because Two does not inherit module A</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T142057Z" creationid="makenowjust" creationdate="20200504T142057Z">
+        <seg>one = One.new
+two = Two.new
+three = Three.new
+
+new_array = Array(A).new
+new_array &lt;&lt; one   # One は A をインクルードしているのでOK
+new_array &lt;&lt; three # Three は A をインクルードしているのでOK
+
+new_array &lt;&lt; two # Two は A をインクルードしていないのでエラー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>one = One.new
+typeof(one)  # =&gt; One
+one.is_a?(A) # =&gt; true
+one.is_a?(B) # =&gt; false
+
+three = Three.new
+typeof(three)  # =&gt; Three
+three.is_a?(A) # =&gt; true
+three.is_a?(B) # =&gt; true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T141923Z" creationid="makenowjust" creationdate="20200504T141923Z">
+        <seg>one = One.new
+typeof(one)  # =&gt; One
+one.is_a?(A) # =&gt; true
+one.is_a?(B) # =&gt; false
+
+three = Three.new
+typeof(three)  # =&gt; Three
+three.is_a?(A) # =&gt; true
+three.is_a?(B) # =&gt; true</seg>
       </tuv>
     </tu>
     <tu>

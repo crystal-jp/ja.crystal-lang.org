@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 75/125
+翻訳済み/全体 = 76/125
 
 <details>
 
@@ -94,7 +94,7 @@
 | `crystal-book/syntax_and_semantics/class_methods.md`                                                | ○    |
 | `crystal-book/syntax_and_semantics/class_variables.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/finalize.md`                                                     | ○    |
-| `crystal-book/syntax_and_semantics/modules.md`                                                      | △    |
+| `crystal-book/syntax_and_semantics/modules.md`                                                      | ○    |
 | `crystal-book/syntax_and_semantics/generics.md`                                                     | △    |
 | `crystal-book/syntax_and_semantics/structs.md`                                                      | ×    |
 | `crystal-book/syntax_and_semantics/constants.md`                                                    | △    |
