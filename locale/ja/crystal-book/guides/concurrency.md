@@ -1,64 +1,64 @@
-# Concurrency
+# 並行処理
 
-## Concurrency vs. Parallelism
+## 並行処理（Concurrency） vs. 並列処理（Parallelism）
 
-The definitions of "concurrency" and "parallelism" sometimes get mixed up, but they are not the same.
+しばしば混同されますが、「並行処理（concurrency）」と「並列処理（parallelism）」という言葉の定義は同じではありません。
 
-A concurrent system is one that can be in charge of many tasks, although not necessarily it is executing them at the same time. You can think of yourself being in the kitchen cooking: you chop an onion, put it to fry, and while it's being fried you chop a tomato, but you are not doing all of those things at the same time: you distribute your time between those tasks. Parallelism would be to stir fry onions with one hand while with the other one you chop a tomato.
+並行処理システム（concarrent system）はいくつものタスクを扱えるシステムの1種ではありますが、必ずしもそれらのタスクが同時に実行される必要はありません。キッチンで料理をしているところを考えてみましょう。あなたは玉ねぎをきざんでフライパンに放り込み、それが炒め上がるまでの間にトマトを切ったりできます。しかし、すべての動作を同時に行うのではなく、それぞれのタスクにあなたの時間を割り振って処理することでしょう。並列処理（parallelism）というのは、片手で玉ねぎの入ったフライパンを振りながらもう片方の手でトマトを切るようなものです。
 
-At the moment of this writing, Crystal has concurrency support but not parallelism: several tasks can be executed, and a bit of time will be spent on each of these, but two code paths are never executed at the same exact time.
+これを書いている時点では，Crystal は「並行処理」をサポートしていますが、「並列処理」はサポートしていません。つまり、いくつものタスクを実行することができて、それぞれのタスクに少しずつ時間を割り当てることも可能ですが、完全に同じタイミングで2つのコードパスが実行されることはありません。
 
-A Crystal program executes in a single operating system thread, except the Garbage Collector (GC) which implements a concurrent mark-and-sweep (currently [Boehm GC](http://www.hboehm.info/gc/)).
+コンカレント・マーク＆スイープ方式で実装されたガベージコレクタ（GC）（現時点では[Boehm GC](http://www.hboehm.info/gc/)）を除いて、Crystalのプログラムは単一のOSスレッド上で実行されます。
 
-### Fibers
+### ファイバ（Fiber）
 
-To achieve concurrency, Crystal has fibers. A fiber is in a way similar to an operating system thread except that it's much more lightweight and its execution is managed internally by the process. So, a program will spawn multiple fibers and Crystal will make sure to execute them when the time is right.
+並行処理を行うために、Crystal はファイバを利用します。ファイバはOSスレッドとよく似ていますがより軽量で、その実行はプロセスによって内部的に管理されています。そして、プログラムは複数のファイバを生成することができ、Crystalは適切なタイミングでそれらを実行してくれます。
 
-### Event loop
+### イベントループ
 
-For everything I/O related there's an event loop. Some time-consuming operations are delegated to it, and while the event loop waits for that operation to finish the program can continue executing other fibers. A simple example of this is waiting for data to come through a socket.
+I/Oに関係するものであればなんでも、イベントループのお世話になっています。おかげで、たとえ時間のかかる処理がI/Oに対して行われていてイベントループがその終了を待っている状態でも、プログラムは別のファイバを実行することができます。ソケット経由でのデータの受信操作などは、こうした時間がかかる処理の一例です。
 
-### Channels
+### チャネル（Channel）
 
-Crystal has Channels inspired by [CSP](https://en.wikipedia.org/wiki/Communicating_sequential_processes). They allow communicating data between fibers without sharing memory and without having to worry about locks, semaphores or other special structures.
+Crystalは[CSP](https://en.wikipedia.org/wiki/Communicating_sequential_processes)を参考にしたチャネルを有しています。チャネルによって、メモリの共有やロックやセマフォなどといった特別な機構を気にかけることなく、異なるファイバ間でのデータのやりとりが可能になります。
 
-## Execution of a program
+## プログラムの実行
 
-When a program starts, it fires up a main fiber that will execute your top-level code. There, one can spawn many other fibers. The components of a program are:
+プログラムが開始されると、まずトップレベルコードを実行するためのメインファイバを起動します。そして、そのメインファイバは、さらに多くの他のファイバを生成することができます。プログラムを構成するコンポーネントは以下の通りです。
 
-* The Runtime Scheduler, in charge of executing all fibers when the time is right.
-* The Event Loop, which is just another fiber, being in charge of async tasks, like for example files, sockets, pipes, signals and timers (like doing a `sleep`).
-* Channels, to communicate data between fibers. The Runtime Scheduler will coordinate fibers and channels for their communication.
-* Garbage Collector: to clean up "no longer used" memory.
+* すべてのファイバを適切なタイミングで起動するための「ランタイムスケジューラ」
+* ファイルやソケット、パイプ、シグナル、タイマ（`sleep`したときなど）による非同期タスクを扱うための「イベントループ」（これもファイバの1種）
+* ファイバ間でデータをやりとりする「チャネル」ラインタイムスケジューラはデータをやりとるするためにファイバとチャネルの間を調整します。
+* "もう使用されない" メモリを掃除する「ガベージコレクタ」
 
-### A Fiber
+### ファイバ単体
 
-A fiber is an execution unit that is more lightweight than a thread. It's a small object that has an associated [stack](https://en.wikipedia.org/wiki/Call_stack) of 8MB, which is what is usually assigned to an operating system thread.
+単一のファイバは、スレッドと比べるとより軽量な処理の実行単位です。ファイバは、通常OSスレッド上の [スタックメモリ](https://en.wikipedia.org/wiki/Call_stack) 上に8MBが割り当てられた小さなオブジェクトです。
 
-Fibers, unlike threads, are cooperative. Threads are pre-emptive: the operating system might interrupt a thread at any time and start executing another one. A fiber must explicitly tell the Runtime Scheduler to switch to another fiber. For example if there's I/O to be waited on, a fiber will tell the scheduler "Look, I have to wait for this I/O to be available, you continue executing other fibers and come back to me when that I/O is ready".
+ファイバはスレッドと違って協調的に動作します。スレッドはプリエンプティブ（非同期マルチタスク）なので，OSはいつでもスレッドに割り込んで別のスレッドを実行することができます。ファイバはラインタイムスケジューラに対して、明示的に「他のファイバへ処理を切り替えて良い」と伝える必要があります。例えばI/O による待ちが発生していた場合、ファイバはランタイムスケジューラに対して「おーい，自分はI/Oが使えるようになるまで待たないといけないから、他のファイバを実行していいよ。I/Oの準備ができたら帰ってきてね」と告げます。
 
-The advantage of being cooperative is that a lot of the overhead of doing a context switch (switching between threads) is gone.
+こうした協調動作の利点は、コンテキスト切り替え（スレッド間の切り替え）によるオーバーヘッドの大部分をなくすことができることです。
 
-A Fiber is much more lightweight than a thread: even though it's assigned 8MB, it starts with a small stack of 4KB.
+ファイバはスレッドと比べて軽量で、8MB割り当てられていてもその開始時には4KBという小さなスタック領域しか使用しません。
 
-On a 64-bit machine it lets us spawn millions and millions of fibers. In a 32-bit machine we can only spawn 512 fibers, which is not a lot. But because 32-bit machines are starting to become obsolete, we'll bet on the future and focus more on 64-bit machines.
+64ビットマシンでは数百万ものファイバを生成することができます。32ビットマシンの場合はそれほど多くはなく、生成できるファイバは512個だけです。しかし、32ビットマシンはもはや使用されなくなりつつありますので、我々は将来を見据えて64ビットマシンにより注力しています。
 
-### The Runtime Scheduler
+### ランタイムスケジューラ
 
-The scheduler has a queue of:
-* Fibers ready to be executed: for example when you spawn a fiber, it's ready to be executed.
-* The event loop: which is another fiber. When there are no other fibers ready to be executed, the event loop checks if there is any async operation that is ready, and then executes the fiber waiting for that operation. The event loop is currently implemented with `libevent`, which is an abstraction of other event mechanisms like `epoll` and `kqueue`.
-* Fibers that voluntarily asked to wait: this is done with `Fiber.yield`, which means "I can continue executing, but I'll give you some time to execute other fibers if you want".
+ランタイムスケジューラは以下のキューを持っています。
+* 実行可能なファイバ（例えば，新しく生成されたファイバは実行可能な状態です）
+* イベントループ（別のファイバ）他に実行可能なファイバが存在しない場合、イベントループは準備が完了しているな非同期処理があるかをチェックし、その処理を待っていたファイバを実行します。現時点では、イベントループは`epoll`や`kqueue`と言ったイベント方式を抽象化した`libevent`を使用して実装されています。
+* 自主的に待機しているファイバ（`Fiber.yield`によって「続けて実行できるけれど、他に実行したいファイバがあれば、そっちを実行してていいよ」と宣言したもの）
 
-### Communicating data
+### データのやり取り
 
-Because at this moment there's only a single thread executing your code, accessing and modifying a class variable in different fibers will work just fine. However, once multiple threads (parallelism) is introduced in the language, it might break. That's why the recommended mechanism to communicate data is using channels and sending messages between them. Internally, a channel implements all the locking mechanisms to avoid data races, but from the outside you use them as communication primitives, so you (the user) don't have to use locks.
+現時点ではシングルスレッドでしかコードを実行できなため、複数のファイバから同じクラス変数を参照や変更しても問題なく動作します。しかし、一旦マルチスレッド（並列処理）が言語に導入されると、そういう訳にもいかなくなります。このことが、データのやりとりにチャネルを使い、メッセージをチャネル経由で送受信することが推奨される理由です。チャネルは内部的にデータ競合を避けるためのロック機構を実装していますが、外から使う分にはロックを考慮する必要のないデータの送受信手法として使用できます。
 
-## Sample code
+## サンプルコード
 
-### Spawning a fiber
+### ファイバの生成
 
-To spawn a fiber you use `spawn` with a block:
+ファイバを生成するにはブロック付きで`spawn`を使用します。
 
 ```crystal
 spawn do
@@ -74,11 +74,11 @@ spawn do
 end
 ```
 
-Here we have two fibers: one reads from a socket and the other does a `sleep`. When the first fiber reaches the `socket.gets` line, it gets suspended, the Event Loop is told to continue executing this fiber when there's data in the socket, and the program continues with the second fiber. This fiber wants to sleep for 5 seconds, so the Event Loop is told to continue with this fiber in 5 seconds. If there aren't other fibers to execute, the Event Loop will wait until either of these events happen, without consuming CPU time.
+ここには、2つのファイバがあります。1つ目はソケットから何かを読み出すもので、もう一つは`sleep`するものです。1つめのファイバは`socket.gets`の行に到達すると一旦中断し、イベントループにソケットにデータが準備できた時点でこのファイバを再開するように伝えます。そして、プログラムは2つめのファイバを実行します。こちらのファイバは5秒間スリープし、イベントループに5秒経ったらこちらのファイバを再開するよう伝えます。もし他に実行可能なファイバがいなければ、イベントループはイベントループはCPUを消費することなく、どちらかのイベントが発生するまで待機します。
 
-The reason why `socket.gets` and `sleep` behave like this is because their implementations talk directly with the Runtime Scheduler and the Event Loop, there's nothing magical about it. In general, the standard library already takes care of doing all of this so you don't have to.
+`socket.gets`や`sleep`がこのように動作する理由は、それらがラインタイムスケジューラやイベントループと直接会話できるように実装されているからで、魔法でもなんでもありません。基本的に、標準ライブラリは使用者がそうした一切を気にかける必要がないように配慮されています。
 
-Note, however, that fibers don't get executed right away. 例をあげます。
+ただし、ファイバが（生成後）即座に実行されるわけではないことに注意してください。例をあげます。
 
 ```crystal
 spawn do
@@ -88,11 +88,11 @@ spawn do
 end
 ```
 
-Running the above code will produce no output and exit immediately.
+上記コードは何も出力せず即座に終了します。
 
-The reason for this is that a fiber is not executed as soon as it is spawned. So, the main fiber, the one that spawns the above fiber, finishes its execution and the program exits.
+その理由は、ファイバーが生成された時点で即座に実行されるわけではないためです。そのため、上の例でファイバを生成したメインファイバはそのまま終わりに達してプログラムも終了してしまいました。
 
-One way to solve it is to do a `sleep`:
+この問題を解決留守方法の一つは、`sleep`を使うことです。
 
 ```crystal
 spawn do
@@ -104,9 +104,9 @@ end
 sleep 1.second
 ```
 
-This program will now print "Hello!" for one second and then exit. This is because the `sleep` call will schedule the main fiber to be executed in a second, and then executes another "ready to execute" fiber, which in this case is the one above.
+今回のプログラムは1秒間 "Hello!" と出力し続けてから終了します。これは `sleep`によってメインファイバが1秒後に再開するようスケジューリングされ、その間に他の "実行可能な" （この場合はすぐ上で生成されていた）ファイバが実行されるためです。
 
-Another way is this:
+他にはこんな方法もあります。
 
 ```crystal
 spawn do
@@ -118,9 +118,9 @@ end
 Fiber.yield
 ```
 
-This time `Fiber.yield` will tell the scheduler to execute the other fiber. This will print "Hello!" until the standard output blocks (the system call will tell us we have to wait until the output is ready), and then execution continues with the main fiber and the program exits. Here the standard output *might* never block so the program will continue executing forever.
+今度は `Fiber.yield` がスケジューラに対して他のファイバを実行して良いと伝えています。その結果、標準出力がブロックされる（システムコールが標準出力の準備ができるまで待つよう伝えてくる）まで "Hello!" と出力し続けます。ただし、標準出力はブロックされない*かもしれません*。
 
-If we want to execute the spawned fiber for ever, we can use `sleep` without arguments:
+もし、生成したファイバを実行させ続けたいのであれば、引数なしの `sleep` を使うことができます。
 
 ```crystal
 spawn do
@@ -132,11 +132,11 @@ end
 sleep
 ```
 
-Of course the above program can be written without `spawn` at all, just with a loop. `sleep` is more useful when spawning more than one fiber.
+上のプログラムは単純にループを行なっているだけですので、もちろん`spawn`を使わずに書くこともできます。`sleep`は、複数のファイバを生成する場合にはさらに有用です。
 
-### Spawning a call
+### メソッド呼び出しをファイバとして生成する
 
-You can also spawn by passing a method call instead of a block. To understand why this is useful, let's look at this example:
+ブロックを与える代わりに、メソッドの呼び出しを渡してファイバを生成することもできます。なぜこれが便利なのかを理解するために、次の例をみてみましょう。
 
 ```crystal
 i = 0
@@ -150,9 +150,9 @@ end
 Fiber.yield
 ```
 
-The above program prints "10" ten times. The problem is that there's only one variable `i` that all spawned fibers refer to, and when `Fiber.yield` is executed its value is 10.
+上のプログラムは "10" を10回出力します。ここでの問題は、1つの変数 `i` を全てのファイバが参照していて、`Fiber.yield` が実行された頃にはその値が10になってしまっている点です。
 
-To solve this, we can do this:
+これを解決するにはこのようにします。
 
 ```crystal
 i = 0
@@ -169,9 +169,9 @@ end
 Fiber.yield
 ```
 
-Now it works because we are creating a [Proc](http://crystal-lang.org/api/Proc.html) and we invoke it passing `i`, so the value gets copied and now the spawned fiber receives a copy.
+今度は正しく動作しました。なぜかと言うと、[Proc](http://crystal-lang.org/api/Proc.html)を生成してそれに`i`を渡しているからです。こうすることで、`i`の値がコピーされ、生成されたファイバが使用するのはそのコピーになります。
 
-To avoid all this boilerplate, the standard library provides a `spawn` macro that accepts a call expression and basically rewrites it to do the above. Using it, we end up with:
+上記のようなボイラープレートコードを回避するために、標準ライブラリは式の呼び出しを受け取って上記コードに展開する`spawn` マクロを用意しています。それを使い、最終的にはこうなりました。
 
 ```crystal
 i = 0
@@ -183,7 +183,7 @@ end
 Fiber.yield
 ```
 
-This is mostly useful with local variables that change at iterations. This doesn't happen with block arguments. For example, this works as expected:
+この方法は、繰り返し処理の中でローカル変数の値が変化するような場合には便利な方法です。。こうした問題はブロック引数では発生しません。例えば、以下のコードは想定した通りに動作します。
 
 ```crystal
 10.times do |i|
@@ -195,9 +195,9 @@ end
 Fiber.yield
 ```
 
-### Spawning a fiber and waiting for it to complete
+### ファイバを生成してその終了を待つ
 
-We can use a channel for this:
+そのような時にもチャネルが使えます。
 
 ```crystal
 channel = Channel(Nil).new
@@ -213,7 +213,7 @@ channel.receive
 puts "After receive"
 ```
 
-This prints:
+このコードの出力は以下の通りです。
 
 ```text
 Before receive
@@ -221,9 +221,9 @@ Before send
 After receive
 ```
 
-First, the program spawns a fiber but doesn't execute it yet. When we invoke `channel.receive`, the main fiber blocks and execution continues with the spawned fiber. Then `channel.send(nil)` is invoked, and so execution continues at `channel.receive`, which was waiting for a value. Then the main fiber continues executing and finishes, so the program exits without giving the other fiber a chance to print "After send".
+まず、プログラムはファイバを生成しますが、まだそのファイバは実行されません。`channel.receive`が実行された時点で、メインファイバがブロックされ、生成されたファイバに処理が移ります。そして、`channel.send(nil)` が実行されると、値が渡されるのを待っていた`channel.receive`が実行されます。その後、メインファイバは実行を続けて終了してしまうため、プログラムは "After send" を出力する機会のないまま終了してしまいます。
 
-In the above example we used `nil` just to communicate that the fiber ended. We can also use channels to communicate values between fibers:
+上の例では単にファイバが終了したことを伝えるだけの目的で `nil` を使いました。チャネルを使って以下のようにファイバ間で値を受け渡すこともできます。
 
 ```crystal
 channel = Channel(Int32).new
@@ -244,7 +244,7 @@ value = channel.receive
 puts value # => 2
 ```
 
-Output:
+出力はこうなります。
 
 ```text
 Before first receive
@@ -255,9 +255,9 @@ Before second send
 2
 ```
 
-Note that when the program executes a `receive`, that fiber blocks and execution continues with the other fiber. When `send` is executed, execution continues with the fiber that was waiting on that channel.
+プログラムがいつ`receive`を実行したか、つまりいつそのファイバをブロックして他のファイバに実行が切り替わったかに注目してください。`send` が実行されると、そのチャネルを待ち受けていたファイバの実行が再開されます。
 
-Here we are sending literal values, but the spawned fiber might compute this value by, for example, reading a file, or getting it from a socket. When this fiber will have to wait for I/O, other fibers will be able to continue executing code until I/O is ready, and finally when the value is ready and sent through the channel, the main fiber will receive it. 例をあげます。
+今回はリテラル値を渡していますが、生成されたファイバはファイルから読み込んだり、ソケットから値を取得したりして、この値を計算する場合もあります。ファイバがI/Oを待たなければいけなくなった場合、I/Oの準備ができるまで他のファイバを実行し、値が到着しチャネルを通じてそれが送信されると、メインファイバがその値を受信します。例をあげます。
 
 ```crystal
 require "socket"
@@ -283,9 +283,9 @@ end
 end
 ```
 
-The above program spawns two fibers. The first one creates a TCPServer, accepts one connection and reads lines from it, sending them to the channel. There's a second fiber reading lines from standard input. The main fiber reads the first 3 messages sent to the channel, either from the socket or stdin, then the program exits. The `gets` calls will block the fibers and tell the Event Loop to continue from there if data comes.
+このプログラムは2つのファイバを生成しています。1つ目のファイバはTCPサーバを立ててコネクションを1つ受け入れ、そこから行を読み込んでチャネルに渡すもの。2つ目のファイバは標準入力から行を読み込むものです。メインファイバは、ソケットから読み込まれたのか標準入力から読み込まれたのかにかかわらず、チャネルに渡されたメッセージを3回読み込んだら終了します。`gets` の呼び出しは、そのファイバをブロックして、イベントループに読み出す値が到着したら再開してくれるように伝えます。
 
-Likewise, we can wait for multiple fibers to complete execution, and gather their values:
+同様に、処理を完了するために複数のファイバを待ち受けて、それらの値を集約することもできます。
 
 ```crystal
 channel = Channel(Int32).new
@@ -303,7 +303,7 @@ end
 puts sum # => 90
 ```
 
-You can, of course, use `receive` inside a spawned fiber:
+もちろん、生成されたファイバ内で`receive` を使うことも可能です。
 
 ```crystal
 channel = Channel(Int32).new
@@ -325,7 +325,7 @@ Fiber.yield
 puts "After yield"
 ```
 
-Output:
+出力はこうなります。
 
 ```text
 Before yield
@@ -337,16 +337,16 @@ After send
 After yield
 ```
 
-Here `channel.send` is executed first, but since there's no one waiting for a value (yet), execution continues in other fibers. The second fiber is executed, there's a value on the channel, it's obtained, and execution continues, first with the first fiber, then with the main fiber, because `Fiber.yield` puts a fiber at the end of the execution queue.
+ここでは、まず`channel.send`が実行されますが、まだだれもその値を待っている人がいないので、他のファイバを実行します。2つ目のファイバが実行されると、チャネルにすでに値があるのでそれを受け取って実行を続け、その後まず1つ目のファイバが実行され、最後にメインファイバが実行されます。こうした順序になる理由は、`Fiber.yield`がそのファイバを実行キューの最後に置くためです。
 
-### Buffered channels
+### バッファ付きチャネル
 
-The above examples use unbuffered channels: when sending a value, if a fiber is waiting on that channel then execution continues on that fiber.
+上の例ではバッファのないチャネル、つまり値を送信した際にそのチャネルの値を待っているファイバがあればそちらに処理が移るもの、を使用しました。
 
-With a buffered channel, invoking `send` won't switch to another fiber unless the buffer is full:
+バッファ付きのチャネルを使った場合、`send`が実行されてもバッファが一杯になるまでは他のファイバに処理が切り替わりません。
 
 ```crystal
-# A buffered channel of capacity 2
+# 容量が2のバッファ付きチャネル
 channel = Channel(Int32).new(2)
 
 spawn do
@@ -364,7 +364,7 @@ end
 end
 ```
 
-Output:
+出力はこうなります。
 
 ```
 Before send 1
@@ -376,4 +376,4 @@ After send
 3
 ```
 
-Note that the first 2 sends are executed without switching to another fiber. However, in the third send the channel's buffer is full, so execution goes to the main fiber. Here the two values are received and the channel is depleted. At the third `receive` the main fiber blocks and execution goes to the other fiber, which sends more values, finishes, etc.
+最初の２回のsendが実行された際に、他のファイバに処理が切り替わらなかったことに注目してください。しかし、3回目のsendではチャネルのバッファがいっぱいになっているため、メインファイバに処理が移ります。ここで2つの値が取り出されてチャネルが空になります。そのため、3回目の`receive`はメインファイバをブロックされて他のファイバに処理が移り、さらに値が送信されたり、終了したりします。
