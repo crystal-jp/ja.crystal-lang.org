@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 72/125
+翻訳済み/全体 = 73/125
 
 <details>
 
@@ -92,7 +92,7 @@
 | `crystal-book/syntax_and_semantics/inheritance.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/virtual_and_abstract_types.md`                                   | ○    |
 | `crystal-book/syntax_and_semantics/class_methods.md`                                                | ○    |
-| `crystal-book/syntax_and_semantics/class_variables.md`                                              | △    |
+| `crystal-book/syntax_and_semantics/class_variables.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/finalize.md`                                                     | △    |
 | `crystal-book/syntax_and_semantics/modules.md`                                                      | △    |
 | `crystal-book/syntax_and_semantics/generics.md`                                                     | △    |
