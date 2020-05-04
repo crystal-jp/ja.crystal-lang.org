@@ -1794,8 +1794,8 @@ require "./one"</seg>
       <tuv lang="EN-US">
         <seg># Invoked when Foo is garbage-collected</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T041658Z" creationid="hirofumiwakasugi" creationdate="20150910T041658Z">
-        <seg># Foo がガベージコレクトされるときに実行される</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140329Z" creationid="hirofumiwakasugi" creationdate="20150910T041658Z">
+        <seg># Foo がガベージコレクトされるときに呼び出される</seg>
       </tuv>
     </tu>
     <tu>
@@ -3058,6 +3058,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012051Z" creationid="hirofumiwakasugi" creationdate="20150916T012050Z">
         <seg># あまり考えられないが、絶対にないとは言えない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Use to release non-managed resources (ie.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140336Z" creationid="makenowjust" creationdate="20200504T135953Z">
+        <seg># 管理されていないリソースを解放するのに使う (例:</seg>
       </tuv>
     </tu>
     <tu>
@@ -10915,6 +10923,14 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Notes&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140209Z" creationid="makenowjust" creationdate="20200504T140209Z">
+        <seg>&lt;g1&gt;注意&lt;/g1&gt;:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Operators&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170850Z" creationid="makenowjust" creationdate="20200413T170850Z">
@@ -14346,6 +14362,15 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Allocating any new object instances during garbage-collection might result
+in undefined behavior and most likely crashing your program.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140842Z" creationid="makenowjust" creationdate="20200504T140650Z">
+        <seg>ガベージコレクション中に新規に確保されたオブジェクトに対する挙動は未定義で、恐らくその場合プログラムはクラッシュします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Allows marking a [C struct](c_bindings/struct.html) as packed, which makes the alignment of the struct to be one byte, and that there is no padding between the elements.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T072942Z" creationid="hirofumiwakasugi" creationdate="20150919T072853Z">
@@ -15990,6 +16015,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>C libraries, structs)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140001Z" creationid="makenowjust" creationdate="20200504T140001Z">
+        <seg>C ライブラリ、構造体)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>C-bindings</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221410Z" creationid="makenowjust" creationdate="20200413T221410Z">
@@ -17284,6 +17317,16 @@ operator &lt;g2&gt;=&lt;/g2&gt;, &lt;g3&gt;combined assignment operators&lt;/g3&
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T083240Z" creationid="makenowjust" creationdate="20200502T083240Z">
         <seg>例えば論理反転演算子 &lt;g1&gt;!&lt;/g1&gt; や、代入演算子 &lt;g2&gt;=&lt;/g2&gt;、&lt;g4&gt;||=&lt;/g4&gt;のような&lt;g3&gt;複合代入演算子&lt;/g3&gt;、そして&lt;g5&gt;範囲演算子&lt;/g5&gt;などがそれに当てはまります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Examples of this can be found in &lt;g1&gt;&lt;g2&gt;IO::FileDescriptor#finalize&lt;/g2&gt;&lt;/g1&gt;
+or &lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140202Z" creationid="makenowjust" creationdate="20200504T140202Z">
+        <seg>例えば&lt;g1&gt;&lt;g2&gt;IO::FileDescriptor#finalize&lt;/g2&gt;&lt;/g1&gt;
+や&lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;などがで実際に利用されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18863,6 +18906,15 @@ Set{1, 2, 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a class defines a &lt;g1&gt;finalize&lt;/g1&gt; method, when an instance of that class is
+garbage-collected that method will be invoked:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140323Z" creationid="makenowjust" creationdate="20200504T135922Z">
+        <seg>もしクラスに &lt;g1&gt;finalize&lt;/g1&gt; メソッドが定義されていた場合、そのクラスのインスタンスがガベージコレクトされるときにそのメソッドが呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a class defines a &lt;g1&gt;new&lt;/g1&gt; or &lt;g2&gt;initialize&lt;/g2&gt; then its superclass constructors are not inherited:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T103733Z" creationid="makenowjust" creationdate="20200504T103733Z">
@@ -19044,6 +19096,15 @@ files inside that folder are appended.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T155215Z" creationid="makenowjust" creationdate="20200501T155039Z">
         <seg>もしその引数が位置指定の引数として既にマッチしていた場合、エラーが起こります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If an exception is raised
+inside the &lt;g3&gt;initialize&lt;/g3&gt; method, &lt;g4&gt;finalize&lt;/g4&gt; won't be invoked.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140315Z" creationid="makenowjust" creationdate="20200504T140315Z">
+        <seg>もし例外が &lt;g3&gt;initialize&lt;/g3&gt; メソッド中で発生したとき、&lt;g4&gt;finalize&lt;/g4&gt; は呼び出されません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19687,6 +19748,16 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T055330Z" creationid="hirofumiwakasugi" creationdate="20150831T055330Z">
         <seg>もしプロジェクトにコントリビュートしたいのであれば、同時に LLVM もインストールしておくとよいでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If your class
+defines a &lt;g5&gt;finalize&lt;/g5&gt; method, be sure to catch any exceptions that might be
+raised in the &lt;g6&gt;initialize&lt;/g6&gt; methods and free resources.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140526Z" creationid="makenowjust" creationdate="20200504T140423Z">
+        <seg>もしクラスに &lt;g5&gt;finalize&lt;/g5&gt; メソッドを定義する場合は、必ず &lt;g6&gt;initialize&lt;/g6&gt; メソッドで発生し得る例外を補足して、リソースの解放をするようにしてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24655,6 +24726,15 @@ up a basic project structure.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;finalize&lt;/g1&gt; method will only be invoked once the object has been
+fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140344Z" creationid="makenowjust" creationdate="20200504T140253Z">
+        <seg>&lt;g1&gt;finalize&lt;/g1&gt; メソッドが呼び出さされるのは、オブジェクトが &lt;g2&gt;initialize&lt;/g2&gt; メソッド経由で完全に初期化されていた場合に限ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;gets&lt;/g1&gt; calls will block the fibers and tell the Event Loop to continue from there if data comes.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T071442Z" creationid="akiji" creationdate="20200429T134238Z">
@@ -29200,6 +29280,15 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T042603Z" creationid="hirofumiwakasugi" creationdate="20151005T042603Z">
         <seg>それらはバインディングで以下のように利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Use this method to release resources allocated by external libraries that are
+not directly managed by Crystal garbage collector.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140144Z" creationid="makenowjust" creationdate="20200504T140028Z">
+        <seg>外部ライブラリによって確保された、Crystalのガベージによって直接管理されていないリソースを解放するためにこのメソッドは使ってください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -44889,6 +44978,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T023054Z" creationid="hirofumiwakasugi" creationdate="20150908T023054Z">
         <seg>false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>finalize</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200504T140028Z" creationid="makenowjust" creationdate="20200504T140028Z">
+        <seg>finalize</seg>
       </tuv>
     </tu>
     <tu>

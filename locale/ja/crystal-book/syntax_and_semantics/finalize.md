@@ -1,30 +1,23 @@
 # finalize
 
-If a class defines a `finalize` method, when an instance of that class is
-garbage-collected that method will be invoked:
+もしクラスに `finalize` メソッドが定義されていた場合、そのクラスのインスタンスがガベージコレクトされるときにそのメソッドが呼び出されます。
 
 ```crystal
 class Foo
   def finalize
-    # Foo がガベージコレクトされるときに実行される
-    # Use to release non-managed resources (ie. C libraries, structs)
+    # Foo がガベージコレクトされるときに呼び出される
+    # 管理されていないリソースを解放するのに使う (例:C ライブラリ、構造体)
   end
 end
 ```
 
-Use this method to release resources allocated by external libraries that are
-not directly managed by Crystal garbage collector.
+外部ライブラリによって確保された、Crystalのガベージによって直接管理されていないリソースを解放するためにこのメソッドは使ってください。
 
-Examples of this can be found in [`IO::FileDescriptor#finalize`](https://crystal-lang.org/api/IO/FileDescriptor.html#finalize-instance-method)
-or [`OpenSSL::Digest#finalize`](https://crystal-lang.org/api/OpenSSL/Digest.html#finalize-instance-method).
+例えば[`IO::FileDescriptor#finalize`](https://crystal-lang.org/api/IO/FileDescriptor.html#finalize-instance-method)
+や[`OpenSSL::Digest#finalize`](https://crystal-lang.org/api/OpenSSL/Digest.html#finalize-instance-method)などがで実際に利用されています。
 
-**Notes**:
+**注意**:
 
-- The `finalize` method will only be invoked once the object has been
-   fully initialized via the `initialize` method. If an exception is raised
-   inside the `initialize` method, `finalize` won't be invoked. If your class
-   defines a `finalize` method, be sure to catch any exceptions that might be
-   raised in the `initialize` methods and free resources.
+- `finalize` メソッドが呼び出さされるのは、オブジェクトが `initialize` メソッド経由で完全に初期化されていた場合に限ります。もし例外が `initialize` メソッド中で発生したとき、`finalize` は呼び出されません。もしクラスに `finalize` メソッドを定義する場合は、必ず `initialize` メソッドで発生し得る例外を補足して、リソースの解放をするようにしてください。
 
-- Allocating any new object instances during garbage-collection might result
-   in undefined behavior and most likely crashing your program.
+- ガベージコレクション中に新規に確保されたオブジェクトに対する挙動は未定義で、恐らくその場合プログラムはクラッシュします。
