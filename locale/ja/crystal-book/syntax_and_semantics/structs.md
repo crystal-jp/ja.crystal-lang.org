@@ -1,6 +1,6 @@
-# Structs
+# 構造体 (Struct)
 
-Instead of defining a type with `class` you can do so with `struct`:
+ある型を定義するとき、`class` ではなく `struct` を使うことができます。
 
 ```crystal
 struct Point
@@ -11,15 +11,15 @@ struct Point
 end
 ```
 
-Structs inherit from [Value](https://crystal-lang.org/api/Value.html) so they are allocated on the stack and passed by value: when passed to methods, returned from methods or assigned to variables, a copy of the value is actually passed (while classes inherit from [Reference](https://crystal-lang.org/api/Reference.html), are allocated on the heap and passed by reference).
+構造体は [Value](https://crystal-lang.org/api/Value.html) を継承しているので、このインスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 [Reference](https://crystal-lang.org/api/Reference.html) を継承しているクラスのインスタンスの場合は値はヒープに確保され、参照渡しされます)。
 
-Therefore structs are mostly useful for immutable data types and/or stateless wrappers of other types, usually for performance reasons to avoid lots of small memory allocations when passing small copies might be more efficient (for more details, see the [performance guide](https://crystal-lang.org/docs/guides/performance.html#use-structs-when-possible)).
+そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には[パフォーマンスガイド](https://crystal-lang.org/docs/guides/performance.html#use-structs-when-possible)を参照してください)。
 
-Mutable structs are still allowed, but you should be careful when writing code involving mutability if you want to avoid surprises that are described below.
+変更される (mutable) 構造体も利用できますが、値を変更するようなコードを書いたときに、下で説明するようなことで予想外の挙動をすることに十分に注意する必要があります。
 
-## Passing by value
+## 値渡し
 
-A struct is _always_ passed by value, even when you return `self` from the method of that struct:
+構造体は_常に_値渡しされます。その構造体のメソッドから`self`を返した場合も例外ではありません。
 
 ```crystal
 struct Counter
@@ -37,9 +37,9 @@ counter.plus.plus # => Counter(@x=2)
 puts counter      # => Counter(@x=1)
 ```
 
-Notice that the chained calls of `plus` return the expected result, but only the first call to it modifies the variable `counter`, as the second call operates on the _copy_ of the struct passed to it from the first call, and this copy is discarded after the expression is executed.
+連続する `plus` の呼び出しの返り値は予想通りの結果になっていますが、最初の呼び出しだけが `counter` を変更している、ということに注意してください。2番目の呼び出しは最初の呼び出しで返った構造体の_コピー_になっていて、このコピーは呼び出し後に破棄されます。
 
-You should also be careful when working on mutable types inside of the struct:
+構造体の中に変更される (mutable) 型を使った場合の挙動についても注意の必要があります。
 
 ```crystal
 class Klass
@@ -65,31 +65,31 @@ puts modify(strukt) # => ["new", "bar"]
 puts strukt.array   # => ["str", "foo"]
 ```
 
-What happens with the `strukt` here:
-- `Array` is passed by reference, so the reference to `["str"]` is stored in the property of `strukt`
-- when `strukt` is passed to `modify`, a _copy_ of the `strukt` is passed with the reference to array inside it
-- the array referenced by `array` is modified (element inside it is added) by `object.array << "foo"`
-- this is also reflected in the original `strukt` as it holds reference to the same array
-- `object.array = ["new"]` replaces the reference in the _copy_ of `strukt` with the reference to the new array
-- `object.array << "bar"` appends to this newly created array
-- `modify` returns the reference to this new array and its content is printed
-- the reference to this new array was held only in the _copy_ of `strukt`, but not in the original, so that's why the original `strukt` only retained the result of the first statement, but not of the other two statements
+ここで `strukt` に一体何が起こっているのかというと、
+- `Array` は参照渡しされるので、`["str"]` の参照が `strukt` のフィールドに格納されます。
+- `strukt` を `modify` の引数にしたとき、配列への参照を内部に持った `strukt` の_コピー_が実際には渡されます。
+- 配列の参照の `array` が `object.array << "foo"` によって変更され (要素が追加され) ます。
+- これは元の `strukt` が参照しているものと同じ配列です。
+- `object.array = ["new"]` は `strukt` の_コピー_の持っている配列への参照を、新しく確保したものに置き換えます。
+- `object.array << "bar"` は、その新しく作成した配列に要素を追加します。
+- `modify` はその新しい配列の参照を返して、そしてその内容が表示されます。
+- この新しい配列の参照は `strukt` の_コピー_が所持されていて、元のものは持っていません。そのため `strukt` は最初の変更の影響のみを受けていて、残りの処理の影響を受けていません。
 
-`Klass` is a class, so it is passed by reference to `modify`, and `object.array = ["new"]` saves the reference to the newly created array in the original `klass` object, not in the copy as it was with the `strukt`.
+`Klass` はクラスのため `modify` に参照渡しされ、`object.array = ["new"]` の行で、元の `klass` オブジェクトに新しい配列が保存されます。この点で、コピーしたものに格納していた、`strukt` とは異なります。
 
 
 ## 継承
 
-* A struct implicitly inherits from [Struct](http://crystal-lang.org/api/Struct.html), which inherits from [Value](http://crystal-lang.org/api/Value.html). A class implicitly inherits from [Reference](http://crystal-lang.org/api/Reference.html).
-* A struct cannot inherit from a non-abstract struct.
+* 構造体は暗黙に [Struct](http://crystal-lang.org/api/Struct.html) を継承しており、これは [Value](http://crystal-lang.org/api/Value.html) を継承してます。一方、クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承しています。
+* 構造体は abstract でない構造体を継承することはできません。
 
-The second point has a reason to it: a struct has a very well defined memory layout. For example, the above `Point` struct occupies 8 bytes. If you have an array of points the points are embedded inside the array's buffer:
+2番目のものには、構造体はメモリレイアウトが厳密に定まっていないといけない、という事情があります。例えば、次の `Point` という構造体は8バイトの大きさがあるとします。そして、配列のバッファに各点の情報が埋め込まれると考えてください。
 
 ```crystal
-# The array's buffer will have 8 bytes dedicated to each Point
+# 各 Point 毎に配列のバッファが8バイト確保される
 ary = [] of Point
 ```
 
-If `Point` is inherited, an array of such type should also account for the fact that other types can be inside it, so the size of each element should grow to accommodate that. That is certainly unexpected. So, non-abstract structs can't be inherited from. Abstract structs, on the other hand, will have descendants, so it is expected that an array of them will account for the possibility of having multiple types inside it.
+もし `Point` が継承されるとすると、そのような型の配列にその継承した型が追加される可能性があるので、各要素毎に確保する大きさをそれだけ大きくしなければいけません。これは予想していない挙動です。そのため abstract でない構造体を継承することができないのです。一方、abstract な構造体は明らかに子孫を持つものなので、この型の配列が複数の型の値が追加されるために大きめにメモリを確保することも予想できる挙動です。
 
-A struct can also include modules and can be generic, just like a class.
+また、クラスと同様に、構造体にモジュールをインクルードしたりジェネリック型にすることもできます。

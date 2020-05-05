@@ -2766,6 +2766,16 @@ while !some_condition</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># The array's buffer will have 8 bytes dedicated to each Point
+ary = [] of Point</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175410Z" creationid="makenowjust" creationdate="20200505T175410Z">
+        <seg># 各 Point 毎に配列のバッファが8バイト確保される
+ary = [] of Point</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># The compile-time type
 typeof(a) # =&gt; Int32 | String</seg>
       </tuv>
@@ -10243,6 +10253,14 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Array&lt;/g1&gt; is passed by reference, so the reference to &lt;g2&gt;["str"]&lt;/g2&gt; is stored in the property of &lt;g3&gt;strukt&lt;/g3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173434Z" creationid="makenowjust" creationdate="20200505T173434Z">
+        <seg>&lt;g1&gt;Array&lt;/g1&gt; は参照渡しされるので、&lt;g2&gt;["str"]&lt;/g2&gt; の参照が &lt;g3&gt;strukt&lt;/g3&gt; のフィールドに格納されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Array&lt;/g1&gt;, &lt;g2&gt;Hash&lt;/g2&gt;, &lt;g3&gt;Set&lt;/g3&gt; are generic types, as is &lt;g4&gt;Pointer&lt;/g4&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T142751Z" creationid="makenowjust" creationdate="20200504T142751Z">
@@ -10767,6 +10785,14 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T165702Z" creationid="makenowjust" creationdate="20200413T165702Z">
         <seg>&lt;g1&gt;導入&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Klass&lt;/g1&gt; is a class, so it is passed by reference to &lt;g2&gt;modify&lt;/g2&gt;, and &lt;g3&gt;object.array = ["new"]&lt;/g3&gt; saves the reference to the newly created array in the original &lt;g4&gt;klass&lt;/g4&gt; object, not in the copy as it was with the &lt;g5&gt;strukt&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174634Z" creationid="makenowjust" creationdate="20200505T174634Z">
+        <seg>&lt;g1&gt;Klass&lt;/g1&gt; はクラスのため &lt;g2&gt;modify&lt;/g2&gt; に参照渡しされ、&lt;g3&gt;object.array = ["new"]&lt;/g3&gt; の行で、元の &lt;g4&gt;klass&lt;/g4&gt; オブジェクトに新しい配列が保存されます。この点で、コピーしたものに格納していた、&lt;g5&gt;strukt&lt;/g5&gt; とは異なります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11955,6 +11981,14 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;modify&lt;/g1&gt; returns the reference to this new array and its content is printed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174109Z" creationid="makenowjust" creationdate="20200505T174109Z">
+        <seg>&lt;g1&gt;modify&lt;/g1&gt; はその新しい配列の参照を返して、そしてその内容が表示されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;new, initialize and allocate&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170738Z" creationid="makenowjust" creationdate="20200413T170738Z">
@@ -11991,6 +12025,22 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171156Z" creationid="makenowjust" creationdate="20200413T171156Z">
         <seg>&lt;g1&gt;nil?&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;object.array &lt;&lt; "bar"&lt;/g1&gt; appends to this newly created array</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174032Z" creationid="makenowjust" creationdate="20200505T174032Z">
+        <seg>&lt;g1&gt;object.array &lt;&lt; "bar"&lt;/g1&gt; は、その新しく作成した配列に要素を追加します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;object.array = ["new"]&lt;/g1&gt; replaces the reference in the &lt;g2&gt;copy&lt;/g2&gt; of &lt;g3&gt;strukt&lt;/g3&gt; with the reference to the new array</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174005Z" creationid="makenowjust" creationdate="20200505T174005Z">
+        <seg>&lt;g1&gt;object.array = ["new"]&lt;/g1&gt; は &lt;g3&gt;strukt&lt;/g3&gt; の&lt;g2&gt;コピー&lt;/g2&gt;の持っている配列への参照を、新しく確保したものに置き換えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12767,6 +12817,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105719Z" creationid="makenowjust" creationdate="20200504T105719Z">
         <seg>@arr = [Bar.new] of Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@count += 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172748Z" creationid="makenowjust" creationdate="20200505T172748Z">
+        <seg>@count += 1</seg>
       </tuv>
     </tu>
     <tu>
@@ -13552,6 +13610,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A class implicitly inherits from &lt;g3&gt;Reference&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174717Z" creationid="makenowjust" creationdate="20200505T174717Z">
+        <seg>一方、クラスは &lt;g3&gt;Reference&lt;/g3&gt; を継承しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A class implicitly inherits from [Reference](http://crystal-lang.org/api/Reference.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T054141Z" creationid="hirofumiwakasugi" creationdate="20150913T053929Z">
@@ -14058,6 +14124,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A struct can also include modules and can be generic, just like a class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175912Z" creationid="makenowjust" creationdate="20200505T175912Z">
+        <seg>また、クラスと同様に、構造体にモジュールをインクルードしたりジェネリック型にすることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A struct can be generic, just like a class.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T054242Z" creationid="hirofumiwakasugi" creationdate="20150913T054242Z">
@@ -14070,6 +14144,30 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T054217Z" creationid="hirofumiwakasugi" creationdate="20150913T054217Z">
         <seg>構造体は他の構造体を継承することができ、モジュールをインクルードすることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A struct cannot inherit from a non-abstract struct.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174734Z" creationid="makenowjust" creationdate="20200505T174734Z">
+        <seg>構造体は abstract でない構造体を継承することはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A struct implicitly inherits from &lt;g1&gt;Struct&lt;/g1&gt;, which inherits from &lt;g2&gt;Value&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174706Z" creationid="makenowjust" creationdate="20200505T174706Z">
+        <seg>構造体は暗黙に &lt;g1&gt;Struct&lt;/g1&gt; を継承しており、これは &lt;g2&gt;Value&lt;/g2&gt; を継承してます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A struct is &lt;g1&gt;always&lt;/g1&gt; passed by value, even when you return &lt;g2&gt;self&lt;/g2&gt; from the method of that struct:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172744Z" creationid="makenowjust" creationdate="20200505T172744Z">
+        <seg>構造体は&lt;g1&gt;常に&lt;/g1&gt;値渡しされます。その構造体のメソッドから&lt;g2&gt;self&lt;/g2&gt;を返した場合も例外ではありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14110,6 +14208,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T040257Z" creationid="hirofumiwakasugi" creationdate="20150910T040131Z">
         <seg>モジュールにも abstract メソッドを定義することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Abstract structs, on the other hand, will have descendants, so it is expected that an array of them will account for the possibility of having multiple types inside it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175824Z" creationid="makenowjust" creationdate="20200505T175824Z">
+        <seg>一方、abstract な構造体は明らかに子孫を持つものなので、この型の配列が複数の型の値が追加されるために大きめにメモリを確保することも予想できる挙動です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18073,6 +18179,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, the above &lt;g1&gt;Point&lt;/g1&gt; struct occupies 8 bytes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175233Z" creationid="makenowjust" creationdate="20200505T175056Z">
+        <seg>例えば、次の &lt;g1&gt;Point&lt;/g1&gt; という構造体は8バイトの大きさがあるとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the following won't work:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105252Z" creationid="makenowjust" creationdate="20200504T105252Z">
@@ -18954,6 +19068,14 @@ Set{1, 2, 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If &lt;g1&gt;Point&lt;/g1&gt; is inherited, an array of such type should also account for the fact that other types can be inside it, so the size of each element should grow to accommodate that.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175532Z" creationid="makenowjust" creationdate="20200505T175532Z">
+        <seg>もし &lt;g1&gt;Point&lt;/g1&gt; が継承されるとすると、そのような型の配列にその継承した型が追加される可能性があるので、各要素毎に確保する大きさをそれだけ大きくしなければいけません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If &lt;g1&gt;T1&lt;/g1&gt; and &lt;g2&gt;T2&lt;/g2&gt; are under the same hierarchy, and their nearest common ancestor &lt;g3&gt;Parent&lt;/g3&gt; is not &lt;g4&gt;Reference&lt;/g4&gt;, &lt;g5&gt;Struct&lt;/g5&gt;, &lt;g6&gt;Int&lt;/g6&gt;, &lt;g7&gt;Float&lt;/g7&gt; nor &lt;g8&gt;Value&lt;/g8&gt;, the resulting type is &lt;g9&gt;Parent+&lt;/g9&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T145159Z" creationid="makenowjust" creationdate="20200429T144856Z">
@@ -19763,6 +19885,14 @@ language reference.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061035Z" creationid="hirofumiwakasugi" creationdate="20160204T061024Z">
         <seg>以下のエラーが発生することがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you have an array of points the points are embedded inside the array's buffer:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175343Z" creationid="makenowjust" creationdate="20200505T175343Z">
+        <seg>そして、配列のバッファに各点の情報が埋め込まれると考えてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20793,6 +20923,14 @@ item or map entry.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T060051Z" creationid="hirofumiwakasugi" creationdate="20150912T054625Z">
         <seg>[インスタンス変数と型推論](instance_variables_type_inference.html)で説明したように、インスタンス変数の型は代入された値から推論されます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Instead of defining a type with &lt;g1&gt;class&lt;/g1&gt; you can do so with &lt;g2&gt;struct&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T171234Z" creationid="makenowjust" creationdate="20200505T171234Z">
+        <seg>ある型を定義するとき、&lt;g1&gt;class&lt;/g1&gt; ではなく &lt;g2&gt;struct&lt;/g2&gt; を使うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22093,6 +22231,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mutable structs are still allowed, but you should be careful when writing code involving mutability if you want to avoid surprises that are described below.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172633Z" creationid="makenowjust" creationdate="20200505T172514Z">
+        <seg>変更される (mutable) 構造体も利用できますが、値を変更するようなコードを書いたときに、下で説明するようなことで予想外の挙動をすることに十分に注意する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>MyBox(Int32).new(1)       # OK
 MyBox(Int32).new("hello") # Error
 ```</seg>
@@ -22560,6 +22706,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T024637Z" creationid="hirofumiwakasugi" creationdate="20150907T024539Z">
         <seg>ただ、すべてのメソッドにこの方法が用意されているわけではありません。また、エラーハンドリングのロジックが混ざることよってコードが汚れてしまうのを避けるという意味でも、例外処理というのは好ましい方法であるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Notice that the chained calls of &lt;g1&gt;plus&lt;/g1&gt; return the expected result, but only the first call to it modifies the variable &lt;g2&gt;counter&lt;/g2&gt;, as the second call operates on the &lt;g3&gt;copy&lt;/g3&gt; of the struct passed to it from the first call, and this copy is discarded after the expression is executed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173151Z" creationid="makenowjust" creationdate="20200505T173110Z">
+        <seg>連続する &lt;g1&gt;plus&lt;/g1&gt; の呼び出しの返り値は予想通りの結果になっていますが、最初の呼び出しだけが &lt;g2&gt;counter&lt;/g2&gt; を変更している、ということに注意してください。2番目の呼び出しは最初の呼び出しで返った構造体の&lt;g3&gt;コピー&lt;/g3&gt;になっていて、このコピーは呼び出し後に破棄されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23228,6 +23382,14 @@ Earth::RADIUS #=&gt; 6_371_000
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021616Z" creationid="hirofumiwakasugi" creationdate="20150904T021616Z">
         <seg>メソッド実行時のカッコは省略することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Passing by value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172638Z" creationid="makenowjust" creationdate="20200505T172638Z">
+        <seg>値渡し</seg>
       </tuv>
     </tu>
     <tu>
@@ -24222,6 +24384,14 @@ recursively forms a union type out of nested type paramters:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>So, non-abstract structs can't be inherited from.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175554Z" creationid="makenowjust" creationdate="20200505T175554Z">
+        <seg>そのため abstract でない構造体を継承することができないのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>So, the above can be simply written like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142209Z" creationid="makenowjust" creationdate="20200427T142209Z">
@@ -24467,10 +24637,26 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Structs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T171151Z" creationid="makenowjust" creationdate="20200505T171151Z">
+        <seg>構造体 (Struct)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Structs and modules can be generic too.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150924T060955Z" creationid="hirofumiwakasugi" creationdate="20150924T060938Z">
         <seg>構造体とモジュールをジェネリックにすることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Structs inherit from &lt;g1&gt;Value&lt;/g1&gt; so they are allocated on the stack and passed by value: when passed to methods, returned from methods or assigned to variables, a copy of the value is actually passed (while classes inherit from &lt;g2&gt;Reference&lt;/g2&gt;, are allocated on the heap and passed by reference).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T171630Z" creationid="makenowjust" creationdate="20200505T171630Z">
+        <seg>構造体は &lt;g1&gt;Value&lt;/g1&gt; を継承しているので、このインスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 &lt;g2&gt;Reference&lt;/g2&gt; を継承しているクラスのインスタンスの場合は値はヒープに確保され、参照渡しされます)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24659,6 +24845,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T112608Z" creationid="makenowjust" creationdate="20200502T112608Z">
         <seg>これはクラスのスコープやクラスメソッドの本体部分、プロテクテッドメソッドを定義した型のインスタンスメソッドを含み、その型を継承したクラスや同じ名前空間のすべて型に対しても同様です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That is certainly unexpected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T175540Z" creationid="makenowjust" creationdate="20200505T175540Z">
+        <seg>これは予想していない挙動です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26649,6 +26843,14 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The second point has a reason to it: a struct has a very well defined memory layout.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174928Z" creationid="makenowjust" creationdate="20200505T174928Z">
+        <seg>2番目のものには、構造体はメモリレイアウトが厳密に定まっていないといけない、という事情があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The second rule is very convenient because of the typical directory structure of a project:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T155844Z" creationid="hirofumiwakasugi" creationdate="20150905T155824Z">
@@ -27289,6 +27491,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T072617Z" creationid="akiji" creationdate="20200428T055527Z">
         <seg>そして、そのメインファイバは、さらに多くの他のファイバを生成することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Therefore structs are mostly useful for immutable data types and/or stateless wrappers of other types, usually for performance reasons to avoid lots of small memory allocations when passing small copies might be more efficient (for more details, see the &lt;g1&gt;performance guide&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172516Z" creationid="makenowjust" creationdate="20200505T172420Z">
+        <seg>そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には&lt;g1&gt;パフォーマンスガイド&lt;/g1&gt;を参照してください)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29989,6 +30199,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>What happens with the &lt;g1&gt;strukt&lt;/g1&gt; here:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173256Z" creationid="makenowjust" creationdate="20200505T173256Z">
+        <seg>ここで &lt;g1&gt;strukt&lt;/g1&gt; に一体何が起こっているのかというと、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>What the compiler doesn't know is that for us, &lt;g1&gt;Animal&lt;/g1&gt; will never be instantiated as it doesn't make sense to instantiate one.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T112417Z" creationid="makenowjust" creationdate="20200504T112417Z">
@@ -31250,6 +31468,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011037Z" creationid="hirofumiwakasugi" creationdate="20150907T010852Z">
         <seg>例外を発生させるにはトップレベルの `raise` メソッドを使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should also be careful when working on mutable types inside of the struct:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173236Z" creationid="makenowjust" creationdate="20200505T173236Z">
+        <seg>構造体の中に変更される (mutable) 型を使った場合の挙動についても注意の必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -41885,6 +42111,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>class Klass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173237Z" creationid="makenowjust" creationdate="20200505T173237Z">
+        <seg>class Klass</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>class Legendary
 end</seg>
       </tuv>
@@ -43135,6 +43369,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def initialize(@count : Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172745Z" creationid="makenowjust" creationdate="20200505T172745Z">
+        <seg>def initialize(@count : Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def initialize(@currency, @value)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T012157Z" creationid="hirofumiwakasugi" creationdate="20151010T012157Z">
@@ -43419,6 +43661,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T161249Z" creationid="makenowjust" creationdate="20200501T161249Z">
         <seg>def plan(begin begin_time, end end_time)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def plus</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172747Z" creationid="makenowjust" creationdate="20200505T172747Z">
+        <seg>def plus</seg>
       </tuv>
     </tu>
     <tu>
@@ -44671,6 +44921,24 @@ class Person</seg>
 end
 
 class Person</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+counter = Counter.new(0)
+counter.plus.plus # =&gt; Counter(@x=2)
+puts counter      # =&gt; Counter(@x=1)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172750Z" creationid="makenowjust" creationdate="20200505T172750Z">
+        <seg>end
+end
+
+counter = Counter.new(0)
+counter.plus.plus # =&gt; Counter(@x=2)
+puts counter      # =&gt; Counter(@x=1)</seg>
       </tuv>
     </tu>
     <tu>
@@ -47715,6 +47983,48 @@ numbers[..2] = [1, 10, 3]</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>object.array &lt;&lt; "bar"
+end
+
+klass = Klass.new
+puts modify(klass) # =&gt; ["new", "bar"]
+puts klass.array   # =&gt; ["new", "bar"]
+
+strukt = Strukt.new
+puts modify(strukt) # =&gt; ["new", "bar"]
+puts strukt.array   # =&gt; ["str", "foo"]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173240Z" creationid="makenowjust" creationdate="20200505T173240Z">
+        <seg>object.array &lt;&lt; "bar"
+end
+
+klass = Klass.new
+puts modify(klass) # =&gt; ["new", "bar"]
+puts klass.array   # =&gt; ["new", "bar"]
+
+strukt = Strukt.new
+puts modify(strukt) # =&gt; ["new", "bar"]
+puts strukt.array   # =&gt; ["str", "foo"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>object.array &lt;&lt; "foo"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173239Z" creationid="makenowjust" creationdate="20200505T173239Z">
+        <seg>object.array &lt;&lt; "foo"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>object.array = ["new"]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173240Z" creationid="makenowjust" creationdate="20200505T173240Z">
+        <seg>object.array = ["new"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>objects[1] += 2        # same as: objects[1] = objects[1] + 2</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T055115Z" creationid="hirofumiwakasugi" creationdate="20150902T055115Z">
@@ -48491,10 +48801,46 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>property array = ["str"]
+end
+
+def modify(object)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173238Z" creationid="makenowjust" creationdate="20200505T173238Z">
+        <seg>property array = ["str"]
+end
+
+def modify(object)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>property array = ["str"]
+end
+
+struct Strukt</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173237Z" creationid="makenowjust" creationdate="20200505T173237Z">
+        <seg>property array = ["str"]
+end
+
+struct Strukt</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>property x</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T053815Z" creationid="hirofumiwakasugi" creationdate="20150913T053815Z">
         <seg>property x</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>property x, y</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T171238Z" creationid="makenowjust" creationdate="20200505T171238Z">
+        <seg>property x, y</seg>
       </tuv>
     </tu>
     <tu>
@@ -49611,6 +49957,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>self</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172748Z" creationid="makenowjust" creationdate="20200505T172748Z">
+        <seg>self</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>self == Color::Red</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011445Z" creationid="hirofumiwakasugi" creationdate="20150916T011445Z">
@@ -49995,10 +50349,26 @@ upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>struct Counter</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T172745Z" creationid="makenowjust" creationdate="20200505T172745Z">
+        <seg>struct Counter</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>struct Node</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T045919Z" creationid="hirofumiwakasugi" creationdate="20151007T045919Z">
         <seg>struct Node</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>struct Point</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T171238Z" creationid="makenowjust" creationdate="20200505T171238Z">
+        <seg>struct Point</seg>
       </tuv>
     </tu>
     <tu>
@@ -50137,6 +50507,22 @@ t3 = rand &lt; 0.5 ? </seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>the array referenced by &lt;g1&gt;array&lt;/g1&gt; is modified (element inside it is added) by &lt;g2&gt;object.array &lt;&lt; "foo"&lt;/g2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173849Z" creationid="makenowjust" creationdate="20200505T173849Z">
+        <seg>配列の参照の &lt;g1&gt;array&lt;/g1&gt; が &lt;g2&gt;object.array &lt;&lt; "foo"&lt;/g2&gt; によって変更され (要素が追加され) ます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>the reference to this new array was held only in the &lt;g1&gt;copy&lt;/g1&gt; of &lt;g2&gt;strukt&lt;/g2&gt;, but not in the original, so that's why the original &lt;g3&gt;strukt&lt;/g3&gt; only retained the result of the first statement, but not of the other two statements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T174456Z" creationid="makenowjust" creationdate="20200505T174456Z">
+        <seg>この新しい配列の参照は &lt;g2&gt;strukt&lt;/g2&gt; の&lt;g1&gt;コピー&lt;/g1&gt;が所持されていて、元のものは持っていません。そのため &lt;g3&gt;strukt&lt;/g3&gt; は最初の変更の影響のみを受けていて、残りの処理の影響を受けていません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>then_expression
 else</seg>
       </tuv>
@@ -50169,6 +50555,14 @@ end
 
 # このように後置して使うこともできる
 close_door unless door_closed?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>this is also reflected in the original &lt;g1&gt;strukt&lt;/g1&gt; as it holds reference to the same array</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173905Z" creationid="makenowjust" creationdate="20200505T173905Z">
+        <seg>これは元の &lt;g1&gt;strukt&lt;/g1&gt; が参照しているものと同じ配列です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -50661,6 +51055,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012133Z" creationid="hirofumiwakasugi" creationdate="20150916T012133Z">
         <seg>when :red</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>when &lt;g1&gt;strukt&lt;/g1&gt; is passed to &lt;g2&gt;modify&lt;/g2&gt;, a &lt;g3&gt;copy&lt;/g3&gt; of the &lt;g4&gt;strukt&lt;/g4&gt; is passed with the reference to array inside it</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T173807Z" creationid="makenowjust" creationdate="20200505T173807Z">
+        <seg>&lt;g1&gt;strukt&lt;/g1&gt; を &lt;g2&gt;modify&lt;/g2&gt; の引数にしたとき、配列への参照を内部に持った &lt;g4&gt;strukt&lt;/g4&gt; の&lt;g3&gt;コピー&lt;/g3&gt;が実際には渡されます。</seg>
       </tuv>
     </tu>
     <tu>
