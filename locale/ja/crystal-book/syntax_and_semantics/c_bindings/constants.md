@@ -1,4 +1,4 @@
-# Constants
+# 定数
 
 You can also declare constants inside a `lib` declaration:
 

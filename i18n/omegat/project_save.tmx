@@ -1168,6 +1168,18 @@ local = 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Assuming this example code is saved at: /crystal_code/pseudo_constants.cr
+#
+def pseudo_constants(caller_line = __LINE__, end_of_caller = __END_LINE__)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180913Z" creationid="makenowjust" creationdate="20200505T180913Z">
+        <seg># このコードは /crystal_code/pseudo_constants.cr に保存されているとします。
+#
+def pseudo_constants(caller_line = __LINE__, end_of_caller = __END_LINE__)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Attributes</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071820Z" creationid="hirofumiwakasugi" creationdate="20150919T071445Z">
@@ -11421,6 +11433,38 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;__DIR__&lt;/g1&gt; references the full path to the directory where the currently executing crystal file is located.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180833Z" creationid="makenowjust" creationdate="20200505T180833Z">
+        <seg>&lt;g1&gt;__DIR__&lt;/g1&gt; は現在処理しているソースコードのあるディレクトリの完全なパスを参照します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;__END_LINE__&lt;/g1&gt; is the line number of the &lt;g2&gt;end&lt;/g2&gt; of the calling block.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180623Z" creationid="makenowjust" creationdate="20200505T180623Z">
+        <seg>&lt;g1&gt;__END_LINE__&lt;/g1&gt; は呼び出しのブロックの &lt;g2&gt;end&lt;/g2&gt; のある行番号となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;__FILE__&lt;/g1&gt; references the full path to the currently executing crystal file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180814Z" creationid="makenowjust" creationdate="20200505T180721Z">
+        <seg>&lt;g1&gt;__FILE__&lt;/g1&gt; は現在処理しているソースコードのファイル名の完全なパスを参照します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;__LINE__&lt;/g1&gt; is the current line number in the currently executing crystal file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180724Z" creationid="makenowjust" creationdate="20200505T180504Z">
+        <seg>&lt;g1&gt;__LINE__&lt;/g1&gt; は現在処理しているソースコードの現在の行番号になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;a &amp;&amp;= b&lt;/g1&gt; transforms to &lt;g2&gt;a &amp;&amp; (a = b)&lt;/g2&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T095145Z" creationid="makenowjust" creationdate="20200502T095145Z">
@@ -16301,6 +16345,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Can only be used as a default value to a method parameter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180706Z" creationid="makenowjust" creationdate="20200505T180706Z">
+        <seg>これはメソッドの引数のデフォルト値でのみ利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Captured blocks and proc literals closure local variables and `self`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053825Z" creationid="hirofumiwakasugi" creationdate="20150918T053614Z">
@@ -16768,6 +16820,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Constants</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180243Z" creationid="makenowjust" creationdate="20200505T180243Z">
+        <seg>定数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Constants can be declared at the top level or inside other types.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055233Z" creationid="hirofumiwakasugi" creationdate="20150913T055233Z">
@@ -17000,6 +17060,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221638Z" creationid="makenowjust" creationdate="20200413T221638Z">
         <seg>Crystal のライブラリは Shards と呼ばれ、中央集権的なリポジトリを持たず Git で配布されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Crystal provides a few pseudo-constants which provide reflective data about the source code being executed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180423Z" creationid="makenowjust" creationdate="20200505T180423Z">
+        <seg>Crystal にはいくつかの疑似定数があり、ソースコードの位置に関する情報を取得することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17271,6 +17339,22 @@ Returns the name of `self`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T082936Z" creationid="hirofumiwakasugi" creationdate="20150831T082936Z">
         <seg>それぞれのプラットフォームに合わせて適切なファイルをダウンロードして展開してください。その中に、`bin/crystal` という実行ファイルが含まれています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Dynamic assignment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181119Z" creationid="makenowjust" creationdate="20200505T181119Z">
+        <seg>動的な代入</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Dynamically assigning values to constants using the &lt;g1&gt;chained assignment&lt;/g1&gt; or the &lt;g2&gt;multiple assignment&lt;/g2&gt; is not supported and results in a syntax error.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181225Z" creationid="makenowjust" creationdate="20200505T181225Z">
+        <seg>&lt;g1&gt;連続した代入&lt;/g1&gt;や&lt;g2&gt;多重代入&lt;/g2&gt;は定数に対してはサポートされておらず、構文エラーとなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22806,6 +22890,14 @@ Foo::ONE # Error</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>ONE, TWO, THREE = 1, 2, 3 # Syntax error: Multiple assignment is not allowed for constants</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181227Z" creationid="makenowjust" creationdate="20200505T181227Z">
+        <seg>ONE, TWO, THREE = 1, 2, 3 # Syntax error: Multiple assignment is not allowed for constants</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>OPTIMIZE</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214457Z" creationid="makenowjust" creationdate="20200412T214457Z">
@@ -23346,6 +23438,18 @@ Earth::RADIUS #=&gt; 6_371_000
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>PI = 3.14
+
+module Earth</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180245Z" creationid="makenowjust" creationdate="20200505T180245Z">
+        <seg>PI = 3.14
+
+module Earth</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Parallelism would be to stir fry onions with one hand while with the other one you chop a tomato.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T053745Z" creationid="akiji" creationdate="20200428T053745Z">
@@ -23573,12 +23677,36 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Pseudo Constants</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180254Z" creationid="makenowjust" creationdate="20200505T180254Z">
+        <seg>疑似定数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>RADIUS = 6_371_000
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055324Z" creationid="hirofumiwakasugi" creationdate="20150913T055324Z">
         <seg>RADIUS = 6_371_000
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>RADIUS = 6_371_000
+end
+
+PI            # =&gt; 3.14
+Earth::RADIUS # =&gt; 6_371_000</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180246Z" creationid="makenowjust" creationdate="20200505T180246Z">
+        <seg>RADIUS = 6_371_000
+end
+
+PI            # =&gt; 3.14
+Earth::RADIUS # =&gt; 6_371_000</seg>
       </tuv>
     </tu>
     <tu>
@@ -24765,6 +24893,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150913T055815Z" creationid="hirofumiwakasugi" creationdate="20150913T055815Z">
         <seg>TEN #=&gt; 10
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>TEN = begin</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180248Z" creationid="makenowjust" creationdate="20200505T180248Z">
+        <seg>TEN = begin</seg>
       </tuv>
     </tu>
     <tu>
@@ -30227,6 +30363,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105618Z" creationid="makenowjust" creationdate="20200504T105618Z">
         <seg>どのようにするのが正しい方法でしょうか？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When &lt;g2&gt;__LINE__&lt;/g2&gt; is declared as the default value to a method parameter, it represents the line number at the location of the method call.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180544Z" creationid="makenowjust" creationdate="20200505T180544Z">
+        <seg>&lt;g2&gt;__LINE__&lt;/g2&gt; がメソッドの引数のデフォルト値として利用された場合、メソッドの呼び出された位置の行番号になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -40241,6 +40385,20 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>a
+end
+
+TEN # =&gt; 10</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180250Z" creationid="makenowjust" creationdate="20200505T180250Z">
+        <seg>a
+end
+
+TEN # =&gt; 10</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>a #=&gt; 2
 ```</seg>
       </tuv>
@@ -48885,6 +49043,30 @@ struct Strukt</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>pseudo_constants
+end
+
+# Program prints:
+# Called from line number: 13
+# Currently at line number: 5
+# End of caller block is at: 14
+# File path is: /crystal_code/pseudo_constants.cr
+# Directory file is in: /crystal_code</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181105Z" creationid="makenowjust" creationdate="20200505T181105Z">
+        <seg>pseudo_constants
+end
+
+# Program prints:
+# 呼び出された行番号: 13
+# ここの行番号r: 5
+# 呼び出し元のブロックの終わりの行: 14
+# ファイル名: /crystal_code/pseudo_constants.cr
+# ディレクトリ名: /crystal_code</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>ptr = PInt32.malloc(1) # : Pointer(Int32)
 ```</seg>
       </tuv>
@@ -49001,12 +49183,58 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "Called from line number: #{caller_line}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180944Z" creationid="makenowjust" creationdate="20200505T180924Z">
+        <seg>puts "呼び出された行番号: #{caller_line}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "Cleanup..."
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013357Z" creationid="hirofumiwakasugi" creationdate="20150907T013357Z">
         <seg>puts "Cleanup..."
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Currently at line number: #{__LINE__}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T180936Z" creationid="makenowjust" creationdate="20200505T180936Z">
+        <seg>puts "ここの行番号: #{__LINE__}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Directory file is in: #{__DIR__}"
+end
+
+begin</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181012Z" creationid="makenowjust" creationdate="20200505T181012Z">
+        <seg>puts "ディレクトリ名: #{__DIR__}"
+end
+
+begin</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "End of caller block is at: #{end_of_caller}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181000Z" creationid="makenowjust" creationdate="20200505T181000Z">
+        <seg>puts "呼び出し元のブロックの終わりの行: #{end_of_caller}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "File path is: #{__FILE__}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181110Z" creationid="makenowjust" creationdate="20200505T181005Z">
+        <seg>puts "ファイル名: #{__FILE__}"</seg>
       </tuv>
     </tu>
     <tu>
