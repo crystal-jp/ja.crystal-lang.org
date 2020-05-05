@@ -72,7 +72,7 @@
       * [ジェネリクス](syntax_and_semantics/generics.md)
       * [構造体 (Struct)](syntax_and_semantics/structs.md)
       * [定数](syntax_and_semantics/constants.md)
-      * [Enum](syntax_and_semantics/enum.md)
+      * [列挙型 (Enum)](syntax_and_semantics/enum.md)
       * [ブロックと Proc](syntax_and_semantics/blocks_and_procs.md)
          * [ブロックの捕捉](syntax_and_semantics/capturing_blocks.md)
          * [Proc リテラル](syntax_and_semantics/proc_literal.md)

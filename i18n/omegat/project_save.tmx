@@ -806,10 +806,28 @@ def number_of_horns</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># =&gt; false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182817Z" creationid="makenowjust" creationdate="20200505T182817Z">
+        <seg># =&gt; false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># =&gt; true</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T173841Z" creationid="makenowjust" creationdate="20200422T173841Z">
         <seg># =&gt; true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># =&gt; true
+Color::Blue.red?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182816Z" creationid="makenowjust" creationdate="20200505T182816Z">
+        <seg># =&gt; true
+Color::Blue.red?</seg>
       </tuv>
     </tu>
     <tu>
@@ -10627,8 +10645,8 @@ second operand with pattern matching.</seg>
       <tuv lang="EN-US">
         <seg>&lt;g1&gt;Enums&lt;/g1&gt;</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200413T171018Z" creationid="makenowjust" creationdate="20200413T171018Z">
-        <seg>&lt;g1&gt;Enum&lt;/g1&gt;</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181700Z" creationid="makenowjust" creationdate="20200413T171018Z">
+        <seg>&lt;g1&gt;列挙型 (Enum)&lt;/g1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -12661,6 +12679,16 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@[Flags]
+enum IOMode</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182142Z" creationid="makenowjust" creationdate="20200505T182142Z">
+        <seg>@[Flags]
+enum IOMode</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>@[Raises]</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053359Z" creationid="hirofumiwakasugi" creationdate="20151008T053359Z">
@@ -14360,6 +14388,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, some &lt;g1&gt;Enum&lt;/g1&gt; methods check the &lt;g2&gt;@[Flags]&lt;/g2&gt; attribute.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182512Z" creationid="makenowjust" creationdate="20200505T182512Z">
+        <seg>さらに、&lt;g1&gt;Enum&lt;/g1&gt; のメソッドには &lt;g2&gt;@[Flags]&lt;/g2&gt; 属性によって振る舞いを換えるものがいくつかあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, some `Enum` methods check the `@[Flags]` method.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T010753Z" creationid="hirofumiwakasugi" creationdate="20150915T051626Z">
@@ -14500,6 +14536,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T152550Z" creationid="makenowjust" creationdate="20200429T152550Z">
         <seg>引数は順番に指定していく他に、引数の名前によって指定することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>All enums inherit from &lt;g1&gt;Enum&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182107Z" creationid="makenowjust" creationdate="20200505T182107Z">
+        <seg>すべての列挙型は &lt;g1&gt;Enum&lt;/g1&gt; を継承しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14907,8 +14951,16 @@ in undefined behavior and most likely crashing your program.</seg>
       <tuv lang="EN-US">
         <seg>An enum can be created from an integer:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T010959Z" creationid="hirofumiwakasugi" creationdate="20150916T010959Z">
-        <seg>整数から Enum を作ることができます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182543Z" creationid="hirofumiwakasugi" creationdate="20150916T010959Z">
+        <seg>整数から列挙型を作ることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An enum can be marked with the &lt;g1&gt;@[Flags]&lt;/g1&gt; attribute.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182140Z" creationid="makenowjust" creationdate="20200505T182140Z">
+        <seg>列挙型に &lt;g1&gt;@[Flags]&lt;/g1&gt; という属性を指定することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14923,8 +14975,16 @@ in undefined behavior and most likely crashing your program.</seg>
       <tuv lang="EN-US">
         <seg>An enum is a set of integer values, where each value has an associated name.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T013023Z" creationid="hirofumiwakasugi" creationdate="20150914T024113Z">
-        <seg>Enum はひと組になった整数を表すもので、そのそれぞれの値が名前を持っています。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183507Z" creationid="hirofumiwakasugi" creationdate="20150914T024113Z">
+        <seg>列挙型 (Enum) は整数の集合で、そのそれぞれの値が名前を持っています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An enum is defined with the &lt;g1&gt;enum&lt;/g1&gt; keyword, followed by its name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181819Z" creationid="makenowjust" creationdate="20200505T181736Z">
+        <seg>&lt;g1&gt;enum&lt;/g1&gt; キーワードに続けてその名前を書くことで、列挙型を定義できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15615,6 +15675,16 @@ foo(String) # =&gt; Array(String)</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>Async # 4
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182143Z" creationid="makenowjust" creationdate="20200505T182143Z">
+        <seg>Async # 4
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Async # 4
 end
 ```</seg>
       </tuv>
@@ -15971,6 +16041,20 @@ end</seg>
       <tuv lang="EN-US">
         <seg>Blue
 end
+
+Color::Red.value # :: UInt8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182054Z" creationid="makenowjust" creationdate="20200505T182054Z">
+        <seg>Blue
+end
+
+Color::Red.value # :: UInt8</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Blue
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024115Z" creationid="hirofumiwakasugi" creationdate="20150914T024115Z">
@@ -15985,6 +16069,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024419Z" creationid="hirofumiwakasugi" creationdate="20150914T024419Z">
         <seg>Blue   = 5  # 5に上書きされる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Blue   = 5 # overwritten to 5</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181854Z" creationid="makenowjust" creationdate="20200505T181854Z">
+        <seg>Blue   = 5 # 5に上書きする</seg>
       </tuv>
     </tu>
     <tu>
@@ -16510,6 +16602,14 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Class variables are allowed, but instance variables are not.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182843Z" creationid="makenowjust" creationdate="20200505T182843Z">
+        <seg>クラス変数を使うこともできますが、インスタンス変数を使うことはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Class variables are allowed, but instance variables not.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011606Z" creationid="hirofumiwakasugi" creationdate="20150916T011534Z">
@@ -16586,6 +16686,22 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T202830Z" creationid="makenowjust" creationdate="20200412T202830Z">
         <seg>コーディングスタイル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Color::Green.value # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182532Z" creationid="makenowjust" creationdate="20200505T182532Z">
+        <seg>Color::Green.value # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Color::Red # :: Color</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181924Z" creationid="makenowjust" creationdate="20200505T181924Z">
+        <seg>Color::Red # :: Color</seg>
       </tuv>
     </tu>
     <tu>
@@ -17369,8 +17485,8 @@ Returns the name of `self`.</seg>
       <tuv lang="EN-US">
         <seg>Each constant in the enum has the type of the enum:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024540Z" creationid="hirofumiwakasugi" creationdate="20150914T024431Z">
-        <seg>Enum のそれぞれの定数は Enum の型を持ちます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181922Z" creationid="hirofumiwakasugi" creationdate="20150914T024431Z">
+        <seg>列挙型のそれぞれの定数はその列挙型を型として持ちます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17434,10 +17550,34 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Enums</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181714Z" creationid="makenowjust" creationdate="20200505T181714Z">
+        <seg>列挙型 (Enum)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Enums are a type-safe alternative to &lt;g1&gt;Symbol&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182953Z" creationid="makenowjust" creationdate="20200505T182953Z">
+        <seg>列挙型は &lt;g1&gt;Symbol&lt;/g1&gt; の型安全の代替物として利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Enums are a type-safe alternative to [Symbol](http://crystal-lang.org/api/Symbol.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012004Z" creationid="hirofumiwakasugi" creationdate="20150916T011713Z">
         <seg>Enum は、型安全な[シンボル](http://crystal-lang.org/api/Symbol.html)の代替物として利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Enums from integers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182528Z" creationid="makenowjust" creationdate="20200505T182528Z">
+        <seg>整数から列挙型を作る</seg>
       </tuv>
     </tu>
     <tu>
@@ -17873,6 +18013,14 @@ or &lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Flags enums</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182120Z" creationid="makenowjust" creationdate="20200505T182120Z">
+        <seg>フラグ列挙型</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Float64 |</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T071434Z" creationid="hirofumiwakasugi" creationdate="20150919T071434Z">
@@ -18155,6 +18303,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T020339Z" creationid="hirofumiwakasugi" creationdate="20151001T015927Z">
         <seg>例えば、ブロックが与えられていて、`with ... yield` によってデフォルトのレシーバがあるオブジェクトに設定されているときには、そのオブジェクトの継承チェーンの中で定義されているマクロにアクセスすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, an API's method can specify a &lt;g2&gt;type restriction&lt;/g2&gt; using an enum type:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183053Z" creationid="makenowjust" creationdate="20200505T183053Z">
+        <seg>例えば、列挙型を API のメソッドの&lt;g2&gt;型制約&lt;/g2&gt;に指定することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18632,6 +18788,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Green      # 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181845Z" creationid="makenowjust" creationdate="20200505T181845Z">
+        <seg>Green      # 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>HERE</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034149Z" creationid="makenowjust" creationdate="20200420T034149Z">
@@ -18996,6 +19160,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, if the programmer makes a typo, say &lt;g1&gt;:reed&lt;/g1&gt;, the error will only be caught at runtime, while attempting to use &lt;g2&gt;Color::Reed&lt;/g2&gt; will result in a compile-time error.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183213Z" creationid="makenowjust" creationdate="20200505T183213Z">
+        <seg>ただ、この場合はもしプログラマが &lt;g1&gt;:reed&lt;/g1&gt; とタイポしてしまったとすると、実行時にエラーが発生することになります。一方、&lt;g2&gt;Color::Reed&lt;/g2&gt; であればコンパイルエラーとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, if the programmer makes a typo, say `:reed`, the error will only be caught at runtime, but writing `Color::Reed` will result in a compile-time error.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012428Z" creationid="hirofumiwakasugi" creationdate="20150916T012238Z">
@@ -19124,6 +19296,16 @@ Set{1, 2, 3}</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173553Z" creationid="makenowjust" creationdate="20200420T173553Z">
         <seg>IO::Memory{1, 2, 3}
 Set{1, 2, 3}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>IOMode::None.value # =&gt; 0
+IOMode::All.value  # =&gt; 7</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182423Z" creationid="makenowjust" creationdate="20200505T182423Z">
+        <seg>IOMode::None.value # =&gt; 0
+IOMode::All.value  # =&gt; 7</seg>
       </tuv>
     </tu>
     <tu>
@@ -20149,6 +20331,14 @@ or &lt;g5&gt;&lt;g6&gt;IndexError&lt;/g6&gt;&lt;/g5&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T101325Z" creationid="makenowjust" creationdate="20200502T101325Z">
         <seg>標準ライブラリではそのような場合通常、&lt;g3&gt;&lt;g4&gt;KeyError&lt;/g4&gt;&lt;/g3&gt; か &lt;g5&gt;&lt;g6&gt;IndexError&lt;/g6&gt;&lt;/g5&gt; がエラーとして投げなられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Implicit constants, &lt;g1&gt;None&lt;/g1&gt; and &lt;g2&gt;All&lt;/g2&gt;, are automatically added to these enums, where &lt;g3&gt;None&lt;/g3&gt; has the value &lt;g4&gt;0&lt;/g4&gt; and &lt;g5&gt;All&lt;/g5&gt; has the "or"ed value of all constants.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182422Z" creationid="makenowjust" creationdate="20200505T182422Z">
+        <seg>また、暗黙の定数として &lt;g1&gt;None&lt;/g1&gt; と &lt;g2&gt;All&lt;/g2&gt; が自動的に列挙型に追加されます。ここで &lt;g3&gt;None&lt;/g3&gt; の値は &lt;g4&gt;0&lt;/g4&gt; で、&lt;g5&gt;All&lt;/g5&gt; はすべての定数のビット ORを取ったものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21570,8 +21760,8 @@ installs across computers and systems.</seg>
       <tuv lang="EN-US">
         <seg>Just like a class or a struct, you can define methods for enums:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011443Z" creationid="hirofumiwakasugi" creationdate="20150916T011402Z">
-        <seg>クラスや構造体と同様に、Enum にもメソッドを定義することが可能です。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182804Z" creationid="hirofumiwakasugi" creationdate="20150916T011402Z">
+        <seg>クラスや構造体と同様に、列挙型にもメソッドを定義することが可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22052,6 +22242,14 @@ code that is pasted into a program.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T122532Z" creationid="hirofumiwakasugi" creationdate="20150904T122532Z">
         <seg>メソッド名の先頭は小文字である必要があります。また、メソッド名には使うのは小文字とアンダースコア、そして数値のみとすることが慣習的です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182756Z" creationid="makenowjust" creationdate="20200505T182756Z">
+        <seg>メソッド</seg>
       </tuv>
     </tu>
     <tu>
@@ -23735,6 +23933,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Read  # 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182142Z" creationid="makenowjust" creationdate="20200505T182142Z">
+        <seg>Read  # 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Read # 1</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T114623Z" creationid="hirofumiwakasugi" creationdate="20150914T114623Z">
@@ -23795,6 +24001,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024409Z" creationid="hirofumiwakasugi" creationdate="20150914T024409Z">
         <seg>Red         # 0</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Red        # 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181845Z" creationid="makenowjust" creationdate="20200505T181845Z">
+        <seg>Red        # 0</seg>
       </tuv>
     </tu>
     <tu>
@@ -25170,6 +25384,14 @@ up a basic project structure.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;@[Flags]&lt;/g1&gt; attribute makes the first constant's value be &lt;g2&gt;1&lt;/g2&gt;, and successive constants are multiplied by &lt;g3&gt;2&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182253Z" creationid="makenowjust" creationdate="20200505T182253Z">
+        <seg>&lt;g1&gt;@[Flags]&lt;/g1&gt; 属性を指定することで、最初の定数の値は &lt;g2&gt;1&lt;/g2&gt; になり、以降は前の値を &lt;g3&gt;2&lt;/g3&gt; 倍したものになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;Nil&lt;/g1&gt; type is used to represent the absence of a value, similar to &lt;g2&gt;null&lt;/g2&gt; in other languages.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000904Z" creationid="makenowjust" creationdate="20200414T000713Z">
@@ -26272,8 +26494,8 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       <tuv lang="EN-US">
         <seg>The enum's body contains the values.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024231Z" creationid="hirofumiwakasugi" creationdate="20150914T024231Z">
-        <seg>Enum はその本体に値を持ちます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181752Z" creationid="hirofumiwakasugi" creationdate="20150914T024231Z">
+        <seg>列挙型はその本体に値を持ちます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26901,8 +27123,8 @@ literals.</seg>
       <tuv lang="EN-US">
         <seg>The recommended thing to do is to use enums whenever possible, only use symbols for the internal implementation of an API, and avoid symbols for public APIs.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T012608Z" creationid="hirofumiwakasugi" creationdate="20150916T012326Z">
-        <seg>したがって、Enum を利用できるときには常に Enum を利用することを推奨します。シンボルを使うのは API の内部的な実装に留めて、公開する API ではシンボルを使わないようにしましょう。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183231Z" creationid="hirofumiwakasugi" creationdate="20150916T012326Z">
+        <seg>したがって、列挙型を利用できるときには常に列挙型を利用することを推奨します。シンボルを使うのは API の内部的な実装に留めて、公開する API ではシンボルを使わないようにしましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27217,6 +27439,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T144405Z" creationid="makenowjust" creationdate="20200429T144405Z">
         <seg>また、その呼び出しの型は、すべての型での呼び出し結果の型のユニオン型になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of the value is &lt;g1&gt;Int32&lt;/g1&gt; by default but can be changed:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182052Z" creationid="makenowjust" creationdate="20200505T182052Z">
+        <seg>この値の型は &lt;g1&gt;Int32&lt;/g1&gt; ですが、変更することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28479,8 +28709,8 @@ ones.</seg>
       <tuv lang="EN-US">
         <seg>This method is mainly intended to convert integers from C to enums in Crystal.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011303Z" creationid="hirofumiwakasugi" creationdate="20150916T011206Z">
-        <seg>これは主に C の整数を Crystal の Enum に変換する用途で利用します。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182754Z" creationid="hirofumiwakasugi" creationdate="20150916T011206Z">
+        <seg>これは主に C の整数を Crystal の列挙型に変換する用途で利用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29154,6 +29384,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T040002Z" creationid="hirofumiwakasugi" creationdate="20150906T040002Z">
         <seg>実際のクラスのサイズを得るには [instance_sizeof](instance_sizeof.html) を使用してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To get the underlying value you invoke &lt;g1&gt;value&lt;/g1&gt; on it:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182034Z" creationid="makenowjust" creationdate="20200505T182034Z">
+        <seg>紐付いている値を参照するには &lt;g1&gt;value&lt;/g1&gt; を呼び出してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29986,10 +30224,26 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Values start with the value &lt;g2&gt;0&lt;/g2&gt; and are incremented by one.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181842Z" creationid="makenowjust" creationdate="20200505T181842Z">
+        <seg>値は最初に &lt;g2&gt;0&lt;/g2&gt; から始まって、1ずつ増えていきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Values start with the value `0` and are incremented by one.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024407Z" creationid="hirofumiwakasugi" creationdate="20150914T024251Z">
         <seg>値は最初が `0` で始まって1ずつ増えていきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Values that don't correspond to an enum's constants are allowed: the value will still be of type &lt;g1&gt;Color&lt;/g1&gt;, but when printed you will get the underlying value:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182737Z" creationid="makenowjust" creationdate="20200505T182737Z">
+        <seg>列挙型の定数にない値を指定することも可能です。その場合は、あくまでも型は &lt;g1&gt;Color&lt;/g1&gt; となりますが、出力してときにはその値がそのまま出力されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30888,6 +31142,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Write # 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182143Z" creationid="makenowjust" creationdate="20200505T182143Z">
+        <seg>Write # 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Write &lt;g1&gt;documentation&lt;/g1&gt; to express the purpose of your code and support the &lt;g2&gt;crystal docs&lt;/g2&gt; generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T220645Z" creationid="makenowjust" creationdate="20200412T220645Z">
@@ -30962,6 +31224,16 @@ end
         <seg>Yellow      # 6 (5 + 1)
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Yellow     # 6 (5 + 1)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181855Z" creationid="makenowjust" creationdate="20200505T181855Z">
+        <seg>Yellow     # 6 (5 + 1)
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -43807,6 +44079,22 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def paint(color : Color)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183115Z" creationid="makenowjust" creationdate="20200505T183115Z">
+        <seg>def paint(color : Color)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def paint(color : Symbol)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183122Z" creationid="makenowjust" creationdate="20200505T183122Z">
+        <seg>def paint(color : Symbol)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def parse(score_text)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T011936Z" creationid="hirofumiwakasugi" creationdate="20151010T011936Z">
@@ -44786,6 +45074,20 @@ CaesarCipher.encrypt("HELLO") # =&gt; "URYYB"</seg>
         <seg>end
 end
 
+Color::Red.red?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182811Z" creationid="makenowjust" creationdate="20200505T182811Z">
+        <seg>end
+end
+
+Color::Red.red?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 Counter.instances # =&gt; 0
 Counter.new
 Counter.new
@@ -45500,6 +45802,34 @@ e.greet "everyone" # "Hello, everyone"</seg>
         <seg>end
 end
 
+paint :red</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183125Z" creationid="makenowjust" creationdate="20200505T183125Z">
+        <seg>end
+end
+
+paint :red</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+paint Color::Red</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T183119Z" creationid="makenowjust" creationdate="20200505T183119Z">
+        <seg>end
+end
+
+paint Color::Red</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 person = Person.new "John"
 
 # Invokes the first definition
@@ -45721,6 +46051,22 @@ puts a #=&gt; 10
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T014330Z" creationid="hirofumiwakasugi" creationdate="20150907T014330Z">
         <seg>ensure</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>enum Color</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T181728Z" creationid="makenowjust" creationdate="20200505T181728Z">
+        <seg>enum Color</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>enum Color : UInt8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182053Z" creationid="makenowjust" creationdate="20200505T182053Z">
+        <seg>enum Color : UInt8</seg>
       </tuv>
     </tu>
     <tu>
@@ -49659,6 +50005,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts Color.new(1) # =&gt; prints "Green"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182555Z" creationid="makenowjust" creationdate="20200505T182544Z">
+        <seg>puts Color.new(1) # =&gt; "Green" と出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts Color.new(10) # =&gt; prints "10"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182745Z" creationid="makenowjust" creationdate="20200505T182738Z">
+        <seg>puts Color.new(10) # =&gt; "10" と出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts a
 end
 
@@ -49867,6 +50229,16 @@ block do</seg>
         <seg>puts {{value}}
 {% end %}
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts(Color::Red)                    # prints "Red"
+puts(IOMode::Write | IOMode::Async) # prints "Write, Async"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182513Z" creationid="makenowjust" creationdate="20200505T182513Z">
+        <seg>puts(Color::Red)                    # prints "Red"
+puts(IOMode::Write | IOMode::Async) # prints "Write, Async"</seg>
       </tuv>
     </tu>
     <tu>
@@ -52587,5 +52959,15 @@ objects[1] &amp;&amp;= 2 # objects[1]? </seg>
       </tuv>
     </tu>
 <!-- Alternative translations -->
+    <tu>
+      <prop type="file">crystal-book/syntax_and_semantics/enum.md</prop>
+      <prop type="id">tu32_0</prop>
+      <tuv lang="EN-US">
+        <seg>Usage</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T182859Z" creationid="makenowjust" creationdate="20200505T182859Z">
+        <seg>用途</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>
