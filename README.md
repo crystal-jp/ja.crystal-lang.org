@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 80/125
+翻訳済み/全体 = 81/125
 
 <details>
 
@@ -99,7 +99,7 @@
 | `crystal-book/syntax_and_semantics/structs.md`                                                      | ○    |
 | `crystal-book/syntax_and_semantics/constants.md`                                                    | ○    |
 | `crystal-book/syntax_and_semantics/enum.md`                                                         | ○    |
-| `crystal-book/syntax_and_semantics/blocks_and_procs.md`                                             | △    |
+| `crystal-book/syntax_and_semantics/blocks_and_procs.md`                                             | ○    |
 | `crystal-book/syntax_and_semantics/capturing_blocks.md`                                             | △    |
 | `crystal-book/syntax_and_semantics/proc_literal.md`                                                 | ×    |
 | `crystal-book/syntax_and_semantics/block_forwarding.md`                                             | △    |

@@ -1,7 +1,6 @@
-# Blocks and Procs
+# ブロックと Proc
 
-Methods can accept a block of code that is executed
-with the `yield` keyword. 例をあげます。
+メソッドはコードのブロックを取ることができ、そのブロックは `yield` キーワードによって実行できます。例をあげます。
 
 ```crystal
 def twice
@@ -14,9 +13,9 @@ twice do
 end
 ```
 
-The above program prints "Hello!" twice, once for each `yield`.
+上記のプログラムでは各 `yield` ごとに、計2回の "Hello!" が出力されます。
 
-To define a method that receives a block, simply use `yield` inside it and the compiler will know. You can make this more evident by declaring a dummy block argument, indicated as a last argument prefixed with ampersand (`&`):
+ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはそれをブロックを受け取るメソッドであると認識します。ダミーのブロック引数を宣言することで、上記をより明確に示すことも可能です。先頭がアンパサンド (`&`) の引数を最後の引数にしてください。
 
 ```crystal
 def twice(&block)
@@ -25,7 +24,7 @@ def twice(&block)
 end
 ```
 
-To invoke a method and pass a block, you use `do ... end` or `{ ... }`. 以下はすべて同等のコードです。
+ブロックを渡してメソッドを呼び出すには、`do ... end` か `{ ... }` を利用します。以下はすべて同等のコードです。
 
 ```crystal
 twice() do
@@ -39,51 +38,51 @@ end
 twice { puts "Hello!" }
 ```
 
-The difference between using `do ... end` and `{ ... }` is that `do ... end` binds to the left-most call, while `{ ... }` binds to the right-most call:
+`do ... end` と `{ ... }` の違いは、`do ... end` は最も左の呼び出しに渡されますが、`{ ... }` は最も右にある呼び出しに渡されるということです。
 
 ```crystal
 foo bar do
   something
 end
 
-# The above is the same as
+# 上記は以下に同じ
 foo(bar) do
   something
 end
 
 foo bar { something }
 
-# The above is the same as
+# 上記は以下に同じ
 
 foo(bar { something })
 ```
 
-The reason for this is to allow creating Domain Specific Languages (DSLs) using `do ... end` to have them be read as plain English:
+このようになっている理由はドメイン固有言語 (DSL) を作成する際に、`do ... end` が自然な英語のように読み下せるようにするためです。
 
 ```crystal
 open file "foo.cr" do
   something
 end
 
-# Same as:
+# 以下と同じ
 open(file("foo.cr")) do
 end
 ```
 
-You wouldn't want the above to be:
+上記を次のようにすることはできません。
 
 ```crystal
 open(file("foo.cr") do
 end)
 ```
 
-## Overloads
+## オーバーロード
 
-Two methods, one that yields and another that doesn't, are considered different overloads, as explained in the [overloading](overloading.html) section.
+[オーバーロード](overloading.html)で説明したように、ブロックを取るメソッドとそうでないメソッドは別のオーバーロードであると解釈されます。
 
-## Yield arguments
+## yield の引数
 
-The `yield` expression is similar to a call and can receive arguments. 例をあげます。
+`yield` 式はメソッド呼び出しと似ていて、引数を受け取ることもできます。例をあげます。
 
 ```crystal
 def twice
@@ -96,7 +95,7 @@ twice do |i|
 end
 ```
 
-上記を実行すると「Got 1」そして「Got 2」と出力されます。
+上記を実行すると "Got 1" そして "Got 2" と出力されます。
 
 波カッコを使った指定も可能です。
 
@@ -104,7 +103,7 @@ end
 twice { |i| puts "Got #{i}" }
 ```
 
-You can `yield` many values:
+複数の値を `yield` することもできます。
 
 ```crystal
 def many
@@ -132,7 +131,7 @@ end
 # Output: 3
 ```
 
-It's an error specifying more block arguments than those yielded:
+しかし、yield された引数の数よりも多くのブロック引数を指定した場合はエラーになります。
 
 ```crystal
 def twice
@@ -155,15 +154,15 @@ end
 
 some do |first, second|
   # first は Int32 | Bool
-  # second is Char | String | Nil
+  # second は Char | String | Nil
 end
 ```
 
-The block variable `second` also includes the `Nil` type because the last `yield` expression didn't include a second argument.
+ブロック引数 `second` は `Nil` を含んでいます。これは、最後の `yield` 式に2番目の引数が指定されていないためです。
 
-## Short one-argument syntax
+## 単一引数の場合の短縮記法
 
-If a block has a single argument and invokes a method on it, the block can be replaced with the short syntax argument.
+もしブロックが単一の引数とそれに対するメソッド呼び出しのみの場合、ブロックをより短い記法で置き換えることができます。
 
 例えば、
 
@@ -179,47 +178,47 @@ and
 method { |argument| argument.some_method }
 ```
 
-can both be written as:
+は次のように書けます。
 
 ```crystal
 method &.some_method
 ```
 
-Or like:
+あるいはこのようにも、
 
 ```crystal
 method(&.some_method)
 ```
 
-In either case, `&.some_method` is an argument passed to `method`.  This argument is syntactically equivalent to the block variants.  It is only syntactic sugar and does not have any performance penalty.
+両方の場合で、`&.some_method` は `method` に引数として渡されています。この引数は意味的にはブロックと同様です。これは単なるシンタックスシュガーであり、パフォーマンス上の欠点はありません。
 
-If the method has other required parameters, the short syntax argument should also be supplied in the method's argument list.
+メソッドが他の引数を要求する場合、短縮記法はメソッドの引数リストに追加されなければいけません。
 
 ```crystal
 ["a", "b"].join(",", &.upcase)
 ```
 
-Is equivalent to:
+これは次に等しいです。
 ```crystal
 ["a", "b"].join(",") { |s| s.upcase }
 ```
 
-Arguments can be used with the short syntax argument as well:
+短縮記法に引数を渡すこともできます。
 
 ```crystal
 ["i", "o"].join(",", &.upcase(Unicode::CaseOptions::Turkic))
 ```
 
-Operators can be invoked too:
+演算子の場合も同様に呼び出すことができます。
 
 ```crystal
 method &.+(2)
 method(&.[index])
 ```
 
-## yield value
+## yield の値
 
-The `yield` expression itself has a value: the last expression of the block. 例をあげます。
+`yield` 式自体も値を持っていて、それはブロックの最後の値となります。例をあげます。
 
 ```crystal
 def twice
@@ -235,9 +234,9 @@ twice do |i|
 end
 ```
 
-上記では「2」と「3」が出力されます。
+上記では "2" と "3" が出力されます。
 
-A `yield` expression's value is mostly useful for transforming and filtering values. The best examples of this are [Enumerable#map](https://crystal-lang.org/api/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) and [Enumerable#select](https://crystal-lang.org/api/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method):
+`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](https://crystal-lang.org/api/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) と [Enumerable#select](https://crystal-lang.org/api/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method) でしょう。
 
 ```crystal
 ary = [1, 2, 3]
@@ -255,11 +254,11 @@ end
 transform(1) { |x| x + 1 } # => 2
 ```
 
-The result of the last expression is `2` because the last expression of the `transform` method is `yield`, whose value is the last expression of the block.
+この最後の式の実行結果は `2` になります。`transform` メソッドの最後の式は `yield` であり、そしてその値はブロックの最後の式になるからです。
 
 ## 型制約
 
-The type of the block in a method that uses `yield` can be restricted using the `&block` syntax. 例をあげます。
+`yield` で使うブロックの型を `&block` によって制約することができます。例をあげます。
 
 ```crystal
 def transform_int(start : Int32, &block : Int32 -> Int32)
@@ -273,7 +272,7 @@ transform_int(3) { |x| "foo" } # Error: expected block to return Int32, not Stri
 
 ## break
 
-A `break` expression inside a block exits early from the method:
+ブロックの中に `break` 式があると、そこでメソッドを抜けます。
 
 ```crystal
 def thrice
@@ -293,9 +292,9 @@ thrice do |i|
 end
 ```
 
-上記は「Before 1」そして「Before 2」を出力します。The `thrice` method didn't execute the `puts "Before 3"` expression because of the `break`.
+上記は "Before 1" そして "Before 2" を出力します。`break` があるため、`thrice` メソッドが `puts "Before 3"` を実行することはありません。
 
-`break` can also accept arguments: these become the method's return value. 例をあげます。
+`break` は引数を受け取ることも可能で、その場合にはそれがメソッドの戻り値となります。例をあげます。
 
 ```crystal
 def twice
@@ -307,9 +306,9 @@ twice { |i| i + 1 }         # => 3
 twice { |i| break "hello" } # => "hello"
 ```
 
-The first call's value is 3 because the last expression of the `twice` method is `yield`, which gets the value of the block. The second call's value is "hello" because a `break` was performed.
+最初の呼び出しのときの値は、`twice` メソッドが `yield` されているためブロックの値となります。一方2番目の呼び出しでは `break` が実行されているため、値が "hello" となっています。
 
-If there are conditional breaks, the call's return value type will be a union of the type of the block's value and the type of the many `break`s:
+もしある条件によって break する場合、そのメソッドの戻り値の型は、ブロックの戻り値の型とすべての `break` の型の組み合わせとなります。
 
 ```crystal
 value = twice do |i|
@@ -321,14 +320,14 @@ end
 value # :: Int32 | String
 ```
 
-If a `break` receives many arguments, they are automatically transformed to a [Tuple](http://crystal-lang.org/api/Tuple.html):
+`break` が複数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。
 
 ```crystal
 values = twice { break 1, 2 }
 values # => {1, 2}
 ```
 
-If a `break` receives no arguments, it's the same as receiving a single `nil` argument:
+`break` が引数を取らない場合、`nil` を1つ受け取ったのと同じことになります。
 
 ```crystal
 value = twice { break }
@@ -337,7 +336,7 @@ value # => nil
 
 ## next
 
-The `next` expression inside a block exits early from the block (not the method). 例をあげます。
+ブロックの中に`next` 式があるとそこで、 (メソッドではなく) ブロックを抜けます。例をあげます。
 
 ```crystal
 def twice
@@ -359,7 +358,7 @@ end
 # Got 2
 ```
 
-The `next` expression accepts arguments, and these give the value of the `yield` expression that invoked the block:
+`next` 式は引数を受け取ることが可能です。そのとき、受け取った値はそのブロックを実行した `yield` 式の値となります。
 
 ```crystal
 def twice
@@ -383,11 +382,11 @@ end
 # 3
 ```
 
-If a `next` receives many arguments, they are automatically transformed to a [Tuple](http://crystal-lang.org/api/Tuple.html). If it receives no arguments it's the same as receiving a single `nil` argument.
+`next` が複数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
 
 ## with ... yield
 
-A `yield` expression can be modified, using the `with` keyword, to specify an object to use as the default receiver of method calls within the block:
+`yield` 式に `with` キーワードを使うと、ブロック内でメソッドを実行する際にデフォルトのレシーバとなるオブジェクトを指定することができます。
 
 ```crystal
 class Foo
@@ -412,9 +411,9 @@ Foo.new.yield_with_self { one } # => 1
 Foo.new.yield_normally { one }  # => "one"
 ```
 
-## Unpacking block arguments
+## ブロック引数のアンパック
 
-A block argument can specify sub-arguments enclosed in parentheses:
+括弧で囲むことで引数をブロック引数をアンパックできます。
 
 ```crystal
 array = [{1, "one"}, {2, "two"}]
@@ -423,7 +422,7 @@ array.each do |(number, word)|
 end
 ```
 
-The above is simply syntax sugar of this:
+上の例は以下のシンタックスシュガーになります。
 
 ```crystal
 array = [{1, "one"}, {2, "two"}]
@@ -434,9 +433,9 @@ array.each do |arg|
 end
 ```
 
-That means that any type that responds to `[]` with integers can be unpacked in a block argument.
+整数の渡せる `[]` メソッドを持つどのような型のブロック引数に対してもアンパックができます。
 
-For [Tuple](http://crystal-lang.org/api/Tuple.html) arguments you can take advantage of auto-splatting and do not need parentheses:
+また、[Tuple](http://crystal-lang.org/api/Tuple.html) の引数であれば、括弧が無くても自動で展開されます。
 
 ```crystal
 array = [{1, "one", true}, {2, "two", false}]
@@ -445,7 +444,7 @@ array.each do |number, word, bool|
 end
 ```
 
-[Hash(K, V)#each](http://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) passes `Tuple(K, V)` to the block so iterating key-value pairs works with auto-splatting:
+例えば [Hash(K, V)#each](http://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) はブロックに `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
 
 ```crystal
 h = {"foo" => "bar"}
@@ -455,9 +454,9 @@ h.each do |key, value|
 end
 ```
 
-## Performance
+## パフォーマンス
 
-When using blocks with `yield`, the blocks are **always** inlined: no closures, calls or function pointers are involved. これは次のことを意味しています。
+ブロックを `yield` するとき、そのブロックは**常に**インライン展開されます。クロージャやメソッド呼び出し、そして関数ポインタなどが使われることはありません。これは次のことを意味しています。
 
 ```crystal
 def twice
@@ -479,7 +478,7 @@ i = 2
 puts "Got: #{i}"
 ```
 
-For example, the standard library includes a `times` method on integers, allowing you to write:
+例えば、標準ライブラリには `times` という整数型に対するメソッドがあり、それを使うと以下のように書くことができます。
 
 ```crystal
 3.times do |i|
@@ -487,9 +486,9 @@ For example, the standard library includes a `times` method on integers, allowin
 end
 ```
 
-This looks very fancy, but is it as fast as a C for loop? The answer is: yes!
+とても読みやすいですが、これは C にループのように高速に動くのでしょうか？答えは YES です。
 
-This is `Int#times` definition:
+`Int#times` は以下のように定義されています。
 
 ```crystal
 struct Int
@@ -503,7 +502,7 @@ struct Int
 end
 ```
 
-Because a non-captured block is always inlined, the above method invocation is **exactly the same** as writing this:
+補足されないブロック (non-captured block) は常にインライン展開されます。したがって、上記のメソッドの実行は、以下のように書くことと**まったく同じ**です。
 
 ```crystal
 i = 0
