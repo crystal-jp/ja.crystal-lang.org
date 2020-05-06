@@ -13780,6 +13780,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A captured block is the same as declaring a &lt;g1&gt;Proc literal&lt;/g1&gt; and &lt;g2&gt;passing&lt;/g2&gt; it to the method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074356Z" creationid="makenowjust" creationdate="20200506T074356Z">
+        <seg>捕捉されたブロックは &lt;g1&gt;Proc リテラル&lt;/g1&gt;を宣言してメソッドに&lt;g2&gt;渡す&lt;/g2&gt;ことと等しいです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A captured block is the same as declaring a [Proc literal](literals/proc.html) and [passing](block_forwarding.html) it to the method.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T061637Z" creationid="hirofumiwakasugi" creationdate="20150917T022136Z">
@@ -15632,6 +15640,14 @@ foo(String) # =&gt; Array(String)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T080407Z" creationid="makenowjust" creationdate="20200424T080407Z">
         <seg>式としての if</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As explained in the &lt;g1&gt;proc literals&lt;/g1&gt; section, a Proc can also be created from existing methods:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074427Z" creationid="makenowjust" creationdate="20200506T074427Z">
+        <seg>&lt;g1&gt;Proc リテラル&lt;/g1&gt;のセクションで説明したように、既存のメソッドから Proc を作ることも可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24138,6 +24154,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T170959Z" creationid="makenowjust" creationdate="20200422T170959Z">
         <seg>Proc</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Proc literal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074257Z" creationid="makenowjust" creationdate="20200506T074257Z">
+        <seg>Proc リテラル</seg>
       </tuv>
     </tu>
     <tu>
@@ -42580,6 +42604,30 @@ proc.call(1) # void</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>block
+end
+
+x = 0
+proc = -&gt;(i : Int32) { x += i }
+proc = some_proc(&amp;proc)
+proc.call(1)  # =&gt; 1
+proc.call(10) # =&gt; 11
+x             # =&gt; 11</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074357Z" creationid="makenowjust" creationdate="20200506T074357Z">
+        <seg>block
+end
+
+x = 0
+proc = -&gt;(i : Int32) { x += i }
+proc = some_proc(&amp;proc)
+proc.call(1)  # =&gt; 1
+proc.call(10) # =&gt; 11
+x             # =&gt; 11</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>block.call
 end</seg>
       </tuv>
@@ -45056,6 +45104,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T152716Z" creationid="makenowjust" creationdate="20200429T152716Z">
         <seg>def some_method(x, y = 1, z = 2, w = 3)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def some_proc(&amp;block : Int32 -&gt; Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074356Z" creationid="makenowjust" creationdate="20200506T074356Z">
+        <seg>def some_proc(&amp;block : Int32 -&gt; Int32)</seg>
       </tuv>
     </tu>
     <tu>
@@ -53262,6 +53318,22 @@ add true, false</seg>
 end
 
 add true, false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x + y
+end
+
+adder = -&gt;add(Int32, Int32)
+adder.call(1, 2) # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074428Z" creationid="makenowjust" creationdate="20200506T074428Z">
+        <seg>x + y
+end
+
+adder = -&gt;add(Int32, Int32)
+adder.call(1, 2) # =&gt; 3</seg>
       </tuv>
     </tu>
     <tu>
