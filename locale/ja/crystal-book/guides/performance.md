@@ -16,7 +16,7 @@
 
 ## メモリの割り当てを避ける
 
-プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。メモリの割り当ては**class**のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。**struct**のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。スタックメモリとヒープメモリの違いがわからない場合は、 [ここを読んでみてください](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)。
+プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。メモリの割り当ては**クラス**のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。**構造体**のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。スタックメモリとヒープメモリの違いがわからない場合は、 [ここを読んでみてください](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)。
 
 ヒープメモリの割り当ては低速で、後々そのメモリを解放するガーベジコレクタ（GC）に負荷をかけます。
 
@@ -151,14 +151,14 @@ String.build 597.57k (  1.67µs) (± 5.52%)       fastest
 ```crystal
 lines_with_language_reference = 0
 while line = gets
-  if ["crystal", "ruby", "java"].any? { |string| line.includes?(string) }
+  if ["crystal", "ruby", "java"].any?{ |string| line.includes?(string) }
     lines_with_language_reference += 1
   end
 end
 puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
 ```
 
-上記のプログラムはちゃんと動作しますが、繰り返しのたびに`["crystal", "ruby", "java"]`を新しい配列として生成するという大きなパフォーマンス上の問題を抱えています。配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理の糖衣構文でしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。
+上記のプログラムはちゃんと動作しますが、繰り返しのたびに`["crystal", "ruby", "java"]`を新しい配列として生成するという大きなパフォーマンス上の問題を抱えています。配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理のシンタックスシュガーでしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。
 
 これを解決するには2つの方法があります。
 
@@ -167,7 +167,7 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 ```crystal
 lines_with_language_reference = 0
 while line = gets
-  if {"crystal", "ruby", "java"}.any? { |string| line.includes?(string) }
+  if {"crystal", "ruby", "java"}.any?{ |string| line.includes?(string) }
     lines_with_language_reference += 1
   end
 end
@@ -181,7 +181,7 @@ LANGS = ["crystal", "ruby", "java"]
 
 lines_with_language_reference = 0
 while line = gets
-  if LANGS.any? { |string| line.includes?(string) }
+  if LANGS.any?{ |string| line.includes?(string) }
     lines_with_language_reference += 1
   end
 end
@@ -192,11 +192,11 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 
 ループ内での明示的に配列リテラルを使うことは、一時的なオブジェクトが生成される状況の1つのですが、一時的なオブジェクトはメソッド呼び出しによっても生成される場合があります。例えば、`Hash#keys` は実行されるたびにキーを含む新しい配列を返します。代わりに`Hash#each_key`や`Hash#has_key?`といった他のメソッドを使用しましょう。
 
-### 可能な場合には struct を使用する
+### 可能な場合には構造体を使用する
 
-独自の型を  **class** ではなく **struct** として定義すると、ヒープメモリよりも低負荷でGCに負担もかけないスタックメモリ上にインスタンスを生成します。
+独自の型を  **クラス** ではなく **構造体** として定義すると、ヒープメモリよりも低負荷でGCに負担もかけないスタックメモリ上にインスタンスを生成します。
 
-しかし、いつでも struct を使えば良いわけではありません。struct は値渡しされるので、メソッドに渡した struct がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。structs は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。
+しかし、いつでも構造体を使えば良いわけではありません。struct は値渡しされるので、メソッドに渡した構造体がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。構造体は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。
 
 例をあげます。
 
@@ -251,7 +251,7 @@ end
 実は上記のコードは、「文字列の `size`（文字数）が単純に`bytesize`（バイト数）からは得られないため、その計算にも時間がかかる」という2つ目の問題を含んでいます。
 しかし、Stringの文字数は一度計算されるとその値がキャッシュされます（ので繰り返しによるデメリットは限定的です）。
 
-この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（`each_char`や`each_byte`、`each_codepoint`など）のいずれかを使用するか、よりローレベルの`Char::Reader`を使用することです。`each_char`を使用した例はこうなります。
+この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（`each_char`や`each_byte`、`each_codepoint`など）のいずれかを使用するか、より低レベルの`Char::Reader`を使用することです。`each_char`を使用した例はこうなります。
 
 ```crystal
 string = "foo"

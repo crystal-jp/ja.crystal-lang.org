@@ -3513,6 +3513,20 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># class_vs_struct.cr
+require "benchmark"
+
+class PointClass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091245Z" creationid="makenowjust" creationdate="20200506T091245Z">
+        <seg># class_vs_struct.cr
+require "benchmark"
+
+class PointClass</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># ditto</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T144054Z" creationid="hirofumiwakasugi" creationdate="20151010T144054Z">
@@ -4387,6 +4401,24 @@ require "../src/project"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021130Z" creationid="hirofumiwakasugi" creationdate="20150904T021130Z">
         <seg># プログラムの add メソッドを実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># io_benchmark.cr
+require "benchmark"
+
+io = IO::Memory.new
+
+Benchmark.ips do |x|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090903Z" creationid="makenowjust" creationdate="20200506T090903Z">
+        <seg># io_benchmark.cr
+require "benchmark"
+
+io = IO::Memory.new
+
+Benchmark.ips do |x|</seg>
       </tuv>
     </tu>
     <tu>
@@ -5779,6 +5811,34 @@ Hello World!</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T161504Z" creationid="makenowjust" creationdate="20200419T161504Z">
         <seg>$ crystal init lib my_cool_lib</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal run --release class_vs_struct.cr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091357Z" creationid="makenowjust" creationdate="20200506T091357Z">
+        <seg>$ crystal run --release class_vs_struct.cr</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal run --release io_benchmark.cr
+without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090914Z" creationid="makenowjust" creationdate="20200506T090914Z">
+        <seg>$ crystal run --release io_benchmark.cr
+without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ crystal run --release str_benchmark.cr
+String.build 597.57k (  1.67µs) (± 5.52%)       fastest</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091006Z" creationid="makenowjust" creationdate="20200506T091006Z">
+        <seg>$ crystal run --release str_benchmark.cr
+String.build 597.57k (  1.67µs) (± 5.52%)       fastest</seg>
       </tuv>
     </tu>
     <tu>
@@ -8857,6 +8917,14 @@ a = if 1 &gt; 2</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182040Z" creationid="makenowjust" creationdate="20200419T182040Z">
         <seg>8</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>99.times do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091001Z" creationid="makenowjust" creationdate="20200506T091001Z">
+        <seg>99.times do</seg>
       </tuv>
     </tu>
     <tu>
@@ -14146,8 +14214,8 @@ extra syntax to manipulate the AST nodes.</seg>
       <tuv lang="EN-US">
         <seg>A memory allocation happens when you create an instance of a &lt;g1&gt;class&lt;/g1&gt;, which ends up allocating heap memory.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T084428Z" creationid="akiji" creationdate="20200430T084428Z">
-        <seg>メモリの割り当ては&lt;g1&gt;class&lt;/g1&gt;のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090734Z" creationid="akiji" creationdate="20200430T084428Z">
+        <seg>メモリの割り当ては&lt;g1&gt;クラス&lt;/g1&gt;のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17386,8 +17454,8 @@ Counter.instances #=&gt; 3
       <tuv lang="EN-US">
         <seg>Creating an instance of a &lt;g2&gt;struct&lt;/g2&gt; uses stack memory and doesn't incur a performance penalty.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T084449Z" creationid="akiji" creationdate="20200430T084449Z">
-        <seg>&lt;g2&gt;struct&lt;/g2&gt;のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090739Z" creationid="akiji" creationdate="20200430T084449Z">
+        <seg>&lt;g2&gt;構造体&lt;/g2&gt;のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19744,6 +19812,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>IO::Memory 423.82k (  2.36µs) (± 3.76%)  1.41× slower</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091008Z" creationid="makenowjust" creationdate="20200506T091008Z">
+        <seg>IO::Memory 423.82k (  2.36µs) (± 3.76%)  1.41× slower</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>IO::Memory{1, 2, 3}
 Set{1, 2, 3}</seg>
       </tuv>
@@ -20617,8 +20693,8 @@ the value of each named variable is printed on its own line.</seg>
       <tuv lang="EN-US">
         <seg>If you declare your type as a &lt;g1&gt;struct&lt;/g1&gt; instead of a &lt;g2&gt;class&lt;/g2&gt;, creating an instance of it will use stack memory, which is much cheaper than heap memory and doesn't put pressure on the GC.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T024402Z" creationid="akiji" creationdate="20200430T132012Z">
-        <seg>独自の型を  &lt;g2&gt;class&lt;/g2&gt; ではなく &lt;g1&gt;struct&lt;/g1&gt; として定義すると、ヒープメモリよりも低負荷でGCに負担もかけないスタックメモリ上にインスタンスを生成します。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091155Z" creationid="akiji" creationdate="20200430T132012Z">
+        <seg>独自の型を  &lt;g2&gt;クラス&lt;/g2&gt; ではなく &lt;g1&gt;構造体&lt;/g1&gt; として定義すると、ヒープメモリよりも低負荷でGCに負担もかけないスタックメモリ上にインスタンスを生成します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22416,6 +22492,20 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182804Z" creationid="hirofumiwakasugi" creationdate="20150916T011402Z">
         <seg>クラスや構造体と同様に、列挙型にもメソッドを定義することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>LANGS = ["crystal", "ruby", "java"]
+
+lines_with_language_reference = 0
+while line = gets</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091137Z" creationid="makenowjust" creationdate="20200506T091137Z">
+        <seg>LANGS = ["crystal", "ruby", "java"]
+
+lines_with_language_reference = 0
+while line = gets</seg>
       </tuv>
     </tu>
     <tu>
@@ -24983,8 +25073,8 @@ only consist of special characters.</seg>
       <tuv lang="EN-US">
         <seg>Remember: an array literal is just syntax sugar for creating an instance of an array and adding some values to it, and this will happen over and over on each iteration.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T131555Z" creationid="akiji" creationdate="20200430T131555Z">
-        <seg>配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理の糖衣構文でしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091057Z" creationid="akiji" creationdate="20200430T131555Z">
+        <seg>配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理のシンタックスシュガーでしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25812,8 +25902,8 @@ some_method  # OK, 1
       <tuv lang="EN-US">
         <seg>Structs are passed by value, so if you pass one to a method and the method makes changes to it, the caller won't see those changes, so they can be bug-prone.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T132118Z" creationid="akiji" creationdate="20200430T132118Z">
-        <seg>struct は値渡しされるので、メソッドに渡した struct がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091208Z" creationid="akiji" creationdate="20200430T132118Z">
+        <seg>struct は値渡しされるので、メソッドに渡した構造体がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27021,8 +27111,8 @@ operator with assignment.</seg>
       <tuv lang="EN-US">
         <seg>The best thing to do is to only use structs with immutable objects, especially if they are small.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T132150Z" creationid="akiji" creationdate="20200430T132150Z">
-        <seg>structs は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091213Z" creationid="akiji" creationdate="20200430T132150Z">
+        <seg>構造体は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28606,8 +28696,8 @@ server.listen</seg>
       <tuv lang="EN-US">
         <seg>The way to improve performance in this case is to either use one of the iteration methods (&lt;g1&gt;each_char&lt;/g1&gt;, &lt;g2&gt;each_byte&lt;/g2&gt;, &lt;g3&gt;each_codepoint&lt;/g3&gt;), or use the more low-level &lt;g4&gt;Char::Reader&lt;/g4&gt; struct.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200504T025035Z" creationid="akiji" creationdate="20200430T132807Z">
-        <seg>この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（&lt;g1&gt;each_char&lt;/g1&gt;や&lt;g2&gt;each_byte&lt;/g2&gt;、&lt;g3&gt;each_codepoint&lt;/g3&gt;など）のいずれかを使用するか、よりローレベルの&lt;g4&gt;Char::Reader&lt;/g4&gt;を使用することです。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091330Z" creationid="akiji" creationdate="20200430T132807Z">
+        <seg>この場合にパフォーマンスを向上させる手段は、繰り返し処理用のメソッド（&lt;g1&gt;each_char&lt;/g1&gt;や&lt;g2&gt;each_byte&lt;/g2&gt;、&lt;g3&gt;each_codepoint&lt;/g3&gt;など）のいずれかを使用するか、より低レベルの&lt;g4&gt;Char::Reader&lt;/g4&gt;を使用することです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31304,8 +31394,8 @@ by joining multiple literals with a backslash:</seg>
       <tuv lang="EN-US">
         <seg>Use structs when possible</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T132001Z" creationid="akiji" creationdate="20200430T132001Z">
-        <seg>可能な場合には struct を使用する</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091148Z" creationid="akiji" creationdate="20200430T132001Z">
+        <seg>可能な場合には構造体を使用する</seg>
       </tuv>
     </tu>
     <tu>
@@ -33234,8 +33324,8 @@ https://github.com/crystal-lang/crystal-book</seg>
       <tuv lang="EN-US">
         <seg>You shouldn't always use a struct, though.</seg>
       </tuv>
-      <tuv lang="JA" changeid="akiji" changedate="20200430T132034Z" creationid="akiji" creationdate="20200430T132034Z">
-        <seg>しかし、いつでも struct を使えば良いわけではありません。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091202Z" creationid="akiji" creationdate="20200430T132034Z">
+        <seg>しかし、いつでも構造体を使えば良いわけではありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -43553,6 +43643,22 @@ invoke(&amp;proc) # prints "Hello"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>bm.report("IO::Memory") do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090958Z" creationid="makenowjust" creationdate="20200506T090958Z">
+        <seg>bm.report("IO::Memory") do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>bm.report("String.build") do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090955Z" creationid="makenowjust" creationdate="20200506T090955Z">
+        <seg>bm.report("String.build") do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>box = MyBox(Int32).new(1) # OK
 box.value = "hello"       # Error
 ```</seg>
@@ -43937,10 +44043,28 @@ END
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>char = string[i]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091300Z" creationid="makenowjust" creationdate="20200506T091300Z">
+        <seg>char = string[i]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>check</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T093828Z" creationid="makenowjust" creationdate="20200424T093828Z">
         <seg></seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class  28.17M (± 2.86%) 15.29× slower
+struct 430.82M (± 6.58%)       fastest</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091257Z" creationid="makenowjust" creationdate="20200506T091257Z">
+        <seg>class  28.17M (± 2.86%) 15.29× slower
+struct 430.82M (± 6.58%)       fastest</seg>
       </tuv>
     </tu>
     <tu>
@@ -44285,6 +44409,14 @@ end</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T142814Z" creationid="makenowjust" creationdate="20200504T142814Z">
         <seg>class MyDictionary(KeyType, ValueType)
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class MyClass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090850Z" creationid="makenowjust" creationdate="20200506T090850Z">
+        <seg>class MyClass</seg>
       </tuv>
     </tu>
     <tu>
@@ -45651,7 +45783,7 @@ foo 1, 2, z: 3 # OK</seg>
       <tuv lang="EN-US">
         <seg>def initialize(@x : Int32, @y : Int32)</seg>
       </tuv>
-      <tuv lang="JA" changeid="makenowjust" changedate="20200502T083641Z" creationid="makenowjust" creationdate="20200502T083641Z">
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091250Z" creationid="makenowjust" creationdate="20200506T091250Z">
         <seg>def initialize(@x : Int32, @y : Int32)</seg>
       </tuv>
     </tu>
@@ -46133,6 +46265,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T032022Z" creationid="hirofumiwakasugi" creationdate="20150916T032022Z">
         <seg>def times</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def to_s(io)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090854Z" creationid="makenowjust" creationdate="20200506T090854Z">
+        <seg>def to_s(io)</seg>
       </tuv>
     </tu>
     <tu>
@@ -46964,6 +47104,20 @@ Namespace::Bar.new.bar</seg>
         <seg>end
 end
 
+Benchmark.ips do |x|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091254Z" creationid="makenowjust" creationdate="20200506T091254Z">
+        <seg>end
+end
+
+Benchmark.ips do |x|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 alias NumericValue = Float32 | Float64 | Int32 | Int64
 
 lib LibYAML
@@ -47760,6 +47914,20 @@ puts foo # =&gt; "bar"</seg>
         <seg>end
 end
 
+struct PointStruct</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091251Z" creationid="makenowjust" creationdate="20200506T091251Z">
+        <seg>end
+end
+
+struct PointStruct</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 unless say_hi_to.empty?</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T175229Z" creationid="makenowjust" creationdate="20200413T175229Z">
@@ -47825,6 +47993,18 @@ end
         <seg>end
 end
 `````</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091017Z" creationid="makenowjust" creationdate="20200506T091017Z">
+        <seg>end
+end
+puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"</seg>
       </tuv>
     </tu>
     <tu>
@@ -48565,10 +48745,26 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>getter x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091247Z" creationid="makenowjust" creationdate="20200506T091247Z">
+        <seg>getter x</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>getter x, y</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T025209Z" creationid="hirofumiwakasugi" creationdate="20150909T025209Z">
         <seg>getter x, y</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>getter y</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091249Z" creationid="makenowjust" creationdate="20200506T091249Z">
+        <seg>getter y</seg>
       </tuv>
     </tu>
     <tu>
@@ -49017,6 +49213,22 @@ puts "Got: #{i}"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>if LANGS.any?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091139Z" creationid="makenowjust" creationdate="20200506T091139Z">
+        <seg>if LANGS.any?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>if ["crystal", "ruby", "java"].any?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091015Z" creationid="makenowjust" creationdate="20200506T091015Z">
+        <seg>if ["crystal", "ruby", "java"].any?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>if a</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T014259Z" creationid="hirofumiwakasugi" creationdate="20150903T014259Z">
@@ -49189,6 +49401,14 @@ puts "Got: #{i}"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T083705Z" creationid="makenowjust" creationdate="20200424T083705Z">
         <seg>if var.responds_to?(...)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>if {"crystal", "ruby", "java"}.any?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091136Z" creationid="makenowjust" creationdate="20200506T091136Z">
+        <seg>if {"crystal", "ruby", "java"}.any?</seg>
       </tuv>
     </tu>
     <tu>
@@ -49427,10 +49647,52 @@ encode64 "hello" # =&gt; "aGVsbG8="</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>io &lt;&lt; "#{x}, #{y}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090900Z" creationid="makenowjust" creationdate="20200506T090900Z">
+        <seg>io &lt;&lt; "#{x}, #{y}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; "Hello, " &lt;&lt; name
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090928Z" creationid="makenowjust" creationdate="20200506T090928Z">
+        <seg>io &lt;&lt; "Hello, " &lt;&lt; name
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; "hello world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090956Z" creationid="makenowjust" creationdate="20200506T090956Z">
+        <seg>io &lt;&lt; "hello world"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>io &lt;&lt; "sum: "</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192846Z" creationid="makenowjust" creationdate="20200419T192846Z">
         <seg>io &lt;&lt; "sum: "</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; 123</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090907Z" creationid="makenowjust" creationdate="20200506T090907Z">
+        <seg>io &lt;&lt; 123</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; 123.to_s</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090917Z" creationid="makenowjust" creationdate="20200506T090917Z">
+        <seg>io &lt;&lt; 123.to_s</seg>
       </tuv>
     </tu>
     <tu>
@@ -49457,6 +49719,38 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192849Z" creationid="makenowjust" creationdate="20200419T192849Z">
         <seg>io &lt;&lt; b</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io &lt;&lt; x &lt;&lt; ", " &lt;&lt; y</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090858Z" creationid="makenowjust" creationdate="20200506T090858Z">
+        <seg>io &lt;&lt; x &lt;&lt; ", " &lt;&lt; y</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io = IO::Memory.new</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091003Z" creationid="makenowjust" creationdate="20200506T091003Z">
+        <seg>io = IO::Memory.new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io.clear</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090909Z" creationid="makenowjust" creationdate="20200506T090909Z">
+        <seg>io.clear</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>io.to_s</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091004Z" creationid="makenowjust" creationdate="20200506T091004Z">
+        <seg>io.to_s</seg>
       </tuv>
     </tu>
     <tu>
@@ -49765,6 +50059,24 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010227Z" creationid="hirofumiwakasugi" creationdate="20151010T010227Z">
         <seg>lib LibYAML
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lines_with_language_reference += 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091013Z" creationid="makenowjust" creationdate="20200506T091013Z">
+        <seg>lines_with_language_reference += 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lines_with_language_reference = 0
+while line = gets</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091010Z" creationid="makenowjust" creationdate="20200506T091010Z">
+        <seg>lines_with_language_reference = 0
+while line = gets</seg>
       </tuv>
     </tu>
     <tu>
@@ -52151,10 +52463,26 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts 123</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090717Z" creationid="makenowjust" creationdate="20200506T090717Z">
+        <seg>puts 123</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts Color.new(10) # =&gt; prints "10"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182745Z" creationid="makenowjust" creationdate="20200505T182738Z">
         <seg>puts Color.new(10) # =&gt; "10" と出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts 123.to_s</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090848Z" creationid="makenowjust" creationdate="20200506T090848Z">
+        <seg>puts 123.to_s</seg>
       </tuv>
     </tu>
     <tu>
@@ -52533,6 +52861,18 @@ rescue ex : MyException</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T090702Z" creationid="makenowjust" creationdate="20200427T090702Z">
         <seg>require "./filename"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>require "benchmark"
+
+Benchmark.ips do |bm|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090952Z" creationid="makenowjust" creationdate="20200506T090952Z">
+        <seg>require "benchmark"
+
+Benchmark.ips do |bm|</seg>
       </tuv>
     </tu>
     <tu>
@@ -53207,10 +53547,30 @@ typeof(string)                        # =&gt; String?</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>string = "foo"
+string.each_char do |char|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091302Z" creationid="makenowjust" creationdate="20200506T091302Z">
+        <seg>string = "foo"
+string.each_char do |char|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>string.chars.map { |char| ((char.upcase.ord - 52) % 26 + 65).chr }.join</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T130047Z" creationid="makenowjust" creationdate="20200504T130047Z">
         <seg>string.chars.map { |char| ((char.upcase.ord - 52) % 26 + 65).chr }.join</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>string = "foo"
+while i &lt; string.size</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091259Z" creationid="makenowjust" creationdate="20200506T091259Z">
+        <seg>string = "foo"
+while i &lt; string.size</seg>
       </tuv>
     </tu>
     <tu>
@@ -54097,6 +54457,14 @@ values # =&gt; {1, 2}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090921Z" creationid="makenowjust" creationdate="20200506T090921Z">
+        <seg>with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>world</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T063555Z" creationid="hirofumiwakasugi" creationdate="20160204T062353Z">
@@ -54647,6 +55015,14 @@ x #=&gt; 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>x = 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090851Z" creationid="makenowjust" creationdate="20200506T090851Z">
+        <seg>x = 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>x = 1
 
 def add(y)</seg>
@@ -54707,6 +55083,40 @@ foo do</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>x.report("class") { PointClass.new(1, 2) }</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091359Z" creationid="makenowjust" creationdate="20200506T091359Z">
+        <seg>x.report("class") { PointClass.new(1, 2) }</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x.report("struct") { PointStruct.new(1, 2) }
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091255Z" creationid="makenowjust" creationdate="20200506T091255Z">
+        <seg>x.report("struct") { PointStruct.new(1, 2) }
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x.report("with to_s") do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090911Z" creationid="makenowjust" creationdate="20200506T090911Z">
+        <seg>x.report("with to_s") do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x.report("without to_s") do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090905Z" creationid="makenowjust" creationdate="20200506T090905Z">
+        <seg>x.report("without to_s") do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>x.to_s.upcase
 end</seg>
       </tuv>
@@ -54721,6 +55131,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T085231Z" creationid="makenowjust" creationdate="20200502T085231Z">
         <seg>yes</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>y = 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T090856Z" creationid="makenowjust" creationdate="20200506T090856Z">
+        <seg>y = 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -55069,6 +55487,14 @@ transform(1) { |x| x + 1 } # =&gt; 2</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T035525Z" creationid="makenowjust" creationdate="20200420T035525Z">
         <seg>{</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{ |string| line.includes?(string) }</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T091011Z" creationid="makenowjust" creationdate="20200506T091011Z">
+        <seg>{ |string| line.includes?(string) }</seg>
       </tuv>
     </tu>
     <tu>
