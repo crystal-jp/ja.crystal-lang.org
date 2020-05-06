@@ -8025,6 +8025,24 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>-&gt;{ x += 1; x }
+end
+
+proc = counter
+proc.call # =&gt; 1
+proc.call # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080513Z" creationid="makenowjust" creationdate="20200506T080513Z">
+        <seg>-&gt;{ x += 1; x }
+end
+
+proc = counter
+proc.call # =&gt; 1
+proc.call # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>-D FLAG, --define FLAG           Define a compile-time flag</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072225Z" creationid="hirofumiwakasugi" creationdate="20150901T072225Z">
@@ -16599,6 +16617,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Captured blocks and proc literals closure local variables and &lt;g1&gt;self&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080507Z" creationid="makenowjust" creationdate="20200506T080507Z">
+        <seg>捕捉されたブロックと Proc リテラルはローカル変数と &lt;g1&gt;self&lt;/g1&gt; をクロージャに格納します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Captured blocks and proc literals closure local variables and `self`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053825Z" creationid="hirofumiwakasugi" creationdate="20150918T053614Z">
@@ -16832,6 +16858,14 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T161607Z" creationid="makenowjust" creationdate="20200429T161607Z">
         <seg>クラスによる制約</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Closures</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080426Z" creationid="makenowjust" creationdate="20200506T080426Z">
+        <seg>クロージャ</seg>
       </tuv>
     </tu>
     <tu>
@@ -19338,6 +19372,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, if &lt;g1&gt;x&lt;/g1&gt; is closured by a proc, the type is always the mixed type of all assignments to it:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081145Z" creationid="makenowjust" creationdate="20200506T081145Z">
+        <seg>しかし、もし &lt;g1&gt;x&lt;/g1&gt; が Proc によってクロージャに格納された場合は、その型はすべての代入された型の組み合わせとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, if `x` is closured by a proc, the type is always the mixed type of all assignments to it:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T055219Z" creationid="hirofumiwakasugi" creationdate="20150918T055148Z">
@@ -19532,6 +19574,14 @@ IOMode::All.value  # =&gt; 7</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T145159Z" creationid="makenowjust" creationdate="20200429T144856Z">
         <seg>&lt;g1&gt;T1&lt;/g1&gt; と &lt;g2&gt;T2&lt;/g2&gt; が継承元を共有していて、共通する祖先の型 &lt;g3&gt;Parent&lt;/g3&gt; が &lt;g4&gt;Reference&lt;/g4&gt;、&lt;g5&gt;Struct&lt;/g5&gt;、&lt;g6&gt;Int&lt;/g6&gt;、&lt;g7&gt;Float&lt;/g7&gt; もしくは &lt;g8&gt;Value&lt;/g8&gt; ではないとき、2つからユニオン型を構成しようとしたときの結果の型は &lt;g9&gt;Parent+&lt;/g9&gt; となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If &lt;g1&gt;x&lt;/g1&gt; is assigned something else after the block, the compiler knows the type changed:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081113Z" creationid="makenowjust" creationdate="20200506T081113Z">
+        <seg>もしブロックの後で &lt;g1&gt;x&lt;/g1&gt; に何かが代入されたとき、コンパイラはその型が変更されたと判断します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21058,6 +21108,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the above example, even though &lt;g1&gt;x&lt;/g1&gt; is a local variable, it was captured by the proc literal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080543Z" creationid="makenowjust" creationdate="20200506T080543Z">
+        <seg>上記の例において、&lt;g1&gt;x&lt;/g1&gt; はローカル変数であるにも関わらず、Proc リテラルによって捕捉されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the above example, even though `x` is a local variable, it was captured by the proc literal.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053936Z" creationid="hirofumiwakasugi" creationdate="20150918T053758Z">
@@ -21222,6 +21280,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053358Z" creationid="hirofumiwakasugi" creationdate="20151008T053358Z">
         <seg>こういったケースでは、それらの関数に手動で指示を与える必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In this case the compiler allocates &lt;g2&gt;x&lt;/g2&gt; on the heap and uses it as the context data of the proc to make it work, because normally local variables live in the stack and are gone after a method returns.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080646Z" creationid="makenowjust" creationdate="20200506T080646Z">
+        <seg>通常であれば、ローカル変数はスタックに存在し、メソッドが終了すると消えますが、このような場合はコンパイラは &lt;g2&gt;x&lt;/g2&gt; をヒープに割り当て、Proc が動作するためのコンテキストのデータとして利用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26666,8 +26732,8 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       <tuv lang="EN-US">
         <seg>The compiler doesn't do an exhaustive analysis of this: it just assumes that if a variable is captured by a proc, the time of that proc invocation is unknown.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T023752Z" creationid="hirofumiwakasugi" creationdate="20151009T023752Z">
-        <seg>このことに対して、コンパイラが綿密な分析をすることはありません。コンパイラはただ、proc に変数が捕捉されていたら、その proc がいつどこで実行されるかは未知である、として扱います。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081230Z" creationid="hirofumiwakasugi" creationdate="20151009T023752Z">
+        <seg>このことに対して、コンパイラが綿密な分析をすることはありません。コンパイラはただ、Proc に変数が捕捉されていたら、その proc がいつどこで実行されるかは未知である、として扱います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26684,6 +26750,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T054336Z" creationid="hirofumiwakasugi" creationdate="20150918T054303Z">
         <seg>ローカル変数の型に対して、コンパイラは「それなりに」賢く解釈します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The compiler knows that after the block, &lt;g1&gt;x&lt;/g1&gt; can be Int32 or String (it could know that it will always be String because the method always yields; this may improve in the future).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080826Z" creationid="makenowjust" creationdate="20200506T080826Z">
+        <seg>コンパイラは、ブロックのあとに &lt;g1&gt;x&lt;/g1&gt; が Int32 か String であると判断できます (ただ、この場合だとメソッドは必ず yield するので、常に String であることは明白です。将来的にはそこまで判断できるように改善するつもりです)。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28677,8 +28751,8 @@ proven faster than equality).</seg>
       <tuv lang="EN-US">
         <seg>This also happens with regular proc literals, even if it's evident that the proc wasn't invoked or stored:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T060135Z" creationid="hirofumiwakasugi" creationdate="20150918T060005Z">
-        <seg>これは通常の proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081235Z" creationid="hirofumiwakasugi" creationdate="20150918T060005Z">
+        <seg>これは通常の Proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28920,6 +28994,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T070530Z" creationid="akiji" creationdate="20200428T075237Z">
         <seg>これは &lt;g1&gt;sleep&lt;/g1&gt;によってメインファイバが1秒後に再開するようスケジューリングされ、その間に他の "実行可能な" （この場合はすぐ上で生成されていた）ファイバが実行されるためです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is because the captured block could have been potentially stored in a class or instance variable and invoked in a separate thread in between the instructions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081227Z" creationid="makenowjust" creationdate="20200506T081227Z">
+        <seg>この理由は、捕捉されたブロックはグローバル変数やクラス変数、そしてインスタンス変数に保持されることもあり、そして別のスラッドで実行される可能性もあるためです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30413,6 +30495,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T125716Z" creationid="makenowjust" creationdate="20200427T125716Z">
         <seg>型推論</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Type of closured variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080655Z" creationid="makenowjust" creationdate="20200506T080655Z">
+        <seg>クロージャの変数の型</seg>
       </tuv>
     </tu>
     <tu>
@@ -42760,6 +42850,50 @@ x             # =&gt; 11</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>block
+end
+
+x = 1
+-&gt;{ x = "hello" }
+
+x = 'a'
+x # : Int32 | String | Char</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081237Z" creationid="makenowjust" creationdate="20200506T081237Z">
+        <seg>block
+end
+
+x = 1
+-&gt;{ x = "hello" }
+
+x = 'a'
+x # : Int32 | String | Char</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block
+end
+
+x = 1
+capture { x = "hello" }
+
+x = 'a'
+x # : Int32 | String | Char</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081146Z" creationid="makenowjust" creationdate="20200506T081146Z">
+        <seg>block
+end
+
+x = 1
+capture { x = "hello" }
+
+x = 'a'
+x # : Int32 | String | Char</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>block.call
 end</seg>
       </tuv>
@@ -44382,6 +44516,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T075340Z" creationid="makenowjust" creationdate="20200506T075340Z">
         <seg>def capture(&amp;block)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def counter</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080512Z" creationid="makenowjust" creationdate="20200506T080512Z">
+        <seg>def counter</seg>
       </tuv>
     </tu>
     <tu>
@@ -53689,6 +53831,24 @@ x # : Int32 | String</seg>
         <seg>x = "hello"
 end
 x # : Int32 | String
+
+x = 'a'
+x # : Char</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081115Z" creationid="makenowjust" creationdate="20200506T081115Z">
+        <seg>x = "hello"
+end
+x # : Int32 | String
+
+x = 'a'
+x # : Char</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x = "hello"
+end
+x # : Int32 | String
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061611Z" creationid="hirofumiwakasugi" creationdate="20160204T061611Z">
@@ -53812,6 +53972,22 @@ proc.call(1)  #=&gt; 1
 proc.call(10) #=&gt; 11
 x #=&gt; 11
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x = 0
+proc = -&gt;{ x += 1; x }
+proc.call # =&gt; 1
+proc.call # =&gt; 2
+x         # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080509Z" creationid="makenowjust" creationdate="20200506T080509Z">
+        <seg>x = 0
+proc = -&gt;{ x += 1; x }
+proc.call # =&gt; 1
+proc.call # =&gt; 2
+x         # =&gt; 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -53982,6 +54158,22 @@ end
 
 twice do |i| # Error: too many block arguments
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yield
+end
+
+x = 1
+foo do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T080717Z" creationid="makenowjust" creationdate="20200506T080717Z">
+        <seg>yield
+end
+
+x = 1
+foo do</seg>
       </tuv>
     </tu>
     <tu>

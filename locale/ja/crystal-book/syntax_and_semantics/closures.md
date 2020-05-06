@@ -1,6 +1,6 @@
-# Closures
+# クロージャ
 
-Captured blocks and proc literals closure local variables and `self`. 例を見てみるとわかりやすいでしょう。
+捕捉されたブロックと Proc リテラルはローカル変数と `self` をクロージャに格納します。例を見てみるとわかりやすいでしょう。
 
 ```crystal
 x = 0
@@ -23,9 +23,9 @@ proc.call # => 1
 proc.call # => 2
 ```
 
-In the above example, even though `x` is a local variable, it was captured by the proc literal. In this case the compiler allocates `x` on the heap and uses it as the context data of the proc to make it work, because normally local variables live in the stack and are gone after a method returns.
+上記の例において、`x` はローカル変数であるにも関わらず、Proc リテラルによって捕捉されています。通常であれば、ローカル変数はスタックに存在し、メソッドが終了すると消えますが、このような場合はコンパイラは `x` をヒープに割り当て、Proc が動作するためのコンテキストのデータとして利用します。
 
-## Type of closured variables
+## クロージャの変数の型
 
 ローカル変数の型に対して、コンパイラは「それなりに」賢く解釈します。例をあげます。
 
@@ -41,9 +41,9 @@ end
 x # : Int32 | String
 ```
 
-The compiler knows that after the block, `x` can be Int32 or String (it could know that it will always be String because the method always yields; this may improve in the future).
+コンパイラは、ブロックのあとに `x` が Int32 か String であると判断できます (ただ、この場合だとメソッドは必ず yield するので、常に String であることは明白です。将来的にはそこまで判断できるように改善するつもりです)。
 
-If `x` is assigned something else after the block, the compiler knows the type changed:
+もしブロックの後で `x` に何かが代入されたとき、コンパイラはその型が変更されたと判断します。
 
 ```crystal
 x = 1
@@ -56,7 +56,7 @@ x = 'a'
 x # : Char
 ```
 
-However, if `x` is closured by a proc, the type is always the mixed type of all assignments to it:
+しかし、もし `x` が Proc によってクロージャに格納された場合は、その型はすべての代入された型の組み合わせとなります。
 
 ```crystal
 def capture(&block)
@@ -70,9 +70,9 @@ x = 'a'
 x # : Int32 | String | Char
 ```
 
-This is because the captured block could have been potentially stored in a class or instance variable and invoked in a separate thread in between the instructions. このことに対して、コンパイラが綿密な分析をすることはありません。コンパイラはただ、proc に変数が捕捉されていたら、その proc がいつどこで実行されるかは未知である、として扱います。
+この理由は、捕捉されたブロックはグローバル変数やクラス変数、そしてインスタンス変数に保持されることもあり、そして別のスラッドで実行される可能性もあるためです。このことに対して、コンパイラが綿密な分析をすることはありません。コンパイラはただ、Proc に変数が捕捉されていたら、その proc がいつどこで実行されるかは未知である、として扱います。
 
-これは通常の proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。
+これは通常の Proc リテラルにも当てはまります。そして、その proc が実行も保持もされないことが明白であっても同様です。
 
 ```crystal
 def capture(&block)

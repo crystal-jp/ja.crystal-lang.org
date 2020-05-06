@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 84/125
+翻訳済み/全体 = 85/125
 
 <details>
 
@@ -103,7 +103,7 @@
 | `crystal-book/syntax_and_semantics/capturing_blocks.md`                                             | ○    |
 | `crystal-book/syntax_and_semantics/proc_literal.md`                                                 | ○    |
 | `crystal-book/syntax_and_semantics/block_forwarding.md`                                             | ○    |
-| `crystal-book/syntax_and_semantics/closures.md`                                                     | △    |
+| `crystal-book/syntax_and_semantics/closures.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/alias.md`                                                        | △    |
 | `crystal-book/syntax_and_semantics/exception_handling.md`                                           | △    |
 | `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | △    |
