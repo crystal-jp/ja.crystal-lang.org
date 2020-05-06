@@ -12261,6 +12261,14 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;return&lt;/g1&gt; and &lt;g2&gt;break&lt;/g2&gt; can't be used inside a captured block.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073946Z" creationid="makenowjust" creationdate="20200506T073946Z">
+        <seg>&lt;g1&gt;return&lt;/g1&gt; と &lt;g2&gt;break&lt;/g2&gt; を捕捉されたブロックの中で使用することはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;runner_options&lt;/g1&gt; are provided to the compiled binary executable which runs the specs.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T164228Z" creationid="makenowjust" creationdate="20200419T164228Z">
@@ -12611,6 +12619,14 @@ second operand with pattern matching.</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153525Z" creationid="makenowjust" creationdate="20200419T153525Z">
         <seg>&lt;g3&gt;crystal init app &lt;name&gt;&lt;/g3&gt;はアプリケーション向けで、
 &lt;g4&gt;crystal init lib &lt;name&gt;&lt;/g4&gt;はライブラリ向けです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g3&gt;next&lt;/g3&gt; can be used and will exit and give the value of the captured block.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074052Z" creationid="makenowjust" creationdate="20200506T074052Z">
+        <seg>&lt;g3&gt;next&lt;/g3&gt; は捕捉されたブロックの中で使用することができて、ブロックを終了し与えられた値をブロックの呼び出し結果とします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13736,6 +13752,14 @@ an application not intended to be used as a dependency.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T022920Z" creationid="hirofumiwakasugi" creationdate="20150916T022546Z">
         <seg>ブロックに指定するのが yield される引数の数より多い場合には、それらは `nil` になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A block can be captured and turned into a &lt;g1&gt;Proc&lt;/g1&gt;, which represents a block of code with an associated context: the closured data.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T193059Z" creationid="makenowjust" creationdate="20200505T193059Z">
+        <seg>ブロックを捕捉して &lt;g1&gt;Proc&lt;/g1&gt; にすることができます。これはコンテキストに結び付いてコードブロック (クロージャ) を表すものです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16555,6 +16579,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T053825Z" creationid="hirofumiwakasugi" creationdate="20150918T053614Z">
         <seg>捕捉されたブロックと proc リテラルはローカル変数と `self` を閉包 (クロージャ) します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Capturing blocks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T193019Z" creationid="makenowjust" creationdate="20200505T193019Z">
+        <seg>ブロックの捕捉</seg>
       </tuv>
     </tu>
     <tu>
@@ -20934,6 +20966,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143641Z" creationid="makenowjust" creationdate="20200427T143641Z">
         <seg>上の例で &lt;g1&gt;@lucky_number&lt;/g1&gt; は &lt;g2&gt;Int32 | Nil&lt;/g2&gt; と推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the above example the type of &lt;g1&gt;&amp;block&lt;/g1&gt; wasn't specified: this just means that the captured block doesn't have arguments and doesn't return anything.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073839Z" creationid="makenowjust" creationdate="20200506T073839Z">
+        <seg>上記の例において、&lt;g1&gt;&amp;block&lt;/g1&gt; の型を指定していません。これは捕捉されたブロックが引数を何も受け取らず、戻り値も返さないことを示しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26109,6 +26149,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The above code captures the block of code passed to &lt;g1&gt;int_to_int&lt;/g1&gt; in the &lt;g2&gt;block&lt;/g2&gt; variable, and returns it from the method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073702Z" creationid="makenowjust" creationdate="20200506T073702Z">
+        <seg>上記のコードでは、&lt;g1&gt;int_to_int&lt;/g1&gt; に渡されたコードブロックを &lt;g2&gt;block&lt;/g2&gt; という変数に捕捉し、それをメソッドの戻り値としています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The above code captures the block of code passed to `int_to_int` in the `block` variable, and returns it from the method.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T040547Z" creationid="hirofumiwakasugi" creationdate="20150916T040132Z">
@@ -26692,6 +26740,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T094757Z" creationid="makenowjust" creationdate="20200424T094757Z">
         <seg>まず条件式に対して判定が行なわれて、&lt;g1&gt;真であった&lt;/g1&gt;ときに本体が実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default receiver within a captured block can't be changed by using &lt;g1&gt;with ... yield&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T074124Z" creationid="makenowjust" creationdate="20200506T074124Z">
+        <seg>捕捉されたブロックのレシーバは&lt;g1&gt;with ... yield&lt;/g1&gt;を使って変更することはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27770,6 +27826,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T132556Z" creationid="makenowjust" creationdate="20200427T132556Z">
         <seg>コード読む際に型が明確でない。型を知るためには&lt;g1&gt;Person&lt;/g1&gt;中でどのように使われているかすべてを確認する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of &lt;g3&gt;proc&lt;/g3&gt; is &lt;g4&gt;Proc(Int32, Int32)&lt;/g4&gt;, a function that accepts a single &lt;g5&gt;Int32&lt;/g5&gt; argument and returns an &lt;g6&gt;Int32&lt;/g6&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073754Z" creationid="makenowjust" creationdate="20200506T073754Z">
+        <seg>このとき &lt;g3&gt;proc&lt;/g3&gt; の型は &lt;g4&gt;Proc(Int32, Int32)&lt;/g4&gt; で、これは単一の  &lt;g5&gt;Int32&lt;/g5&gt; の引数を受け取り、 &lt;g6&gt;Int32&lt;/g6&gt; を返す関数となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -42462,6 +42526,60 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>block
+end
+
+proc = int_to_int { |x| x + 1 }
+proc.call(1) # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T193102Z" creationid="makenowjust" creationdate="20200505T193102Z">
+        <seg>block
+end
+
+proc = int_to_int { |x| x + 1 }
+proc.call(1) # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block
+end
+
+proc = some_proc { |x| x + 1 }
+proc.call(1) # 2
+
+proc = some_proc { |x| x.to_s }
+proc.call(1) # "1"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073858Z" creationid="makenowjust" creationdate="20200506T073858Z">
+        <seg>block
+end
+
+proc = some_proc { |x| x + 1 }
+proc.call(1) # 2
+
+proc = some_proc { |x| x.to_s }
+proc.call(1) # "1"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block
+end
+
+proc = some_proc { |x| x + 1 }
+proc.call(1) # void</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073849Z" creationid="makenowjust" creationdate="20200506T073849Z">
+        <seg>block
+end
+
+proc = some_proc { |x| x + 1 }
+proc.call(1) # void</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>block.call
 end</seg>
       </tuv>
@@ -42584,6 +42702,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200417T115450Z" creationid="makenowjust" creationdate="20200417T115416Z">
         <seg>break # ループを抜けて 'puts a' に行く</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>break and next</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073918Z" creationid="makenowjust" creationdate="20200506T073902Z">
+        <seg>break と next</seg>
       </tuv>
     </tu>
     <tu>
@@ -43150,6 +43276,14 @@ end
         <seg>class Legendary
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class Model</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073854Z" creationid="makenowjust" creationdate="20200506T073854Z">
+        <seg>class Model</seg>
       </tuv>
     </tu>
     <tu>
@@ -44582,6 +44716,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def int_to_int(&amp;block : Int32 -&gt; Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200505T193101Z" creationid="makenowjust" creationdate="20200505T193101Z">
+        <seg>def int_to_int(&amp;block : Int32 -&gt; Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def invoke(&amp;block)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T024155Z" creationid="hirofumiwakasugi" creationdate="20150917T024155Z">
@@ -44914,6 +45056,22 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T152716Z" creationid="makenowjust" creationdate="20200429T152716Z">
         <seg>def some_method(x, y = 1, z = 2, w = 3)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def some_proc(&amp;block : Int32 -&gt; _)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073857Z" creationid="makenowjust" creationdate="20200506T073857Z">
+        <seg>def some_proc(&amp;block : Int32 -&gt; _)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def some_proc(&amp;block : Int32 -&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073852Z" creationid="makenowjust" creationdate="20200506T073852Z">
+        <seg>def some_proc(&amp;block : Int32 -&gt;)</seg>
       </tuv>
     </tu>
     <tu>
@@ -46394,6 +46552,24 @@ puts ""
 puts "Group members:"
 puts "=============="
 members.each do |member|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+model = Model.new
+model.on_save { puts "Saved!" }
+model.save # prints "Saved!"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T073758Z" creationid="makenowjust" creationdate="20200506T073758Z">
+        <seg>end
+end
+
+model = Model.new
+model.on_save { puts "Saved!" }
+model.save # prints "Saved!"</seg>
       </tuv>
     </tu>
     <tu>
