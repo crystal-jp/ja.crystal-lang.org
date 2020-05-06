@@ -19113,6 +19113,16 @@ end</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>Hash(String, Type)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081518Z" creationid="makenowjust" creationdate="20200506T081518Z">
+        <seg>Hash(String, Type)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hash(String, Type)
 end
 ```</seg>
       </tuv>
@@ -31763,6 +31773,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>With &lt;g1&gt;alias&lt;/g1&gt; you can give a type a different name:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081511Z" creationid="makenowjust" creationdate="20200506T081511Z">
+        <seg>&lt;g1&gt;alias&lt;/g1&gt; を使うと、型に別名をつけることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>With `alias` you can give a type a different name:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T070808Z" creationid="hirofumiwakasugi" creationdate="20150919T070808Z">
@@ -42184,6 +42202,14 @@ adder.call(1, 2) #=&gt; 3
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>alias</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081457Z" creationid="makenowjust" creationdate="20200506T081457Z">
+        <seg>型エイリアス (alias)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>alias MyInt = Int32</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023912Z" creationid="hirofumiwakasugi" creationdate="20151008T023912Z">
@@ -42208,6 +42234,36 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010227Z" creationid="hirofumiwakasugi" creationdate="20151010T010227Z">
         <seg>alias NumericValue = Int32 | Int64 | Float32 | Float64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>alias PInt32 = Pointer(Int32)
+
+ptr = PInt32.malloc(1) # : Pointer(Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081511Z" creationid="makenowjust" creationdate="20200506T081511Z">
+        <seg>alias PInt32 = Pointer(Int32)
+
+ptr = PInt32.malloc(1) # : Pointer(Int32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>alias RecArray = Array(Int32) | Array(RecArray)
+
+ary = [] of RecArray
+ary.push [1, 2, 3]
+ary.push ary
+ary # =&gt; [[1, 2, 3], [...]]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081514Z" creationid="makenowjust" creationdate="20200506T081514Z">
+        <seg>alias RecArray = Array(Int32) | Array(RecArray)
+
+ary = [] of RecArray
+ary.push [1, 2, 3]
+ary.push ary
+ary # =&gt; [[1, 2, 3], [...]]</seg>
       </tuv>
     </tu>
     <tu>
@@ -49422,6 +49478,14 @@ module B; end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141246Z" creationid="makenowjust" creationdate="20200504T141246Z">
         <seg>module ItemsSize</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module Json</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T081516Z" creationid="makenowjust" creationdate="20200506T081516Z">
+        <seg>module Json</seg>
       </tuv>
     </tu>
     <tu>
