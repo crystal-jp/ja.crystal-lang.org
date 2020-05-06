@@ -15,7 +15,7 @@ sum 1, 2, 3      # => 6
 sum 1, 2, 3, 4.5 # => 10.5
 ```
 
-渡された引数はメソッドの中で [タプル](http://crystal-lang.org/api/Tuple.html) として扱うことができます。
+渡された引数はメソッドの中で [Tuple](http://crystal-lang.org/api/Tuple.html) として扱うことができます。
 
 ```crystal
 # elements は Tuple(Int32, Int32, Int32) になる
@@ -70,7 +70,7 @@ foo x: "something" # => 1
 foo y: "something" # => 2
 ```
 
-splat 指定された引数は名前をつけないこともできて、その場合、以降の引数は「名前付き引数として渡さなければいけない」ということになります。
+スプラット指定された引数は名前をつけないこともできて、その場合、以降の引数は「名前付き引数として渡さなければいけない」ということになります。
 
 ```crystal
 def foo(x, y, *, z)

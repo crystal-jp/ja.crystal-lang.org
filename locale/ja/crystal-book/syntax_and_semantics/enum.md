@@ -45,7 +45,7 @@ end
 Color::Red.value # :: UInt8
 ```
 
-ただし、整数型のみしか指定することができません。
+ただし、整数型しか指定することはできません。
 
 すべての列挙型は [Enum](http://crystal-lang.org/api/Enum.html) を継承しています。
 
