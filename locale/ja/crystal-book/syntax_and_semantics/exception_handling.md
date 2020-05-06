@@ -205,7 +205,7 @@ ensure
 end
 ```
 
-## Type inference
+## 型推論
 
 Variables declared inside the `begin` part of an exception handler also get the `Nil` type when considered inside a `rescue` or `ensure` body. 例をあげます。
 

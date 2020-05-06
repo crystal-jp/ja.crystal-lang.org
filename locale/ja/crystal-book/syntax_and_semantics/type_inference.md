@@ -1,8 +1,8 @@
-# Type inference
+# 型推論
 
-Crystal's philosophy is to require as few type restrictions as possible. However, some restrictions are required.
+Crystal の哲学は型制約をなるべく減らすことです。しかし、どうしても型制約が必要になる場合もあります。
 
-Consider a class definition like this:
+このようなクラスの定義を考えてください。
 
 ```crystal
 class Person
@@ -12,20 +12,20 @@ class Person
 end
 ```
 
-We can quickly see that `@age` is an integer, but we don't know the type of `@name`. The compiler could infer its type from all uses of the `Person` class. However, doing so has a few issues:
+`@age`が整数型だということは一目で分かりますが、`@name`の型は分かりません。`Person` クラスでのすべての使われ方から型を推論することは不可能ではありません。ですが、そのようにするといくつかの問題が生じます。
 
-* The type is not obvious for a human reading the code: they would also have to check all uses of `Person` to find this out.
-* Some compiler optimizations, like having to analyze a method just once, and incremental compilation, are nearly impossible to do.
+* コード読む際に型が明確でない。型を知るためには`Person`中でどのように使われているかすべてを確認する必要があります。
+* コンパイル速度の問題。メソッドの解析を一度に処理したり、インクリメンタルコンパイルをすることがほとんど不可能になります。
 
-As a code base grows, these issues gain more relevance: understanding a project becomes harder, and compile times become unbearable.
+コードベースが育ってきたときにこれらの問題は顕著になります。プロジェクトの全容の把握は困難になり、コンパイル時間は耐え難いほど長くなるでしょう。
 
-For this reason, Crystal needs to know, in an obvious way (as obvious as to a human), the types of instance and [class](class_variables.html) variables.
+これらの理由から、Crystal ではインスタンス変数と[クラス](class_variables.html)変数の型ははっきり分かるように書くことを要求します。
 
-There are several ways to let Crystal know this.
+Crystal に型を理解させる方法はいくつかあります。
 
-## With type restrictions
+## 型制約を指定する場合
 
-The easiest, but probably most tedious, way is to use explicit type restrictions.
+もっとも単純で、そしておそらくもっとも面白くない方法が、明示的に型制約を指定することです。
 
 ```crystal
 class Person
@@ -38,21 +38,21 @@ class Person
 end
 ```
 
-## Without type restrictions
+## 型制約を指定しない場合
 
-If you omit an explicit type restriction, the compiler will try to infer the type of instance and class variables using a bunch of syntactic rules.
+明示的に型制約をしなかった場合、コンパイラは構文上の規則からインスタンス変数・クラス変数の型を推論しようとします。
 
-For a given instance/class variable, when a rule can be applied and a type can be guessed, the type is added to a set. When no more rules can be applied, the inferred type will be the [union](union_types.html) of those types. Additionally, if the compiler infers that an instance variable isn't always initialized, it will also include the [Nil](literals/nil.html) type.
+あるインスタンス変数・クラス変数について、その規則が適用されて型が予想できたとき、その型は一旦記憶されます。そして、これ以上適用する規則がなくなったとき、記憶された型の[ユニオン型](union_types.html)として推論されます。さらに、コンパイラが型を推論した変数が初期化されていないとき、[Nil](literals/nil.html) も型に加えられます。
 
-The rules are many, but usually the first three are most used. There's no need to remember them all. If the compiler gives an error saying that the type of an instance variable can't be inferred you can always add an explicit type restriction.
+規則はいくつかありますが、ほとんどの場合最初のものを利用することになるでしょう。他のものは記憶しなくてもよいです。コンパイラがインスタンス変数の型を推論できずエラーが起こったときは、明示的に型制限を追加することもできます。
 
-The following rules only mention instance variables, but they apply to class variables as well. They are:
+これらの規則はインスタンス変数に関するものとして記述されていますが、クラス変数に対しても同様に扱われます。紹介していきます。
 
-### 1. Assigning a literal value
+### 1. リテラルの代入
 
-When a literal is assigned to an instance variable, the literal's type is added to the set. All [literals](literals.html) have an associated type.
+リテラルがインスタンス変数に代入されているとき、リテラルの型が予想された型として記憶されます。すべての[リテラル](literals.html)はそれに対応する型を持っています。
 
-In the following example, `@name` is inferred to be `String` and `@age` to be `Int32`.
+次の例で、`@name` は `String` に、`@age` は `Int32` に推論されます。
 
 ```crystal
 class Person
@@ -63,7 +63,7 @@ class Person
 end
 ```
 
-This rule, and every following rule, will also be applied in methods other than `initialize`. 例をあげます。
+この規則やその他すべての規則は、`initialize`以外のメソッドに対しても適用されます。例をあげます。
 
 ```crystal
 class SomeObject
@@ -73,13 +73,13 @@ class SomeObject
 end
 ```
 
-In the above case, `@lucky_number` will be inferred to be `Int32 | Nil`: `Int32` because 42 was assigned to it, and `Nil` because it wasn't assigned in all of the class' initialize methods.
+この場合、`@lucky_number` は `Int32 | Nil` に推論されます。`Int32` は 42 が代入されているためで、 `Nil` は初期化されていないために、そのようになります。
 
-### 2. Assigning the result of invoking the class method `new`
+### 2. クラスメソッド `new` の呼び出し結果の代入
 
-When an expression like `Type.new(...)` is assigned to an instance variable, the type `Type` is added to the set.
+`Type.new(...)` のような式をインスタンス変数に代入しているとき、型 `Type` が予想された型として記憶されます。
 
-In the following example, `@address` is inferred to be `Address`.
+次の例で、`@address` は `Address` に推論されます。
 
 ```crystal
 class Person
@@ -89,7 +89,7 @@ class Person
 end
 ```
 
-This also is applied to generic types. Here `@values` is inferred to be `Array(Int32)`.
+この規則はジェネリック型にも適用されます。この例で、`@values` は `Array(Int32)` に推論されます。
 
 ```crystal
 class Something
@@ -99,11 +99,11 @@ class Something
 end
 ```
 
-**Note**: a `new` method might be redefined by a type. In that case the inferred type will be the one returned by `new`, if it can be inferred using some of the next rules.
+**注意**: `new` メソッドが再定義されている場合もあります。この場合、その他の規則で型が推論できれば、`new`で返る型に推論できるでしょう。
 
-### 3. Assigning a variable that is a method argument with a type restriction
+### 3. 型制約を持った引数の代入
 
-In the following example `@name` is inferred to be `String` because the method argument `name` has a type restriction of type `String`, and that argument is assigned to `@name`.
+次の例で `@name` は `String` に推論されます。これは `name` が `String` の型制約を持ち、`@name` に代入されているためです。
 
 ```crystal
 class Person
@@ -113,7 +113,7 @@ class Person
 end
 ```
 
-Note that the name of the method argument is not important; this works as well:
+メソッドの引数の名前は特に重要ではありません。次のようにしても動作します。
 
 ```crystal
 class Person
@@ -123,7 +123,7 @@ class Person
 end
 ```
 
-Using the shorter syntax to assign an instance variable from a method argument has the same effect:
+より簡潔に、メソッドの引数にインスタンス変数を指定しても同じ結果を得られます。
 
 ```crystal
 class Person
@@ -145,9 +145,9 @@ end
 
 In the above case, the compiler will still infer `@name` to be `String`, and later will give a compile time error, when fully typing that method, saying that `Int32` can't be assigned to a variable of type `String`. Use an explicit type restriction if `@name` isn't supposed to be a `String`.
 
-### 4. Assigning the result of a class method that has a return type restriction
+### 4. 型制約のあるクラスメソッドの呼び出し結果の代入
 
-In the following example, `@address` is inferred to be `Address`, because the class method `Address.unknown` has a return type restriction of `Address`.
+次の例で、`@address` は `Address` に推論されます。これはクラスメソッド `Address.unknown` に戻り値の型制約として `Address` が指定されているためです。
 
 ```crystal
 class Person
@@ -166,7 +166,7 @@ class Address
 end
 ```
 
-In fact, the above code doesn't need the return type restriction in `self.unknown`. The reason is that the compiler will also look at a class method's body and if it can apply one of the previous rules (it's a `new` method, or it's a literal, etc.) it will infer the type from that expression. So, the above can be simply written like this:
+実際のところ、上記のコードでは`self.unknown`の型制約は必要ありません。なぜなら、コンパイラはクラスメソッドの本体を見て、これまで説明してきた規則 (`new` メソッドの呼び出し、単純なリテラル、など) が適用できる場合に、式の型を推論するためです。よって、上記は次のように簡潔に書けます。
 
 ```crystal
 class Person
@@ -176,7 +176,7 @@ class Person
 end
 
 class Address
-  # No need for a return type restriction here
+  # ここの戻り値の型制約は必要ない
   def self.unknown
     new("unknown")
   end
@@ -186,11 +186,11 @@ class Address
 end
 ```
 
-This extra rule is very convenient because it's very common to have "constructor-like" class methods in addition to `new`.
+この追加の規則は、よくある`new`を呼ぶだけのコンストラクタ的なメソッドに対して動作するため非常に便利です。
 
-### 5. Assigning a variable that is a method argument with a default value
+### 5. デフォルト値のある引数の代入
 
-In the following example, because the default value of `name` is a string literal, and it's later assigned to `@name`, `String` will be added to the set of inferred types.
+次の例で、`name` のデフォルト値は文字列リテラルで、それが `@name` に代入されているため、結果 `String` に推論されます。
 
 ```crystal
 class Person
@@ -200,7 +200,7 @@ class Person
 end
 ```
 
-This of course also works with the short syntax:
+これは短かい書き方をしても同様に動作します。
 
 ```crystal
 class Person
@@ -209,13 +209,13 @@ class Person
 end
 ```
 
-The default value can also be a `Type.new(...)` method or a class method with a return type restriction.
+デフォルト値は `Type.new(...)` の形や戻り値の型制約のあるクラスメソッドでもよいです。
 
-### 6. Assigning the result of invoking a `lib` function
+### 6. `lib` 関数の呼び出し結果の代入
 
-Because a [lib function](c_bindings/fun.html) must have explicit types, the compiler can use the return type when assigning it to an instance variable.
+[lib 関数](c_bindings/fun.html) は明示的な型を持つため、それがインスタンス変数に代入されたとき、コンパイラは戻り値の型を予想できます。
 
-In the following example `@age` is inferred to be `Int32`.
+次の例で、`@age` は `Int32` に推論されます。
 
 ```crystal
 class Person
@@ -229,11 +229,11 @@ lib LibPerson
 end
 ```
 
-### 7. Using an `out` lib expression
+### 7. lib 式の `out` の利用
 
-Because a [lib function](c_bindings/fun.html) must have explicit types, the compiler can use the `out` argument's type, which should be a pointer type, and use the dereferenced type as a guess.
+[lib 関数](c_bindings/fun.html) は明示的な型を持つため、ポインタ型の引数が期待される場所で `out` 形式でインスタンス変数が渡されたとき、そのポインタ型をデリファレンスしたものとして予想します。
 
-In the following example `@age` is inferred to be `Int32`.
+次の例で、`@age` は `Int32` に推論されます。
 
 ```crystal
 class Person
@@ -247,21 +247,21 @@ lib LibPerson
 end
 ```
 
-### Other rules
+### その他の規則
 
-The compiler will try to be as smart as possible to require less explicit type restrictions. For example, if assigning an `if` expression, type will be inferred from the `then` and `else` branches:
+なるべく明示的な型制約を少なくできるよう、コンパイラは賢く動作しようとします。例えば、`if` 式の`then` 節と `else` 節で型推論された場合を考えます。
 
 ```crystal
 class Person
   def initialize
-    @age = some_condition ?1 : 2
+    @age = some_condition ? 1 : 2
   end
 end
 ```
 
-Because the `if` above (well, technically a ternary operator, but it's similar to an `if`) has integer literals, `@age` is successfully inferred to be `Int32` without requiring a redundant type restriction.
+上記の `if`  (正確には参考演算子ですが `if` と同様です) は整数リテラルを返すので、`@age` は正しく `Int32` と推論され、型制約は必要ありません。
 
-Another case is `||` and `||=`:
+他にも `||` や `||=` の場合にも上手く動作することがあります。
 
 ```crystal
 class SomeObject
@@ -271,9 +271,9 @@ class SomeObject
 end
 ```
 
-In the above example `@lucky_number` will be inferred to be `Int32 | Nil`. This is very useful for lazily initialized variables.
+上の例で `@lucky_number` は `Int32 | Nil` と推論されます。これは初期化が遅延される場合に便利でしょう。
 
-Constants will also be followed, as it's pretty simple for the compiler (and a human) to do so.
+これはコンパイラにとって (そして人間からしても) 容易な場合、定数を使った場合も上手く動作します。
 
 ```crystal
 class SomeObject
@@ -284,4 +284,4 @@ class SomeObject
 end
 ```
 
-Here rule 5 (argument's default value) is used, and because the constant resolves to an integer literal, `@lucky_number` is inferred to be `Int32`.
+ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、`@lucky_number` は `Int32` に推論されます。

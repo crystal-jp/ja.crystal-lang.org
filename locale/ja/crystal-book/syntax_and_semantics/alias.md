@@ -1,6 +1,6 @@
-# alias
+# 型エイリアス (alias)
 
-With `alias` you can give a type a different name:
+`alias` を使うと、型に別名をつけることができます。
 
 ```crystal
 alias PInt32 = Pointer(Int32)

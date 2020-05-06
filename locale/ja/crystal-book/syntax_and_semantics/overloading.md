@@ -1,6 +1,6 @@
-# Overloading
+# オーバーロード
 
-We can define a `become_older` method that accepts a number indicating the years to grow:
+これから、何歳歳をとるかを数値で指定できる `become_older` メソッドを定義します。
 
 ```crystal
 class Person
@@ -28,16 +28,16 @@ john.become_older 5
 john.age # => 6
 ```
 
-上記からわかるように、同じ名前で引数の数が異なるメソッドを定義することが可能で、それぞれが別のメソッドとして扱われます。This is called *method overloading*.
+上記からわかるように、同じ名前で引数の数が異なるメソッドを定義することが可能で、それぞれが別のメソッドとして扱われます。これを*メソッドのオーバーロード*と呼びます。
 
 メソッドがオーバーロードされるための条件は次の通りです。
 
-* The number of arguments
-* The type restrictions applied to arguments
-* The names of required named arguments
-* Whether the method accepts a [block](blocks_and_procs.html) or not
+* 引数の数
+* 引数に指定されている型制約
+* 必要な名前つき引数の名前が異なる
+* [ブロック](blocks_and_procs.html)を受け取れるかどうか
 
-For example, we can define four different `become_older` methods:
+例えば、`become_older` であれば、以下の4つの異なるメソッドを定義することができます。
 
 ```crystal
 class Person
@@ -77,12 +77,12 @@ person.become_older "12"
 person.age # => 18
 
 person.become_older do |current_age|
-  current_age < 20 ?10 : 30
+  current_age < 20 ? 10 : 30
 end
 person.age # => 28
 ```
 
-Note that in the case of the method that yields, the compiler figured this out because there's a `yield` expression. To make this more explicit, you can add a dummy `&block` argument at the end:
+コンパイラは `yield` が含まれていることを検知して、そのメソッドがブロックをとるメソッドであることを判断しています。より明示的にそのことを示したい場合は、`&block` という引数をダミーとして引数の最後に指定してください。
 
 ```crystal
 class Person
@@ -94,7 +94,7 @@ class Person
 end
 ```
 
-In generated documentation the dummy `&block` method will always appear, regardless of you writing it or not.
+ドキュメントでは、このように書いたかに関わらずに、必ず `&block` を引数に伴なって表示されます。
 
 もし同じ数の引数をとるメソッドが複数ある場合、コンパイラは最も制約の少ないものが最後にくる (優先されない) ようにソートを行います。
 
@@ -117,10 +117,10 @@ end
 
 person = Person.new "John"
 
-# Invokes the first definition
+# 最初の定義が呼び出される
 person.become_older 20
 
-# Invokes the second definition
+# 2番目の定義が呼び出される
 person.become_older "12"
 ```
 

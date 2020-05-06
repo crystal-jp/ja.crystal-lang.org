@@ -1,4 +1,4 @@
-# Constants
+# 定数
 
 定数はトップレベル、もしくはある型の内部で宣言することができます。定数の先頭は大文字である必要があります。
 
@@ -29,27 +29,27 @@ end
 TEN # => 10
 ```
 
-# Pseudo Constants
+# 疑似定数
 
-Crystal provides a few pseudo-constants which provide reflective data about the source code being executed.
+Crystal にはいくつかの疑似定数があり、ソースコードの位置に関する情報を取得することができます。
 
-`__LINE__` is the current line number in the currently executing crystal file. When `__LINE__` is declared as the default value to a method parameter, it represents the line number at the location of the method call.
+`__LINE__` は現在処理しているソースコードの現在の行番号になります。`__LINE__` がメソッドの引数のデフォルト値として利用された場合、メソッドの呼び出された位置の行番号になります。
 
-`__END_LINE__` is the line number of the `end` of the calling block. Can only be used as a default value to a method parameter.
+`__END_LINE__` は呼び出しのブロックの `end` のある行番号となります。これはメソッドの引数のデフォルト値でのみ利用できます。
 
-`__FILE__` references the full path to the currently executing crystal file.
+`__FILE__` は現在処理しているソースコードのファイル名の完全なパスを参照します。
 
-`__DIR__` references the full path to the directory where the currently executing crystal file is located.
+`__DIR__` は現在処理しているソースコードのあるディレクトリの完全なパスを参照します。
 
 ```crystal
-# Assuming this example code is saved at: /crystal_code/pseudo_constants.cr
+# このコードは /crystal_code/pseudo_constants.cr に保存されているとします。
 #
 def pseudo_constants(caller_line = __LINE__, end_of_caller = __END_LINE__)
-  puts "Called from line number: #{caller_line}"
-  puts "Currently at line number: #{__LINE__}"
-  puts "End of caller block is at: #{end_of_caller}"
-  puts "File path is: #{__FILE__}"
-  puts "Directory file is in: #{__DIR__}"
+  puts "呼び出された行番号: #{caller_line}"
+  puts "ここの行番号: #{__LINE__}"
+  puts "呼び出し元のブロックの終わりの行: #{end_of_caller}"
+  puts "ファイル名: #{__FILE__}"
+  puts "ディレクトリ名: #{__DIR__}"
 end
 
 begin
@@ -57,16 +57,16 @@ begin
 end
 
 # Program prints:
-# Called from line number: 13
-# Currently at line number: 5
-# End of caller block is at: 14
-# File path is: /crystal_code/pseudo_constants.cr
-# Directory file is in: /crystal_code
+# 呼び出された行番号: 13
+# ここの行番号r: 5
+# 呼び出し元のブロックの終わりの行: 14
+# ファイル名: /crystal_code/pseudo_constants.cr
+# ディレクトリ名: /crystal_code
 ```
 
-# Dynamic assignment
+# 動的な代入
 
-Dynamically assigning values to constants using the [chained assignment](assignment.md#chained-assignment) or the [multiple assignment](assignment.md#multiple-assignment) is not supported and results in a syntax error.
+[連続した代入](assignment.md#chained-assignment)や[多重代入](assignment.md#multiple-assignment)は定数に対してはサポートされておらず、構文エラーとなります。
 
 ```crystal
 ONE, TWO, THREE = 1, 2, 3 # Syntax error: Multiple assignment is not allowed for constants

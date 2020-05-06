@@ -1,6 +1,6 @@
-# Class variables
+# クラス変数
 
-クラス変数は、インスタンスにではなくクラス自身に結びついているもので、They are prefixed with two "at" signs (`@@`). 例をあげます。
+クラス変数は、インスタンスにではなくクラス自身に結びついているもので、クラス変数は先頭に2つのアットマーク (`@@`) が付きます。例をあげます。
 
 ```crystal
 class Counter
@@ -24,9 +24,9 @@ Counter.instances # => 3
 
 クラス変数は、クラスメソッドかインスタンスメソッドから読み書きすることができます。
 
-Their type is inferred using the [global type inference algorithm](type_inference.html).
+これらの型は[グローバル型推論アルゴリズム](type_inference.html)によって推論されます。
 
-Class variables are inherited by subclasses with this meaning: their type is the same, but each class has a different runtime value. 例をあげます。
+サブクラスでは、クラス変数も継承されます。このときクラス変数の型は同じですが、実行時の値は各サブクラスで別のものになります。例をあげます。
 
 ```crystal
 class Parent
@@ -48,4 +48,4 @@ Parent.numbers # => [1]
 Child.numbers  # => []
 ```
 
-クラス変数をモジュールや構造体に設定することも可能です。Like above, they are inherited by including/subclassing types.
+クラス変数をモジュールや構造体に設定することも可能です。上記と同様に、インクールドや継承された型にクラス変数は継承されます。

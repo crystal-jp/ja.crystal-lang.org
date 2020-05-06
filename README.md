@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 54/125
+翻訳済み/全体 = 86/125
 
 <details>
 
@@ -73,38 +73,38 @@
 | `crystal-book/syntax_and_semantics/and.md`                                                          | ○    |
 | `crystal-book/syntax_and_semantics/or.md`                                                           | ○    |
 | `crystal-book/syntax_and_semantics/requiring_files.md`                                              | ○    |
-| `crystal-book/syntax_and_semantics/types_and_methods.md`                                            | ×    |
-| `crystal-book/syntax_and_semantics/everything_is_an_object.md`                                      | △    |
-| `crystal-book/syntax_and_semantics/the_program.md`                                                  | △    |
-| `crystal-book/syntax_and_semantics/classes_and_methods.md`                                          | △    |
-| `crystal-book/syntax_and_semantics/new_initialize_and_allocate.md`                                  | △    |
-| `crystal-book/syntax_and_semantics/methods_and_instance_variables.md`                               | △    |
-| `crystal-book/syntax_and_semantics/type_inference.md`                                               | △    |
-| `crystal-book/syntax_and_semantics/union_types.md`                                                  | △    |
-| `crystal-book/syntax_and_semantics/overloading.md`                                                  | △    |
-| `crystal-book/syntax_and_semantics/default_and_named_arguments.md`                                  | △    |
-| `crystal-book/syntax_and_semantics/splats_and_tuples.md`                                            | ×    |
-| `crystal-book/syntax_and_semantics/type_restrictions.md`                                            | △    |
-| `crystal-book/syntax_and_semantics/return_types.md`                                                 | △    |
-| `crystal-book/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md` | △    |
-| `crystal-book/syntax_and_semantics/operators.md`                                                    | ×    |
-| `crystal-book/syntax_and_semantics/visibility.md`                                                   | △    |
-| `crystal-book/syntax_and_semantics/inheritance.md`                                                  | △    |
-| `crystal-book/syntax_and_semantics/virtual_and_abstract_types.md`                                   | △    |
-| `crystal-book/syntax_and_semantics/class_methods.md`                                                | ×    |
-| `crystal-book/syntax_and_semantics/class_variables.md`                                              | △    |
-| `crystal-book/syntax_and_semantics/finalize.md`                                                     | △    |
-| `crystal-book/syntax_and_semantics/modules.md`                                                      | △    |
-| `crystal-book/syntax_and_semantics/generics.md`                                                     | △    |
-| `crystal-book/syntax_and_semantics/structs.md`                                                      | ×    |
-| `crystal-book/syntax_and_semantics/constants.md`                                                    | △    |
-| `crystal-book/syntax_and_semantics/enum.md`                                                         | △    |
-| `crystal-book/syntax_and_semantics/blocks_and_procs.md`                                             | △    |
-| `crystal-book/syntax_and_semantics/capturing_blocks.md`                                             | △    |
-| `crystal-book/syntax_and_semantics/proc_literal.md`                                                 | ×    |
-| `crystal-book/syntax_and_semantics/block_forwarding.md`                                             | △    |
-| `crystal-book/syntax_and_semantics/closures.md`                                                     | △    |
-| `crystal-book/syntax_and_semantics/alias.md`                                                        | △    |
+| `crystal-book/syntax_and_semantics/types_and_methods.md`                                            | ○    |
+| `crystal-book/syntax_and_semantics/everything_is_an_object.md`                                      | ○    |
+| `crystal-book/syntax_and_semantics/the_program.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/classes_and_methods.md`                                          | ○    |
+| `crystal-book/syntax_and_semantics/new,_initialize_and_allocate.md`                                 | ○    |
+| `crystal-book/syntax_and_semantics/methods_and_instance_variables.md`                               | ○    |
+| `crystal-book/syntax_and_semantics/type_inference.md`                                               | ○    |
+| `crystal-book/syntax_and_semantics/union_types.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/overloading.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/default_and_named_arguments.md`                                  | ○    |
+| `crystal-book/syntax_and_semantics/splats_and_tuples.md`                                            | ○    |
+| `crystal-book/syntax_and_semantics/type_restrictions.md`                                            | ○    |
+| `crystal-book/syntax_and_semantics/return_types.md`                                                 | ○    |
+| `crystal-book/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.md` | ○    |
+| `crystal-book/syntax_and_semantics/operators.md`                                                    | ○    |
+| `crystal-book/syntax_and_semantics/visibility.md`                                                   | ○    |
+| `crystal-book/syntax_and_semantics/inheritance.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/virtual_and_abstract_types.md`                                   | ○    |
+| `crystal-book/syntax_and_semantics/class_methods.md`                                                | ○    |
+| `crystal-book/syntax_and_semantics/class_variables.md`                                              | ○    |
+| `crystal-book/syntax_and_semantics/finalize.md`                                                     | ○    |
+| `crystal-book/syntax_and_semantics/modules.md`                                                      | ○    |
+| `crystal-book/syntax_and_semantics/generics.md`                                                     | ○    |
+| `crystal-book/syntax_and_semantics/structs.md`                                                      | ○    |
+| `crystal-book/syntax_and_semantics/constants.md`                                                    | ○    |
+| `crystal-book/syntax_and_semantics/enum.md`                                                         | ○    |
+| `crystal-book/syntax_and_semantics/blocks_and_procs.md`                                             | ○    |
+| `crystal-book/syntax_and_semantics/capturing_blocks.md`                                             | ○    |
+| `crystal-book/syntax_and_semantics/proc_literal.md`                                                 | ○    |
+| `crystal-book/syntax_and_semantics/block_forwarding.md`                                             | ○    |
+| `crystal-book/syntax_and_semantics/closures.md`                                                     | ○    |
+| `crystal-book/syntax_and_semantics/alias.md`                                                        | ○    |
 | `crystal-book/syntax_and_semantics/exception_handling.md`                                           | △    |
 | `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | △    |
 | `crystal-book/syntax_and_semantics/type_reflection.md`                                              | △    |

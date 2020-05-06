@@ -1,18 +1,18 @@
-# The Program
+# プログラム
 
 プログラムはそれ自体がグローバルオブジェクトです。その中で、型やメソッド、そしてファイルローカルな変数の定義を行うことができます。
 
 ```crystal
-# Defines a method in the program
+# プログラムにメソッドを定義
 def add(x, y)
   x + y
 end
 
-# Invokes the add method in the program
+# プログラムでメソッドを呼び出す
 add(1, 2) # => 3
 ```
 
-A method's value is the value of its last expression; there's no need for explicit `return` expressions. However, explicit `return` expressions are possible:
+メソッドでは、その最後の式の値がメソッドの値となります。したがって、明示的に`return`を書く必要はありません。ただ、明示的に`return`を書くことも可能です。
 
 ```crystal
 def even?(num)
@@ -24,7 +24,7 @@ def even?(num)
 end
 ```
 
-When invoking a method without a receiver, like `add(1, 2)`, it will be searched for in the program if not found in the current type or any of its ancestors.
+`add(1, 2)` のように、レシーバを指定せずにメソッドを呼び出したとき、そのメソッドが現在の型やその継承元に見つからなかった場合は、プログラムから探索されます。
 
 ```crystal
 def add(x, y)
@@ -46,7 +46,7 @@ class Foo
 end
 ```
 
-If you want to invoke the program's method, even though the current type defines a method with the same name, prefix the call with `::`:
+プログラムに定義されたメソッドを呼び出したいけれど、現在の型にも同名のメソッドが定義されているときは、`::`をプレフィックスにして呼び出すことができます。
 
 ```crystal
 def baz(x, y)
@@ -77,27 +77,27 @@ end
 add(2)
 ```
 
-メソッド実行時のカッコは省略することができます。
+メソッド呼び出しの際の括弧は省略することができます。
 
 ```crystal
-add 1, 2 # same as add(1, 2)
+add 1, 2 # add(1, 2) と同じ
 ```
 
-## Main code
+## メインとなるコード
 
-Main code, the code that is run when you compile and run a program, can be written directly in a source file without the need to put it in a special "main" method:
+コンパイルされたプログラムを実行する際に実行される部分のコードは、ソースコードに直接書きます。"main" メソッドのような特別なメソッドに含める必要はありません。
 
 ```crystal
-# This is a program that prints "Hello Crystal!"
+# "Hello Crystal!" と表示するプログラム
 puts "Hello Crystal!"
 ```
 
-Main code can also be inside type declarations:
+メインとなるコードは型定義の中に現れる場合もあります。
 
 ```crystal
-# This is a program that prints "Hello"
+# "Hello" と表示するプログラム
 class Hello
-  # 'self' here is the Hello class
+  # ここでの 'self' は Hello クラス
   puts self
 end
 ```

@@ -1,14 +1,14 @@
-# new, initialize and allocate
+# new/initialize/allocate
 
-You create an instance of a class by invoking `new` on that class:
+クラスのインスタンスを作成するには、クラスに対して `new` メソッドを実行します。
 
 ```
 person = Person.new
 ```
 
-Here, `person` is an instance of `Person`.
+この例では `person` は `Person` クラスのインスタンスです。
 
-We can't do much with `person`, so let's add some concepts to it. A `Person` has a name and an age. In the "Everything is an object" section we said that an object has a type and responds to some methods, which is the only way to interact with objects, so we'll need both `name` and `age` methods. We will store this information in instance variables, which are always prefixed with an *at* (`@`) character. We also want a Person to come into existence with a name of our choice and an age of zero. We code the "come into existence" part with a special `initialize` method, which is normally called a *constructor*:
+しかし `person` に対してできることはほとんどありません。そこで、いくつかの機能を追加してみましょう。`Person` は名前 (name) と年齢 (age) を持つことにします。「すべてがオブジェクト」のセクションで「オブジェクトは型を持つメソッドに応答する」ものであると書きました。つまり、メソッドがオブジェクトと対話する唯一の方法だということです。よって、名前と年齢のために `name` と `age` の2つのメソッドが必要になります。そして、これらの情報は*アットマーク記号* (`@`) が先頭についたインスタンス変数に格納します。また Person のインスタンスが生成されるとき、名前は指定されたものに、年齢は0歳の状態になっているようにしたいと思います。インスタンスが生成されるときの処理は`initialize`メソッドに定義します (このメソッドは*コンストラクタ*と呼ぶこともあります)。
 
 ```crystal
 class Person
@@ -39,11 +39,11 @@ john.age  # => 0
 peter.name # => "Peter"
 ```
 
-(If you wonder why we needed to specify that `name` is a `String` but we didn't need to do it for `age`, check the [global type inference algorithm](type_inference.html))
+(`name` には `String` と指定しているのに `age` に対してはそれが必要ないことを不思議に思う人もいるでしょう。これは [グローバル型推論アルゴリズムの項](type_inference.html)を参照してください。)
 
-Note that we create a `Person` with `new` but we defined the initialization in an `initialize` method, not in a `new` method. これは一体どういうことでしょう？
+`new` メソッドによって `Person` のインスタンスを生成しましたが、初期化処理は `initialize` メソッドに定義したのであって、`new` メソッドにではないことが気になります。これは一体どういうことでしょう？
 
-The answer is that when we defined an `initialize` method Crystal defined a `new` method for us, like this:
+実は、`initialize` メソッドを定義したとき、Crystal は同時に`new` メソッドも定義しているのです。
 
 ```crystal
 class Person
@@ -55,7 +55,7 @@ class Person
 end
 ```
 
-First, note the `self.new` notation. This is a [class method](class_methods.md) that belongs to the **class** `Person`, not to particular instances of that class. This is why we can do `Person.new`.
+まず、`self.new` と書いていることに注目してください。これは[クラスメソッド](class_methods.md)といって、`Person`**クラス**自体に属すメソッドを表しています。特定のインスタンスに対してではありません。これによって `Person.new` とできるわけです。
 
-Second, `allocate` is a low-level class method that creates an uninitialized object of the given type. It basically allocates the necessary memory for the object, then `initialize` is invoked on it and finally the instance is returned. You generally never invoke `allocate`, as it is [unsafe](unsafe.html), but that's the reason why `new` and `initialize` are related.
+次に、`allocate`は与えられたクラスの初期化されていないオブジェクトを生成する、低レネルなクラスメソッドです。必要なメモリを割り当てて、`initialize` メソッドを呼び出し、最後にそのインスタンスを返しています。`allocate`は[安全でない](unsafe.html)メソッドなので、一般的には直接呼び出すこと無いでしょう。`new` と `initialize` がこういった関係になっているのは、そのような理由です。
 

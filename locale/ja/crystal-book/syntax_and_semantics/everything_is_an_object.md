@@ -1,9 +1,9 @@
-# Everything is an object
+# すべてがオブジェクト
 
 Crystal ではすべてのものがオブジェクトです。オブジェクトの定義は、突き詰めると以下に要約することができます。
 
-* It has a type
-* It can respond to some methods
+* 型を持っている
+* メソッドに応答する
 
 「型を持っていて、メソッドに応答する」もの。これがオブジェクトです。
 
