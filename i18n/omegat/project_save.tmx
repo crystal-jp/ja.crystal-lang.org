@@ -718,10 +718,28 @@ end{% endhighlight %}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># ..</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104148Z" creationid="makenowjust" creationdate="20200506T104148Z">
+        <seg># ..</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># ...</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T031031Z" creationid="hirofumiwakasugi" creationdate="20150909T031031Z">
         <seg># ...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># ...
+else</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103822Z" creationid="makenowjust" creationdate="20200506T103822Z">
+        <seg># ...
+else</seg>
       </tuv>
     </tu>
     <tu>
@@ -1342,6 +1360,16 @@ close_door unless door_closed?
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021653Z" creationid="hirofumiwakasugi" creationdate="20150904T021646Z">
         <seg># クラスとメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Clearer than the above: `a` doesn't need
+# to be in the exception handling code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104656Z" creationid="makenowjust" creationdate="20200506T104656Z">
+        <seg># 例外処理のコードの内部で `a` を宣言する必要はないため、
+# こう書くことで意図がより明確になる</seg>
       </tuv>
     </tu>
     <tu>
@@ -3425,6 +3453,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># always execute this
+end
+
+# The above is the same as:
+def some_method</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104109Z" creationid="makenowjust" creationdate="20200506T104109Z">
+        <seg># ここは常に実行される
+end
+
+# 上記は以下と同じ
+def some_method</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># and do the inclusion check at runtime.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T031129Z" creationid="hirofumiwakasugi" creationdate="20151009T031028Z">
@@ -3438,6 +3482,16 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T093932Z" creationid="makenowjust" creationdate="20200424T093932Z">
         <seg># value2 は Int32 型となることが保証される
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># any other kind of exception
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103531Z" creationid="makenowjust" creationdate="20200506T103531Z">
+        <seg># any other kind of exception
 end</seg>
       </tuv>
     </tu>
@@ -3639,12 +3693,38 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># execute if an exception is raised
+end
+
+# The above is the same as:
+def some_method</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104008Z" creationid="makenowjust" creationdate="20200506T103958Z">
+        <seg># 例外が発生するとここが実行される
+end
+
+# 上記は以下と同じ
+def some_method</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># execute this if an exception is raised
 else</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013847Z" creationid="hirofumiwakasugi" creationdate="20150907T013847Z">
         <seg># 例外が発生するとここが実行される
 else</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># execute this if an exception isn't raised
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103607Z" creationid="makenowjust" creationdate="20200506T103607Z">
+        <seg># 例外が発生しなかった場合のみここが実行される
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -4557,10 +4637,32 @@ rescue</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># potentially dangerous operation
+
+
+rescue</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104147Z" creationid="makenowjust" creationdate="20200506T104147Z">
+        <seg># 潜在的に危険な操作をする
+
+
+rescue</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># responds_to?</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T012702Z" creationid="hirofumiwakasugi" creationdate="20150930T012702Z">
         <seg># responds_to?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># returns nil because of index out of bounds</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104901Z" creationid="makenowjust" creationdate="20200506T104901Z">
+        <seg># インデックス範囲外のため nil が返る</seg>
       </tuv>
     </tu>
     <tu>
@@ -4693,6 +4795,16 @@ crystal spec spec/myapp_spec.cr:6 # Myapp works</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T130142Z" creationid="akiji" creationdate="20200430T130142Z">
         <seg># これは避けるべき</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># this will always be executed
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103831Z" creationid="makenowjust" creationdate="20200506T103831Z">
+        <seg># ここは必ず実行される
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -11947,6 +12059,14 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;ensure&lt;/g1&gt; clauses are usually used for clean up, freeing resources, etc.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103852Z" creationid="makenowjust" creationdate="20200506T103852Z">
+        <seg>通常、&lt;g1&gt;ensure&lt;/g1&gt; 節は処理の後始末やリソースの解放などに利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;enum&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171416Z" creationid="makenowjust" creationdate="20200413T171416Z">
@@ -14885,6 +15005,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Alternative ways to do error handling</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104706Z" creationid="makenowjust" creationdate="20200506T104706Z">
+        <seg>例外処理の他の方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Alternative you can use the `run` command:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072011Z" creationid="hirofumiwakasugi" creationdate="20150901T072011Z">
@@ -14941,6 +15069,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Although it is obvious that &lt;g1&gt;a&lt;/g1&gt; will always be assigned a value, the compiler will still think &lt;g2&gt;a&lt;/g2&gt; might never had a chance to be initialized.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104627Z" creationid="makenowjust" creationdate="20200506T104627Z">
+        <seg>この場合、&lt;g1&gt;a&lt;/g1&gt; に常に値が代入されていることは明白なのですが、それでもコンパイラは &lt;g2&gt;a&lt;/g2&gt; が初期化されていない可能性があると解釈します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Although it is obvious that `a` will always be assigned a value, the compiler will still think `a` might never had a chance to be initialized.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T022758Z" creationid="hirofumiwakasugi" creationdate="20150907T022321Z">
@@ -14993,6 +15129,30 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173906Z" creationid="makenowjust" creationdate="20200420T172810Z">
         <seg>&lt;g1&gt;Array&lt;/g1&gt;は順番に意味があり整数でインデックスされた、&lt;g2&gt;T&lt;/g2&gt;型の値を要素として持つジェネリックなコレクションです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;else&lt;/g1&gt; clause can only be specified if at least one &lt;g2&gt;rescue&lt;/g2&gt; clause is specified.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103645Z" creationid="makenowjust" creationdate="20200506T103645Z">
+        <seg>&lt;g1&gt;else&lt;/g1&gt; 節を指定する場合、少なくとも1つの &lt;g2&gt;rescue&lt;/g2&gt; 節が指定されている必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;else&lt;/g1&gt; clause is executed only if no exceptions were rescued:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103549Z" creationid="makenowjust" creationdate="20200506T103549Z">
+        <seg>&lt;g1&gt;else&lt;/g1&gt; 節は例外が発生しなかった場合にのみ実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;ensure&lt;/g1&gt; clause is executed at the end of a &lt;g2&gt;begin ... end&lt;/g2&gt; or &lt;g3&gt;begin ... rescue ... end&lt;/g3&gt; expression regardless of whether an exception was raised or not:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103730Z" creationid="makenowjust" creationdate="20200506T103730Z">
+        <seg>&lt;g1&gt;ensure&lt;/g1&gt; 節は例外が発生したかどうかに関係なく、&lt;g2&gt;begin ... end&lt;/g2&gt; または &lt;g3&gt;begin ... rescue ... end&lt;/g3&gt; のあとで必ず実行されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17727,6 +17887,14 @@ but also to format code samples included in documentation blocks.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Defining custom exceptions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103400Z" creationid="makenowjust" creationdate="20200506T103400Z">
+        <seg>独自の例外を定義する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Defining operator methods</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T082837Z" creationid="makenowjust" creationdate="20200502T082837Z">
@@ -18189,10 +18357,26 @@ or &lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Exception handling</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103116Z" creationid="makenowjust" creationdate="20200506T103116Z">
+        <seg>例外の処理</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Exception handling has a short syntax form: assume a method definition is an implicit `begin ... end` expression, then specify `rescue`, `ensure` and `else` clauses:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T014221Z" creationid="hirofumiwakasugi" creationdate="20150907T014221Z">
         <seg>例外処理には短縮記法が用意されています。それは、メソッドの定義は暗黙的に `begin ... end` 構文であるとして `rescue`/`ensure`/`else` を使用できるというものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Exception handling has a short syntax form: assume a method or block definition is an implicit &lt;g1&gt;begin ... end&lt;/g1&gt; expression, then specify &lt;g2&gt;rescue&lt;/g2&gt;, &lt;g3&gt;else&lt;/g3&gt;, and &lt;g4&gt;ensure&lt;/g4&gt; clauses:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103944Z" creationid="makenowjust" creationdate="20200506T103944Z">
+        <seg>例外処理には短縮記法が用意されています。それは、メソッドの定義は暗黙的に &lt;g1&gt;begin ... end&lt;/g1&gt; 構文であるとして、&lt;g2&gt;rescue&lt;/g2&gt;や&lt;g3&gt;else&lt;/g3&gt;、&lt;g4&gt;ensure&lt;/g4&gt; 節を指定できるというものです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23242,6 +23426,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Multiple &lt;g1&gt;rescue&lt;/g1&gt; clauses can be specified:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103528Z" creationid="makenowjust" creationdate="20200506T103528Z">
+        <seg>複数の &lt;g1&gt;rescue&lt;/g1&gt; 節を指定することも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Multiple `rescue` clauses can be specified:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T012443Z" creationid="hirofumiwakasugi" creationdate="20150907T012443Z">
@@ -23777,6 +23969,14 @@ end up in the resulting string.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note, however, that this is not available for every method out there, as exceptions are still the preferred way because they don't pollute the code with error handling logic.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T105231Z" creationid="makenowjust" creationdate="20200506T105231Z">
+        <seg>ただ、すべてのメソッドにこの方法が用意されているわけではありません。また、エラーハンドリングのロジックが混ざることによってコードが汚れてしまうのを避けるという意味でも、例外を発生させるというのは好ましい方法でしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Notice that the chained calls of &lt;g1&gt;plus&lt;/g1&gt; return the expected result, but only the first call to it modifies the variable &lt;g2&gt;counter&lt;/g2&gt;, as the second call operates on the &lt;g3&gt;copy&lt;/g3&gt; of the struct passed to it from the first call, and this copy is discarded after the expression is executed.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T084439Z" creationid="makenowjust" creationdate="20200505T173110Z">
@@ -24120,6 +24320,14 @@ confusing and behaves unexpectedly.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T075009Z" creationid="akiji" creationdate="20200428T075009Z">
         <seg>この問題を解決留守方法の一つは、&lt;g1&gt;sleep&lt;/g1&gt;を使うことです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Only &lt;g1&gt;Exception&lt;/g1&gt; instances or subclasses can be raised.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103354Z" creationid="makenowjust" creationdate="20200506T103354Z">
+        <seg>そして、raise の対象に指定することができるのは &lt;g1&gt;Exception&lt;/g1&gt; のインスタンス、もしくはそのサブクラスのみに限られます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24782,6 +24990,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Raising exception</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103122Z" creationid="makenowjust" creationdate="20200506T103122Z">
+        <seg>例外を発生させる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Range</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T033744Z" creationid="makenowjust" creationdate="20200421T033744Z">
@@ -25119,6 +25335,14 @@ only consist of special characters.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Rescuing exceptions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103428Z" creationid="makenowjust" creationdate="20200506T103428Z">
+        <seg>例外の捕捉</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Resolves and installs dependencies into the &lt;g1&gt;lib&lt;/g1&gt; folder.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T180537Z" creationid="makenowjust" creationdate="20200419T180537Z">
@@ -25409,6 +25633,14 @@ only consist of special characters.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T184925Z" creationid="makenowjust" creationdate="20200505T184925Z">
         <seg>単一引数の場合の短縮記法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Short syntax form</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103858Z" creationid="makenowjust" creationdate="20200506T103858Z">
+        <seg>短縮記法</seg>
       </tuv>
     </tu>
     <tu>
@@ -26555,6 +26787,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The String version just creates a new &lt;g1&gt;Exception&lt;/g1&gt; instance with that message.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103323Z" creationid="makenowjust" creationdate="20200506T103323Z">
+        <seg>String の場合は、単純にそのメッセージを含んだ &lt;g1&gt;Exception&lt;/g1&gt; のインスタンスを生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The String version just creates a new [Exception](http://crystal-lang.org/api/Exception.html) instance with that message.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011436Z" creationid="hirofumiwakasugi" creationdate="20150907T011436Z">
@@ -26823,6 +27063,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103750Z" creationid="akiji" creationdate="20200429T143759Z">
         <seg>上の例ではバッファのないチャネル、つまり値を送信した際にそのチャネルの値を待っているファイバがあればそちらに処理が移るもの、を使用しました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The above happens even if &lt;g1&gt;something_dangerous_that_returns_Int32&lt;/g1&gt; never raises, or if &lt;g2&gt;a&lt;/g2&gt; was assigned a value and then a method that potentially raises is executed:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104547Z" creationid="makenowjust" creationdate="20200506T104547Z">
+        <seg>このとき、もし &lt;g1&gt;something_dangerous_that_returns_Int32&lt;/g1&gt; が例外を発生させない場合であってもエラーが発生します。さらに &lt;g2&gt;a&lt;/g2&gt; に先に値に代入されて、それから例外を発生させる可能性があるメソッドが実行された場合であってもエラーとなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28394,6 +28642,14 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The standard library usually provides a couple of methods to accomplish something: one raises, one returns &lt;g1&gt;nil&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T105027Z" creationid="makenowjust" creationdate="20200506T104844Z">
+        <seg>そこで、標準ライブラリでは、例外を発生する方法に加えて、&lt;g1&gt;nil&lt;/g1&gt; を返す方法も用意しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The standard library usually provides a couple of methods to accomplish something: one raises, one returns `nil`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023812Z" creationid="hirofumiwakasugi" creationdate="20150907T023528Z">
@@ -28648,6 +28904,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T083203Z" creationid="makenowjust" creationdate="20200429T145249Z">
         <seg>同じ大きさのタプル同士のユニオン型は、タプルの各型のユニオン型を取ったものになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The usual convention is to provide an alternative "question" method to signal that this variant of the method returns &lt;g1&gt;nil&lt;/g1&gt; instead of raising.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T105053Z" creationid="makenowjust" creationdate="20200506T104932Z">
+        <seg>慣習として、メソッドが例外を発生させる代わりに &lt;g1&gt;nil&lt;/g1&gt; を返すことができる場合は、それを示すためにクエスチョンマークのついたメソッドとして提供することになっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29804,6 +30068,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This lets the user choose whether she wants to deal with exceptions or with &lt;g2&gt;nil&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T105116Z" creationid="makenowjust" creationdate="20200506T105116Z">
+        <seg>こうすることで、ユーザーが例外を利用するか &lt;g2&gt;nil&lt;/g2&gt; を利用するかを選択することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This lets the user choose whether she wants to deal with exceptions or with `nil`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T024302Z" creationid="hirofumiwakasugi" creationdate="20150907T024302Z">
@@ -30243,6 +30515,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To access the rescued exception you can specify a variable in the &lt;g1&gt;rescue&lt;/g1&gt; clause:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103505Z" creationid="makenowjust" creationdate="20200506T103505Z">
+        <seg>捕捉された例外にアクセスしたいときは、&lt;g1&gt;rescue&lt;/g1&gt; 節に変数を指定することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To access the rescued exception you can specify a variable in the `rescue` clause:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T013116Z" creationid="hirofumiwakasugi" creationdate="20150907T012004Z">
@@ -30458,6 +30738,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T045902Z" creationid="hirofumiwakasugi" creationdate="20151007T045902Z">
         <seg>再帰的な構造体は、宣言フォワーディング (forward-declare) によって宣言します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To define a custom exception type, just subclass from &lt;g1&gt;Exception&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103421Z" creationid="makenowjust" creationdate="20200506T103421Z">
+        <seg>独自の例外型を定義したい場合には、&lt;g1&gt;Exception&lt;/g1&gt; からサブクラスを作成します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30820,6 +31108,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T152346Z" creationid="makenowjust" creationdate="20200419T152346Z">
         <seg>配布するファイルのサイズを減らすには、&lt;g1&gt;--no-debug&lt;/g1&gt;フラグを用いることが有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To rescue any exception use a &lt;g1&gt;begin ... rescue ... end&lt;/g1&gt; expression:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103440Z" creationid="makenowjust" creationdate="20200506T103440Z">
+        <seg>例外を捕捉するには、&lt;g1&gt;begin ... rescue ... end&lt;/g1&gt; の構文を使用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31304,6 +31600,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unlike other keywords, &lt;g2&gt;raise&lt;/g2&gt; is a regular method with two overloads: &lt;g3&gt;one accepting a String&lt;/g3&gt; and another &lt;g4&gt;accepting an Exception instance&lt;/g4&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103259Z" creationid="makenowjust" creationdate="20200506T103251Z">
+        <seg>他のキーワードとは異なり、&lt;g2&gt;raise&lt;/g2&gt; は通常のメソッドであり、2つのオーバーロードがあります。その1つは&lt;g3&gt;String を受け取るもの&lt;/g3&gt;で、もう1つは&lt;g4&gt;例外オブジェクトを受け取るもの&lt;/g4&gt;です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unlike other keywords, `raise` is a regular method with two overloads: [one accepting a String](http://crystal-lang.org/api/toplevel.html#raise%28message%20%3A%20String%29-class-method) and another [accepting an Exception instance](http://crystal-lang.org/api/toplevel.html#raise%28ex%20%3A%20Exception%29-class-method):</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011338Z" creationid="hirofumiwakasugi" creationdate="20150907T010924Z">
@@ -31606,6 +31910,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021521Z" creationid="hirofumiwakasugi" creationdate="20150904T021431Z">
         <seg>プログラムに定義された変数に対して、メソッドの中からアクセスすることはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Variables declared inside the &lt;g1&gt;begin&lt;/g1&gt; part of an exception handler also get the &lt;g2&gt;Nil&lt;/g2&gt; type when considered inside a &lt;g3&gt;rescue&lt;/g3&gt; or &lt;g4&gt;ensure&lt;/g4&gt; body.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104439Z" creationid="makenowjust" creationdate="20200506T104439Z">
+        <seg>例外処理において、&lt;g1&gt;begin&lt;/g1&gt; 節の中で宣言された変数は &lt;g3&gt;rescue&lt;/g3&gt; または &lt;g4&gt;ensure&lt;/g4&gt; 内においては &lt;g2&gt;Nil&lt;/g2&gt; t型を持っているものとして扱われます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32420,6 +32732,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T081511Z" creationid="makenowjust" creationdate="20200506T081511Z">
         <seg>&lt;g1&gt;alias&lt;/g1&gt; を使うと、型に別名をつけることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>With &lt;g1&gt;ensure&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104034Z" creationid="makenowjust" creationdate="20200506T104027Z">
+        <seg>&lt;g1&gt;ensure&lt;/g1&gt; と共に利用した場合は次のようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33310,6 +33630,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T162424Z" creationid="makenowjust" creationdate="20200413T162424Z">
         <seg>オブジェクトに対して&lt;g1&gt;メソッド&lt;/g1&gt;を実行 (またはメッセージを送信) することでプログラムを構築します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You raise exceptions by invoking a top-level &lt;g1&gt;raise&lt;/g1&gt; method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103143Z" creationid="makenowjust" creationdate="20200506T103143Z">
+        <seg>例外を発生させるにはトップレベルの &lt;g1&gt;raise&lt;/g1&gt; メソッドを使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -43085,6 +43413,18 @@ push("oops", [1, 2, 3]) # Error</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>array = [1, 2, 3]
+array[4]  # raises because of IndexError
+array[4]?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104848Z" creationid="makenowjust" creationdate="20200506T104848Z">
+        <seg>array = [1, 2, 3]
+array[4]  # raises because of IndexError
+array[4]?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>array = [{1, "one", true}, {2, "two", false}]
 array.each do |number, word, bool|</seg>
       </tuv>
@@ -44432,6 +44772,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T142814Z" creationid="makenowjust" creationdate="20200504T142814Z">
         <seg>class MyDictionary(KeyType, ValueType)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class MyException &lt; Exception
+end
+
+class MyOtherException &lt; Exception
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103421Z" creationid="makenowjust" creationdate="20200506T103421Z">
+        <seg>class MyException &lt; Exception
+end
+
+class MyOtherException &lt; Exception
 end</seg>
       </tuv>
     </tu>
@@ -46979,6 +47335,22 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T122230Z" creationid="hirofumiwakasugi" creationdate="20150904T122230Z">
         <seg>end
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+# Similarly, the shorthand also works with blocks:
+(1..10).each do |n|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104132Z" creationid="makenowjust" creationdate="20200506T104132Z">
+        <seg>end
+end
+
+# また短縮記法はブロックに対しても同様にはたらく
+(1..10).each do |n|</seg>
       </tuv>
     </tu>
     <tu>
@@ -51943,6 +52315,22 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "Cleanup..."
+end
+
+# Will print "Cleanup..." after invoking something_dangerous,
+# regardless of whether it raised or not</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103819Z" creationid="makenowjust" creationdate="20200506T103731Z">
+        <seg>puts "Cleanup..."
+end
+
+# 例外が発生したかどうかに関わらず、
+# something_dangerous が実行されたあとに "Cleanup..." が出力される</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "Currently at line number: #{__LINE__}"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T180936Z" creationid="makenowjust" creationdate="20200505T180936Z">
@@ -52371,6 +52759,20 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "Rescued MyException"
+end
+
+# Output: Rescued MyException</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103509Z" creationid="makenowjust" creationdate="20200506T103509Z">
+        <seg>puts "Rescued MyException"
+end
+
+# Output: Rescued MyException</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "Rescued MyException: #{ex.message}"
 end</seg>
       </tuv>
@@ -52381,12 +52783,40 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "Rescued MyException: #{ex.message}"
+end
+
+# Output: Rescued MyException: OH NO!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103512Z" creationid="makenowjust" creationdate="20200506T103512Z">
+        <seg>puts "Rescued MyException: #{ex.message}"
+end
+
+# Output: Rescued MyException: OH NO!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "Rescued!"
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T011958Z" creationid="hirofumiwakasugi" creationdate="20150907T011958Z">
         <seg>puts "Rescued!"
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Rescued!"
+end
+
+# Output: Rescued!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103442Z" creationid="makenowjust" creationdate="20200506T103442Z">
+        <seg>puts "Rescued!"
+end
+
+# Output: Rescued!</seg>
       </tuv>
     </tu>
     <tu>
@@ -52532,6 +52962,16 @@ end
     <tu>
       <tuv lang="EN-US">
         <seg>puts a + 1 # error, undefined method '+' for Nil
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104448Z" creationid="makenowjust" creationdate="20200506T104448Z">
+        <seg>puts a + 1 # error, undefined method '+' for Nil
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts a + 1 # error, undefined method '+' for Nil
 end
 ```</seg>
       </tuv>
@@ -52539,6 +52979,16 @@ end
         <seg>puts a + 1 # error, undefined method '+' for Nil
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts a + 1 # works
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T104658Z" creationid="makenowjust" creationdate="20200506T104658Z">
+        <seg>puts a + 1 # works
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -52561,6 +53011,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T012109Z" creationid="hirofumiwakasugi" creationdate="20150907T012109Z">
         <seg>puts ex.message
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts ex.message
+end
+
+# Output: OH NO!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103507Z" creationid="makenowjust" creationdate="20200506T103507Z">
+        <seg>puts ex.message
+end
+
+# Output: OH NO!</seg>
       </tuv>
     </tu>
     <tu>
@@ -52813,6 +53277,16 @@ end
         <seg>raise "Not a unicorn" if @horns != 1
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>raise "OH NO!"
+raise Exception.new("Some error")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T103252Z" creationid="makenowjust" creationdate="20200506T103252Z">
+        <seg>raise "OH NO!"
+raise Exception.new("Some error")</seg>
       </tuv>
     </tu>
     <tu>
