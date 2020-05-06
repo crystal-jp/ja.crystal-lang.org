@@ -16159,6 +16159,14 @@ names and treats them as operators, including their precedence rules.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Block forwarding</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075302Z" creationid="makenowjust" creationdate="20200506T075302Z">
+        <seg>ブロックのフォワーディング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Blocks and Procs</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T183827Z" creationid="makenowjust" creationdate="20200505T183827Z">
@@ -18782,6 +18790,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Forwarding non-captured blocks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075543Z" creationid="makenowjust" creationdate="20200506T075543Z">
+        <seg>捕捉されないブロックのフォワーディング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Free variables</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T162322Z" creationid="makenowjust" creationdate="20200429T162322Z">
@@ -20874,6 +20890,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In short, avoid &lt;g1&gt;&amp;block&lt;/g1&gt; forwarding when &lt;g2&gt;yield&lt;/g2&gt; is involved.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075840Z" creationid="makenowjust" creationdate="20200506T075840Z">
+        <seg>一言で言うと、&lt;g2&gt;yield&lt;/g2&gt; を使う場合は &lt;g1&gt;&amp;block&lt;/g1&gt; のフォワーディングは避けるべき、ということです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In short, avoid `&amp;block` forwarding when `yield` is involved.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T032539Z" creationid="hirofumiwakasugi" creationdate="20150917T032404Z">
@@ -21014,6 +21038,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T132539Z" creationid="akiji" creationdate="20200429T132539Z">
         <seg>上の例では単にファイバが終了したことを伝えるだけの目的で &lt;g1&gt;nil&lt;/g1&gt; を使いました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the above example, &lt;g1&gt;invoke&lt;/g1&gt; receives a block.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075355Z" creationid="makenowjust" creationdate="20200506T075355Z">
+        <seg>上記の例で、&lt;g1&gt;invoke&lt;/g1&gt; はブロックを受け取ります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23751,6 +23783,14 @@ offers many implementations, for example for math expressions.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Or, combining the &lt;g1&gt;&amp;&lt;/g1&gt; and &lt;g2&gt;-&gt;&lt;/g2&gt; syntaxes:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075531Z" creationid="makenowjust" creationdate="20200506T075531Z">
+        <seg>もしくは、&lt;g1&gt;&amp;&lt;/g1&gt; と &lt;g2&gt;-&gt;&lt;/g2&gt; の構文を組み合わせることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Or, combining the `&amp;` and `-&gt;` syntaxes:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T025050Z" creationid="hirofumiwakasugi" creationdate="20150917T025050Z">
@@ -26261,6 +26301,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The above is simply rewritten to:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075515Z" creationid="makenowjust" creationdate="20200506T075515Z">
+        <seg>上記は簡単に以下に書き換えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The above is simply syntax sugar of this:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T191536Z" creationid="makenowjust" creationdate="20200505T191536Z">
@@ -28312,6 +28360,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There's also the issue that &lt;g2&gt;break&lt;/g2&gt; and &lt;g3&gt;next&lt;/g3&gt; are not allowed inside captured blocks, so the following won't work when using &lt;g4&gt;&amp;block&lt;/g4&gt; forwarding:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075800Z" creationid="makenowjust" creationdate="20200506T075800Z">
+        <seg>加えて、捕捉されたブロックでは &lt;g2&gt;break&lt;/g2&gt; と &lt;g3&gt;next&lt;/g3&gt; を使用することができない、という問題もあります。例えば、以下は &lt;g4&gt;&amp;block&lt;/g4&gt; でフォワーディングした場合には動作しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There's also the issue that `break` and `next` are not allowed inside captured blocks, so the following won't work when using `&amp;block` forwarding:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T032352Z" creationid="hirofumiwakasugi" creationdate="20150917T032352Z">
@@ -29847,10 +29903,26 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To forward captured blocks, you use a block argument, prefixing an expression with &lt;g1&gt;&amp;&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075339Z" creationid="makenowjust" creationdate="20200506T075339Z">
+        <seg>捕捉したブロックをフォワーディングするには、式の先頭に &lt;g1&gt;&amp;&lt;/g1&gt; を付けたブロック引数を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To forward captured blocks, you use a block argument, prefixing an expression with `&amp;`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T025314Z" creationid="hirofumiwakasugi" creationdate="20150917T023916Z">
         <seg>捕捉したブロックをフォワーディングするには、先頭文字が `&amp;` のブロック引数を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To forward non-captured blocks, you must use &lt;g1&gt;yield&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075559Z" creationid="makenowjust" creationdate="20200506T075559Z">
+        <seg>捕捉されないブロックをフォワーディングするには &lt;g1&gt;yield&lt;/g1&gt; を使用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30237,6 +30309,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T060248Z" creationid="makenowjust" creationdate="20200424T060248Z">
         <seg>真になる値と偽になる値</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Try to avoid forwarding blocks like this if doing &lt;g1&gt;yield&lt;/g1&gt; is enough.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075723Z" creationid="makenowjust" creationdate="20200506T075723Z">
+        <seg>&lt;g1&gt;yield&lt;/g1&gt; で十分な場合には、このようなブロックのフォワーディングが使わないようにしましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30980,6 +31060,14 @@ included modules as well:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We can't pass &lt;g2&gt;proc&lt;/g2&gt; directly to it because &lt;g3&gt;invoke&lt;/g3&gt; doesn't receive regular arguments, just a block argument.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075428Z" creationid="makenowjust" creationdate="20200506T075428Z">
+        <seg>このとき、&lt;g2&gt;proc&lt;/g2&gt; をそのまま渡すことはできません。なぜなら &lt;g3&gt;invoke&lt;/g3&gt; が受け取るのはブロック引数であり、通常の引数ではないからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We can't pass `proc` directly to it because `invoke` doesn't receive regular arguments, just a block argument.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T024509Z" creationid="hirofumiwakasugi" creationdate="20150917T024243Z">
@@ -31064,6 +31152,14 @@ included modules as well:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T182610Z" creationid="makenowjust" creationdate="20200413T182610Z">
         <seg>ユーザーの入力した値の型は&lt;g2&gt;String | Nil&lt;/g2&gt;という&lt;g1&gt;ユニオン型&lt;/g1&gt;なのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We use &lt;g4&gt;&amp;&lt;/g4&gt; to specify that we really want to pass &lt;g5&gt;proc&lt;/g5&gt; as the block argument.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075456Z" creationid="makenowjust" creationdate="20200506T075456Z">
+        <seg>したがって、&lt;g5&gt;proc&lt;/g5&gt; をブロック引数として渡すために、&lt;g4&gt;&amp;&lt;/g4&gt; を指定する必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31893,6 +31989,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041701Z" creationid="hirofumiwakasugi" creationdate="20151005T041505Z">
         <seg>もし名前が識別子や型名として不正なものであるときは、文字列を名前として使うことも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can also use the &lt;g1&gt;&amp;block&lt;/g1&gt; syntax to forward blocks, but then you have to at least specify the input types, and the generated code will involve closures and will be slower:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075651Z" creationid="makenowjust" creationdate="20200506T075651Z">
+        <seg>ブロックのフォワーディングに &lt;g1&gt;&amp;block&lt;/g1&gt; を利用することも可能ですが、その場合には最低でも入力する型を指定しておかなければいけません。また、生成されたコードがクロージャを伴うために、速度的にも遅くなってしまいます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -42553,6 +42657,34 @@ end</seg>
         <seg>block
 end
 
+def invoke(&amp;block)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075340Z" creationid="makenowjust" creationdate="20200506T075340Z">
+        <seg>block
+end
+
+def invoke(&amp;block)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block
+end
+
+def twice</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075501Z" creationid="makenowjust" creationdate="20200506T075501Z">
+        <seg>block
+end
+
+def twice</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block
+end
+
 proc = int_to_int { |x| x + 1 }
 proc.call(1) # =&gt; 2</seg>
       </tuv>
@@ -42634,6 +42766,22 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T024155Z" creationid="hirofumiwakasugi" creationdate="20150917T024155Z">
         <seg>block.call
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>block.call
+end
+
+proc = capture { puts "Hello" }
+invoke(&amp;proc) # prints "Hello"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075341Z" creationid="makenowjust" creationdate="20200506T075341Z">
+        <seg>block.call
+end
+
+proc = capture { puts "Hello" }
+invoke(&amp;proc) # prints "Hello"</seg>
       </tuv>
     </tu>
     <tu>
@@ -42730,6 +42878,16 @@ box.value.size # Error: undefined method 'size' for Int32
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T025315Z" creationid="hirofumiwakasugi" creationdate="20150916T025315Z">
         <seg>break "hello"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>break # error
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075802Z" creationid="makenowjust" creationdate="20200506T075802Z">
+        <seg>break # error
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -44216,6 +44374,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T095957Z" creationid="makenowjust" creationdate="20200424T095957Z">
         <seg>def block</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def capture(&amp;block)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075340Z" creationid="makenowjust" creationdate="20200506T075340Z">
+        <seg>def capture(&amp;block)</seg>
       </tuv>
     </tu>
     <tu>
@@ -47342,6 +47508,14 @@ foo([1, "a"]) #=&gt; (Int32 | String)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>foo_forward do |i|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075802Z" creationid="makenowjust" creationdate="20200506T075802Z">
+        <seg>foo_forward do |i|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fresh_vars_sample a, b, c</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T021034Z" creationid="hirofumiwakasugi" creationdate="20151002T021034Z">
@@ -48450,6 +48624,14 @@ encode64 "hello" # =&gt; "aGVsbG8="</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T090224Z" creationid="makenowjust" creationdate="20200502T090224Z">
         <seg>論理反転</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>invoke(proc) # Error: wrong number of arguments for 'invoke' (1 for 0)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075458Z" creationid="makenowjust" creationdate="20200506T075458Z">
+        <seg>invoke(proc) # Error: wrong number of arguments for 'invoke' (1 for 0)</seg>
       </tuv>
     </tu>
     <tu>
@@ -50260,6 +50442,16 @@ twice &amp;proc
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>proc = capture { puts "Hello" }
+twice do</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075515Z" creationid="makenowjust" creationdate="20200506T075515Z">
+        <seg>proc = capture { puts "Hello" }
+twice do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>proc = counter
 proc.call #=&gt; 1
 proc.call #=&gt; 2
@@ -50316,6 +50508,16 @@ proc.call(1) # "1"
         <seg>proc = some_proc { |x| x.to_s }
 proc.call(1) # "1"
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>proc.call
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075516Z" creationid="makenowjust" creationdate="20200506T075516Z">
+        <seg>proc.call
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -50554,6 +50756,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T025544Z" creationid="hirofumiwakasugi" creationdate="20150917T025544Z">
         <seg>puts "After foo"
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "After foo"
+end
+
+wrap_foo do |i|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075602Z" creationid="makenowjust" creationdate="20200506T075602Z">
+        <seg>puts "After foo"
+end
+
+wrap_foo do |i|</seg>
       </tuv>
     </tu>
     <tu>
@@ -50862,6 +51078,20 @@ greet # =&gt; "Hello"
 require "./one"
 
 greet # undefined local variable or method 'greet'</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Hello"
+end
+
+twice &amp;-&gt;say_hello</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075533Z" creationid="makenowjust" creationdate="20200506T075533Z">
+        <seg>puts "Hello"
+end
+
+twice &amp;-&gt;say_hello</seg>
       </tuv>
     </tu>
     <tu>
@@ -51230,6 +51460,26 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T025545Z" creationid="hirofumiwakasugi" creationdate="20150917T025545Z">
         <seg>puts i
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts i
+end
+
+# Output:
+# Before foo
+# 1
+# After foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075604Z" creationid="makenowjust" creationdate="20200506T075604Z">
+        <seg>puts i
+end
+
+# Output:
+# Before foo
+# 1
+# After foo</seg>
       </tuv>
     </tu>
     <tu>
@@ -52608,6 +52858,14 @@ tuple[:year]                          # =&gt; 2011      (Int32)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>twice &amp;-&gt;{ puts "Hello" }</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075531Z" creationid="makenowjust" creationdate="20200506T075531Z">
+        <seg>twice &amp;-&gt;{ puts "Hello" }</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>twice do</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T013506Z" creationid="hirofumiwakasugi" creationdate="20150916T013506Z">
@@ -53685,6 +53943,22 @@ block do</seg>
         <seg>yield
 end
 
+proc = capture { puts "Hello" }
+twice &amp;proc</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075503Z" creationid="makenowjust" creationdate="20200506T075503Z">
+        <seg>yield
+end
+
+proc = capture { puts "Hello" }
+twice &amp;proc</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yield
+end
+
 twice do</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T183853Z" creationid="makenowjust" creationdate="20200505T183853Z">
@@ -53738,6 +54012,34 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150917T025543Z" creationid="hirofumiwakasugi" creationdate="20150917T025543Z">
         <seg>yield 1
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yield 1
+end
+
+def wrap_foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075600Z" creationid="makenowjust" creationdate="20200506T075600Z">
+        <seg>yield 1
+end
+
+def wrap_foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>yield 1
+end
+
+def wrap_foo(&amp;block : Int32 -&gt; _)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200506T075652Z" creationid="makenowjust" creationdate="20200506T075652Z">
+        <seg>yield 1
+end
+
+def wrap_foo(&amp;block : Int32 -&gt; _)</seg>
       </tuv>
     </tu>
     <tu>
