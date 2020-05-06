@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 86/125
+翻訳済み/全体 = 87/125
 
 <details>
 
@@ -150,7 +150,7 @@
 | `crystal-book/database/connection_pool.md`                                                          | ×    |
 | `crystal-book/database/transactions.md`                                                             | ×    |
 | `crystal-book/guides/README.md`                                                                     | ×    |
-| `crystal-book/guides/performance.md`                                                                | △    |
+| `crystal-book/guides/performance.md`                                                                | ○    |
 | `crystal-book/guides/concurrency.md`                                                                | ○    |
 | `crystal-book/guides/testing.md`                                                                    | ×    |
 | `crystal-book/guides/writing_shards.md`                                                             | △    |
