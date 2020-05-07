@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 89/125
+翻訳済み/全体 = 90/125
 
 <details>
 
@@ -106,7 +106,7 @@
 | `crystal-book/syntax_and_semantics/closures.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/alias.md`                                                        | ○    |
 | `crystal-book/syntax_and_semantics/exception_handling.md`                                           | ○    |
-| `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | △    |
+| `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | ○    |
 | `crystal-book/syntax_and_semantics/type_reflection.md`                                              | △    |
 | `crystal-book/syntax_and_semantics/is_a.md`                                                         | △    |
 | `crystal-book/syntax_and_semantics/nil_question.md`                                                 | ○    |
