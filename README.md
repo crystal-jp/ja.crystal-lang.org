@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 91/125
+翻訳済み/全体 = 92/125
 
 <details>
 
@@ -115,7 +115,7 @@
 | `crystal-book/syntax_and_semantics/as_question.md`                                                  | ×    |
 | `crystal-book/syntax_and_semantics/typeof.md`                                                       | △    |
 | `crystal-book/syntax_and_semantics/macros.md`                                                       | ○    |
-| `crystal-book/syntax_and_semantics/macros/macro_methods.md`                                         | △    |
+| `crystal-book/syntax_and_semantics/macros/macro_methods.md`                                         | ○    |
 | `crystal-book/syntax_and_semantics/macros/hooks.md`                                                 | △    |
 | `crystal-book/syntax_and_semantics/macros/fresh_variables.md`                                       | △    |
 | `crystal-book/syntax_and_semantics/annotations.md`                                                  | ×    |
