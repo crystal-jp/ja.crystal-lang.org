@@ -14994,6 +14994,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, fresh variables with respect to some other AST node can be declared with &lt;g1&gt;%var{key1, key2, ..., keyN}&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230051Z" creationid="makenowjust" creationdate="20200509T230037Z">
+        <seg>また、&lt;g1&gt;%var{key1, key2, ..., keyN}&lt;/g1&gt; を使うことで、他の AST ノードに結びついたフレッシュ変数を宣言することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, if a program is compiled with `--release`, the `release` flag will be true.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043140Z" creationid="hirofumiwakasugi" creationdate="20150908T043118Z">
@@ -19698,6 +19706,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Fresh variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225641Z" creationid="makenowjust" creationdate="20200509T225641Z">
+        <seg>フレッシュ変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>From methods</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T172018Z" creationid="makenowjust" creationdate="20200422T172018Z">
@@ -22188,6 +22204,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T092312Z" creationid="hirofumiwakasugi" creationdate="20151009T092312Z">
         <seg>上記の例では、まるでモジュールの `size` メソッドを `Items` クラスの中に貼り付けたようにメソッドが実行されていることがわかるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the above example, three indexed variables are declared, assigned values, and then printed, displaying their corresponding indices.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230254Z" creationid="makenowjust" creationdate="20200509T230254Z">
+        <seg>上記の例では、3つのインデックスされた変数を宣言し、値を代入して、それから各インデックスについて対応する値を表示しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30516,6 +30540,14 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can sometimes be useful to avoid repetitive code by deliberately reading/writing local variables, but can also overwrite local variables by mistake.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225856Z" creationid="makenowjust" creationdate="20200509T225856Z">
+        <seg>これは、故意にローカル変数を読み書きするコードを繰り返し書くのを避けることに有効ですが、一方で誤ってローカル変数を上書きしてしまう可能性もあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This changes the default values:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T114622Z" creationid="hirofumiwakasugi" creationdate="20150914T114443Z">
@@ -31506,6 +31538,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T173241Z" creationid="makenowjust" creationdate="20200422T173241Z">
         <seg>これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To avoid this, fresh variables can be declared with &lt;g1&gt;%name&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225918Z" creationid="makenowjust" creationdate="20200509T225918Z">
+        <seg>このような自体を避けるため、フレッシュ変数と呼ばれるものを &lt;g1&gt;%name&lt;/g1&gt; で宣言できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32704,6 +32744,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T220257Z" creationid="makenowjust" creationdate="20200412T220257Z">
         <seg>このツールを使ってコーディングスタイルを統一し、ドキュメントの改善をCrystal 自身に従わせてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using &lt;g1&gt;%x&lt;/g1&gt; in the above example, we declare a variable whose name is guaranteed not to conflict with local variables in the current scope.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230001Z" creationid="makenowjust" creationdate="20200509T230001Z">
+        <seg>上記の例では &lt;g1&gt;%x&lt;/g1&gt; として変数を宣言しています。こうすることで、現在のスコープのローカル変数と名前が衝突しないことを保証できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -52325,6 +52373,14 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>macro dont_update_x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225919Z" creationid="makenowjust" creationdate="20200509T225919Z">
+        <seg>macro dont_update_x</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>macro emphasize(value)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T020422Z" creationid="hirofumiwakasugi" creationdate="20151001T020422Z">
@@ -52337,6 +52393,14 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T224927Z" creationid="makenowjust" creationdate="20200509T224927Z">
         <seg>macro finished</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro fresh_vars_sample(*names)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230053Z" creationid="makenowjust" creationdate="20200509T230053Z">
+        <seg>macro fresh_vars_sample(*names)</seg>
       </tuv>
     </tu>
     <tu>
@@ -52409,6 +52473,14 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T215512Z" creationid="makenowjust" creationdate="20200509T215512Z">
         <seg>macro println(*values)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro update_x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225645Z" creationid="makenowjust" creationdate="20200509T225645Z">
+        <seg>macro update_x</seg>
       </tuv>
     </tu>
     <tu>
@@ -54849,6 +54921,24 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T020012Z" creationid="hirofumiwakasugi" creationdate="20151002T020012Z">
         <seg>puts %x
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts %x
+end
+
+x = 0
+dont_update_x # outputs 1
+x             # =&gt; 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225920Z" creationid="makenowjust" creationdate="20200509T225920Z">
+        <seg>puts %x
+end
+
+x = 0
+dont_update_x # outputs 1
+x             # =&gt; 0</seg>
       </tuv>
     </tu>
     <tu>
@@ -57608,6 +57698,24 @@ end</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>x = 1
+end
+
+x = 0
+update_x
+x # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225646Z" creationid="makenowjust" creationdate="20200509T225646Z">
+        <seg>x = 1
+end
+
+x = 0
+update_x
+x # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x = 1
 foo do</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T054337Z" creationid="hirofumiwakasugi" creationdate="20150918T054337Z">
@@ -58331,6 +58439,36 @@ end
 define_dummy_methods({foo: 10, bar: 20})
 foo # =&gt; 10
 bar # =&gt; 20</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+fresh_vars_sample a, b, c
+
+# Sample output:
+# Declaring: __temp_255
+# Declaring: __temp_256
+# Declaring: __temp_257
+# __temp_255: 0
+# __temp_256: 1
+# __temp_257: 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230105Z" creationid="makenowjust" creationdate="20200509T230105Z">
+        <seg>{% end %}
+end
+
+fresh_vars_sample a, b, c
+
+# 出力例:
+# Declaring: __temp_255
+# Declaring: __temp_256
+# Declaring: __temp_257
+# __temp_255: 0
+# __temp_256: 1
+# __temp_257: 2</seg>
       </tuv>
     </tu>
     <tu>
