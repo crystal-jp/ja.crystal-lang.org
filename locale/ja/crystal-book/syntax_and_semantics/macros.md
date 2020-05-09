@@ -9,7 +9,7 @@ macro define_method(name, content)
   end
 end
 
-# This generates:
+# これで以下が生成されます。
 #
 #     def foo
 #       1
@@ -19,15 +19,15 @@ define_method foo, 1
 foo # => 1
 ```
 
-A macro's definition body looks like regular Crystal code with extra syntax to manipulate the AST nodes. The generated code must be valid Crystal code, meaning that you can't for example generate a `def` without a matching `end`, or a single `when` expression of a `case`, since both of them are not complete valid expressions. Refer to [Pitfalls](#pitfalls) for more information.
+マクロ定義の本体はほぼ通常の Crystal コードですが、AST ノードを扱うための拡張されたシンタックスを利用します。生成されたコードは正しい Crystal コードでなくてはいけません。例えば、対応する `end` の無い `def` や、`case` 式の `when` 部分だけのものなどは、完全な式として正しいものではないので生成することができません。詳しくは[落とし穴](#pitfalls)を参照してください。
 
-## Scope
+## スコープ
 
-トップレベルで宣言されたマクロはどこからでもアクセス可能です。If a top-level macro is marked as `private` it is only accessible in that file.
+トップレベルで宣言されたマクロはどこからでもアクセス可能です。トップレベルのマクロが `private` 指定されていた場合は、そのファイル内でのみアクセスできます。
 
-They can also be defined in classes and modules, and are visible in those scopes. また、マクロは継承チェーン (スーパクラスとインクルードされたモジュール) からも探索されます。
+クラスやモジュール内で定義することも可能で、それはそのスコープ内でアクセスできます。また、マクロは継承チェーン (スーパクラスとインクルードされたモジュール) からも探索されます。
 
-For example, a block which is given an object to use as the default receiver by being invoked with `with ... yield` can access macros defined within that object's ancestors chain:
+例えば、ブロックが与えられていて、`with ... yield` によってデフォルトのレシーバが設定されているときには、そのオブジェクトの継承チェーンの中で定義されているマクロにアクセスすることが可能です。
 
 ```crystal
 class Foo
@@ -43,7 +43,7 @@ end
 Foo.new.yield_with_self { emphasize(10) } # => "***10***"
 ```
 
-Macros defined in classes and modules can be invoked from outside of them too:
+クラスやモジュールに定義されたマクロを、その外側から呼び出すこともできます。
 
 ```crystal
 class Foo
@@ -55,14 +55,14 @@ end
 Foo.emphasize(10) # => "***10***"
 ```
 
-## 文字列の補間
+## マクロでの埋め込み
 
-You use `{{...}}` to paste, or interpolate, an AST node, as in the above example.
+前述した例にもあったように、AST ノードを貼り付ける、もしくは埋め込むには `{{...}}` を使います。
 
 ノードは「そのまま」貼り付けされることに注意してください。例えばもし、上記の例でシンボルを渡した場合には、生成されたコードは不正なものとなります。
 
 ```crystal
-# This generates:
+# これで以下が生成されます:
 #
 #     def :foo
 #       1
@@ -70,13 +70,13 @@ You use `{{...}}` to paste, or interpolate, an AST node, as in the above example
 define_method :foo, 1
 ```
 
-Note that `:foo` was the result of the interpolation, because that's what was passed to the macro. You can use the method [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) in these cases, where you just need an identifier.
+マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には、[`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を利用することができます。
 
-## Macro calls
+## マクロにおけるメソッド呼び出し
 
-You can invoke a **fixed subset** of methods on AST nodes at compile-time. These methods are documented in a fictitious [Crystal::Macros](http://crystal-lang.org/api/Crystal/Macros.html) module.
+コンパイル時に、メソッドの**既定のサブセット**を AST ノードに対して実行することが可能です。これらのメソッドは[Crystal::Macros](http://crystal-lang.org/api/Crystal/Macros.html)というフェクトのモジュールでドキュメント化されています。
 
-For example, invoking [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) in the above example solves the problem:
+例えば、上の例では [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を実行することで問題を解決できます。
 
 ```crystal
 macro define_method(name, content)
@@ -85,7 +85,7 @@ macro define_method(name, content)
   end
 end
 
-# This correctly generates:
+# 以下が正しく生成される:
 #
 #     def foo
 #       1
@@ -93,9 +93,9 @@ end
 define_method :foo, 1
 ```
 
-## Modules and classes
+## モジュールとクラス
 
-Modules, classes and structs can also be generated:
+モジュールやクラス、構造体を生成することもできます。
 
 ```crystal
 macro define_class(module_name, class_name, method, content)
@@ -111,7 +111,7 @@ macro define_class(module_name, class_name, method, content)
   end
 end
 
-# This generates:
+# これで以下が生成される:
 #     module Foo
 #       class Bar
 #         def initialize(@name : String)
@@ -127,9 +127,9 @@ define_class Foo, Bar, say, "hi "
 p Foo::Bar.new("John").say # => "hi John"
 ```
 
-## Conditionals
+## 条件分岐
 
-You use `{% if condition %}` ... `{% end %}` to conditionally generate code:
+`{% if condition %}` ... `{% end %}` を使うことで、条件に応じてコードを生成することが可能になります。
 
 ```crystal
 macro define_method(name, content)
@@ -153,7 +153,7 @@ bar # => two
 baz # => 3
 ```
 
-Similar to regular code, [`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop.html), [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) and a false [`BoolLiteral`](https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html) are considered *falsey*, while everything else is considered *truthy*.
+通常のコードと同様に、[`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop.html) と [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) そして偽の [`BoolLiteral`](https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html) は*偽となり*、それ意外はすべて*真となり*ます。
 
 マクロの条件分岐は、マクロの外側でも使用することができます。
 
@@ -163,9 +163,9 @@ Similar to regular code, [`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop
 {% end %}
 ```
 
-## Iteration
+## 繰り返し
 
-You can iterate a finite amount of times:
+有限回の繰り返しをすることができます。
 
 ```crystal
 macro define_constants(count)
@@ -181,7 +181,7 @@ PI_2 # => 6.28318...
 PI_3 # => 9.42477...
 ```
 
-To iterate an [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html):
+[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) の各要素に対して繰り返し実行するには、次のようにします。
 
 ```crystal
 macro define_dummy_methods(names)
@@ -199,9 +199,9 @@ bar # => 1
 baz # => 2
 ```
 
-The `index` variable in the above example is optional.
+上記の `index` 変数は任意です。
 
-To iterate a [`HashLiteral`](https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html):
+[`HashLiteral`](https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html) の各要素に対して繰り返し実行するには、次のようにします。
 
 ```crystal
 macro define_dummy_methods(hash)
@@ -217,7 +217,7 @@ foo # => 10
 bar # => 20
 ```
 
-マクロのイテレーションは、マクロの外側でも使用することができます。
+マクロの繰り返し構文は、マクロの外側でも使用することができます。
 
 ```crystal
 {% for name, index in ["foo", "bar", "baz"] %}
@@ -231,7 +231,7 @@ bar # => 1
 baz # => 2
 ```
 
-## Variadic arguments and splatting
+## 可変長引数とスプラット展開
 
 マクロは可変長引数を受け取ることができます。
 
@@ -251,9 +251,9 @@ bar # => 1
 baz # => 2
 ```
 
-The arguments are packed into an [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) and passed to the macro.
+引数は [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) に変換されてマクロに渡されます。
 
-Additionally, using `*` when interpolating an [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) interpolates the elements separated by commas:
+さらに、[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を埋め込む際に `*` を使うと、要素がカンマで分割されて埋め込まれます。
 
 ```crystal
 macro println(*values)
@@ -263,11 +263,11 @@ end
 println 1, 2, 3 # outputs 123\n
 ```
 
-## Type information
+## 型の情報
 
-When a macro is invoked you can access the current scope, or type, with a special instance variable: `@type`. The type of this variable is [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html), which gives you access to type information at compile time.
+マクロが実行される際に、`@type` という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。この変数の型は [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html) で、コンパイル時の型情報にアクセスできます。
 
-Note that `@type` is always the *instance* type, even when the macro is invoked in a class method.
+`@type` は常に (もしクラスメソッドの中で実行されたとしても) *インスタンス*の型になることに注意してください。
 
 例をあげます。
 
@@ -290,9 +290,9 @@ Foo.new.describe # => "Class is Foo"
 Foo.describe     # => "Class is Foo"
 ```
 
-## Method information
+## メソッドの情報
 
-When a macro is invoked you can access the method, the macro is in with a special instance variable: `@def`. The type of this variable is [`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html) unless the macro is outside of a method, in this case it's [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html).
+マクロが実行される際に、`@def` という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は [`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html) で、もしマクロがメソッドの外で実行されていた場合は [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) となります。
 
 例:
 
@@ -320,11 +320,11 @@ VALUES = [1, 2, 3]
 {% end %}
 ```
 
-If the constant denotes a type, you get back a [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html).
+もし定数が型を示していれば、そのとき得られるのは [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html) となります。
 
-## Nested macros
+## ネストしたマクロ
 
-It is possible to define a macro which generates one or more macro definitions. You must escape macro expressions of the inner macro by preceding them with a backslash character "\\" to prevent them from being evaluated by the outer macro.
+いくつかのマクロを生成するようなマクロを定義することができます。このとき、内側のマクロが外側のマクロによって評価されるのを防ぐため、バックラッシュでエスケープする必要があります。
 
 ```crystal
 macro define_macros(*names)
@@ -339,7 +339,7 @@ macro define_macros(*names)
   {% end %}
 end
 
-# This generates:
+# これは以下を生成します:
 #
 #     macro greeting_for_alice
 #       {% if greeting == "hola" %}
@@ -365,14 +365,14 @@ greeting_for_bob "hola"    # => "¡hola bob!"
 
 ### verbatim
 
-Another way to define a nested macro is by using the special `verbatim` call. Using this you will not be able to use any variable interpolation but will not need to escape the inner macro characters.
+ネストしたマクロを定義する他の方法としては、`verbatim` という特別なメソッドを使うものがあります。これを使うことで、内側のマクロをエスケープする必要がなくなります。
 
 ```crystal
 macro define_macros(*names)
   {% for name in names %}
     macro greeting_for_{{name.id}}(greeting)
 
-      # name will not be available within the verbatim block
+      # name は verbatim ブロックの中では有効ではありません
       \{% name = {{name.stringify}} %}
 
       {% verbatim do %}
@@ -386,7 +386,7 @@ macro define_macros(*names)
   {% end %}
 end
 
-# This generates:
+# 以下が生成されます。
 #
 #     macro greeting_for_alice
 #       {% name = "alice" %}
@@ -412,11 +412,11 @@ greeting_for_alice "hej"   # => "hej alice"
 greeting_for_bob "hola"    # => "¡hola bob!"
 ```
 
-Notice the variables in the inner macro are not available within the `verbatim` block. The contents of the block are transferred "as is", essentially as a string, until re-examined by the compiler.
+内側のマクロの変数は `verbatim` ブロックの中では有効ではないことに注意してください。ブロックの中身は「そのまま」文字列のようにコンパイラに渡され、再度検査されます。
 
 ## コメント
 
-Macro expressions are evaluated both within comments as well as compilable sections of code. This may be used to provide relevant documentation for expansions:
+コメント中のマクロの式は、コンパイルされるコードと同様に評価されます。これは関係するドキュメントコメントを生成するのに使えます。
 
 ```crystal
 {% for name, index in ["foo", "bar", "baz"] %}
@@ -427,7 +427,7 @@ Macro expressions are evaluated both within comments as well as compilable secti
 {% end %}
 ```
 
-This evaluation applies to both interpolation and directives. As a result of this, macros cannot be commented out.
+この評価は埋め込みだけでなくディレクティブに対してもはたらきます。結果として、マクロをコメントアウトすることはできません。
 
 ```crystal
 macro a
@@ -439,13 +439,13 @@ end
 a
 ```
 
-The expression above will result in no output.
+上記の式は何も出力しないでしょう。
 
-## Pitfalls
+## 落とし穴
 
-When writing macros (especially outside of a macro definition) it is important to remember that the generated code from the macro must be valid Crystal code by itself even before it is merged into the main program's code. This means, for example, a macro cannot generate a one or more `when` expressions of a `case` statement unless `case` was a part of the generated code.
+マクロを書く際 (とくにマクロ定義の外で)、マクロによって生成されたコードは、メインのプログラムのコードにマージされる前から、それ自身として有効なコードである必要があることを覚えておいてください。要するに、例えば、マクロは冒頭の `case` が生成するコードに含まれていないような`case` 式の `when` 節を生成することはできない、ということです。
 
-Here is an example of such an invalid macro:
+次が、そのような無効なマクロの例になります。
 
 ```crystal
 case 42
@@ -456,7 +456,7 @@ case 42
 end
 ```
 
-Notice that `case` is not within the macro. The code generated by the macro consists solely of two `when` expressions which, by themselves, is not valid Crystal code. We must include `case` within the macro in order to make it valid by using `begin` and `end`:
+`case` がマクロの外側にあることに注目してください。マクロによって生成されたコードは2つの孤立した `when` 節からなりますが、これは有効な Crystal のコードではありません。`case` をマクロによって生成されるコードに含めるために、`begin` と `end` を使うことができます。
 
 ```crystal
 {% begin %}
