@@ -1,14 +1,14 @@
-# Hooks
+# フック
 
-Special macros exist that are invoked in some situations as hooks, at compile time:
-* `inherited` is invoked when a subclass is defined. `@type` is the inheriting type.
-* `included` is invoked when a module is included. `@type` is the including type.
-* `extended` is invoked when a module is extended. `@type` is the extending type.
-* `method_missing` is invoked when a method is not found.
-* `method_added` is invoked when a new method is defined in the current scope.
-* `finished` is invoked after instance variable types for all classes are known.
+ある状況においてコンパイル時に呼び出される、フックという特別なマクロがあります。
+* `inherited` はサブクラスが定義された際に呼び出されます。`@type` は継承されたサブクラスの型となります。
+* `included` はモジュールがインクルードされたときに呼び出されます。`@type` はインクルードする側の型となります。
+* `extended` はモジュールが extend されたときに呼び出されます。`@type` は extend する側の型になります。
+* `method_missing` はメソッドが見つからないときに呼び出されます。
+* `method_added` は現在のスコープに新しいメソッドが定義されたときに呼び出されます。
+* `finished` はすべてのクラスのインスタンス変数が判明したあとのタイミングで呼び出されます。
 
-Example of `inherited`:
+`inherited` の例です。
 
 ```crystal
 class Parent
@@ -25,7 +25,7 @@ end
 Child.new.lineage # => "Child < Parent"
 ```
 
-Example of `method_missing`:
+`method_missing` の例です。
 
 ```crystal
 macro method_missing(call)
@@ -36,7 +36,7 @@ foo          # Prints: Got foo with 0 arguments
 bar 'a', 'b' # Prints: Got bar with 2 arguments
 ```
 
-Example of `method_added`:
+`method_added` の例です。
 
 ```crystal
 macro method_added(method)
@@ -49,7 +49,7 @@ end
 # => Method added: generate_random_number
 ```
 
-Both `method_missing` and `method_added` only apply to calls or methods in the same class that the macro is defined in, or only in the top level if the macro is defined outside of a class. 例をあげます。
+`method_missing` と `method_added` はマクロの定義されたクラスと同じクラスに対する呼び出し、もしくは定義に対して適用されます。あるいは、このマクロがクラスの外側で定義されていた場合は、トップレベルのものに適用されます。例をあげます。
 
 ```crystal
 macro method_missing(call)
@@ -65,19 +65,19 @@ end
 class OtherClass
 end
 
-# This call is handled by the top-level `method_missing`
+# この呼び出しはトップレベルの `method_missing` によって処理される
 foo # => In outer scope, got call: foo
 
 obj = SomeClass.new
-# This is handled by the one inside SomeClass
+# この呼び出しは SomeClass によって処理される
 obj.bar # => Inside SomeClass, got call: bar
 
 other = OtherClass.new
-# Neither OtherClass or its parents define a `method_missing` macro
+# 一方、OtherClass には `method_missing` マクロを持たないので、
 other.baz # => Error: Undefined method 'baz' for OtherClass
 ```
 
-`finished` is called once a type has been completely defined - this includes extensions on that class. Consider the following program:
+`finished` は型が完全に定義されたときに、つまりその型の拡張をすべて含めて、ちょうど一度呼び出されます。次のプログラムを考えてみてください。
 
 ```crystal
 macro print_methods
@@ -101,4 +101,4 @@ end
 Foo.new.bar
 ```
 
-The `print_methods` macro will be run as soon as it is encountered - and will print an empty list as there are no methods defined at that point. Once the second declaration of `Foo` is compiled the `finished` macro will be run, which will print `[bar]`.
+`print_methods` マクロは現れたところですぐさま実行され、空の配列を表示します。つまり、この時点ではメソッドは何も定義されていないということです。2番目の `Foo` の宣言が処理されたのち、`finished` マクロが呼び出され、今度は `[bar]` を表示します。
