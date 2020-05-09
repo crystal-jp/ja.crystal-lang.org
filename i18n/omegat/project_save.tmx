@@ -30,6 +30,14 @@
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>"Class is: " + {{ @type.stringify }}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215834Z" creationid="makenowjust" creationdate="20200509T215834Z">
+        <seg>"Class is: " + {{ @type.stringify }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>"EUR" =&gt; 1.0,</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T012155Z" creationid="hirofumiwakasugi" creationdate="20151010T012155Z">
@@ -288,6 +296,14 @@ option_parser = OptionParser.parse do |parser|</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>"\{{greeting.id}} {{name.id}}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220320Z" creationid="makenowjust" creationdate="20200509T220320Z">
+        <seg>"\{{greeting.id}} {{name.id}}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>"base": "https://github.com/crystal-lang/crystal-book/edit/master",</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T040217Z" creationid="makenowjust" creationdate="20200420T035410Z">
@@ -510,10 +526,42 @@ Foo.new.yield_normally { one }  # =&gt; "one"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>"two"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215030Z" creationid="makenowjust" creationdate="20200509T215030Z">
+        <seg>"two"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>"unicorn"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T213225Z" creationid="makenowjust" creationdate="20200412T213225Z">
         <seg>"unicorn"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"{{@type.name.id}} &lt; Parent"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224456Z" creationid="makenowjust" creationdate="20200509T224456Z">
+        <seg>"{{@type.name.id}} &lt; Parent"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"{{greeting.id}} {{name.id}}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220604Z" creationid="makenowjust" creationdate="20200509T220604Z">
+        <seg>"{{greeting.id}} {{name.id}}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>"¡hola {{name.id}}!"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220319Z" creationid="makenowjust" creationdate="20200509T220319Z">
+        <seg>"¡hola {{name.id}}!"</seg>
       </tuv>
     </tu>
     <tu>
@@ -2412,6 +2460,14 @@ loop do</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Provides a placeholder {{name.id}} method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221043Z" creationid="makenowjust" creationdate="20200509T221043Z">
+        <seg># Provides a placeholder {{name.id}} method.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Range</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T022803Z" creationid="hirofumiwakasugi" creationdate="20150902T014000Z">
@@ -3020,6 +3076,24 @@ define_method :foo, 1
 #     end
 define_method :foo, 1
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># This generates:
+#
+#     def :foo
+#       1
+#     end
+define_method :foo, 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214633Z" creationid="makenowjust" creationdate="20200509T214633Z">
+        <seg># これで以下が生成されます:
+#
+#     def :foo
+#       1
+#     end
+define_method :foo, 1</seg>
       </tuv>
     </tu>
     <tu>
@@ -4605,6 +4679,14 @@ Benchmark.ips do |x|</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># name will not be available within the verbatim block</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220558Z" creationid="makenowjust" creationdate="20200509T220558Z">
+        <seg># name は verbatim ブロックの中では有効ではありません</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># new, initialize and allocate</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T022232Z" creationid="hirofumiwakasugi" creationdate="20150904T022214Z">
@@ -4987,6 +5069,28 @@ a + 1 # String#+(Int32) は存在しないのでエラーになる</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052030Z" creationid="hirofumiwakasugi" creationdate="20150905T052030Z">
         <seg># while</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># {% end %}
+end
+
+a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221155Z" creationid="makenowjust" creationdate="20200509T221155Z">
+        <seg># {% end %}
+end
+
+a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># {% if false %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221153Z" creationid="makenowjust" creationdate="20200509T221153Z">
+        <seg># {% if false %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -8995,6 +9099,18 @@ a = if 1 &gt; 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>4
+end
+# =&gt; Method added: generate_random_number</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224515Z" creationid="makenowjust" creationdate="20200509T224515Z">
+        <seg>4
+end
+# =&gt; Method added: generate_random_number</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>4,294,967,295</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182110Z" creationid="makenowjust" creationdate="20200419T182110Z">
@@ -12149,10 +12265,34 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;extended&lt;/g1&gt; is invoked when a module is extended.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224311Z" creationid="makenowjust" creationdate="20200509T224311Z">
+        <seg>&lt;g1&gt;extended&lt;/g1&gt; はモジュールが extend されたときに呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;finalize&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170950Z" creationid="makenowjust" creationdate="20200413T170950Z">
         <seg>&lt;g1&gt;finalize&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;finished&lt;/g1&gt; is called once a type has been completely defined - this includes extensions on that class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225118Z" creationid="makenowjust" creationdate="20200509T224915Z">
+        <seg>&lt;g1&gt;finished&lt;/g1&gt; は型が完全に定義されたときに、つまりその型の拡張をすべて含めて、ちょうど一度呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;finished&lt;/g1&gt; is invoked after instance variable types for all classes are known.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224449Z" creationid="makenowjust" creationdate="20200509T224449Z">
+        <seg>&lt;g1&gt;finished&lt;/g1&gt; はすべてのクラスのインスタンス変数が判明したあとのタイミングで呼び出されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12357,6 +12497,22 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;included&lt;/g1&gt; is invoked when a module is included.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224244Z" creationid="makenowjust" creationdate="20200509T224244Z">
+        <seg>&lt;g1&gt;included&lt;/g1&gt; はモジュールがインクルードされたときに呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;inherited&lt;/g1&gt; is invoked when a subclass is defined.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224202Z" creationid="makenowjust" creationdate="20200509T224202Z">
+        <seg>&lt;g1&gt;inherited&lt;/g1&gt; はサブクラスが定義された際に呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;input&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T163650Z" creationid="makenowjust" creationdate="20200413T163650Z">
@@ -12409,6 +12565,22 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T041833Z" creationid="makenowjust" creationdate="20200421T041715Z">
         <seg>&lt;g1&gt;m&lt;/g1&gt;: 複数行マッチを行う (&lt;g2&gt;PCRE_MULTILINE&lt;/g2&gt;)。&lt;g3&gt;行の開始&lt;/g3&gt; (&lt;g4&gt;^&lt;/g4&gt;) と &lt;g5&gt;行の終わり&lt;/g5&gt; (&lt;g6&gt;$&lt;/g6&gt;) を表すメタ文字が、文字列の冒頭や末尾に加えて、改行の直前や直後にもマッチするようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;method_added&lt;/g1&gt; is invoked when a new method is defined in the current scope.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224412Z" creationid="makenowjust" creationdate="20200509T224412Z">
+        <seg>&lt;g1&gt;method_added&lt;/g1&gt; は現在のスコープに新しいメソッドが定義されたときに呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;method_missing&lt;/g1&gt; is invoked when a method is not found.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224350Z" creationid="makenowjust" creationdate="20200509T224350Z">
+        <seg>&lt;g1&gt;method_missing&lt;/g1&gt; はメソッドが見つからないときに呼び出されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12905,6 +13077,30 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T034628Z" creationid="makenowjust" creationdate="20200421T034628Z">
         <seg>&lt;g2&gt;0..5.to_a&lt;/g2&gt; のように括弧で囲わなかった場合、範囲リテラルよりもメソッド呼び出しの方が優先度が高いため &lt;g3&gt;0..(5.to_a)&lt;/g3&gt; として解釈されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; is the extending type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224332Z" creationid="makenowjust" creationdate="20200509T224332Z">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; は extend する側の型になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; is the including type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224255Z" creationid="makenowjust" creationdate="20200509T224255Z">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; はインクルードする側の型となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; is the inheriting type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224226Z" creationid="makenowjust" creationdate="20200509T224226Z">
+        <seg>&lt;g2&gt;@type&lt;/g2&gt; は継承されたサブクラスの型となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13607,6 +13803,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T090838Z" creationid="makenowjust" creationdate="20200424T090838Z">
         <seg>&lt;g1&gt;case&lt;/g1&gt;はパターンマッチのような雰囲気の制御式です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;def&lt;/g1&gt; is implicitly considered a &lt;g2&gt;macro def&lt;/g2&gt; if it contains a macro expression which refers to &lt;g3&gt;@type&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223529Z" creationid="makenowjust" creationdate="20200509T223529Z">
+        <seg>&lt;g1&gt;def&lt;/g1&gt; は &lt;g3&gt;@type&lt;/g3&gt; を参照するマクロ式が含まれているときに &lt;g2&gt;macro def&lt;/g2&gt; として考慮されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14422,6 +14626,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A macro's definition body looks like regular Crystal code with extra syntax to manipulate the AST nodes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200507T140325Z" creationid="makenowjust" creationdate="20200507T140325Z">
+        <seg>マクロ定義の本体はほぼ通常の Crystal コードですが、AST ノードを扱うための拡張されたシンタックスを利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A memory allocation happens when you create an instance of a &lt;g1&gt;class&lt;/g1&gt;, which ends up allocating heap memory.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T090734Z" creationid="akiji" creationdate="20200430T084428Z">
@@ -14782,6 +14994,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, fresh variables with respect to some other AST node can be declared with &lt;g1&gt;%var{key1, key2, ..., keyN}&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230051Z" creationid="makenowjust" creationdate="20200509T230037Z">
+        <seg>また、&lt;g1&gt;%var{key1, key2, ..., keyN}&lt;/g1&gt; を使うことで、他の AST ノードに結びついたフレッシュ変数を宣言することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, if a program is compiled with `--release`, the `release` flag will be true.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043140Z" creationid="hirofumiwakasugi" creationdate="20150908T043118Z">
@@ -14874,6 +15094,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T030129Z" creationid="hirofumiwakasugi" creationdate="20150908T030129Z">
         <seg>また、空のタプルは上記の例ではマッチしません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Additionally, using &lt;g1&gt;*&lt;/g1&gt; when interpolating an &lt;g2&gt;&lt;g3&gt;ArrayLiteral&lt;/g3&gt;&lt;/g2&gt; interpolates the elements separated by commas:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215510Z" creationid="makenowjust" creationdate="20200509T215439Z">
+        <seg>さらに、&lt;g2&gt;&lt;g3&gt;ArrayLiteral&lt;/g3&gt;&lt;/g2&gt; を埋め込む際に &lt;g1&gt;*&lt;/g1&gt; を使うと、要素がカンマで分割されて埋め込まれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15211,6 +15439,14 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T130818Z" creationid="akiji" creationdate="20200430T130818Z">
         <seg>常に忘れてならないのは、これが単に実行時間が短縮したというだけでなく、メモリ使用量の削減という面でも効果があると言うことです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Always returns {{index}}.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221044Z" creationid="makenowjust" creationdate="20200509T221044Z">
+        <seg>Always returns {{index}}.</seg>
       </tuv>
     </tu>
     <tu>
@@ -15785,6 +16021,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Another way to define a nested macro is by using the special &lt;g1&gt;verbatim&lt;/g1&gt; call.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220429Z" creationid="makenowjust" creationdate="20200509T220429Z">
+        <seg>ネストしたマクロを定義する他の方法としては、&lt;g1&gt;verbatim&lt;/g1&gt; という特別なメソッドを使うものがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Any expression may be placed inside the interpolated section, but it’s best to keep the expression small for readability.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T192513Z" creationid="makenowjust" creationdate="20200419T192513Z">
@@ -16000,6 +16244,14 @@ foo(String) # =&gt; Array(String)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T211636Z" creationid="makenowjust" creationdate="20200413T211636Z">
         <seg>要するに、コンパイラはコンパイル時に自動的に null 参照をチェックしてくれる、ということです。これは&lt;a0&gt;1億ドルの損失&lt;/a0&gt;から免れる助けになるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As a result of this, macros cannot be commented out.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221149Z" creationid="makenowjust" creationdate="20200509T221149Z">
+        <seg>結果として、マクロをコメントアウトすることはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16711,6 +16963,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141715Z" creationid="makenowjust" creationdate="20200504T141715Z">
         <seg>また、&lt;g1&gt;include&lt;/g1&gt; と &lt;g2&gt;extend&lt;/g2&gt; のどちらを使った場合も、モジュールで定義された定数を利用できるようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Both &lt;g1&gt;method_missing&lt;/g1&gt; and &lt;g2&gt;method_added&lt;/g2&gt; only apply to calls or methods in the same class that the macro is defined in, or only in the top level if the macro is defined outside of a class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225500Z" creationid="makenowjust" creationdate="20200509T224647Z">
+        <seg>&lt;g1&gt;method_missing&lt;/g1&gt; と &lt;g2&gt;method_added&lt;/g2&gt; はマクロの定義されたクラスと同じクラスに対する呼び出し、もしくは定義に対して適用されます。あるいは、このマクロがクラスの外側で定義されていた場合は、トップレベルのものに適用されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17546,6 +17806,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Conditionals</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215003Z" creationid="makenowjust" creationdate="20200509T215003Z">
+        <seg>条件分岐</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Consider a Box type:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T142635Z" creationid="makenowjust" creationdate="20200504T142635Z">
@@ -17566,6 +17834,14 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T043331Z" creationid="hirofumiwakasugi" creationdate="20151005T043331Z">
         <seg>[waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) 関数について考えてみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Consider the following program:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224922Z" creationid="makenowjust" creationdate="20200509T224922Z">
+        <seg>次のプログラムを考えてみてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18379,6 +18655,30 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Example of &lt;g1&gt;inherited&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224454Z" creationid="makenowjust" creationdate="20200509T224454Z">
+        <seg>&lt;g1&gt;inherited&lt;/g1&gt; の例です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Example of &lt;g1&gt;method_added&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224512Z" creationid="makenowjust" creationdate="20200509T224507Z">
+        <seg>&lt;g1&gt;method_added&lt;/g1&gt; の例です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Example of &lt;g1&gt;method_missing&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224504Z" creationid="makenowjust" creationdate="20200509T224504Z">
+        <seg>&lt;g1&gt;method_missing&lt;/g1&gt; の例です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Example of `inherited`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T014442Z" creationid="hirofumiwakasugi" creationdate="20151002T014434Z">
@@ -19021,6 +19321,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, a block which is given an object to use as the default receiver by being invoked with &lt;g1&gt;with ... yield&lt;/g1&gt; can access macros defined within that object's ancestors chain:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214431Z" creationid="makenowjust" creationdate="20200509T214431Z">
+        <seg>例えば、ブロックが与えられていて、&lt;g1&gt;with ... yield&lt;/g1&gt; によってデフォルトのレシーバが設定されているときには、そのオブジェクトの継承チェーンの中で定義されているマクロにアクセスすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, a block which is given an object to use as the default receiver by being invoked with `with ... yield` can access macros defined within that object's ancestors chain:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T020339Z" creationid="hirofumiwakasugi" creationdate="20151001T015927Z">
@@ -19105,6 +19413,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T090405Z" creationid="makenowjust" creationdate="20200427T090405Z">
         <seg>このとき &lt;g2&gt;project.cr&lt;/g2&gt; に &lt;g1&gt;require "foo"&lt;/g1&gt; を加えて &lt;g3&gt;crystal src/project.cr&lt;/g3&gt; をプロジェクトのルートディレクトリで実行すると、コンパイラは &lt;g4&gt;foo&lt;/g4&gt; として &lt;g5&gt;lib/foo/foo.cr&lt;/g5&gt; を発見します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, invoking &lt;g1&gt;&lt;g2&gt;ASTNode#id&lt;/g2&gt;&lt;/g1&gt; in the above example solves the problem:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214906Z" creationid="makenowjust" creationdate="20200509T214906Z">
+        <seg>例えば、上の例では &lt;g1&gt;&lt;g2&gt;ASTNode#id&lt;/g2&gt;&lt;/g1&gt; を実行することで問題を解決できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19386,6 +19702,14 @@ the following arguments can be used:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072402Z" creationid="hirofumiwakasugi" creationdate="20150908T040818Z">
         <seg>自由変数を使うことで、ジェネリック型を作るときに型推論を行うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Fresh variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225641Z" creationid="makenowjust" creationdate="20200509T225641Z">
+        <seg>フレッシュ変数</seg>
       </tuv>
     </tu>
     <tu>
@@ -19764,10 +20088,26 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Here is an example of such an invalid macro:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221655Z" creationid="makenowjust" creationdate="20200509T221655Z">
+        <seg>次が、そのような無効なマクロの例になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here rule 5 (argument's default value) is used, and because the constant resolves to an integer literal, &lt;g1&gt;@lucky_number&lt;/g1&gt; is inferred to be &lt;g2&gt;Int32&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143908Z" creationid="makenowjust" creationdate="20200427T143908Z">
         <seg>ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、&lt;g1&gt;@lucky_number&lt;/g1&gt; は &lt;g2&gt;Int32&lt;/g2&gt; に推論されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Here the argument list is that of the method generated by the macro def.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223749Z" creationid="makenowjust" creationdate="20200509T223749Z">
+        <seg>ここでは引数リストはマクロ def によって生成されたメソッドに渡るものになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19884,6 +20224,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Hooks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224105Z" creationid="makenowjust" creationdate="20200509T224105Z">
+        <seg>フック</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>How call arguments are matched to method arguments</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T145913Z" creationid="makenowjust" creationdate="20200430T145913Z">
@@ -19904,6 +20252,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T092128Z" creationid="hirofumiwakasugi" creationdate="20151009T030304Z">
         <seg>しかし、これはマクロメソッド (macro def) に対しては有効ではありません。「macro def」によって生成されたメソッドの引数のリストに対して、それらのコンパイル時の値にアクセスすることは不可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However that is not true for macro defs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223723Z" creationid="makenowjust" creationdate="20200509T223723Z">
+        <seg>しかしマクロ def ではそれは異なります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20379,6 +20735,14 @@ garbage-collected that method will be invoked:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a top-level macro is marked as &lt;g1&gt;private&lt;/g1&gt; it is only accessible in that file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214257Z" creationid="makenowjust" creationdate="20200509T214257Z">
+        <seg>トップレベルのマクロが &lt;g1&gt;private&lt;/g1&gt; 指定されていた場合は、そのファイル内でのみアクセスできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a top-level macro is marked as `private` it is only accessible in that file.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015719Z" creationid="hirofumiwakasugi" creationdate="20151001T015605Z">
@@ -20785,6 +21149,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052123Z" creationid="hirofumiwakasugi" creationdate="20150905T052123Z">
         <seg>条件で `var.is_a?(Type)` による判定を行うと、本体の中では `var` の型がその型であることを保証することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the constant denotes a type, you get back a &lt;g1&gt;&lt;g2&gt;TypeNode&lt;/g2&gt;&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220141Z" creationid="makenowjust" creationdate="20200509T220141Z">
+        <seg>もし定数が型を示していれば、そのとき得られるのは &lt;g1&gt;&lt;g2&gt;TypeNode&lt;/g2&gt;&lt;/g1&gt; となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21475,6 +21847,14 @@ or &lt;g5&gt;&lt;g6&gt;IndexError&lt;/g6&gt;&lt;/g5&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In macro definitions, arguments are passed as their AST nodes, giving you access to them in macro expansions (&lt;g1&gt;{{some_macro_argument}}&lt;/g1&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223710Z" creationid="makenowjust" creationdate="20200509T223710Z">
+        <seg>マクロ定義では、引数はそれ自身の AST ノードとして渡され &lt;g1&gt;{{some_macro_argument}}&lt;/g1&gt; のようにしてそれらにアクセスすることができました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In many programming languages what will happen is that &lt;g1&gt;to_s&lt;/g1&gt;, or a similar method for converting the object to its string representation, will be invoked, and then that string will be written to the standard output.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T022157Z" creationid="akiji" creationdate="20200430T120701Z">
@@ -21824,6 +22204,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T092312Z" creationid="hirofumiwakasugi" creationdate="20151009T092312Z">
         <seg>上記の例では、まるでモジュールの `size` メソッドを `Items` クラスの中に貼り付けたようにメソッドが実行されていることがわかるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the above example, three indexed variables are declared, assigned values, and then printed, displaying their corresponding indices.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230254Z" creationid="makenowjust" creationdate="20200509T230254Z">
+        <seg>上記の例では、3つのインデックスされた変数を宣言し、値を代入して、それから各インデックスについて対応する値を表示しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22625,6 +23013,14 @@ Array(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is possible to define a macro which generates one or more macro definitions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220217Z" creationid="makenowjust" creationdate="20200509T220217Z">
+        <seg>いくつかのマクロを生成するようなマクロを定義することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is possible to directly call methods on heredoc string literals, or use them inside parentheses:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T034037Z" creationid="makenowjust" creationdate="20200420T034037Z">
@@ -22802,6 +23198,14 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T132205Z" creationid="akiji" creationdate="20200430T132205Z">
         <seg>文字列に対する繰り返し処理</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Iteration</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215139Z" creationid="makenowjust" creationdate="20200509T215136Z">
+        <seg>繰り返し</seg>
       </tuv>
     </tu>
     <tu>
@@ -23155,6 +23559,14 @@ LibFoo.execute_callback
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Macro calls</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214726Z" creationid="makenowjust" creationdate="20200509T214726Z">
+        <seg>マクロにおけるメソッド呼び出し</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Macro conditionals can be used outside a macro definition:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040247Z" creationid="hirofumiwakasugi" creationdate="20151001T040232Z">
@@ -23171,10 +23583,34 @@ LibFoo.execute_callback
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Macro defs allow you to define a method for a class hierarchy which is then instantiated for each concrete subtype.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223535Z" creationid="makenowjust" creationdate="20200509T223419Z">
+        <seg>マクロ def を使うと、各サブタイプの実体に応じたクラス階層についてメソッドを定義することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Macro expressions are evaluated both within comments as well as compilable sections of code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221019Z" creationid="makenowjust" creationdate="20200509T221019Z">
+        <seg>コメント中のマクロの式は、コンパイルされるコードと同様に評価されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Macro iterations can be used outside a macro definition:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040446Z" creationid="hirofumiwakasugi" creationdate="20151001T040446Z">
-        <seg>マクロのイテレーションは、マクロの外側でも使用することができます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215337Z" creationid="hirofumiwakasugi" creationdate="20151001T040446Z">
+        <seg>マクロの繰り返し構文は、マクロの外側でも使用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Macro methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223150Z" creationid="makenowjust" creationdate="20200509T223150Z">
+        <seg>マクロメソッド</seg>
       </tuv>
     </tu>
     <tu>
@@ -23216,6 +23652,14 @@ code that is pasted into a program.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015527Z" creationid="hirofumiwakasugi" creationdate="20151001T015417Z">
         <seg>トップレベルで宣言されたマクロはどこからでもアクセス可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Macros defined in classes and modules can be invoked from outside of them too:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214519Z" creationid="makenowjust" creationdate="20200509T214519Z">
+        <seg>クラスやモジュールに定義されたマクロを、その外側から呼び出すこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23348,6 +23792,14 @@ code that is pasted into a program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Method information</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215847Z" creationid="makenowjust" creationdate="20200509T215847Z">
+        <seg>メソッドの情報</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Method names begin with a lowercase letter and, as a convention, only use lowercase letters, underscores and numbers.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T122532Z" creationid="hirofumiwakasugi" creationdate="20150904T122532Z">
@@ -23462,6 +23914,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Modules and classes</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214925Z" creationid="makenowjust" creationdate="20200509T214925Z">
+        <seg>モジュールとクラス</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Modules can also be used for type checking.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141807Z" creationid="makenowjust" creationdate="20200504T141807Z">
@@ -23474,6 +23934,14 @@ with the `yield` keyword.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T150909Z" creationid="hirofumiwakasugi" creationdate="20150911T130338Z">
         <seg>モジュールは以下の2つの役割のためにあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Modules, classes and structs can also be generated:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214941Z" creationid="makenowjust" creationdate="20200509T214941Z">
+        <seg>モジュールやクラス、構造体を生成することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23734,6 +24202,14 @@ MyBox.new("hello") # : MyBox(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Nested macros</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220149Z" creationid="makenowjust" creationdate="20200509T220149Z">
+        <seg>ネストしたマクロ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Nevertheless, these inversions can be defined with a custom implementation.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T091212Z" creationid="makenowjust" creationdate="20200502T091212Z">
@@ -23818,6 +24294,22 @@ MyBox.new("hello") # : MyBox(String)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T105517Z" creationid="makenowjust" creationdate="20200504T105517Z">
         <seg>しかし、そうはいきません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that &lt;g1&gt;:foo&lt;/g1&gt; was the result of the interpolation, because that's what was passed to the macro.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214653Z" creationid="makenowjust" creationdate="20200509T214653Z">
+        <seg>マクロに渡されたものがそのまま埋め込まれるので、結果は &lt;g1&gt;:foo&lt;/g1&gt; となっています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that &lt;g1&gt;@type&lt;/g1&gt; is always the &lt;g2&gt;instance&lt;/g2&gt; type, even when the macro is invoked in a class method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215832Z" creationid="makenowjust" creationdate="20200509T215832Z">
+        <seg>&lt;g1&gt;@type&lt;/g1&gt; は常に (もしクラスメソッドの中で実行されたとしても) &lt;g2&gt;インスタンス&lt;/g2&gt;の型になることに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24143,10 +24635,26 @@ end up in the resulting string.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Notice that &lt;g1&gt;case&lt;/g1&gt; is not within the macro.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221730Z" creationid="makenowjust" creationdate="20200509T221706Z">
+        <seg>&lt;g1&gt;case&lt;/g1&gt; がマクロの外側にあることに注目してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Notice that the chained calls of &lt;g1&gt;plus&lt;/g1&gt; return the expected result, but only the first call to it modifies the variable &lt;g2&gt;counter&lt;/g2&gt;, as the second call operates on the &lt;g3&gt;copy&lt;/g3&gt; of the struct passed to it from the first call, and this copy is discarded after the expression is executed.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T084439Z" creationid="makenowjust" creationdate="20200505T173110Z">
         <seg>連続する &lt;g1&gt;plus&lt;/g1&gt; の呼び出しの戻り値は予想通りの結果になっていますが、最初の呼び出しだけが &lt;g2&gt;counter&lt;/g2&gt; を変更している、ということに注意してください。2番目の呼び出しは最初の呼び出しで返った構造体の&lt;g3&gt;コピー&lt;/g3&gt;になっていて、このコピーは呼び出し後に破棄されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Notice the variables in the inner macro are not available within the &lt;g1&gt;verbatim&lt;/g1&gt; block.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220705Z" creationid="makenowjust" creationdate="20200509T220705Z">
+        <seg>内側のマクロの変数は &lt;g1&gt;verbatim&lt;/g1&gt; ブロックの中では有効ではないことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24388,6 +24896,14 @@ specifying the current working directory.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T185657Z" creationid="makenowjust" creationdate="20200413T185520Z">
         <seg>このリファクタリングが済めば、あるロジックのテストに必要なコードを含むファイルだけをテストのコードに取り込んで、ロジックのテストをはじめることができるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once the second declaration of &lt;g2&gt;Foo&lt;/g2&gt; is compiled the &lt;g3&gt;finished&lt;/g3&gt; macro will be run, which will print &lt;g4&gt;[bar]&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225202Z" creationid="makenowjust" creationdate="20200509T225202Z">
+        <seg>2番目の &lt;g2&gt;Foo&lt;/g2&gt; の宣言が処理されたのち、&lt;g3&gt;finished&lt;/g3&gt; マクロが呼び出され、今度は &lt;g4&gt;[bar]&lt;/g4&gt; を表示します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24855,6 +25371,30 @@ module Earth</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>PI_2 # =&gt; 6.28318...</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215211Z" creationid="makenowjust" creationdate="20200509T215211Z">
+        <seg>PI_2 # =&gt; 6.28318...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>PI_3 # =&gt; 9.42477...</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215217Z" creationid="makenowjust" creationdate="20200509T215217Z">
+        <seg>PI_3 # =&gt; 9.42477...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>PI_{{i.id}} = Math::PI * {{i}}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215208Z" creationid="makenowjust" creationdate="20200509T215208Z">
+        <seg>PI_{{i.id}} = Math::PI * {{i}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Parallelism would be to stir fry onions with one hand while with the other one you chop a tomato.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T053745Z" creationid="akiji" creationdate="20200428T053745Z">
@@ -24982,6 +25522,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T040626Z" creationid="hirofumiwakasugi" creationdate="20150909T040626Z">
         <seg>Person.say "hello" # OK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Pitfalls</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221231Z" creationid="makenowjust" creationdate="20200509T221226Z">
+        <seg>落とし穴</seg>
       </tuv>
     </tu>
     <tu>
@@ -25288,6 +25836,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T124807Z" creationid="makenowjust" creationdate="20200427T124807Z">
         <seg>メソッドの再定義とprevious_def</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to &lt;g5&gt;Pitfalls&lt;/g5&gt; for more information.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221238Z" creationid="makenowjust" creationdate="20200507T140829Z">
+        <seg>詳しくは&lt;g5&gt;落とし穴&lt;/g5&gt;を参照してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25723,6 +26279,14 @@ only consist of special characters.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Scope</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200507T140849Z" creationid="makenowjust" creationdate="20200507T140849Z">
+        <seg>スコープ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Second, &lt;g1&gt;allocate&lt;/g1&gt; is a low-level class method that creates an uninitialized object of the given type.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T121758Z" creationid="makenowjust" creationdate="20200427T121758Z">
@@ -25871,6 +26435,14 @@ only consist of special characters.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T172733Z" creationid="makenowjust" creationdate="20200422T172733Z">
         <seg>パーセントリテラルの形式の場合、他のパーセントリテラルと同様に&lt;g1&gt;%x&lt;/g1&gt;では、括弧&lt;g2&gt;()&lt;/g2&gt;、角括弧&lt;g3&gt;[]&lt;/g3&gt;、ひげ括弧&lt;g4&gt;{}&lt;/g4&gt;、三角括弧&lt;g5&gt;&lt;&gt;&lt;/g5&gt;そしてパイプ&lt;g6&gt;||&lt;/g6&gt;といった区切り文字が有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Similar to regular code, &lt;g1&gt;&lt;g2&gt;Nop&lt;/g2&gt;&lt;/g1&gt;, &lt;g3&gt;&lt;g4&gt;NilLiteral&lt;/g4&gt;&lt;/g3&gt; and a false &lt;g5&gt;&lt;g6&gt;BoolLiteral&lt;/g6&gt;&lt;/g5&gt; are considered &lt;g7&gt;falsey&lt;/g7&gt;, while everything else is considered &lt;g8&gt;truthy&lt;/g8&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215129Z" creationid="makenowjust" creationdate="20200509T215129Z">
+        <seg>通常のコードと同様に、&lt;g1&gt;&lt;g2&gt;Nop&lt;/g2&gt;&lt;/g1&gt; と &lt;g3&gt;&lt;g4&gt;NilLiteral&lt;/g4&gt;&lt;/g3&gt; そして偽の &lt;g5&gt;&lt;g6&gt;BoolLiteral&lt;/g6&gt;&lt;/g5&gt; は&lt;g7&gt;偽となり&lt;/g7&gt;、それ意外はすべて&lt;g8&gt;真となり&lt;/g8&gt;ます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26205,6 +26777,14 @@ some_method  # OK, 1
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200428T080900Z" creationid="akiji" creationdate="20200428T080900Z">
         <seg>ファイバを生成してその終了を待つ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Special macros exist that are invoked in some situations as hooks, at compile time:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224208Z" creationid="makenowjust" creationdate="20200509T224150Z">
+        <seg>ある状況においてコンパイル時に呼び出される、フックという特別なマクロがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26856,6 +27436,14 @@ fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;index&lt;/g1&gt; variable in the above example is optional.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215304Z" creationid="makenowjust" creationdate="20200509T215304Z">
+        <seg>上記の &lt;g1&gt;index&lt;/g1&gt; 変数は任意です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;next&lt;/g1&gt; expression accepts arguments, and these give the value of the &lt;g2&gt;yield&lt;/g2&gt; expression that invoked the block:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T190825Z" creationid="makenowjust" creationdate="20200505T190825Z">
@@ -26868,6 +27456,14 @@ fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T190735Z" creationid="makenowjust" creationdate="20200505T190735Z">
         <seg>ブロックの中に&lt;g1&gt;next&lt;/g1&gt; 式があるとそこで、 (メソッドではなく) ブロックを抜けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;print_methods&lt;/g1&gt; macro will be run as soon as it is encountered - and will print an empty list as there are no methods defined at that point.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225049Z" creationid="makenowjust" creationdate="20200509T225027Z">
+        <seg>&lt;g1&gt;print_methods&lt;/g1&gt; マクロは現れたところですぐさま実行され、空の配列を表示します。つまり、この時点ではメソッドは何も定義されていないということです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27505,6 +28101,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The arguments are packed into an &lt;g1&gt;&lt;g2&gt;ArrayLiteral&lt;/g2&gt;&lt;/g1&gt; and passed to the macro.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215412Z" creationid="makenowjust" creationdate="20200509T215412Z">
+        <seg>引数は &lt;g1&gt;&lt;g2&gt;ArrayLiteral&lt;/g2&gt;&lt;/g1&gt; に変換されてマクロに渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The arguments are packed into an `ArrayLiteral` and passed to the macro.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040803Z" creationid="hirofumiwakasugi" creationdate="20151001T040740Z">
@@ -27639,6 +28243,14 @@ operator with assignment.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T041719Z" creationid="makenowjust" creationdate="20200421T041613Z">
         <seg>区切り文字を閉じたあとに、いくつかの修飾子を続けることで、正規表現のマッチの挙動を変更できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The code generated by the macro consists solely of two &lt;g2&gt;when&lt;/g2&gt; expressions which, by themselves, is not valid Crystal code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221818Z" creationid="makenowjust" creationdate="20200509T221818Z">
+        <seg>マクロによって生成されたコードは2つの孤立した &lt;g2&gt;when&lt;/g2&gt; 節からなりますが、これは有効な Crystal のコードではありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27844,6 +28456,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The contents of the block are transferred "as is", essentially as a string, until re-examined by the compiler.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220919Z" creationid="makenowjust" creationdate="20200509T220919Z">
+        <seg>ブロックの中身は「そのまま」文字列のようにコンパイラに渡され、再度検査されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The default receiver within a captured block can't be changed by using &lt;g1&gt;with ... yield&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T074124Z" creationid="makenowjust" creationdate="20200506T074124Z">
@@ -28043,6 +28663,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The expression above will result in no output.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221214Z" creationid="makenowjust" creationdate="20200509T221214Z">
+        <seg>上記の式は何も出力しないでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The external name is the one used when passing an argument as a named argument, and the internal name is the one used inside the method definition:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T161117Z" creationid="makenowjust" creationdate="20200501T161117Z">
@@ -28234,6 +28862,14 @@ a `def` without a matching `end`, or a single `when` expression of a
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015414Z" creationid="hirofumiwakasugi" creationdate="20151001T014916Z">
         <seg>生成されたコードは正しい Crystal コードでなくてはいけません。例えば、対応する `end` のない `def` や、`case` の `when` 式単体のものなどは、完全な式として正しいものではないので生成することができません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The generated code must be valid Crystal code, meaning that you can't for example generate a &lt;g1&gt;def&lt;/g1&gt; without a matching &lt;g2&gt;end&lt;/g2&gt;, or a single &lt;g3&gt;when&lt;/g3&gt; expression of a &lt;g4&gt;case&lt;/g4&gt;, since both of them are not complete valid expressions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200507T140455Z" creationid="makenowjust" creationdate="20200507T140455Z">
+        <seg>生成されたコードは正しい Crystal コードでなくてはいけません。例えば、対応する &lt;g2&gt;end&lt;/g2&gt; の無い &lt;g1&gt;def&lt;/g1&gt; や、&lt;g4&gt;case&lt;/g4&gt; 式の &lt;g3&gt;when&lt;/g3&gt; 部分だけのものなどは、完全な式として正しいものではないので生成することができません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29050,6 +29686,22 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The type of this variable is &lt;g2&gt;&lt;g3&gt;Def&lt;/g3&gt;&lt;/g2&gt; unless the macro is outside of a method, in this case it's &lt;g4&gt;&lt;g5&gt;NilLiteral&lt;/g5&gt;&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220108Z" creationid="makenowjust" creationdate="20200509T220108Z">
+        <seg>この変数の型は &lt;g2&gt;&lt;g3&gt;Def&lt;/g3&gt;&lt;/g2&gt; で、もしマクロがメソッドの外で実行されていた場合は &lt;g4&gt;&lt;g5&gt;NilLiteral&lt;/g5&gt;&lt;/g4&gt; となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The type of this variable is &lt;g2&gt;&lt;g3&gt;TypeNode&lt;/g3&gt;&lt;/g2&gt;, which gives you access to type information at compile time.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215757Z" creationid="makenowjust" creationdate="20200509T215757Z">
+        <seg>この変数の型は &lt;g2&gt;&lt;g3&gt;TypeNode&lt;/g3&gt;&lt;/g2&gt; で、コンパイル時の型情報にアクセスできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The type of this variable is `TypeNode`, which gives you access to type information at compile time.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T041330Z" creationid="hirofumiwakasugi" creationdate="20151001T041330Z">
@@ -29605,6 +30257,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These methods are documented in a fictitious &lt;g2&gt;Crystal::Macros&lt;/g2&gt; module.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214845Z" creationid="makenowjust" creationdate="20200509T214845Z">
+        <seg>これらのメソッドは&lt;g2&gt;Crystal::Macros&lt;/g2&gt;というフェクトのモジュールでドキュメント化されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These methods usually imply a side effect.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T141732Z" creationid="makenowjust" creationdate="20200430T141732Z">
@@ -29697,6 +30357,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015710Z" creationid="hirofumiwakasugi" creationdate="20151001T015616Z">
         <seg>クラスやモジュール内で定義することも可能で、その場合はそれらのスコープ内でのみアクセスできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They can also be defined in classes and modules, and are visible in those scopes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214326Z" creationid="makenowjust" creationdate="20200509T214326Z">
+        <seg>クラスやモジュール内で定義することも可能で、それはそのスコープ内でアクセスできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29872,6 +30540,14 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can sometimes be useful to avoid repetitive code by deliberately reading/writing local variables, but can also overwrite local variables by mistake.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225856Z" creationid="makenowjust" creationdate="20200509T225856Z">
+        <seg>これは、故意にローカル変数を読み書きするコードを繰り返し書くのを避けることに有効ですが、一方で誤ってローカル変数を上書きしてしまう可能性もあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This changes the default values:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T114622Z" creationid="hirofumiwakasugi" creationdate="20150914T114443Z">
@@ -29924,6 +30600,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T062320Z" creationid="hirofumiwakasugi" creationdate="20150930T062320Z">
         <seg>このエラーに出会うことはあまりないでしょう。もし `Person` が map の呼び出し前にインスタンス化されていればエラーにはなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This evaluation applies to both interpolation and directives.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221137Z" creationid="makenowjust" creationdate="20200509T221137Z">
+        <seg>この評価は埋め込みだけでなくディレクティブに対してもはたらきます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30395,6 +31079,14 @@ ones.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This may be used to provide relevant documentation for expansions:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221042Z" creationid="makenowjust" creationdate="20200509T221042Z">
+        <seg>これは関係するドキュメントコメントを生成するのに使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This means that the following gives a compile time error:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T155223Z" creationid="hirofumiwakasugi" creationdate="20150905T054412Z">
@@ -30415,6 +31107,14 @@ ones.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T031407Z" creationid="hirofumiwakasugi" creationdate="20150916T031407Z">
         <seg>これは次のことを意味しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This means, for example, a macro cannot generate a one or more &lt;g1&gt;when&lt;/g1&gt; expressions of a &lt;g2&gt;case&lt;/g2&gt; statement unless &lt;g3&gt;case&lt;/g3&gt; was a part of the generated code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221712Z" creationid="makenowjust" creationdate="20200509T221635Z">
+        <seg>要するに、例えば、マクロは冒頭の &lt;g3&gt;case&lt;/g3&gt; が生成するコードに含まれていないような&lt;g2&gt;case&lt;/g2&gt; 式の &lt;g1&gt;when&lt;/g1&gt; 節を生成することはできない、ということです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30842,6 +31542,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To avoid this, fresh variables can be declared with &lt;g1&gt;%name&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225918Z" creationid="makenowjust" creationdate="20200509T225918Z">
+        <seg>このような自体を避けるため、フレッシュ変数と呼ばれるものを &lt;g1&gt;%name&lt;/g1&gt; で宣言できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To avoid this, you can split a string into multiple lines
 by joining multiple literals with a backslash:</seg>
       </tuv>
@@ -31236,10 +31944,26 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To iterate a &lt;g1&gt;&lt;g2&gt;HashLiteral&lt;/g2&gt;&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215327Z" creationid="makenowjust" creationdate="20200509T215312Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;HashLiteral&lt;/g2&gt;&lt;/g1&gt; の各要素に対して繰り返し実行するには、次のようにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To iterate a `HashLiteral`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040427Z" creationid="hirofumiwakasugi" creationdate="20151001T040427Z">
         <seg>`HashLiteral` をイテレートするには以下のようにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To iterate an &lt;g1&gt;&lt;g2&gt;ArrayLiteral&lt;/g2&gt;&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215315Z" creationid="makenowjust" creationdate="20200509T215242Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;ArrayLiteral&lt;/g2&gt;&lt;/g1&gt; の各要素に対して繰り返し実行するには、次のようにします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31630,6 +32354,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Type information</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215534Z" creationid="makenowjust" creationdate="20200509T215534Z">
+        <seg>型の情報</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Type of closured variables</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T080655Z" creationid="makenowjust" creationdate="20200506T080655Z">
@@ -32016,6 +32748,14 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Using &lt;g1&gt;%x&lt;/g1&gt; in the above example, we declare a variable whose name is guaranteed not to conflict with local variables in the current scope.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230001Z" creationid="makenowjust" creationdate="20200509T230001Z">
+        <seg>上記の例では &lt;g1&gt;%x&lt;/g1&gt; として変数を宣言しています。こうすることで、現在のスコープのローカル変数と名前が衝突しないことを保証できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Using &lt;g1&gt;Readline&lt;/g1&gt; and &lt;g2&gt;NCurses&lt;/g2&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T185719Z" creationid="makenowjust" creationdate="20200413T185719Z">
@@ -32080,6 +32820,14 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Using this you will not be able to use any variable interpolation but will not need to escape the inner macro characters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220538Z" creationid="makenowjust" creationdate="20200509T220538Z">
+        <seg>これを使うことで、内側のマクロをエスケープする必要がなくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Using tuples is the preferred way.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T131800Z" creationid="akiji" creationdate="20200430T131800Z">
@@ -32100,6 +32848,18 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T025540Z" creationid="hirofumiwakasugi" creationdate="20150908T025529Z">
         <seg>例えば、`Int32` の型に制約したとき、メソッドは `Int32` のインスタンスのみしか受け入れません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>VALUES = [1, 2, 3]
+
+{% for value in VALUES %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220123Z" creationid="makenowjust" creationdate="20200509T220123Z">
+        <seg>VALUES = [1, 2, 3]
+
+{% for value in VALUES %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -32188,6 +32948,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053747Z" creationid="hirofumiwakasugi" creationdate="20151007T053524Z">
         <seg>C のライブラリで公開される変数は、`lib` の内部で、グローバル変数に似た記法を使って宣言できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Variadic arguments and splatting</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215349Z" creationid="makenowjust" creationdate="20200509T215349Z">
+        <seg>可変長引数とスプラット展開</seg>
       </tuv>
     </tu>
     <tu>
@@ -32441,6 +33209,14 @@ included modules as well:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We must include &lt;g3&gt;case&lt;/g3&gt; within the macro in order to make it valid by using &lt;g4&gt;begin&lt;/g4&gt; and &lt;g5&gt;end&lt;/g5&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221906Z" creationid="makenowjust" creationdate="20200509T221906Z">
+        <seg>&lt;g3&gt;case&lt;/g3&gt; をマクロによって生成されるコードに含めるために、&lt;g4&gt;begin&lt;/g4&gt; と &lt;g5&gt;end&lt;/g5&gt; を使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T064152Z" creationid="akiji" creationdate="20200430T084042Z">
@@ -32589,10 +33365,26 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When a macro is invoked you can access the current scope, or type, with a special instance variable: &lt;g1&gt;@type&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215730Z" creationid="makenowjust" creationdate="20200509T215730Z">
+        <seg>マクロが実行される際に、&lt;g1&gt;@type&lt;/g1&gt; という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When a macro is invoked you can access the current scope, or type, with a special instance variable: `@type`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T041248Z" creationid="hirofumiwakasugi" creationdate="20151001T041248Z">
         <seg>マクロが実行される際に  `@type` という特別のインスタンス変数を使うことで、現在のスコープ、および型にアクセスすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When a macro is invoked you can access the method, the macro is in with a special instance variable: &lt;g1&gt;@def&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220035Z" creationid="makenowjust" creationdate="20200509T220035Z">
+        <seg>マクロが実行される際に、&lt;g1&gt;@def&lt;/g1&gt; という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32913,6 +33705,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T121025Z" creationid="akiji" creationdate="20200430T121025Z">
         <seg>独自の型を書く場合は、必ず&lt;g2&gt;to_s&lt;/g2&gt;ではなく&lt;g1&gt;to_s(io)&lt;/g1&gt;をオーバーライドするようにして、その中でも中間的な文字列を生成しないように注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When writing macros (especially outside of a macro definition) it is important to remember that the generated code from the macro must be valid Crystal code by itself even before it is merged into the main program's code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221434Z" creationid="makenowjust" creationdate="20200509T221434Z">
+        <seg>マクロを書く際 (とくにマクロ定義の外で)、マクロによって生成されたコードは、メインのプログラムのコードにマージされる前から、それ自身として有効なコードである必要があることを覚えておいてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33430,6 +34230,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can invoke a &lt;g1&gt;fixed subset&lt;/g1&gt; of methods on AST nodes at compile-time.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214808Z" creationid="makenowjust" creationdate="20200509T214808Z">
+        <seg>コンパイル時に、メソッドの&lt;g1&gt;既定のサブセット&lt;/g1&gt;を AST ノードに対して実行することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can invoke a method on the &lt;g1&gt;case&lt;/g1&gt;'s expression in a &lt;g2&gt;when&lt;/g2&gt; by using the implicit-object syntax:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T093129Z" creationid="makenowjust" creationdate="20200424T093129Z">
@@ -33482,6 +34290,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T123321Z" creationid="hirofumiwakasugi" creationdate="20150904T123121Z">
         <seg>そのとき、`previous_def` を使うと以前に定義されたメソッドを実行することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can iterate a finite amount of times:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215158Z" creationid="makenowjust" creationdate="20200509T215158Z">
+        <seg>有限回の繰り返しをすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33784,6 +34600,14 @@ https://github.com/crystal-lang/crystal-book</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can use the method &lt;g2&gt;&lt;g3&gt;ASTNode#id&lt;/g3&gt;&lt;/g2&gt; in these cases, where you just need an identifier.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214714Z" creationid="makenowjust" creationdate="20200509T214714Z">
+        <seg>こういった、識別子を必要とする場合には、&lt;g2&gt;&lt;g3&gt;ASTNode#id&lt;/g3&gt;&lt;/g2&gt; を利用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can use the method `ASTNode#id` in these cases, where you just need an identifier.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T034952Z" creationid="hirofumiwakasugi" creationdate="20151001T021114Z">
@@ -33804,6 +34628,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T151056Z" creationid="akiji" creationdate="20200429T134352Z">
         <seg>もちろん、生成されたファイバ内で&lt;g1&gt;receive&lt;/g1&gt; を使うことも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You cannot access their compile-time value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223800Z" creationid="makenowjust" creationdate="20200509T223800Z">
+        <seg>コンパイル時にそれらにアクセスすることはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33880,6 +34712,14 @@ https://github.com/crystal-lang/crystal-book</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You must escape macro expressions of the inner macro by preceding them with a backslash character "\\" to prevent them from being evaluated by the outer macro.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220314Z" creationid="makenowjust" creationdate="20200509T220314Z">
+        <seg>このとき、内側のマクロが外側のマクロによって評価されるのを防ぐため、バックラッシュでエスケープする必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You program by invoking &lt;g1&gt;methods&lt;/g1&gt; (or sending messages) to objects.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T162424Z" creationid="makenowjust" creationdate="20200413T162424Z">
@@ -33932,6 +34772,22 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T130907Z" creationid="akiji" creationdate="20200430T130907Z">
         <seg>このような文字列の構築では、&lt;g1&gt;String#+(String)&lt;/g1&gt;メソッドによって文字列を結合するのではなく、文字列リテラルの中に式を埋め込める&lt;g2&gt;文字列の式展開&lt;/g2&gt;を使用しましょう。 &lt;g3&gt;"Hello, #{name}"&lt;/g3&gt; の方が、&lt;g4&gt;"Hello, " +  name.to_s&lt;/g4&gt;よりも良い結果になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You use &lt;g1&gt;{% if condition %}&lt;/g1&gt; ... &lt;g2&gt;{% end %}&lt;/g2&gt; to conditionally generate code:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215023Z" creationid="makenowjust" creationdate="20200509T215023Z">
+        <seg>&lt;g1&gt;{% if condition %}&lt;/g1&gt; ... &lt;g2&gt;{% end %}&lt;/g2&gt; を使うことで、条件に応じてコードを生成することが可能になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You use &lt;g1&gt;{{...}}&lt;/g1&gt; to paste, or interpolate, an AST node, as in the above example.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214615Z" creationid="makenowjust" creationdate="20200509T214615Z">
+        <seg>前述した例にもあったように、AST ノードを貼り付ける、もしくは埋め込むには &lt;g1&gt;{{...}}&lt;/g1&gt; を使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34046,6 +34902,38 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T173303Z" creationid="makenowjust" creationdate="20200420T173303Z">
         <seg>[] of Int32 # =&gt; Array(Int32).new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>\{% else %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220328Z" creationid="makenowjust" creationdate="20200509T220328Z">
+        <seg>\{% else %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>\{% end %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220321Z" creationid="makenowjust" creationdate="20200509T220321Z">
+        <seg>\{% end %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>\{% if greeting == "hola" %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220318Z" creationid="makenowjust" creationdate="20200509T220318Z">
+        <seg>\{% if greeting == "hola" %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>\{% name = {{name.stringify}} %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220559Z" creationid="makenowjust" creationdate="20200509T220559Z">
+        <seg>\{% name = {{name.stringify}} %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -43431,6 +44319,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>add_describe_methods
+end
+
+Foo.new.describe # =&gt; "Class is Foo"
+Foo.describe     # =&gt; "Class is Foo"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215839Z" creationid="makenowjust" creationdate="20200509T215839Z">
+        <seg>add_describe_methods
+end
+
+Foo.new.describe # =&gt; "Class is Foo"
+Foo.describe     # =&gt; "Class is Foo"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>adder = -&gt;add(Int32, Int32)
 adder.call(1, 2) #=&gt; 3
 ```</seg>
@@ -44677,6 +45581,24 @@ when cond1, cond2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>case 42</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221907Z" creationid="makenowjust" creationdate="20200509T221907Z">
+        <seg>case 42</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>case 42
+{% for klass in [Int32, String] %} # Syntax Error: unexpected token: {% (expecting when, else or end)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221656Z" creationid="makenowjust" creationdate="20200509T221656Z">
+        <seg>case 42
+{% for klass in [Int32, String] %} # Syntax Error: unexpected token: {% (expecting when, else or end)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>case color</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011821Z" creationid="hirofumiwakasugi" creationdate="20150916T011821Z">
@@ -45203,6 +46125,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>class Object</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223540Z" creationid="makenowjust" creationdate="20200509T223540Z">
+        <seg>class Object</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>class One</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141841Z" creationid="makenowjust" creationdate="20200504T141841Z">
@@ -45379,6 +46309,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T131045Z" creationid="hirofumiwakasugi" creationdate="20150911T131045Z">
         <seg>class Window</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class {{class_name}}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214944Z" creationid="makenowjust" creationdate="20200509T214944Z">
+        <seg>class {{class_name}}</seg>
       </tuv>
     </tu>
     <tu>
@@ -45925,6 +46863,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def Foo.boo(arg1, arg2)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220114Z" creationid="makenowjust" creationdate="20200509T220114Z">
+        <seg>def Foo.boo(arg1, arg2)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def [](index)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T031030Z" creationid="hirofumiwakasugi" creationdate="20150909T031030Z">
@@ -46121,6 +47067,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T142911Z" creationid="hirofumiwakasugi" creationdate="20150911T142911Z">
         <seg>def decode64(string)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def describe</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215834Z" creationid="makenowjust" creationdate="20200509T215834Z">
+        <seg>def describe</seg>
       </tuv>
     </tu>
     <tu>
@@ -46413,6 +47367,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def has_instance_var?(name) : Bool</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223801Z" creationid="makenowjust" creationdate="20200509T223801Z">
+        <seg>def has_instance_var?(name) : Bool</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def homepage_url</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010348Z" creationid="hirofumiwakasugi" creationdate="20151010T010348Z">
@@ -46521,6 +47483,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T150144Z" creationid="makenowjust" creationdate="20200429T150144Z">
         <seg>def initialize(@name : String, @age : Int = 0)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def initialize(@name : String, @age : Int32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223553Z" creationid="makenowjust" creationdate="20200509T223553Z">
+        <seg>def initialize(@name : String, @age : Int32)</seg>
       </tuv>
     </tu>
     <tu>
@@ -46661,6 +47631,14 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def instance_vars_names</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223541Z" creationid="makenowjust" creationdate="20200509T223541Z">
+        <seg>def instance_vars_names</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def int_to_int(&amp;block : Int32 -&gt; Int32)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T193101Z" creationid="makenowjust" creationdate="20200505T193101Z">
@@ -46689,6 +47667,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T133835Z" creationid="hirofumiwakasugi" creationdate="20150911T133835Z">
         <seg>def length</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def lineage</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224455Z" creationid="makenowjust" creationdate="20200509T224455Z">
+        <seg>def lineage</seg>
       </tuv>
     </tu>
     <tu>
@@ -46873,6 +47859,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T041159Z" creationid="hirofumiwakasugi" creationdate="20150910T041159Z">
         <seg>def self.counter</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def self.describe</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215837Z" creationid="makenowjust" creationdate="20200509T215837Z">
+        <seg>def self.describe</seg>
       </tuv>
     </tu>
     <tu>
@@ -47225,6 +48219,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040429Z" creationid="hirofumiwakasugi" creationdate="20151001T040429Z">
         <seg>def {{key.id}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def {{method}}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215439Z" creationid="makenowjust" creationdate="20200509T215439Z">
+        <seg>def {{method}}</seg>
       </tuv>
     </tu>
     <tu>
@@ -47810,6 +48812,98 @@ end
         <seg>end
 end
 
+# This correctly generates:
+#
+#     def foo
+#       1
+#     end
+define_method :foo, 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214920Z" creationid="makenowjust" creationdate="20200509T214907Z">
+        <seg>end
+end
+
+# 以下が正しく生成される:
+#
+#     def foo
+#       1
+#     end
+define_method :foo, 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+# This generates:
+#
+#     def foo
+#       1
+#     end
+define_method foo, 1
+
+foo # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200507T140140Z" creationid="makenowjust" creationdate="20200507T140140Z">
+        <seg>end
+end
+
+# これで以下が生成されます。
+#
+#     def foo
+#       1
+#     end
+define_method foo, 1
+
+foo # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+# This generates:
+#     module Foo
+#       class Bar
+#         def initialize(@name : String)
+#         end
+#
+#         def say
+#           "hi " + @name
+#         end
+#       end
+#     end
+define_class Foo, Bar, say, "hi "
+
+p Foo::Bar.new("John").say # =&gt; "hi John"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214956Z" creationid="makenowjust" creationdate="20200509T214956Z">
+        <seg>end
+end
+
+# これで以下が生成される:
+#     module Foo
+#       class Bar
+#         def initialize(@name : String)
+#         end
+#
+#         def say
+#           "hi " + @name
+#         end
+#       end
+#     end
+define_class Foo, Bar, say, "hi "
+
+p Foo::Bar.new("John").say # =&gt; "hi John"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 # add method without type restrictions
 def add(x, y)</seg>
       </tuv>
@@ -47913,6 +49007,62 @@ end
 
 Employee.new "John", "Acme" # OK
 Employee.new "Peter"        # Error: wrong number of arguments for 'Employee:Class#new' (1 for 2)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+Foo.boo(0, 1)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220117Z" creationid="makenowjust" creationdate="20200509T220117Z">
+        <seg>end
+end
+
+Foo.boo(0, 1)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+Foo.emphasize(10) # =&gt; "***10***"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214520Z" creationid="makenowjust" creationdate="20200509T214520Z">
+        <seg>end
+end
+
+Foo.emphasize(10) # =&gt; "***10***"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+Foo.new.bar</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224932Z" creationid="makenowjust" creationdate="20200509T224932Z">
+        <seg>end
+end
+
+Foo.new.bar</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+Foo.new.yield_with_self { emphasize(10) } # =&gt; "***10***"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214434Z" creationid="makenowjust" creationdate="20200509T214434Z">
+        <seg>end
+end
+
+Foo.new.yield_with_self { emphasize(10) } # =&gt; "***10***"</seg>
       </tuv>
     </tu>
     <tu>
@@ -48049,6 +49199,26 @@ end
 class Child &lt; Parent
 end
 
+Child.new.lineage # =&gt; "Child &lt; Parent"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224457Z" creationid="makenowjust" creationdate="20200509T224457Z">
+        <seg>end
+end
+
+class Child &lt; Parent
+end
+
+Child.new.lineage # =&gt; "Child &lt; Parent"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+class Child &lt; Parent
+end
+
 Parent.numbers # =&gt; []
 Child.numbers  # =&gt; []
 
@@ -48112,6 +49282,20 @@ employee.greet # "Hi, I'm John"</seg>
         <seg>end
 end
 
+class Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215838Z" creationid="makenowjust" creationdate="20200509T215838Z">
+        <seg>end
+end
+
+class Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 class Foo(U)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T142958Z" creationid="makenowjust" creationdate="20200504T142958Z">
@@ -48133,6 +49317,44 @@ class Items</seg>
 end
 
 class Items</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+class OtherClass
+end
+
+# This call is handled by the top-level `method_missing`
+foo # =&gt; In outer scope, got call: foo
+
+obj = SomeClass.new
+# This is handled by the one inside SomeClass
+obj.bar # =&gt; Inside SomeClass, got call: bar
+
+other = OtherClass.new
+# Neither OtherClass or its parents define a `method_missing` macro
+other.baz # =&gt; Error: Undefined method 'baz' for OtherClass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224819Z" creationid="makenowjust" creationdate="20200509T224652Z">
+        <seg>end
+end
+
+class OtherClass
+end
+
+# この呼び出しはトップレベルの `method_missing` によって処理される
+foo # =&gt; In outer scope, got call: foo
+
+obj = SomeClass.new
+# この呼び出しは SomeClass によって処理される
+obj.bar # =&gt; Inside SomeClass, got call: bar
+
+other = OtherClass.new
+# 一方、OtherClass には `method_missing` マクロを持たないので、
+other.baz # =&gt; Error: Undefined method 'baz' for OtherClass</seg>
       </tuv>
     </tu>
     <tu>
@@ -48193,6 +49415,32 @@ def one</seg>
 end
 
 def one</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+define_method foo, 1
+define_method bar, 2
+define_method baz, 3
+
+foo # =&gt; one
+bar # =&gt; two
+baz # =&gt; 3</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215032Z" creationid="makenowjust" creationdate="20200509T215032Z">
+        <seg>end
+end
+
+define_method foo, 1
+define_method bar, 2
+define_method baz, 3
+
+foo # =&gt; one
+bar # =&gt; two
+baz # =&gt; 3</seg>
       </tuv>
     </tu>
     <tu>
@@ -48740,6 +49988,40 @@ person.age # =&gt; 3</seg>
         <seg>end
 end
 
+person = Person.new "John", 30
+person.has_instance_var?("name")     # =&gt; true
+person.has_instance_var?("birthday") # =&gt; false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223807Z" creationid="makenowjust" creationdate="20200509T223807Z">
+        <seg>end
+end
+
+person = Person.new "John", 30
+person.has_instance_var?("name")     # =&gt; true
+person.has_instance_var?("birthday") # =&gt; false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+person = Person.new "John", 30
+person.instance_vars_names # =&gt; ["name", "age"]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223556Z" creationid="makenowjust" creationdate="20200509T223556Z">
+        <seg>end
+end
+
+person = Person.new "John", 30
+person.instance_vars_names # =&gt; ["name", "age"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 puts foo # =&gt; "bar"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T095706Z" creationid="makenowjust" creationdate="20200424T095706Z">
@@ -48881,6 +50163,24 @@ puts a #=&gt; 10
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040454Z" creationid="hirofumiwakasugi" creationdate="20151001T040454Z">
         <seg>end
 {% end %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+{% end %}
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215339Z" creationid="makenowjust" creationdate="20200509T215339Z">
+        <seg>end
+{% end %}
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -50977,6 +52277,22 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>macro a</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221153Z" creationid="makenowjust" creationdate="20200509T221153Z">
+        <seg>macro a</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro add_describe_methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215833Z" creationid="makenowjust" creationdate="20200509T215833Z">
+        <seg>macro add_describe_methods</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>macro compile_time_date</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T200748Z" creationid="makenowjust" creationdate="20200413T200704Z">
@@ -51001,10 +52317,90 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>macro define_class(module_name, class_name, method, content)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214943Z" creationid="makenowjust" creationdate="20200509T214943Z">
+        <seg>macro define_class(module_name, class_name, method, content)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_constants(count)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215207Z" creationid="makenowjust" creationdate="20200509T215207Z">
+        <seg>macro define_constants(count)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_dummy_methods(*names)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215350Z" creationid="makenowjust" creationdate="20200509T215350Z">
+        <seg>macro define_dummy_methods(*names)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_dummy_methods(hash)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215328Z" creationid="makenowjust" creationdate="20200509T215328Z">
+        <seg>macro define_dummy_methods(hash)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_dummy_methods(names)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215243Z" creationid="makenowjust" creationdate="20200509T215243Z">
+        <seg>macro define_dummy_methods(names)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_macros(*names)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220315Z" creationid="makenowjust" creationdate="20200509T220315Z">
+        <seg>macro define_macros(*names)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro define_method(name, content)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200507T140128Z" creationid="makenowjust" creationdate="20200507T140128Z">
+        <seg>macro define_method(name, content)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro dont_update_x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225919Z" creationid="makenowjust" creationdate="20200509T225919Z">
+        <seg>macro dont_update_x</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>macro emphasize(value)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T020422Z" creationid="hirofumiwakasugi" creationdate="20151001T020422Z">
         <seg>macro emphasize(value)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro finished</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224927Z" creationid="makenowjust" creationdate="20200509T224927Z">
+        <seg>macro finished</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro fresh_vars_sample(*names)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230053Z" creationid="makenowjust" creationdate="20200509T230053Z">
+        <seg>macro fresh_vars_sample(*names)</seg>
       </tuv>
     </tu>
     <tu>
@@ -51033,10 +52429,58 @@ local &amp;&amp;= 1 # local &amp;&amp; (local = 1) と同じ
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>macro greeting_for_{{name.id}}(greeting)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220317Z" creationid="makenowjust" creationdate="20200509T220317Z">
+        <seg>macro greeting_for_{{name.id}}(greeting)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>macro inherited</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T014443Z" creationid="hirofumiwakasugi" creationdate="20151002T014443Z">
         <seg>macro inherited</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro method_added(method)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224513Z" creationid="makenowjust" creationdate="20200509T224513Z">
+        <seg>macro method_added(method)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro method_missing(call)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224505Z" creationid="makenowjust" creationdate="20200509T224505Z">
+        <seg>macro method_missing(call)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro print_methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224923Z" creationid="makenowjust" creationdate="20200509T224923Z">
+        <seg>macro print_methods</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro println(*values)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215512Z" creationid="makenowjust" creationdate="20200509T215512Z">
+        <seg>macro println(*values)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>macro update_x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225645Z" creationid="makenowjust" creationdate="20200509T225645Z">
+        <seg>macro update_x</seg>
       </tuv>
     </tu>
     <tu>
@@ -51195,6 +52639,14 @@ module B; end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220113Z" creationid="makenowjust" creationdate="20200509T220113Z">
+        <seg>module Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>module HTTP</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010225Z" creationid="hirofumiwakasugi" creationdate="20151010T010225Z">
@@ -51273,6 +52725,14 @@ Moo.new # undefined method 'new' for Moo:Module</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>module {{module_name}}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214944Z" creationid="makenowjust" creationdate="20200509T214944Z">
+        <seg>module {{module_name}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>modulo &lt;g1&gt;and&lt;/g1&gt; assignment</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T100637Z" creationid="makenowjust" creationdate="20200502T100637Z">
@@ -51313,6 +52773,14 @@ my_hash["bar"] = "baz"</seg>
         <seg>my_hash = MyHash(typeof("foo", "bar"), typeof(1, "baz")).new
 my_hash["foo"] = 1
 my_hash["bar"] = "baz"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>name</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223805Z" creationid="makenowjust" creationdate="20200509T223805Z">
+        <seg>name</seg>
       </tuv>
     </tu>
     <tu>
@@ -51843,6 +53311,26 @@ foo y: 2, x: 1, z: 3 # =&gt; {y: 2, z: 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>p "is {{klass}}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221909Z" creationid="makenowjust" creationdate="20200509T221909Z">
+        <seg>p "is {{klass}}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>p "is {{klass}}"
+{% end %}
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221658Z" creationid="makenowjust" creationdate="20200509T221658Z">
+        <seg>p "is {{klass}}"
+{% end %}
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>p = Person.new
 p.greet "everyone" # "Hi, everyone"</seg>
       </tuv>
@@ -52255,6 +53743,22 @@ else</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>print "Got ", {{call.name.id.stringify}}, " with ", {{call.args.size}}, " arguments", '\n'
+end
+
+foo          # Prints: Got foo with 0 arguments
+bar 'a', 'b' # Prints: Got bar with 2 arguments</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224506Z" creationid="makenowjust" creationdate="20200509T224506Z">
+        <seg>print "Got ", {{call.name.id.stringify}}, " with ", {{call.args.size}}, " arguments", '\n'
+end
+
+foo          # Prints: Got foo with 0 arguments
+bar 'a', 'b' # Prints: Got bar with 2 arguments</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>print "Got ", {{name.id.stringify}}, " with ", {{args.length}}, " arguments", '\n'
 end</seg>
       </tuv>
@@ -52281,6 +53785,34 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040859Z" creationid="hirofumiwakasugi" creationdate="20151001T040859Z">
         <seg>print {{*values}}, '\n'
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>print {{*values}}, '\n'
+end
+
+println 1, 2, 3 # outputs 123\n</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215513Z" creationid="makenowjust" creationdate="20200509T215513Z">
+        <seg>print {{*values}}, '\n'
+end
+
+println 1, 2, 3 # outputs 123\n</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>print_methods
+end
+
+class Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224929Z" creationid="makenowjust" creationdate="20200509T224929Z">
+        <seg>print_methods
+end
+
+class Foo</seg>
       </tuv>
     </tu>
     <tu>
@@ -53087,6 +54619,14 @@ twice &amp;-&gt;say_hello</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts "I'm a method!"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224930Z" creationid="makenowjust" creationdate="20200509T224930Z">
+        <seg>puts "I'm a method!"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts "I'm a unicorn"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T144059Z" creationid="hirofumiwakasugi" creationdate="20151010T144059Z">
@@ -53121,6 +54661,28 @@ end
 #
 # DEPRECATED: Use `speak`
 def talk</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "In outer scope, got call: ", {{ call.name.stringify }}
+end
+
+class SomeClass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224649Z" creationid="makenowjust" creationdate="20200509T224649Z">
+        <seg>puts "In outer scope, got call: ", {{ call.name.stringify }}
+end
+
+class SomeClass</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "Inside SomeClass, got call: ", {{ call.name.stringify }}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224651Z" creationid="makenowjust" creationdate="20200509T224651Z">
+        <seg>puts "Inside SomeClass, got call: ", {{ call.name.stringify }}</seg>
       </tuv>
     </tu>
     <tu>
@@ -53282,6 +54844,16 @@ end
     <tu>
       <tuv lang="EN-US">
         <seg>puts "We are in test mode"
+{% end %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215135Z" creationid="makenowjust" creationdate="20200509T215135Z">
+        <seg>puts "We are in test mode"
+{% end %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts "We are in test mode"
 {% end %}
 ```</seg>
       </tuv>
@@ -53353,6 +54925,24 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts %x
+end
+
+x = 0
+dont_update_x # outputs 1
+x             # =&gt; 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225920Z" creationid="makenowjust" creationdate="20200509T225920Z">
+        <seg>puts %x
+end
+
+x = 0
+dont_update_x # outputs 1
+x             # =&gt; 0</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts 123</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T090717Z" creationid="makenowjust" creationdate="20200506T090717Z">
@@ -53365,6 +54955,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T090848Z" creationid="makenowjust" creationdate="20200506T090848Z">
         <seg>puts 123.to_s</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts 42</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221154Z" creationid="makenowjust" creationdate="20200509T221154Z">
+        <seg>puts 42</seg>
       </tuv>
     </tu>
     <tu>
@@ -53677,6 +55275,16 @@ block do</seg>
 end
 
 block do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>puts {{value}}
+{% end %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220124Z" creationid="makenowjust" creationdate="20200509T220124Z">
+        <seg>puts {{value}}
+{% end %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -55353,6 +56961,14 @@ values # =&gt; {1, 2}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>verbatim</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220345Z" creationid="makenowjust" creationdate="20200509T220345Z">
+        <seg>verbatim</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>we get:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T055924Z" creationid="hirofumiwakasugi" creationdate="20150912T055916Z">
@@ -55389,6 +57005,14 @@ values # =&gt; {1, 2}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T011857Z" creationid="hirofumiwakasugi" creationdate="20150916T011857Z">
         <seg>when Color::Red</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>when {{klass.id}}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221657Z" creationid="makenowjust" creationdate="20200509T221657Z">
+        <seg>when {{klass.id}}</seg>
       </tuv>
     </tu>
     <tu>
@@ -56074,6 +57698,24 @@ end</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>x = 1
+end
+
+x = 0
+update_x
+x # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T225646Z" creationid="makenowjust" creationdate="20200509T225646Z">
+        <seg>x = 1
+end
+
+x = 0
+update_x
+x # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x = 1
 foo do</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T054337Z" creationid="hirofumiwakasugi" creationdate="20150918T054337Z">
@@ -56523,6 +58165,30 @@ transform(1) { |x| x + 1 } # =&gt; 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% @def.args %}     # =&gt; [arg1, arg2]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220116Z" creationid="makenowjust" creationdate="20200509T220116Z">
+        <seg>{% @def.args %}     # =&gt; [arg1, arg2]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% @def.name %}     # =&gt; boo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220115Z" creationid="makenowjust" creationdate="20200509T220115Z">
+        <seg>{% @def.name %}     # =&gt; boo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% @def.receiver %} # =&gt; Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220115Z" creationid="makenowjust" creationdate="20200509T220115Z">
+        <seg>{% @def.receiver %} # =&gt; Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% assign articles = site.posts | where_exp: "item","item.release_notes != true" %} {% for post in articles limit: 3 %} {% include blog_row.html post=post %} {% endfor %}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T222643Z" creationid="makenowjust" creationdate="20200413T222643Z">
@@ -56539,10 +58205,26 @@ transform(1) { |x| x + 1 } # =&gt; 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% begin %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221907Z" creationid="makenowjust" creationdate="20200509T221907Z">
+        <seg>{% begin %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% else %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T035954Z" creationid="hirofumiwakasugi" creationdate="20151001T035954Z">
         <seg>{% else %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% elsif content == 2 %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215029Z" creationid="makenowjust" creationdate="20200509T215029Z">
+        <seg>{% elsif content == 2 %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -56561,6 +58243,232 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040353Z" creationid="hirofumiwakasugi" creationdate="20151001T040353Z">
         <seg>{% end %}
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+# This generates:
+#
+#     macro greeting_for_alice
+#       {% if greeting == "hola" %}
+#         "¡hola alice!"
+#       {% else %}
+#         "{{greeting.id}} alice"
+#       {% end %}
+#     end
+#     macro greeting_for_bob
+#       {% if greeting == "hola" %}
+#         "¡hola bob!"
+#       {% else %}
+#         "{{greeting.id}} bob"
+#       {% end %}
+#     end
+define_macros alice, bob
+
+greeting_for_alice "hello" # =&gt; "hello alice"
+greeting_for_bob "hallo"   # =&gt; "hallo bob"
+greeting_for_alice "hej"   # =&gt; "hej alice"
+greeting_for_bob "hola"    # =&gt; "¡hola bob!"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220341Z" creationid="makenowjust" creationdate="20200509T220341Z">
+        <seg>{% end %}
+end
+
+# これは以下を生成します:
+#
+#     macro greeting_for_alice
+#       {% if greeting == "hola" %}
+#         "¡hola alice!"
+#       {% else %}
+#         "{{greeting.id}} alice"
+#       {% end %}
+#     end
+#     macro greeting_for_bob
+#       {% if greeting == "hola" %}
+#         "¡hola bob!"
+#       {% else %}
+#         "{{greeting.id}} bob"
+#       {% end %}
+#     end
+define_macros alice, bob
+
+greeting_for_alice "hello" # =&gt; "hello alice"
+greeting_for_bob "hallo"   # =&gt; "hallo bob"
+greeting_for_alice "hej"   # =&gt; "hej alice"
+greeting_for_bob "hola"    # =&gt; "¡hola bob!"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+# This generates:
+#
+#     macro greeting_for_alice
+#       {% name = "alice" %}
+#       {% if greeting == "hola" %}
+#         "¡hola alice!"
+#       {% else %}
+#         "{{greeting.id}} alice"
+#       {% end %}
+#     end
+#     macro greeting_for_bob
+#       {% name = "bob" %}
+#       {% if greeting == "hola" %}
+#         "¡hola bob!"
+#       {% else %}
+#         "{{greeting.id}} bob"
+#       {% end %}
+#     end
+define_macros alice, bob
+
+greeting_for_alice "hello" # =&gt; "hello alice"
+greeting_for_bob "hallo"   # =&gt; "hallo bob"
+greeting_for_alice "hej"   # =&gt; "hej alice"
+greeting_for_bob "hola"    # =&gt; "¡hola bob!"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220618Z" creationid="makenowjust" creationdate="20200509T220618Z">
+        <seg>{% end %}
+end
+
+# 以下が生成されます。
+#
+#     macro greeting_for_alice
+#       {% name = "alice" %}
+#       {% if greeting == "hola" %}
+#         "¡hola alice!"
+#       {% else %}
+#         "{{greeting.id}} alice"
+#       {% end %}
+#     end
+#     macro greeting_for_bob
+#       {% name = "bob" %}
+#       {% if greeting == "hola" %}
+#         "¡hola bob!"
+#       {% else %}
+#         "{{greeting.id}} bob"
+#       {% end %}
+#     end
+define_macros alice, bob
+
+greeting_for_alice "hello" # =&gt; "hello alice"
+greeting_for_bob "hallo"   # =&gt; "hallo bob"
+greeting_for_alice "hej"   # =&gt; "hej alice"
+greeting_for_bob "hola"    # =&gt; "¡hola bob!"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+define_constants(3)
+
+PI_1 # =&gt; 3.14159...</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215213Z" creationid="makenowjust" creationdate="20200509T215213Z">
+        <seg>{% end %}
+end
+
+define_constants(3)
+
+PI_1 # =&gt; 3.14159...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+define_dummy_methods [foo, bar, baz]
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215245Z" creationid="makenowjust" creationdate="20200509T215245Z">
+        <seg>{% end %}
+end
+
+define_dummy_methods [foo, bar, baz]
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+define_dummy_methods foo, bar, baz
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215353Z" creationid="makenowjust" creationdate="20200509T215353Z">
+        <seg>{% end %}
+end
+
+define_dummy_methods foo, bar, baz
+
+foo # =&gt; 0
+bar # =&gt; 1
+baz # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+define_dummy_methods({foo: 10, bar: 20})
+foo # =&gt; 10
+bar # =&gt; 20</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215330Z" creationid="makenowjust" creationdate="20200509T215330Z">
+        <seg>{% end %}
+end
+
+define_dummy_methods({foo: 10, bar: 20})
+foo # =&gt; 10
+bar # =&gt; 20</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+fresh_vars_sample a, b, c
+
+# Sample output:
+# Declaring: __temp_255
+# Declaring: __temp_256
+# Declaring: __temp_257
+# __temp_255: 0
+# __temp_256: 1
+# __temp_257: 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T230105Z" creationid="makenowjust" creationdate="20200509T230105Z">
+        <seg>{% end %}
+end
+
+fresh_vars_sample a, b, c
+
+# 出力例:
+# Declaring: __temp_255
+# Declaring: __temp_256
+# Declaring: __temp_257
+# __temp_255: 0
+# __temp_256: 1
+# __temp_257: 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -56611,10 +58519,42 @@ bar #=&gt; 20
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% for i in (1..count) %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215208Z" creationid="makenowjust" creationdate="20200509T215208Z">
+        <seg>{% for i in (1..count) %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% for key, value in hash %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T040429Z" creationid="hirofumiwakasugi" creationdate="20151001T040429Z">
         <seg>{% for key, value in hash %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for klass in [Int32, String] %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T221908Z" creationid="makenowjust" creationdate="20200509T221908Z">
+        <seg>{% for klass in [Int32, String] %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for name in names %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220316Z" creationid="makenowjust" creationdate="20200509T220316Z">
+        <seg>{% for name in names %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for name, index in ["foo", "bar", "baz"] %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215338Z" creationid="makenowjust" creationdate="20200509T215338Z">
+        <seg>{% for name, index in ["foo", "bar", "baz"] %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -56665,6 +58605,22 @@ require "http/server"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T035953Z" creationid="hirofumiwakasugi" creationdate="20151001T035953Z">
         <seg>{% if content == 1 %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% if env("TEST") %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215134Z" creationid="makenowjust" creationdate="20200509T215134Z">
+        <seg>{% if env("TEST") %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% if greeting == "hola" %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220601Z" creationid="makenowjust" creationdate="20200509T220601Z">
+        <seg>{% if greeting == "hola" %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -56788,6 +58744,50 @@ require "http/server"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% puts "Method added:", method.name.stringify %}
+end
+
+def generate_random_number</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224513Z" creationid="makenowjust" creationdate="20200509T224513Z">
+        <seg>{% puts "Method added:", method.name.stringify %}
+end
+
+def generate_random_number</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% puts @type.methods.map &amp;.name %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224925Z" creationid="makenowjust" creationdate="20200509T224925Z">
+        <seg>{% puts @type.methods.map &amp;.name %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% puts @type.methods.map &amp;.name %}
+end
+
+class Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T224924Z" creationid="makenowjust" creationdate="20200509T224924Z">
+        <seg>{% puts @type.methods.map &amp;.name %}
+end
+
+class Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% verbatim do %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T220601Z" creationid="makenowjust" creationdate="20200509T220601Z">
+        <seg>{% verbatim do %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{1 =&gt; 2, 3 =&gt; 4}   # Hash(Int32, Int32)
 {1 =&gt; 2, 'a' =&gt; 3} # Hash(Int32 | Char, Int32)</seg>
       </tuv>
@@ -56818,6 +58818,14 @@ require "http/server"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T012112Z" creationid="hirofumiwakasugi" creationdate="20151002T012112Z">
         <seg>{{ @type.instance_vars.map &amp;.name.stringify }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{{ @type.instance_vars.map &amp;.name.stringify }}.includes?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T223802Z" creationid="makenowjust" creationdate="20200509T223802Z">
+        <seg>{{ @type.instance_vars.map &amp;.name.stringify }}.includes?</seg>
       </tuv>
     </tu>
     <tu>
@@ -56874,6 +58882,14 @@ puts build_date{% endhighlight %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T014650Z" creationid="hirofumiwakasugi" creationdate="20151001T014650Z">
         <seg>{{content}}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{{content}} + @name</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T214946Z" creationid="makenowjust" creationdate="20200509T214946Z">
+        <seg>{{content}} + @name</seg>
       </tuv>
     </tu>
     <tu>
@@ -57001,6 +59017,16 @@ objects[1] &amp;&amp;= 2 # objects[1]? </seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182859Z" creationid="makenowjust" creationdate="20200505T182859Z">
         <seg>用途</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <prop type="file">crystal-book/syntax_and_semantics/macros.md</prop>
+      <prop type="id">tu12_0</prop>
+      <tuv lang="EN-US">
+        <seg>Interpolation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200509T215447Z" creationid="makenowjust" creationdate="20200509T214543Z">
+        <seg>マクロでの埋め込み</seg>
       </tuv>
     </tu>
     <tu>
