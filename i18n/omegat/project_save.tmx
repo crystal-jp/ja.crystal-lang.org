@@ -354,6 +354,32 @@ foo Int32 # "class"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>"foo"
+end
+
+@[MyAnnotation]
+class Klass
+end
+
+@[MyAnnotation]
+module MyModule
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104626Z" creationid="makenowjust" creationdate="20200510T104626Z">
+        <seg>"foo"
+end
+
+@[MyAnnotation]
+class Klass
+end
+
+@[MyAnnotation]
+module MyModule
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>"ga": {</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T035935Z" creationid="makenowjust" creationdate="20200420T035935Z">
@@ -2978,6 +3004,14 @@ typeof(a) # =&gt; Int32 | String</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T143922Z" creationid="makenowjust" creationdate="20200429T143922Z">
         <seg># コンパイル時の型
 typeof(a) # =&gt; Int32 | String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># The name can be a `String`, `Symbol`, or `MacroId`</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T114212Z" creationid="makenowjust" creationdate="20200510T110334Z">
+        <seg># キー名は `String`、`Symbol` もしくは `MacroId` の必要があります</seg>
       </tuv>
     </tu>
     <tu>
@@ -11385,10 +11419,26 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; &lt;g2&gt;TypeNode.instance_vars&lt;/g2&gt; currently only works in the context of an instance/class method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112325Z" creationid="makenowjust" creationdate="20200510T112314Z">
+        <seg>&lt;g1&gt;注意:&lt;/g1&gt; &lt;g2&gt;TypeNode.instance_vars&lt;/g2&gt; は今のところ、インスタンス/クラスメソッドのコンテキストでのみ動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; Building fully statical linked executables is currently only supported on Alpine Linux.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153948Z" creationid="makenowjust" creationdate="20200419T152804Z">
         <seg>&lt;g1&gt;注意:&lt;/g1&gt; 静的リンクした実行可能ファイルのビルドは現在Alpine Linux上でのみサポートされています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NOTE:&lt;/g1&gt; If multiple annotations of the same type are applied, the &lt;g2&gt;.annotation&lt;/g2&gt; method will return the &lt;g3&gt;last&lt;/g3&gt; one.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111908Z" creationid="makenowjust" creationdate="20200510T111836Z">
+        <seg>&lt;g1&gt;注意:&lt;/g1&gt; もし複数の同じ型のアノテーションが適用されていた場合、&lt;g2&gt;.annotation&lt;/g2&gt; は&lt;g3&gt;最後&lt;/g3&gt;のものを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13295,6 +13345,14 @@ enum IOMode</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@[MyIvar]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112316Z" creationid="makenowjust" creationdate="20200510T112316Z">
+        <seg>@[MyIvar]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>@[Raises]</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053359Z" creationid="hirofumiwakasugi" creationdate="20151008T053359Z">
@@ -13605,6 +13663,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T140709Z" creationid="makenowjust" creationdate="20200427T140709Z">
         <seg>@name = obj</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@num : Int32 = 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112317Z" creationid="makenowjust" creationdate="20200510T112317Z">
+        <seg>@num : Int32 = 1</seg>
       </tuv>
     </tu>
     <tu>
@@ -14504,6 +14570,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A few applications for annotations:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113455Z" creationid="makenowjust" creationdate="20200510T105055Z">
+        <seg>アノテーションのいくつかの応用例:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A few operators are defined directly by the compiler and cannot be redefined
 in user code.</seg>
       </tuv>
@@ -14734,6 +14808,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T170054Z" creationid="makenowjust" creationdate="20200422T170054Z">
         <seg>名前付きタプルのキーには文字列リテラルを使うこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A number of &lt;g3&gt;built-in annotations&lt;/g3&gt; are provided by the compiler.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104404Z" creationid="makenowjust" creationdate="20200510T104404Z">
+        <seg>いくつかの&lt;g3&gt;組み込みアノテーション&lt;/g3&gt;はコンパイラによって提供されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15699,6 +15781,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An annotation could be used to designate a property as an ORM column.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105702Z" creationid="makenowjust" creationdate="20200510T105702Z">
+        <seg>アノテーションを、プロパティをORMのカラムに指定するために使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An easy way to remember which one is inclusive and which one is exclusive it to think of the extra dot as if it pushes *y* further away, thus leaving it outside of the range.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T015144Z" creationid="hirofumiwakasugi" creationdate="20150902T014911Z">
@@ -15989,6 +16079,38 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Annotations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104057Z" creationid="makenowjust" creationdate="20200510T104057Z">
+        <seg>アノテーション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Annotations are best used to store metadata about a given instance variable, type, or method so that it can be read at compile time using macros.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113422Z" creationid="makenowjust" creationdate="20200510T104732Z">
+        <seg>アノテーションはインスタンス変数や型、メソッドにメタデータを与えるのに最適な機能です。そして、そうして与えたメタデータはコンパイル時にマクロを使って読み出すことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Annotations can be read off of a &lt;g1&gt;&lt;g2&gt;TypeNode&lt;/g2&gt;&lt;/g1&gt;, &lt;g3&gt;&lt;g4&gt;Def&lt;/g4&gt;&lt;/g3&gt;, or &lt;g5&gt;&lt;g6&gt;MetaVar&lt;/g6&gt;&lt;/g5&gt; using the &lt;g7&gt;.annotation(type : TypeNode)&lt;/g7&gt; method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111741Z" creationid="makenowjust" creationdate="20200510T111707Z">
+        <seg>アノテーションは &lt;g1&gt;&lt;g2&gt;TypeNode&lt;/g2&gt;&lt;/g1&gt;、&lt;g3&gt;&lt;g4&gt;Def&lt;/g4&gt;&lt;/g3&gt; そして &lt;g5&gt;&lt;g6&gt;MetaVar&lt;/g6&gt;&lt;/g5&gt; から &lt;g7&gt;.annotation(type : TypeNode)&lt;/g7&gt; メソッドを使うことで読み出せます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Annotations can be used to add metadata to certain features in the source code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113319Z" creationid="makenowjust" creationdate="20200510T104235Z">
+        <seg>アノテーションを使うとソースコードに特定の機能に関するメタデータを追加することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Another case is &lt;g1&gt;||&lt;/g1&gt; and &lt;g2&gt;||=&lt;/g2&gt;:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T143624Z" creationid="makenowjust" creationdate="20200427T143624Z">
@@ -16074,6 +16196,14 @@ underscore is an operator  method.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T194210Z" creationid="makenowjust" creationdate="20200419T194210Z">
         <seg>任意の文字列リテラルは複数行にまたがって記述できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Applications</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104629Z" creationid="makenowjust" creationdate="20200510T104629Z">
+        <seg>応用</seg>
       </tuv>
     </tu>
     <tu>
@@ -17207,6 +17337,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>By extension, all of the &lt;g2&gt;methods&lt;/g2&gt; on &lt;g3&gt;TupleLiteral&lt;/g3&gt; are available for use as well.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111537Z" creationid="makenowjust" creationdate="20200510T111523Z">
+        <seg>また、キー/値のときの延長で、&lt;g3&gt;TupleLiteral&lt;/g3&gt; の&lt;g2&gt;メソッド&lt;/g2&gt;を使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>By marking a method as &lt;g1&gt;abstract&lt;/g1&gt; the compiler will check that all subclasses implement this method, even if a program doesn't use them.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T112618Z" creationid="makenowjust" creationdate="20200504T112618Z">
@@ -17556,6 +17694,14 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T161607Z" creationid="makenowjust" creationdate="20200429T161607Z">
         <seg>クラスによる制約</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Classes, structs, enums, and modules</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104624Z" creationid="makenowjust" creationdate="20200510T104624Z">
+        <seg>クラス、構造体、列挙型、そしてモジュール</seg>
       </tuv>
     </tu>
     <tu>
@@ -18178,6 +18324,14 @@ Counter.instances #=&gt; 3
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Crystal's &lt;g1&gt;&lt;g2&gt;JSON::Serializable&lt;/g2&gt;&lt;/g1&gt; and &lt;g3&gt;&lt;g4&gt;YAML::Serializable&lt;/g4&gt;&lt;/g3&gt; are examples of this.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105236Z" creationid="makenowjust" creationdate="20200510T105236Z">
+        <seg>Crystal の &lt;g1&gt;&lt;g2&gt;JSON::Serializable&lt;/g2&gt;&lt;/g1&gt; と &lt;g3&gt;&lt;g4&gt;YAML::Serializable&lt;/g4&gt;&lt;/g3&gt; はそのようなアノテーションの例です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Crystal's built-in code formatter can be used not just to format your code,
 but also to format code samples included in documentation blocks.</seg>
       </tuv>
@@ -18241,6 +18395,14 @@ but also to format code samples included in documentation blocks.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214452Z" creationid="makenowjust" creationdate="20200412T214452Z">
         <seg>DEPRECATED</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Data can be stored within an annotation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110014Z" creationid="makenowjust" creationdate="20200510T110014Z">
+        <seg>アノテーションにデータを格納することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18570,6 +18732,14 @@ in foo.cr:2: undefined method '+' for Bool</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T191546Z" creationid="makenowjust" creationdate="20200419T191546Z">
         <seg>エスケープ文字</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Especially &lt;g3&gt;#double_splat&lt;/g3&gt; which makes it easy to pass annotation arguments to methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110752Z" creationid="makenowjust" creationdate="20200510T110701Z">
+        <seg>特に &lt;g3&gt;#double_splat&lt;/g3&gt; を使うと、アノテーションの引数をメソッドに渡すのは容易になるでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18907,6 +19077,14 @@ or &lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Fields</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105914Z" creationid="makenowjust" creationdate="20200510T105914Z">
+        <seg>フィールド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>File paths match the namespace of their contents.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T011646Z" creationid="hirofumiwakasugi" creationdate="20151010T011629Z">
@@ -19199,6 +19377,14 @@ Foo::Bar # Error</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T020139Z" creationid="hirofumiwakasugi" creationdate="20150902T020139Z">
         <seg>例をあげます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example &lt;g11&gt;TypeNode.all_subclasses&lt;/g11&gt; or &lt;g12&gt;TypeNode.methods&lt;/g12&gt;, respectively.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112156Z" creationid="makenowjust" creationdate="20200510T112156Z">
+        <seg>例えば &lt;g11&gt;TypeNode.all_subclasses&lt;/g11&gt; もしくは &lt;g12&gt;TypeNode.methods&lt;/g12&gt; といったメソッドがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20040,6 +20226,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Have an annotation that when applied to an instance variable determines if that instance variable should be serialized, or with what key.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105220Z" creationid="makenowjust" creationdate="20200510T105220Z">
+        <seg>インスタンス変数がどのように、どんなキーとしてシリアライズされるかを決めるために、アノテーションを使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Have compile-time evaluation and generation of code, to avoid boilerplate code.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T221858Z" creationid="makenowjust" creationdate="20200412T221536Z">
@@ -20332,6 +20526,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T103802Z" creationid="akiji" creationdate="20200429T144329Z">
         <seg>しかし、3回目のsendではチャネルのバッファがいっぱいになっているため、メインファイバに処理が移ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, it is also possible to get &lt;g8&gt;TypeNode&lt;/g8&gt;/&lt;g9&gt;Def&lt;/g9&gt; types using other methods on &lt;g10&gt;TypeNode&lt;/g10&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112138Z" creationid="makenowjust" creationdate="20200510T112138Z">
+        <seg>もちろん、&lt;g10&gt;TypeNode&lt;/g10&gt; のその他のメソッドから取得した &lt;g8&gt;TypeNode&lt;/g8&gt; もしくは &lt;g9&gt;Def&lt;/g9&gt; 型のオブジェクトから取得することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21229,6 +21431,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T025313Z" creationid="hirofumiwakasugi" creationdate="20150916T024921Z">
         <seg>もしある条件によって break する場合、そのメソッドの戻り値の型は、ブロックの戻り値の型と (複数ある場合にはすべての) `break` の型の組み合わせとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If there are multiple annotations of the same type applied to the same instance variable/method/type, the &lt;g1&gt;.annotations(type : TypeNode)&lt;/g1&gt; method can be used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112612Z" creationid="makenowjust" creationdate="20200510T112547Z">
+        <seg>同じ型のアノテーションが1つのインスタンス変数、メソッド、型に適用されていたとき、&lt;g1&gt;.annotations(type : TypeNode)&lt;/g1&gt; メソッドが使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22585,6 +22795,22 @@ item or map entry.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Instance and class methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104554Z" creationid="makenowjust" creationdate="20200510T104545Z">
+        <seg>インスタンスメソッドとクラスメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Instance variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104559Z" creationid="makenowjust" creationdate="20200510T104559Z">
+        <seg>インスタンス変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instance variables can also be initialized outside &lt;g1&gt;initialize&lt;/g1&gt; methods:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T125244Z" creationid="makenowjust" creationdate="20200427T125244Z">
@@ -23246,6 +23472,14 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182804Z" creationid="hirofumiwakasugi" creationdate="20150916T011402Z">
         <seg>クラスや構造体と同様に、列挙型にもメソッドを定義することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Key/value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110056Z" creationid="makenowjust" creationdate="20200510T110047Z">
+        <seg>キー/値</seg>
       </tuv>
     </tu>
     <tu>
@@ -24763,6 +24997,22 @@ Foo::ONE # Error</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>ORMs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105238Z" creationid="makenowjust" creationdate="20200510T105238Z">
+        <seg>ORM</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Object Serialization</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105100Z" creationid="makenowjust" creationdate="20200510T105100Z">
+        <seg>オブジェクトのシリアライズ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Octal numbers start with a &lt;g1&gt;0o&lt;/g1&gt;:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182626Z" creationid="makenowjust" creationdate="20200419T182612Z">
@@ -24978,6 +25228,14 @@ confusing and behaves unexpectedly.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T084407Z" creationid="akiji" creationdate="20200430T084407Z">
         <seg>プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One of the main benefits of annotations is that they are applied directly to instance variables/methods, which causes classes to look more natural since a standard macro is not needed to create these properties/methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105043Z" creationid="makenowjust" creationdate="20200510T105041Z">
+        <seg>アノテーションの主な利点の一つはインスタンス変数やメソッドに直接適用できるということです。これによって、プロパティやメソッドを作るために標準のマクロを使う必要がなく、クラスがより自然に見えるようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25550,6 +25808,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Positional</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110800Z" creationid="makenowjust" creationdate="20200510T110800Z">
+        <seg>位置指定</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Positional arguments can always be matched by name:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T160906Z" creationid="makenowjust" creationdate="20200501T160906Z">
@@ -25562,6 +25828,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T154948Z" creationid="makenowjust" creationdate="20200501T154948Z">
         <seg>位置指定の引数はスプラット指定されたメソッドの引数のあとではマッチしません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Positional values can be accessed at compile time via the &lt;g1&gt;&lt;g2&gt;[]&lt;/g2&gt;&lt;/g1&gt; method; however, only one index can be accessed at a time.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113819Z" creationid="makenowjust" creationdate="20200510T111128Z">
+        <seg>位置指定の値もコンパイル時 &lt;g1&gt;&lt;g2&gt;[]&lt;/g2&gt;&lt;/g1&gt; メソッドによってアクセスできます。しかし、1度に1つのインデックスにアクセスすることしかできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25796,6 +26070,22 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T102321Z" creationid="makenowjust" creationdate="20200506T102321Z">
         <seg>Crystal の力を最高に引き出すにはこのガイドを読んでください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Reading</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111710Z" creationid="makenowjust" creationdate="20200510T111542Z">
+        <seg>読み出し方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Reading Multiple Annotations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112337Z" creationid="makenowjust" creationdate="20200510T112337Z">
+        <seg>複数のアノテーションを読み出す</seg>
       </tuv>
     </tu>
     <tu>
@@ -26481,6 +26771,22 @@ recursively forms a union type out of nested type paramters:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since the return type of &lt;g1&gt;TupleLiteral&lt;/g1&gt; is iterable, we can rewrite the previous example in a better way.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111323Z" creationid="makenowjust" creationdate="20200510T111323Z">
+        <seg>戻り値の型の &lt;g1&gt;TupleLiteral&lt;/g1&gt; はイテレート可能なので、以前の例をより良い方法で書き直すことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since this method returns a &lt;g1&gt;NamedTupleLiteral&lt;/g1&gt;, all of the &lt;g2&gt;methods&lt;/g2&gt; on that type are available for use.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110624Z" creationid="makenowjust" creationdate="20200510T110624Z">
+        <seg>このメソッドは &lt;g1&gt;NamedTupleLiteral&lt;/g1&gt; を返すので、この型にあるすべての&lt;g2&gt;メソッド&lt;/g2&gt;が使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since we invoked `Person.new` with a `String` argument, the compiler makes `@name` be a `String` too.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T134342Z" creationid="hirofumiwakasugi" creationdate="20150904T131934Z">
@@ -26717,6 +27023,14 @@ recursively forms a union type out of nested type paramters:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T072033Z" creationid="hirofumiwakasugi" creationdate="20150919T071807Z">
         <seg>いくつかの型やメソッドには、属性を付加することでアノテーションを与えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>SomeClass.new {{ @def.annotation(MyAnnotation).named_args.double_splat }}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110755Z" creationid="makenowjust" creationdate="20200510T110755Z">
+        <seg>SomeClass.new {{ @def.annotation(MyAnnotation).named_args.double_splat }}</seg>
       </tuv>
     </tu>
     <tu>
@@ -27298,6 +27612,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;&lt;g2&gt;@type&lt;/g2&gt;&lt;/g1&gt; and &lt;g3&gt;&lt;g4&gt;@def&lt;/g4&gt;&lt;/g3&gt; variables can be used to get a &lt;g5&gt;TypeNode&lt;/g5&gt; or &lt;g6&gt;Def&lt;/g6&gt; object to use the &lt;g7&gt;.annotation&lt;/g7&gt; method on.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112009Z" creationid="makenowjust" creationdate="20200510T112009Z">
+        <seg>&lt;g1&gt;&lt;g2&gt;@type&lt;/g2&gt;&lt;/g1&gt; と &lt;g3&gt;&lt;g4&gt;@def&lt;/g4&gt;&lt;/g3&gt; という変数は &lt;g5&gt;TypeNode&lt;/g5&gt; あるいは &lt;g6&gt;Def&lt;/g6&gt; オブジェクトなので &lt;g7&gt;.annotation&lt;/g7&gt; メソッドを使ってアノテーションを取得できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;&lt;g2&gt;crystal build&lt;/g2&gt;&lt;/g1&gt; command builds a binary executable.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150522Z" creationid="makenowjust" creationdate="20200419T150522Z">
@@ -27335,6 +27657,22 @@ up a basic project structure.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000904Z" creationid="makenowjust" creationdate="20200414T000713Z">
         <seg>&lt;g1&gt;Nil&lt;/g1&gt; 型は値が存在しないことを表す、他の言語にある&lt;g2&gt;null&lt;/g2&gt;のようなものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;TypeNode.instance_vars&lt;/g1&gt; can be used to get an array of instance variable &lt;g2&gt;MetaVar&lt;/g2&gt; objects that would allow reading annotations defined on those instance variables.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112244Z" creationid="makenowjust" creationdate="20200510T112244Z">
+        <seg>&lt;g1&gt;TypeNode.instance_vars&lt;/g1&gt; を使うとインスタンス変数を表す &lt;g2&gt;MetaVar&lt;/g2&gt; の配列が取得できます。そして、これらのオブジェクトからそのインスタンス変数に与えられたアノテーションを取得することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;args&lt;/g1&gt; method can be used to read all positional arguments on an annotation as a &lt;g2&gt;TupleLiteral&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111237Z" creationid="makenowjust" creationdate="20200510T111237Z">
+        <seg>&lt;g1&gt;args&lt;/g1&gt; メソッドを使うと、アノテーションのすべての位置指定の引数を &lt;g2&gt;TupleLiteral&lt;/g2&gt; として取得できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27440,6 +27778,14 @@ fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T215304Z" creationid="makenowjust" creationdate="20200509T215304Z">
         <seg>上記の &lt;g1&gt;index&lt;/g1&gt; 変数は任意です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;named_args&lt;/g1&gt; method can be used to read all key/value pairs on an annotation as a &lt;g2&gt;NamedTupleLiteral&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110407Z" creationid="makenowjust" creationdate="20200510T110407Z">
+        <seg>&lt;g1&gt;named_args&lt;/g1&gt; メソッドを使うと、アノテーションのすべてのキー/値のペアを &lt;g2&gt;NamedTupleLiteral&lt;/g2&gt; として取得できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28057,6 +28403,22 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T150639Z" creationid="akiji" creationdate="20200428T062422Z">
         <seg>こうした協調動作の利点は、コンテキスト切り替え（スレッド間の切り替え）によるオーバーヘッドの大部分をなくすことができることです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The annotation can then be applied to various items, including:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104535Z" creationid="makenowjust" creationdate="20200510T104535Z">
+        <seg>アノテーションは次のものに与えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The annotation itself could also be used to store metadata about the column, such as if it is nullable, the name of the column, or if it is the primary key.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113731Z" creationid="makenowjust" creationdate="20200510T105809Z">
+        <seg>また、nilを許容することや、カラムの名前、主キーかどうかなどのカラムに関するメタデータをアノテーション自身に格納することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28994,6 +29356,14 @@ a `def` without a matching `end`, or a single `when` expression of a
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The name and type of the instance variable can be read off the &lt;g1&gt;TypeNode&lt;/g1&gt; in addition to the annotation; removing the need for any ORM specific macro.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T105804Z" creationid="makenowjust" creationdate="20200510T105804Z">
+        <seg>インスタンス変数の型と名前は &lt;g1&gt;TypeNode&lt;/g1&gt; から読み出すことができます。これによってORMに固有のマクロを無くすことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The names of required named arguments</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T150359Z" creationid="makenowjust" creationdate="20200429T150359Z">
@@ -29820,6 +30190,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T081847Z" creationid="makenowjust" creationdate="20200424T081847Z">
         <seg>なぜならこれらの変数の値は別のファイバーによって&lt;g2&gt;nil&lt;/g2&gt;に変更される可能性があるからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The values of annotation key/value pairs can be accessed at compile time via the &lt;g1&gt;&lt;g2&gt;[]&lt;/g2&gt;&lt;/g1&gt; method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110333Z" creationid="makenowjust" creationdate="20200510T110333Z">
+        <seg>アノテーションに格納したキー/値のペアの値はコンパイル時に &lt;g1&gt;&lt;g2&gt;[]&lt;/g2&gt;&lt;/g1&gt; メソッド経由でアクセスできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31119,10 +31497,26 @@ ones.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This method is defined on all annotations by default, and is unique to each applied annotation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111036Z" creationid="makenowjust" creationdate="20200510T110452Z">
+        <seg>このメソッドはデフォルトですべてのアノテーションに定義されていて、その結果は各アノテーションごとに一意です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This method is mainly intended to convert integers from C to enums in Crystal.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182754Z" creationid="hirofumiwakasugi" creationdate="20150916T011206Z">
         <seg>これは主に C の整数を Crystal の列挙型に変換する用途で利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method return an &lt;g8&gt;&lt;g9&gt;Annotation&lt;/g9&gt;&lt;/g8&gt; object representing the applied annotation of the supplied type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111841Z" creationid="makenowjust" creationdate="20200510T111815Z">
+        <seg>このメソッドは与えられた型の適用されたアノテーションを表す &lt;g8&gt;&lt;g9&gt;Annotation&lt;/g9&gt;&lt;/g8&gt; オブジェクトを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31340,6 +31734,14 @@ conditions.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T044201Z" creationid="hirofumiwakasugi" creationdate="20151005T044201Z">
         <seg>これは、引数がその型のポインタである場合には、どのような型に対しても有効です (もちろん、ポインタが指す値が関数によって設定されることが前提です) 。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This will work on anything that &lt;g2&gt;.annotation(type : TypeNode)&lt;/g2&gt; would, but instead returns an &lt;g3&gt;ArrayLiteral(Annotation)&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112642Z" creationid="makenowjust" creationdate="20200510T112550Z">
+        <seg>これは &lt;g2&gt;.annotation(type : TypeNode)&lt;/g2&gt; がするように動作しますが、&lt;g3&gt;ArrayLiteral(Annotation)&lt;/g3&gt; を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32442,6 +32844,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Types, methods and instance variables may be annotated.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104416Z" creationid="makenowjust" creationdate="20200510T104255Z">
+        <seg>型、メソッド、そしてインスタンス変数にアノテーションを与えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Typical examples for non-returning methods and keywords are &lt;g1&gt;return&lt;/g1&gt;, &lt;g2&gt;exit&lt;/g2&gt;, &lt;g3&gt;raise&lt;/g3&gt;, &lt;g4&gt;next&lt;/g4&gt;, and &lt;g5&gt;break&lt;/g5&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T142316Z" creationid="makenowjust" creationdate="20200430T142316Z">
@@ -32744,6 +33154,22 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T220257Z" creationid="makenowjust" creationdate="20200412T220257Z">
         <seg>このツールを使ってコーディングスタイルを統一し、ドキュメントの改善をCrystal 自身に従わせてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>User-defined annotations, such as the standard library's &lt;g1&gt;JSON::Field&lt;/g1&gt;, are defined using the &lt;g2&gt;annotation&lt;/g2&gt; keyword.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104339Z" creationid="makenowjust" creationdate="20200510T104335Z">
+        <seg>標準ライブラリの&lt;g1&gt;JSON::Field&lt;/g1&gt;のようなユーザー定義のアノテーションは、&lt;g2&gt;annotation&lt;/g2&gt; キーワードで定義されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Users can define their own annotations using the &lt;g1&gt;annotation&lt;/g1&gt; keyword, which works similarly to defining a &lt;g2&gt;class&lt;/g2&gt; or &lt;g3&gt;struct&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T113342Z" creationid="makenowjust" creationdate="20200510T104413Z">
+        <seg>ユーザーは &lt;g2&gt;class&lt;/g2&gt; や &lt;g3&gt;struct&lt;/g3&gt; を定義するのと同じように、独自のアノテーションを &lt;g1&gt;annotation&lt;/g1&gt; キーワードを使って定義できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -44661,6 +45087,196 @@ ary # =&gt; [[1, 2, 3], [...]]</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>annotation MyAnnotaion
+end
+
+# The fields can either be a key/value pair
+@[MyAnnotation(key: "value", value: 123)]
+
+# Or positional
+@[MyAnnotation("foo", 123, false)]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110054Z" creationid="makenowjust" creationdate="20200510T110022Z">
+        <seg>annotation MyAnnotaion
+end
+
+# フィールドはキー/値のペアにできる
+@[MyAnnotation(key: "value", value: 123)]
+
+# 位置指定でもよい
+@[MyAnnotation("foo", 123, false)]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104511Z" creationid="makenowjust" creationdate="20200510T104511Z">
+        <seg>annotation MyAnnotation
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation("foo")]
+@[MyAnnotation(123)]
+@[MyAnnotation(123)]
+def annotation_read</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112643Z" creationid="makenowjust" creationdate="20200510T112643Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation("foo")]
+@[MyAnnotation(123)]
+@[MyAnnotation(123)]
+def annotation_read</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, "foo", true, 17.0)]
+def annotation_read</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111523Z" creationid="makenowjust" creationdate="20200510T111523Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, "foo", true, 17.0)]
+def annotation_read</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, 2, 3, 4)]
+def annotation_args</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111239Z" creationid="makenowjust" creationdate="20200510T111239Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, 2, 3, 4)]
+def annotation_args</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, 2, 3, 4)]
+def annotation_read</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111129Z" creationid="makenowjust" creationdate="20200510T111129Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(1, 2, 3, 4)]
+def annotation_read</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(value: 2)]
+def annotation_value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110333Z" creationid="makenowjust" creationdate="20200510T110333Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(value: 2)]
+def annotation_value</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(value: 2, name: "Jim")]
+def annotation_named_args</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110454Z" creationid="makenowjust" creationdate="20200510T110454Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation(value: 2, name: "Jim")]
+def annotation_named_args</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation]
+def foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T104625Z" creationid="makenowjust" creationdate="20200510T104625Z">
+        <seg>annotation MyAnnotation
+end
+
+@[MyAnnotation]
+def foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyAnnotation
+end
+
+class SomeClass</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110752Z" creationid="makenowjust" creationdate="20200510T110752Z">
+        <seg>annotation MyAnnotation
+end
+
+class SomeClass</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>annotation MyClass
+end
+
+annotation MyMethod
+end
+
+annotation MyIvar
+end
+
+@[MyClass]
+class Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112315Z" creationid="makenowjust" creationdate="20200510T112315Z">
+        <seg>annotation MyClass
+end
+
+annotation MyMethod
+end
+
+annotation MyIvar
+end
+
+@[MyClass]
+class Foo</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>argument.some_method
 end</seg>
       </tuv>
@@ -47551,6 +48167,22 @@ foo 1, 2, z: 3 # OK</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def initialize(@value : Int32, @name : String); end
+end
+
+@[MyAnnotation(value: 2, name: "Jim")]
+def new_test</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110753Z" creationid="makenowjust" creationdate="20200510T110753Z">
+        <seg>def initialize(@value : Int32, @name : String); end
+end
+
+@[MyAnnotation(value: 2, name: "Jim")]
+def new_test</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def initialize(@value : T)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063739Z" creationid="hirofumiwakasugi" creationdate="20150912T063739Z">
@@ -47795,6 +48427,14 @@ foo 1, 2, z: 3 # OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010358Z" creationid="hirofumiwakasugi" creationdate="20151010T010358Z">
         <seg>def print_greeting</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def properties</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112319Z" creationid="makenowjust" creationdate="20200510T112319Z">
+        <seg>def properties</seg>
       </tuv>
     </tu>
     <tu>
@@ -48913,6 +49553,22 @@ end
 
 # 型制約を持たない add メソッド
 def add(x, y)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+@[MyMethod]
+def my_method</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112327Z" creationid="makenowjust" creationdate="20200510T112327Z">
+        <seg>end
+end
+
+@[MyMethod]
+def my_method</seg>
       </tuv>
     </tu>
     <tu>
@@ -53719,6 +54375,78 @@ else</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>pp "Annotation {{ idx }} = {{ ann[0].id }}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112644Z" creationid="makenowjust" creationdate="20200510T112644Z">
+        <seg>pp "Annotation {{ idx }} = {{ ann[0].id }}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pp "{{ idx }} = #{{{ value }}}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111538Z" creationid="makenowjust" creationdate="20200510T111538Z">
+        <seg>pp "{{ idx }} = #{{{ value }}}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pp "{{ idx }} = {{ value }}"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111131Z" creationid="makenowjust" creationdate="20200510T111131Z">
+        <seg>pp "{{ idx }} = {{ value }}"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pp {{ @def.annotation(MyMethod).stringify }}
+end
+
+Foo.new.properties
+my_method
+pp {{ Foo.annotation(MyClass).stringify }}
+
+# Which would print
+"@[MyClass]"
+"@[MyIvar]"
+"@[MyIvar]"
+"@[MyMethod]"
+"@[MyClass]"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T114133Z" creationid="makenowjust" creationdate="20200510T112328Z">
+        <seg>pp {{ @def.annotation(MyMethod).stringify }}
+end
+
+Foo.new.properties
+my_method
+pp {{ Foo.annotation(MyClass).stringify }}
+
+# このように表示されます
+"@[MyClass]"
+"@[MyIvar]"
+"@[MyIvar]"
+"@[MyMethod]"
+"@[MyClass]"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pp {{ @type.annotation(MyClass).stringify }}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112316Z" creationid="makenowjust" creationdate="20200510T112316Z">
+        <seg>pp {{ @type.annotation(MyClass).stringify }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pp {{ ivar.annotation(MyIvar).stringify }}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112321Z" creationid="makenowjust" creationdate="20200510T112321Z">
+        <seg>pp {{ ivar.annotation(MyIvar).stringify }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>previous_def</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T123325Z" creationid="hirofumiwakasugi" creationdate="20150904T123325Z">
@@ -54033,6 +54761,14 @@ struct Strukt</seg>
 end
 
 struct Strukt</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>property name : String = "jim"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112319Z" creationid="makenowjust" creationdate="20200510T112319Z">
+        <seg>property name : String = "jim"</seg>
       </tuv>
     </tu>
     <tu>
@@ -58366,6 +59102,84 @@ greeting_for_bob "hola"    # =&gt; "¡hola bob!"</seg>
         <seg>{% end %}
 end
 
+annotation_read
+
+# Which would print
+"0 = 1"
+"1 = 2"
+"2 = 3"
+"3 = 4"
+"4 = nil"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T114227Z" creationid="makenowjust" creationdate="20200510T111133Z">
+        <seg>{% end %}
+end
+
+annotation_read
+
+# このように表示されます
+"0 = 1"
+"1 = 2"
+"2 = 3"
+"3 = 4"
+"4 = nil"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+annotation_read
+
+# Which would print
+"0 = 1"
+"1 = foo"
+"2 = true"
+"3 = 17.0"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T114124Z" creationid="makenowjust" creationdate="20200510T111538Z">
+        <seg>{% end %}
+end
+
+annotation_read
+
+# このように表示されます
+"0 = 1"
+"1 = foo"
+"2 = true"
+"3 = 17.0"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
+annotation_read
+
+# Which would print
+"Annotation 0 = foo"
+"Annotation 1 = 123"
+"Annotation 2 = 123"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T114142Z" creationid="makenowjust" creationdate="20200510T112649Z">
+        <seg>{% end %}
+end
+
+annotation_read
+
+# このように表示されます
+"Annotation 0 = foo"
+"Annotation 1 = 123"
+"Annotation 2 = 123"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
+
 define_constants(3)
 
 PI_1 # =&gt; 3.14159...</seg>
@@ -58495,6 +59309,20 @@ bar # (compile-time error, `bar` undefined){% endhighlight %}</seg>
       <tuv lang="EN-US">
         <seg>{% end %}
 end
+
+new_test # =&gt; #&lt;SomeClass:0x5621a19ddf00 @name="Jim", @value=2&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110756Z" creationid="makenowjust" creationdate="20200510T110756Z">
+        <seg>{% end %}
+end
+
+new_test # =&gt; #&lt;SomeClass:0x5621a19ddf00 @name="Jim", @value=2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% end %}
+end
 define_dummy_methods({foo: 10, bar: 20})
 foo #=&gt; 10
 bar #=&gt; 20
@@ -58519,10 +59347,34 @@ bar #=&gt; 20
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% for ann, idx in @def.annotations(MyAnnotation) %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112644Z" creationid="makenowjust" creationdate="20200510T112644Z">
+        <seg>{% for ann, idx in @def.annotations(MyAnnotation) %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% for i in (1..count) %}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T215208Z" creationid="makenowjust" creationdate="20200509T215208Z">
         <seg>{% for i in (1..count) %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for idx in [0, 1, 2, 3, 4] %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111130Z" creationid="makenowjust" creationdate="20200510T111130Z">
+        <seg>{% for idx in [0, 1, 2, 3, 4] %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for ivar in @type.instance_vars %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T112320Z" creationid="makenowjust" creationdate="20200510T112320Z">
+        <seg>{% for ivar in @type.instance_vars %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -58571,6 +59423,14 @@ bar #=&gt; 20
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T041454Z" creationid="hirofumiwakasugi" creationdate="20151001T041454Z">
         <seg>{% for value in VALUES %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% for value, idx in @def.annotation(MyAnnotation).args %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111524Z" creationid="makenowjust" creationdate="20200510T111524Z">
+        <seg>{% for value, idx in @def.annotation(MyAnnotation).args %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -58780,6 +59640,14 @@ class Foo</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{% value = @def.annotation(MyAnnotation)[idx] %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111131Z" creationid="makenowjust" creationdate="20200510T111131Z">
+        <seg>{% value = @def.annotation(MyAnnotation)[idx] %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{% verbatim do %}</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T220601Z" creationid="makenowjust" creationdate="20200509T220601Z">
@@ -58810,6 +59678,48 @@ class Foo</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T210324Z" creationid="makenowjust" creationdate="20200413T210324Z">
         <seg>{{ 'oc.png' | asset_path }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{{ @def.annotation(MyAnnotation).args }}
+end
+
+annotation_args # =&gt; {1, 2, 3, 4}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T111242Z" creationid="makenowjust" creationdate="20200510T111242Z">
+        <seg>{{ @def.annotation(MyAnnotation).args }}
+end
+
+annotation_args # =&gt; {1, 2, 3, 4}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{{ @def.annotation(MyAnnotation).named_args }}
+end
+
+annotation_named_args # =&gt; {value: 2, name: "Jim"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110540Z" creationid="makenowjust" creationdate="20200510T110540Z">
+        <seg>{{ @def.annotation(MyAnnotation).named_args }}
+end
+
+annotation_named_args # =&gt; {value: 2, name: "Jim"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{{ @def.annotation(MyAnnotation)[:value] }}
+end
+
+annotation_value # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200510T110335Z" creationid="makenowjust" creationdate="20200510T110335Z">
+        <seg>{{ @def.annotation(MyAnnotation)[:value] }}
+end
+
+annotation_value # =&gt; 2</seg>
       </tuv>
     </tu>
     <tu>

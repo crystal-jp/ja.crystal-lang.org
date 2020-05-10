@@ -1,18 +1,18 @@
-# Annotations
+# アノテーション
 
-Annotations can be used to add metadata to certain features in the source code. Types, methods and instance variables may be annotated.  User-defined annotations, such as the standard library's [JSON::Field](https://crystal-lang.org/api/JSON/Field.html), are defined using the `annotation` keyword.  A number of [built-in annotations](./annotations/built_in_annotations.md) are provided by the compiler.
+アノテーションを使うとソースコードに特定の機能に関するメタデータを追加することができます。型、メソッド、そしてインスタンス変数にアノテーションを与えることができます。標準ライブラリの[JSON::Field](https://crystal-lang.org/api/JSON/Field.html)のようなユーザー定義のアノテーションは、`annotation` キーワードで定義されます。いくつかの[組み込みアノテーション](./annotations/built_in_annotations.md)はコンパイラによって提供されます。
 
-Users can define their own annotations using the `annotation` keyword, which works similarly to defining a `class` or `struct`.
+ユーザーは `class` や `struct` を定義するのと同じように、独自のアノテーションを `annotation` キーワードを使って定義できます。
 
 ```crystal
 annotation MyAnnotation
 end
 ```
 
-The annotation can then be applied to various items, including:
-* Instance and class methods
-* Instance variables
-* Classes, structs, enums, and modules
+アノテーションは次のものに与えることができます。
+* インスタンスメソッドとクラスメソッド
+* インスタンス変数
+* クラス、構造体、列挙型、そしてモジュール
 
 ```crystal
 annotation MyAnnotation
@@ -32,38 +32,38 @@ module MyModule
 end
 ```
 
-## Applications
+## 応用
 
-Annotations are best used to store metadata about a given instance variable, type, or method so that it can be read at compile time using macros.  One of the main benefits of annotations is that they are applied directly to instance variables/methods, which causes classes to look more natural since a standard macro is not needed to create these properties/methods.
+アノテーションはインスタンス変数や型、メソッドにメタデータを与えるのに最適な機能です。そして、そうして与えたメタデータはコンパイル時にマクロを使って読み出すことができます。アノテーションの主な利点の一つはインスタンス変数やメソッドに直接適用できるということです。これによって、プロパティやメソッドを作るために標準のマクロを使う必要がなく、クラスがより自然に見えるようになります。
 
-A few applications for annotations:
+アノテーションのいくつかの応用例:
 
-### Object Serialization
+### オブジェクトのシリアライズ
 
-Have an annotation that when applied to an instance variable determines if that instance variable should be serialized, or with what key. Crystal's [`JSON::Serializable`](https://crystal-lang.org/api/JSON/Serializable.html) and [`YAML::Serializable`](https://crystal-lang.org/api/YAML/Serializable.html) are examples of this.
+インスタンス変数がどのように、どんなキーとしてシリアライズされるかを決めるために、アノテーションを使うことができます。Crystal の [`JSON::Serializable`](https://crystal-lang.org/api/JSON/Serializable.html) と [`YAML::Serializable`](https://crystal-lang.org/api/YAML/Serializable.html) はそのようなアノテーションの例です。
 
-### ORMs
+### ORM
 
-An annotation could be used to designate a property as an ORM column. The name and type of the instance variable can be read off the `TypeNode` in addition to the annotation; removing the need for any ORM specific macro. The annotation itself could also be used to store metadata about the column, such as if it is nullable, the name of the column, or if it is the primary key.
+アノテーションを、プロパティをORMのカラムに指定するために使うことができます。インスタンス変数の型と名前は `TypeNode` から読み出すことができます。これによってORMに固有のマクロを無くすことができます。また、nilを許容することや、カラムの名前、主キーかどうかなどのカラムに関するメタデータをアノテーション自身に格納することもできます。
 
-## Fields
+## フィールド
 
-Data can be stored within an annotation.
+アノテーションにデータを格納することができます。
 
 ```crystal
 annotation MyAnnotaion
 end
 
-# The fields can either be a key/value pair
+# フィールドはキー/値のペアにできる
 @[MyAnnotation(key: "value", value: 123)]
 
-# Or positional
+# 位置指定でもよい
 @[MyAnnotation("foo", 123, false)]
 ```
 
-### Key/value
+### キー/値
 
-The values of annotation key/value pairs can be accessed at compile time via the [`[]`](https://crystal-lang.org/api/Crystal/Macros/Annotation.html#%5B%5D%28name%3ASymbolLiteral%7CStringLiteral%7CMacroId%29%3AASTNode-instance-method) method.
+アノテーションに格納したキー/値のペアの値はコンパイル時に [`[]`](https://crystal-lang.org/api/Crystal/Macros/Annotation.html#%5B%5D%28name%3ASymbolLiteral%7CStringLiteral%7CMacroId%29%3AASTNode-instance-method) メソッド経由でアクセスできます。
 
 ```crystal
 annotation MyAnnotation
@@ -71,14 +71,14 @@ end
 
 @[MyAnnotation(value: 2)]
 def annotation_value
-  # The name can be a `String`, `Symbol`, or `MacroId`
+  # キー名は `String`、`Symbol` もしくは `MacroId` の必要があります
   {{ @def.annotation(MyAnnotation)[:value] }}
 end
 
 annotation_value # => 2
 ```
 
-The `named_args` method can be used to read all key/value pairs on an annotation as a `NamedTupleLiteral`.  This method is defined on all annotations by default, and is unique to each applied annotation.
+`named_args` メソッドを使うと、アノテーションのすべてのキー/値のペアを `NamedTupleLiteral` として取得できます。このメソッドはデフォルトですべてのアノテーションに定義されていて、その結果は各アノテーションごとに一意です。
 
 ```crystal
 annotation MyAnnotation
@@ -92,7 +92,7 @@ end
 annotation_named_args # => {value: 2, name: "Jim"}
 ```
 
-Since this method returns a `NamedTupleLiteral`, all of the [methods](https://crystal-lang.org/api/Crystal/Macros/NamedTupleLiteral.html) on that type are available for use.  Especially `#double_splat` which makes it easy to pass annotation arguments to methods.
+このメソッドは `NamedTupleLiteral` を返すので、この型にあるすべての[メソッド](https://crystal-lang.org/api/Crystal/Macros/NamedTupleLiteral.html)が使えます。特に `#double_splat` を使うと、アノテーションの引数をメソッドに渡すのは容易になるでしょう。
 
 ```crystal
 annotation MyAnnotation
@@ -112,9 +112,9 @@ end
 new_test # => #<SomeClass:0x5621a19ddf00 @name="Jim", @value=2>
 ```
 
-### Positional
+### 位置指定
 
-Positional values can be accessed at compile time via the [`[]`](<https://crystal-lang.org/api/Crystal/Macros/Annotation.html#%5B%5D%28index%3ANumberLiteral%29%3AASTNode-instance-method>) method; however, only one index can be accessed at a time.
+位置指定の値もコンパイル時 [`[]`](<https://crystal-lang.org/api/Crystal/Macros/Annotation.html#%5B%5D%28index%3ANumberLiteral%29%3AASTNode-instance-method>) メソッドによってアクセスできます。しかし、1度に1つのインデックスにアクセスすることしかできません。
 
 ```crystal
 annotation MyAnnotation
@@ -130,7 +130,7 @@ end
 
 annotation_read
 
-# Which would print
+# このように表示されます
 "0 = 1"
 "1 = 2"
 "2 = 3"
@@ -138,7 +138,7 @@ annotation_read
 "4 = nil"
 ```
 
-The `args` method can be used to read all positional arguments on an annotation as a `TupleLiteral`.  This method is defined on all annotations by default, and is unique to each applied annotation.
+`args` メソッドを使うと、アノテーションのすべての位置指定の引数を `TupleLiteral` として取得できます。このメソッドはデフォルトですべてのアノテーションに定義されていて、その結果は各アノテーションごとに一意です。
 
 ```crystal
 annotation MyAnnotation
@@ -152,7 +152,7 @@ end
 annotation_args # => {1, 2, 3, 4}
 ```
 
-Since the return type of `TupleLiteral` is iterable, we can rewrite the previous example in a better way.  By extension, all of the [methods](https://crystal-lang.org/api/Crystal/Macros/TupleLiteral.html) on `TupleLiteral` are available for use as well.
+戻り値の型の `TupleLiteral` はイテレート可能なので、以前の例をより良い方法で書き直すことができます。また、キー/値のときの延長で、`TupleLiteral` の[メソッド](https://crystal-lang.org/api/Crystal/Macros/TupleLiteral.html)を使えます。
 
 ```crystal
 annotation MyAnnotation
@@ -167,24 +167,24 @@ end
 
 annotation_read
 
-# Which would print
+# このように表示されます
 "0 = 1"
 "1 = foo"
 "2 = true"
 "3 = 17.0"
 ```
 
-## Reading
+## 読み出し方法
 
-Annotations can be read off of a [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html), [`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html), or [`MetaVar`](https://crystal-lang.org/api/Crystal/Macros/MetaVar.html) using the `.annotation(type : TypeNode)` method.  This method return an [`Annotation`](https://crystal-lang.org/api/master/Crystal/Macros/Annotation.html) object representing the applied annotation of the supplied type.
+アノテーションは [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html)、[`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html) そして [`MetaVar`](https://crystal-lang.org/api/Crystal/Macros/MetaVar.html) から `.annotation(type : TypeNode)` メソッドを使うことで読み出せます。このメソッドは与えられた型の適用されたアノテーションを表す [`Annotation`](https://crystal-lang.org/api/master/Crystal/Macros/Annotation.html) オブジェクトを返します。
 
-**NOTE:** If multiple annotations of the same type are applied, the `.annotation` method will return the _last_ one.
+**注意:** もし複数の同じ型のアノテーションが適用されていた場合、`.annotation` は_最後_のものを返します。
 
-The [`@type`](./macros.md#type-information) and [`@def`](./macros.md#method-information) variables can be used to get a `TypeNode` or `Def` object to use the `.annotation` method on.  However, it is also possible to get `TypeNode`/`Def` types using other methods on `TypeNode`.  For example `TypeNode.all_subclasses` or `TypeNode.methods`, respectively.
+[`@type`](./macros.md#type-information) と [`@def`](./macros.md#method-information) という変数は `TypeNode` あるいは `Def` オブジェクトなので `.annotation` メソッドを使ってアノテーションを取得できます。もちろん、`TypeNode` のその他のメソッドから取得した `TypeNode` もしくは `Def` 型のオブジェクトから取得することもできます。例えば `TypeNode.all_subclasses` もしくは `TypeNode.methods` といったメソッドがあります。
 
-The `TypeNode.instance_vars` can be used to get an array of instance variable `MetaVar` objects that would allow reading annotations defined on those instance variables.
+`TypeNode.instance_vars` を使うとインスタンス変数を表す `MetaVar` の配列が取得できます。そして、これらのオブジェクトからそのインスタンス変数に与えられたアノテーションを取得することができます。
 
-**NOTE:** `TypeNode.instance_vars` currently only works in the context of an instance/class method.
+**注意:** `TypeNode.instance_vars` は今のところ、インスタンス/クラスメソッドのコンテキストでのみ動作します。
 
 ```crystal
 annotation MyClass
@@ -222,7 +222,7 @@ Foo.new.properties
 my_method
 pp {{ Foo.annotation(MyClass).stringify }}
 
-# Which would print
+# このように表示されます
 "@[MyClass]"
 "@[MyIvar]"
 "@[MyIvar]"
@@ -230,9 +230,9 @@ pp {{ Foo.annotation(MyClass).stringify }}
 "@[MyClass]"
 ```
 
-### Reading Multiple Annotations
+### 複数のアノテーションを読み出す
 
-If there are multiple annotations of the same type applied to the same instance variable/method/type, the `.annotations(type : TypeNode)` method can be used.  This will work on anything that `.annotation(type : TypeNode)` would, but instead returns an `ArrayLiteral(Annotation)`.
+同じ型のアノテーションが1つのインスタンス変数、メソッド、型に適用されていたとき、`.annotations(type : TypeNode)` メソッドが使えます。これは `.annotation(type : TypeNode)` がするように動作しますが、`ArrayLiteral(Annotation)` を返します。
 
 ```crystal
 annotation MyAnnotation
@@ -249,7 +249,7 @@ end
 
 annotation_read
 
-# Which would print
+# このように表示されます
 "Annotation 0 = foo"
 "Annotation 1 = 123"
 "Annotation 2 = 123"
