@@ -4927,6 +4927,16 @@ else</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># some specific code for 64 bits platforms
+{% else %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023107Z" creationid="makenowjust" creationdate="20200511T023107Z">
+        <seg># 64ビットプラットフォーム固有のコード
+{% else %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># some specific code for linux 64 bits
 end
 ```</seg>
@@ -4939,6 +4949,16 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># some specific code for linux 64 bits
+{% end %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023200Z" creationid="makenowjust" creationdate="20200511T023200Z">
+        <seg># Linux で64ビットの場合に固有のコード
+{% end %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># some specific code for non-64 bits platforms
 end
 ```</seg>
@@ -4947,6 +4967,16 @@ end
         <seg># 64ビットではないプラットフォームに固有のコード
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># some specific code for non-64 bits platforms
+{% end %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023124Z" creationid="makenowjust" creationdate="20200511T023124Z">
+        <seg># 64ビットでないプラットフォームに固有のコード
+{% end %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -6333,6 +6363,20 @@ Press CTRL+C to quit ...
 
 info: 8 plugins are installed
 info: loading plugin "ga"...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$ llvm-config --host-target
+x86_64-unknown-linux-gnu
+
+# so the flags are: x86_64, unknown, linux, gnu</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T022944Z" creationid="makenowjust" creationdate="20200511T022928Z">
+        <seg>$ llvm-config --host-target
+x86_64-unknown-linux-gnu
+
+# よって、フラグは x86_64, unknown, linux, gnu となります</seg>
       </tuv>
     </tu>
     <tu>
@@ -9809,6 +9853,14 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--cross-compile&lt;/g1&gt;: When given enables cross compilation mode</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023626Z" creationid="makenowjust" creationdate="20200511T023626Z">
+        <seg>&lt;g1&gt;--cross-compile&lt;/g1&gt;: クロスコンパイルモードを有効にする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;--example &lt;name&gt;&lt;/g1&gt;: Runs examples whose full nested names include &lt;g2&gt;name&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T164649Z" creationid="makenowjust" creationdate="20200419T164649Z">
@@ -9981,6 +10033,14 @@ XML
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T165057Z" creationid="makenowjust" creationdate="20200419T165057Z">
         <seg>&lt;g1&gt;--tag ~a --tag ~b&lt;/g1&gt; という指定は タグ&lt;g2&gt;a&lt;/g2&gt; もタグ&lt;g3&gt;b&lt;/g3&gt; も持たない spec を含めることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;--target&lt;/g1&gt;: the &lt;g2&gt;LLVM Target Triple&lt;/g2&gt; to use and set the default &lt;g3&gt;compile-time flags&lt;/g3&gt; from</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023717Z" creationid="makenowjust" creationdate="20200511T023717Z">
+        <seg>&lt;g1&gt;--target&lt;/g1&gt;: ビルドに利用する&lt;g2&gt;LLVM ターゲットトリプル&lt;/g2&gt;を指定して、デフォルトの&lt;g3&gt;コンパイル時のフラグ&lt;/g3&gt;を設定する</seg>
       </tuv>
     </tu>
     <tu>
@@ -12455,6 +12515,14 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T224449Z" creationid="makenowjust" creationdate="20200509T224449Z">
         <seg>&lt;g1&gt;finished&lt;/g1&gt; はすべてのクラスのインスタンス変数が判明したあとのタイミングで呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;flag?&lt;/g1&gt; returns a boolean, so you can use it with &lt;g2&gt;&amp;&amp;&lt;/g2&gt; and &lt;g3&gt;||&lt;/g3&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023141Z" creationid="makenowjust" creationdate="20200511T023141Z">
+        <seg>&lt;g1&gt;flag?&lt;/g1&gt; は真偽値を返すので、&lt;g2&gt;&amp;&amp;&lt;/g2&gt; や&lt;g3&gt;||&lt;/g3&gt; を使うこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15264,6 +15332,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Additionally, if a program is compiled with &lt;g1&gt;--release&lt;/g1&gt;, the &lt;g2&gt;release&lt;/g2&gt; flag will be set.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023034Z" creationid="makenowjust" creationdate="20200511T023034Z">
+        <seg>また、&lt;g1&gt;--release&lt;/g1&gt; オプションをつけてプログラムをコンパイルqした場合には &lt;g2&gt;release&lt;/g2&gt; フラグが有効になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, if a program is compiled with `--release`, the `release` flag will be true.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043140Z" creationid="hirofumiwakasugi" creationdate="20150908T043118Z">
@@ -17054,6 +17130,14 @@ names and treats them as operators, including their precedence rules.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Because in order to compile a Crystal compiler we need an older Crystal compiler, the only two ways to generate a compiler for a system where there isn't a compiler yet are:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024321Z" creationid="makenowjust" creationdate="20200511T024321Z">
+        <seg>Crystal のコンパイラをコンパイルするためには以前のバージョンの Crystal コンパイラが必要です。したがって、まだコンパイラが入手できないシステムでコンパイラを生成するには以下の2つの方法があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Because in order to compile a Crystal compiler we need an older Crystal compiler, the only two ways to generate a compiler for a system where there isn't a compiler yet are:
 * We checkout the latest version of the compiler written in Ruby, and from that compiler we compile the next versions until the current one.</seg>
       </tuv>
@@ -18116,6 +18200,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Compile-time flags</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T022812Z" creationid="makenowjust" creationdate="20200511T022812Z">
+        <seg>コンパイル時のフラグ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Compiler commands</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T153856Z" creationid="makenowjust" creationdate="20200419T153856Z">
@@ -18376,6 +18468,14 @@ Counter.instances #=&gt; 3
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Cross-compilation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023549Z" creationid="makenowjust" creationdate="20200511T023549Z">
+        <seg>クロスコンパイル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Cross-compiling can be done for other executables, but its main target is the compiler.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T050719Z" creationid="hirofumiwakasugi" creationdate="20150909T050719Z">
@@ -18508,6 +18608,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000352Z" creationid="makenowjust" creationdate="20200414T000352Z">
         <seg>Crystal には、数多くの基本的な型に対応したリテラルが用意されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Crystal supports a basic form of &lt;g1&gt;cross compilation&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023609Z" creationid="makenowjust" creationdate="20200511T023609Z">
+        <seg>Crystal は基本的な&lt;g1&gt;クロスコンパイル&lt;/g1&gt;をサポートしています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19947,6 +20055,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160119T161541Z" creationid="hirofumiwakasugi" creationdate="20150916T031807Z">
         <seg>例えば、標準ライブラリには `times` という整数のメソッドがあり、それを使うと以下のように書くことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the very well known &lt;g1&gt;size_t&lt;/g1&gt; type is defined like this in Crystal:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023242Z" creationid="makenowjust" creationdate="20200511T023242Z">
+        <seg>例えば、&lt;g1&gt;size_t&lt;/g1&gt; というよく知られた型は、Crystal では以下のように定義されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21933,6 +22049,14 @@ language reference.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T052159Z" creationid="hirofumiwakasugi" creationdate="20150905T052159Z">
         <seg>ループを抜けるための条件を設定することで、必ず1回は本体を実行することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you need to set any compile-time flags not set implicitly through &lt;g1&gt;--target&lt;/g1&gt;, you can use the &lt;g2&gt;-D&lt;/g2&gt; command line flag.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024031Z" creationid="makenowjust" creationdate="20200511T024031Z">
+        <seg>&lt;g1&gt;--target&lt;/g1&gt; 経由で暗黙的にセットされているものでないコンパイル時のフラグをセットする必要がある場合は、&lt;g2&gt;-D&lt;/g2&gt; コマンドライン引数が使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31055,6 +31179,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These flags are by default read from the hosts &lt;g1&gt;LLVM Target Triple&lt;/g1&gt;, split on &lt;g2&gt;-&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T022859Z" creationid="makenowjust" creationdate="20200511T022859Z">
+        <seg>デフォルトではホストの &lt;g1&gt;LLVM ターゲット&lt;/g1&gt;を &lt;g2&gt;-&lt;/g2&gt; で区切ったものがフラグとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These flags are by default the result of executing `uname -m -s`, split by whitespace and lowercased.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T042959Z" creationid="hirofumiwakasugi" creationdate="20150908T042946Z">
@@ -32198,6 +32330,14 @@ conditions.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This will generate a &lt;g1&gt;.o&lt;/g1&gt; (&lt;g2&gt;Object file&lt;/g2&gt;) and will print a line with a command to execute on the system we are trying to cross-compile to.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024152Z" creationid="makenowjust" creationdate="20200511T024152Z">
+        <seg>これで、&lt;g1&gt;.o&lt;/g1&gt; (&lt;g2&gt;オブジェクトファイル&lt;/g2&gt;) が生成され、クロスコンパイルの対象システム上で実行すべきコマンドが表示されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This will generate a `.o` ([Object file](http://en.wikipedia.org/wiki/Object_file)) and will print a line with a command to execute on the system we are trying to cross-compile to.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T045601Z" creationid="hirofumiwakasugi" creationdate="20150909T045431Z">
@@ -32615,6 +32755,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To define a flag, simply use the &lt;g1&gt;--define&lt;/g1&gt; or &lt;g2&gt;-D&lt;/g2&gt; option, like so:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023002Z" creationid="makenowjust" creationdate="20200511T023002Z">
+        <seg>フラグを定義するには、&lt;g1&gt;--define&lt;/g1&gt; もしくは &lt;g2&gt;-D&lt;/g2&gt; オプションを使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To define a method that receives a block, simply use &lt;g1&gt;yield&lt;/g1&gt; inside it and the compiler will know.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T184149Z" creationid="makenowjust" creationdate="20200505T184149Z">
@@ -32767,6 +32915,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To get the &lt;g1&gt;--target&lt;/g1&gt; flags you can execute &lt;g2&gt;llvm-config --host-target&lt;/g2&gt; using an installed LLVM 3.5.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023805Z" creationid="makenowjust" creationdate="20200511T023754Z">
+        <seg>&lt;g1&gt;--target&lt;/g1&gt; フラグを得るには、インストールされたLLVM 3.5を使って &lt;g2&gt;llvm-config --host-target&lt;/g2&gt; を実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To get the `--cross-compile` flags you can execute `uname -m -s` on a unix system.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T044941Z" creationid="hirofumiwakasugi" creationdate="20150909T044804Z">
@@ -32795,6 +32951,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T040002Z" creationid="hirofumiwakasugi" creationdate="20150906T040002Z">
         <seg>実際のクラスのサイズを得るには [instance_sizeof](instance_sizeof.html) を使用してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To get the target you can execute &lt;g3&gt;llvm-config --host-target&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T022927Z" creationid="makenowjust" creationdate="20200511T022927Z">
+        <seg>実際のターゲットを得るには &lt;g3&gt;llvm-config --host-target&lt;/g3&gt; を実行します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34096,6 +34260,14 @@ included modules as well:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We checkout the latest version of the compiler written in Ruby, and from that compiler we compile the next versions until the current one.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024351Z" creationid="makenowjust" creationdate="20200511T024351Z">
+        <seg>Ruby で書かれた最新のコンパイラを入手しコンパイラをコンパイルし、それを現在のバージョンまで繰り返す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We code the "come into existence" part with a special &lt;g7&gt;initialize&lt;/g7&gt; method, which is normally called a &lt;g8&gt;constructor&lt;/g8&gt;:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T120604Z" creationid="makenowjust" creationdate="20200427T120604Z">
@@ -34108,6 +34280,14 @@ included modules as well:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T121539Z" creationid="hirofumiwakasugi" creationdate="20150904T055229Z">
         <seg>この「生まれる (インスタンスとして生成される) 」ときの処理には、`initialize` という特別なメソッドを使います。このメソッドを「コンストラクタ」と呼ぶこともあります。 </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We create a &lt;g1&gt;.o&lt;/g1&gt; file in the target system and from that file we create a compiler.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024414Z" creationid="makenowjust" creationdate="20200511T024411Z">
+        <seg>対象システム用の &lt;g1&gt;.o&lt;/g1&gt; ファイルを生成し、それを使ってコンパイラを生成する</seg>
       </tuv>
     </tu>
     <tu>
@@ -35149,6 +35329,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can check if a flag is defined with the &lt;g1&gt;flag?&lt;/g1&gt; macro method:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023052Z" creationid="makenowjust" creationdate="20200511T023052Z">
+        <seg>フラグが定義されているかどうかは &lt;g1&gt;flag?&lt;/g1&gt; マクロメソッドを使うことで確認できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can declare/assign multiple variables at the same time by separating expressions with a comma (&lt;g1&gt;,&lt;/g1&gt;):</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T175351Z" creationid="makenowjust" creationdate="20200422T175351Z">
@@ -35691,6 +35879,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T061648Z" creationid="hirofumiwakasugi" creationdate="20150831T060755Z">
         <seg>また、[コントリビューティング・ガイド](https://github.com/manastech/crystal/blob/master/Contributing.md) にも目を通しておくとよいでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You must copy this &lt;g1&gt;.o&lt;/g1&gt; file to that system and execute those commands.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024218Z" creationid="makenowjust" creationdate="20200511T024218Z">
+        <seg>&lt;g1&gt;.o&lt;/g1&gt; ファイルを対象のシステム上にコピーし、上記のコマンドを実行してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -46928,6 +47124,14 @@ END
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024154Z" creationid="makenowjust" creationdate="20200511T024154Z">
+        <seg>cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>char = string[i]</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T091300Z" creationid="makenowjust" creationdate="20200506T091300Z">
@@ -47862,6 +48066,14 @@ Initialized empty Git repository in /home/crystal/myapp/.git/</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>crystal build your_program.cr --cross-compile --target "x86_64-unknown-linux-gnu"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T024035Z" creationid="makenowjust" creationdate="20200511T024035Z">
+        <seg>crystal build your_program.cr --cross-compile --target "x86_64-unknown-linux-gnu"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>crystal docs --output public --canonical-base-url http://example.com/ src/my_app.cr</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T163139Z" creationid="makenowjust" creationdate="20200419T163139Z">
@@ -47914,6 +48126,14 @@ Initialized empty Git repository in /home/crystal/myapp/.git/</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T165322Z" creationid="makenowjust" creationdate="20200419T165322Z">
         <seg>crystal play [--port &lt;port&gt;] [--binding &lt;host&gt;] [--verbose] [file]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>crystal some_program.cr -Dflag</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023004Z" creationid="makenowjust" creationdate="20200511T023004Z">
+        <seg>crystal some_program.cr -Dflag</seg>
       </tuv>
     </tu>
     <tu>
@@ -53534,6 +53754,14 @@ john.age #=&gt; 0</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T091856Z" creationid="makenowjust" creationdate="20200502T091840Z">
         <seg>より小さいか等しい (以下)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib C</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023243Z" creationid="makenowjust" creationdate="20200511T023243Z">
+        <seg>lib C</seg>
       </tuv>
     </tu>
     <tu>
@@ -60262,6 +60490,22 @@ require "http/server"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T215134Z" creationid="makenowjust" creationdate="20200509T215134Z">
         <seg>{% if env("TEST") %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% if flag?(:linux) &amp;&amp; flag?(:x86_64) %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023141Z" creationid="makenowjust" creationdate="20200511T023141Z">
+        <seg>{% if flag?(:linux) &amp;&amp; flag?(:x86_64) %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% if flag?(:x86_64) %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T023052Z" creationid="makenowjust" creationdate="20200511T023052Z">
+        <seg>{% if flag?(:x86_64) %}</seg>
       </tuv>
     </tu>
     <tu>
