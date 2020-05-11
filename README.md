@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 102/125
+翻訳済み/全体 = 104/125
 
 <details>
 
@@ -126,8 +126,8 @@
 | `crystal-book/syntax_and_semantics/instance_sizeof.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/offsetof.md`                                                     | ○    |
 | `crystal-book/syntax_and_semantics/declare_var.md`                                                  | ○    |
-| `crystal-book/syntax_and_semantics/compile_time_flags.md`                                           | △    |
-| `crystal-book/syntax_and_semantics/cross-compilation.md`                                            | △    |
+| `crystal-book/syntax_and_semantics/compile_time_flags.md`                                           | ○    |
+| `crystal-book/syntax_and_semantics/cross-compilation.md`                                            | ○    |
 | `crystal-book/syntax_and_semantics/c_bindings/README.md`                                            | △    |
 | `crystal-book/syntax_and_semantics/c_bindings/lib.md`                                               | △    |
 | `crystal-book/syntax_and_semantics/c_bindings/fun.md`                                               | △    |
