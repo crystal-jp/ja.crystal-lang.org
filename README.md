@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 96/125
+翻訳済み/全体 = 102/125
 
 <details>
 
@@ -120,12 +120,12 @@
 | `crystal-book/syntax_and_semantics/macros/fresh_variables.md`                                       | ○    |
 | `crystal-book/syntax_and_semantics/annotations.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/annotations/built_in_annotations.md`                             | ○    |
-| `crystal-book/syntax_and_semantics/low_level_primitives.md`                                         | △    |
-| `crystal-book/syntax_and_semantics/pointerof.md`                                                    | △    |
-| `crystal-book/syntax_and_semantics/sizeof.md`                                                       | △    |
-| `crystal-book/syntax_and_semantics/instance_sizeof.md`                                              | △    |
-| `crystal-book/syntax_and_semantics/offsetof.md`                                                     | ×    |
-| `crystal-book/syntax_and_semantics/declare_var.md`                                                  | △    |
+| `crystal-book/syntax_and_semantics/low_level_primitives.md`                                         | ○    |
+| `crystal-book/syntax_and_semantics/pointerof.md`                                                    | ○    |
+| `crystal-book/syntax_and_semantics/sizeof.md`                                                       | ○    |
+| `crystal-book/syntax_and_semantics/instance_sizeof.md`                                              | ○    |
+| `crystal-book/syntax_and_semantics/offsetof.md`                                                     | ○    |
+| `crystal-book/syntax_and_semantics/declare_var.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/compile_time_flags.md`                                           | △    |
 | `crystal-book/syntax_and_semantics/cross-compilation.md`                                            | △    |
 | `crystal-book/syntax_and_semantics/c_bindings/README.md`                                            | △    |

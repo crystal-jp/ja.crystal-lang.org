@@ -2284,6 +2284,18 @@ add 1, 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># On a 64 bits machine
+sizeof(Pointer(Int32)) # =&gt; 8
+sizeof(String)         # =&gt; 8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015446Z" creationid="makenowjust" creationdate="20200511T015435Z">
+        <seg># 64ビット処理系の場合
+sizeof(Pointer(Int32)) # =&gt; 8
+sizeof(String)         # =&gt; 8</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># One for each thread</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T115028Z" creationid="makenowjust" creationdate="20200510T115028Z">
@@ -13899,6 +13911,28 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@x = 0_i64</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020256Z" creationid="makenowjust" creationdate="20200511T020256Z">
+        <seg>@x = 0_i64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@y = 34_i32
+end
+
+offsetof(Foo, @y) # =&gt; 8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020256Z" creationid="makenowjust" creationdate="20200511T020256Z">
+        <seg>@y = 34_i32
+end
+
+offsetof(Foo, @y) # =&gt; 8</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A "heredoc" is written with `&lt;&lt;-IDENT`, where `IDENT` is an identifier, a sequence of letters and numbers that must start with a letter.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T062113Z" creationid="hirofumiwakasugi" creationdate="20160204T061927Z">
@@ -15759,6 +15793,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;offsetof&lt;/g1&gt; expression returns the byte offset of an instance variable in a struct or class type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020017Z" creationid="makenowjust" creationdate="20200511T020017Z">
+        <seg>&lt;g1&gt;offsetof&lt;/g1&gt; はクラスや構造体のインスタンス変数のバイトオフセットを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An &lt;g1&gt;unless&lt;/g1&gt; evaluates the then branch if its condition is &lt;g2&gt;falsey&lt;/g2&gt;, and evaluates the &lt;g3&gt;else branch&lt;/g3&gt;, if there’s any, otherwise.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T090448Z" creationid="makenowjust" creationdate="20200424T090448Z">
@@ -16944,6 +16986,14 @@ names and treats them as operators, including their precedence rules.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T114202Z" creationid="hirofumiwakasugi" creationdate="20150906T114146Z">
         <seg>引数には良い名前をつけるよう心がけましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because &lt;g1&gt;pointerof&lt;/g1&gt; involves pointers, it is considered &lt;g2&gt;unsafe&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015238Z" creationid="makenowjust" creationdate="20200511T015238Z">
+        <seg>&lt;g1&gt;pointerof&lt;/g1&gt; はポインタを扱うため、&lt;g2&gt;安全でない&lt;/g2&gt;ことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18930,6 +18980,14 @@ in foo.cr:2: undefined method '+' for Bool</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Even though the instance has two &lt;g1&gt;Int32&lt;/g1&gt; fields, the compiler always includes an extra &lt;g2&gt;Int32&lt;/g2&gt; field for the type id of the object.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015849Z" creationid="makenowjust" creationdate="20200511T015849Z">
+        <seg>上記では、インスタンスは2つの &lt;g1&gt;Int32&lt;/g1&gt; のフィールドを持っています。ただし、オブジェクトの型 ID のために、コンパイラによって常に &lt;g2&gt;Int32&lt;/g2&gt; フィールドが追加されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even though the instance has two `Int32` fields, the compiler always includes an extra `Int32` field for the type id of the object.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T121004Z" creationid="hirofumiwakasugi" creationdate="20150906T120905Z">
@@ -19491,6 +19549,14 @@ Foo::Bar # Error</seg>
 end
 
 Foo::Bar # Error</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For &lt;g1&gt;Reference&lt;/g1&gt; types, the size is the same as the size of a pointer:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015434Z" creationid="makenowjust" creationdate="20200511T015434Z">
+        <seg>&lt;g1&gt;Reference&lt;/g1&gt; 型である場合は、そのサイズはポインタのサイズと同じになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23233,6 +23299,14 @@ Array(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It accepts the type as first argument and the instance variable name prefixed by an &lt;g2&gt;@&lt;/g2&gt; as second argument:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020153Z" creationid="makenowjust" creationdate="20200511T020148Z">
+        <seg>最初の引数に型を受け取り、2番目に引数には &lt;g2&gt;@&lt;/g2&gt; からはじまるインスタンス変数を受け取ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It allows writing a chain of if-else-if with a small change in semantic and some more powerful constructs.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T090846Z" creationid="hirofumiwakasugi" creationdate="20150903T023143Z">
@@ -24015,6 +24089,14 @@ LibFoo.execute_callback
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T084801Z" creationid="makenowjust" creationdate="20200502T084801Z">
         <seg>論理 OR</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Low-level primitives</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015038Z" creationid="makenowjust" creationdate="20200511T015038Z">
+        <seg>低レベルプリミティブ</seg>
       </tuv>
     </tu>
     <tu>
@@ -27287,8 +27369,8 @@ recursively forms a union type out of nested type paramters:</seg>
       <tuv lang="EN-US">
         <seg>Some low-level primitives are provided.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T033744Z" creationid="hirofumiwakasugi" creationdate="20150906T033557Z">
-        <seg>いくつかのローレベルプリミティブが提供されており、</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015042Z" creationid="hirofumiwakasugi" creationdate="20150906T033557Z">
+        <seg>いくつかの低レベルプリミティブが提供されており、</seg>
       </tuv>
     </tu>
     <tu>
@@ -28088,6 +28170,14 @@ fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;instance_sizeof&lt;/g1&gt; expression returns an &lt;g2&gt;Int32&lt;/g2&gt; with the instance size of a given class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015749Z" creationid="makenowjust" creationdate="20200511T015749Z">
+        <seg>&lt;g1&gt;instance_sizeof&lt;/g1&gt; は与えられたクラスのインスタンスのサイズを &lt;g2&gt;Int32&lt;/g2&gt; で返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;named_args&lt;/g1&gt; method can be used to read all key/value pairs on an annotation as a &lt;g2&gt;NamedTupleLiteral&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T110407Z" creationid="makenowjust" creationdate="20200510T110407Z">
@@ -28108,6 +28198,14 @@ fully initialized via the &lt;g2&gt;initialize&lt;/g2&gt; method.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T190735Z" creationid="makenowjust" creationdate="20200505T190735Z">
         <seg>ブロックの中に&lt;g1&gt;next&lt;/g1&gt; 式があるとそこで、 (メソッドではなく) ブロックを抜けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;pointerof&lt;/g1&gt; expression returns a &lt;g2&gt;Pointer&lt;/g2&gt; that points to the contents of a variable or instance variable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015205Z" creationid="makenowjust" creationdate="20200511T015205Z">
+        <seg>&lt;g1&gt;pointerof&lt;/g1&gt; は、変数やインスタンス変数の格納場所を示す &lt;g2&gt;Pointer&lt;/g2&gt; を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28133,6 +28231,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150428Z" creationid="makenowjust" creationdate="20200419T150428Z">
         <seg>&lt;g1&gt;run&lt;/g1&gt;コマンドは&lt;g2&gt;hello_world.cr&lt;/g2&gt;というソースコードをその場限りの実行可能バイナリにコンパイルして、即時にそれを実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;sizeof&lt;/g1&gt; expression returns an &lt;g2&gt;Int32&lt;/g2&gt; with the size in bytes of a given type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015416Z" creationid="makenowjust" creationdate="20200511T015416Z">
+        <seg>&lt;g1&gt;sizeof&lt;/g1&gt; は与えられた型のバイト数を &lt;g2&gt;Int32&lt;/g2&gt; で返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28765,6 +28871,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T192129Z" creationid="makenowjust" creationdate="20200505T192129Z">
         <seg>答えは YES です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The argument to sizeof is a &lt;g1&gt;type&lt;/g1&gt; and is often combined with &lt;g2&gt;typeof&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015538Z" creationid="makenowjust" creationdate="20200511T015538Z">
+        <seg>sizeof の引数は&lt;g1&gt;型&lt;/g1&gt;なので&lt;g2&gt;typeof&lt;/g2&gt;とあわせて使うことが多いでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30258,6 +30372,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The type after the &lt;g1&gt;uninitialized&lt;/g1&gt; keyword follows the &lt;g2&gt;type grammar&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020844Z" creationid="makenowjust" creationdate="20200511T020844Z">
+        <seg>&lt;g1&gt;uninitialized&lt;/g1&gt; キーワードに続く型は &lt;g2&gt;型の文法&lt;/g2&gt;にしたがって書きます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The type after the `uninitialized` keyword follows the [type grammar](type_grammar.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20160204T061700Z" creationid="hirofumiwakasugi" creationdate="20160204T061700Z">
@@ -31031,8 +31153,8 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       <tuv lang="EN-US">
         <seg>They are mostly useful for interfacing with C libraries and for low-level code.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T033908Z" creationid="hirofumiwakasugi" creationdate="20150906T033606Z">
-        <seg>C 言語ライブラリとのインターフェースや、ローレベルのコードを書くときに役立ちます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015046Z" creationid="hirofumiwakasugi" creationdate="20150906T033606Z">
+        <seg>C 言語ライブラリとのインターフェースや、低レベルのコードを書くときに役立ちます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31384,6 +31506,14 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is &lt;g1&gt;unsafe&lt;/g1&gt; code and is almost always used in low-level code for declaring uninitialized &lt;g2&gt;StaticArray&lt;/g2&gt; buffers without a performance penalty:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020707Z" creationid="makenowjust" creationdate="20200511T020707Z">
+        <seg>これは&lt;g1&gt;安全でない&lt;/g1&gt;コードで、特に低レベルなコードにおいて、未初期化の &lt;g2&gt;StaticArray&lt;/g2&gt; バッファをパフォーマンスの劣化なく定義するために使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is [unsafe](unsafe.html) code and is almost always used in low-level code for declaring uninitialized [StaticArray](http://crystal-lang.org/api/StaticArray.html) buffers without a peformance penalty:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T120114Z" creationid="hirofumiwakasugi" creationdate="20150906T115142Z">
@@ -31404,6 +31534,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T121300Z" creationid="makenowjust" creationdate="20200427T121242Z">
         <seg>これは&lt;g2&gt;クラスメソッド&lt;/g2&gt;といって、&lt;g4&gt;Person&lt;/g4&gt;&lt;g3&gt;クラス&lt;/g3&gt;自体に属すメソッドを表しています。特定のインスタンスに対してではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is a low-level primitive and only useful if a C API needs to directly interface with the data layout of a Crystal type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020254Z" creationid="makenowjust" creationdate="20200511T020254Z">
+        <seg>これは低レベルプリミティブで、C 言語の API が Crystal の型のデータレイアウトを必要とする場合に限って有用です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32645,6 +32783,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To get the effective size of a class, use &lt;g1&gt;instance_sizeof&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015506Z" creationid="makenowjust" creationdate="20200511T015506Z">
+        <seg>実際のクラスのサイズを得るには、&lt;g1&gt;instance_sizeof&lt;/g1&gt; を使用してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To get the effective size of a class, use [instance_sizeof](instance_sizeof.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T040002Z" creationid="hirofumiwakasugi" creationdate="20150906T040002Z">
@@ -33307,6 +33453,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200421T042159Z" creationid="makenowjust" creationdate="20200421T042159Z">
         <seg>また、エスケープされていないハッシュ &lt;g3&gt;#&lt;/g3&gt; は行コメントの始まりと見なされ、次の改行文字まで飛ばしてマッチを行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Uninitialized variable declaration</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020619Z" creationid="makenowjust" creationdate="20200511T020619Z">
+        <seg>初期化しない変数宣言</seg>
       </tuv>
     </tu>
     <tu>
@@ -44545,6 +44699,24 @@ a # : Int32 | String</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>a = 1
+
+ptr = pointerof(a)
+ptr.value = 2
+
+a # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015207Z" creationid="makenowjust" creationdate="20200511T015207Z">
+        <seg>a = 1
+
+ptr = pointerof(a)
+ptr.value = 2
+
+a # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
 b = 2
 "sum: #{a} + #{b} = #{a + b}" # =&gt; "sum: 1 + 2 = 3"</seg>
       </tuv>
@@ -44622,6 +44794,16 @@ if some_condition</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T074600Z" creationid="makenowjust" creationdate="20200424T074600Z">
         <seg>a = 1
 if some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+sizeof(typeof(a)) # =&gt; 4</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015538Z" creationid="makenowjust" creationdate="20200511T015538Z">
+        <seg>a = 1
+sizeof(typeof(a)) # =&gt; 4</seg>
       </tuv>
     </tu>
     <tu>
@@ -46500,6 +46682,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>buffer = uninitialized UInt8[256]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020711Z" creationid="makenowjust" creationdate="20200511T020711Z">
+        <seg>buffer = uninitialized UInt8[256]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>build                    compile program file</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072215Z" creationid="hirofumiwakasugi" creationdate="20150901T072215Z">
@@ -47272,6 +47462,14 @@ end</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T101949Z" creationid="makenowjust" creationdate="20200427T101949Z">
         <seg>class Person
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class Point</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015210Z" creationid="makenowjust" creationdate="20200511T015210Z">
+        <seg>class Point</seg>
       </tuv>
     </tu>
     <tu>
@@ -50183,6 +50381,26 @@ Namespace::Bar.new.bar</seg>
         <seg>end
 end
 
+Point.new 1, 2
+
+# 2 x Int32 = 2 x 4 = 8
+instance_sizeof(Point) # =&gt; 12</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015756Z" creationid="makenowjust" creationdate="20200511T015756Z">
+        <seg>end
+end
+
+Point.new 1, 2
+
+# 2 x Int32 = 2 x 4 = 8
+instance_sizeof(Point) # =&gt; 12</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 alias NumericValue = Float32 | Float64 | Int32 | Int64
 
 lib LibYAML
@@ -51090,6 +51308,30 @@ end
 
 person = Person.new "John", 30
 person.instance_vars_names # =&gt; ["name", "age"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+point = Point.new 1, 2
+
+ptr = point.x_ptr
+ptr.value = 10
+
+point.x # =&gt; 10</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015212Z" creationid="makenowjust" creationdate="20200511T015212Z">
+        <seg>end
+end
+
+point = Point.new 1, 2
+
+ptr = point.x_ptr
+ptr.value = 10
+
+point.x # =&gt; 10</seg>
       </tuv>
     </tu>
     <tu>
@@ -52826,6 +53068,14 @@ encode64 "hello" # =&gt; "aGVsbG8="</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>instance_sizeof</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015730Z" creationid="makenowjust" creationdate="20200511T015730Z">
+        <seg>instance_sizeof</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>instances in the same namespace (class, struct, module, etc.) as the current type</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T110303Z" creationid="makenowjust" creationdate="20200502T110303Z">
@@ -54274,6 +54524,22 @@ objects[2] = temp2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>offsetof</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015944Z" creationid="makenowjust" creationdate="20200511T015944Z">
+        <seg>offsetof</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>offsetof(Type, @ivar)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020155Z" creationid="makenowjust" creationdate="20200511T020155Z">
+        <seg>offsetof(Type, @ivar)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>one = One.new
 two = Two.new
 three = Three.new
@@ -54802,6 +55068,14 @@ else</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T035035Z" creationid="hirofumiwakasugi" creationdate="20150906T035035Z">
         <seg>point.x #=&gt; 10
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pointerof</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015108Z" creationid="makenowjust" creationdate="20200511T015108Z">
+        <seg>pointerof</seg>
       </tuv>
     </tu>
     <tu>
@@ -57062,6 +57336,24 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>sizeof</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015354Z" creationid="makenowjust" creationdate="20200511T015354Z">
+        <seg>sizeof</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>sizeof(Int32) # =&gt; 4
+sizeof(Int64) # =&gt; 8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T015417Z" creationid="makenowjust" creationdate="20200511T015417Z">
+        <seg>sizeof(Int32) # =&gt; 4
+sizeof(Int64) # =&gt; 8</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>some do |first, second|</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023035Z" creationid="hirofumiwakasugi" creationdate="20150916T023035Z">
@@ -57374,6 +57666,14 @@ upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T172745Z" creationid="makenowjust" creationdate="20200505T172745Z">
         <seg>struct Counter</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>struct Foo</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020255Z" creationid="makenowjust" creationdate="20200511T020255Z">
+        <seg>struct Foo</seg>
       </tuv>
     </tu>
     <tu>
@@ -58936,6 +59236,16 @@ foo do</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T054337Z" creationid="hirofumiwakasugi" creationdate="20150918T054337Z">
         <seg>x = 1
 foo do</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>x = uninitialized Int32
+x # =&gt; some random value, garbage, unreliable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T020710Z" creationid="makenowjust" creationdate="20200511T020710Z">
+        <seg>x = uninitialized Int32
+x # =&gt; some random value, garbage, unreliable</seg>
       </tuv>
     </tu>
     <tu>
