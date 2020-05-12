@@ -1,6 +1,6 @@
 # out
 
-Consider the [waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) function:
+[waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) 関数について考えてみてください。
 
 ```crystal
 lib C
@@ -11,8 +11,7 @@ end
 この関数のドキュメントは以下の内容です。
 
 ```
-The status information from the child process is stored in the object
-that status_ptr points to, unless status_ptr is a null pointer.
+status_ptr が指すオブジェクトに保持されている子プロセスからのステータス情報
 ```
 
 この関数を以下のように利用できます。
@@ -23,14 +22,14 @@ status_ptr = uninitialized Int32
 C.waitpid(pid, pointerof(status_ptr), options)
 ```
 
-In this way we pass a pointer of `status_ptr` to the function for it to fill its value.
+このとき、`status_ptr` のポインタを関数に渡し、値を設定してもらっています。
 
-There's a simpler way to write the above by using an `out` parameter:
+上記は `out` パラメータを使うことでよりシンプルに書くことができます。
 
 ```crystal
 C.waitpid(pid, out status_ptr, options)
 ```
 
-The compiler will automatically declare a `status_ptr` variable of type `Int32`, because the argument is an `Int32*`.
+このとき、引数が `Int32*` であるため、コンパイラは自動的に `Int32` 方の `status_ptr` 変数を宣言します。
 
 これは、引数がその型のポインタである場合には、どのような型に対しても有効です (もちろん、ポインタが指す値が関数によって設定されることが前提です) 。

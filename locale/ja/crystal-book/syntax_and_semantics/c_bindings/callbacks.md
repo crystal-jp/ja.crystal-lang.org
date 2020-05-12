@@ -1,4 +1,4 @@
-# Callbacks
+# コールバック
 
 C の宣言の中で関数型を利用することが可能です。
 
@@ -11,14 +11,14 @@ lib X
 end
 ```
 
-Then you can pass a function (a [Proc](http://crystal-lang.org/api/Proc.html)) like this:
+そうすると、以下のように関数 ([Proc](http://crystal-lang.org/api/Proc.html)) を渡せます。
 
 ```crystal
 f = ->(x : Int32) { x + 1 }
 X.callback(f)
 ```
 
-If you define the function inline in the same call you can omit the argument types, the compiler will add the types for you based on the `fun` signature:
+呼び出しと同時にインラインで関数を定義する場合は、引数の型を省略することが可能です。このとき、コンパイラが `fun` のシグネチャに基づいて型を追加します。
 
 ```crystal
 X.callback ->(x) { x + 1 }
@@ -33,18 +33,18 @@ X.callback ->(x) { x + y } # Error: can't send closure to C function
 
 もしコンパイラがコンパイル時にこのことを検出できなかった場合、ランタイムに例外が発生します。
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in callbacks and procs types.
+コールバックと Proc に使用する型の指定方法については[型の文法](../type_grammar.html)を参照してください。
 
-If you want to pass `NULL` instead of a callback, just pass `nil`:
+コールバックではなく `NULL` を渡したい場合は、単純に `nil` を渡してください。
 
 ```crystal
-# Same as callback(NULL) in C
+# C での callback(NULL) と同じ
 X.callback nil
 ```
 
-### Passing a closure to a C function
+### C の関数にクロージャを渡す
 
-Most of the time a C function that allows setting a callback also provide an argument for custom data. This custom data is then sent as an argument to the callback. For example, suppose a C function that invokes a callback at every tick, passing that tick:
+ほとんどの C 関数はコールバックに独自のデータのための引数が用意されています。その独自のデータは引数としてコールバックに渡されます。例として、一定の周期でコールバックを呼び出すような C の関数を考えてみましょう。
 
 ```crystal
 lib LibTicker
@@ -52,27 +52,27 @@ lib LibTicker
 end
 ```
 
-To properly define a wrapper for this function we must send the Proc as the callback data, and then convert that callback data to the Proc and finally invoke it.
+この関数のまっとうなラッパーを定義するために、 Proc をコールバックのデータとして渡し、コールバック中で元の Proc に戻し、それを呼び出す、というようにする必要があります。
 
 ```crystal
 module Ticker
-  # The callback for the user doesn't have a Void*
+  # ユーザーのコールバックは Void* を持ちません
   @@box : Pointer(Void)?
 
   def self.on_tick(&callback : Int32 ->)
-    # Since Proc is a {Void*, Void*}, we can't turn that into a Void*, so we
-    # "box" it: we allocate memory and store the Proc there
+    # Proc は内部的には {Void*, Void*} なので Void* にすることはできません。
+    # そこで、メモリを確保して Proc をそこに保存する「ボックス化」をします。
     boxed_data = Box.box(callback)
 
-    # We must save this in Crystal-land so the GC doesn't collect it (*)
+    # 勝手に GC されるのを防ぐため、Crystal 上に保持しておく必要があります (*)
     @@box = boxed_data
 
-    # We pass a callback that doesn't form a closure, and pass the boxed_data as
-    # the callback data
+    # クロージャではない形になるようにコールバックを渡し、boxed_data をコールバック
+    # のデータとして渡します
     LibTicker.on_tick(->(tick, data) {
-      # Now we turn data back into the Proc, using Box.unbox
+      # ここで Box.unbox を使い data を Proc に戻します
       data_as_callback = Box(typeof(callback)).unbox(data)
-      # And finally invoke the user's callback
+      # そして、最終的にユーザーのコールバックを呼び出します
       data_as_callback.call(tick)
     }, boxed_data)
   end
@@ -83,15 +83,15 @@ Ticker.on_tick do |tick|
 end
 ```
 
-Note that we save the boxed callback in `@@box`. The reason is that if we don't do it, and our code doesn't reference it anymore, the GC will collect it. The C library will of course store the callback, but Crystal's GC has no way of knowing that.
+ボックス化したコールバックを `@@box` に保持したことに注意してください。この理由は、そうしなければどこからも参照していると見なされず、GC がそれを回収してしまうからです。C のライブラリも当然コールバックを保存しているでしょう。しかし Crystal の GC がそれを知る術はないのです。
 
-## Raises attribute
+## Raises アノテーション
 
-If a C function executes a user-provided callback that might raise, it must be annotated with the `@[Raises]` attribute.
+例外を発生させる可能性のあるコールバックを C の関数が実行するときには、`@[Raises]` アノテーションを指定しておく必要があります。
 
-The compiler infers this attribute for a method if it invokes a method that is marked as `@[Raises]` or raises (recursively).
+コンパイラは、`@[Raises]` が指定されたメソッドを実行するメソッドや、例外を発生させるメソッドに対しても (再帰的に) このアノテーションが指定されているものと推論します。
 
-しかし、C の関数には、他の C 関数によって実行されるコールバックを受け取るものがあります。For example, suppose a fictitious library:
+しかし、C の関数には、他の C 関数によって実行されるコールバックを受け取るものがあります。例えば、以下のようなライブラリを考えてください。
 
 ```crystal
 lib LibFoo
@@ -103,7 +103,7 @@ LibFoo.store_callback ->{ raise "OH NO!" }
 LibFoo.execute_callback
 ```
 
-If the callback passed to `store_callback` raises, then `execute_callback` will raise. However, the compiler doesn't know that `execute_callback` can potentially raise because it is not marked as `@[Raises]` and the compiler has no way to figure this out. こういったケースでは、それらの関数に手動で指示を与える必要があります。
+このとき、もし `store_callback` に渡されたコールバックが例外を発生させるものであるときには、 `execute_callback` が例外を発生させるでしょう。しかし、 `execute_callback` に `@[Raises]` が指定されていないため、コンパイラはそれが例外を発生させるものであることを知ることができません。こういったケースでは、それらの関数に手動で指示を与える必要があります。
 
 ```crystal
 lib LibFoo
@@ -114,4 +114,4 @@ lib LibFoo
 end
 ```
 
-If you don't mark them, `begin/rescue` blocks that surround this function's calls won't work as expected.
+もし上記のように指定しなかった場合、この関数呼び出しを囲む `begin/rescue` ブロックは期待通りに動いてくれません。

@@ -1,6 +1,6 @@
 # union
 
-A `union` declaration inside a `lib` declares a C union:
+`lib` の内部で `union` を宣言することで C の共用体を宣言できます。
 
 ```crystal
 lib U
@@ -17,7 +17,7 @@ lib U
 end
 ```
 
-To create an instance of a union use `new`:
+共用体のインスタンスを生成するには `new` を利用します。
 
 ```crystal
 value = U::IntOrFloat.new
@@ -27,11 +27,11 @@ value = U::IntOrFloat.new
 
 C の共用体は、初期状態として、すべての値が「ゼロ」の状態になります。つまり、整数と浮動小数点数はゼロで、ポインタはゼロのアドレスを指している、などの状態です。
 
-To avoid this initialization you can use `uninitialized`:
+このように初期化されることを避けたい場合は `uninitialized` を利用します。
 
 ```crystal
 value = uninitialized U::IntOrFloat
-value.some_int # => some garbage value
+value.some_int # => 何かゴミの値
 ```
 
 プロパティの設定、および参照が可能です。
@@ -43,7 +43,7 @@ value.some_int   # => 1
 value.some_float # => 4.94066e-324
 ```
 
-If the assigned value is not exactly the same as the property's type, [to_unsafe](to_unsafe.html) will be tried.
+代入された値がプロパティの型と正確に同じものでない場合、[to_unsafe](to_unsafe.html) を呼び出して型を一致させようとします。
 
 C の共用体は関数やメソッドに (コピーとして) 値渡しされます。また、メソッドから返るときも値で渡されます。
 
@@ -57,4 +57,4 @@ change_it value
 value.some_int # => 0
 ```
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in union field types.
+共用体のフィールドに使用可能な型の指定方法については[型の文法](../type_grammar.html)を参照してください。

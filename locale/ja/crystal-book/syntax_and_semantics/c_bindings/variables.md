@@ -1,6 +1,6 @@
-# Variables
+# 変数
 
-Variables exposed by a C library can be declared inside a `lib` declaration using a global-variable-like declaration:
+C のライブラリで公開される変数は、`lib` の内部でグローバル変数に似た記法を使って宣言できます。
 
 ```crystal
 lib C
@@ -16,7 +16,7 @@ C.errno = 0
 C.errno # => 0
 ```
 
-変数は属性を付与することでスレッドローカルにすることが可能です。
+変数はアノテーションを付与することでスレッドローカルにすることが可能です。
 
 ```crystal
 lib C
@@ -25,4 +25,4 @@ lib C
 end
 ```
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in external variables types.
+外部変数の使用可能な型の指定方法については[型の文法r](../type_grammar.html)を参照してください。

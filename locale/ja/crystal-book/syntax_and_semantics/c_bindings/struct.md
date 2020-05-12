@@ -1,6 +1,6 @@
 # struct
 
-A `struct` declaration inside a `lib` declares a C struct.
+`lib` の内部で `struct` を宣言することで、C の構造体を宣言できます。
 
 ```crystal
 lib C
@@ -27,7 +27,7 @@ lib C
 end
 ```
 
-Recursive structs work just like you expect them to:
+再帰的な構造体も期待通りに動作します。
 
 ```crystal
 lib C
@@ -41,7 +41,7 @@ lib C
 end
 ```
 
-To create an instance of a struct use `new`:
+構造体のインスタンスを生成するには `new` を利用します。
 
 ```crystal
 tz = C::TimeZone.new
@@ -51,7 +51,7 @@ tz = C::TimeZone.new
 
 C の構造体は、初期状態として、すべての値が「ゼロ」の状態になります。つまり、整数と浮動小数点数はゼロで、ポインタはゼロのアドレスを指している、などの状態です。
 
-To avoid this initialization you can use `uninitialized`:
+このように初期化されることを避けたい場合は `uninitialized` を利用します。
 
 ```crystal
 tz = uninitialized C::TimeZone
@@ -66,9 +66,9 @@ tz.minutes_west = 1
 tz.minutes_west # => 1
 ```
 
-If the assigned value is not exactly the same as the property's type, [to_unsafe](to_unsafe.html) will be tried.
+代入された値がプロパティの型と正確に同じものでない場合、[to_unsafe](to_unsafe.html) を呼び出して型を一致させようとします。
 
-You can also initialize some fields with a syntax similar to [named arguments](../default_and_named_arguments.html):
+また、フィールドは[名前付き引数](../default_and_named_arguments.html)と同様のシンタックスを使って初期化することもできます。
 
 ```crystal
 tz = C::TimeZone.new minutes_west: 1, dst_time: 2
@@ -88,4 +88,4 @@ change_it tz
 tz.minutes_west # => 0
 ```
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in struct field types.
+構造体のフィールドに使用可能な型の指定方法については[型の文法](../type_grammar.html)を参照してください。

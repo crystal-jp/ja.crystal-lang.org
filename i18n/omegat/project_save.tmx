@@ -806,6 +806,14 @@ end{% endhighlight %}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># "box" it: we allocate memory and store the Proc there</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090523Z" creationid="makenowjust" creationdate="20200512T090523Z">
+        <seg># そこで、メモリを確保して Proc をそこに保存する「ボックス化」をします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># &amp;&amp;</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T051346Z" creationid="hirofumiwakasugi" creationdate="20150905T051346Z">
@@ -1234,6 +1242,14 @@ objects.[]=(2, 3)</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054712Z" creationid="hirofumiwakasugi" creationdate="20150902T054712Z">
         <seg># インデックスを指定した代入
 objects.[]=(2, 3)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># And finally invoke the user's callback</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090930Z" creationid="makenowjust" creationdate="20200512T090930Z">
+        <seg># そして、最終的にユーザーのコールバックを呼び出します</seg>
       </tuv>
     </tu>
     <tu>
@@ -2216,6 +2232,14 @@ array2.same?(array) #=&gt; true
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Now we turn data back into the Proc, using Box.unbox</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090935Z" creationid="makenowjust" creationdate="20200512T090912Z">
+        <seg># ここで Box.unbox を使い data を Proc に戻します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># OK</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T043802Z" creationid="hirofumiwakasugi" creationdate="20150909T043802Z">
@@ -2600,6 +2624,16 @@ loop do</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Same as callback(NULL) in C
+X.callback nil</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085907Z" creationid="makenowjust" creationdate="20200512T085907Z">
+        <seg># C での callback(NULL) と同じ
+X.callback nil</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Same as not specifying a restriction, not very useful
 def foo(x : _)
 end
@@ -2700,6 +2734,14 @@ objects[2] = temp2
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T072655Z" creationid="hirofumiwakasugi" creationdate="20150906T072607Z">
         <seg># 「String」の指定は制約なしのものより制約的であるため、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Since Proc is a {Void*, Void*}, we can't turn that into a Void*, so we</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090448Z" creationid="makenowjust" creationdate="20200512T090448Z">
+        <seg># Proc は内部的には {Void*, Void*} なので Void* にすることはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3026,6 +3068,14 @@ ary = [] of Point</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T175410Z" creationid="makenowjust" creationdate="20200505T175410Z">
         <seg># 各 Point 毎に配列のバッファが8バイト確保される
 ary = [] of Point</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># The callback for the user doesn't have a Void*</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090701Z" creationid="makenowjust" creationdate="20200512T090415Z">
+        <seg># ユーザーのコールバックは Void* を持ちません</seg>
       </tuv>
     </tu>
     <tu>
@@ -3396,6 +3446,22 @@ end
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T030902Z" creationid="hirofumiwakasugi" creationdate="20151009T030902Z">
         <seg># ここで、マクロ展開によって name にアクセスすることはできない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># We must save this in Crystal-land so the GC doesn't collect it (*)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090738Z" creationid="makenowjust" creationdate="20200512T090543Z">
+        <seg># 勝手に GC されるのを防ぐため、Crystal 上に保持しておく必要があります (*)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># We pass a callback that doesn't form a closure, and pass the boxed_data as</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090835Z" creationid="makenowjust" creationdate="20200512T090835Z">
+        <seg># クロージャではない形になるようにコールバックを渡し、boxed_data をコールバック</seg>
       </tuv>
     </tu>
     <tu>
@@ -5019,6 +5085,14 @@ crystal spec spec/myapp_spec.cr:6 # Myapp works</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># the callback data</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090938Z" creationid="makenowjust" creationdate="20200512T090841Z">
+        <seg># のデータとして渡します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># this should be avoided</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T130142Z" creationid="akiji" creationdate="20200430T130142Z">
@@ -6377,6 +6451,16 @@ x86_64-unknown-linux-gnu
 x86_64-unknown-linux-gnu
 
 # よって、フラグは x86_64, unknown, linux, gnu となります</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>$errno : Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084058Z" creationid="makenowjust" creationdate="20200512T084058Z">
+        <seg>$errno : Int32
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -10823,6 +10907,30 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;@[Link("pcre")]&lt;/g1&gt; will pass &lt;g2&gt;-lpcre&lt;/g2&gt; to the linker, but the compiler will first try to use &lt;g3&gt;pkg-config&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030648Z" creationid="makenowjust" creationdate="20200511T030648Z">
+        <seg>&lt;g1&gt;@[Link("pcre")]&lt;/g1&gt; は &lt;g2&gt;-lpcre&lt;/g2&gt; をリンカに渡します。ただし、コンパイラはまず最初に &lt;g3&gt;pkg-config&lt;/g3&gt; の利用を試みます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;@[Link(framework: "Cocoa")]&lt;/g1&gt; will pass &lt;g2&gt;-framework Cocoa&lt;/g2&gt; to the linker (only useful in macOS).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030814Z" creationid="makenowjust" creationdate="20200511T030814Z">
+        <seg>&lt;g1&gt;@[Link(framework: "Cocoa")]&lt;/g1&gt; は &lt;g2&gt;-framework Cocoa&lt;/g2&gt; をリンカに渡します (macOS でのみ用途があるでしょう)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;@[Link(ldflags: "...")]&lt;/g1&gt; will pass those flags directly to the linker, without modification.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030704Z" creationid="makenowjust" creationdate="20200511T030704Z">
+        <seg>&lt;g1&gt;@[Link(ldflags: "...")]&lt;/g1&gt; は指定したフラグをそのまま直接リンカに渡します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;AlwaysInline&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T114553Z" creationid="makenowjust" creationdate="20200510T114553Z">
@@ -11623,6 +11731,22 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;NoReturn&lt;/g1&gt;: similar to &lt;g2&gt;Void&lt;/g2&gt;, but the compiler understands that no code can be executed after that invocation.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032321Z" creationid="makenowjust" creationdate="20200511T032321Z">
+        <seg>&lt;g1&gt;NoReturn&lt;/g1&gt;: &lt;g2&gt;Void&lt;/g2&gt; と似ているが、呼び出し後に続くコードを実行しないことをコンパイラが理解します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Note:&lt;/g1&gt; The C &lt;g2&gt;char&lt;/g2&gt; type is &lt;g3&gt;UInt8&lt;/g3&gt; in Crystal, so a &lt;g4&gt;char*&lt;/g4&gt; or a &lt;g5&gt;const char*&lt;/g5&gt; is &lt;g6&gt;UInt8*&lt;/g6&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032542Z" creationid="makenowjust" creationdate="20200511T032542Z">
+        <seg>&lt;g1&gt;注意:&lt;/g1&gt; C の &lt;g2&gt;char&lt;/g2&gt; 型は Crystal では &lt;g3&gt;UInt8&lt;/g3&gt; です。なので、&lt;g4&gt;char*&lt;/g4&gt; や &lt;g5&gt;const char*&lt;/g5&gt; は &lt;g6&gt;UInt8*&lt;/g6&gt; になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Note&lt;/g1&gt;: a &lt;g2&gt;new&lt;/g2&gt; method might be redefined by a type.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T140127Z" creationid="makenowjust" creationdate="20200427T140127Z">
@@ -12051,6 +12175,14 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170854Z" creationid="makenowjust" creationdate="20200413T170854Z">
         <seg>&lt;g1&gt;可視性&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Void&lt;/g1&gt;: the absence of a return value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032324Z" creationid="makenowjust" creationdate="20200511T032231Z">
+        <seg>&lt;g1&gt;Void&lt;/g1&gt;: 戻り値がないことを意味します</seg>
       </tuv>
     </tu>
     <tu>
@@ -13441,6 +13573,22 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>@@box : Pointer(Void)?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090419Z" creationid="makenowjust" creationdate="20200512T090419Z">
+        <seg>@@box : Pointer(Void)?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@@box = boxed_data</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090741Z" creationid="makenowjust" creationdate="20200512T090741Z">
+        <seg>@@box = boxed_data</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>@@counter</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T041159Z" creationid="hirofumiwakasugi" creationdate="20150910T041159Z">
@@ -13557,6 +13705,28 @@ enum IOMode</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182142Z" creationid="makenowjust" creationdate="20200505T182142Z">
         <seg>@[Flags]
 enum IOMode</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@[Link("pcre")]
+lib LibPCRE
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030348Z" creationid="makenowjust" creationdate="20200511T030348Z">
+        <seg>@[Link("pcre")]
+lib LibPCRE
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@[Link("pcre")]
+lib PCRE</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084323Z" creationid="makenowjust" creationdate="20200512T084323Z">
+        <seg>@[Link("pcre")]
+lib PCRE</seg>
       </tuv>
     </tu>
     <tu>
@@ -14129,10 +14299,26 @@ offsetof(Foo, @y) # =&gt; 8</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;fun&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; binds to a C function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031011Z" creationid="makenowjust" creationdate="20200511T031011Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の中で &lt;g1&gt;fun&lt;/g1&gt; を宣言すると、C 関数へのバインディングとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;here document&lt;/g1&gt; or &lt;g2&gt;heredoc&lt;/g2&gt; can be useful for writing strings spanning over multiple lines.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200420T033420Z" creationid="makenowjust" creationdate="20200420T033420Z">
         <seg>&lt;g1&gt;ヒアドキュメント&lt;/g1&gt;ないし&lt;g2&gt;heredoc&lt;/g2&gt;は複数行にまたがる文字列の便利な書き方です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;lib&lt;/g1&gt; declaration groups C functions and types that belong to a library.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030347Z" creationid="makenowjust" creationdate="20200511T030347Z">
+        <seg>&lt;g1&gt;lib&lt;/g1&gt; 宣言によって、C ライブラリの関数群や型をグループ化します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14185,10 +14371,34 @@ offsetof(Foo, @y) # =&gt; 8</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;struct&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; declares a C struct.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092024Z" creationid="makenowjust" creationdate="20200512T082652Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の内部で &lt;g1&gt;struct&lt;/g1&gt; を宣言することで、C の構造体を宣言できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;g1&gt;truthy&lt;/g1&gt; value is a value that is considered true for an &lt;g2&gt;if&lt;/g2&gt;, &lt;g3&gt;unless&lt;/g3&gt;, &lt;g4&gt;while&lt;/g4&gt; or &lt;g5&gt;until&lt;/g5&gt; guard.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T060419Z" creationid="makenowjust" creationdate="20200424T060419Z">
         <seg>&lt;g1&gt;真になる&lt;/g1&gt;値というのは、&lt;g2&gt;if&lt;/g2&gt;、&lt;g3&gt;unless&lt;/g3&gt;、&lt;g4&gt;while&lt;/g4&gt;、そして&lt;g5&gt;until&lt;/g5&gt;の条件で真 (true) となる値を指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;type&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; declares a kind of C &lt;g3&gt;typedef&lt;/g3&gt;, but stronger:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084504Z" creationid="makenowjust" creationdate="20200512T084452Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; 宣言の内部で &lt;g1&gt;type&lt;/g1&gt; を宣言すると、C の `typedef` 宣言に近いことができます。ただし、より厳密に振舞います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A &lt;g1&gt;union&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; declares a C union:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083323Z" creationid="makenowjust" creationdate="20200512T083323Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の内部で &lt;g1&gt;union&lt;/g1&gt; を宣言することで C の共用体を宣言できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14754,6 +14964,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A common technique is to use backticks to execute commands: &lt;g3&gt;@[Link(ldflags: "`pkg-config libpcre --libs`")]&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030743Z" creationid="makenowjust" creationdate="20200511T030743Z">
+        <seg>よく使われるテクニックとしてバックティック (バッククォート) を活用してコマンドを実行するものがあります。 &lt;g3&gt;@[Link(ldflags: "`pkg-config libpcre --libs`")]&lt;/g3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A common technique is to use backticks to execute commands: ``@[Link(ldflags: "`pkg-config libpcre --libs`")]``.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151003T143336Z" creationid="hirofumiwakasugi" creationdate="20151003T143336Z">
@@ -15270,8 +15488,8 @@ extra syntax to manipulate the AST nodes.</seg>
       <tuv lang="EN-US">
         <seg>A variable can be marked as thread local with an attribute:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053859Z" creationid="hirofumiwakasugi" creationdate="20151007T053828Z">
-        <seg>変数は属性を付与することでスレッドローカルにすることが可能です。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084112Z" creationid="hirofumiwakasugi" creationdate="20151007T053828Z">
+        <seg>変数はアノテーションを付与することでスレッドローカルにすることが可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15400,6 +15618,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T025926Z" creationid="hirofumiwakasugi" creationdate="20150903T021901Z">
         <seg>一方このとき、`else` 節の中ではチェックした型「ではない」ことが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Additionally, it provides some conveniences like &lt;g1&gt;out&lt;/g1&gt; and &lt;g2&gt;to_unsafe&lt;/g2&gt; so writing bindings is as painless as possible.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030219Z" creationid="makenowjust" creationdate="20200511T030219Z">
+        <seg>さらに、&lt;g1&gt;out&lt;/g1&gt; や &lt;g2&gt;to_unsafe&lt;/g2&gt; といった便利なものを用意しているので、可能な限り楽にバインディングを書けるようになっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15749,6 +15975,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Although not enforced by the compiler, a &lt;g1&gt;lib&lt;/g1&gt;'s name usually starts with &lt;g2&gt;Lib&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030617Z" creationid="makenowjust" creationdate="20200511T030617Z">
+        <seg>なお、これはコンパイラが強制するものではありませんが、通常は &lt;g1&gt;lib&lt;/g1&gt; の名前は &lt;g2&gt;Lib&lt;/g2&gt; から始まるものにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Although not enforced by the compiler, a `lib`'s name usually starts with `Lib`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151003T142526Z" creationid="hirofumiwakasugi" creationdate="20151003T142356Z">
@@ -15813,6 +16047,22 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;alias&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; declares a C &lt;g3&gt;typedef&lt;/g3&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085021Z" creationid="makenowjust" creationdate="20200512T085021Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の中で &lt;g1&gt;alias&lt;/g1&gt; を宣言することで C &lt;g3&gt;typedef&lt;/g3&gt; が宣言できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;alias&lt;/g1&gt; is most useful to avoid writing long types over and over, but also to declare a type based on compile-time flags:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085128Z" creationid="makenowjust" creationdate="20200512T085128Z">
+        <seg>&lt;g1&gt;alias&lt;/g1&gt; が便利なのは、長い型名を何度も書かずに済むようにできることに限らず、コンパイル時のフラグに基づく型宣言にも利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An &lt;g1&gt;else&lt;/g1&gt; clause can only be specified if at least one &lt;g2&gt;rescue&lt;/g2&gt; clause is specified.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T103645Z" creationid="makenowjust" creationdate="20200506T103645Z">
@@ -15833,6 +16083,14 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T103730Z" creationid="makenowjust" creationdate="20200506T103730Z">
         <seg>&lt;g1&gt;ensure&lt;/g1&gt; 節は例外が発生したかどうかに関係なく、&lt;g2&gt;begin ... end&lt;/g2&gt; または &lt;g3&gt;begin ... rescue ... end&lt;/g3&gt; のあとで必ず実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;enum&lt;/g1&gt; declaration inside a &lt;g2&gt;lib&lt;/g2&gt; declares a C enum:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083708Z" creationid="makenowjust" creationdate="20200512T083708Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の中で &lt;g1&gt;enum&lt;/g1&gt; を宣言することで C の列挙型を宣言できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16129,6 +16387,14 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T131043Z" creationid="hirofumiwakasugi" creationdate="20150911T131043Z">
         <seg>まず、名前空間としてモジュールを使用する例を見てみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An example of this is the C &lt;g2&gt;FILE&lt;/g2&gt; type, which you can obtain with &lt;g3&gt;fopen&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084801Z" creationid="makenowjust" creationdate="20200512T084801Z">
+        <seg>この例としては、&lt;g3&gt;fopen&lt;/g3&gt; によって得られる C の &lt;g2&gt;FILE&lt;/g2&gt; 型があげられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16748,8 +17014,8 @@ foo(String) # =&gt; Array(String)</seg>
       <tuv lang="EN-US">
         <seg>As in C, the first member of the enum has a value of zero and each successive value is incremented by one.</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052843Z" creationid="hirofumiwakasugi" creationdate="20151007T052721Z">
-        <seg>C と同じく、enum の最初の要素はゼロで、以降の要素はそれぞれ1ずつ増加した値となります。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083920Z" creationid="hirofumiwakasugi" creationdate="20151007T052721Z">
+        <seg>C と同じく、列挙型の最初の要素はゼロで、以降の要素はそれぞれ1ずつ増加した値となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16798,6 +17064,14 @@ foo(String) # =&gt; Array(String)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T190807Z" creationid="makenowjust" creationdate="20200413T190633Z">
         <seg>&lt;g5&gt;NCurses&lt;/g5&gt; を Crystal から扱える &lt;g4&gt;shardは2つ&lt;/g4&gt;ほど存在しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As you can see, some basic math is allowed for a member value: &lt;g1&gt;+&lt;/g1&gt;, &lt;g2&gt;-&lt;/g2&gt;, &lt;g3&gt;*&lt;/g3&gt;, &lt;g4&gt;/&lt;/g4&gt;, &lt;g5&gt;&amp;&lt;/g5&gt;, &lt;g6&gt;|&lt;/g6&gt;, &lt;g7&gt;&lt;&lt;&lt;/g7&gt;, &lt;g8&gt;&gt;&gt;&lt;/g8&gt; and &lt;g9&gt;%&lt;/g9&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083803Z" creationid="makenowjust" creationdate="20200512T083803Z">
+        <seg>上記のように、要素の値には &lt;g1&gt;+&lt;/g1&gt;、&lt;g2&gt;-&lt;/g2&gt;、&lt;g3&gt;*&lt;/g3&gt;、&lt;g4&gt;/&lt;/g4&gt;、&lt;g5&gt;&amp;&lt;/g5&gt;、 &lt;g6&gt;|&lt;/g6&gt;、&lt;g7&gt;&lt;&lt;&lt;/g7&gt;、&lt;g8&gt;&gt;&gt;&lt;/g8&gt;、&lt;g9&gt;%&lt;/g9&gt;といった基本的な計算を行うこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17657,6 +17931,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>C bindings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030142Z" creationid="makenowjust" creationdate="20200511T030142Z">
+        <seg>C バインディング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>C libraries, structs)</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T140001Z" creationid="makenowjust" creationdate="20200504T140001Z">
@@ -17669,6 +17951,26 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T221410Z" creationid="makenowjust" creationdate="20200413T221410Z">
         <seg>C バインディング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C.cos(1.5) # =&gt; 0.0707372</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031042Z" creationid="makenowjust" creationdate="20200511T031042Z">
+        <seg>C.cos(1.5) # =&gt; 0.0707372</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>C.errno # =&gt; some value
+C.errno = 0
+C.errno # =&gt; 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084059Z" creationid="makenowjust" creationdate="20200512T084059Z">
+        <seg>C.errno # =&gt; some value
+C.errno = 0
+C.errno # =&gt; 0</seg>
       </tuv>
     </tu>
     <tu>
@@ -17713,6 +18015,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>C.waitpid(pid, out status_ptr, options)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082229Z" creationid="makenowjust" creationdate="20200512T082229Z">
+        <seg>C.waitpid(pid, out status_ptr, options)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>C.waitpid(pid, out status_ptr, options)
 ```</seg>
       </tuv>
@@ -17745,6 +18055,14 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T120217Z" creationid="makenowjust" creationdate="20200510T120217Z">
         <seg>CallConvention</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Callbacks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085439Z" creationid="makenowjust" creationdate="20200512T085439Z">
+        <seg>コールバック</seg>
       </tuv>
     </tu>
     <tu>
@@ -18034,6 +18352,22 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Code involving C bindings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093458Z" creationid="makenowjust" creationdate="20200512T093458Z">
+        <seg>C バインディングを呼び出すコード</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Code involving raw pointers: the &lt;g1&gt;Pointer&lt;/g1&gt; type and &lt;g2&gt;pointerof&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093442Z" creationid="makenowjust" creationdate="20200512T093442Z">
+        <seg>名前のポインタを使うコード: &lt;g1&gt;Pointer&lt;/g1&gt; 型と &lt;g2&gt;pointerof&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Coding Style</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T202830Z" creationid="makenowjust" creationdate="20200412T202830Z">
@@ -18300,6 +18634,14 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T125827Z" creationid="makenowjust" creationdate="20200427T125827Z">
         <seg>このようなクラスの定義を考えてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Consider the &lt;g1&gt;waitpid&lt;/g1&gt; function:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T081901Z" creationid="makenowjust" creationdate="20200512T081845Z">
+        <seg>&lt;g1&gt;waitpid&lt;/g1&gt; 関数について考えてみてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18608,6 +18950,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000352Z" creationid="makenowjust" creationdate="20200414T000352Z">
         <seg>Crystal には、数多くの基本的な型に対応したリテラルが用意されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Crystal structs marked with the &lt;g1&gt;@[Extern]&lt;/g1&gt; attribute</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032348Z" creationid="makenowjust" creationdate="20200511T032348Z">
+        <seg>&lt;g1&gt;@[Extern]&lt;/g1&gt; 属性の指定された Crystal の構造体</seg>
       </tuv>
     </tu>
     <tu>
@@ -20011,10 +20361,34 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, suppose a C function that invokes a callback at every tick, passing that tick:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090122Z" creationid="makenowjust" creationdate="20200512T090122Z">
+        <seg>例として、一定の周期でコールバックを呼び出すような C の関数を考えてみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, suppose a ficticious library:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T052141Z" creationid="hirofumiwakasugi" creationdate="20151008T052141Z">
         <seg>例えば、以下のようなライブラリがあるものと考えてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, suppose a fictitious library:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092513Z" creationid="makenowjust" creationdate="20200512T091431Z">
+        <seg>例えば、以下のようなライブラリを考えてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, the &lt;g1&gt;String&lt;/g1&gt; class implements &lt;g2&gt;to_unsafe&lt;/g2&gt; to return &lt;g3&gt;UInt8*&lt;/g3&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082505Z" creationid="makenowjust" creationdate="20200512T082505Z">
+        <seg>例えば、&lt;g1&gt;String&lt;/g1&gt; クラスが &lt;g3&gt;UInt8*&lt;/g3&gt; を返す &lt;g2&gt;to_unsafe&lt;/g2&gt; を実装している場合を考えてみましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20123,6 +20497,14 @@ https://github.com/manastech/crystal/issues/1453</note>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example: &lt;g2&gt;@[Link(ldflags: "-lpcre")]&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030712Z" creationid="makenowjust" creationdate="20200511T030709Z">
+        <seg>例: &lt;g2&gt;@[Link(ldflags: "-lpcre")]&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example: &lt;g3&gt;LibC&lt;/g3&gt;, &lt;g4&gt;LibEvent2&lt;/g4&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T204151Z" creationid="makenowjust" creationdate="20200412T204151Z">
@@ -20151,6 +20533,14 @@ https://github.com/manastech/crystal/issues/1453</note>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T140125Z" creationid="hirofumiwakasugi" creationdate="20151010T140125Z">
         <seg>例えば、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For integers and floats you can use the various &lt;g2&gt;to_...&lt;/g2&gt; methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031608Z" creationid="makenowjust" creationdate="20200511T031608Z">
+        <seg>整数と浮動小数点数に関しては&lt;g2&gt;to_...&lt;/g2&gt; メソッドが利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20304,6 +20694,38 @@ the following arguments can be used:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072454Z" creationid="hirofumiwakasugi" creationdate="20150901T072454Z">
         <seg>このプログラムを見ればわかる通り、Crystal ではプログラム自体がメインルーチンとなります。つまり、「main」関数やそれに値するものを定義する必要はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Function names</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031612Z" creationid="makenowjust" creationdate="20200511T031612Z">
+        <seg>関数名</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Function names in Crystal can be different from the C name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031733Z" creationid="makenowjust" creationdate="20200511T031733Z">
+        <seg>これは、Crystal の関数名は C でのそれとは異なるためです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Function names in a &lt;g1&gt;lib&lt;/g1&gt; definition can start with an upper case letter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031629Z" creationid="makenowjust" creationdate="20200511T031629Z">
+        <seg>&lt;g1&gt;lib&lt;/g1&gt; 中での関数名は大文字からはじめることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Function types (&lt;g1&gt;Function(Int32, Int32)&lt;/g1&gt;, which can also be written as &lt;g2&gt;Int32 -&gt; Int32&lt;/g2&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032113Z" creationid="makenowjust" creationdate="20200511T032113Z">
+        <seg>関数型 (&lt;g1&gt;Function(Int32, Int32)&lt;/g1&gt;、これは &lt;g2&gt;Int32 -&gt; Int32&lt;/g2&gt; のようにも書けます)</seg>
       </tuv>
     </tu>
     <tu>
@@ -20978,6 +21400,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, the compiler doesn't know that &lt;g3&gt;execute_callback&lt;/g3&gt; can potentially raise because it is not marked as &lt;g4&gt;@[Raises]&lt;/g4&gt; and the compiler has no way to figure this out.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091601Z" creationid="makenowjust" creationdate="20200512T091601Z">
+        <seg>しかし、 &lt;g3&gt;execute_callback&lt;/g3&gt; に &lt;g4&gt;@[Raises]&lt;/g4&gt; が指定されていないため、コンパイラはそれが例外を発生させるものであることを知ることができません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, the compiler doesn't know that `execute_callback` can potentially raise because it is not marked as `@[Raises]` and the compiler has no way to figure this out.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T052920Z" creationid="hirofumiwakasugi" creationdate="20151008T052920Z">
@@ -21048,6 +21478,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T022114Z" creationid="hirofumiwakasugi" creationdate="20151008T022114Z">
         <seg>INFO_CAPTURECOUNT = 2
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>INFO_CAPTURECOUNT = 2
+end
+
+PCRE::INFO_CAPTURECOUNT # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084324Z" creationid="makenowjust" creationdate="20200512T084324Z">
+        <seg>INFO_CAPTURECOUNT = 2
+end
+
+PCRE::INFO_CAPTURECOUNT # =&gt; 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -21188,6 +21632,14 @@ IOMode::All.value  # =&gt; 7</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T091439Z" creationid="makenowjust" creationdate="20200424T091439Z">
         <seg>もし&lt;g1&gt;when&lt;/g1&gt;節の条件式に型が与えられていれば、代わりに&lt;g2&gt;is_a?&lt;/g2&gt;が使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a C function executes a user-provided callback that might raise, it must be annotated with the &lt;g1&gt;@[Raises]&lt;/g1&gt; attribute.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091208Z" creationid="makenowjust" creationdate="20200512T091208Z">
+        <seg>例外を発生させる可能性のあるコールバックを C の関数が実行するときには、&lt;g1&gt;@[Raises]&lt;/g1&gt; アノテーションを指定しておく必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21341,6 +21793,14 @@ garbage-collected that method will be invoked:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T015719Z" creationid="hirofumiwakasugi" creationdate="20151001T015605Z">
         <seg>もしトップレベルのマクロが `private` に指定された場合は、そのファイル内でのみアクセスできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a type defines a &lt;g1&gt;to_unsafe&lt;/g1&gt; method, when passing it to C the value returned by this method will be passed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082429Z" creationid="makenowjust" creationdate="20200512T082429Z">
+        <seg>もし、ある方に &lt;g1&gt;to_unsafe&lt;/g1&gt; メソッドが定義されていた場合、C に渡されるのはそのメソッドからの戻り値となります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21699,6 +22159,22 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the assigned value is not exactly the same as the property's type, &lt;g1&gt;to_unsafe&lt;/g1&gt; will be tried.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083015Z" creationid="makenowjust" creationdate="20200512T083015Z">
+        <seg>代入された値がプロパティの型と正確に同じものでない場合、&lt;g1&gt;to_unsafe&lt;/g1&gt; を呼び出して型を一致させようとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the callback passed to &lt;g1&gt;store_callback&lt;/g1&gt; raises, then &lt;g2&gt;execute_callback&lt;/g2&gt; will raise.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091522Z" creationid="makenowjust" creationdate="20200512T091522Z">
+        <seg>このとき、もし &lt;g1&gt;store_callback&lt;/g1&gt; に渡されたコールバックが例外を発生させるものであるときには、 &lt;g2&gt;execute_callback&lt;/g2&gt; が例外を発生させるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the callback passed to `store_callback` raises, then `execute_callback` will raise.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T052827Z" creationid="hirofumiwakasugi" creationdate="20151008T052822Z">
@@ -21963,6 +22439,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you define the function inline in the same call you can omit the argument types, the compiler will add the types for you based on the &lt;g1&gt;fun&lt;/g1&gt; signature:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085659Z" creationid="makenowjust" creationdate="20200512T085659Z">
+        <seg>呼び出しと同時にインラインで関数を定義する場合は、引数の型を省略することが可能です。このとき、コンパイラが &lt;g1&gt;fun&lt;/g1&gt; のシグネチャに基づいて型を追加します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you define the function inline in the same call you can omit the argument types, the compiler will add the types for you based on the `fun` signature:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T024506Z" creationid="hirofumiwakasugi" creationdate="20151008T024506Z">
@@ -21983,6 +22467,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T120232Z" creationid="akiji" creationdate="20200430T120232Z">
         <seg>スタックメモリとヒープメモリの違いがわからない場合は、 &lt;g3&gt;ここを読んでみてください&lt;/g3&gt;。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you don't mark them, &lt;g1&gt;begin/rescue&lt;/g1&gt; blocks that surround this function's calls won't work as expected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091637Z" creationid="makenowjust" creationdate="20200512T091637Z">
+        <seg>もし上記のように指定しなかった場合、この関数呼び出しを囲む &lt;g1&gt;begin/rescue&lt;/g1&gt; ブロックは期待通りに動いてくれません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22154,6 +22646,14 @@ characters, you can use alternative literals:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021405Z" creationid="hirofumiwakasugi" creationdate="20150904T021221Z">
         <seg>プログラムに定義されたメソッドを実行したいけれど、自身の型にも同名のメソッドが定義されている場合には、`::` をプレフィックスに与えることで実行できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you want to pass &lt;g1&gt;NULL&lt;/g1&gt; instead of a callback, just pass &lt;g2&gt;nil&lt;/g2&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085857Z" creationid="makenowjust" creationdate="20200512T085857Z">
+        <seg>コールバックではなく &lt;g1&gt;NULL&lt;/g1&gt; を渡したい場合は、単純に &lt;g2&gt;nil&lt;/g2&gt; を渡してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23046,6 +23546,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072243Z" creationid="hirofumiwakasugi" creationdate="20150912T071027Z">
         <seg>このようにして、ジェネリック型の扱いが冗長になってしまうことを軽減しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In this way we pass a pointer of &lt;g1&gt;status_ptr&lt;/g1&gt; to the function for it to fill its value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082007Z" creationid="makenowjust" creationdate="20200512T082007Z">
+        <seg>このとき、&lt;g1&gt;status_ptr&lt;/g1&gt; のポインタを関数に渡し、値を設定してもらっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24089,6 +24597,14 @@ LibFoo.execute_callback
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>LibTicker.on_tick(-&gt;(tick, data) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090842Z" creationid="makenowjust" creationdate="20200512T090842Z">
+        <seg>LibTicker.on_tick(-&gt;(tick, data) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Library authors are advised to put their definitions inside a module to avoid name clashes.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T131718Z" creationid="hirofumiwakasugi" creationdate="20150911T131411Z">
@@ -24734,6 +25250,14 @@ with the `yield` keyword.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Most of the time a C function that allows setting a callback also provide an argument for custom data.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090020Z" creationid="makenowjust" creationdate="20200512T090002Z">
+        <seg>ほとんどの C 関数はコールバックに独自のデータのための引数が用意されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Most operators can be implemented as regular methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T082926Z" creationid="makenowjust" creationdate="20200502T082926Z">
@@ -25245,6 +25769,14 @@ end up in the resulting string.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note that there are no implicit conversions (except &lt;g1&gt;to_unsafe&lt;/g1&gt;, which is explained later) when invoking a C function: you must pass the exact type that is expected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031546Z" creationid="makenowjust" creationdate="20200511T031546Z">
+        <seg>C の関数を呼び出すときに (後に説明する &lt;g1&gt;to_unsafe&lt;/g1&gt; を除いては) 暗黙的な変換は行われないことに注意してください。つまり、期待される型を正確に渡す必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Note that there are no implicit conversions (except `to_unsafe`, explained later) when invoking a C function: you must pass the exact type that is expected.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041249Z" creationid="hirofumiwakasugi" creationdate="20151005T041031Z">
@@ -25281,6 +25813,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T060003Z" creationid="hirofumiwakasugi" creationdate="20150904T055943Z">
         <seg>ただ、ちょっと不思議に思わないでしょうか？`new` を使って `Person` のインスタンスを生成していますが、先ほど初期化処理を実装したのは `initialize` メソッドで、`new` メソッドではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that we save the boxed callback in &lt;g1&gt;@@box&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091012Z" creationid="makenowjust" creationdate="20200512T091012Z">
+        <seg>ボックス化したコールバックを &lt;g1&gt;@@box&lt;/g1&gt; に保持したことに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25369,6 +25909,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T220705Z" creationid="makenowjust" creationdate="20200509T220705Z">
         <seg>内側のマクロの変数は &lt;g1&gt;verbatim&lt;/g1&gt; ブロックの中では有効ではないことに注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Now &lt;g1&gt;Int32&lt;/g1&gt; and &lt;g2&gt;MyInt&lt;/g2&gt; are interchangeable:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085036Z" creationid="makenowjust" creationdate="20200512T085036Z">
+        <seg>これで &lt;g1&gt;Int32&lt;/g1&gt; と &lt;g2&gt;MyInt&lt;/g2&gt; は相互に交換可能になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25642,6 +26190,14 @@ specifying the current working directory.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T071919Z" creationid="hirofumiwakasugi" creationdate="20150901T071919Z">
         <seg>[インストール](../installation/README.md)が済んでいれば、`crystal` というバイナリを利用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once you bind it, the function is available inside the &lt;g1&gt;C&lt;/g1&gt; type as if it was a class method:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031038Z" creationid="makenowjust" creationdate="20200511T031038Z">
+        <seg>バインディングを設定したら、その関数は &lt;g1&gt;C&lt;/g1&gt; 型でクラスメソッドのように利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25929,6 +26485,14 @@ offers many implementations, for example for math expressions.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Other &lt;g1&gt;struct&lt;/g1&gt;, &lt;g2&gt;union&lt;/g2&gt;, &lt;g3&gt;enum&lt;/g3&gt;, &lt;g4&gt;type&lt;/g4&gt; or &lt;g5&gt;alias&lt;/g5&gt; declared previously.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032222Z" creationid="makenowjust" creationdate="20200511T032119Z">
+        <seg>その他の、これまでに宣言された &lt;g1&gt;struct&lt;/g1&gt;、&lt;g2&gt;union&lt;/g2&gt;、&lt;g3&gt;enum&lt;/g3&gt;、&lt;g4&gt;type&lt;/g4&gt; もしくは &lt;g5&gt;alias&lt;/g5&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Other forms</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T090808Z" creationid="makenowjust" creationdate="20200427T090808Z">
@@ -26181,6 +26745,14 @@ module Earth</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Passing a closure to a C function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085923Z" creationid="makenowjust" creationdate="20200512T085923Z">
+        <seg>C の関数にクロージャを渡す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Passing by value</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T172638Z" creationid="makenowjust" creationdate="20200505T172638Z">
@@ -26296,6 +26868,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Pointer types (&lt;g1&gt;Pointer(Int32)&lt;/g1&gt;, which can also be written as &lt;g2&gt;Int32*&lt;/g2&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032042Z" creationid="makenowjust" creationdate="20200511T032042Z">
+        <seg>ポインタ型 (&lt;g1&gt;Pointer(Int32)&lt;/g1&gt;、これは &lt;g2&gt;Int32*&lt;/g2&gt; のようにも書けます)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Positional</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T110800Z" creationid="makenowjust" creationdate="20200510T110800Z">
@@ -26340,6 +26920,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T084006Z" creationid="akiji" creationdate="20200430T084006Z">
         <seg>早まった最適化</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Primitive types (&lt;g1&gt;Int8&lt;/g1&gt;, ..., &lt;g2&gt;Int64&lt;/g2&gt;, &lt;g3&gt;UInt8&lt;/g3&gt;, ..., &lt;g4&gt;UInt64&lt;/g4&gt;, &lt;g5&gt;Float32&lt;/g5&gt;, &lt;g6&gt;Float64&lt;/g6&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032208Z" creationid="makenowjust" creationdate="20200511T032024Z">
+        <seg>プリミティブ型 (&lt;g1&gt;Int8&lt;/g1&gt;、……、&lt;g2&gt;Int64&lt;/g2&gt;、&lt;g3&gt;UInt8&lt;/g3&gt;、……、&lt;g4&gt;UInt64&lt;/g4&gt;、&lt;g5&gt;Float32&lt;/g5&gt;、&lt;g6&gt;Float64&lt;/g6&gt;)</seg>
       </tuv>
     </tu>
     <tu>
@@ -26482,6 +27070,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Raises attribute</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091135Z" creationid="makenowjust" creationdate="20200512T091128Z">
+        <seg>Raises アノテーション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Raising an exception involves allocating memory, and executing an exception handler is generally slow.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023548Z" creationid="hirofumiwakasugi" creationdate="20150907T023519Z">
@@ -26594,6 +27190,14 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Recursive structs work just like you expect them to:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082713Z" creationid="makenowjust" creationdate="20200512T082713Z">
+        <seg>再帰的な構造体も期待通りに動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Red</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150914T024115Z" creationid="hirofumiwakasugi" creationdate="20150914T024115Z">
@@ -26634,10 +27238,66 @@ Earth::RADIUS # =&gt; 6_371_000</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in alias types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085211Z" creationid="makenowjust" creationdate="20200512T085143Z">
+        <seg>この宣言の型を指定方法については&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in callbacks and procs types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085751Z" creationid="makenowjust" creationdate="20200512T085751Z">
+        <seg>コールバックと Proc に使用する型の指定方法については&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in external variables types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084147Z" creationid="makenowjust" creationdate="20200512T084107Z">
+        <seg>外部変数の使用可能な型の指定方法については&lt;g1&gt;型の文法r&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in fun types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032426Z" creationid="makenowjust" creationdate="20200511T032426Z">
+        <seg>fun の型を書く際に利用できる構文は&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in struct field types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083127Z" creationid="makenowjust" creationdate="20200512T083127Z">
+        <seg>構造体のフィールドに使用可能な型の指定方法については&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in type restrictions.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T160711Z" creationid="makenowjust" creationdate="20200429T160711Z">
         <seg>型制約に指定する型の記法については、&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in typedef types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084845Z" creationid="makenowjust" creationdate="20200512T084845Z">
+        <seg>この宣言の型の指定方法については&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Refer to the &lt;g1&gt;type grammar&lt;/g1&gt; for the notation used in union field types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083449Z" creationid="makenowjust" creationdate="20200512T083430Z">
+        <seg>共用体のフィールドに使用可能な型の指定方法については&lt;g1&gt;型の文法&lt;/g1&gt;を参照してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27672,6 +28332,14 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Static arrays (&lt;g1&gt;StaticArray(Int32, 8)&lt;/g1&gt;, which can also be written as &lt;g2&gt;Int32[8]&lt;/g2&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032057Z" creationid="makenowjust" creationdate="20200511T032057Z">
+        <seg>静的配列 (&lt;g1&gt;StaticArray(Int32, 8)&lt;/g1&gt;、これは &lt;g2&gt;Int32[8]&lt;/g2&gt; のようにも書けます)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>StaticArray</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200507T120943Z" creationid="makenowjust" creationdate="20200507T120943Z">
@@ -27892,6 +28560,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Ten       = 10</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083715Z" creationid="makenowjust" creationdate="20200512T083715Z">
+        <seg>Ten       = 10</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Ten = 10</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052947Z" creationid="hirofumiwakasugi" creationdate="20151007T052947Z">
@@ -28068,6 +28744,14 @@ foo([1, "a"]) # =&gt; (Int32 | String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>That's different from methods and function definitions outside a &lt;g2&gt;lib&lt;/g2&gt;, which must start with a lower case letter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031713Z" creationid="makenowjust" creationdate="20200511T031713Z">
+        <seg>&lt;g2&gt;lib&lt;/g2&gt; の外では関数名は小文字から始める必要があり、ここは異なっています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>That's why the instance size ends up being 12 and not 8.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T121039Z" creationid="hirofumiwakasugi" creationdate="20150906T120906Z">
@@ -28177,6 +28861,14 @@ up a basic project structure.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T112244Z" creationid="makenowjust" creationdate="20200510T112244Z">
         <seg>&lt;g1&gt;TypeNode.instance_vars&lt;/g1&gt; を使うとインスタンス変数を表す &lt;g2&gt;MetaVar&lt;/g2&gt; の配列が取得できます。そして、これらのオブジェクトからそのインスタンス変数に与えられたアノテーションを取得することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;allocate&lt;/g1&gt; class method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093448Z" creationid="makenowjust" creationdate="20200512T093448Z">
+        <seg>&lt;g1&gt;allocate&lt;/g1&gt; クラスメソッド</seg>
       </tuv>
     </tu>
     <tu>
@@ -28399,6 +29091,14 @@ and immediately executes it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g7&gt;Char&lt;/g7&gt; type in Crystal is a unicode codepoint so it is represented by four bytes, making it similar to an &lt;g8&gt;Int32&lt;/g8&gt;, not to an &lt;g9&gt;UInt8&lt;/g9&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032629Z" creationid="makenowjust" creationdate="20200511T032629Z">
+        <seg>Crystal の &lt;g7&gt;Char&lt;/g7&gt; 型は Unicode のコードポイントであるため、4バイトで表現されます。つまり &lt;g9&gt;UInt8&lt;/g9&gt; ではなく &lt;g8&gt;Int32&lt;/g8&gt; に近いです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The C &lt;g2&gt;setjmp&lt;/g2&gt; is an example of such a function.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T120133Z" creationid="makenowjust" creationdate="20200510T120133Z">
@@ -28411,6 +29111,22 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T073440Z" creationid="hirofumiwakasugi" creationdate="20150919T073440Z">
         <seg>こういった関数の例としては C の `setjmp` があげられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C library will of course store the callback, but Crystal's GC has no way of knowing that.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091123Z" creationid="makenowjust" creationdate="20200512T091123Z">
+        <seg>C のライブラリも当然コールバックを保存しているでしょう。しかし Crystal の GC がそれを知る術はないのです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The C name can be put in quotes to be able to write a name that is not a valid identifier:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031850Z" creationid="makenowjust" creationdate="20200511T031850Z">
+        <seg>C での名前が有効な識別子ではない場合、ダブルクオートで囲って記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29226,6 +29942,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The compiler infers this attribute for a method if it invokes a method that is marked as &lt;g1&gt;@[Raises]&lt;/g1&gt; or raises (recursively).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092449Z" creationid="makenowjust" creationdate="20200512T091416Z">
+        <seg>コンパイラは、&lt;g1&gt;@[Raises]&lt;/g1&gt; が指定されたメソッドを実行するメソッドや、例外を発生させるメソッドに対しても (再帰的に) このアノテーションが指定されているものと推論します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The compiler infers this attribute for a method if it invokes a method that is marked as `@[Raises]` or raises (recursively).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053313Z" creationid="hirofumiwakasugi" creationdate="20151008T051453Z">
@@ -29326,6 +30050,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T110942Z" creationid="makenowjust" creationdate="20200504T110942Z">
         <seg>コンパイラは常に、同一のクラス階層下のユニオン型を virtual 型に解決します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The compiler will automatically declare a &lt;g1&gt;status_ptr&lt;/g1&gt; variable of type &lt;g2&gt;Int32&lt;/g2&gt;, because the argument is an &lt;g3&gt;Int32*&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082314Z" creationid="makenowjust" creationdate="20200512T082314Z">
+        <seg>このとき、引数が &lt;g3&gt;Int32*&lt;/g3&gt; であるため、コンパイラは自動的に &lt;g2&gt;Int32&lt;/g2&gt; 方の &lt;g1&gt;status_ptr&lt;/g1&gt; 変数を宣言します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29715,6 +30447,14 @@ vector with a unary operator method &lt;g2&gt;-&lt;/g2&gt; for vector inversion.
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T083840Z" creationid="makenowjust" creationdate="20200502T083638Z">
         <seg>次の例は2次元のベクトルを表す&lt;g1&gt;Vector2&lt;/g1&gt;に、単項演算子の&lt;g2&gt;-&lt;/g2&gt;をベクトルの反転させるものとして定義したものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following example shows how to bind the C function name &lt;g1&gt;SDL_Init&lt;/g1&gt; as &lt;g2&gt;LibSDL.init&lt;/g2&gt; in Crystal.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031819Z" creationid="makenowjust" creationdate="20200511T031819Z">
+        <seg>次は &lt;g1&gt;SDL_Init&lt;/g1&gt; という名前の C の関数を Crystal では &lt;g2&gt;LibSDL.init&lt;/g2&gt; としてバインディングする例です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30198,6 +30938,14 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The reason is that if we don't do it, and our code doesn't reference it anymore, the GC will collect it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091041Z" creationid="makenowjust" creationdate="20200512T091041Z">
+        <seg>この理由は、そうしなければどこからも参照していると見なされず、GC がそれを回収してしまうからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The reason is that the compiler will also look at a class method's body and if it can apply one of the previous rules (it's a &lt;g2&gt;new&lt;/g2&gt; method, or it's a literal, etc.) it will infer the type from that expression.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142154Z" creationid="makenowjust" creationdate="20200427T142154Z">
@@ -30390,6 +31138,14 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The standard library defines the &lt;g1&gt;LibC&lt;/g1&gt; lib with aliases for common C types, like &lt;g2&gt;int&lt;/g2&gt;, &lt;g3&gt;short&lt;/g3&gt;, &lt;g4&gt;size_t&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032505Z" creationid="makenowjust" creationdate="20200511T032505Z">
+        <seg>標準ライブラリには &lt;g1&gt;LibC&lt;/g1&gt; ライブラリが定義されていて、&lt;g2&gt;int&lt;/g2&gt; や &lt;g3&gt;short&lt;/g3&gt;、&lt;g4&gt;size_t&lt;/g4&gt; といった一般的な C の型のエイリアスを提供しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The standard library defines the [LibC](https://github.com/manastech/crystal/blob/master/src/libc.cr) lib with aliases for common C types, like `int`, `short`, `size_t`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T042542Z" creationid="hirofumiwakasugi" creationdate="20151005T042542Z">
@@ -30426,6 +31182,15 @@ literals.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023812Z" creationid="hirofumiwakasugi" creationdate="20150907T023528Z">
         <seg>そこで、標準ライブラリでは、例外を発生する方法に加えて、`nil` を返す方法も用意しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The status information from the child process is stored in the object
+that status_ptr points to, unless status_ptr is a null pointer.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T081924Z" creationid="makenowjust" creationdate="20200512T081924Z">
+        <seg>status_ptr が指すオブジェクトに保持されている子プロセスからのステータス情報</seg>
       </tuv>
     </tu>
     <tu>
@@ -30576,6 +31341,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The type of an enum member is &lt;g1&gt;Int32&lt;/g1&gt; by default, even if you specify a different type in a constant value:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083928Z" creationid="makenowjust" creationdate="20200512T083833Z">
+        <seg>列挙型の要素の型はデフォルトで &lt;g1&gt;Int32&lt;/g1&gt; です。これは、定数の値に別の型を指定した場合であっても同様です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The type of an enum member is `Int32` by default, even if you specify a different type in a constant value:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053220Z" creationid="hirofumiwakasugi" creationdate="20151007T053220Z">
@@ -30716,6 +31489,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T024200Z" creationid="hirofumiwakasugi" creationdate="20150907T024044Z">
         <seg>慣習として、メソッドが例外を発生させる代わりに `nil` を返すことができる場合は、それを’示すために「? (クエスチョン)」メソッドとして提供することになっています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The valid types to use in C bindings are:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032017Z" creationid="makenowjust" creationdate="20200511T032017Z">
+        <seg>C バインディング中で有効な型は、</seg>
       </tuv>
     </tu>
     <tu>
@@ -30882,6 +31663,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Then you can pass a function (a &lt;g1&gt;Proc&lt;/g1&gt;) like this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085618Z" creationid="makenowjust" creationdate="20200512T085613Z">
+        <seg>そうすると、以下のように関数 (&lt;g1&gt;Proc&lt;/g1&gt;) を渡せます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Then you can pass a function (a [Proc](http://crystal-lang.org/api/Proc.html)) like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T024247Z" creationid="hirofumiwakasugi" creationdate="20151008T024247Z">
@@ -31043,10 +31832,26 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There's a simpler way to write the above by using an &lt;g1&gt;out&lt;/g1&gt; parameter:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082228Z" creationid="makenowjust" creationdate="20200512T082228Z">
+        <seg>上記は &lt;g1&gt;out&lt;/g1&gt; パラメータを使うことでよりシンプルに書くことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There's a simpler way to write the above by using an `out` parameter:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T043924Z" creationid="hirofumiwakasugi" creationdate="20151005T043854Z">
         <seg>上記は、`out` パラメータを使うことでよりシンプルに書くことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There's also the alias &lt;g10&gt;LibC::Char&lt;/g10&gt; if in doubt.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032703Z" creationid="makenowjust" creationdate="20200511T032703Z">
+        <seg>もし気になるのであれば、 &lt;g10&gt;LibC::Char&lt;/g10&gt; というエイリアスが定義されていることを確認してみてください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31462,6 +32267,14 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can also be used to give shorter, nicer names to C functions, as these tend to be long and are usually prefixed with the library name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031957Z" creationid="makenowjust" creationdate="20200511T031957Z">
+        <seg>C の関数名は長い傾向があり、ライブラリ名で就職されている場合もあるため、より短かく分かりやすい名前をつけるためにこれを使うこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This can also be used to give shorter, nicer names to C functions, as these tend to be long and usually be prefixed with the library name.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T041847Z" creationid="hirofumiwakasugi" creationdate="20151005T041831Z">
@@ -31538,6 +32351,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200501T161144Z" creationid="makenowjust" creationdate="20200501T161144Z">
         <seg>これには2つのユースケースがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This custom data is then sent as an argument to the callback.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090040Z" creationid="makenowjust" creationdate="20200512T090040Z">
+        <seg>その独自のデータは引数としてコールバックに渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32451,6 +33272,14 @@ needed or used outside it.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Thus, a &lt;g1&gt;type&lt;/g1&gt; declaration is useful for opaque types that are created by the C library you are wrapping.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092151Z" creationid="makenowjust" creationdate="20200512T084726Z">
+        <seg>したがって、ラップしようとしている C ライブラリの生成する opaque な型に対して &lt;g1&gt;type&lt;/g1&gt; 宣言を有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Thus, a `type` declaration is useful for opaque types that are created by the C library you are wrapping.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023545Z" creationid="hirofumiwakasugi" creationdate="20151008T023545Z">
@@ -32573,6 +33402,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T194654Z" creationid="makenowjust" creationdate="20200419T194654Z">
         <seg>これを防ぐために、文字列リテラルを行毎に分割して、バックスラッシュで結合するという手段を取ることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To avoid this initialization you can use &lt;g1&gt;uninitialized&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082757Z" creationid="makenowjust" creationdate="20200512T082743Z">
+        <seg>このように初期化されることを避けたい場合は &lt;g1&gt;uninitialized&lt;/g1&gt; を利用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32707,10 +33544,26 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To create an instance of a struct use &lt;g1&gt;new&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082730Z" creationid="makenowjust" creationdate="20200512T082730Z">
+        <seg>構造体のインスタンスを生成するには &lt;g1&gt;new&lt;/g1&gt; を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To create an instance of a struct use `new`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T045950Z" creationid="hirofumiwakasugi" creationdate="20151007T045941Z">
         <seg>構造体のインスタンスを生成するには `new` を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To create an instance of a union use &lt;g1&gt;new&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083339Z" creationid="makenowjust" creationdate="20200512T083339Z">
+        <seg>共用体のインスタンスを生成するには &lt;g1&gt;new&lt;/g1&gt; を利用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33149,6 +34002,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To properly define a wrapper for this function we must send the Proc as the callback data, and then convert that callback data to the Proc and finally invoke it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090324Z" creationid="makenowjust" creationdate="20200512T090324Z">
+        <seg>この関数のまっとうなラッパーを定義するために、 Proc をコールバックのデータとして渡し、コールバック中で元の Proc に戻し、それを呼び出す、というようにする必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To reduce the binary size for distributable files, the &lt;g1&gt;--no-debug&lt;/g1&gt; flag can be used.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T152346Z" creationid="makenowjust" creationdate="20200419T152346Z">
@@ -33373,6 +34234,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Twenty    = 10 * 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083718Z" creationid="makenowjust" creationdate="20200512T083718Z">
+        <seg>Twenty    = 10 * 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Twenty = 10 * 2</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052948Z" creationid="hirofumiwakasugi" creationdate="20151007T052948Z">
@@ -33385,6 +34254,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052629Z" creationid="hirofumiwakasugi" creationdate="20151007T052629Z">
         <seg>Two</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Two  = 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083837Z" creationid="makenowjust" creationdate="20200512T083837Z">
+        <seg>Two  = 2</seg>
       </tuv>
     </tu>
     <tu>
@@ -33521,6 +34398,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T095054Z" creationid="makenowjust" creationdate="20200427T095054Z">
         <seg>型とメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Types in C Bindings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032004Z" creationid="makenowjust" creationdate="20200511T032004Z">
+        <seg>C バインディング中の型</seg>
       </tuv>
     </tu>
     <tu>
@@ -33685,6 +34570,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unlike C, &lt;g1&gt;Int32&lt;/g1&gt; and &lt;g2&gt;MyInt&lt;/g2&gt; are not interchangeable:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084524Z" creationid="makenowjust" creationdate="20200512T084524Z">
+        <seg>C とは異なり、&lt;g1&gt;Int32&lt;/g1&gt; と &lt;g2&gt;MyInt&lt;/g2&gt; を相互に交換して使うことはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unlike C, `Int32` and `MyInt` are not interchangeable:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023152Z" creationid="hirofumiwakasugi" creationdate="20151008T023152Z">
@@ -33713,6 +34606,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T191457Z" creationid="makenowjust" creationdate="20200505T191457Z">
         <seg>ブロック引数のアンパック</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unsafe code</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093417Z" creationid="makenowjust" creationdate="20200512T093417Z">
+        <seg>安全でない (unsafe) コード</seg>
       </tuv>
     </tu>
     <tu>
@@ -34043,6 +34944,14 @@ Crystal itself.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Variables</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092050Z" creationid="makenowjust" creationdate="20200512T084030Z">
+        <seg>変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Variables declared in a program are not visible inside methods:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021521Z" creationid="hirofumiwakasugi" creationdate="20150904T021431Z">
@@ -34063,6 +34972,14 @@ Crystal itself.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T020141Z" creationid="hirofumiwakasugi" creationdate="20150907T020141Z">
         <seg>例外処理において、`begin` 節の中で宣言された変数は、`rescue` または `ensure` 内においては `Nil` 型を持っているとして解釈されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Variables exposed by a C library can be declared inside a &lt;g1&gt;lib&lt;/g1&gt; declaration using a global-variable-like declaration:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084056Z" creationid="makenowjust" creationdate="20200512T084056Z">
+        <seg>C のライブラリで公開される変数は、&lt;g1&gt;lib&lt;/g1&gt; の内部でグローバル変数に似た記法を使って宣言できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35081,6 +35998,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>X.callback -&gt;(x) { x + 1 }</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085659Z" creationid="makenowjust" creationdate="20200512T085659Z">
+        <seg>X.callback -&gt;(x) { x + 1 }</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>X.some_fun 1 # Error: argument 'value' of 'X#some_fun'</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023236Z" creationid="hirofumiwakasugi" creationdate="20151008T023200Z">
@@ -35131,6 +36056,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T053222Z" creationid="hirofumiwakasugi" creationdate="20151007T053222Z">
         <seg>X::SomeEnum #=&gt; 1_i32
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>X::SomeEnum::One # =&gt; One</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083714Z" creationid="makenowjust" creationdate="20200512T083714Z">
+        <seg>X::SomeEnum::One # =&gt; One</seg>
       </tuv>
     </tu>
     <tu>
@@ -35217,10 +36150,26 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can also declare constants inside a &lt;g1&gt;lib&lt;/g1&gt; declaration:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084322Z" creationid="makenowjust" creationdate="20200512T084322Z">
+        <seg>&lt;g1&gt;lib&lt;/g1&gt; 宣言の内部で定数を宣言することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can also declare constants inside a `lib` declaration:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T022113Z" creationid="hirofumiwakasugi" creationdate="20151008T022113Z">
         <seg>`lib` 宣言の内部で定数を宣言することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can also initialize some fields with a syntax similar to &lt;g1&gt;named arguments&lt;/g1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083053Z" creationid="makenowjust" creationdate="20200512T083027Z">
+        <seg>また、フィールドは&lt;g1&gt;名前付き引数&lt;/g1&gt;と同様のシンタックスを使って初期化することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35323,8 +36272,8 @@ end</seg>
       <tuv lang="EN-US">
         <seg>You can bind to variadic functions:</seg>
       </tuv>
-      <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T040908Z" creationid="hirofumiwakasugi" creationdate="20151005T040821Z">
-        <seg>可変長引数を持つ関数にバインディングすることもできます。</seg>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031442Z" creationid="hirofumiwakasugi" creationdate="20151005T040821Z">
+        <seg>可変長引数を持つ関数をバインディングすることもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35735,6 +36684,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T143049Z" creationid="hirofumiwakasugi" creationdate="20150901T143030Z">
         <seg>ハッシュが持つ特別なシンタックスを他の型で使うこともできます。ただし、引数のない `new` と `[]=` メソッドが定義されている必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can use an enum as a type in a &lt;g1&gt;fun&lt;/g1&gt; argument or &lt;g2&gt;struct&lt;/g2&gt; or &lt;g3&gt;union&lt;/g3&gt; members:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083910Z" creationid="makenowjust" creationdate="20200512T083910Z">
+        <seg>&lt;g1&gt;fun&lt;/g1&gt; の引数や、&lt;g2&gt;struct&lt;/g2&gt; や &lt;g3&gt;union&lt;/g3&gt; のメンバとしても列挙型を利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -44995,6 +45952,18 @@ if some_condition</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>a = 1
+ptr = pointerof(a)
+ptr[100_000] = 2 # undefined behaviour, probably a segmentation fault</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093521Z" creationid="makenowjust" creationdate="20200512T093521Z">
+        <seg>a = 1
+ptr = pointerof(a)
+ptr[100_000] = 2 # 未定義の振舞いので、おそらくセグメンテーション違反を起こす</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
 sizeof(typeof(a)) # =&gt; 4</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200511T015538Z" creationid="makenowjust" creationdate="20200511T015538Z">
@@ -45718,6 +46687,16 @@ adder.call(1, 2) #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023912Z" creationid="hirofumiwakasugi" creationdate="20151008T023912Z">
         <seg>alias MyInt = Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>alias MyInt = Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085022Z" creationid="makenowjust" creationdate="20200512T085022Z">
+        <seg>alias MyInt = Int32
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -46782,6 +47761,14 @@ box.value.size # Error: undefined method 'size' for Int32
         <seg>box = MyBox.new("hello")
 box.value.size # Error: undefined method 'size' for Int32
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>boxed_data = Box.box(callback)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090526Z" creationid="makenowjust" creationdate="20200512T090526Z">
+        <seg>boxed_data = Box.box(callback)</seg>
       </tuv>
     </tu>
     <tu>
@@ -48244,6 +49231,22 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>data_as_callback = Box(typeof(callback)).unbox(data)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090913Z" creationid="makenowjust" creationdate="20200512T090913Z">
+        <seg>data_as_callback = Box(typeof(callback)).unbox(data)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>data_as_callback.call(tick)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090948Z" creationid="makenowjust" creationdate="20200512T090948Z">
+        <seg>data_as_callback.call(tick)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>declaring &lt;g1&gt;aliases&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200507T120156Z" creationid="makenowjust" creationdate="20200507T115827Z">
@@ -48496,6 +49499,22 @@ end
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T075340Z" creationid="makenowjust" creationdate="20200506T075340Z">
         <seg>def capture(&amp;block)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def change_it(tz)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083055Z" creationid="makenowjust" creationdate="20200512T083055Z">
+        <seg>def change_it(tz)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>def change_it(value)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083407Z" creationid="makenowjust" creationdate="20200512T083407Z">
+        <seg>def change_it(value)</seg>
       </tuv>
     </tu>
     <tu>
@@ -49412,6 +50431,14 @@ def new_test</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>def self.on_tick(&amp;callback : Int32 -&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090420Z" creationid="makenowjust" creationdate="20200512T090420Z">
+        <seg>def self.on_tick(&amp;callback : Int32 -&gt;)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>def self.unknown</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T142229Z" creationid="makenowjust" creationdate="20200427T142229Z">
@@ -50078,6 +51105,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>dst_time : Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082655Z" creationid="makenowjust" creationdate="20200512T082655Z">
+        <seg>dst_time : Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>e = "hello"</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T012732Z" creationid="hirofumiwakasugi" creationdate="20150903T012732Z">
@@ -50614,6 +51649,50 @@ Point.new 1, 2
 
 # 2 x Int32 = 2 x 4 = 8
 instance_sizeof(Point) # =&gt; 12</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+Ticker.on_tick do |tick|</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090950Z" creationid="makenowjust" creationdate="20200512T090950Z">
+        <seg>end
+end
+
+Ticker.on_tick do |tick|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+X::SomeEnum # =&gt; 1_i32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083835Z" creationid="makenowjust" creationdate="20200512T083835Z">
+        <seg>end
+end
+
+X::SomeEnum # =&gt; 1_i32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
+X::SomeEnum::Zero # =&gt; 0_i8
+X::SomeEnum::Two  # =&gt; 2_i8</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083838Z" creationid="makenowjust" creationdate="20200512T083838Z">
+        <seg>end
+end
+
+X::SomeEnum::Zero # =&gt; 0_i8
+X::SomeEnum::Two  # =&gt; 2_i8</seg>
       </tuv>
     </tu>
     <tu>
@@ -51634,6 +52713,22 @@ v1 + v2 # =&gt; Vector2(@x=4, @y=6)</seg>
       <tuv lang="EN-US">
         <seg>end
 end
+
+wrapper = IntWrapper.new(1)
+C.exit(wrapper) # wrapper.to_unsafe is passed to C function which has type Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082432Z" creationid="makenowjust" creationdate="20200512T082432Z">
+        <seg>end
+end
+
+wrapper = IntWrapper.new(1)
+C.exit(wrapper) # wrapper.to_unsafe is passed to C function which has type Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150904T021205Z" creationid="hirofumiwakasugi" creationdate="20150904T021205Z">
@@ -51726,6 +52821,14 @@ baz # =&gt; 2</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T014330Z" creationid="hirofumiwakasugi" creationdate="20150907T014330Z">
         <seg>ensure</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>enum</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083641Z" creationid="makenowjust" creationdate="20200512T083641Z">
+        <seg>enum</seg>
       </tuv>
     </tu>
     <tu>
@@ -51876,6 +52979,16 @@ Items.size # =&gt; 3</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150911T142822Z" creationid="hirofumiwakasugi" creationdate="20150911T142822Z">
         <seg>extend self</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>f = -&gt;(x : Int32) { x + 1 }
+X.callback(f)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085614Z" creationid="makenowjust" creationdate="20200512T085614Z">
+        <seg>f = -&gt;(x : Int32) { x + 1 }
+X.callback(f)</seg>
       </tuv>
     </tu>
     <tu>
@@ -52164,6 +53277,24 @@ foo([1, "a"]) #=&gt; (Int32 | String)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fun</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030946Z" creationid="makenowjust" creationdate="20200511T030946Z">
+        <seg>fun</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun callback(f : Int32 -&gt; Int32)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085558Z" creationid="makenowjust" creationdate="20200512T085558Z">
+        <seg>fun callback(f : Int32 -&gt; Int32)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fun callback(f : Int32 -&gt; Int32)
 end
 ```</seg>
@@ -52172,6 +53303,16 @@ end
         <seg>fun callback(f : Int32 -&gt; Int32)
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun ceil_f32 = "llvm.ceil.f32"(value : Float32) : Float32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031852Z" creationid="makenowjust" creationdate="20200511T031852Z">
+        <seg>fun ceil_f32 = "llvm.ceil.f32"(value : Float32) : Float32
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -52209,6 +53350,16 @@ end</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>fun cos(value : Float64) : Float64
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031013Z" creationid="makenowjust" creationdate="20200511T031013Z">
+        <seg>fun cos(value : Float64) : Float64
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun cos(value : Float64) : Float64
 end
 ```</seg>
       </tuv>
@@ -52232,6 +53383,22 @@ end</seg>
       <tuv lang="EN-US">
         <seg>fun execute_callback
 end
+
+LibFoo.store_callback -&gt;{ raise "OH NO!" }
+LibFoo.execute_callback</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T091433Z" creationid="makenowjust" creationdate="20200512T091433Z">
+        <seg>fun execute_callback
+end
+
+LibFoo.store_callback -&gt;{ raise "OH NO!" }
+LibFoo.execute_callback</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun execute_callback
+end
 ```</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T053400Z" creationid="hirofumiwakasugi" creationdate="20151008T053400Z">
@@ -52248,6 +53415,20 @@ end</seg>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T044605Z" creationid="hirofumiwakasugi" creationdate="20151005T044605Z">
         <seg>fun exit(status : Int32) : NoReturn
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun exit(status : Int32) : NoReturn
+end
+
+class IntWrapper</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082430Z" creationid="makenowjust" creationdate="20200512T082430Z">
+        <seg>fun exit(status : Int32) : NoReturn
+end
+
+class IntWrapper</seg>
       </tuv>
     </tu>
     <tu>
@@ -52284,6 +53465,30 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fun getch : Int32
+end
+
+C.getch</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031043Z" creationid="makenowjust" creationdate="20200511T031043Z">
+        <seg>fun getch : Int32
+end
+
+C.getch</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun init = SDL_Init(flags : UInt32) : Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031820Z" creationid="makenowjust" creationdate="20200511T031820Z">
+        <seg>fun init = SDL_Init(flags : UInt32) : Int32
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fun init = SDL_Init(flags : UInt32) : Int32
 end
 ```</seg>
@@ -52297,6 +53502,16 @@ end
     <tu>
       <tuv lang="EN-US">
         <seg>fun memcmp(p1 : Void*, p2 : Void*, size : C::SizeT) : Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085130Z" creationid="makenowjust" creationdate="20200512T085130Z">
+        <seg>fun memcmp(p1 : Void*, p2 : Void*, size : C::SizeT) : Int32
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun memcmp(p1 : Void*, p2 : Void*, size : C::SizeT) : Int32
 end
 ```</seg>
       </tuv>
@@ -52304,6 +53519,16 @@ end
         <seg>fun memcmp(p1 : Void*, p2 : Void*, size : C::SizeT) : Int32
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun my_fun(some_size : LibC::SizeT)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032508Z" creationid="makenowjust" creationdate="20200511T032508Z">
+        <seg>fun my_fun(some_size : LibC::SizeT)
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -52330,6 +53555,16 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fun on_tick(callback : (Int32, Void* -&gt;), data : Void*)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090124Z" creationid="makenowjust" creationdate="20200512T090124Z">
+        <seg>fun on_tick(callback : (Int32, Void* -&gt;), data : Void*)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fun printf(format : UInt8*, ...) : Int32
 end</seg>
       </tuv>
@@ -52340,11 +53575,67 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fun printf(format : UInt8*, ...) : Int32
+end
+
+a = 1
+b = 2
+C.printf "%d + %d = %d\n", a, b, a + b</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082506Z" creationid="makenowjust" creationdate="20200512T082506Z">
+        <seg>fun printf(format : UInt8*, ...) : Int32
+end
+
+a = 1
+b = 2
+C.printf "%d + %d = %d\n", a, b, a + b</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fun some_fun(value : MyInt)
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023153Z" creationid="hirofumiwakasugi" creationdate="20151008T023153Z">
         <seg>fun some_fun(value : MyInt)
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun some_fun(value : MyInt)
+end
+
+X.some_fun 1 # Error: argument 'value' of 'X#some_fun' must be X::MyInt, not Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084525Z" creationid="makenowjust" creationdate="20200512T084525Z">
+        <seg>fun some_fun(value : MyInt)
+end
+
+X.some_fun 1 # Error: argument 'value' of 'X#some_fun' must be X::MyInt, not Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun some_fun(value : MyInt)
+end
+
+X.some_fun 1 # OK</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085037Z" creationid="makenowjust" creationdate="20200512T085037Z">
+        <seg>fun some_fun(value : MyInt)
+end
+
+X.some_fun 1 # OK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun some_fun(value : SomeEnum)
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083911Z" creationid="makenowjust" creationdate="20200512T083911Z">
+        <seg>fun some_fun(value : SomeEnum)
 end</seg>
       </tuv>
     </tu>
@@ -52372,6 +53663,20 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fun srand(seed : UInt32)
+end
+
+C.srand(1_u32)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031047Z" creationid="makenowjust" creationdate="20200511T031047Z">
+        <seg>fun srand(seed : UInt32)
+end
+
+C.srand(1_u32)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fun store_callback(callback : -&gt;)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T052142Z" creationid="hirofumiwakasugi" creationdate="20151008T052142Z">
@@ -52385,6 +53690,30 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151005T040825Z" creationid="hirofumiwakasugi" creationdate="20151005T040825Z">
         <seg>fun variadic(value : Int32, ...) : Int32
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun variadic(value : Int32, ...) : Int32
+end
+
+X.variadic(1, 2, 3, 4)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031443Z" creationid="makenowjust" creationdate="20200511T031443Z">
+        <seg>fun variadic(value : Int32, ...) : Int32
+end
+
+X.variadic(1, 2, 3, 4)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fun waitpid(pid : Int32, status_ptr : Int32*, options : Int32) : Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T081846Z" creationid="makenowjust" creationdate="20200512T081846Z">
+        <seg>fun waitpid(pid : Int32, status_ptr : Int32*, options : Int32) : Int32
 end</seg>
       </tuv>
     </tu>
@@ -52530,6 +53859,14 @@ h.each do |key, value|</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T011937Z" creationid="hirofumiwakasugi" creationdate="20151010T011937Z">
         <seg>handle_match(match)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>head : LinkedListNode*</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082735Z" creationid="makenowjust" creationdate="20200512T082735Z">
+        <seg>head : LinkedListNode*</seg>
       </tuv>
     </tu>
     <tu>
@@ -53758,10 +55095,26 @@ john.age #=&gt; 0</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>lib</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030328Z" creationid="makenowjust" creationdate="20200511T030328Z">
+        <seg>lib</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>lib C</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200511T023243Z" creationid="makenowjust" creationdate="20200511T023243Z">
         <seg>lib C</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib LLVMIntrinsics</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031851Z" creationid="makenowjust" creationdate="20200511T031851Z">
+        <seg>lib LLVMIntrinsics</seg>
       </tuv>
     </tu>
     <tu>
@@ -53774,12 +55127,52 @@ john.age #=&gt; 0</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>lib LibSDL</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031820Z" creationid="makenowjust" creationdate="20200511T031820Z">
+        <seg>lib LibSDL</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib LibTicker</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090123Z" creationid="makenowjust" creationdate="20200512T090123Z">
+        <seg>lib LibTicker</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>lib LibYAML
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151010T010227Z" creationid="hirofumiwakasugi" creationdate="20151010T010227Z">
         <seg>lib LibYAML
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib MyLib</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T032631Z" creationid="makenowjust" creationdate="20200511T032631Z">
+        <seg>lib MyLib</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib U</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083323Z" creationid="makenowjust" creationdate="20200512T083323Z">
+        <seg>lib U</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>lib X</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T031439Z" creationid="makenowjust" creationdate="20200511T031439Z">
+        <seg>lib X</seg>
       </tuv>
     </tu>
     <tu>
@@ -54302,6 +55695,14 @@ Moo.new # undefined method 'new' for Moo:Module</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141633Z" creationid="makenowjust" creationdate="20200504T141633Z">
         <seg>module SomeSize</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>module Ticker</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090324Z" creationid="makenowjust" creationdate="20200512T090324Z">
+        <seg>module Ticker</seg>
       </tuv>
     </tu>
     <tu>
@@ -54908,6 +56309,14 @@ foo y: 2, x: 1, z: 3 # =&gt; {y: 2, z: 3}</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>out</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T081831Z" creationid="makenowjust" creationdate="20200512T081831Z">
+        <seg>out</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>p "is {{klass}}"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T221909Z" creationid="makenowjust" creationdate="20200509T221909Z">
@@ -55392,6 +56801,14 @@ pp {{ Foo.annotation(MyClass).stringify }}
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T112321Z" creationid="makenowjust" creationdate="20200510T112321Z">
         <seg>pp {{ ivar.annotation(MyIvar).stringify }}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>prev, _next : LinkedListNode*</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082715Z" creationid="makenowjust" creationdate="20200512T082715Z">
+        <seg>prev, _next : LinkedListNode*</seg>
       </tuv>
     </tu>
     <tu>
@@ -56902,6 +58319,16 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>puts tick
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090952Z" creationid="makenowjust" creationdate="20200512T090952Z">
+        <seg>puts tick
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>puts v1</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023506Z" creationid="hirofumiwakasugi" creationdate="20150916T023506Z">
@@ -57816,6 +59243,18 @@ rescue</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>status_ptr = uninitialized Int32
+
+C.waitpid(pid, pointerof(status_ptr), options)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T081942Z" creationid="makenowjust" creationdate="20200512T081942Z">
+        <seg>status_ptr = uninitialized Int32
+
+C.waitpid(pid, pointerof(status_ptr), options)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>str = "hello"
 proc = -&gt;str.count(Char)
 proc.call('e') # =&gt; 1
@@ -57890,6 +59329,14 @@ upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>struct</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200511T030322Z" creationid="makenowjust" creationdate="20200511T030322Z">
+        <seg>struct</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>struct Counter</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T172745Z" creationid="makenowjust" creationdate="20200505T172745Z">
@@ -57910,6 +59357,22 @@ upcase(&lt;&lt;-SOME) # =&gt; "HELLO"</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T192144Z" creationid="makenowjust" creationdate="20200505T192144Z">
         <seg>struct Int</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>struct LinkedList</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082731Z" creationid="makenowjust" creationdate="20200512T082731Z">
+        <seg>struct LinkedList</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>struct LinkedListNode</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082714Z" creationid="makenowjust" creationdate="20200512T082714Z">
+        <seg>struct LinkedListNode</seg>
       </tuv>
     </tu>
     <tu>
@@ -58196,6 +59659,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>to_unsafe</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082404Z" creationid="makenowjust" creationdate="20200512T082404Z">
+        <seg>to_unsafe</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>tool                     run a tool</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T140115Z" creationid="hirofumiwakasugi" creationdate="20151009T140115Z">
@@ -58412,10 +59883,28 @@ twice { |i| break "hello" } #=&gt; "hello"
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084416Z" creationid="makenowjust" creationdate="20200512T084416Z">
+        <seg>type</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>type MyInt = Int32</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151008T023153Z" creationid="hirofumiwakasugi" creationdate="20151008T023153Z">
         <seg>type MyInt = Int32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>type MyInt = Int32
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T084504Z" creationid="makenowjust" creationdate="20200512T084504Z">
+        <seg>type MyInt = Int32
+end</seg>
       </tuv>
     </tu>
     <tu>
@@ -58468,6 +59957,14 @@ typeof(string || raise "Empty input") # =&gt; String</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>tz = C::TimeZone.new</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082734Z" creationid="makenowjust" creationdate="20200512T082734Z">
+        <seg>tz = C::TimeZone.new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>tz = C::TimeZone.new
 change_it tz
 tz.minutes_west #=&gt; 0
@@ -58482,12 +59979,72 @@ tz.minutes_west #=&gt; 0
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>tz = C::TimeZone.new
+tz.minutes_west = 1
+tz.minutes_west # =&gt; 1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082800Z" creationid="makenowjust" creationdate="20200512T082800Z">
+        <seg>tz = C::TimeZone.new
+tz.minutes_west = 1
+tz.minutes_west # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>tz = C::TimeZone.new minutes_west: 1, dst_time: 2
+tz.minutes_west # =&gt; 1
+tz.dst_time     # =&gt; 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083054Z" creationid="makenowjust" creationdate="20200512T083054Z">
+        <seg>tz = C::TimeZone.new minutes_west: 1, dst_time: 2
+tz.minutes_west # =&gt; 1
+tz.dst_time     # =&gt; 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>tz = uninitialized C::TimeZone
+tz.minutes_west # =&gt; some garbage value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T082758Z" creationid="makenowjust" creationdate="20200512T082758Z">
+        <seg>tz = uninitialized C::TimeZone
+tz.minutes_west # =&gt; some garbage value</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>tz.minutes_west = 1
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T051842Z" creationid="hirofumiwakasugi" creationdate="20151007T051842Z">
         <seg>tz.minutes_west = 1
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>tz.minutes_west = 1
+end
+
+tz = C::TimeZone.new
+change_it tz
+tz.minutes_west # =&gt; 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083056Z" creationid="makenowjust" creationdate="20200512T083056Z">
+        <seg>tz.minutes_west = 1
+end
+
+tz = C::TimeZone.new
+change_it tz
+tz.minutes_west # =&gt; 0</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>union</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083256Z" creationid="makenowjust" creationdate="20200512T083256Z">
+        <seg>union</seg>
       </tuv>
     </tu>
     <tu>
@@ -58632,6 +60189,14 @@ def increment(value, by amount)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>value = U::IntOrFloat.new</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083340Z" creationid="makenowjust" creationdate="20200512T083340Z">
+        <seg>value = U::IntOrFloat.new</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>value = U::IntOrFloat.new
 change_it value
 value.some_int #=&gt; 0
@@ -58642,6 +60207,20 @@ value.some_int #=&gt; 0
 change_it value
 value.some_int #=&gt; 0
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>value = U::IntOrFloat.new
+value.some_int = 1
+value.some_int   # =&gt; 1
+value.some_float # =&gt; 4.94066e-324</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083402Z" creationid="makenowjust" creationdate="20200512T083402Z">
+        <seg>value = U::IntOrFloat.new
+value.some_int = 1
+value.some_int   # =&gt; 1
+value.some_float # =&gt; 4.94066e-324</seg>
       </tuv>
     </tu>
     <tu>
@@ -58664,12 +60243,40 @@ value # =&gt; nil</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>value = uninitialized U::IntOrFloat
+value.some_int # =&gt; some garbage value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083356Z" creationid="makenowjust" creationdate="20200512T083356Z">
+        <seg>value = uninitialized U::IntOrFloat
+value.some_int # =&gt; 何かゴミの値</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>value.some_int = 1
 end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151007T052423Z" creationid="hirofumiwakasugi" creationdate="20151007T052423Z">
         <seg>value.some_int = 1
 end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>value.some_int = 1
+end
+
+value = U::IntOrFloat.new
+change_it value
+value.some_int # =&gt; 0</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T083408Z" creationid="makenowjust" creationdate="20200512T083408Z">
+        <seg>value.some_int = 1
+end
+
+value = U::IntOrFloat.new
+change_it value
+value.some_int # =&gt; 0</seg>
       </tuv>
     </tu>
     <tu>
@@ -59534,6 +61141,16 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T090856Z" creationid="makenowjust" creationdate="20200506T090856Z">
         <seg>y = 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>y = 2
+X.callback -&gt;(x) { x + y } # Error: can't send closure to C function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T085706Z" creationid="makenowjust" creationdate="20200512T085706Z">
+        <seg>y = 2
+X.callback -&gt;(x) { x + y } # Error: can't send closure to C function</seg>
       </tuv>
     </tu>
     <tu>
@@ -60929,6 +62546,14 @@ objects[1] &amp;&amp;= 2 # objects[1]? </seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>}, boxed_data)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T090949Z" creationid="makenowjust" creationdate="20200512T090949Z">
+        <seg>}, boxed_data)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>−2,147,483,648</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T182050Z" creationid="makenowjust" creationdate="20200419T182050Z">
@@ -60952,6 +62577,26 @@ objects[1] &amp;&amp;= 2 # objects[1]? </seg>
       </tuv>
     </tu>
 <!-- Alternative translations -->
+    <tu>
+      <prop type="file">crystal-book/SUMMARY.md</prop>
+      <prop type="id">tu115_0</prop>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;alias&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092336Z" creationid="makenowjust" creationdate="20200512T092336Z">
+        <seg>&lt;g1&gt;alias&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <prop type="file">crystal-book/syntax_and_semantics/c_bindings/alias.md</prop>
+      <prop type="id">tu1_0</prop>
+      <tuv lang="EN-US">
+        <seg>alias</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T092240Z" creationid="makenowjust" creationdate="20200512T092240Z">
+        <seg>alias</seg>
+      </tuv>
+    </tu>
     <tu>
       <prop type="file">crystal-book/syntax_and_semantics/enum.md</prop>
       <prop type="id">tu32_0</prop>

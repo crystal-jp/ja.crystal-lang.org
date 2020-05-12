@@ -1,10 +1,10 @@
-# Unsafe code
+# 安全でない (unsafe) コード
 
 本言語において、以下は安全でない (unsafe) とされます。
 
-* Code involving raw pointers: the [Pointer](http://crystal-lang.org/api/Pointer.html) type and [pointerof](pointerof.html).
-* The [allocate](new,_initialize_and_allocate.html) class method.
-* Code involving C bindings
+* 名前のポインタを使うコード: [Pointer](http://crystal-lang.org/api/Pointer.html) 型と [pointerof](pointerof.html)
+* [allocate](new,_initialize_and_allocate.html) クラスメソッド
+* C バインディングを呼び出すコード
 * [初期化しない変数宣言](declare_var.html)
 
 「安全でない」というのは、メモリの破壊、セグメンテーション違反、そしてクラッシュの可能性があることを意味しています。例をあげます。
@@ -12,7 +12,7 @@
 ```crystal
 a = 1
 ptr = pointerof(a)
-ptr[100_000] = 2 # undefined behaviour, probably a segmentation fault
+ptr[100_000] = 2 # 未定義の振舞いので、おそらくセグメンテーション違反を起こす
 ```
 
 ただ、通常のコードでポインタ操作や初期化しない変数を扱うことはないでしょう。また、C バインディングは、普通は、NULL ポインタやバウンドチェックを含むより安全なラッパーで包みます。
