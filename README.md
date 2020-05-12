@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 104/125
+翻訳済み/全体 = 118/135
 
 <details>
 
@@ -128,19 +128,19 @@
 | `crystal-book/syntax_and_semantics/declare_var.md`                                                  | ○    |
 | `crystal-book/syntax_and_semantics/compile_time_flags.md`                                           | ○    |
 | `crystal-book/syntax_and_semantics/cross-compilation.md`                                            | ○    |
-| `crystal-book/syntax_and_semantics/c_bindings/README.md`                                            | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/lib.md`                                               | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/fun.md`                                               | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/out.md`                                               | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/to_unsafe.md`                                         | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/struct.md`                                            | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/union.md`                                             | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/enum.md`                                              | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/variables.md`                                         | △    |
-| `crystal-book/syntax_and_semantics/c_bindings/constants.md`                                         | ×    |
-| `crystal-book/syntax_and_semantics/c_bindings/type.md`                                              | ×    |
-| `crystal-book/syntax_and_semantics/c_bindings/alias.md`                                             | ×    |
-| `crystal-book/syntax_and_semantics/c_bindings/callbacks.md`                                         | △    |
+| `crystal-book/syntax_and_semantics/c_bindings/README.md`                                            | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/lib.md`                                               | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/fun.md`                                               | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/out.md`                                               | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/to_unsafe.md`                                         | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/struct.md`                                            | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/union.md`                                             | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/enum.md`                                              | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/variables.md`                                         | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/constants.md`                                         | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/type.md`                                              | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/alias.md`                                             | ○    |
+| `crystal-book/syntax_and_semantics/c_bindings/callbacks.md`                                         | ○    |
 | `crystal-book/syntax_and_semantics/unsafe.md`                                                       | △    |
 | `crystal-book/conventions/README.md`                                                                | ○    |
 | `crystal-book/conventions/coding_style.md`                                                          | ○    |

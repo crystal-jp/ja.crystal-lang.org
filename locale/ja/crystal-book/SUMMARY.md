@@ -113,7 +113,7 @@
       * [変数](syntax_and_semantics/c_bindings/variables.md)
       * [定数](syntax_and_semantics/c_bindings/constants.md)
       * [type](syntax_and_semantics/c_bindings/type.md)
-      * [型エイリアス (alias)](syntax_and_semantics/c_bindings/alias.md)
+      * [alias](syntax_and_semantics/c_bindings/alias.md)
       * [コールバック](syntax_and_semantics/c_bindings/callbacks.md)
    * [安全でない (unsafe) コード](syntax_and_semantics/unsafe.md)
 * [規約](conventions/README.md)

@@ -1,6 +1,6 @@
 # enum
 
-An `enum` declaration inside a `lib` declares a C enum:
+`lib` の中で `enum` を宣言することで C の列挙型を宣言できます。
 
 ```crystal
 lib X
@@ -21,7 +21,7 @@ lib X
 end
 ```
 
-C と同じく、enum の最初の要素はゼロで、以降の要素はそれぞれ1ずつ増加した値となります。
+C と同じく、列挙型の最初の要素はゼロで、以降の要素はそれぞれ1ずつ増加した値となります。
 
 値は以下のように利用します。
 
@@ -41,9 +41,9 @@ lib X
 end
 ```
 
-As you can see, some basic math is allowed for a member value: `+`, `-`, `*`, `/`, `&`, `|`, `<<`, `>>` and `%`.
+上記のように、要素の値には `+`、`-`、`*`、`/`、`&`、 `|`、`<<`、`>>`、`%`といった基本的な計算を行うこともできます。
 
-The type of an enum member is `Int32` by default, even if you specify a different type in a constant value:
+列挙型の要素の型はデフォルトで `Int32` です。これは、定数の値に別の型を指定した場合であっても同様です。
 
 ```crystal
 lib X
@@ -69,7 +69,7 @@ X::SomeEnum::Zero # => 0_i8
 X::SomeEnum::Two  # => 2_i8
 ```
 
-You can use an enum as a type in a `fun` argument or `struct` or `union` members:
+`fun` の引数や、`struct` や `union` のメンバとしても列挙型を利用できます。
 
 ```crystal
 lib X
