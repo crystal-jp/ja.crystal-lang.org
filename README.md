@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 119/135
+翻訳済み/全体 = 124/135
 
 <details>
 
@@ -107,13 +107,13 @@
 | `crystal-book/syntax_and_semantics/alias.md`                                                        | ○    |
 | `crystal-book/syntax_and_semantics/exception_handling.md`                                           | ○    |
 | `crystal-book/syntax_and_semantics/type_grammar.md`                                                 | ○    |
-| `crystal-book/syntax_and_semantics/type_reflection.md`                                              | △    |
-| `crystal-book/syntax_and_semantics/is_a.md`                                                         | △    |
+| `crystal-book/syntax_and_semantics/type_reflection.md`                                              | ○    |
+| `crystal-book/syntax_and_semantics/is_a.md`                                                         | ○    |
 | `crystal-book/syntax_and_semantics/nil_question.md`                                                 | ○    |
-| `crystal-book/syntax_and_semantics/responds_to.md`                                                  | △    |
-| `crystal-book/syntax_and_semantics/as.md`                                                           | △    |
-| `crystal-book/syntax_and_semantics/as_question.md`                                                  | ×    |
-| `crystal-book/syntax_and_semantics/typeof.md`                                                       | △    |
+| `crystal-book/syntax_and_semantics/responds_to.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/as.md`                                                           | ○    |
+| `crystal-book/syntax_and_semantics/as_question.md`                                                  | ○    |
+| `crystal-book/syntax_and_semantics/typeof.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/macros.md`                                                       | ○    |
 | `crystal-book/syntax_and_semantics/macros/macro_methods.md`                                         | ○    |
 | `crystal-book/syntax_and_semantics/macros/hooks.md`                                                 | ○    |
