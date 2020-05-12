@@ -1,6 +1,6 @@
 # typeof
 
-The `typeof` expression returns the type of an expression:
+`typeof` 式はある式の型を返します。
 
 ```crystal
 a = 1
@@ -20,9 +20,7 @@ hash = {} of Int32 => String
 another_hash = typeof(hash).new # :: Hash(Int32, String)
 ```
 
-Since `typeof` doesn't actually evaluate the expression, it can be
-used on methods at compile time, such as in this example, which
-recursively forms a union type out of nested type parameters:
+`typeof` は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。
 
 ```crystal
 class Array
@@ -41,4 +39,4 @@ typeof(nest) # => Array(Int32 | Array(String | Array(Symbol | Array(Char))))
 typeof(flat) # => Array(String | Int32 | Symbol | Char)
 ```
 
-This expression is also available in the [type grammar](type_grammar.html).
+この式は[型の文法](type_grammar.html)で使うこともできます。

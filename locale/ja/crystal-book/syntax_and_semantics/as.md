@@ -1,6 +1,6 @@
 # as
 
-The `as` pseudo-method restricts the types of an expression. 例をあげます。
+`as` 疑似メソッドはある式の型に対して制約を与えます。例をあげます。
 
 ```crystal
 if some_condition
@@ -12,28 +12,28 @@ end
 # a : Int32 | String
 ```
 
-In the above code, `a` is a union of `Int32 | String`. If for some reason we are sure `a` is an `Int32` after the `if`, we can force the compiler to treat it like one:
+上記のコードでは、`a` は `Int32 | String` のユニオン型となります。何らかの理由で `if` のあとで `a` が `Int32` であるとしたい場合は、このようにすることでコンパイラに強制することができます。
 
 ```crystal
 a_as_int = a.as(Int32)
-a_as_int.abs # works, compiler knows that a_as_int is Int32
+a_as_int.abs # コンパイラが a_as_int が Int32 であると把握しているので動作します
 ```
 
-The `as` pseudo-method performs a runtime check: if `a` wasn't an `Int32`, an [exception](exception_handling.html) is raised.
+`as` 疑似メソッドは実行時にチェックを行うため、もし `a` が `Int32` ではないときには[例外](exception_handling.html)が発生します。
 
-The argument to the expression is a [type](type_grammar.html).
+また、式に与える引数は[型](type_grammar.html)です。
 
 ある型を別の型に強制することは不可能で、コンパイルエラーが発生します。
 
 ```crystal
-1.as(String) # Compile-time error
+1.as(String) # コンパイル時のエラー
 ```
 
-**Note: ** you can't use `as` to convert a type to an unrelated type: `as` is not like a `cast` in other languages. Methods on integers, floats and chars are provided for these conversions. 代替になるものとしては、以下で説明するポインタキャストを利用することができます。
+**注意:** `as` を使っても、関連のない型に変換することはできません。その点では他の言語の `cast` と異なります。整数や浮動小数点数、そして文字にはこれらの変換のためのメソッドが提供されています。代替になるものとしては、以下で説明するポインタキャストを利用することができます。
 
-## Converting between pointer types
+## ポインタ型同士の変換
 
-The `as` pseudo-method also allows to cast between pointer types:
+`as` 疑似メソッドはポインタ型同士のキャストも可能です。
 
 ```crystal
 ptr = Pointer(Int32).malloc(1)
@@ -42,28 +42,28 @@ ptr.as(Int8*) # :: Pointer(Int8)
 
 このとき、ランタイムのチェックは行われません。ポインタは安全でない (unsafe) ため、通常、この型キャストは C バインディングやローレベルなコードにおいてのみ利用します。
 
-## Converting between pointer types and other types
+## ポインタ型と他の型の変換
 
 ポインタ型と Reference 型を相互に変換することも可能です。
 
 ```crystal
 array = [1, 2, 3]
 
-# object_id returns the address of an object in memory,
-# so we create a pointer with that address
+# object_id はメモリ上のオブジェクトのアドレスを返すため、
+# そのアドレスからポインタを作ることができる
 ptr = Pointer(Void).new(array.object_id)
 
-# Now we cast that pointer to the same type, and
-# we should get the same value
+# ポインタをその型にキャストすると、
+# 同一の値が得られる
 array2 = ptr.as(Array(Int32))
 array2.same?(array) # => true
 ```
 
 この場合も、ポインタが絡む処理になるためランタイムのチェックは行われません。このキャストが必要になるケースは前述のものよりも稀です。ただ、これによって (String などの) コアとなる型を Crystal 自身で実装することが可能になっており、また、Reference 型を void ポインタにキャストすることで C の関数に渡すこともできます。
 
-## Usage for casting to a bigger type
+## 大きな型へのキャストの利用方法
 
-The `as` pseudo-method can be used to cast an expression to a "bigger" type. 例をあげます。
+`as` 疑似メソッドは、ある式をより「大きな」型へキャストするために使えます。例をあげます。
 
 ```crystal
 a = 1
@@ -76,18 +76,18 @@ b # :: Int32 | Float64
 ```crystal
 ary = [1, 2, 3]
 
-# We want to create an array 1, 2, 3 of Int32 | Float64
+# Int32 | Float64 型の配列 1, 2, 3 にしたい
 ary2 = ary.map { |x| x.as(Int32 | Float64) }
 
 ary2        # :: Array(Int32 | Float64)
 ary2 << 1.5 # OK
 ```
 
-The `Array#map` method uses the block's type as the generic type for the Array. Without the `as` pseudo-method, the inferred type would have been `Int32` and we wouldn't have been able to add a `Float64` into it.
+`Array#map` メソッドはブロックの返す値の型を配列のジェネリック型とします。`as` 疑似メソッドがなければ、推論された型は `Int32` なので、それに対して `Float64` は追加されません。
 
-## Usage for when the compiler can't infer the type of a block
+## コンパイラがブロックの型を推論できないときに使う
 
-コンパイラがブロックの型を推論できない場合があります。This can happen in recursive calls that depend on each other. In those cases you can use `as` to let it know the type:
+コンパイラがブロックの型を推論できない場合があります。これは互いに依存した再帰的な呼び出しで起こります。これらすべての場合で、`as` は型を知らせるために使えます。
 
 ```crystal
 some_call { |v| v.method.as(ExpectedType) }

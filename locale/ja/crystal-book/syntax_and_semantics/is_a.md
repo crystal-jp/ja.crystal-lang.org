@@ -1,6 +1,6 @@
 # is_a?
 
-The pseudo-method `is_a?` determines whether an expression's runtime type inherits or includes another type. 例をあげます。
+`is_a?` という疑似メソッドを使うと、ある他の型を継承、もしくはインクルードしているしていることを判定できます。例をあげます。
 
 ```crystal
 a = 1
@@ -10,4 +10,4 @@ a.is_a?(Number)         # => true
 a.is_a?(Int32 | String) # => true
 ```
 
-It is a pseudo-method because the compiler knows about it and it can affect type information, as explained in [if var.is_a?(...)](if_varis_a.html). Also, it accepts a [type](type_grammar.html) that must be known at compile-time as its argument.
+これが疑似メソッドである理由は、[if var.is_a?(...)](if_varis_a.html)で説明したように、このメソッドをコンパイラは把握していて、型の情報に影響を与えるためです。また、コンパイル時に知っておく必要のある[型](type_grammar.html)を引数として指定することも可能です。

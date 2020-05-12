@@ -8067,6 +8067,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>**Note: ** you can't use &lt;g1&gt;as&lt;/g1&gt; to convert a type to an unrelated type: &lt;g2&gt;as&lt;/g2&gt; is not like a &lt;g3&gt;cast&lt;/g3&gt; in other languages.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115021Z" creationid="makenowjust" creationdate="20200512T115017Z">
+        <seg>**注意:** &lt;g2&gt;as&lt;/g2&gt; を使っても、関連のない型に変換することはできません。その点では他の言語の &lt;g3&gt;cast&lt;/g3&gt; と異なります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>**Note: ** you can't use `as` to convert a type to an unrelated type: `as` is not like a `cast` in other languages.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T022139Z" creationid="hirofumiwakasugi" creationdate="20151009T022039Z">
@@ -9027,6 +9035,14 @@ if !b.is_a?(Int32)</seg>
 
 +1.3     # Float64
 -0.5     # Float64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>1.as(String) # Compile-time error</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114742Z" creationid="makenowjust" creationdate="20200512T114742Z">
+        <seg>1.as(String) # コンパイル時のエラー</seg>
       </tuv>
     </tu>
     <tu>
@@ -15887,6 +15903,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Also, it accepts a &lt;g2&gt;type&lt;/g2&gt; that must be known at compile-time as its argument.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113232Z" creationid="makenowjust" creationdate="20200512T113232Z">
+        <seg>また、コンパイル時に知っておく必要のある&lt;g2&gt;型&lt;/g2&gt;を引数として指定することも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also, it accepts a [type](type_grammar.html) that must be known at compile-time as its argument.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T012529Z" creationid="hirofumiwakasugi" creationdate="20150930T011338Z">
@@ -18738,6 +18762,22 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T020102Z" creationid="hirofumiwakasugi" creationdate="20150930T020010Z">
         <seg>ポインタ型と Reference 型を相互に変換することも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Converting between pointer types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115431Z" creationid="makenowjust" creationdate="20200512T115431Z">
+        <seg>ポインタ型同士の変換</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Converting between pointer types and other types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115454Z" creationid="makenowjust" creationdate="20200512T115454Z">
+        <seg>ポインタ型と他の型の変換</seg>
       </tuv>
     </tu>
     <tu>
@@ -21943,6 +21983,14 @@ inside the &lt;g3&gt;initialize&lt;/g3&gt; method, &lt;g4&gt;finalize&lt;/g4&gt;
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If for some reason we are sure &lt;g3&gt;a&lt;/g3&gt; is an &lt;g4&gt;Int32&lt;/g4&gt; after the &lt;g5&gt;if&lt;/g5&gt;, we can force the compiler to treat it like one:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114339Z" creationid="makenowjust" creationdate="20200512T114339Z">
+        <seg>何らかの理由で &lt;g5&gt;if&lt;/g5&gt; のあとで &lt;g3&gt;a&lt;/g3&gt; が &lt;g4&gt;Int32&lt;/g4&gt; であるとしたい場合は、このようにすることでコンパイラに強制することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If for some reason we are sure `a` is an `Int32` after the `if`, we can force the compiler to treat it like one:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T015109Z" creationid="hirofumiwakasugi" creationdate="20150930T014930Z">
@@ -23214,6 +23262,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the above code, &lt;g1&gt;a&lt;/g1&gt; is a union of &lt;g2&gt;Int32 | String&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114246Z" creationid="makenowjust" creationdate="20200512T114246Z">
+        <seg>上記のコードでは、&lt;g1&gt;a&lt;/g1&gt; は &lt;g2&gt;Int32 | String&lt;/g2&gt; のユニオン型となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the above code, `a` is a union of `Int32 | String`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T010108Z" creationid="hirofumiwakasugi" creationdate="20150930T014204Z">
@@ -23570,6 +23626,14 @@ entrypoints for the docs generator.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T114215Z" creationid="hirofumiwakasugi" creationdate="20150906T113517Z">
         <seg>このように、デフォルト引数と名前付き引数には密接な関係があります。つまり、デフォルト引数を指定した場合、同事に呼び出し側がその名前で引数を指定できるようになるということです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In those cases you can use &lt;g1&gt;as&lt;/g1&gt; to let it know the type:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120517Z" creationid="makenowjust" creationdate="20200512T120517Z">
+        <seg>これらすべての場合で、&lt;g1&gt;as&lt;/g1&gt; は型を知らせるために使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23947,6 +24011,14 @@ Array(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It also can't be used to cast between pointer types and other types.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120804Z" creationid="makenowjust" creationdate="20200512T120804Z">
+        <seg>しかしポインタ型を他の型へキャストすることはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It also does not work with constants.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T081903Z" creationid="makenowjust" creationdate="20200424T081903Z">
@@ -24051,10 +24123,26 @@ Array(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is a pseudo-method because it only accepts a symbol literal as its argument, and is also treated specially by the compiler, as explained in &lt;g1&gt;if var.responds_to?(...)&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113752Z" creationid="makenowjust" creationdate="20200512T113752Z">
+        <seg>これが疑似メソッドである理由は、&lt;g1&gt;if var.responds_to?(...)&lt;/g1&gt; で説明したように、引数にシンボルリテラルのみを受け取り、そしてコンパイラによって特別な扱いを受けるからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is a pseudo-method because it only accepts a symbol literal as its argument, and is also treated specially by the compiler, as explained in [if var.responds_to?(...)](if_varresponds_to.html).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150930T014059Z" creationid="hirofumiwakasugi" creationdate="20150930T013944Z">
         <seg>これが擬似メソッドである理由は、[if 変数.responds_to?(...)](if_varresponds_to.html) で説明したように、引数にシンボルのリテラルのみを受け取り、そして、コンパイラによって特別な扱いを受けるからです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is a pseudo-method because the compiler knows about it and it can affect type information, as explained in &lt;g1&gt;if var.is_a?(...)&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113441Z" creationid="makenowjust" creationdate="20200512T113012Z">
+        <seg>これが疑似メソッドである理由は、&lt;g1&gt;if var.is_a?(...)&lt;/g1&gt;で説明したように、このメソッドをコンパイラは把握していて、型の情報に影響を与えるためです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25084,6 +25172,14 @@ with the `yield` keyword.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T032415Z" creationid="hirofumiwakasugi" creationdate="20150909T032415Z">
         <seg>メソッドには `private` または `protected` を指定することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Methods on integers, floats and chars are provided for these conversions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115425Z" creationid="makenowjust" creationdate="20200512T115425Z">
+        <seg>整数や浮動小数点数、そして文字にはこれらの変換のためのメソッドが提供されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27909,6 +28005,16 @@ only consist of special characters.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since &lt;g1&gt;typeof&lt;/g1&gt; doesn't actually evaluate the expression, it can be
+used on methods at compile time, such as in this example, which
+recursively forms a union type out of nested type parameters:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121604Z" creationid="makenowjust" creationdate="20200512T121557Z">
+        <seg>&lt;g1&gt;typeof&lt;/g1&gt; は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Since &lt;g4&gt;typeof(raise "Empty input")&lt;/g4&gt; is &lt;g5&gt;NoReturn&lt;/g5&gt; the execution would not return to the current scope in that case.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T142807Z" creationid="makenowjust" creationdate="20200430T142539Z">
@@ -28849,6 +28955,14 @@ up a basic project structure.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;Array#map&lt;/g1&gt; method uses the block's type as the generic type for the Array.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115853Z" creationid="makenowjust" creationdate="20200512T115853Z">
+        <seg>&lt;g1&gt;Array#map&lt;/g1&gt; メソッドはブロックの返す値の型を配列のジェネリック型とします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;Nil&lt;/g1&gt; type is used to represent the absence of a value, similar to &lt;g2&gt;null&lt;/g2&gt; in other languages.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000904Z" creationid="makenowjust" creationdate="20200414T000713Z">
@@ -28877,6 +28991,46 @@ up a basic project structure.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T111237Z" creationid="makenowjust" creationdate="20200510T111237Z">
         <seg>&lt;g1&gt;args&lt;/g1&gt; メソッドを使うと、アノテーションのすべての位置指定の引数を &lt;g2&gt;TupleLiteral&lt;/g2&gt; として取得できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;as&lt;/g1&gt; pseudo-method also allows to cast between pointer types:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115444Z" creationid="makenowjust" creationdate="20200512T115444Z">
+        <seg>&lt;g1&gt;as&lt;/g1&gt; 疑似メソッドはポインタ型同士のキャストも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;as&lt;/g1&gt; pseudo-method can be used to cast an expression to a "bigger" type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115720Z" creationid="makenowjust" creationdate="20200512T115712Z">
+        <seg>&lt;g1&gt;as&lt;/g1&gt; 疑似メソッドは、ある式をより「大きな」型へキャストするために使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;as&lt;/g1&gt; pseudo-method performs a runtime check: if &lt;g2&gt;a&lt;/g2&gt; wasn't an &lt;g3&gt;Int32&lt;/g3&gt;, an &lt;g4&gt;exception&lt;/g4&gt; is raised.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114507Z" creationid="makenowjust" creationdate="20200512T114420Z">
+        <seg>&lt;g1&gt;as&lt;/g1&gt; 疑似メソッドは実行時にチェックを行うため、もし &lt;g2&gt;a&lt;/g2&gt; が &lt;g3&gt;Int32&lt;/g3&gt; ではないときには&lt;g4&gt;例外&lt;/g4&gt;が発生します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;as&lt;/g1&gt; pseudo-method restricts the types of an expression.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114424Z" creationid="makenowjust" creationdate="20200512T114143Z">
+        <seg>&lt;g1&gt;as&lt;/g1&gt; 疑似メソッドはある式の型に対して制約を与えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;as?&lt;/g1&gt; pseudo-method is similar to &lt;g2&gt;as&lt;/g2&gt;, except that it returns &lt;g3&gt;nil&lt;/g3&gt; instead of raising an exception when the type doesn't match.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120741Z" creationid="makenowjust" creationdate="20200512T120741Z">
+        <seg>&lt;g1&gt;as?&lt;/g1&gt; という疑似メソッドは &lt;g2&gt;as&lt;/g2&gt; に似ていますが、型がマッチしなかった際に例外を投げるのではなく &lt;g3&gt;nil&lt;/g3&gt; を返すという点が異なります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29063,6 +29217,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T190254Z" creationid="makenowjust" creationdate="20200505T190254Z">
         <seg>&lt;g3&gt;break&lt;/g3&gt; があるため、&lt;g1&gt;thrice&lt;/g1&gt; メソッドが &lt;g2&gt;puts "Before 3"&lt;/g2&gt; を実行することはありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;typeof&lt;/g1&gt; expression returns the type of an expression:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121511Z" creationid="makenowjust" creationdate="20200512T121511Z">
+        <seg>&lt;g1&gt;typeof&lt;/g1&gt; 式はある式の型を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29727,6 +29889,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T040057Z" creationid="hirofumiwakasugi" creationdate="20150906T040057Z">
         <seg>sizeof の引数は [type](type_grammar.html) なので、[typeof](typeof.html) とあわせて使うことが多いでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The argument to the expression is a &lt;g1&gt;type&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114734Z" creationid="makenowjust" creationdate="20200512T114728Z">
+        <seg>また、式に与える引数は&lt;g1&gt;型&lt;/g1&gt;です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30873,10 +31043,26 @@ the index is not found, while the non-nilable variant raises in that case.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The pseudo-method &lt;g1&gt;is_a?&lt;/g1&gt; determines whether an expression's runtime type inherits or includes another type.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T112935Z" creationid="makenowjust" creationdate="20200512T112935Z">
+        <seg>&lt;g1&gt;is_a?&lt;/g1&gt; という疑似メソッドを使うと、ある他の型を継承、もしくはインクルードしているしていることを判定できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The pseudo-method &lt;g1&gt;nil?&lt;/g1&gt; determines whether an expression's runtime type is &lt;g2&gt;Nil&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="tobias" changedate="20200501T143151Z" creationid="tobias" creationdate="20200501T143151Z">
         <seg>&lt;g1&gt;nil?&lt;/g1&gt;という疑似メソッドを使うと、ある式の実行時の型が&lt;g2&gt;Nil&lt;/g2&gt;かどうかを判定できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The pseudo-method &lt;g1&gt;responds_to?&lt;/g1&gt; determines whether a type has a method with the given name.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113710Z" creationid="makenowjust" creationdate="20200512T113710Z">
+        <seg>&lt;g1&gt;responds_to?&lt;/g1&gt; という疑似メソッドを使うと、ある名前のメソッドを持っているかどうかを判定できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32307,6 +32493,14 @@ proven faster than equality).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can happen in recursive calls that depend on each other.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120330Z" creationid="makenowjust" creationdate="20200512T120330Z">
+        <seg>これは互いに依存した再帰的な呼び出しで起こります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This can sometimes be useful to avoid repetitive code by actually accessing and reading/writing local variables, but can also overwrite local variables by mistake.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T015932Z" creationid="hirofumiwakasugi" creationdate="20151002T015912Z">
@@ -32391,6 +32585,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200509T221137Z" creationid="makenowjust" creationdate="20200509T221137Z">
         <seg>この評価は埋め込みだけでなくディレクティブに対してもはたらきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This expression is also available in the &lt;g1&gt;type grammar&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121626Z" creationid="makenowjust" creationdate="20200512T121626Z">
+        <seg>この式は&lt;g1&gt;型の文法&lt;/g1&gt;で使うこともできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -34338,6 +34540,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Type reflection</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T112841Z" creationid="makenowjust" creationdate="20200512T112841Z">
+        <seg>型のリフレクション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Type restrictions</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T155913Z" creationid="makenowjust" creationdate="20200429T155913Z">
@@ -34622,6 +34832,22 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173541Z" creationid="makenowjust" creationdate="20200419T173541Z">
         <seg>使い方</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Usage for casting to a bigger type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115555Z" creationid="makenowjust" creationdate="20200512T115555Z">
+        <seg>大きな型へのキャストの利用方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Usage for when the compiler can't infer the type of a block</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120311Z" creationid="makenowjust" creationdate="20200512T120311Z">
+        <seg>コンパイラがブロックの型を推論できないときに使う</seg>
       </tuv>
     </tu>
     <tu>
@@ -35946,6 +36172,14 @@ indicated by the colum &lt;g6&gt;Overloadable&lt;/g6&gt; in the below operator t
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T103919Z" creationid="makenowjust" creationdate="20200504T103914Z">
         <seg>引数も括弧もない場合、&lt;g1&gt;super&lt;/g1&gt; には呼び出し元のメソッドと同じ引数がそのまま渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Without the &lt;g2&gt;as&lt;/g2&gt; pseudo-method, the inferred type would have been &lt;g3&gt;Int32&lt;/g3&gt; and we wouldn't have been able to add a &lt;g4&gt;Float64&lt;/g4&gt; into it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115924Z" creationid="makenowjust" creationdate="20200512T115924Z">
+        <seg>&lt;g2&gt;as&lt;/g2&gt; 疑似メソッドがなければ、推論された型は &lt;g3&gt;Int32&lt;/g3&gt; なので、それに対して &lt;g4&gt;Float64&lt;/g4&gt; は追加されません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -45824,6 +46058,20 @@ end</seg>
         <seg>a = "hello"
 end
 
+# a : Int32 | String</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114148Z" creationid="makenowjust" creationdate="20200512T114148Z">
+        <seg>a = "hello"
+end
+
+# a : Int32 | String</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = "hello"
+end
+
 a # : Int32 | String</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200429T143701Z" creationid="makenowjust" creationdate="20200429T143701Z">
@@ -45870,6 +46118,34 @@ a # =&gt; 2</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>a = 1
+a.is_a?(Int32)          # =&gt; true
+a.is_a?(String)         # =&gt; false
+a.is_a?(Number)         # =&gt; true
+a.is_a?(Int32 | String) # =&gt; true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T112936Z" creationid="makenowjust" creationdate="20200512T112936Z">
+        <seg>a = 1
+a.is_a?(Int32)          # =&gt; true
+a.is_a?(String)         # =&gt; false
+a.is_a?(Number)         # =&gt; true
+a.is_a?(Int32 | String) # =&gt; true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+a.responds_to?(:abs)  # =&gt; true
+a.responds_to?(:size) # =&gt; false</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113711Z" creationid="makenowjust" creationdate="20200512T113711Z">
+        <seg>a = 1
+a.responds_to?(:abs)  # =&gt; true
+a.responds_to?(:size) # =&gt; false</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
 b = 2
 "sum: #{a} + #{b} = #{a + b}" # =&gt; "sum: 1 + 2 = 3"</seg>
       </tuv>
@@ -45907,6 +46183,28 @@ b = 2
 a, b = b, a
 a # =&gt; 2
 b # =&gt; 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+b = a.as(Int32 | Float64)
+b # :: Int32 | Float64</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115713Z" creationid="makenowjust" creationdate="20200512T115713Z">
+        <seg>a = 1
+b = a.as(Int32 | Float64)
+b # :: Int32 | Float64</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+b = typeof(a) # =&gt; Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121511Z" creationid="makenowjust" creationdate="20200512T121511Z">
+        <seg>a = 1
+b = typeof(a) # =&gt; Int32</seg>
       </tuv>
     </tu>
     <tu>
@@ -46377,6 +46675,16 @@ end
       <tuv lang="JA" changeid="makenowjust" changedate="20200430T145251Z" creationid="makenowjust" creationdate="20200430T145251Z">
         <seg>a: 1, b: 2
 )</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a_as_int = a.as(Int32)
+a_as_int.abs # works, compiler knows that a_as_int is Int32</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114408Z" creationid="makenowjust" creationdate="20200512T114408Z">
+        <seg>a_as_int = a.as(Int32)
+a_as_int.abs # コンパイラが a_as_int が Int32 であると把握しているので動作します</seg>
       </tuv>
     </tu>
     <tu>
@@ -47092,6 +47400,32 @@ push("oops", [1, 2, 3]) # Error</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>array = [1, 2, 3]
+
+# object_id returns the address of an object in memory,
+# so we create a pointer with that address
+ptr = Pointer(Void).new(array.object_id)
+
+# Now we cast that pointer to the same type, and
+# we should get the same value
+array2 = ptr.as(Array(Int32))
+array2.same?(array) # =&gt; true</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115546Z" creationid="makenowjust" creationdate="20200512T115519Z">
+        <seg>array = [1, 2, 3]
+
+# object_id はメモリ上のオブジェクトのアドレスを返すため、
+# そのアドレスからポインタを作ることができる
+ptr = Pointer(Void).new(array.object_id)
+
+# ポインタをその型にキャストすると、
+# 同一の値が得られる
+array2 = ptr.as(Array(Int32))
+array2.same?(array) # =&gt; true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>array = [1, 2, 3]
 array[4]  # raises because of IndexError
 array[4]?</seg>
       </tuv>
@@ -47204,6 +47538,26 @@ array_of_int_or_string &lt;&lt; "foo"                      # =&gt; [1, 2, 3, "fo
     <tu>
       <tuv lang="EN-US">
         <seg>ary = [1, 2, 3]
+
+# We want to create an array 1, 2, 3 of Int32 | Float64
+ary2 = ary.map { |x| x.as(Int32 | Float64) }
+
+ary2        # :: Array(Int32 | Float64)
+ary2 &lt;&lt; 1.5 # OK</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115741Z" creationid="makenowjust" creationdate="20200512T115741Z">
+        <seg>ary = [1, 2, 3]
+
+# Int32 | Float64 型の配列 1, 2, 3 にしたい
+ary2 = ary.map { |x| x.as(Int32 | Float64) }
+
+ary2        # :: Array(Int32 | Float64)
+ary2 &lt;&lt; 1.5 # OK</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ary = [1, 2, 3]
 ary.map { |x| x + 1 }         # =&gt; [2, 3, 4]
 ary.select { |x| x % 2 == 1 } # =&gt; [1, 3]</seg>
       </tuv>
@@ -47257,6 +47611,14 @@ ary2 &lt;&lt; 1.5 # OK
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>as</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T114128Z" creationid="makenowjust" creationdate="20200512T114128Z">
+        <seg>as</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>as it will create an intermediate string.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T120914Z" creationid="akiji" creationdate="20200430T120914Z">
@@ -47277,6 +47639,14 @@ ary2 &lt;&lt; 1.5 # OK
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T141121Z" creationid="makenowjust" creationdate="20200504T141121Z">
         <seg>他の型へ mixin する部分的な型としての役割</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>as?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120541Z" creationid="makenowjust" creationdate="20200512T120541Z">
+        <seg>as?</seg>
       </tuv>
     </tu>
     <tu>
@@ -48179,6 +48549,14 @@ class Dog &lt; Animal</seg>
 end
 
 class Dog &lt; Animal</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>class Array</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121605Z" creationid="makenowjust" creationdate="20200512T121605Z">
+        <seg>class Array</seg>
       </tuv>
     </tu>
     <tu>
@@ -52408,6 +52786,26 @@ model.save # prints "Saved!"</seg>
         <seg>end
 end
 
+nest = [1, ["b", [:c, ['d']]]]
+flat = Array(typeof(Array.elem_type(nest))).new
+typeof(nest) # =&gt; Array(Int32 | Array(String | Array(Symbol | Array(Char))))
+typeof(flat) # =&gt; Array(String | Int32 | Symbol | Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121608Z" creationid="makenowjust" creationdate="20200512T121608Z">
+        <seg>end
+end
+
+nest = [1, ["b", [:c, ['d']]]]
+flat = Array(typeof(Array.elem_type(nest))).new
+typeof(nest) # =&gt; Array(Int32 | Array(String | Array(Symbol | Array(Char))))
+typeof(flat) # =&gt; Array(String | Int32 | Symbol | Char)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>end
+end
+
 one_more = Person.new "One more"
 one_more.say "hello" # Error: one_more is a Person but current type is the Program
 
@@ -53863,6 +54261,16 @@ h.each do |key, value|</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>hash = {} of Int32 =&gt; String
+another_hash = typeof(hash).new # :: Hash(Int32, String)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121518Z" creationid="makenowjust" creationdate="20200512T121518Z">
+        <seg>hash = {} of Int32 =&gt; String
+another_hash = typeof(hash).new # :: Hash(Int32, String)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>head : LinkedListNode*</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200512T082735Z" creationid="makenowjust" creationdate="20200512T082735Z">
@@ -54809,6 +55217,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150909T025101Z" creationid="hirofumiwakasugi" creationdate="20150909T025101Z">
         <seg>これは以下と同じです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>is_a?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T112906Z" creationid="makenowjust" creationdate="20200512T112906Z">
+        <seg>is_a?</seg>
       </tuv>
     </tu>
     <tu>
@@ -57271,6 +57687,16 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>ptr = Pointer(Int32).malloc(1)
+ptr.as(Int8*) # :: Pointer(Int8)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T115445Z" creationid="makenowjust" creationdate="20200512T115445Z">
+        <seg>ptr = Pointer(Int32).malloc(1)
+ptr.as(Int8*) # :: Pointer(Int8)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>ptr = point.x_ptr
 ptr.value = 10</seg>
       </tuv>
@@ -58631,6 +59057,14 @@ server = HTTP::Server.new do |context|</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>responds_to?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T113500Z" creationid="makenowjust" creationdate="20200512T113500Z">
+        <seg>responds_to?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>result * 2
 end
 
@@ -59013,6 +59447,14 @@ sizeof(Int64) # =&gt; 8</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T023035Z" creationid="hirofumiwakasugi" creationdate="20150916T023035Z">
         <seg>some do |first, second|</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>some_call { |v| v.method.as(ExpectedType) }</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120517Z" creationid="makenowjust" creationdate="20200512T120517Z">
+        <seg>some_call { |v| v.method.as(ExpectedType) }</seg>
       </tuv>
     </tu>
     <tu>
@@ -59939,6 +60381,14 @@ typeof(1, "a") # =&gt; (Int32 | String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>typeof(1, "a", 'a') # =&gt; (Int32 | String | Char)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T121512Z" creationid="makenowjust" creationdate="20200512T121512Z">
+        <seg>typeof(1, "a", 'a') # =&gt; (Int32 | String | Char)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>typeof(raise "Empty input")           # =&gt; NoReturn
 typeof(string || raise "Empty input") # =&gt; String</seg>
       </tuv>
@@ -60221,6 +60671,14 @@ value.some_float # =&gt; 4.94066e-324</seg>
 value.some_int = 1
 value.some_int   # =&gt; 1
 value.some_float # =&gt; 4.94066e-324</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>value = rand &lt; 0.5 ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T120805Z" creationid="makenowjust" creationdate="20200512T120805Z">
+        <seg>value = rand &lt; 0.5 ?</seg>
       </tuv>
     </tu>
     <tu>
