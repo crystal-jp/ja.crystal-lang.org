@@ -18352,6 +18352,22 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Code involving C bindings</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093458Z" creationid="makenowjust" creationdate="20200512T093458Z">
+        <seg>C バインディングを呼び出すコード</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Code involving raw pointers: the &lt;g1&gt;Pointer&lt;/g1&gt; type and &lt;g2&gt;pointerof&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093442Z" creationid="makenowjust" creationdate="20200512T093442Z">
+        <seg>名前のポインタを使うコード: &lt;g1&gt;Pointer&lt;/g1&gt; 型と &lt;g2&gt;pointerof&lt;/g2&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Coding Style</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T202830Z" creationid="makenowjust" creationdate="20200412T202830Z">
@@ -28849,6 +28865,14 @@ up a basic project structure.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;g1&gt;allocate&lt;/g1&gt; class method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093448Z" creationid="makenowjust" creationdate="20200512T093448Z">
+        <seg>&lt;g1&gt;allocate&lt;/g1&gt; クラスメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;g1&gt;args&lt;/g1&gt; method can be used to read all positional arguments on an annotation as a &lt;g2&gt;TupleLiteral&lt;/g2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T111237Z" creationid="makenowjust" creationdate="20200510T111237Z">
@@ -34582,6 +34606,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T191457Z" creationid="makenowjust" creationdate="20200505T191457Z">
         <seg>ブロック引数のアンパック</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unsafe code</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093417Z" creationid="makenowjust" creationdate="20200512T093417Z">
+        <seg>安全でない (unsafe) コード</seg>
       </tuv>
     </tu>
     <tu>
@@ -45915,6 +45947,18 @@ if some_condition</seg>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T074600Z" creationid="makenowjust" creationdate="20200424T074600Z">
         <seg>a = 1
 if some_condition</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>a = 1
+ptr = pointerof(a)
+ptr[100_000] = 2 # undefined behaviour, probably a segmentation fault</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20200512T093521Z" creationid="makenowjust" creationdate="20200512T093521Z">
+        <seg>a = 1
+ptr = pointerof(a)
+ptr[100_000] = 2 # 未定義の振舞いので、おそらくセグメンテーション違反を起こす</seg>
       </tuv>
     </tu>
     <tu>

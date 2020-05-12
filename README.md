@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 118/135
+翻訳済み/全体 = 119/135
 
 <details>
 
@@ -141,7 +141,7 @@
 | `crystal-book/syntax_and_semantics/c_bindings/type.md`                                              | ○    |
 | `crystal-book/syntax_and_semantics/c_bindings/alias.md`                                             | ○    |
 | `crystal-book/syntax_and_semantics/c_bindings/callbacks.md`                                         | ○    |
-| `crystal-book/syntax_and_semantics/unsafe.md`                                                       | △    |
+| `crystal-book/syntax_and_semantics/unsafe.md`                                                       | ○    |
 | `crystal-book/conventions/README.md`                                                                | ○    |
 | `crystal-book/conventions/coding_style.md`                                                          | ○    |
 | `crystal-book/conventions/documenting_code.md`                                                      | ○    |
