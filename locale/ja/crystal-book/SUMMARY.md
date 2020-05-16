@@ -1,12 +1,10 @@
 # Summary
-
-* [導入](README.md)
+* [導入](introduction.md)
+* [Getting Started](getting_started/README.md)
+   * [HTTP サーバー](getting_started/http_server.md)
+   * [コマンドライアプリケーション](getting_started/cli.md)
 * [コンパイラの使い方](using_the_compiler/README.md)
 * [shards コマンド](the_shards_command/README.md)
-* [概要と例](overview/README.md)
-   * [Hello World!](overview/hello_world.md)
-   * [HTTP サーバー](overview/http_server.md)
-   * [コマンドラインアプリケーション](overview/cli.md)
 * [構文とその意味](syntax_and_semantics/README.md)
    * [コメント](syntax_and_semantics/comments.md)
    * [リテラル](syntax_and_semantics/literals.md)
