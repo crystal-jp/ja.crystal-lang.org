@@ -159,6 +159,15 @@
 | `crystal-book/guides/continuous_integration.md`                                                     | ×    |
 | `crystal-book/guides/ci/travis.md`                                                                  | ×    |
 | `crystal-book/guides/ci/circleci.md`                                                                | ×    |
+| `crystal-website/_config.yml`                                                                       | ○    |
+| `crystal-website/_includes/sponsors_sidebar.html`                                                   | ○    |
+| `crystal-website/_layouts/default.html`                                                             | ○    |
+| `crystal-website/blog/index.html`                                                                   | ○    |
+| `crystal-website/community/index.html`                                                              | ○    |
+| `crystal-website/docs.html`                                                                         | ○    |
 | `crystal-website/index.html`                                                                        | ○    |
+| `crystal-website/media/index.html`                                                                  | ○    |
+| `crystal-website/sponsors/index.html`                                                               | ○    |
+| `crystal-website/sponsors/original-sponsors.html`                                                   | ○    |
 
 </details>
