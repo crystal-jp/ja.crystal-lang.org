@@ -1,0 +1,2327 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>コンパイラの使い方 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../the_shards_command/" />
+    
+    
+    <link rel="prev" href="../getting_started/cli.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    導入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../getting_started/http_server.html">
+            
+                <a href="../getting_started/http_server.html">
+            
+                    
+                    HTTP サーバー
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../getting_started/cli.html">
+            
+                <a href="../getting_started/cli.html">
+            
+                    
+                    コマンドライアプリケーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    コンパイラの使い方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../the_shards_command/">
+            
+                <a href="../the_shards_command/">
+            
+                    
+                    shards コマンド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../syntax_and_semantics/">
+            
+                <a href="../syntax_and_semantics/">
+            
+                    
+                    構文とその意味
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../syntax_and_semantics/comments.html">
+            
+                <a href="../syntax_and_semantics/comments.html">
+            
+                    
+                    コメント
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../syntax_and_semantics/literals.html">
+            
+                <a href="../syntax_and_semantics/literals.html">
+            
+                    
+                    リテラル
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../syntax_and_semantics/literals/nil.html">
+            
+                <a href="../syntax_and_semantics/literals/nil.html">
+            
+                    
+                    Nil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../syntax_and_semantics/literals/bool.html">
+            
+                <a href="../syntax_and_semantics/literals/bool.html">
+            
+                    
+                    真偽値 (Bool)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../syntax_and_semantics/literals/integers.html">
+            
+                <a href="../syntax_and_semantics/literals/integers.html">
+            
+                    
+                    整数 (Integer)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../syntax_and_semantics/literals/floats.html">
+            
+                <a href="../syntax_and_semantics/literals/floats.html">
+            
+                    
+                    浮動小数点数 (Float)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="../syntax_and_semantics/literals/char.html">
+            
+                <a href="../syntax_and_semantics/literals/char.html">
+            
+                    
+                    文字 (Char)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.6" data-path="../syntax_and_semantics/literals/string.html">
+            
+                <a href="../syntax_and_semantics/literals/string.html">
+            
+                    
+                    文字列 (String)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.7" data-path="../syntax_and_semantics/literals/symbol.html">
+            
+                <a href="../syntax_and_semantics/literals/symbol.html">
+            
+                    
+                    シンボル (Symbol)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.8" data-path="../syntax_and_semantics/literals/array.html">
+            
+                <a href="../syntax_and_semantics/literals/array.html">
+            
+                    
+                    配列 (Array)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.9" data-path="../syntax_and_semantics/literals/hash.html">
+            
+                <a href="../syntax_and_semantics/literals/hash.html">
+            
+                    
+                    ハッシュ (Hash)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.10" data-path="../syntax_and_semantics/literals/range.html">
+            
+                <a href="../syntax_and_semantics/literals/range.html">
+            
+                    
+                    範囲 (Range)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.11" data-path="../syntax_and_semantics/literals/regex.html">
+            
+                <a href="../syntax_and_semantics/literals/regex.html">
+            
+                    
+                    正規表現 (Regex)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.12" data-path="../syntax_and_semantics/literals/tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/tuple.html">
+            
+                    
+                    タプル (Tuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.13" data-path="../syntax_and_semantics/literals/named_tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/named_tuple.html">
+            
+                    
+                    名前付きタプル (NamedTuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.14" data-path="../syntax_and_semantics/literals/proc.html">
+            
+                <a href="../syntax_and_semantics/literals/proc.html">
+            
+                    
+                    Proc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.15" data-path="../syntax_and_semantics/literals/command.html">
+            
+                <a href="../syntax_and_semantics/literals/command.html">
+            
+                    
+                    コマンド (Command)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../syntax_and_semantics/assignment.html">
+            
+                <a href="../syntax_and_semantics/assignment.html">
+            
+                    
+                    代入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../syntax_and_semantics/local_variables.html">
+            
+                <a href="../syntax_and_semantics/local_variables.html">
+            
+                    
+                    ローカル変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../syntax_and_semantics/control_expressions.html">
+            
+                <a href="../syntax_and_semantics/control_expressions.html">
+            
+                    
+                    制御式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                <a href="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                    
+                    真になる値と偽になる値
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2" data-path="../syntax_and_semantics/if.html">
+            
+                <a href="../syntax_and_semantics/if.html">
+            
+                    
+                    if
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.2.1" data-path="../syntax_and_semantics/as_a_suffix.html">
+            
+                <a href="../syntax_and_semantics/as_a_suffix.html">
+            
+                    
+                    後置 if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.2" data-path="../syntax_and_semantics/as_an_expression.html">
+            
+                <a href="../syntax_and_semantics/as_an_expression.html">
+            
+                    
+                    式としての if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.3" data-path="../syntax_and_semantics/ternary_if.html">
+            
+                <a href="../syntax_and_semantics/ternary_if.html">
+            
+                    
+                    3項演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.4" data-path="../syntax_and_semantics/if_var.html">
+            
+                <a href="../syntax_and_semantics/if_var.html">
+            
+                    
+                    if var
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.5" data-path="../syntax_and_semantics/if_varis_a.html">
+            
+                <a href="../syntax_and_semantics/if_varis_a.html">
+            
+                    
+                    if var.is_a?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.6" data-path="../syntax_and_semantics/if_varresponds_to.html">
+            
+                <a href="../syntax_and_semantics/if_varresponds_to.html">
+            
+                    
+                    if var.responds_to?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.7" data-path="../syntax_and_semantics/if_var_nil.html">
+            
+                <a href="../syntax_and_semantics/if_var_nil.html">
+            
+                    
+                    if var.nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.8" data-path="../syntax_and_semantics/not.html">
+            
+                <a href="../syntax_and_semantics/not.html">
+            
+                    
+                    if !
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3" data-path="../syntax_and_semantics/unless.html">
+            
+                <a href="../syntax_and_semantics/unless.html">
+            
+                    
+                    unless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4" data-path="../syntax_and_semantics/case.html">
+            
+                <a href="../syntax_and_semantics/case.html">
+            
+                    
+                    case
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5" data-path="../syntax_and_semantics/while.html">
+            
+                <a href="../syntax_and_semantics/while.html">
+            
+                    
+                    while
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.5.1" data-path="../syntax_and_semantics/break.html">
+            
+                <a href="../syntax_and_semantics/break.html">
+            
+                    
+                    break
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5.2" data-path="../syntax_and_semantics/next.html">
+            
+                <a href="../syntax_and_semantics/next.html">
+            
+                    
+                    next
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.6" data-path="../syntax_and_semantics/until.html">
+            
+                <a href="../syntax_and_semantics/until.html">
+            
+                    
+                    until
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.7" data-path="../syntax_and_semantics/and.html">
+            
+                <a href="../syntax_and_semantics/and.html">
+            
+                    
+                    &&
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8" data-path="../syntax_and_semantics/or.html">
+            
+                <a href="../syntax_and_semantics/or.html">
+            
+                    
+                    ||
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../syntax_and_semantics/requiring_files.html">
+            
+                <a href="../syntax_and_semantics/requiring_files.html">
+            
+                    
+                    ファイルの require
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../syntax_and_semantics/types_and_methods.html">
+            
+                <a href="../syntax_and_semantics/types_and_methods.html">
+            
+                    
+                    型とメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.1" data-path="../syntax_and_semantics/everything_is_an_object.html">
+            
+                <a href="../syntax_and_semantics/everything_is_an_object.html">
+            
+                    
+                    すべてがオブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../syntax_and_semantics/the_program.html">
+            
+                <a href="../syntax_and_semantics/the_program.html">
+            
+                    
+                    プログラム
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3" data-path="../syntax_and_semantics/classes_and_methods.html">
+            
+                <a href="../syntax_and_semantics/classes_and_methods.html">
+            
+                    
+                    クラスとメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.1" data-path="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                <a href="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                    
+                    new/initialize/allocate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.2" data-path="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                <a href="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                    
+                    メソッドとインスタンス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.3" data-path="../syntax_and_semantics/type_inference.html">
+            
+                <a href="../syntax_and_semantics/type_inference.html">
+            
+                    
+                    型推論
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.4" data-path="../syntax_and_semantics/union_types.html">
+            
+                <a href="../syntax_and_semantics/union_types.html">
+            
+                    
+                    ユニオン型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.5" data-path="../syntax_and_semantics/overloading.html">
+            
+                <a href="../syntax_and_semantics/overloading.html">
+            
+                    
+                    オーバーロード
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.6" data-path="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                <a href="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                    
+                    デフォルト引数と名前付き引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.7" data-path="../syntax_and_semantics/splats_and_tuples.html">
+            
+                <a href="../syntax_and_semantics/splats_and_tuples.html">
+            
+                    
+                    スプラット展開とタプル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.8" data-path="../syntax_and_semantics/type_restrictions.html">
+            
+                <a href="../syntax_and_semantics/type_restrictions.html">
+            
+                    
+                    型制約
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.9" data-path="../syntax_and_semantics/return_types.html">
+            
+                <a href="../syntax_and_semantics/return_types.html">
+            
+                    
+                    戻り値の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.10" data-path="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                <a href="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                    
+                    メソッドの引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.11" data-path="../syntax_and_semantics/operators.html">
+            
+                <a href="../syntax_and_semantics/operators.html">
+            
+                    
+                    演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.12" data-path="../syntax_and_semantics/visibility.html">
+            
+                <a href="../syntax_and_semantics/visibility.html">
+            
+                    
+                    可視性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.13" data-path="../syntax_and_semantics/inheritance.html">
+            
+                <a href="../syntax_and_semantics/inheritance.html">
+            
+                    
+                    継承
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.13.1" data-path="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                <a href="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                    
+                    virtual 型と abstract 型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.14" data-path="../syntax_and_semantics/class_methods.html">
+            
+                <a href="../syntax_and_semantics/class_methods.html">
+            
+                    
+                    クラスメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.15" data-path="../syntax_and_semantics/class_variables.html">
+            
+                <a href="../syntax_and_semantics/class_variables.html">
+            
+                    
+                    クラス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.16" data-path="../syntax_and_semantics/finalize.html">
+            
+                <a href="../syntax_and_semantics/finalize.html">
+            
+                    
+                    finalize
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.4" data-path="../syntax_and_semantics/modules.html">
+            
+                <a href="../syntax_and_semantics/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.5" data-path="../syntax_and_semantics/generics.html">
+            
+                <a href="../syntax_and_semantics/generics.html">
+            
+                    
+                    ジェネリクス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.6" data-path="../syntax_and_semantics/structs.html">
+            
+                <a href="../syntax_and_semantics/structs.html">
+            
+                    
+                    構造体 (Struct)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.7" data-path="../syntax_and_semantics/constants.html">
+            
+                <a href="../syntax_and_semantics/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.8" data-path="../syntax_and_semantics/enum.html">
+            
+                <a href="../syntax_and_semantics/enum.html">
+            
+                    
+                    列挙型 (Enum)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9" data-path="../syntax_and_semantics/blocks_and_procs.html">
+            
+                <a href="../syntax_and_semantics/blocks_and_procs.html">
+            
+                    
+                    ブロックと Proc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.9.1" data-path="../syntax_and_semantics/capturing_blocks.html">
+            
+                <a href="../syntax_and_semantics/capturing_blocks.html">
+            
+                    
+                    ブロックの捕捉
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.2" data-path="../syntax_and_semantics/proc_literal.html">
+            
+                <a href="../syntax_and_semantics/proc_literal.html">
+            
+                    
+                    Proc リテラル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.3" data-path="../syntax_and_semantics/block_forwarding.html">
+            
+                <a href="../syntax_and_semantics/block_forwarding.html">
+            
+                    
+                    ブロックのフォワーディング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.4" data-path="../syntax_and_semantics/closures.html">
+            
+                <a href="../syntax_and_semantics/closures.html">
+            
+                    
+                    クロージャ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.10" data-path="../syntax_and_semantics/alias.html">
+            
+                <a href="../syntax_and_semantics/alias.html">
+            
+                    
+                    型エイリアス (alias)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../syntax_and_semantics/exception_handling.html">
+            
+                <a href="../syntax_and_semantics/exception_handling.html">
+            
+                    
+                    例外の処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../syntax_and_semantics/type_grammar.html">
+            
+                <a href="../syntax_and_semantics/type_grammar.html">
+            
+                    
+                    型の文法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../syntax_and_semantics/type_reflection.html">
+            
+                <a href="../syntax_and_semantics/type_reflection.html">
+            
+                    
+                    型のリフレクション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.10.1" data-path="../syntax_and_semantics/is_a.html">
+            
+                <a href="../syntax_and_semantics/is_a.html">
+            
+                    
+                    is_a?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.2" data-path="../syntax_and_semantics/nil_question.html">
+            
+                <a href="../syntax_and_semantics/nil_question.html">
+            
+                    
+                    nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.3" data-path="../syntax_and_semantics/responds_to.html">
+            
+                <a href="../syntax_and_semantics/responds_to.html">
+            
+                    
+                    responds_to?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.4" data-path="../syntax_and_semantics/as.html">
+            
+                <a href="../syntax_and_semantics/as.html">
+            
+                    
+                    as
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.5" data-path="../syntax_and_semantics/as_question.html">
+            
+                <a href="../syntax_and_semantics/as_question.html">
+            
+                    
+                    as?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.6" data-path="../syntax_and_semantics/typeof.html">
+            
+                <a href="../syntax_and_semantics/typeof.html">
+            
+                    
+                    typeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../syntax_and_semantics/macros.html">
+            
+                <a href="../syntax_and_semantics/macros.html">
+            
+                    
+                    マクロ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.11.1" data-path="../syntax_and_semantics/macros/macro_methods.html">
+            
+                <a href="../syntax_and_semantics/macros/macro_methods.html">
+            
+                    
+                    マクロメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.2" data-path="../syntax_and_semantics/macros/hooks.html">
+            
+                <a href="../syntax_and_semantics/macros/hooks.html">
+            
+                    
+                    フック
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.3" data-path="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                <a href="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                    
+                    フレッシュ変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../syntax_and_semantics/annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations.html">
+            
+                    
+                    アノテーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.12.1" data-path="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                    
+                    組み込みアノテーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../syntax_and_semantics/low_level_primitives.html">
+            
+                <a href="../syntax_and_semantics/low_level_primitives.html">
+            
+                    
+                    低レベルプリミティブ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.13.1" data-path="../syntax_and_semantics/pointerof.html">
+            
+                <a href="../syntax_and_semantics/pointerof.html">
+            
+                    
+                    pointerof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.2" data-path="../syntax_and_semantics/sizeof.html">
+            
+                <a href="../syntax_and_semantics/sizeof.html">
+            
+                    
+                    sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.3" data-path="../syntax_and_semantics/instance_sizeof.html">
+            
+                <a href="../syntax_and_semantics/instance_sizeof.html">
+            
+                    
+                    instance_sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.4" data-path="../syntax_and_semantics/offsetof.html">
+            
+                <a href="../syntax_and_semantics/offsetof.html">
+            
+                    
+                    offsetof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.5" data-path="../syntax_and_semantics/declare_var.html">
+            
+                <a href="../syntax_and_semantics/declare_var.html">
+            
+                    
+                    初期化しない変数宣言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../syntax_and_semantics/compile_time_flags.html">
+            
+                <a href="../syntax_and_semantics/compile_time_flags.html">
+            
+                    
+                    コンパイル時のフラグ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.14.1" data-path="../syntax_and_semantics/cross-compilation.html">
+            
+                <a href="../syntax_and_semantics/cross-compilation.html">
+            
+                    
+                    クロスコンパイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../syntax_and_semantics/c_bindings/">
+            
+                <a href="../syntax_and_semantics/c_bindings/">
+            
+                    
+                    C バインディング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.1" data-path="../syntax_and_semantics/c_bindings/lib.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/lib.html">
+            
+                    
+                    lib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2" data-path="../syntax_and_semantics/c_bindings/fun.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/fun.html">
+            
+                    
+                    fun
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.2.1" data-path="../syntax_and_semantics/c_bindings/out.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/out.html">
+            
+                    
+                    out
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2.2" data-path="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                    
+                    to_unsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.3" data-path="../syntax_and_semantics/c_bindings/struct.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/struct.html">
+            
+                    
+                    struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.4" data-path="../syntax_and_semantics/c_bindings/union.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/union.html">
+            
+                    
+                    union
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.5" data-path="../syntax_and_semantics/c_bindings/enum.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/enum.html">
+            
+                    
+                    enum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.6" data-path="../syntax_and_semantics/c_bindings/variables.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/variables.html">
+            
+                    
+                    変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.7" data-path="../syntax_and_semantics/c_bindings/constants.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.8" data-path="../syntax_and_semantics/c_bindings/type.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/type.html">
+            
+                    
+                    type
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.9" data-path="../syntax_and_semantics/c_bindings/alias.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/alias.html">
+            
+                    
+                    alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.10" data-path="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                    
+                    コールバック
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../syntax_and_semantics/unsafe.html">
+            
+                <a href="../syntax_and_semantics/unsafe.html">
+            
+                    
+                    安全でない (unsafe) コード
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../conventions/">
+            
+                <a href="../conventions/">
+            
+                    
+                    規約
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../conventions/coding_style.html">
+            
+                <a href="../conventions/coding_style.html">
+            
+                    
+                    コーディングスタイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../conventions/documenting_code.html">
+            
+                <a href="../conventions/documenting_code.html">
+            
+                    
+                    コードのドキュメント化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../database/">
+            
+                <a href="../database/">
+            
+                    
+                    データベース
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../database/connection.html">
+            
+                <a href="../database/connection.html">
+            
+                    
+                    接続
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../database/connection_pool.html">
+            
+                <a href="../database/connection_pool.html">
+            
+                    
+                    コネクションプール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../database/transactions.html">
+            
+                <a href="../database/transactions.html">
+            
+                    
+                    トランザクション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../guides/">
+            
+                <a href="../guides/">
+            
+                    
+                    ガイド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../guides/performance.html">
+            
+                <a href="../guides/performance.html">
+            
+                    
+                    パフォーマンス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../guides/concurrency.html">
+            
+                <a href="../guides/concurrency.html">
+            
+                    
+                    並列性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../guides/testing.html">
+            
+                <a href="../guides/testing.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../guides/writing_shards.html">
+            
+                <a href="../guides/writing_shards.html">
+            
+                    
+                    Shardの作り方
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.4.1" data-path="../guides/hosting/github.html">
+            
+                <a href="../guides/hosting/github.html">
+            
+                    
+                    GitHub でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4.2" data-path="../guides/hosting/gitlab.html">
+            
+                <a href="../guides/hosting/gitlab.html">
+            
+                    
+                    GitLab でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../guides/continuous_integration.html">
+            
+                <a href="../guides/continuous_integration.html">
+            
+                    
+                    継続的インテグレーション (CI)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.5.1" data-path="../guides/ci/travis.html">
+            
+                <a href="../guides/ci/travis.html">
+            
+                    
+                    Travis CI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.2" data-path="../guides/ci/circleci.html">
+            
+                <a href="../guides/ci/circleci.html">
+            
+                    
+                    CircleCI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >コンパイラの使い方</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x4F7F;&#x3044;&#x65B9;">&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306E;&#x4F7F;&#x3044;&#x65B9;</h1>
+<h2 id="&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x540C;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;">&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x540C;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;</h2>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3092;1&#x3064;&#x6307;&#x5B9A;&#x3057;&#x3066;<a href="#crystal-run"><code>crystal run</code></a>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x5B9F;&#x884C;&#x3092;&#x4E00;&#x767A;&#x3067;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-shell-session">$ echo &apos;puts &quot;Hello World!&quot;&apos; &gt; hello_world.cr
+$ crystal run hello_world.cr
+Hello World!
+</code></pre>
+<p><code>run</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;<code>hello_world.cr</code>&#x3068;&#x3044;&#x3046;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x305D;&#x306E;&#x5834;&#x9650;&#x308A;&#x306E;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x3001;&#x5373;&#x6642;&#x306B;&#x305D;&#x308C;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x751F;&#x6210;">&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x751F;&#x6210;</h2>
+<p><a href="#crystal-build"><code>crystal build</code></a>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x304C;&#x30D3;&#x30EB;&#x30C9;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+&#x51FA;&#x529B;&#x3055;&#x308C;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x306F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x304B;&#x3089;<code>.cr</code>&#x3068;&#x3044;&#x3046;&#x62E1;&#x5F35;&#x5B50;&#x3092;&#x9664;&#x3044;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-shell-session">$ crystal build hello_world.cr
+$ ./hello_world
+Hello World!
+</code></pre>
+<h3 id="&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30D3;&#x30EB;&#x30C9;">&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30D3;&#x30EB;&#x30C9;</h3>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x5B8C;&#x5168;&#x306B;&#x306F;&#x6700;&#x9069;&#x5316;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;<code>--release</code>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x6700;&#x9069;&#x5316;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>$ crystal build hello_world.cr --release
+</code></pre><p>&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30E2;&#x30FC;&#x30C9;&#x3067;&#x306A;&#x3044;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306F;&#x5341;&#x5206;&#x306B;&#x65E9;&#x304F;&#x3001;&#x307E;&#x305F;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3082;&#x305D;&#x308C;&#x306A;&#x308A;&#x306E;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30E2;&#x30FC;&#x30C9;&#x3067;&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x306F;&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306E;&#x5229;&#x7528;&#x3084;&#x30D9;&#x30F3;&#x30C1;&#x30DE;&#x30FC;&#x30AF;&#x306E;&#x6E2C;&#x5B9A;&#x306E;&#x969B;&#x306B;&#x7528;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
+&#x958B;&#x767A;&#x6642;&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30D3;&#x30EB;&#x30C9;&#x3092;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x914D;&#x5E03;&#x3059;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6E1B;&#x3089;&#x3059;&#x306B;&#x306F;&#x3001;<code>--no-debug</code>&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x7528;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6E1B;&#x3089;&#x3059;&#x305F;&#x3081;&#x306B;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x3092;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304B;&#x3089;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x4E00;&#x65B9;&#x3001;&#x5F53;&#x7136;&#x306B;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x306F;&#x56F0;&#x96E3;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x9759;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x751F;&#x6210;">&#x9759;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x751F;&#x6210;</h3>
+<p><code>--static</code>&#x30D5;&#x30E9;&#x30B0;&#x306F;&#x3001;&#x9759;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x751F;&#x6210;&#x306B;&#x7528;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>$ crystal build hello_world.cr --release --static
+</code></pre><p><strong>&#x6CE8;&#x610F;:</strong> &#x9759;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x306F;&#x73FE;&#x5728;Alpine Linux&#x4E0A;&#x3067;&#x306E;&#x307F;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x9759;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x3088;&#x308A;&#x8A73;&#x7D30;&#x306A;&#x60C5;&#x5831;&#x306F; <a href="https://github.com/crystal-lang/crystal/wiki/Static-Linking" target="_blank">Wiki (&#x82F1;&#x8A9E;)</a> &#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;<code>CRYSTAL_LIBRARY_PATH</code>&#x3068;&#x3044;&#x3046;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3092;&#x3001;&#x9759;&#x7684;&#x3082;&#x3057;&#x304F;&#x306F;&#x52D5;&#x7684;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x6700;&#x521D;&#x306B;&#x63A2;&#x7D22;&#x3059;&#x308B;&#x5834;&#x6240;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x52D5;&#x7684;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3068;&#x3057;&#x3066;&#x3082;&#x6709;&#x52B9;&#x306A;&#x3001;&#x9759;&#x7684;&#x306A;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x4F7F;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="crystal-&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;">Crystal &#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;</h3>
+<p><a href="#crystal-init"><code>crystal init</code></a> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x57FA;&#x672C;&#x7684;&#x306A;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x6210;&#x3092;&#x6301;&#x3063;&#x305F; Crystal &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x521D;&#x671F;&#x5316;&#x3092;&#x3059;&#x308B;&#x306E;&#x306B;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;<code>crystal init app &lt;name&gt;</code>&#x306F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x5411;&#x3051;&#x3067;&#x3001;
+<code>crystal init lib &lt;name&gt;</code>&#x306F;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x5411;&#x3051;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-shell">$ crystal init app myapp
+    create  myapp/.gitignore
+    create  myapp/.editorconfig
+    create  myapp/LICENSE
+    create  myapp/README.md
+    create  myapp/.travis.yml
+    create  myapp/shard.yml
+    create  myapp/src/myapp.cr
+    create  myapp/src/myapp/version.cr
+    create  myapp/spec/spec_helper.cr
+    create  myapp/spec/myapp_spec.cr
+Initialized empty Git repository in /home/crystal/myapp/.git/
+</code></pre>
+<p>&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x3042;&#x3089;&#x3086;&#x308B;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x30AB;&#x30B9;&#x30BF;&#x30DE;&#x30A4;&#x30BA;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x611F;&#x3058;&#x308B;&#x5834;&#x5408;&#x3082;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;<code>crystal init</code>&#x306F; Crystal &#x306E;l&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3084;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x958B;&#x767A;&#x306B;&#x5341;&#x5206;&#x306A;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x74B0;&#x5883;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x6982;&#x8981;">&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x6982;&#x8981;</h2>
+<ul>
+<li><a href="#crystal-init"><code>crystal init</code></a>: &#x65B0;&#x898F;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x751F;&#x6210;</li>
+<li><a href="#crystal-build"><code>crystal build</code></a>: &#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D3;&#x30EB;&#x30C9;</li>
+<li><a href="#crystal-docs"><code>crystal docs</code></a>: &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x751F;&#x6210;</li>
+<li><a href="#crystal-env"><code>crystal env</code></a>: Crystal &#x74B0;&#x5883;&#x306E;&#x60C5;&#x5831;&#x3092;&#x8868;&#x793A;</li>
+<li><a href="#crystal-eval"><code>crystal eval</code></a>: &#x5F15;&#x6570;&#x3084;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x304B;&#x3089;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x8A55;&#x4FA1;</li>
+<li><a href="#crystal-play"><code>crystal play</code></a>: Crystal &#x30D7;&#x30EC;&#x30A4;&#x30B0;&#x30E9;&#x30A6;&#x30F3;&#x30C9;&#x3092;&#x8D77;&#x52D5;</li>
+<li><a href="#crystal-run"><code>crystal run</code></a>: &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x3066;&#x5B9F;&#x884C;</li>
+<li><a href="#crystal-spec"><code>crystal spec</code></a>: spec &#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x3066;&#x5B9F;&#x884C;</li>
+<li><a href="#crystal-tool"><code>crystal tool</code></a>: &#x30C4;&#x30FC;&#x30EB;&#x306E;&#x5B9F;&#x884C;</li>
+<li><code>crystal help</code>: &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3068;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x30D8;&#x30EB;&#x30D7;&#x306E;&#x8868;&#x793A;</li>
+<li><a href="#crystal-version"><code>crystal version</code></a>: &#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306E;&#x8868;&#x793A;</li>
+</ul>
+<p>&#x7279;&#x5B9A;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x6709;&#x52B9;&#x306A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x540D;&#x306E;&#x3042;&#x3068;&#x306B;<code>--help</code>&#x3092;&#x4ED8;&#x3051;&#x3066;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h3 id="crystal-run"><code>crystal run</code></h3>
+<p><code>run</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x3001;&#x5373;&#x6642;&#x306B;&#x305D;&#x308C;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal [run] [&lt;options&gt;] &lt;programfile&gt; [-- &lt;argument&gt;...]
+</code></pre><p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x305F;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3078;&#x306E;&#x5F15;&#x6570;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x3078;&#x306E;&#x5F15;&#x6570;&#x306E;&#x3042;&#x3068;&#x306B;2&#x3064;&#x306E;&#x30CF;&#x30A4;&#x30D5;&#x30F3; (<code>--</code>) &#x3067;&#x533A;&#x5207;&#x3063;&#x3066;&#x6E21;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x5B9F;&#x884C;&#x306E;&#x9593;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x4E00;&#x6642;&#x7684;&#x306A;&#x5834;&#x6240;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ echo &apos;puts &quot;Hello #{ARGV[0]?}!&quot;&apos; &gt; hello_world.cr
+$ crystal run hello_world.cr -- Crystal
+Hello Crystal!
+</code></pre>
+<p><strong>&#x3088;&#x304F;&#x4F7F;&#x3046;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;:</strong></p>
+<ul>
+<li><code>--release</code>: &#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30E2;&#x30FC;&#x30C9;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x3066;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306B;&#x6700;&#x9069;&#x5316;&#x3092;&#x3057;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;</li>
+<li><code>--progress</code>: &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306E;&#x9032;&#x6357;&#x3092;&#x9010;&#x6B21;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+<li><code>--static</code>: &#x9759;&#x7684;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;</li>
+</ul>
+<p>&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x7D71;&#x5408;&#x3055;&#x308C;&#x305F;&#x30D8;&#x30EB;&#x30D7;&#x306B;&#x3066;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>crystal run --help</code>&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3001;<code>man crystal</code>&#x3067; man &#x30DA;&#x30FC;&#x30B8;&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h3 id="crystal-build"><code>crystal build</code></h3>
+<p><code>crystal build</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x52D5;&#x7684;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal build [&lt;options&gt;] &lt;programfile&gt;
+</code></pre><p>&#x660E;&#x793A;&#x7684;&#x306B;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x304B;&#x3089;<code>.cr</code>&#x3068;&#x3044;&#x3046;&#x62E1;&#x5F35;&#x5B50;&#x3092;&#x9664;&#x3044;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ echo &apos;puts &quot;Hello #{ARGV[0]?}!&quot;&apos; &gt; hello_world.cr
+$ crystal build hello_world.cr
+$ ./hello_world Crystal
+Hello Crystal!
+</code></pre>
+<p><strong>&#x3088;&#x304F;&#x4F7F;&#x3046;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;:</strong></p>
+<ul>
+<li><code>--cross-compile</code>: .o &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x3001;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+<li><code>-D FLAG, --define FLAG</code>: &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;</li>
+<li><code>-o &lt;output_file&gt;</code>: &#x51FA;&#x529B;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;</li>
+<li><code>--release</code>: &#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30E2;&#x30FC;&#x30C9;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x3066;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306B;&#x6700;&#x9069;&#x5316;&#x3092;&#x3057;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;</li>
+<li><code>--link-flags FLAGS</code>: &#x30EA;&#x30F3;&#x30AB;&#x306B;&#x6E21;&#x3059;&#x8FFD;&#x52A0;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;</li>
+<li><code>--lto=thin</code>: &#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30D3;&#x30EB;&#x30C9;&#x306E;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3092;&#x5411;&#x4E0A;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B; ThinLTO &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;</li>
+<li><code>--no-debug</code>: &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6E1B;&#x3089;&#x3059;&#x305F;&#x3081;&#x306B;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x306E;&#x751F;&#x6210;&#x3092;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;</li>
+<li><code>--progress</code>: &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306E;&#x9032;&#x6357;&#x3092;&#x9010;&#x6B21;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+<li><code>--static</code>: &#x9759;&#x7684;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;</li>
+<li><code>--verbose</code>: &#x5185;&#x90E8;&#x7684;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+</ul>
+<p>&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x7D71;&#x5408;&#x3055;&#x308C;&#x305F;&#x30D8;&#x30EB;&#x30D7;&#x306B;&#x3066;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>crystal build --help</code>&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3001;<code>man crystal</code> &#x3067; man &#x30DA;&#x30FC;&#x30B8;&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h3 id="crystal-eval"><code>crystal eval</code></h3>
+<p><code>crystal eval</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x30E9;&#x30A4;&#x30F3;&#x304B;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x3001;&#x305D;&#x308C;&#x3092;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x5373;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal eval [&lt;options&gt;] [&lt;source&gt;]
+</code></pre><p><code>source</code>&#x304C;&#x5F15;&#x6570;&#x3067;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x307E;&#x3059;&#x3002;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x5B9F;&#x884C;&#x306E;&#x9593;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x4E00;&#x6642;&#x7684;&#x306A;&#x5834;&#x6240;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ crystal eval &apos;puts &quot;Hello World&quot;&apos;
+Hello World!
+$ echo &apos;puts &quot;Hello World&quot;&apos; | crystal eval
+Hello World!
+</code></pre>
+<p>&#x6CE8;&#x610F;: &#x5BFE;&#x8A71;&#x7684;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x3001;&#x4E00;&#x822C;&#x7684;&#x306B;&#x306F;<code>Ctrl+D</code>&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x3092;&#x9589;&#x3058;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><strong>&#x3088;&#x304F;&#x4F7F;&#x3046;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;:</strong></p>
+<ul>
+<li><code>-o &lt;output_file&gt;</code>: &#x51FA;&#x529B;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;</li>
+<li><code>--release</code>: &#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x30E2;&#x30FC;&#x30C9;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x3066;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x306B;&#x6700;&#x9069;&#x5316;&#x3092;&#x3057;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;</li>
+<li><code>--lto=thin</code>: &#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3092;&#x5411;&#x4E0A;&#x3055;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B; ThinLTO &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;</li>
+<li><code>--no-debug</code>: &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6E1B;&#x3089;&#x3059;&#x305F;&#x3081;&#x306B;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x306E;&#x751F;&#x6210;&#x3092;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;</li>
+<li><code>--progress</code>: &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306E;&#x9032;&#x6357;&#x3092;&#x9010;&#x6B21;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+<li><code>--static</code>: &#x9759;&#x7684;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;</li>
+</ul>
+<p>lgst&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x7D71;&#x5408;&#x3055;&#x308C;&#x305F;&#x30D8;&#x30EB;&#x30D7;&#x306B;&#x3066;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<code>crystal eval --help</code>&#x3092;&#x4F7F;&#x3046;&#x304B;&#x3001;<code>man crystal</code>&#x3067; man &#x30DA;&#x30FC;&#x30B8;&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h3 id="crystal-version"><code>crystal version</code></h3>
+<p><code>crystal version</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3084; LLVM &#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3001;&#x305D;&#x3057;&#x3066;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x4F7F;&#x3046;&#x30BF;&#x30FC;&#x30B2;&#x30C3;&#x30C8;&#x30C8;&#x30EA;&#x30D7;&#x30EB;&#x3092;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal version
+</code></pre><p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ crystal version
+Crystal 0.25.1 [b782738ff] (2018-06-27)
+
+LLVM: 4.0.0
+Default target: x86_64-unknown-linux-gnu
+</code></pre>
+<h3 id="crystal-init"><code>crystal init</code></h3>
+<p><code>crystal init</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x4F7F;&#x3046;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal init (lib|app) &lt;name&gt; [&lt;dir&gt;]
+</code></pre><p>&#x6700;&#x521D;&#x306E;&#x5F15;&#x6570;&#x306F;<code>lib</code>&#x304B;<code>app</code>&#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x3067;&#x3059;&#x3002;<code>lib</code>&#x306F;&#x518D;&#x5229;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3001;<code>app</code>&#x306F;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x306B;&#x542B;&#x3081;&#x308B;&#x3053;&#x3068;&#x306E;&#x306A;&#x3044;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x56F3;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x81EA;&#x8EAB;&#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;<code>shard.lock</code>&#x3092;&#x542B;&#x3081;&#x305A;&#x3001;<code>shard.yml</code>&#x306B;&#x30D3;&#x30EB;&#x30C9;&#x76EE;&#x6A19;&#x3092;&#x6301;&#x3061;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3068;&#x3057;&#x3066;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x5229;&#x7528;&#x3059;&#x308B;&#x304B;&#x306E;&#x8AAC;&#x660E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ crystal init lib my_cool_lib
+    create  my_cool_lib/.gitignore
+    create  my_cool_lib/.editorconfig
+    create  my_cool_lib/LICENSE
+    create  my_cool_lib/README.md
+    create  my_cool_lib/.travis.yml
+    create  my_cool_lib/shard.yml
+    create  my_cool_lib/src/my_cool_lib.cr
+    create  my_cool_lib/spec/spec_helper.cr
+    create  my_cool_lib/spec/my_cool_lib_spec.cr
+Initialized empty Git repository in ~/my_cool_lib/.git/
+</code></pre>
+<h3 id="crystal-docs"><code>crystal docs</code></h3>
+<p><code>crystal docs</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x4E2D;&#x306E;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x304B;&#x3089; API &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002; (&#x8A73;&#x3057;&#x304F;&#x306F;<a href="../conventions/documenting_code.html">&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;</a>&#x3092;&#x53C2;&#x7167;).</p>
+<pre><code class="lang-bash">crystal docs [--output=&lt;output_dir&gt;] [--canonical-base-url=&lt;url&gt;] [&lt;<span class="hljs-built_in">source</span>_file&gt;...]
+</code></pre>
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;<code>output_dir</code> (&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F; <code>./docs</code>) &#x306B;&#x3001; Crystal &#x3067;&#x306E;&#x540D;&#x524D;&#x3092;&#x53CD;&#x6620;&#x3057;&#x305F;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x9020;&#x3067;&#x3001;&#x5404; HTML &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;1&#x3064;1&#x3064;&#x306E;&#x578B;&#x306B;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x3001;&#x9759;&#x7684;&#x306A; Web &#x30B5;&#x30A4;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;Web &#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x898B;&#x308B;&#x969B;&#x306E;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F; <code>docs/index.html</code> &#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+API &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5168;&#x4F53;&#x306F; JSON &#x3068;&#x3057;&#x3066; <code>$output_dir/index.json</code> &#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x3001;<code>./src</code> &#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x3042;&#x308B;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304B;&#x3089;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x751F;&#x6210;&#x3092;&#x3057;&#x307E;&#x3059; (&#x3064;&#x307E;&#x308A; <code>src/**/*.cr</code> &#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x3088;&#x3046;&#x306A;&#x6319;&#x52D5;&#x3067;&#x3059;)&#x3002;
+&#x8AAD;&#x3080;&#x8FBC;&#x3080;&#x9806;&#x5E8F;&#x306B;&#x4F9D;&#x5B58;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;&#x306B;&#x660E;&#x793A;&#x7684;&#x306B;1&#x3064; (&#x306A;&#x3044;&#x3057;&#x8907;&#x6570;) &#x306E;<code>source_file</code> &#x3092;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3057;&#x3066;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<pre><code class="lang-bash">crystal docs src/my_app.cr
+</code></pre>
+<p><strong>&#x3088;&#x304F;&#x4F7F;&#x3046;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;:</strong></p>
+<ul>
+<li><code>--project-name=NAME</code>: &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;&#x53EF;&#x80FD;&#x306A;&#x5834;&#x5408;<code>shard.yml</code>&#x306B;&#x3042;&#x308B;&#x540D;&#x524D;&#x3092;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x304C;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x3053;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x3059;</li>
+<li><code>--project-version=VERSION</code>: &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x53EF;&#x80FD;&#x306A;&#x5834;&#x5408;<code>shard.yml</code>&#x306B;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x304B;git&#x306E;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x304B;&#x3089;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3057;&#x307E;&#x3059;&#x3002;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x304C;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x3053;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x3059;</li>
+<li><code>--output=DIR, -o DIR</code>: &#x51FA;&#x529B;&#x5148;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B; (&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;: <code>./docs</code>)</li>
+<li><code>--canonical-base-url=URL, -b URL</code>: <a href="https://en.wikipedia.org/wiki/Canonical_link_element" target="_blank">canonical &#x306A;&#x30D9;&#x30FC;&#x30B9; URL</a> &#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+<p>&#x6B21;&#x306E;&#x4F8B;&#x3067;&#x306F;canonical&#x306A;&#x30D9;&#x30FC;&#x30B9;URL&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x4E0A;&#x3067;&#x3001;<code>public</code>&#x3092;&#x51FA;&#x529B;&#x5148;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x3057;&#x3066;, &#x305D;&#x3057;&#x3066;<code>src/my_app.cr</code>&#x3092;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3068;&#x3057;&#x3066;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">crystal docs --output public --canonical-base-url http://example.com/ src/my_app.cr
+</code></pre>
+<h3 id="crystal-env"><code>crystal env</code></h3>
+<p><code>crystal env</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x304C;&#x4F7F;&#x3046;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3092;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">crystal env [&lt;var&gt;...]
+</code></pre>
+<p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x30B7;&#x30A7;&#x30EB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306E;&#x3088;&#x3046;&#x306B;&#x60C5;&#x5831;&#x3092;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;<code>var</code>&#x5F15;&#x6570;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&#x305D;&#x308C;&#x3089;&#x306E;&#x5909;&#x6570;&#x306E;&#x5024;&#x304C;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x884C;&#x306B;&#x51FA;&#x529B;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ crystal env
+CRYSTAL_CACHE_DIR=&quot;/home/crystal/.cache/crystal&quot;
+CRYSTAL_PATH=&quot;/usr/bin/../share/crystal/src:lib&quot;
+CRYSTAL_VERSION=&quot;0.28.0&quot;
+CRYSTAL_LIBRARY_PATH=&quot;/usr/bin/../lib/crystal/lib&quot;
+$ crystal env CRYSTAL_VERSION
+0.28.0
+</code></pre>
+<h3 id="crystal-spec"><code>crystal spec</code></h3>
+<p><code>crystal spec</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x306E; spec &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3068;&#x5B9F;&#x884C;&#x3092;&#x4E00;&#x5EA6;&#x306B;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal spec [&lt;options&gt;] [&lt;file&gt;...] [-- [&lt;runner_options&gt;]]
+</code></pre><p><code>files</code>&#x5F15;&#x6570;&#x3067;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;1&#x3064;&#x306E; Crystal &#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3068;&#x3057;&#x3066;&#x7D50;&#x5408;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x5F15;&#x6570;&#x304C;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x3092;&#x6307;&#x3057;&#x3066;&#x3044;&#x305F;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x4E2D;&#x306E; spec &#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F55;&#x3082;<code>files</code>&#x5F15;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3068;&#x3057;&#x3066;<code>./spec</code>&#x304C;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x306F;<code>:</code>&#x3068;&#x884C;&#x756A;&#x53F7;&#x3092;&#x3042;&#x3068;&#x306B;&#x7D9A;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;spec &#x30E9;&#x30F3;&#x30CA;&#x30FC;&#x306B;&#x5BFE;&#x3057;&#x3066; <code>--location</code> &#x3067;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x5834;&#x5408;&#x3068;&#x540C;&#x69D8;&#x306E;&#x6307;&#x5B9A;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059; (&#x3053;&#x306E;&#x5F8C;&#x306B;&#x8A73;&#x7D30;)&#x3002;</p>
+<p><code>crystal spec --options</code>&#x3067;&#x53EF;&#x80FD;&#x306A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x4E00;&#x89A7;&#x3092;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><strong>spec &#x30E9;&#x30F3;&#x30CA;&#x30FC;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;:</strong></p>
+<p><code>runner_options</code> &#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x305F; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x969B;&#x306B;&#x6E21;&#x3059;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x8868;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306F;&#x4ED6;&#x306E;&#x5F15;&#x6570;&#x3068;&#x306F; <code>--</code> &#x3067;&#x533A;&#x5207;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li><code>--verbose</code>: &#x3059;&#x3079;&#x3066;&#x306E; spec &#x540D;&#x3092;&#x542B;&#x3080;&#x3088;&#x3046;&#x306A;&#x8A73;&#x7D30;&#x306A;&#x51FA;&#x529B;&#x3092;&#x3059;&#x308B;</li>
+<li><code>--profile</code>: &#x5B9F;&#x884C;&#x306B;&#x6642;&#x9593;&#x306E;&#x304B;&#x304B;&#x3063;&#x305F; spec &#x3092;10&#x500B;&#x307E;&#x3067;&#x8868;&#x793A;&#x3059;&#x308B;</li>
+<li><code>--fail-fast</code>: &#x3069;&#x308C;&#x304B;1&#x3064;&#x3067;&#x3082; spec &#x304C;&#x5931;&#x6557;&#x3057;&#x305F;&#x3089;&#x5373;&#x5EA7;&#x306B;&#x4E2D;&#x65AD;&#x3059;&#x308B;</li>
+<li><code>--junit_output &lt;output_dir&gt;</code>: JUnit XML &#x3092;&#x751F;&#x6210;&#x3059;&#x308B;</li>
+</ul>
+<p>&#x6B21;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x5B9F;&#x884C;&#x3059;&#x308B; spec &#x306E;&#x4E00;&#x89A7;&#x3092;&#x30D5;&#x30A3;&#x30EB;&#x30BF;&#x30FC;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li><code>--example &lt;name&gt;</code>: <code>name</code> &#x3092;&#x542B;&#x3080;&#x3088;&#x3046;&#x306A; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;</li>
+<li><code>--line &lt;line&gt;</code>: &#x884C;&#x756A;&#x53F7;&#x304C; <code>line</code> &#x306B;&#x4E00;&#x81F4;&#x3057;&#x305F; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;</li>
+<li><code>--location &lt;file&gt;:&lt;line&gt;</code>: <code>file</code> &#x306E; <code>line</code> &#x306B;&#x3042;&#x308B; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B; (&#x8907;&#x6570;&#x6307;&#x5B9A;&#x53EF;&#x80FD;)</li>
+<li><code>--tag &lt;tag&gt;</code>: &#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30BF;&#x30B0;&#x3092;&#x6301;&#x3064; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F; <code>~</code> &#x306B;&#x7D9A;&#x3051;&#x305F;&#x30BF;&#x30B0;&#x3092;&#x6301;&#x3064; spec &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B; spec &#x306E;&#x4E00;&#x89A7;&#x304B;&#x3089;&#x9664;&#x304F;&#x3002;<ul>
+<li><code>--tag a --tag b</code> &#x3068;&#x3044;&#x3046;&#x6307;&#x5B9A;&#x306F;&#x3001;&#x30BF;&#x30B0; <code>a</code> &#x3082;&#x3057;&#x304F;&#x306F;&#x30BF;&#x30B0; <code>b</code> &#x3092;&#x6301;&#x3064; spec &#x3092;&#x542B;&#x3081;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>--tag ~a --tag ~b</code> &#x3068;&#x3044;&#x3046;&#x6307;&#x5B9A;&#x306F; &#x30BF;&#x30B0;<code>a</code> &#x3082;&#x30BF;&#x30B0;<code>b</code> &#x3082;&#x6301;&#x305F;&#x306A;&#x3044; spec &#x3092;&#x542B;&#x3081;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>--tag a --tag ~b</code> &#x3068;&#x3044;&#x3046;&#x6307;&#x5B9A;&#x306F;&#x3001;&#x30BF;&#x30B0; <code>a</code> &#x3092;&#x6301;&#x3064;&#x304C;&#x30BF;&#x30B0; <code>b</code> &#x3092;&#x6301;&#x305F;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A; spec &#x3092;&#x542B;&#x3081;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4F8B;:</p>
+<pre><code class="lang-shell-session">$ crystal spec
+F
+
+Failures:
+
+  1) Myapp works
+     Failure/Error: false.should eq(true)
+
+       Expected: true
+            got: false
+
+     # spec/myapp_spec.cr:7
+
+Finished in 880 microseconds
+1 examples, 1 failures, 0 errors, 0 pending
+
+Failed examples:
+
+crystal spec spec/myapp_spec.cr:6 # Myapp works
+</code></pre>
+<h3 id="crystal-play"><code>crystal play</code></h3>
+<p><code>crystal play</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x5BFE;&#x8A71;&#x7684;&#x306A; Crystal &#x306E;&#x30D7;&#x30EC;&#x30A4;&#x30B0;&#x30E9;&#x30A6;&#x30F3;&#x30C9;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B; Web &#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3092;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal play [--port &lt;port&gt;] [--binding &lt;host&gt;] [--verbose] [file]
+</code></pre><p><img src="crystal-play.png" alt="Crystal &#x30D7;&#x30EC;&#x30A4;&#x30B0;&#x30E9;&#x30A6;&#x30F3;&#x30C9;&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30B7;&#x30E7;&#x30C3;&#x30C8;"></p>
+<h3 id="crystal-tool"><code>crystal tool</code></h3>
+<ul>
+<li><code>crystal tool context</code>: &#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x4F4D;&#x7F6E;&#x3067;&#x306E;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3092;&#x8868;&#x793A;</li>
+<li><code>crystal tool expand</code>: &#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x4F4D;&#x7F6E;&#x306E;&#x30DE;&#x30AF;&#x30ED;&#x3092;&#x5C55;&#x958B;</li>
+<li><a href="#crystal-tool-format"><code>crystal tool format</code></a>: Crystal &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;</li>
+<li><code>crystal tool hierarchy</code>: &#x578B;&#x306E;&#x968E;&#x5C64;&#x3092;&#x8868;&#x793A;</li>
+<li><code>crystal tool implementations</code>: &#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x4F4D;&#x7F6E;&#x3067;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x3069;&#x3053;&#x306B;&#x3042;&#x308B;&#x304B;&#x3092;&#x8868;&#x793A;</li>
+<li><code>crystal tool types</code>: &#x4E3B;&#x8981;&#x306A;&#x5909;&#x6570;&#x306E;&#x578B;&#x3092;&#x8868;&#x793A;</li>
+</ul>
+<h3 id="crystal-tool-format"><code>crystal tool format</code></h3>
+<p><code>crystal tool format</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F; Crystal &#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3092;&#x9069;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>crystal tool format [--check] [&lt;path&gt;...]
+</code></pre><p><code>path</code> &#x306B;&#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x304B;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x540D;&#x304C;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x3066;&#x3001;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x540D;&#x306E;&#x5834;&#x5408;&#x305D;&#x306E;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x4E2D;&#x306E; Crystal &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x518D;&#x5E30;&#x7684;&#x306B;&#x8FBF;&#x308A;&#x307E;&#x3059;&#x3002;<code>path</code>&#x304C;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;&#x73FE;&#x5728;&#x306E;&#x30C7;&#x30A4;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x74B0;&#x5883;&#x5909;&#x6570;">&#x74B0;&#x5883;&#x5909;&#x6570;</h2>
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x74B0;&#x5883;&#x5909;&#x6570;&#x306F;&#x3001;&#x3082;&#x3057;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308C;&#x3070; Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306B;&#x3088;&#x3063;&#x3066;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306E;&#x5024;&#x306F;<a href="#crystal-env"><code>crystal env</code></a>&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li><code>CRYSTAL_CACHE_DIR</code>: &#x7D9A;&#x304F;&#x30D3;&#x30EB;&#x30C9;&#x3092;&#x9AD8;&#x901F;&#x5316;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B; Crystal &#x304C;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x3057;&#x3066;&#x3044;&#x308B;&#x90E8;&#x5206;&#x7684;&#x306A;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306E;&#x7D50;&#x679C;&#x3092;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x30D1;&#x30B9;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D1;&#x30B9;&#x306F;<a href="#crystal-run"><code>crystal run</code></a>&#x3067;&#x4E00;&#x6642;&#x7684;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x308B;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x5148;&#x3068;&#x3057;&#x3066;&#x3082;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059; (<a href="#crystal-build"><code>crystal build</code></a> &#x3067;&#x306F;&#x5229;&#x7528;&#x3057;&#x307E;&#x305B;&#x3093;)&#x3002;
+ &#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x306F;&#x6B21;&#x306B;&#x4E0A;&#x3052;&#x308B;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;&#x3046;&#x3061;&#x6700;&#x521D;&#x306B;&#x898B;&#x3064;&#x304B;&#x3063;&#x305F;&#x304B;&#x4F5C;&#x6210;&#x53EF;&#x80FD;&#x3060;&#x3063;&#x305F;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;: <code>${XDG_CACHE_HOME}/crystal</code> (<code>XDG_CACHE_HOME</code>&#x304C;&#x3042;&#x308B;&#x5834;&#x5408;)&#x3001;<code>${HOME}/.cache/crystal</code>&#x3001;<code>${HOME}/.crystal</code>&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;<code>./.crystal</code>&#x3002;<code>CRYSTAL_CACHE_DIR</code>&#x3067;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30D1;&#x30B9;&#x304C;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x4E0D;&#x53EF;&#x80FD;&#x3060;&#x3063;&#x305F;&#x5834;&#x5408;&#x3082;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x304C;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+<li><code>CRYSTAL_PATH</code>: Crystal &#x304C; require &#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x63A2;&#x7D22;&#x3059;&#x308B;&#x30D1;&#x30B9;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>CRYSTAL_VERSION</code> &#x306F;<a href="#crystal-env"><code>crystal env</code></a>&#x306E;&#x51FA;&#x529B;&#x3068;&#x3057;&#x3066;&#x306E;&#x307F;&#x6709;&#x52B9;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x30BB;&#x30C3;&#x30C8;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x305A;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3053;&#x306E;&#x5909;&#x6570;&#x3092;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x5229;&#x7528;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002;</li>
+<li><code>CRYSTAL_LIBRARY_PATH</code>: &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3053;&#x306E;&#x5909;&#x6570;&#x306B;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30D1;&#x30B9;&#x3092;&#x3001;&#x9759;&#x7684;&#x3082;&#x3057;&#x304F;&#x306F;&#x52D5;&#x7684;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x6700;&#x521D;&#x306B;&#x63A2;&#x7D22;&#x3059;&#x308B;&#x5834;&#x6240;&#x3068;&#x3057;&#x3066;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x9759;&#x7684;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;<code>build/libs</code>&#x306B;&#x7F6E;&#x304B;&#x308C;&#x3066;&#x3044;&#x305F;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3092;&#x305D;&#x308C;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x305D;&#x3053;&#x306B;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63A2;&#x7D22;&#x3057;&#x306B;&#x884C;&#x304F;&#x3088;&#x3046;&#x306B;&#x4F1D;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../getting_started/cli.html" class="navigation navigation-prev " aria-label="Previous page: コマンドライアプリケーション">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../the_shards_command/" class="navigation navigation-next " aria-label="Next page: shards コマンド">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"コンパイラの使い方","level":"1.3","depth":1,"next":{"title":"shards コマンド","level":"1.4","depth":1,"path":"the_shards_command/README.md","ref":"the_shards_command/README.md","articles":[]},"previous":{"title":"コマンドライアプリケーション","level":"1.2.2","depth":2,"path":"getting_started/cli.md","ref":"getting_started/cli.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"using_the_compiler/README.md","mtime":"2020-05-18T12:33:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-05-18T12:35:46.965Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

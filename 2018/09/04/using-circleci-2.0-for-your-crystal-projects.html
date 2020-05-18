@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Using CircleCI 2.0 for your Crystal projects - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Using CircleCI 2.0 for your Crystal projects | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Using CircleCI 2.0 for your Crystal projects" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An up to date article showing how to use CircleCI 2.0 for your Crystal projects." />
+<meta property="og:description" content="An up to date article showing how to use CircleCI 2.0 for your Crystal projects." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2018/09/04/using-circleci-2.0-for-your-crystal-projects.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2018/09/04/using-circleci-2.0-for-your-crystal-projects.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/09/04/using-circleci-2.0-for-your-crystal-projects.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2018/09/04/using-circleci-2.0-for-your-crystal-projects.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"An up to date article showing how to use CircleCI 2.0 for your Crystal projects.","headline":"Using CircleCI 2.0 for your Crystal projects","dateModified":"2018-09-04T00:00:00+00:00","datePublished":"2018-09-04T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">04 Sep 2018</span>
+          
+        </div>
+
+        <h1 class='title'>Using CircleCI 2.0 for your Crystal projects</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F09%2F04%2Fusing-circleci-2.0-for-your-crystal-projects.html&text=Using+CircleCI+2.0+for+your+Crystal+projects&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F09%2F04%2Fusing-circleci-2.0-for-your-crystal-projects.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F09%2F04%2Fusing-circleci-2.0-for-your-crystal-projects.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>It’s been a while since we wrote <a href="https://manas.tech/blog/2016/06/13/using-circleci-for-your-crystal-projects/">Using CircleCI for your Crystal projects</a>. Since then the following things happened:</p>
+
+<ul>
+  <li><a href="https://circleci.com/docs/2.0/">CircleCI 2.0</a> was announced and 1.0 is deprecated.</li>
+  <li>Crystal build process is partially <a href="/2018/03/09/crystal-automated-release.html">automated in CircleCI</a></li>
+  <li>Docker nightly images are pushed as <code class="highlighter-rouge">crystallang/crystal:nightly</code> to Docker Hub</li>
+  <li>Shards added a cache to avoid downloading from scratch dependencies</li>
+</ul>
+
+<p>It’s time to review how to take advantage of the awesome features in CircleCI, to ensure your application or shard is up to date not only with the current Crystal release, but with the upcoming one. Doing this helps to detect early unwanted breaking changes in your dependences or, at least, be ready to release earlier.</p>
+
+<p>As a case study, we will use a fake app that requires a database. The final example will cover a couple more of the basic needs and show a more realistic scenario.</p>
+
+<h1 id="using-crystal-latest-release-for-builds">Using Crystal latest release for builds</h1>
+
+<p>You probably use <code class="highlighter-rouge">$ shards</code> to install dependencies of your application and <code class="highlighter-rouge">$ crystal spec</code> to run specs.</p>
+
+<p>In order to do that in CircleCI using the latest release of Crystal you need to create a <code class="highlighter-rouge">.circleci/config.yml</code> with the following content.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="c1"># Use crystallang/crystal:latest or specific crystallang/crystal:VERSION</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">crystallang/crystal:latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal --version</span>
+
+      <span class="pi">-</span> <span class="s">checkout</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">shards</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal spec</span>
+
+<span class="na">workflows</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="na">ci</span><span class="pi">:</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">test</span></code></pre></figure>
+</div>
+
+<p>It will show the specific compiler version used thanks to <code class="highlighter-rouge">crystal --version</code>. And you can force a specific version using <code class="highlighter-rouge">crystallang/crystal:VERSION</code> docker images instead of <code class="highlighter-rouge">crystallang/crystal:latest</code>.</p>
+
+<h1 id="using-a-database-server">Using a database server</h1>
+
+<p>In your development environment you either have a database server installed or use docker and have probably mapped the ports to your host. So either way, if you use MySQL you can access the service as <code class="highlighter-rouge">localhost:3306</code>.</p>
+
+<p>In CircleCI you can use <a href="https://circleci.com/docs/2.0/executor-types/#using-multiple-docker-images">multiple docker images</a> and the ports of the additional images will be mapped to the first container. Pretty much as if the service would have been installed locally.</p>
+
+<p>Adding the <code class="highlighter-rouge">mysql:5.7</code> image with some environment configuration and giving it some time to start property should be enough. The resulting config is as follows:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+
+<span class="na">dry</span><span class="pi">:</span>
+  <span class="na">wait_for_db</span><span class="pi">:</span> <span class="nl">&amp;wait_for_db</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Wait for MySQL</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">sleep 7</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="c1"># Use crystallang/crystal:latest or specific crystallang/crystal:VERSION</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">crystallang/crystal:latest</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">mysql:5.7</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">MYSQL_DATABASE</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sample_app'</span>
+          <span class="na">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal --version</span>
+
+      <span class="pi">-</span> <span class="s">checkout</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">shards</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="nv">*wait_for_db</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal spec</span>
+
+<span class="na">workflows</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="na">ci</span><span class="pi">:</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">test</span></code></pre></figure>
+</div>
+
+<p><strong>Note:</strong> The <code class="highlighter-rouge">dry</code> key is not standard. It’s just a placeholder of values that will be used multiple times later or that helps reading the job’s steps. If prefered, you can inline their contents directly.</p>
+
+<h1 id="reduce-ci-delays">Reduce CI delays</h1>
+
+<p>CircleCI caches docker images in each host and it even provides some <a href="https://circleci.com/docs/2.0/docker-layer-caching/">additional features</a> to reduce downloading and building docker images. This greatly reduces the time spent in each build.</p>
+
+<p>Another source of delay is downloading dependencies from scratch in every build. There are <a href="https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache">solutions</a> to store some files on a build to be used on a subsequent ones.</p>
+
+<p>Adding steps to save and restore the path used as <code class="highlighter-rouge">SHARDS_CACHE_PATH</code> allows the build to run faster.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+
+<span class="na">dry</span><span class="pi">:</span>
+  <span class="na">restore_shards_cache</span><span class="pi">:</span> <span class="nl">&amp;restore_shards_cache</span>
+    <span class="c1"># Use {{ checksum "shard.yml" }} if developing a shard instead of an app</span>
+    <span class="na">keys</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1-{{ .Branch }}</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1</span>
+
+  <span class="na">save_shards_cache</span><span class="pi">:</span> <span class="nl">&amp;save_shards_cache</span>
+    <span class="c1"># Use {{ checksum "shard.yml" }} if developing a shard instead of an app</span>
+    <span class="na">key</span><span class="pi">:</span> <span class="s">shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./shards-cache</span>
+
+  <span class="na">wait_for_db</span><span class="pi">:</span> <span class="nl">&amp;wait_for_db</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Wait for MySQL</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">sleep 7</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="c1"># Use crystallang/crystal:latest or specific crystallang/crystal:VERSION</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">crystallang/crystal:latest</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">SHARDS_CACHE_PATH</span><span class="pi">:</span> <span class="s">./shards-cache</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">mysql:5.7</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">MYSQL_DATABASE</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sample_app'</span>
+          <span class="na">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal --version</span>
+
+      <span class="pi">-</span> <span class="s">checkout</span>
+
+      <span class="pi">-</span> <span class="na">restore_cache</span><span class="pi">:</span> <span class="nv">*restore_shards_cache</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">shards</span>
+      <span class="pi">-</span> <span class="na">save_cache</span><span class="pi">:</span> <span class="nv">*save_shards_cache</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="nv">*wait_for_db</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal spec</span>
+
+<span class="na">workflows</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="na">ci</span><span class="pi">:</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">test</span></code></pre></figure>
+</div>
+
+<p>Notice how the cache key involves the checksum of the content of <code class="highlighter-rouge">shard.lock</code>. If you are using this for a shard, there should be no <code class="highlighter-rouge">shard.lock</code> file checked in and the <code class="highlighter-rouge">shard.yml</code> should be used instead.</p>
+
+<h1 id="checked-code-against-crystal-nightly">Checked code against Crystal nightly</h1>
+
+<p>Crystal keeps evolving and, while the ecosystem is still growing, some dependencies may or may not need to be updated on every release. Some shards don’t have constant commit activity and CI usually runs on every push and PRs. This leads to the possibility of not running specs while the compiler and the std libs are still evolving and might break.</p>
+
+<p>We can mostly duplicate the definition of the <code class="highlighter-rouge">test</code> job and execute it against <code class="highlighter-rouge">crystallang/crystal:nightly</code> image and schedule that run every single UTC night. Maybe, since crystal nightly starts at UTC night, it would be good to wait a bit, either way running <code class="highlighter-rouge">crystal --version</code> in build seems a good idea to do.</p>
+
+<p>The shards cache can be used for nightly builds but there is no gain in saving it.</p>
+
+<p>So a not so minimalistic CircleCI config for a real app with dependencies, shorter build times and regular checks with Crystal nightly releases could be as follows:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+
+<span class="na">dry</span><span class="pi">:</span>
+  <span class="na">restore_shards_cache</span><span class="pi">:</span> <span class="nl">&amp;restore_shards_cache</span>
+    <span class="c1"># Use {{ checksum "shard.yml" }} if developing a shard instead of an app</span>
+    <span class="na">keys</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1-{{ .Branch }}</span>
+      <span class="pi">-</span> <span class="s">shards-cache-v1</span>
+
+  <span class="na">save_shards_cache</span><span class="pi">:</span> <span class="nl">&amp;save_shards_cache</span>
+    <span class="c1"># Use {{ checksum "shard.yml" }} if developing a shard instead of an app</span>
+    <span class="na">key</span><span class="pi">:</span> <span class="s">shards-cache-v1-{{ .Branch }}-{{ checksum "shard.lock" }}</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./shards-cache</span>
+
+  <span class="na">wait_for_db</span><span class="pi">:</span> <span class="nl">&amp;wait_for_db</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Wait for MySQL</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">sleep 7</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="c1"># Use crystallang/crystal:latest or specific crystallang/crystal:VERSION</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">crystallang/crystal:latest</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">SHARDS_CACHE_PATH</span><span class="pi">:</span> <span class="s">./shards-cache</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">mysql:5.7</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">MYSQL_DATABASE</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sample_app'</span>
+          <span class="na">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal --version</span>
+
+      <span class="pi">-</span> <span class="s">checkout</span>
+
+      <span class="pi">-</span> <span class="na">restore_cache</span><span class="pi">:</span> <span class="nv">*restore_shards_cache</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">shards</span>
+      <span class="pi">-</span> <span class="na">save_cache</span><span class="pi">:</span> <span class="nv">*save_shards_cache</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="nv">*wait_for_db</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal spec</span>
+
+  <span class="na">test-on-nightly</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">crystallang/crystal:nightly</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">SHARDS_CACHE_PATH</span><span class="pi">:</span> <span class="s">./shards-cache</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">mysql:5.7</span>
+        <span class="na">environment</span><span class="pi">:</span>
+          <span class="na">MYSQL_DATABASE</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sample_app'</span>
+          <span class="na">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="pi">:</span> <span class="s1">'</span><span class="s">yes'</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal --version</span>
+
+      <span class="pi">-</span> <span class="s">checkout</span>
+
+      <span class="pi">-</span> <span class="na">restore_cache</span><span class="pi">:</span> <span class="nv">*restore_shards_cache</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">shards</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="nv">*wait_for_db</span>
+
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">crystal spec</span>
+
+<span class="na">workflows</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="c1"># Run tests on every single commit</span>
+  <span class="na">ci</span><span class="pi">:</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">test</span>
+  <span class="c1"># Run tests every night using crystal nightly</span>
+  <span class="na">nightly</span><span class="pi">:</span>
+    <span class="na">triggers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">schedule</span><span class="pi">:</span>
+          <span class="na">cron</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*"</span>
+          <span class="na">filters</span><span class="pi">:</span>
+            <span class="na">branches</span><span class="pi">:</span>
+              <span class="na">only</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s">master</span>
+    <span class="na">jobs</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">test-on-nightly</span></code></pre></figure>
+</div>
+
+<p>That’s it! Thanks CircleCI for all the great features!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

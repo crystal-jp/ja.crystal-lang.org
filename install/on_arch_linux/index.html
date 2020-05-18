@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Arch Linux へのインストール - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>プログラミング言語 Crystal | Ruby のような構文で型推論のあるコンパイル言語</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="プログラミング言語 Crystal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ruby のような構文で型推論のあるコンパイル言語" />
+<meta property="og:description" content="Ruby のような構文で型推論のあるコンパイル言語" />
+<link rel="canonical" href="https://ja.crystal-lang.org/install/on_arch_linux/" />
+<meta property="og:url" content="https://ja.crystal-lang.org/install/on_arch_linux/" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"url":"https://ja.crystal-lang.org/install/on_arch_linux/","image":"https://ja.crystal-lang.org/images/icon.png","description":"Ruby のような構文で型推論のあるコンパイル言語","headline":"プログラミング言語 Crystal","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+ <main><div class="container install">
+  <h1 class="center">Arch Linux への</h1>
+  <h1 class="distro-title"><a href="/install">インストール</a></h1>
+  <div class="row">
+    <div class="col offset-m1 m10 s12"><p>Arch Linux はコミュニティのリポジトリで Crystal コンパイラが提供されています。くわえて <code class="highlighter-rouge">shards</code> もインストールしてください。これは Crystal の依存関係マネージャです (<a href="https://crystal-lang.org/reference/the_shards_command/">shards コマンド</a>参照)。
+<a href="#snapcraft">Snapcraft</a> も使えます。</p>
+
+<h2 id="インストール">インストール</h2>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>pacman <span class="nt">-S</span> crystal shards</code></pre></figure>
+
+</div>
+
+<h2 id="snapcraft-を使う">Snapcraft を使う</h2>
+
+<p>Crystal の snap は classic な制限環境下を要求します。<code class="highlighter-rouge">snapd</code> がインストールしてあれば、Crystal をインストールする準備は万端です。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--classic</span></code></pre></figure>
+</div>
+
+<p>最新のバージョンを <code class="highlighter-rouge">edge</code> チャンネルを使ってインストールすることもできます。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--classic</span> <span class="nt">--edge</span></code></pre></figure>
+</div>
+
+<p>より詳しい情報は [Crystal の snapcraft のページ ]を参照してください (https://snapcraft.io/install/crystal/arch)</p>
+
+</div>
+  </div>
+</div>
+<hr class="hr-light">
+<div class="done-install">
+  <h1>インストールできましたか？</h1><a href="https://ja.crystal-lang.org/reference/getting_started/" target="_blank" class="btn btn-large btn-flat">学ぶ</a><h2>何か問題が発生しましたか？</h2><a href="https://forum.crystal-lang.org/c/help-support" target="_blank" class="btn btn-large btn-flat">フォーラムでのサポート</a>。</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

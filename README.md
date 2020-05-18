@@ -1,8 +1,27 @@
-# Crystal ドキュメントの日本語翻訳プロジェクト
+このリポジトリは [crystal-lang/crystal-website](https://github.com/crystal-lang/crystal-website) の日本語版向けの Fork です。
+ここでは主に日本語版向けにレイアウトの修正などを行なっていて、翻訳はこちらでは行いません。
+翻訳を含む Pull Request 等も基本的には受け入れないと思います。
 
-[![Build Status](https://travis-ci.org/crystal-jp/ja.crystal-lang.org.svg?branch=gh-pages)](https://travis-ci.org/crystal-jp/ja.crystal-lang.org)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/crystal-jp/gh-pages?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+以下、オリジナルの`README.md`です。
 
-Crystal のドキュメントの日本語訳のためのプロジェクトです。  
-[本家の gh-pages ブランチ](https://github.com/manastech/crystal/tree/gh-pages)を翻訳用に切り出して作っています。  
-翻訳に関して気付いたことや誤りなどがあれば、Gitter か Issue でお知らせいただけると嬉しいです。
+- - -
+
+Crystal Website
+===============
+Powered by [Jekyll](https://jekyllrb.com/)
+
+## Development setup (via docker)
+
+- Checkout the repository
+- Run `$ docker-compose up`
+- Open a browser in `localhost:4000`
+
+The docker container will launch jekyll with `--incremental` option.
+
+## Thanks!
+
+As always, thanks to the community who contributes to Crystal and its infrastructure and projects.
+
+## License
+
+Crystal is licensed under the Apache License, Version 2.0

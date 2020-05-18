@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Formatting pretty numbers for humans - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Formatting pretty numbers for humans | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Formatting pretty numbers for humans" />
+<meta name="author" content="straight-shoota" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="With Crystal 0.28.0 we have a new feature for formatting numbers for human readers." />
+<meta property="og:description" content="With Crystal 0.28.0 we have a new feature for formatting numbers for human readers." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/05/08/formatting-pretty-numbers-for-humans.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/05/08/formatting-pretty-numbers-for-humans.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-05-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@straight-shoota" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/05/08/formatting-pretty-numbers-for-humans.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"straight-shoota"},"url":"https://ja.crystal-lang.org/2019/05/08/formatting-pretty-numbers-for-humans.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"straight-shoota"},"description":"With Crystal 0.28.0 we have a new feature for formatting numbers for human readers.","headline":"Formatting pretty numbers for humans","dateModified":"2019-05-08T00:00:00+00:00","datePublished":"2019-05-08T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/straight-shoota.jpg" width="400" height="400" alt="authors/straight-shoota.jpg">
+          
+          
+            <span class="author_name">Johannes Müller</span>
+          
+          
+          
+            <span class="date">08 May 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Formatting pretty numbers for humans</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F05%2F08%2Fformatting-pretty-numbers-for-humans.html&text=Formatting+pretty+numbers+for+humans&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F05%2F08%2Fformatting-pretty-numbers-for-humans.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F05%2F08%2Fformatting-pretty-numbers-for-humans.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>With Crystal 0.28.0 we have a new feature for formatting numbers for human readers.</p>
+
+<p>Previously the options were using <code class="highlighter-rouge">#to_s</code> on various <code class="highlighter-rouge">Number</code> types or at best <a href="https://crystal-lang.org/api/0.28.0/toplevel.html#sprintf%28format_string%2C%2Aargs%29%3AString-class-method"><code class="highlighter-rouge">sprintf</code></a>. Both provide only limited output formats and they’re focused on how numbers are represented for computers. They don’t have readability for humans in mind.</p>
+
+<p>When showing numbers in a user interface, they need to be understandable by human readers.</p>
+
+<h1 id="format-a-number">Format a Number</h1>
+
+<p>Meet the new <a href="https://crystal-lang.org/api/0.28.0/Number.html#format%28separator%3D%26%2339%3B.%26%2339%3B%2Cdelimiter%3D%26%2339%3B%2C%26%2339%3B%2Cdecimal_places%3AInt%3F%3Dnil%2C%2A%2Cgroup%3AInt%3D3%2Conly_significant%3ABool%3Dfalse%29%3AString-instance-method"><code class="highlighter-rouge">Number#format</code></a> method.</p>
+
+<p>It allows printing numbers in a customizable format, that can represent the way that numbers are usually written for humans.</p>
+
+<h2 id="number-styles">Number styles</h2>
+
+<p>Numbers can be formatted using configurable decimal separator and thousands delimiter:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span>   <span class="c1"># =&gt; "123,456.789"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">)</span>   <span class="c1"># =&gt; "123.456,789"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="s1">' '</span><span class="p">)</span>   <span class="c1"># =&gt; "123 456,789"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="s1">'\''</span><span class="p">)</span>  <span class="c1"># =&gt; "123'456,789"</span></code></pre></figure>
+</div>
+
+<p>The number of digits in a thousands group is also configurable. This works for example for Chinese numbers grouped by tenthousands:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">','</span><span class="p">,</span> <span class="ss">group: </span><span class="mi">4</span><span class="p">)</span> <span class="c1"># =&gt; "12,3456.789"</span></code></pre></figure>
+</div>
+
+<p>There are many different styles used in different cultural contexts, and this method is flexible enough to represent most common formats.</p>
+
+<p><a href="http://www.statisticalconsultants.co.nz/blog/how-the-world-separates-its-digits.html"><em>How the world separates its digits</em></a> provides an overview of international styles, and the <a href="https://en.wikipedia.org/wiki/Decimal_separator">Wikipedia article on <em>Decimal Separators</em></a> provides some more insight on this topic.</p>
+
+<h2 id="decimal-places">Decimal places</h2>
+
+<p>Floating point numbers can produce a lot of decimal places when converted to a human-readable string. For user output such detail is usually a distraction and displaying a few decimal places is plenty.</p>
+
+<p>The number of decimal places can be configured directly in the <code class="highlighter-rouge">#format</code> method:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="ss">decimal_places: </span><span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; "123,456.79"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="ss">decimal_places: </span><span class="mi">0</span><span class="p">)</span> <span class="c1"># =&gt; "123,457"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="ss">decimal_places: </span><span class="mi">4</span><span class="p">)</span> <span class="c1"># =&gt; "123,456.7890"</span></code></pre></figure>
+</div>
+
+<p>Compared to rounding the value manually before formatting it, this is easier and allows for more options.</p>
+
+<p>The number of decimal places is fixed by default. Trailing zeros will only be omitted when <code class="highlighter-rouge">only_significant</code> is <code class="highlighter-rouge">true</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="ss">decimal_places: </span><span class="mi">6</span><span class="p">)</span>                         <span class="c1"># =&gt; "123,456.789000"</span>
+<span class="mi">123_456</span><span class="o">.</span><span class="mi">789</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="ss">decimal_places: </span><span class="mi">6</span><span class="p">,</span> <span class="ss">only_significant: </span><span class="kp">true</span><span class="p">)</span> <span class="c1"># =&gt; "123,456.789"</span></code></pre></figure>
+</div>
+
+<h1 id="humanize-a-number">Humanize a Number</h1>
+
+<p>When numbers of different orders of magnitude are put in relation, it’s difficult to represent a large range of values in a meaningful way.</p>
+
+<p>In such cases, it’s common to express the magnitude of a value using a quantifier.</p>
+
+<p>For this we have <a href="https://crystal-lang.org/api/0.28.0/Number.html#humanize%28precision%3D3%2Cseparator%3D%26%2339%3B.%26%2339%3B%2Cdelimiter%3D%26%2339%3B%2C%26%2339%3B%2C%2A%2Cbase%3D10%2A%2A3%2Csignificant%3Dtrue%2Cprefixes%3DSI_PREFIXES%29%3AString-instance-method"><code class="highlighter-rouge">Number#humanize</code></a>: It rounds the number to the nearest thousands magnitude with a specific number of significant digits.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">1_200_000_000</span><span class="p">.</span><span class="nf">humanize</span> <span class="c1"># =&gt; "1.2G"</span>
+<span class="mf">0.000</span><span class="n">_000_012</span><span class="p">.</span><span class="nf">humanize</span> <span class="c1"># =&gt; "12.0n"</span></code></pre></figure>
+</div>
+
+<p>It has the same arguments for decimal <code class="highlighter-rouge">separator</code> and thousands <code class="highlighter-rouge">delimiter</code> as <code class="highlighter-rouge">Number#format</code>, so the style is configurable exactly the same way.</p>
+
+<p>The number of significant digits can be adjusted by <code class="highlighter-rouge">precision</code>. But the default value <code class="highlighter-rouge">3</code> is probably already a good fit for most applications.
+When <code class="highlighter-rouge">siginficant</code> is <code class="highlighter-rouge">true</code>, the value of <code class="highlighter-rouge">precision</code> is the fixed amount of decimal digits regardless of the number’s value.</p>
+
+<p>Quantifiers are by default the SI prefixes (<code class="highlighter-rouge">k</code>, <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">G</code>, etc.), but they’re completely configurable, either by providing a list, or a proc.</p>
+
+<h2 id="customizable-quantifiers">Customizable quantifiers</h2>
+
+<p><code class="highlighter-rouge">Number#humanize</code> can take a proc argument that calculates the number of digits and the quantifier for a specific magnitude.</p>
+
+<p>The following example shows how to format a length in metric units, including the unit designator. It derives from the default implementation by using the common <em>centimeter</em> unit for values between <code class="highlighter-rouge">0.01</code> and <code class="highlighter-rouge">0.99</code> (which the generic mapping would express as <em>millimeter</em>). All other values use the generic SI prefixes (provided by <a href="https://crystal-lang.org/api/0.28.0/Number.html#si_prefix(magnitude:Int,prefixes=SI_PREFIXES):Char?-class-method"><code class="highlighter-rouge">Number.si_prefix</code></a>).</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="k">def</span> <span class="nf">humanize_length</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+  <span class="n">number</span><span class="p">.</span><span class="nf">humanize</span> <span class="k">do</span> <span class="o">|</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">number</span><span class="o">|</span>
+    <span class="k">case</span> <span class="n">magnitude</span>
+    <span class="k">when</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="k">then</span> <span class="p">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s2">" cm"</span><span class="p">}</span>
+    <span class="k">else</span>
+      <span class="n">magnitude</span> <span class="o">=</span> <span class="no">Number</span><span class="p">.</span><span class="nf">prefix_index</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+      <span class="p">{</span><span class="n">magnitude</span><span class="p">,</span> <span class="s2">" </span><span class="si">#{</span><span class="no">Number</span><span class="p">.</span><span class="nf">si_prefix</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span><span class="si">}</span><span class="s2">m"</span><span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">humanize_length</span><span class="p">(</span><span class="mi">1_420</span><span class="p">)</span> <span class="c1"># =&gt; "1.42 km"</span>
+<span class="n">humanize_length</span><span class="p">(</span><span class="mf">0.23</span><span class="p">)</span>  <span class="c1"># =&gt; "23.0 cm"</span>
+<span class="n">humanize_length</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># =&gt; "5.0 cm"</span>
+<span class="n">humanize_length</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span> <span class="c1"># =&gt; "1.0 mm"</span></code></pre></figure>
+</div>
+
+<h1 id="humanize-bytes">Humanize Bytes</h1>
+
+<p>The third method is <a href="https://crystal-lang.org/api/0.28.0/Int.html#humanize_bytes%28precision%3AInt%3D3%2Cseparator%3D%26%2339%3B.%26%2339%3B%2C%2A%2Csignificant%3ABool%3Dtrue%2Cformat%3ABinaryPrefixFormat%3D%3AIEC%29%3AString-instance-method"><code class="highlighter-rouge">Int#humanize_bytes</code></a> which allows formatting a number of bytes (for example memory size) in a typical format. It supports both IEC (<code class="highlighter-rouge">Ki</code>, <code class="highlighter-rouge">Mi</code>, <code class="highlighter-rouge">Gi</code>, <code class="highlighter-rouge">Ti</code>, <code class="highlighter-rouge">Pi</code>, <code class="highlighter-rouge">Ei</code>, <code class="highlighter-rouge">Zi</code>, <code class="highlighter-rouge">Yi</code>) and JEDEC (<code class="highlighter-rouge">K</code>, <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">G</code>, <code class="highlighter-rouge">T</code>, <code class="highlighter-rouge">P</code>, <code class="highlighter-rouge">E</code>, <code class="highlighter-rouge">Z</code>, <code class="highlighter-rouge">Y</code>) prefixes.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">1</span><span class="p">.</span><span class="nf">humanize_bytes</span>                          <span class="c1"># =&gt; "1B"</span>
+<span class="mi">1024</span><span class="p">.</span><span class="nf">humanize_bytes</span>                       <span class="c1"># =&gt; "1.0kiB"</span>
+<span class="mi">1536</span><span class="p">.</span><span class="nf">humanize_bytes</span>                       <span class="c1"># =&gt; "1.5kiB"</span>
+<span class="mi">524288</span><span class="p">.</span><span class="nf">humanize_bytes</span><span class="p">(</span><span class="ss">format: :JEDEC</span><span class="p">)</span>     <span class="c1"># =&gt; "512kB"</span>
+<span class="mi">1073741824</span><span class="p">.</span><span class="nf">humanize_bytes</span><span class="p">(</span><span class="ss">format: :JEDEC</span><span class="p">)</span> <span class="c1"># =&gt; "1.0GB"</span></code></pre></figure>
+</div>
+
+<p>The <a href="https://github.com/crystal-lang/crystal/blob/639e4765f3f4137f90c5b7da24d8ccb5b0bfec35/src/humanize.cr#L304">implementation of this method</a> is another example for a custom format based on <code class="highlighter-rouge">Numer#humanize</code>.</p>
+
+<h1 id="summary">Summary</h1>
+
+<p>These new methods provide great features for making numbers look pretty to the reader.</p>
+
+<p>They do not provide style mappings for specific locales. This is a non-trivial task that should be left for dedicated I18N libraries. But they’re useful building blocks that such libraries can build upon. And they’re immediatetly usable when you don’t need to support different locales.</p>
+
+<p>The implementation is not perfect, though. Localization is complex and hard to get right. As always, the devil lies in the details. For example, the thousands delimiter and group size are configurable, but have fixed values. The <a href="https://en.wikipedia.org/wiki/Indian_numbering_system">Indian numbering system</a> can’t be represented in this way. Then only arabic numbers are supported. And there are probably lots of other cases which would require more specialiced behaviour.</p>
+
+<p>But it’s probably good for more than 90% of typical use cases, and already useful in many places. And there is always room for improvement.</p>
+
+<p>More background information can be found in the <a href="https://github.com/crystal-lang/crystal/pull/6314">PR which brought these features</a>.</p>
+
+<p>Also a good read on formatting numbers from a more general perspective: <a href="https://medium.com/@hjalli/formatting-numbers-for-machines-and-mortals-421860e68db3">Formatting numbers for machines and mortals</a> by Hjalmar Gislason.</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

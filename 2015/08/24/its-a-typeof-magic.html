@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>It's a typeof magic - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>It’s a typeof magic | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="It’s a typeof magic" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The story of typeof" />
+<meta property="og:description" content="The story of typeof" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2015/08/24/its-a-typeof-magic.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2015/08/24/its-a-typeof-magic.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/08/24/its-a-typeof-magic.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2015/08/24/its-a-typeof-magic.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"The story of typeof","headline":"It’s a typeof magic","dateModified":"2015-08-24T00:00:00+00:00","datePublished":"2015-08-24T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">24 Aug 2015</span>
+          
+        </div>
+
+        <h1 class='title'>It's a typeof magic</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F08%2F24%2Fits-a-typeof-magic.html&text=It%27s+a+typeof+magic&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F08%2F24%2Fits-a-typeof-magic.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F08%2F24%2Fits-a-typeof-magic.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <h2 id="the-story-of-typeof">The story of typeof</h2>
+
+<p>The story of the <code class="highlighter-rouge">typeof</code> expression begins with array literals. In Crystal you can write</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span></code></pre></figure>
+</div>
+
+<p>and the compiler will infer that the array is an <code class="highlighter-rouge">Array(Int32)</code>, meaning it can only contain
+32 bits integers. And you can also write:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kp">true</span><span class="p">]</span></code></pre></figure>
+</div>
+
+<p>and the compiler will infer that it’s an <code class="highlighter-rouge">Array(Int32 | Char | Bool)</code>, where <code class="highlighter-rouge">Int32 | Char | Bool</code>
+means the union of those types: the array can hold any of those type at any point during the
+program’s execution.</p>
+
+<p>Literals in the language, like array, hash and regular expression (regex) literals, are simple syntax rewrites to
+regular standard library calls. In the case of a regex, this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/fo(o+)/</span></code></pre></figure>
+</div>
+
+<p>is rewritten to:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Regex</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"fo(o+)"</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>The rewrite of array literals needs a bit more thought. Arrays are generic, meaning that they are parameterized
+with a type <code class="highlighter-rouge">T</code> that specifies what type they can hold, like the <code class="highlighter-rouge">Array(Int32)</code> and <code class="highlighter-rouge">Array(Int32 | Char | Bool)</code>
+mentioned earlier. The non-literal way to create one is:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Array</span><span class="p">(</span><span class="no">Int32</span> <span class="o">|</span> <span class="no">Char</span> <span class="o">|</span> <span class="no">Bool</span><span class="p">).</span><span class="nf">new</span></code></pre></figure>
+</div>
+
+<p>In the case of an array literal we need the type to be the union type of all the elements in the array literal.
+And so, <code class="highlighter-rouge">typeof</code> was born. In the beginning this was called <code class="highlighter-rouge">type merge</code> and it was a compiler internal thing
+that you couldn’t express (there was no syntax for it), but the compiler used it for these literals. An
+example rewrite:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kp">true</span><span class="p">]</span>
+
+<span class="c1"># Rewritten to this, where &lt;type_merge&gt;(exp1, exp2, ...) computes</span>
+<span class="c1"># the union type of the expressions:</span>
+<span class="no">Array</span><span class="p">(</span><span class="o">&lt;</span><span class="n">type_merge</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kp">true</span><span class="p">)).</span><span class="nf">build</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">buffer</span><span class="o">|</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'a'</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="mi">3</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>Now this literal is invoking a <a href="http://crystal-lang.org/api/Array.html#build%28capacity%20%3A%20Int%2C%20%26block%29-class-method">regular method</a>
+to build an array. The catch is that you couldn’t write this: <code class="highlighter-rouge">&lt;type_merge&gt;</code> is only the representation of this internal node
+that allows you to compute a type, but if you wrote the above you would get a syntax error.</p>
+
+<p>We later decided that because this <code class="highlighter-rouge">&lt;type_merge&gt;</code> node worked pretty well, and we wanted literals to have no magic,
+to let users use this <code class="highlighter-rouge">&lt;type_merge&gt;</code> node, and named it <code class="highlighter-rouge">typeof</code>, because this name is pretty familiar in other languages. Now
+writing this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kp">true</span><span class="p">]</span></code></pre></figure>
+</div>
+
+<p>and this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Array</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kp">true</span><span class="p">)).</span><span class="nf">build</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">buffer</span><span class="o">|</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'a'</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="mi">3</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>are exactly equivalent: there’s no magic (but of course the first syntax is much easier to write and read).</p>
+
+<p>Little did we know that <code class="highlighter-rouge">typeof</code> would bring a lot of power to the language.</p>
+
+<h2 id="simple-uses-of-typeof">Simple uses of typeof</h2>
+
+<p>One obvious use-case of typeof is to ask the compiler the inferred type of an expression. For example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#=&gt; Int32</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">to_s</span><span class="p">)</span> <span class="c1">#=&gt; Array(String)</span></code></pre></figure>
+</div>
+
+<p>At this point you might think that <code class="highlighter-rouge">typeof(exp)</code> is similar to <code class="highlighter-rouge">exp.class</code>. However,
+the first gives you the compile-time type, while the second gives you the runtime type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">exp</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'a'</span> <span class="p">:</span> <span class="kp">true</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span> <span class="c1">#=&gt; Char | Bool</span>
+<span class="nb">puts</span> <span class="n">exp</span><span class="p">.</span><span class="nf">class</span>   <span class="c1">#=&gt; Char (or Bool, depending on the chosen random value)</span></code></pre></figure>
+</div>
+
+<p>Another simple use case is to create a type based on another object’s type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s1">'b'</span><span class="p">}</span>
+<span class="n">other_hash</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="nb">hash</span><span class="p">).</span><span class="nf">new</span> <span class="c1">#:: Hash(Int32, Char)</span></code></pre></figure>
+</div>
+
+<p>In this way we can avoid repeating or hardcoding a type name.</p>
+
+<p>But these are too simple to be interesting.</p>
+
+<h2 id="advanced-uses-of-typeof">Advanced uses of typeof</h2>
+
+<p>Let’s write the <code class="highlighter-rouge">Array#compact</code> method. This method returns an <code class="highlighter-rouge">Array</code> where <code class="highlighter-rouge">nil</code> instances are removed.
+Of course, if we start with an <code class="highlighter-rouge">Array(Int32 | Nil)</code>, that is, an array of integers and nils, we want to
+end with an <code class="highlighter-rouge">Array(Int32)</code>.</p>
+
+<p>The type grammar allows creating unions. For example <code class="highlighter-rouge">Int32 | Char</code> creates a union of <code class="highlighter-rouge">Int32</code> and <code class="highlighter-rouge">Char</code>.
+However, there’s no way to subtract types. There’s no <code class="highlighter-rouge">T - Nil</code> syntax. But, using <code class="highlighter-rouge">typeof</code>, we can still
+write this method.</p>
+
+<p>First, we define a method whose type will be the one we want:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">not_nil</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">exp</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Nil</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="s2">"oops, nil"</span>
+  <span class="k">else</span>
+    <span class="n">exp</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>If <code class="highlighter-rouge">exp</code> is <code class="highlighter-rouge">Nil</code> we raise an exception, otherwise we return <code class="highlighter-rouge">exp</code>. Let’s check its type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">not_nil</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>   <span class="c1">#=&gt; Int32</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">not_nil</span><span class="p">(</span><span class="kp">nil</span><span class="p">))</span> <span class="c1">#=&gt; NoReturn</span></code></pre></figure>
+</div>
+
+<p>Thanks to the way <a href="http://crystal-lang.org/docs/syntax_and_semantics/if_varis_a.html">if var.is_a?(…)</a> works,
+when we give it something that’s not <code class="highlighter-rouge">nil</code> it tells us that the type is that same type. But when we give it
+<code class="highlighter-rouge">nil</code>, the only branch in the <code class="highlighter-rouge">if</code> that can be executed is the <code class="highlighter-rouge">raise</code> one. Now, <code class="highlighter-rouge">raise</code> has this <code class="highlighter-rouge">NoReturn</code>
+type, which basically means there’s no value returned by that expression… because it raises an exception!
+Another expression that has <code class="highlighter-rouge">NoReturn</code> is, for example, <code class="highlighter-rouge">exit</code>.</p>
+
+<p>Let’s try and give <code class="highlighter-rouge">not_nil</code> something that’s a union type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">element</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>          <span class="c1">#=&gt; Int32 | Nil</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">not_nil</span><span class="p">(</span><span class="n">element</span><span class="p">))</span> <span class="c1">#=&gt; Int32</span></code></pre></figure>
+</div>
+
+<p>Note that the <code class="highlighter-rouge">NoReturn</code> type is gone: the “expected” type of the last expression would be <code class="highlighter-rouge">Int32 | NoReturn</code>, that
+is, the union of the possible types of the method. However, <code class="highlighter-rouge">NoReturn</code> doesn’t have a tangible value,
+so mixing <code class="highlighter-rouge">NoReturn</code> with any type <code class="highlighter-rouge">T</code> basically gives you <code class="highlighter-rouge">T</code> back. Because, if the <code class="highlighter-rouge">not_nil</code> method
+succeeds (that is, it doesn’t raise), you will get an integer back, otherwise an exception will be bubbled
+through the stack.</p>
+
+<p>Now we are ready to implement the compact method:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Array</span>
+  <span class="k">def</span> <span class="nf">compact</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="no">Array</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">not_nil</span><span class="p">(</span><span class="nb">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]))).</span><span class="nf">new</span>
+    <span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">element</span><span class="o">|</span>
+      <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">element</span> <span class="k">unless</span> <span class="n">element</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Nil</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>       <span class="c1">#=&gt; Array(Int32 | Nil)</span>
+
+<span class="n">compacted</span> <span class="o">=</span> <span class="n">ary</span><span class="p">.</span><span class="nf">compact</span>
+<span class="nb">puts</span> <span class="n">compacted</span>         <span class="c1">#=&gt; [1, 2, 3]</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">compacted</span><span class="p">)</span> <span class="c1">#=&gt; Array(Int32)</span></code></pre></figure>
+</div>
+
+<p>The magical line is the first one in the method:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Array</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">not_nil</span><span class="p">(</span><span class="nb">self</span><span class="p">[</span><span class="mi">0</span><span class="p">]))).</span><span class="nf">new</span></code></pre></figure>
+</div>
+
+<p>We create an array whose type is the type that results of invoking <code class="highlighter-rouge">not_nil</code> on the first element of the array. Note
+that the compiler doesn’t know what types are in each position in an array, so using <code class="highlighter-rouge">0</code>, <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">123</code> would be the same.</p>
+
+<p>In this way we were able to forge a type that excludes <code class="highlighter-rouge">Nil</code> without needing to extend the type grammar: the compiler’s
+machinery for the type inference algorithm is all we needed.</p>
+
+<p>But this is still simple. Let’s move on to something <strong>really</strong> interesting and fun.</p>
+
+<h2 id="typeof-sorcery">typeof sorcery</h2>
+
+<p>Our next task is to implement <code class="highlighter-rouge">Array#flatten</code>. This method returns an <code class="highlighter-rouge">Array</code> that is a one-dimensional flattening
+of the original array (recursively). That is, for every element that is an array, extract its elements into this new
+array.</p>
+
+<p>Note that this has to work recursively. Let’s see some expected behaviour:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ary1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s1">'a'</span><span class="p">]]</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">ary1</span><span class="p">)</span>             <span class="c1">#=&gt; Array(Int32 | Array(Int32 | Array(Int32) | Char))</span>
+
+<span class="n">ary1_flattened</span> <span class="o">=</span> <span class="n">ary1</span><span class="p">.</span><span class="nf">flatten</span>
+<span class="nb">puts</span> <span class="n">ary1_flattened</span>           <span class="c1">#=&gt; [1, 2, 3, 'a']</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">ary1_flattened</span><span class="p">)</span>   <span class="c1">#=&gt; Array(Int32 | Char)</span></code></pre></figure>
+</div>
+
+<p>Like before, let’s start by writing a method whose type will have the type that we need for the flattened
+array:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flatten_type</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">object</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Array</span><span class="p">)</span>
+    <span class="n">flatten_type</span><span class="p">(</span><span class="n">object</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">else</span>
+    <span class="n">object</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">flatten_type</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>                          <span class="c1">#=&gt; Int32</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">flatten_type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]))</span>                   <span class="c1">#=&gt; Int32</span>
+<span class="nb">puts</span> <span class="n">typeof</span><span class="p">(</span><span class="n">flatten_type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">]]]))</span>       <span class="c1">#=&gt; Int32 | Char</span></code></pre></figure>
+</div>
+
+<p>The method is simple: if the object is an array, we want the flatten type of any of its elements. Otherwise,
+the type is that of the object.</p>
+
+<p>And with this, we are ready to implement flatten:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Array</span>
+  <span class="k">def</span> <span class="nf">flatten</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="no">Array</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">flatten_type</span><span class="p">(</span><span class="nb">self</span><span class="p">))).</span><span class="nf">new</span>
+    <span class="n">append_flattened</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span> <span class="k">def</span> <span class="nf">append_flattened</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">object</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Array</span><span class="p">)</span>
+      <span class="n">object</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">sub_object</span><span class="o">|</span>
+        <span class="n">append_flattened</span><span class="p">(</span><span class="n">sub_object</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">else</span>
+      <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">object</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>In this second example we were able to forge a type that is an array flattening.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In the end, there’s nothing really magical about <code class="highlighter-rouge">typeof</code>. It just lets you query and use the compiler’s
+ability to infer the type of an expression really well.</p>
+
+<p>In the previous examples we were able to forge types from other types with regular stuff: types and
+methods. There’s nothing new to learn, there’s no special syntax for talking about types. And this
+is good, because it’s simple, but powerful.</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

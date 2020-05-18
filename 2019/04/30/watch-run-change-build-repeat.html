@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Watch: Run, change, build, repeat - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Watch: Run, change, build, repeat | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Watch: Run, change, build, repeat" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server." />
+<meta property="og:description" content="In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server.","headline":"Watch: Run, change, build, repeat","dateModified":"2019-04-30T00:00:00+00:00","datePublished":"2019-04-30T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">30 Apr 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Watch: Run, change, build, repeat</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F30%2Fwatch-run-change-build-repeat.html&text=Watch%3A+Run%2C+change%2C+build%2C+repeat&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F30%2Fwatch-run-change-build-repeat.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F30%2Fwatch-run-change-build-repeat.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Have <code class="highlighter-rouge">watchexec</code> installed (check <a href="https://github.com/watchexec/watchexec">github</a> for installation instructions)</li>
+  <li>Use shards’ <code class="highlighter-rouge">targets</code></li>
+</ul>
+
+<h2 id="setup">Setup</h2>
+
+<p>Create a <code class="highlighter-rouge">./dev/build-exec.sh</code> file with the following content. This is the script that will recompile and execute your code.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#!/bin/bash</span>
+<span class="nb">cd</span> <span class="k">$(</span><span class="nb">dirname</span> <span class="nv">$0</span><span class="k">)</span>/..
+shards build <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> ./bin/<span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="p">@</span>:2<span class="k">}</span><span class="s2">"</span></code></pre></figure>
+</div>
+
+<p>Create a <code class="highlighter-rouge">./dev/watch.sh</code> file with the following content. This script will watch for changes to your source files and execute the build when there are any.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#!/bin/bash</span>
+<span class="nb">cd</span> <span class="k">$(</span><span class="nb">dirname</span> <span class="nv">$0</span><span class="k">)</span>/..
+watchexec <span class="nt">-r</span> <span class="nt">-w</span> src <span class="nt">--signal</span> SIGTERM <span class="nt">--</span> ./dev/build-exec.sh <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span></code></pre></figure>
+</div>
+
+<p>Allow them to be executed:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">chmod</span> +x ./dev/build-exec.sh ./dev/watch.sh</code></pre></figure>
+</div>
+
+<h2 id="enjoy">Enjoy</h2>
+
+<p>If you created your app with <code class="highlighter-rouge">$ crystal init app awesome_app</code></p>
+
+<p>There should be a target named <code class="highlighter-rouge">awesome_app</code></p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">cat </span>shard.yml
+name: awesome_app
+
+... stripped ...
+
+targets:
+  awesome_app:
+    main: src/awesome_app.cr</code></pre></figure>
+</div>
+
+<p>You can start running the app and watching for changes doing</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>./dev/watch.sh awesome_app</code></pre></figure>
+</div>
+
+<p>And you can even pass arguments</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>./dev/watch.sh awesome_app first second</code></pre></figure>
+</div>
+
+<h2 id="how-does-it-work">How does it work</h2>
+
+<p>The <code class="highlighter-rouge">build-exec.sh</code> file is taking advantage of the output location of a target to be able to build it and run it. But we want to run it in a special way: via <code class="highlighter-rouge">exec</code> we are replacing the current process with the new version of the program.</p>
+
+<p>The <code class="highlighter-rouge">build-exec.sh</code> will be called with the target as a first argument and from the rest of the arguments will be the one we expect the application to receive. That is the role of <code class="highlighter-rouge">${@:2}</code>.</p>
+
+<p>The <code class="highlighter-rouge">watch.sh</code> will keep an eye on the <code class="highlighter-rouge">./src</code> directory and if anything changes the <code class="highlighter-rouge">build-exec.sh</code> will be run while keeping the arguments.</p>
+
+<p>A bonus point of the proposed <code class="highlighter-rouge">watch.sh</code> is that it politely requests the app to terminate via a <code class="highlighter-rouge">SIGTERM</code>.</p>
+
+<h2 id="take-it-to-the-next-level">Take it to the next level</h2>
+
+<p>This solution can be adapted to be used in a docker container since <code class="highlighter-rouge">watchexec</code> works flawlessly with Docker’s bind mounted volumes.</p>
+
+<p>You can make your specs run continuously, as long as you also watch <code class="highlighter-rouge">./spec</code> files.</p>
+
+<p>You can also watch <code class="highlighter-rouge">./lib</code> files in case you want to restart the app when updating dependencies, that’s up to your preferred workflow.</p>
+
+<p>And you can even keep an eye on other paths to perform other specific actions.</p>
+
+<p>How would you adapt it to your own projects?</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

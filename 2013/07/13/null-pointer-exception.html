@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Null Pointer Exception - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Null Pointer Exception | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Null Pointer Exception" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Null pointer exceptions, also known as NPEs, are pretty common errors." />
+<meta property="og:description" content="Null pointer exceptions, also known as NPEs, are pretty common errors." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2013/07/13/null-pointer-exception.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2013/07/13/null-pointer-exception.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-13T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2013/07/13/null-pointer-exception.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2013/07/13/null-pointer-exception.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Null pointer exceptions, also known as NPEs, are pretty common errors.","headline":"Null Pointer Exception","dateModified":"2013-07-13T00:00:00+00:00","datePublished":"2013-07-13T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">13 Jul 2013</span>
+          
+        </div>
+
+        <h1 class='title'>Null Pointer Exception</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F07%2F13%2Fnull-pointer-exception.html&text=Null+Pointer+Exception&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F07%2F13%2Fnull-pointer-exception.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F07%2F13%2Fnull-pointer-exception.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Null pointer exceptions, also known as NPEs, are pretty common errors.</p>
+
+<ul class="goals">
+  <li>In Java: java.lang.NullPointerException</li>
+  <li>In Ruby: undefined method '...' for nil:NilClass</li>
+  <li>In Python: AttributeError: 'NoneType' object has no attribute '...'</li>
+  <li>In C#: Object reference not set to an instance of an object</li>
+  <li>In C/C++: segmentation fault</li>
+</ul>
+
+<p>Heck, two days ago I couldn’t buy a bus ticket because I got a nice “Object reference not set to an instance of an object” in the payment page.</p>
+
+<p>The good news? <strong>Crystal doesn’t allow you to have null pointer exceptions</strong>.</p>
+
+<p>Let’s start with the simplest example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">nil</span><span class="p">.</span><span class="nf">foo</span></code></pre></figure>
+</div>
+
+<p>Compiling the above program gives this error:</p>
+
+<pre class="code">
+Error in foo.cr:1: undefined method 'foo' for Nil
+
+nil.foo
+    ^~~
+</pre>
+
+<p><code class="highlighter-rouge">nil</code>, the only instance of the <a href="https://github.com/crystal-lang/crystal/blob/master/src/nil.cr">Nil</a> class, behaves just like any other class in Crystal.
+And since it doesn’t have a method named “foo”, an error is issued <strong>at compile time</strong>.</p>
+
+<p>Let’s try with a slightly more complex, but made up, example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Box</span>
+  <span class="n">getter</span> <span class="ss">:value</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">make_box</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+  <span class="k">case</span> <span class="n">n</span>
+  <span class="k">when</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+    <span class="no">Box</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="k">when</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+    <span class="no">Box</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="no">ARGV</span><span class="p">.</span><span class="nf">size</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">make_box</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">box</span><span class="p">.</span><span class="nf">value</span></code></pre></figure>
+</div>
+
+<p>Can you spot the bug?</p>
+
+<p>Compiling the above program, Crystal says:</p>
+
+<pre class="code">
+Error in foo.cr:20: undefined method 'value' for Nil
+
+puts box.value
+         ^~~~~
+
+================================================================================
+
+Nil trace:
+
+  foo.cr:19
+
+    box = make_box n
+    ^
+
+  foo.cr:19
+
+    box = make_box n
+          ^~~~~~~~
+
+  foo.cr:9
+
+    def make_box(n)
+        ^~~~~~~~
+
+  foo.cr:10
+
+      case n
+      ^
+</pre>
+
+<p>Not only it tells you that you might have a null pointer exception (in this case, when n is not one of 1, 2, 3, 4, 5, 6),
+but it also shows you where the <code class="highlighter-rouge">nil</code> originated. It’s in the <code class="highlighter-rouge">case</code> expression, which has a default empty <code class="highlighter-rouge">else</code> clause, which has a <code class="highlighter-rouge">nil</code> value.</p>
+
+<p>One last example, which might well be real code:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">"socket"</span>
+
+<span class="c1"># Create a new TCPServer at port 8080</span>
+<span class="n">server</span> <span class="o">=</span> <span class="no">TCPServer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+
+<span class="c1"># Accept a connection</span>
+<span class="n">socket</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="nf">accept</span>
+
+<span class="c1"># Read a line and output it capitalized</span>
+<span class="nb">puts</span> <span class="n">socket</span><span class="p">.</span><span class="nf">gets</span><span class="p">.</span><span class="nf">capitalize</span></code></pre></figure>
+</div>
+
+<p>Can you spot the bug now? It turns out that TCPSocket#gets
+(<a href="https://github.com/crystal-lang/crystal/blob/master/src/io.cr#L52">IO#gets</a>, actually),
+returns <code class="highlighter-rouge">nil</code> at the end of the file or, in this case, when the connection is closed.
+So <code class="highlighter-rouge">capitalize</code> might be called on <code class="highlighter-rouge">nil</code>.</p>
+
+<p>And Crystal prevents you from writing such a program:</p>
+
+<pre class="code">
+Error in foo.cr:10: undefined method 'capitalize' for Nil
+
+puts socket.gets.capitalize
+                 ^~~~~~~~~~
+
+================================================================================
+
+Nil trace:
+
+  std/file.cr:35
+
+      def gets
+          ^~~~
+
+  std/file.cr:40
+
+        size &gt; 0 ? String.from_cstr(buffer) : nil
+        ^
+
+  std/file.cr:40
+
+        size &gt; 0 ? String.from_cstr(buffer) : nil
+                                                ^
+</pre>
+
+<p>To prevent this error, you can do the following:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">"socket"</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="no">TCPServer</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+<span class="n">socket</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="nf">accept</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">socket</span><span class="p">.</span><span class="nf">gets</span>
+<span class="k">if</span> <span class="n">line</span>
+  <span class="nb">puts</span> <span class="n">line</span><span class="p">.</span><span class="nf">capitalize</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"Nothing in the socket"</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>This last program compiles fine. When you use a variable in an <code class="highlighter-rouge">if</code>’s condition, and because the only
+falsy values are <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code>, Crystal knows that <code class="highlighter-rouge">line</code> can’t be nil inside the “then” part of the <code class="highlighter-rouge">if</code>.</p>
+
+<p>This is both expressive and executes faster, because it’s not needed to check for <code class="highlighter-rouge">nil</code> values at runtime at every method call.</p>
+
+<p>To conclude this post, one last thing left to say is that while porting the Crystal parser from
+Ruby to
+<a href="https://github.com/crystal-lang/crystal/blob/dbe4137444592b0cd30df7170f50f2d0abc2cde2/src/compiler/crystal/parser.cr">Crystal</a>, Crystal refused to compile
+because of a possible null pointer exception. And it was correct. So in a way, Crystal found a bug in itself :-)</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

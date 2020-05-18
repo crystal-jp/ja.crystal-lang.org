@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>to_proc - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>to_proc | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="to_proc" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ruby to_proc" />
+<meta property="og:description" content="Ruby to_proc" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2013/09/15/to-proc.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2013/09/15/to-proc.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-09-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2013/09/15/to-proc.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2013/09/15/to-proc.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Ruby to_proc","headline":"to_proc","dateModified":"2013-09-15T00:00:00+00:00","datePublished":"2013-09-15T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">15 Sep 2013</span>
+          
+        </div>
+
+        <h1 class='title'>to_proc</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F09%2F15%2Fto-proc.html&text=to_proc&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F09%2F15%2Fto-proc.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F09%2F15%2Fto-proc.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <h3 id="ruby-to_proc">Ruby to_proc</h3>
+
+<p>Ruby blocks are powerful. You can easily convert an array of numbers to strings:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="p">.</span><span class="nf">to_s</span> <span class="p">}</span> <span class="c1">#=&gt; ["1", "2", "3"]</span></code></pre></figure>
+</div>
+
+<p>Of course, you can also do this with this shortcut:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="ss">:to_s</span> <span class="c1">#=&gt; ["1", "2", "3"]</span></code></pre></figure>
+</div>
+
+<p>The <code class="highlighter-rouge">&amp;</code> operator converts an object to a Proc suitable to be
+passed as a block. You can make any class respond to this operator by implementing
+a <code class="highlighter-rouge">to_proc</code> method. Symbol has a <a href="http://ruby-doc.org/core-2.0.0/Symbol.html#method-i-to_proc">to_proc</a>
+method.</p>
+
+<p>This is all very nice but what if you want to pass an argument to the method. For example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="p">.</span><span class="nf">modulo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span> <span class="c1">#=&gt; [1, 2, 0]</span></code></pre></figure>
+</div>
+
+<p>Can we write something like <code class="highlighter-rouge">&amp;:modulo(3)</code> to make it work? It turns out
+<a href="http://stackoverflow.com/questions/9932678/how-do-you-pass-an-argument-to-ruby-array-map-short-cut">you can’t</a>, at least
+<a href="http://iain.nl/going-crazy-with-to_proc">not that easily</a>.</p>
+
+<p>Not only that, but since Ruby has to convert the Symbol to a Proc there’s a slight performance
+penalty over doing it with a normal block.</p>
+
+<p>Finally, Ruby’s implementation of <a href="http://ruby-doc.org/core-2.0.0/Symbol.html#method-i-to_proc">Symbol#to_proc</a>
+has a cache of Procs so they are not created every time you use the same symbol, but still, it’s slightly
+slower than a normal block.</p>
+
+<h3 id="crystal-to_proc">Crystal to_proc?</h3>
+
+<p>At first we thought about making Crystal have the same syntax for this, but a bit hacky: if you
+do <code class="highlighter-rouge">&amp;:to_s</code>, because the argument to <code class="highlighter-rouge">&amp;</code> is a Symbol we can rewrite the source code to receive a block:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># This:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="ss">:to_s</span>
+
+<span class="c1"># is rewritten to this:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">.</span><span class="nf">to_s</span> <span class="p">}</span></code></pre></figure>
+</div>
+
+<p>For other arguments, we would do something different (for example convert a function type to a block).</p>
+
+<p>Fortunately, <a href="https://github.com/waj">waj</a> came with a better proposal: what if we write it like
+<code class="highlighter-rouge">&amp;.to_s</code>?</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">to_s</span></code></pre></figure>
+</div>
+
+<p>Now, this is a new syntax, different from Ruby. If you do this in Ruby…</p>
+
+<pre class="code">
+irb(main):001:0&gt; [1, 2, 3].map &amp;.to_s
+SyntaxError: (irb):1: syntax error, unexpected '.'
+[1, 2, 3].map &amp;.to_s
+               ^
+</pre>
+
+<p>This means that placing a dot after the <code class="highlighter-rouge">&amp;</code> makes no sense in Ruby, which also means that this syntax
+is available for giving it a new meaning. So in Crystal we chose to use this syntax instead.</p>
+
+<p>With this little change, we can pass arguments to the method very easily:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">modulo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; [1, 2, 0] ... but only in Crystal ;-)</span></code></pre></figure>
+</div>
+
+<p>Not only that, but you can also write this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">size</span> <span class="c1">#=&gt; 1, 2, 3</span></code></pre></figure>
+</div>
+
+<p>Or this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">abs</span><span class="p">))</span> <span class="c1">#=&gt; [[1, 2], [3, 4]]</span></code></pre></figure>
+</div>
+
+<p>And of course this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nf">map</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">*</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; [1, 4, 9, 16]</span></code></pre></figure>
+</div>
+
+<p>The best thing is that this is just a syntax rewrite without any performance penalty.</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.5.9 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.5.9 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.5.9 released!" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal 0.5.9 has been released!" />
+<meta property="og:description" content="Crystal 0.5.9 has been released!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-02-07T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Crystal 0.5.9 has been released!","headline":"Crystal 0.5.9 released!","dateModified":"2015-02-07T00:00:00+00:00","datePublished":"2015-02-07T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">07 Feb 2015</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.5.9 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F02%2F07%2Fcrystal-0.5.9-released.html&text=Crystal+0.5.9+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F02%2F07%2Fcrystal-0.5.9-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F02%2F07%2Fcrystal-0.5.9-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.5.9">Crystal 0.5.9</a> has been released!</p>
+
+<p>This release has seen unprecedented contributions, both to the standard library and to the language itself.</p>
+
+<p>For starters, <a href="https://github.com/ysbaddaden">ysbaddaden</a> rewrote the entire <code class="highlighter-rouge">Socket</code> hierarchy,
+also adding classes like <code class="highlighter-rouge">UDPSocket</code> and <code class="highlighter-rouge">UNIXSocket</code>, by having a very similar API to that of Ruby.
+His contributions came from a working project he has, <a href="https://github.com/ysbaddaden/prax.cr">prax.cr</a>, which is
+a port of <a href="https://github.com/ysbaddaden/prax">prax</a>, which is a pure Ruby alternative to <a href="http://pow.cx/">Pow</a>.</p>
+
+<p>He has also added a <code class="highlighter-rouge">Logger</code> class, again with an API similar to that of Ruby.</p>
+
+<p>Then <a href="https://github.com/jhass">jhass</a> sent lots of contributions to the standard libraries, with methods
+like <code class="highlighter-rouge">IO.select</code>, <code class="highlighter-rouge">Enumerable#max_of</code>, <code class="highlighter-rouge">String#[Regex]</code>, <code class="highlighter-rouge">String#count</code>, <code class="highlighter-rouge">String#delete</code> and <code class="highlighter-rouge">String#squeeze</code>.
+His contributions came from a working project he has <a href="https://github.com/jhass/DeBot">DeBot</a>, which is an
+IRC bot written in pure Crystal, ported from a Ruby version he also wrote. This bot is now being used
+in our IRC channel: you send “» 1 + 2” and DeBot replies with “3”.</p>
+
+<p>He’s also always testing Crystal’s limits and sends lots of bug reports and improvements suggestions, which
+continue making the language more solid, stable and consistent.</p>
+
+<p>Then <a href="https://github.com/zamith">zamith</a> has enhanced array literals of strings:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sx">%w(one two three)</span> <span class="c1">#=&gt; ["one", "two", "three"]</span>
+
+<span class="c1"># But these ones didn't work before 0.5.9</span>
+<span class="sx">%w&lt;one two three&gt;</span>
+<span class="sx">%w{one two three}</span>
+<span class="sx">%w[one two three]</span></code></pre></figure>
+</div>
+
+<p>He also wrote a website <a href="https://github.com/zamith/crystalshards">in pure Crystal</a>,
+named <a href="https://crystalshards.herokuapp.com/">crystal shards</a>, hosted on <a href="https://github.com/zamith/heroku-buildpack-crystal">Heroku</a>,
+that lists Crystal projects on GitHub. We didn’t settle on this name yet for Crystal packages,
+but it’s a possibility.</p>
+
+<p>Then <a href="https://github.com/naps62">naps62</a> added the “path” option to include dependencies:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">deps</span> <span class="k">do</span>
+  <span class="n">path</span> <span class="s2">"../some_project"</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>We are overwhelmed by this amount of contributions and amazing projects that are starting to appear. Most of these
+projects are something that we didn’t think was even possible to do at this moment, given how young the language is.
+Again, a big thank you to all of you!</p>
+
+<p>Another notable feature added is the ability to invoke <code class="highlighter-rouge">to_s</code> on a C struct or union, making debugging
+C bindings much more easier.</p>
+
+<p>Happy hacking! :-)</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

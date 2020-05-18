@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Type inference rules - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Type inference rules | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Type inference rules" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here we’ll continue explaining how Crystal assigns types to each variable and expression of your program. This post is a bit long, but in the end it’s just about making Crystal behave in the most intuitive way for the programmer, to make it behave as similar as possible to Ruby." />
+<meta property="og:description" content="Here we’ll continue explaining how Crystal assigns types to each variable and expression of your program. This post is a bit long, but in the end it’s just about making Crystal behave in the most intuitive way for the programmer, to make it behave as similar as possible to Ruby." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2014/04/27/type-inference-rules.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2014/04/27/type-inference-rules.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-04-27T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2014/04/27/type-inference-rules.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2014/04/27/type-inference-rules.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Here we’ll continue explaining how Crystal assigns types to each variable and expression of your program. This post is a bit long, but in the end it’s just about making Crystal behave in the most intuitive way for the programmer, to make it behave as similar as possible to Ruby.","headline":"Type inference rules","dateModified":"2014-04-27T00:00:00+00:00","datePublished":"2014-04-27T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">27 Apr 2014</span>
+          
+        </div>
+
+        <h1 class='title'>Type inference rules</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F04%2F27%2Ftype-inference-rules.html&text=Type+inference+rules&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F04%2F27%2Ftype-inference-rules.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F04%2F27%2Ftype-inference-rules.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Here we’ll <a href="/2013/09/23/type-inference-part-1.html">continue explaining</a> how Crystal assigns
+types to each variable and expression of your program. This post is a bit long, but in the end
+it’s just about making Crystal behave in the most intuitive way for the programmer, to make it
+behave as similar as possible to Ruby.</p>
+
+<p>We’ll start with literals, C functions and some primitives. Then we’ll continue with flow
+control structures, like <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">while</code>, and blocks. Then we’ll talk about the special
+<code class="highlighter-rouge">NoReturn</code> type and type filters.</p>
+
+<h3 id="literals">Literals</h3>
+
+<p>Literals have a type of their own, known by the compiler:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="kp">true</span>     <span class="c1"># Boolean</span>
+<span class="mi">1</span>        <span class="c1"># Int32</span>
+<span class="s2">"hello"</span>  <span class="c1"># String</span>
+<span class="mf">1.5</span>      <span class="c1"># Float64</span></code></pre></figure>
+</div>
+
+<h3 id="c-functions">C functions</h3>
+
+<p>When you define a C function you must tell the compiler its types:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">lib</span> <span class="no">C</span>
+  <span class="n">fun</span> <span class="nb">sleep</span><span class="p">(</span><span class="n">seconds</span> <span class="p">:</span> <span class="no">UInt32</span><span class="p">)</span> <span class="p">:</span> <span class="no">UInt32</span>
+<span class="k">end</span>
+
+<span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="n">_u32</span><span class="p">)</span> <span class="c1"># sleep has type UInt32</span></code></pre></figure>
+</div>
+
+<h3 id="allocate">allocate</h3>
+
+<p>The allocate primitive gives you an uninitialized instance of an object:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Foo</span><span class="p">.</span><span class="nf">allocate</span> <span class="c1"># Foo.allocate has type Foo</span></code></pre></figure>
+</div>
+
+<p>You don’t normally invoke it directly. Instead, you invoke <code class="highlighter-rouge">new</code>, which
+is automatically generated by the compiler to something like this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">new</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">foo</span> <span class="o">=</span> <span class="n">allocate</span>
+    <span class="n">foo</span><span class="p">.</span><span class="nf">initialize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">foo</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Foo</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>A similar primitive is <code class="highlighter-rouge">Pointer#malloc</code>, which gives you a typed pointer to a
+memory region:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Pointer</span><span class="p">(</span><span class="no">Int32</span><span class="p">).</span><span class="nf">malloc</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># has type Pointer(Int32)</span></code></pre></figure>
+</div>
+
+<h3 id="variables">Variables</h3>
+
+<p>Next, when you assign an expression to a variable, the variable will be bound to
+that expression’s type (if the expresision’s type changes, so the variable’s type
+changes).</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 1 is Int32, so a is Int32</span></code></pre></figure>
+</div>
+
+<p>The compiler tries to be as smart as possible when you use variables. For example,
+you can assign multiple times to a variable:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># a is Int32</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">abs</span>       <span class="c1"># ok, Int32 has a method 'abs'</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span> <span class="c1"># a is now String</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">size</span>    <span class="c1"># ok, String has a method 'size'</span></code></pre></figure>
+</div>
+
+<p>To achieve this, the compiler remembers which expression was the last one assigned
+to a variable. In the above example, after the first line the compiler knows that
+<code class="highlighter-rouge">a</code> has type <code class="highlighter-rouge">Int32</code>, so a call to <code class="highlighter-rouge">abs</code> is valid. In the third line we assign
+a <code class="highlighter-rouge">String</code> to it, so the compiler remembers this and, on the fourth line, it’s perfectly
+valid to invoke <code class="highlighter-rouge">size</code> on it.</p>
+
+<p>Additionally, the compiler remembers that both an <code class="highlighter-rouge">Int32</code> and a <code class="highlighter-rouge">String</code> were
+assigned to <code class="highlighter-rouge">a</code>. When generating LLVM code, the compiler will represent <code class="highlighter-rouge">a</code>
+as a union type that can be Int32 or String. It would be something like this in C:</p>
+
+<pre class="code">
+struct Int32OrString {
+  int type_id;
+  union {
+    int int_value;
+    string string_value;
+  } data;
+}
+</pre>
+
+<p>This might seem inefficient if we continually assign different types to the same variable.
+However, the compiler knows that when you invoked <code class="highlighter-rouge">abs</code>, <code class="highlighter-rouge">a</code> was an Int32, so it never
+checks the <code class="highlighter-rouge">type_id</code> field: it directly uses the <code class="highlighter-rouge">int_value</code> field. LLVM notices this
+and optimizes this out, so in the generated code there will never be a union (the <code class="highlighter-rouge">type_id</code>
+field is never read).</p>
+
+<p>Going back to Ruby, if you assign a variable multiple times in a row, the last value (and type)
+is the one that counts for subsequent calls. Crystal mimics this behaviour. A variable then just
+becomes a name for the last expression that we assigned to.</p>
+
+<h3 id="if">If</h3>
+
+<p>Let’s take a piece of Ruby code and analyze it:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">if</span> <span class="n">some_condition</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span>
+<span class="k">else</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">size</span>
+<span class="k">end</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">size</span></code></pre></figure>
+</div>
+
+<p>In Ruby, the only line that can fail at runtime is the last one. The first call to <code class="highlighter-rouge">abs</code>
+will never fail, as an <code class="highlighter-rouge">Int32</code> was assigned to <code class="highlighter-rouge">a</code>. The first call to <code class="highlighter-rouge">size</code> will
+also never fail, as a <code class="highlighter-rouge">String</code> was assigned to <code class="highlighter-rouge">a</code>. However, after the <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">a</code> can
+either be an <code class="highlighter-rouge">Int32</code> or a <code class="highlighter-rouge">String</code>.</p>
+
+<p>So Crystal tries to keep this intuitive reasoning about <code class="highlighter-rouge">a</code>’s type. When a variable is assigned
+inside an <code class="highlighter-rouge">if</code>’s then or else branch, the compiler knows that it will continue to have that type until the <code class="highlighter-rouge">if</code>
+ends or until it is assigned a new expression. When an <code class="highlighter-rouge">if</code> ends, the compiler will let <code class="highlighter-rouge">a</code>
+have the type of the last expressions that it was assigned to in each branch.</p>
+
+<p>The last line in Crystal will give a compiler error: “undefined method ‘size’ for Int32”.
+That’s because even though <code class="highlighter-rouge">String</code> has a <code class="highlighter-rouge">size</code> method, <code class="highlighter-rouge">Int32</code> doesn’t.</p>
+
+<p>In designing the language we had two choices: make the above a compile-time error (like now) or just make
+it a runtime error (like in Ruby). We believe it’s better to make it a compile-time error. In some
+cases you might know better than the compiler and you will be sure that a variable has the type
+that you might think. But in some cases the compiler will let you know that you overlooked a case or some
+logic, and you’ll thank it for that.</p>
+
+<p>The <code class="highlighter-rouge">if</code> has some more cases to take into account. For example, the variable <code class="highlighter-rouge">a</code> might not exist
+before the <code class="highlighter-rouge">if</code>. In this case, if it’s not assigned in one of the branches, at the end of the
+<code class="highlighter-rouge">if</code> it will also contain the Nil type if it’s read:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">if</span> <span class="n">some_condition</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">end</span>
+<span class="n">a</span> <span class="c1"># here a is Int32 or Nil</span></code></pre></figure>
+</div>
+
+<p>This, again, mimics Ruby’s behaviour.</p>
+
+<p>Finally, an <code class="highlighter-rouge">if</code>’s type is the union of the last expressions in both branches. If a branch
+is missing, it’s considered to have a <code class="highlighter-rouge">Nil</code> type.</p>
+
+<h3 id="while">While</h3>
+
+<p>A <code class="highlighter-rouge">while</code> is in a way similar to an <code class="highlighter-rouge">if</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">some_condition</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span>
+<span class="k">end</span>
+<span class="n">a</span> <span class="c1"># here a is Int32 or String</span></code></pre></figure>
+</div>
+
+<p>That’s because <code class="highlighter-rouge">some_condition</code> might be falsy the first time.</p>
+
+<p>However, since a <code class="highlighter-rouge">while</code> is a loop there are some more things to consider. For example,
+the last expression assigned to a variable inside a <code class="highlighter-rouge">while</code> determines the type of that
+variable in the next iteration. In this way, the type at the beginning of the loop
+will be a union of the type before the loop and the type after the loop:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">some_condition</span>
+  <span class="n">a</span>           <span class="c1"># here a is actually Int32 or String</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="kp">false</span>   <span class="c1"># here a is Bool</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span> <span class="c1"># here a is String</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">size</span>    <span class="c1"># ok, a is String</span>
+<span class="k">end</span>
+<span class="n">a</span>             <span class="c1"># here a is Int32 or String</span></code></pre></figure>
+</div>
+
+<p>Some other things to consider inside a <code class="highlighter-rouge">while</code> are <code class="highlighter-rouge">break</code> and <code class="highlighter-rouge">next</code>. A <code class="highlighter-rouge">break</code>
+makes the types right before the break add to the type at the exit of the <code class="highlighter-rouge">while</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">some_condition</span>
+  <span class="n">a</span>             <span class="c1"># here a is Int32 or Bool</span>
+  <span class="k">if</span> <span class="n">some_other_condition</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span> <span class="c1"># we break, so at the exit a can also be String</span>
+    <span class="k">break</span>
+  <span class="k">end</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="kp">false</span>     <span class="c1"># here a is Bool</span>
+<span class="k">end</span>
+<span class="n">a</span>               <span class="c1"># here a is Int32 or String or Bool</span></code></pre></figure>
+</div>
+
+<p>A <code class="highlighter-rouge">next</code> adds the type to the beginning of the <code class="highlighter-rouge">while</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">some_condition</span>
+  <span class="n">a</span>             <span class="c1"># here a is Int32 or String or Bool</span>
+  <span class="k">if</span> <span class="n">some_other_condition</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span> <span class="c1"># we next, so in the next iteration a can be String</span>
+    <span class="k">next</span>
+  <span class="k">end</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="kp">false</span>     <span class="c1"># here a is Bool</span>
+<span class="k">end</span>
+<span class="n">a</span>               <span class="c1"># here a is Int32 or String or Bool</span></code></pre></figure>
+</div>
+
+<h3 id="blocks">Blocks</h3>
+
+<p>Blocks are very similar to a <code class="highlighter-rouge">while</code>: they can be executed zero or more times. So
+the logic for variables’ types is very similar to that of a <code class="highlighter-rouge">while</code>.</p>
+
+<h3 id="noreturn">NoReturn</h3>
+
+<p>There’s a mysterious type in Crystal called <code class="highlighter-rouge">NoReturn</code>. One such example is
+C’s <code class="highlighter-rouge">exit</code> function:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">lib</span> <span class="no">C</span>
+  <span class="n">fun</span> <span class="nb">exit</span><span class="p">(</span><span class="n">status</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">)</span> <span class="p">:</span> <span class="no">NoReturn</span>
+<span class="k">end</span>
+
+<span class="no">C</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># this is NoReturn</span>
+<span class="nb">puts</span> <span class="s2">"hello"</span> <span class="c1"># this will never be executed</span></code></pre></figure>
+</div>
+
+<p>Another very useful method that is NoReturn is <code class="highlighter-rouge">raise</code>: raising an exception.</p>
+
+<p>The type basically means: after this point there’s nothing else. Nothing gets returned,
+and nothing that comes afterwars is executed (of course, a <code class="highlighter-rouge">rescue</code> will be executed
+if there’s one surrounding the code, but the normal path won’t be executed).</p>
+
+<p>The compiler knows about <code class="highlighter-rouge">NoReturn</code>. For example, take a look at the following code:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_int</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">"hello"</span>
+  <span class="nb">puts</span> <span class="n">a</span><span class="p">.</span><span class="nf">size</span> <span class="c1"># ok</span>
+  <span class="k">raise</span> <span class="s2">"Boom!"</span>
+<span class="k">else</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">end</span>
+<span class="n">a</span> <span class="c1"># here a can only be Int32</span></code></pre></figure>
+</div>
+
+<p>Remember that after an <code class="highlighter-rouge">if</code> a variable’s type is the union of the types of
+both branches. However, since the first branch ends there, because <code class="highlighter-rouge">raise</code> is <code class="highlighter-rouge">NoReturn</code>,
+the compiler knows that code after the <code class="highlighter-rouge">if</code>, if that branch is taken, will never be
+executed. So it can definitely say: <code class="highlighter-rouge">a</code> will only have the type of the <code class="highlighter-rouge">else</code>
+branch.</p>
+
+<p>The same logic applies when you have <code class="highlighter-rouge">return</code>, <code class="highlighter-rouge">break</code> or <code class="highlighter-rouge">next</code> inside an <code class="highlighter-rouge">if</code>.</p>
+
+<p>Also, when you define a method whose type is <code class="highlighter-rouge">NoReturn</code>, that method is in turn <code class="highlighter-rouge">NoReturn</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">raise_boom</span>
+  <span class="k">raise</span> <span class="s2">"Boom!"</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">some_condition</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">else</span>
+  <span class="n">raise_boom</span>
+<span class="k">end</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># ok</span></code></pre></figure>
+</div>
+
+<h3 id="union-of-noreturn">Union of NoReturn</h3>
+
+<p>Remember that an <code class="highlighter-rouge">if</code>’s type is the union of the last expressions of the <code class="highlighter-rouge">if</code>’s branches.</p>
+
+<p>What type has the following <code class="highlighter-rouge">if</code> (and consequently the <code class="highlighter-rouge">a</code> variable)?</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="k">if</span> <span class="n">some_condition</span>
+      <span class="k">raise</span> <span class="s2">"Boom!"</span>
+    <span class="k">else</span>
+      <span class="mi">1</span>
+    <span class="k">end</span>
+<span class="n">a</span> <span class="c1"># a is...?</span></code></pre></figure>
+</div>
+
+<p>Well, the <code class="highlighter-rouge">then</code> branch is definitely <code class="highlighter-rouge">NoReturn</code>. The <code class="highlighter-rouge">else</code> branch is definitely
+<code class="highlighter-rouge">Int32</code>. We could conclude then that <code class="highlighter-rouge">a</code> has type <code class="highlighter-rouge">NoReturn</code> or <code class="highlighter-rouge">Int32</code>.
+However, <code class="highlighter-rouge">NoReturn</code> means that nothing gets executed afterwards. So <code class="highlighter-rouge">a</code> can only
+be <code class="highlighter-rouge">Int32</code> at the end of the previous snippet, and that’s how the compiler behaves.</p>
+
+<p>With this we can implement a little method called <code class="highlighter-rouge">not_nil!</code>. Here it is:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Object</span>
+  <span class="k">def</span> <span class="nf">not_nil!</span>
+    <span class="nb">self</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Nil</span>
+  <span class="k">def</span> <span class="nf">not_nil!</span>
+    <span class="k">raise</span> <span class="s2">"Nil assertion failed"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">not_nil!</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># compiles!</span></code></pre></figure>
+</div>
+
+<p><code class="highlighter-rouge">a</code>’s type is <code class="highlighter-rouge">Int32</code> or <code class="highlighter-rouge">Nil</code>. One thing that we didn’t say yet is that when you
+have a union type and you invoke a method on it, and all types respond to that method, the resulting
+type is the union of the types of each method.</p>
+
+<p>In this case, <code class="highlighter-rouge">a.not_nil!</code> will have the type <code class="highlighter-rouge">Int32</code> if <code class="highlighter-rouge">a</code> is <code class="highlighter-rouge">Int32</code>, or
+<code class="highlighter-rouge">NoReturn</code> if it’s <code class="highlighter-rouge">Nil</code> (because of the <code class="highlighter-rouge">raise</code>). Combining these types just
+gives <code class="highlighter-rouge">Int32</code>, so the above code is perfectly valid. And that’s how you can discard <code class="highlighter-rouge">Nil</code>
+from a variable and turn it into a runtime exception if it turns out to be <code class="highlighter-rouge">nil</code>. No special language
+construct is needed. All is made with the logic explained so far.</p>
+
+<h3 id="type-filters">Type filters</h3>
+
+<p>Now, what if we want to execute a method on a variable whose type is <code class="highlighter-rouge">Int32</code> or <code class="highlighter-rouge">Nil</code>,
+but only if that variable is <code class="highlighter-rouge">Int32</code>. If it’s <code class="highlighter-rouge">Nil</code>, we don’t want to do anything.</p>
+
+<p>We can’t use <code class="highlighter-rouge">not_nil!</code>, because that will raise a runtime exception when nil.</p>
+
+<p>We can define another method, <code class="highlighter-rouge">try</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Object</span>
+  <span class="k">def</span> <span class="nf">try</span>
+    <span class="k">yield</span> <span class="nb">self</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Nil</span>
+  <span class="k">def</span> <span class="nf">try</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+    <span class="kp">nil</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="nf">try</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># b is Int32 or Nil</span></code></pre></figure>
+</div>
+
+<p>(if you are not sure what <code class="highlighter-rouge">&amp;.abs</code> means, <a href="/2013/09/15/to-proc.html">read this</a>)</p>
+
+<p>Since doing something depending on whether a value is <code class="highlighter-rouge">Nil</code> or not is so common, Crystal
+provides another way to do the above. This was shortly explained
+<a href="/2013/07/13/null-pointer-exception.html">here</a>, but now we’ll explain it
+better and combine it with the previous explanations.</p>
+
+<p>If a variable is an <code class="highlighter-rouge">if</code>’s condition, the compiler assumes the variable is not <code class="highlighter-rouge">nil</code>
+inside the <code class="highlighter-rouge">then</code> branch:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span> <span class="c1"># a is Int32 or Nil</span>
+<span class="k">if</span> <span class="n">a</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span>                      <span class="c1"># a is Int32</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>This makes sense: if <code class="highlighter-rouge">a</code> is truthy then it means it is not <code class="highlighter-rouge">nil</code>. Not only this,
+but the compiler also makes <code class="highlighter-rouge">a</code>’s type be that one after the <code class="highlighter-rouge">if</code>, combined with
+whatever type <code class="highlighter-rouge">a</code> has in the <code class="highlighter-rouge">else</code> branch. For example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="n">a</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span>   <span class="c1"># ok, here a is Int32</span>
+<span class="k">else</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># here a is Int32</span>
+<span class="k">end</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">abs</span>     <span class="c1"># ok, a can only be Int32 here</span></code></pre></figure>
+</div>
+
+<p>Just like a programmer expects the above to always work in Ruby (never raise an
+“undefined method” error in runtime), so it works in Crystal.</p>
+
+<p>We call the above a “type filter”: <code class="highlighter-rouge">a</code>’s type got filtered inside the <code class="highlighter-rouge">if</code>’s
+<code class="highlighter-rouge">then</code> branch by removing <code class="highlighter-rouge">Nil</code> from the possible types <code class="highlighter-rouge">a</code> can have.</p>
+
+<p>Another type filter happens when you do <code class="highlighter-rouge">is_a?</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># ok</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>And another type filter happens when you do <code class="highlighter-rouge">responds_to?</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="nf">responds_to?</span><span class="p">(</span><span class="ss">:abs</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># ok</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>These are special methods, known by the compiler, and that’s why the compiler is
+able to filter the types. On the contrary, the method <code class="highlighter-rouge">nil?</code> is not special right now
+so the following won’t work:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="nf">nil?</span>
+<span class="k">else</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># should be ok, but now gives error</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>We’ll probably make <code class="highlighter-rouge">nil?</code> a special method too, so it’s more consistent with the
+rest of the language and the above works. We’ll also probably make the unary <code class="highlighter-rouge">!</code> method
+special, not overloadable, so you could do:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="o">!</span><span class="n">a</span>
+<span class="k">else</span>
+  <span class="n">a</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># should be ok, but now gives error</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>In conclusion, as was said in the beginning of this post, we want Crystal to behave
+as much as possible as Ruby, and if something is intuitive and makes sense for the programmer
+to make the compiler understand it too. For example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">return</span> <span class="k">unless</span> <span class="n">x</span>
+
+  <span class="n">x</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># ok</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="kp">nil</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>The above shouldn’t give you a compile time error. The programmer knows that if <code class="highlighter-rouge">x</code>
+was <code class="highlighter-rouge">nil</code> inside <code class="highlighter-rouge">foo</code>, the method returns. It follows that <code class="highlighter-rouge">x</code> can never be
+<code class="highlighter-rouge">nil</code> afterwards so it’s ok to invoke <code class="highlighter-rouge">abs</code> on it. How does the compiler know this?</p>
+
+<p>Well, first, the compiler rewrites an <code class="highlighter-rouge">unless</code> to an <code class="highlighter-rouge">if</code>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">x</span>
+  <span class="k">else</span>
+    <span class="k">return</span>
+  <span class="k">end</span>
+
+  <span class="n">x</span><span class="p">.</span><span class="nf">abs</span> <span class="c1"># ok</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>Next, inside the <code class="highlighter-rouge">then</code> branch of the <code class="highlighter-rouge">if</code> we know that <code class="highlighter-rouge">x</code> is not <code class="highlighter-rouge">nil</code>.
+Inside the <code class="highlighter-rouge">else</code> branch the method returns, so we don’t care about the type of <code class="highlighter-rouge">x</code>
+afterwards. So, after the <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">x</code> can only be of type <code class="highlighter-rouge">Int32</code>. This is idiomatic
+code in Ruby, and so it is in Crystal if we carefully follow the language rules.</p>
+
+<p>We still have to talk about methods and instance variables, but this post is already long
+enough so that will have to be explained in a following post. Stay tuned!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity" />
+<meta name="author" content="paulcsmith" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Lucky is a new Crystal web framework built to catch bugs at compile time, return responses incredibly quickly, and help you write maintainable code." />
+<meta property="og:description" content="Lucky is a new Crystal web framework built to catch bugs at compile time, return responses incredibly quickly, and help you write maintainable code." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-02-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@paulcsmith" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"paulcsmith"},"url":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"paulcsmith"},"description":"Lucky is a new Crystal web framework built to catch bugs at compile time, return responses incredibly quickly, and help you write maintainable code.","headline":"Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity","dateModified":"2018-02-06T00:00:00+00:00","datePublished":"2018-02-06T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/paulcsmith.jpg" width="400" height="400" alt="authors/paulcsmith.jpg">
+          
+          
+            <span class="author_name">Paul Smith</span>
+          
+          
+          
+            <span class="date">06 Feb 2018</span>
+          
+        </div>
+
+        <h1 class='title'>Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F02%2F06%2Flucky-with-crystal.html&text=Lucky+with+Crystal+-+Fewer+Bugs%2C+Better+Performance%2C+Incredible+Productivity&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F02%2F06%2Flucky-with-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F02%2F06%2Flucky-with-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <blockquote>
+  <p><em><a href="https://github.com/paulcsmith">Paul Smith</a> created the <a href="https://luckyframework.org/"><strong>Lucky web framework</strong></a> a year ago - and he now shares its status with us. If you want to share your own project, <a href="http://twitter.com/intent/tweet?text=@CrystalLanguage%20I%20want%20to%20write%20about..."><strong>reach out to us</strong></a> with your idea.</em></p>
+</blockquote>
+
+<p><a href="https://luckyframework.org">Lucky</a> is a full-featured web application framework written in Crystal. You will write fewer tests and have fewer bugs when using Lucky because of its type-safe querying, routing and record saving. With that saved time, you will be able to focus on building the best app possible.</p>
+
+<h2 id="week-1-to-week-1000">Week 1 to Week 1,000</h2>
+
+<p>When I start an app with most frameworks, I’m hopeful. I see the potential that the product has, and based on the first few weeks of progress, things will go incredibly smoothly.</p>
+
+<p>Months pass…</p>
+
+<p>My hope for the wonderful future of the product turns into hope that the latest commits won’t break anything.</p>
+
+<p>I begin to focus more on how my changes might cause a bug than how to make the app better. <em>I write and run tests, hoping that I thought of everything that could be an issue.</em> It  becomes harder and harder to keep simple and understandable.</p>
+
+<h2 id="lucky-helps-you-focus-on-building-your-app">Lucky helps you focus on building your app</h2>
+
+<p><strong>Instead of spending all your energy worrying about all the ways things might not work, let the computer help. After all, that’s its job.</strong></p>
+
+<p><a href="https://robots.thoughtbot.com/designing-lucky-actions-routing">Lucky’s route handling</a>, <a href="https://luckyframework.org/guides/saving-with-forms/">record saving</a>, and <a href="https://luckyframework.org/guides/querying-the-database/">querying</a> are all type-safe. Even the configuration will cause failures at compile time, so you know you haven’t accidentally messed anything up when upgrading dependencies.</p>
+
+<p>This  allows you to focus on how to delight your customers with a speedy, reliable, and value-packed web application.</p>
+
+<h2 id="alright-so-how-does-lucky-catch-bugs-that-other-frameworks-wont">Alright, so how does Lucky catch bugs that other frameworks won’t?</h2>
+
+<h3 id="type-safe-querying">Type safe querying</h3>
+
+<p>Let’s say we want to get all users whose names include “kat”. Here’s how we’d do it in Lucky:</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Will find users with the name "Kathryn", "Katy", etc.</span>
+<span class="no">UserQuery</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">ilike</span><span class="p">(</span><span class="s2">"kat%"</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p>In Lucky you’ll get methods specific to the type of the column. This means that methods like  <code class="highlighter-rouge">lower</code> and <code class="highlighter-rouge">ilike</code> are only available for String columns. If you tried to call <code class="highlighter-rouge">lower</code> on an integer column by accident, Lucky will let you know at compile time. If you rename the <code class="highlighter-rouge">name</code> column to <code class="highlighter-rouge">full_name</code>, Lucky will show you all the places where you also need to make that change at compile-time.</p>
+
+<p>If you try to pass <code class="highlighter-rouge">nil</code> to a column that doesn’t allow <code class="highlighter-rouge">nil</code>, Lucky will let you know at compile time so you can avoid dreaded logical errors and <code class="highlighter-rouge">nil</code> errors.</p>
+
+<h3 id="never-worry-about-the-http-verb-again">Never worry about the HTTP verb again</h3>
+
+<p>One of the more annoying issues in Rails is forgetting to set the right HTTP method for a link, even when you have the path correct.</p>
+
+<p>Here’s an example for deleting a comment:</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">link_to</span> <span class="s2">"Delete"</span><span class="p">,</span> <span class="n">comment_path</span><span class="p">(</span><span class="vi">@comment</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><em>Can you spot the issue?</em> The path is right, but I forgot to specify the HTTP verb. This is especially confusing for team members that are new to web development or REST.</p>
+
+<p><em>In Lucky, the HTTP verb is automatically used in links, forms, and buttons. You never have to even think about it.</em> It just works.</p>
+
+<p>The right verb (DELETE) is automatically set for you:</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">link</span> <span class="s2">"Delete comment"</span><span class="p">,</span> <span class="ss">to: </span><span class="no">Comment</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="vi">@comment</span><span class="p">.</span><span class="nf">id</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<h3 id="catch-missing-conditionals-in-actions">Catch missing conditionals in actions</h3>
+
+<p>Let’s say you have any action with a conditional like this:</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SamlSignIns</span><span class="o">::</span><span class="no">Create</span> <span class="o">&lt;</span> <span class="no">BrowserAction</span>
+  <span class="n">action</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">.</span><span class="nf">present?</span> <span class="o">&amp;&amp;</span> <span class="n">sso_enabled?</span>
+      <span class="n">redirect</span> <span class="ss">to: </span><span class="no">SamlSignIns</span><span class="o">::</span><span class="no">New</span>
+    <span class="k">elsif</span> <span class="n">user</span><span class="p">.</span><span class="nf">present?</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">sso_enabled?</span>
+      <span class="n">flash</span><span class="p">.</span><span class="nf">info</span> <span class="o">=</span> <span class="s2">"This email address does not have SSO enabled"</span>
+      <span class="n">redirect</span> <span class="ss">to: </span><span class="no">SignIns</span><span class="o">::</span><span class="no">New</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+</div>
+
+<p><em>Lucky will catch a bug for you and give you a helpful message to guide you in the right direction:</em></p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">SamlSignIns</span><span class="o">::</span><span class="no">Create</span> <span class="n">returned</span> <span class="no">Lucky</span><span class="o">::</span><span class="no">Response</span> <span class="o">|</span> <span class="no">Nil</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">must</span> <span class="k">return</span> <span class="n">a</span> <span class="no">Lucky</span><span class="o">::</span><span class="no">Response</span><span class="o">.</span>
+
+<span class="no">Try</span> <span class="n">this</span><span class="o">...</span>
+
+  <span class="err">▸</span> <span class="no">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">use</span> <span class="n">a</span> <span class="nb">method</span> <span class="n">like</span> <span class="sb">`render`</span><span class="p">,</span> <span class="sb">`redirect`</span><span class="p">,</span> <span class="n">or</span> <span class="sb">`json`</span> <span class="n">at</span> <span class="n">the</span> <span class="k">end</span> <span class="n">of</span> <span class="n">your</span> <span class="n">action</span><span class="o">.</span>
+  <span class="err">▸</span> <span class="no">If</span> <span class="n">you</span> <span class="n">are</span> <span class="n">using</span> <span class="n">a</span> <span class="n">conditional</span><span class="p">,</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">all</span> <span class="n">branches</span> <span class="k">return</span> <span class="n">a</span> <span class="no">Lucky</span><span class="o">::</span><span class="no">Response</span><span class="o">.</span></code></pre></figure>
+
+</div>
+
+<p>In this case, we forgot to add an <code class="highlighter-rouge">else</code> condition that lets the user know that we couldn’t find a user account for them. Lucky is helpful enough to help guide us toward this solution.</p>
+
+<blockquote>
+  <p>This is just a taste of what Lucky can do to help you focus on building the best app possible. Check out “<a href="https://luckyframework.org/why-lucky">Why Lucky?</a>” and “<a href="https://robots.thoughtbot.com/designing-lucky-actions-routing">Designing Lucky: Rock Solid Actions &amp; Routing</a>” to learn more.</p>
+</blockquote>
+
+<h2 id="give-lucky-a-spin">Give Lucky a spin</h2>
+
+<p>We have designed Lucky to help people avoid common pitfalls, and make programming fun years into a project. If you’re interested in Lucky, <a href="https://github.com/luckyframework/lucky">throw us a star on the Github</a>, <a href="https://luckyframework.org/guides/">check out the guides</a>, or <a href="https://luckyframework.org/why-lucky/">learn more about what makes Lucky special</a>. Happy coding!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

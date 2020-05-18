@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.27.0 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.27.0 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.27.0 released!" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal 0.27.0 has been released!" />
+<meta property="og:description" content="Crystal 0.27.0 has been released!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2018/11/01/crystal-0.27.0-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2018/11/01/crystal-0.27.0-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/11/01/crystal-0.27.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2018/11/01/crystal-0.27.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.27.0 has been released!","headline":"Crystal 0.27.0 released!","dateModified":"2018-11-01T00:00:00+00:00","datePublished":"2018-11-01T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">01 Nov 2018</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.27.0 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F11%2F01%2Fcrystal-0.27.0-released.html&text=Crystal+0.27.0+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F11%2F01%2Fcrystal-0.27.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2018%2F11%2F01%2Fcrystal-0.27.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.27.0">Crystal 0.27.0</a> has been released!</p>
+
+<p>This release includes changes in public APIs that enable new features, some polishing and important updates for upcoming changes in parallelism, platform support and safety. There were <a href="https://github.com/crystal-lang/crystal/compare/0.26.1...0.27.0">173 commits since 0.26.1</a> by 36 contributors.</p>
+
+<p>Let’s review some of the most relevant changes in this release. But don’t miss the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.27.0">release changelog</a> with a lot of valuable information.</p>
+
+<h1 id="language-changes">Language changes</h1>
+
+<p>From now on, if the arguments of a method call are to be splitted across multiple lines, the comma must be at the end of the line, before the line break.</p>
+
+<p>So, instead of:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">foo</span><span class="p">(</span><span class="n">x</span>
+<span class="p">,</span> <span class="n">y</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>You will need to write:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+  <span class="n">y</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>Probably it won’t affect a lot of code, but since it’s a language breaking change we mention it first. You can read more at <a href="https://github.com/crystal-lang/crystal/pull/6514">#6514</a>.</p>
+
+<h1 id="detecting-stack-overflows">Detecting stack overflows</h1>
+
+<p>Sometimes a program will enter an infinite recursion or, due to another reason, run out of space in the stack memory. This situation known as <a href="https://en.wikipedia.org/wiki/Stack_overflow">stack overflow</a> was reported as an <code class="highlighter-rouge">Invalid memory access</code>. This version ships with a boundary check that allows a better error message when a stack overflow happens.</p>
+
+<p>This was a long standing issue and at the end of the day it was a collaboration that pushed an initial proof of concept implementation to a complete solution and closed one of the top 10 oldest issues.</p>
+
+<p>Read more at <a href="https://github.com/crystal-lang/crystal/pull/6928">#6928</a>.</p>
+
+<h1 id="concurrency-and-parallelism-changes">Concurrency and parallelism changes</h1>
+
+<p>We are aiming for great things to happen in this area, we are all very excited and looking forward to them. Next releases should enable some stories around parallelism. But for now we can talk about preparation steps that can offer some visibility of the progress.</p>
+
+<p>The Boehm GC has an API that enables support for multithreading environment in 7.6.x. From now on the GC 7.6.8 or greater is used across the official builds. Since crystal 0.26.1 was shipped with 7.4.10, we first needed to update the dependency so the CI will be able to compile the compiler with the new GC API. This update of the GC includes <a href="https://github.com/ivmai/bdwgc/commit/5f73f2dae9fddf2a64dc6b9c8dcdaf171c148412">a contribution</a> from the crystal team to the GC related to mutexes and forks detected during the previous work regarding multithreading.</p>
+
+<p>In parallel, a great refactor related to polishing API and separating responsibilities of <code class="highlighter-rouge">Fiber</code>, <code class="highlighter-rouge">Event</code>, <code class="highlighter-rouge">Scheduler</code> and <code class="highlighter-rouge">EventLoop</code> was done in <a href="https://github.com/crystal-lang/crystal/pull/6897">#6897</a>.</p>
+
+<p>Again, these are preparation steps mostly, but we are shipping them already to deliver them as early as possible and avoid a havoc of the runtime that would be hard to review and be confident with.</p>
+
+<h1 id="arithmetic-changes">Arithmetic changes</h1>
+
+<p>There are some missing pieces to make Crystal great for data science and more safe and sound regarding numbers. We are aiming to fix this during the next releases.
+One of the notable changes is that now <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">!=</code> will work in a sound way when comparing signed with unsigned numbers. Previously a bit comparison was used but thanks to <a href="https://github.com/crystal-lang/crystal/pull/6689">#6689</a> these operators have now the right semantic. Other comparison operators were working already since <a href="https://github.com/crystal-lang/crystal/pull/2240">#2240</a>.</p>
+
+<p>In this version, a couple of arithmetic operators were added thanks to <a href="https://github.com/crystal-lang/crystal/pull/6890">#6890</a>: <code class="highlighter-rouge">&amp;+</code>, <code class="highlighter-rouge">&amp;-</code>, <code class="highlighter-rouge">&amp;*</code>. They will perform additions, subtraction and multiplication with wrapping (as in, not overflowing). Some may notice that that is the exact same behaviour as <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">*</code>. In a future version, the regular operators are going to raise on overflow. This will allow you to trust the result of the operations when reaching the limits of the representable range. The ampersand operators might be useful to think of them as applying an <code class="highlighter-rouge">&amp; 0xFF</code> bit mask to the result.</p>
+
+<p>It will be up to you to start choosing the correct operators – with or without ampersand. This usually depends on how the data is used: business logic and data science usually should raise on overflow, while transport protocol implementation, checksums and low level programming might benefit from the ampersand operators.</p>
+
+<p>From this version, thanks to <a href="https://github.com/crystal-lang/crystal/pull/6891">#6891</a> you can start using <code class="highlighter-rouge">//</code> as floor division. For integers this matches the regular division, while for floating point numbers it is equivalent to <code class="highlighter-rouge">(a / b).floor</code>.</p>
+
+<p>Whenever you want integer division, you should use <code class="highlighter-rouge">//</code>. In a future version, <code class="highlighter-rouge">/</code> will match the mathematical notion of division and return a float, despite the type of the operands.</p>
+
+<p>So, in a future version, <code class="highlighter-rouge">(a + b) / 2</code> will always be the average, no matter the type of <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>. It will no longer be required to write <code class="highlighter-rouge">(a + b).to_f / 2</code> which  has issues with precision and a generic implementation that could work with <code class="highlighter-rouge">BitFloat</code>. Soon the return types of integer division (<code class="highlighter-rouge">//</code>) and division (<code class="highlighter-rouge">/</code>) will be determined by the operator and not the operand.</p>
+
+<p>These operator changes are introduced in stages to provide a migration path, and in some cases, because the compiler is bootstrapped.</p>
+
+<p>One breaking change in this version is that it is no longer allowed to request a random value with a zero as argument. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6686">#6686</a>.</p>
+
+<h1 id="collections-changes">Collections changes</h1>
+
+<p>There are breaking changes in <code class="highlighter-rouge">Indexable</code> module and in <code class="highlighter-rouge">Hash</code>. <code class="highlighter-rouge">Indexable#at</code> was dropped in favor of <code class="highlighter-rouge">Indexable#fetch</code>. The APIs of <code class="highlighter-rouge">Indexable</code> and <code class="highlighter-rouge">Hash</code> are more aligned now. Including how to deal with default values in case of a missing key. If no default value is needed, the <code class="highlighter-rouge">#[]</code> method must be used. <code class="highlighter-rouge">Hash#fetch(key)</code> was dropped.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
+<span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                              <span class="c1"># =&gt; "b"</span>
+<span class="n">items</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">)</span>                   <span class="c1"># =&gt; "c"</span>
+<span class="n">items</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span> <span class="p">(</span><span class="s1">'a'</span> <span class="o">+</span> <span class="n">k</span><span class="p">).</span><span class="nf">to_s</span> <span class="p">}</span> <span class="c1"># =&gt; "d"</span></code></pre></figure>
+</div>
+
+<p>The <code class="highlighter-rouge">#dig</code> method is now a supported idiom to traverse through a hierarchy of collections and containers.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="ss">foo: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"key"</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">}}]}</span>
+<span class="nb">puts</span> <span class="n">data</span><span class="p">.</span><span class="nf">dig</span><span class="p">(</span><span class="ss">:foo</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">)</span> <span class="c1"># =&gt; 42</span></code></pre></figure>
+</div>
+
+<p>The code is digging a named tuple, an array, a tuple, and a hash to get <em>the answer</em>.</p>
+
+<p>If some of the keys are missing along the way, an exception as in <code class="highlighter-rouge">#[]</code> will be raised. Use <code class="highlighter-rouge">#dig?</code> to have a nilable result instead of raising.</p>
+
+<p>It is thanks to the nature of the method typing and a recursive implementation that the type of the result is useful. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6719">#6719</a>.</p>
+
+<p>Another handy idiom introduced in this release is the possibility of chaining an arbitrary number of iterators thanks to <code class="highlighter-rouge">Iterator.chain</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6570">#6570</a>.</p>
+
+<h1 id="time-changes">Time changes</h1>
+
+<p>Time keeps moving forward. In this release, there are breaking changes in favor of cleaner and more portable names. All references to “epoch” are be replaced by “unix”. Effectively: <code class="highlighter-rouge">Time#epoch</code> was renamed to <code class="highlighter-rouge">Time#to_unix</code>, <code class="highlighter-rouge">#epoch_ms</code> to <code class="highlighter-rouge">#to_unix_ms</code>, and <code class="highlighter-rouge">#epoch_f</code> to <code class="highlighter-rouge">#to_unix_f</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6662">#6662</a>.</p>
+
+<p>Two notable features were added that will come handy. Thanks to <a href="https://github.com/crystal-lang/crystal/pull/6681">#6681</a> there is now support for ISO calendar week numbers. And changing the timezone while keeping the wall clack is now easy thanks to <a href="https://github.com/crystal-lang/crystal/pull/6572">#6572</a>.</p>
+
+<h1 id="files-changes">Files changes</h1>
+
+<p>Tools for working with temporal files and directories used to be provided by the <code class="highlighter-rouge">Tempfile</code> class. This class has been replaced by the methods <code class="highlighter-rouge">File.tempfile</code> and <code class="highlighter-rouge">File.tempname</code>.  This change also tidies up the usage of arguments <code class="highlighter-rouge">prefix</code>, <code class="highlighter-rouge">suffix</code>  and default temp <code class="highlighter-rouge">dir</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6485">#6485</a>.</p>
+
+<h1 id="platform-support">Platform support</h1>
+
+<p>There was <a href="https://github.com/ivmai/bdwgc/issues/225">an issue</a> detected in Boehm GC regarding its support in Google Cloud because someone wanted to run crystal compiled programs there. The fix will be released in the next version of the GC, but meanwhile we are including the patch in 0.27.0.</p>
+
+<p>Some preparation for Windows support related to processes, forking, file handlers and arguments was done. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6744">#6744</a>.</p>
+
+<p>Other notable fixes in the realm of platform support are: <a href="https://github.com/crystal-lang/crystal/pull/6426">#6426</a> to fix signals between forked processes, and <a href="https://github.com/crystal-lang/crystal/pull/6660">#6660</a> to deal with how <code class="highlighter-rouge">IO</code> on a <code class="highlighter-rouge">TTY</code> behaves in different environments.</p>
+
+<h1 id="networking-changes">Networking changes</h1>
+
+<p>The breaking change in this area is pretty minimal: <code class="highlighter-rouge">HTTP::Server#bind_ssl</code> was dropped since in the previous version <code class="highlighter-rouge">#bind_tls</code> was introduced, but the former wasn’t removed to avoid a breaking change in a patch release. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6699">#6699</a>.</p>
+
+<p>The binding for OpenSSL were updated to support version 1.1.1. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6738">#6738</a>.</p>
+
+<h1 id="compiler-fixes">Compiler fixes</h1>
+
+<p>In <a href="https://crystal-lang.org/2018/06/15/crystal-0.25.0-released.html#automatic-casts-for-literal-values">0.25.0 due to literals auto casting</a> a method call could lead to an ambiguous match. In this case the compiler will abort compilation since the programmer’s intention is not clear enough. A rule was missing though, if there is an exact match among all the candidates, then the intention is <em>crystal clear</em>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6618">#6618</a>.</p>
+
+<p>Support for annotations inside enums was missing, but not anymore. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6713">#6713</a>.</p>
+
+<p>Calling <code class="highlighter-rouge">super</code> will forward by default all the method arguments. But if the call was expanded by macros that was not the case. It’s fixed in this release. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6638">#6638</a>.</p>
+
+<p>When using splats argument you can restrict the type of values, and also the whole <code class="highlighter-rouge">Tuple</code> or <code class="highlighter-rouge">NamedTuple</code> that is expected as splatted arguments. There was a bug when these kind of restrictions were used in <code class="highlighter-rouge">initialize</code> method arguments to initialize instance variables. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6648">#6648</a>.</p>
+
+<h1 id="next-steps">Next steps</h1>
+
+<p>Please update your Crystal and report any issues. We have scheduled some breaking changes for 0.28.0 but we will aim to include them in a 0.27.x version with an opt-in flag so you can try them earlier.</p>
+
+<p>If there are regressions or blocking issues report them as soon as possible so 0.27.1 can consider them. We are eager to move forward with 0.28.0.</p>
+
+<p>The development is possible thanks to the community’s effort, <a href="https://www.84codes.com/">84codes</a>’ support, and every <a href="https://crystal-lang.org/sponsors">BountySource supporter</a>.</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal tools - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal tools | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal tools" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal compiler does a lot of work in order to allow the programmer be more expressive, productive, and …lazy." />
+<meta property="og:description" content="Crystal compiler does a lot of work in order to allow the programmer be more expressive, productive, and …lazy." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2015/09/05/tools.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2015/09/05/tools.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-09-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/09/05/tools.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2015/09/05/tools.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal compiler does a lot of work in order to allow the programmer be more expressive, productive, and …lazy.","headline":"Crystal tools","dateModified":"2015-09-05T00:00:00+00:00","datePublished":"2015-09-05T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">05 Sep 2015</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal tools</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F09%2F05%2Ftools.html&text=Crystal+tools&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F09%2F05%2Ftools.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F09%2F05%2Ftools.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Crystal compiler does a lot of work in order to allow the programmer be more expressive, productive, and …lazy.</p>
+
+<p>Since 0.7.7 the compiler comes with some initials tools that will help the programmer know what the compiler is understanding from the code and to navigate through in a more interesting way.</p>
+
+<h1 id="go-to-implementations-tool">Go to implementations tool</h1>
+
+<p>When compiling a method call, the compiler knows exactly which method definition will be called. But, when the programmer is viewing the source code, there was no way (other than string search) to reach the method definition.</p>
+
+<p>Bigger the project, harder to find the definition.</p>
+
+<p>So if you have <em>program.cr</em> with the following code:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">end</span>
+
+<span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<pre class="code">
+$ crystal tool implementations --cursor program.cr:5:1 program.cr
+1 implementation found
+/path/to/program.cr:1:1
+</pre>
+
+<p>You can pass <code class="highlighter-rouge">--format json</code> to make a computer friendly output and build something to integrate it to you favorite text editor. This is used in then <a href="https://atom.io/packages/crystal-tools">crystal-tools atom package</a> and it just looks awesome. Every location is just clickable.</p>
+
+<p><img src="/assets/tools/implementations.png" width="461" height="166" class="center" /></p>
+
+<p>If you use <a href="https://atom.io">Atom</a> download them and just press <code class="highlighter-rouge">⌘⌥i</code> / <code class="highlighter-rouge">ctrl-alt-i</code> while your cursor is over the <code class="highlighter-rouge">add</code> in line 5.</p>
+
+<h2 id="multiple-implementations">Multiple implementations</h2>
+
+<p>This tools does not only will be allow you avoid <code class="highlighter-rouge">def foo</code> vs <code class="highlighter-rouge">def self.foo</code> string matching hell, but will point which are the real candidates of a method call.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">A</span>
+  <span class="k">def</span> <span class="nf">foo</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">B</span>
+  <span class="k">def</span> <span class="nf">foo</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">use_foo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+  <span class="n">o</span><span class="p">.</span><span class="nf">foo</span>           <span class="c1"># put the cursor in this #foo call</span>
+<span class="k">end</span>
+
+<span class="n">use_foo</span><span class="p">(</span><span class="no">A</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+<span class="n">use_foo</span><span class="p">(</span><span class="no">B</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>    <span class="c1"># if removed, line 7 won't be an implementation of line 12</span></code></pre></figure>
+</div>
+
+<h2 id="down-a-macro-hole">Down a macro hole</h2>
+
+<p>A snippet is worth a thousand words.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="n">property</span> <span class="nb">name</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"John"</span>   <span class="c1"># put the cursor in over #name= call</span></code></pre></figure>
+</div>
+
+<pre class="code">
+$ crystal tool implementations --cursor program.cr:6:6 program.cr
+1 implementation found
+/path/to/program.cr:2:3
+ ~&gt; macro property: /path/to/crystal-src/object.cr:365:5
+ ~&gt; macro setter: /path/to/crystal-src/object.cr:324:9
+</pre>
+
+<p>And you know how <em>object.cr</em> looks like?</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Object</span>
+  <span class="c1"># ...</span>
+  <span class="n">macro</span> <span class="n">setter</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>
+    <span class="p">{</span><span class="sx">% for </span><span class="nb">name</span> <span class="k">in</span> <span class="n">names</span> <span class="sx">%}
+      {% if name.is_a?(DeclareVar) %}</span>
+        <span class="k">def</span> <span class="p">{{</span><span class="nb">name</span><span class="p">.</span><span class="nf">var</span><span class="p">.</span><span class="nf">id</span><span class="p">}}</span><span class="o">=</span><span class="p">(</span><span class="err">@</span><span class="p">{{</span><span class="nb">name</span><span class="p">.</span><span class="nf">var</span><span class="p">.</span><span class="nf">id</span><span class="p">}}</span> <span class="p">:</span> <span class="p">{{</span><span class="nb">name</span><span class="p">.</span><span class="nf">type</span><span class="p">}})</span> <span class="c1"># line 324</span>
+        <span class="k">end</span>
+      <span class="p">{</span><span class="sx">% else </span><span class="o">%</span><span class="p">}</span>
+        <span class="k">def</span> <span class="p">{{</span><span class="nb">name</span><span class="p">.</span><span class="nf">id</span><span class="p">}}</span><span class="o">=</span><span class="p">(</span><span class="err">@</span><span class="p">{{</span><span class="nb">name</span><span class="p">.</span><span class="nf">id</span><span class="p">}})</span>
+        <span class="k">end</span>
+      <span class="p">{</span><span class="sx">% end </span><span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="sx">% end </span><span class="o">%</span><span class="p">}</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+  <span class="n">macro</span> <span class="n">property</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>
+    <span class="n">getter</span> <span class="p">{{</span><span class="o">*</span><span class="n">names</span><span class="p">}}</span>
+    <span class="n">setter</span> <span class="p">{{</span><span class="o">*</span><span class="n">names</span><span class="p">}}</span>   <span class="c1"># line 365</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p><em>I love this!</em></p>
+
+<h1 id="reveal-context-tool">Reveal context tool</h1>
+
+<p>Another neat tool that will help you avoid all thouse run with <code class="highlighter-rouge">pp var</code> or <code class="highlighter-rouge">pp typeof(var)</code> is the context tool. Just position your cursor somewhere <code class="highlighter-rouge">⌘⌥c</code> / <code class="highlighter-rouge">ctrl-alt-c</code> and you will all variables type information.</p>
+
+<p><img src="/assets/tools/context.png" width="417" height="176" class="center" /></p>
+
+<p>Like in the previous tool, the program itself is never executed. All the information shown cames from the same build process that generates the binary.</p>
+
+<p>The tool is available in command line manner.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="s2">"a string"</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span></code></pre></figure>
+</div>
+
+<pre class="code">
+$ crystal tool context --cursor program.cr:3:1 program.cr
+1 possible context found
+
+| Expr | Type   |
+-----------------
+| a    | String |
+| b    | Int32  |
+</pre>
+
+<p>It’s interesting thou to see all the overload a <code class="highlighter-rouge">def</code> holds.</p>
+
+<p><img src="/assets/tools/context2.png" width="436" height="179" class="center" /></p>
+
+<h1 id="final-notes">Final notes</h1>
+
+<h2 id="work-in-progress">Work in progress</h2>
+
+<p>It’s work in progress :-). We want more tools, and to make them robust enough for everyone. We think they are ready enough for you to enjoy them, and help us making them better.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>The crystal-tools atom package will probably get <code class="highlighter-rouge">crystal spec</code> support so it will be easier to run single file/single spec from the editor.</p>
+
+<p>Another desired tool is to get all caller for a given method. Kind of dual tool of implementations that will answere the question, who is using this code?</p>
+
+<h2 id="green-compile-status-is-a-requirement">Green compile status is a requirement</h2>
+
+<p>Since this tools were built on top of crystal compiler, with all it’s type inference and compiler phases, if the code does not compile you won’t be able to run any tool.</p>
+
+<h2 id="main-program">Main program</h2>
+
+<p>All samples presented here were programs in a single file but the tools do work in larger project. For this to happen the tools need to know the main file to compile. This was the last argument of the commands. The <code class="highlighter-rouge">--cursor</code> argument specifies where the text cursor is located in the editor.</p>
+
+<p>For single file programs the main program is just it. For larger programs is not that easy. You as a developer will know which file to compile.</p>
+
+<p>The crystal-tools atom package will use all the specs as main program. If this is not what you need to can change from the settings page which file to compile among other things.</p>
+
+<p>… towards an event better crystal programming experience. ❤</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

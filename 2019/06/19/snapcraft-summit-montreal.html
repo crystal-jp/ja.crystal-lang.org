@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Snapcraft Summit Montréal - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Snapcraft Summit Montréal | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Snapcraft Summit Montréal" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Snapcraft Summit Montréal took place between June 11th and June 13th, 2019 and people from different open-source projects gathered to iterate and work in a flawless manner, that would have taken far more time and resources if it wasn’t for the summit. The shared goal was to improve the presence of each individual project in the snapcraft.io store. The plus side of the story was being able to meet the people behind different projects and share past experiences and current ideas." />
+<meta property="og:description" content="The Snapcraft Summit Montréal took place between June 11th and June 13th, 2019 and people from different open-source projects gathered to iterate and work in a flawless manner, that would have taken far more time and resources if it wasn’t for the summit. The shared goal was to improve the presence of each individual project in the snapcraft.io store. The plus side of the story was being able to meet the people behind different projects and share past experiences and current ideas." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/06/19/snapcraft-summit-montreal.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/06/19/snapcraft-summit-montreal.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/06/19/snapcraft-summit-montreal.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/06/19/snapcraft-summit-montreal.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"The Snapcraft Summit Montréal took place between June 11th and June 13th, 2019 and people from different open-source projects gathered to iterate and work in a flawless manner, that would have taken far more time and resources if it wasn’t for the summit. The shared goal was to improve the presence of each individual project in the snapcraft.io store. The plus side of the story was being able to meet the people behind different projects and share past experiences and current ideas.","headline":"Snapcraft Summit Montréal","dateModified":"2019-06-19T00:00:00+00:00","datePublished":"2019-06-19T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">19 Jun 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Snapcraft Summit Montréal</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F06%2F19%2Fsnapcraft-summit-montreal.html&text=Snapcraft+Summit+Montr%C3%A9al&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F06%2F19%2Fsnapcraft-summit-montreal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F06%2F19%2Fsnapcraft-summit-montreal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>The <a href="https://snapcraft.io/blog/snapcraft-summit-montreal">Snapcraft Summit Montréal</a> took place between June 11th and June 13th, 2019 and people from different open-source projects gathered to iterate and work in a flawless manner, that would have taken far more time and resources if it wasn’t for the summit. The shared goal was to improve the presence of each individual project in the <a href="https://snapcraft.io">snapcraft.io</a> store. The plus side of the story was being able to meet the people behind different projects and share past experiences and current ideas.</p>
+
+<p>Day by day, there were steady updates for the projects. Some were not new to the platform and sought improvements and problem solving. Others learnt about the confinement capabilities, the different pieces that make the store come to life, and take the first steps towards integrating them. At the end of each day a massive status check of almost forty parties was held, and a summary was dropped in <a href="https://forum.snapcraft.io/t/snapcraft-summit-montreal-2019-day-1-2-3/11763">forum.snapcraft.io</a>.</p>
+
+<p>Before jumping into the technical changes for Crystal itself, I would like to mention the people with whom I shared some chats, ideas and work that definitely can impact in future proposals. These people are <a href="https://twitter.com/dsilverstone">Daniel Silverstone</a> from <strong>rustup</strong>, <a href="https://twitter.com/ana_rosas">Ana Rosas</a> &amp; <a href="https://twitter.com/amalulla">María de Antón</a> from <strong>TravisCI</strong>, <a href="https://github.com/ararslan">Alex Arslan</a> &amp; <a href="https://twitter.com/jeffbezanson">Jeff Bezanson</a> from <strong>Julia</strong>, <a href="https://twitter.com/grhmc">Graham Christensen</a> from  <strong>NixOS</strong>, and <a href="https://twitter.com/sergiusens">Sergio Schvezov</a> from <strong>Snapcraft</strong>. Meeting them helped me get to know better some aspects of the projects, challenges, and solutions that are not in clear sight. I can’t stress enough how much I enjoyed meeting them all.</p>
+
+<h2 id="whats-new">What’s new?</h2>
+
+<ol>
+  <li>Crystal has a new official distribution method in <a href="https://snapcraft.io/crystal">snapcraft.io/crystal</a> that applies to 10 Linux distros (and counting…)</li>
+  <li>Crystal applications can be packaged and distributed as snaps.</li>
+  <li>Nightly native packages have now a straightforward way to be installed.</li>
+  <li>TravisCI is using the above method when <code class="highlighter-rouge">crystal: nightly</code> is specified.</li>
+</ol>
+
+<h2 id="crystal-snap">Crystal snap</h2>
+
+<p>You can jump and find the snap installation instructions in the new shinny <a href="https://snapcraft.io/crystal">snapcraft.io/crystal</a> page.</p>
+
+<p>The store has the notion of channels, which helps support the release process with <em>edge</em>, <em>beta</em>, <em>candidate</em>, and <em>stable</em> versions.</p>
+
+<p>The CI script has been updated to publish the content of <em>master</em> to the edge channel every night. So now nightlies are available there, as well as in <code class="highlighter-rouge">crystal-lang/crystal:nightly</code> docker image, and in the artifacts of the build itself.</p>
+
+<p>Upon tagging and releasing a new version, the package will be available also in the edge channel and will be moved to the stable channel manually. For now, beta and candidate channel are not expected to be used, but the ability to do so in the future is great.</p>
+
+<p>Since the Crystal snap runs in the <em>classic</em> confinement level (more about this later), the installation from the terminal in Ubuntu package is:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--classic</span>        <span class="c"># For stable releases</span>
+<span class="nv">$ </span><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--edge</span> <span class="nt">--classic</span> <span class="c"># For nightly releases</span></code></pre></figure>
+</div>
+
+<h2 id="travisci-integration">TravisCI integration</h2>
+
+<p>Travis needs to deal with a lot to support the different languages and configurations. Having a more unified way to install them, considering also the new upcoming releases, would definitely simplify their human and computer workload.</p>
+
+<p>Travis was eager to start giving support to languages through snaps, and we were eager to reestablish the availability of nightlies.</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working on bringing back <a href="https://twitter.com/CrystalLanguage?ref_src=twsrc%5Etfw">@CrystalLanguage</a> nightlies in <a href="https://twitter.com/travisci?ref_src=twsrc%5Etfw">@travisci</a> with <a href="https://twitter.com/ana_rosas?ref_src=twsrc%5Etfw">@ana_rosas</a> at <a href="https://twitter.com/hashtag/snapcraftsummit?src=hash&amp;ref_src=twsrc%5Etfw">#snapcraftsummit</a> powered by <a href="https://twitter.com/snapcraftio?ref_src=twsrc%5Etfw">@snapcraftio</a> <a href="https://t.co/ayQum84Nbm">pic.twitter.com/ayQum84Nbm</a></p>&mdash; Brian J. Cardiff (@bcardiff) <a href="https://twitter.com/bcardiff/status/1138905956933414912?ref_src=twsrc%5Etfw">June 12, 2019</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><a href="https://changelog.travis-ci.com/crystal-nightlies-support-105460">From now on</a>, when using <code class="highlighter-rouge">crystal: nightly</code> in the <code class="highlighter-rouge">travis.yml</code> file, the snap in the edge channel will be used. For a couple of months the <code class="highlighter-rouge">crystal: latest</code> will still use the current <code class="highlighter-rouge">.deb</code> packages that are hosted in our package repository. Eventually, the snap in the stable channel will be used.</p>
+
+<p>A bonus point is that our package repository will not get traffic from CI builds.</p>
+
+<h2 id="packaging-your-crystal-app-as-a-snap">Packaging your Crystal app as a snap</h2>
+
+<p>Once <a href="https://github.com/snapcore/snapcraft/pull/2598">snapcraft#2598</a> <del>is merged and released</del> (Edit: it was been released in Snapcraft 3.7!), building a snap that will package the application will be easy. If you are unfamiliar with snapcraft don’t miss <a href="https://snapcraft.io/blog/introduction-to-snapcraft">its introduction</a>.</p>
+
+<p>Assuming there is a <code class="highlighter-rouge">shard.yml</code> that declares targets, dependencies, etc.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">hello</span>
+
+<span class="na">targets</span><span class="pi">:</span>
+  <span class="na">hello</span><span class="pi">:</span>
+    <span class="na">main</span><span class="pi">:</span> <span class="s">src/hello.cr</span>
+
+<span class="c1"># ... stripped ...</span></code></pre></figure>
+</div>
+
+<p>A basic <code class="highlighter-rouge">snapcraft.yaml</code> file to declare all the parts will look as follows:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">crystal-hello</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1.0"</span>
+<span class="na">summary</span><span class="pi">:</span> <span class="s">Create the hello snap</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">Create the hello snap</span>
+
+<span class="na">grade</span><span class="pi">:</span> <span class="s">devel</span>
+<span class="na">confinement</span><span class="pi">:</span> <span class="s">strict</span>
+
+<span class="na">apps</span><span class="pi">:</span>
+  <span class="na">crystal-hello</span><span class="pi">:</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">bin/hello</span>
+
+<span class="na">parts</span><span class="pi">:</span>
+  <span class="na">crystal-hello</span><span class="pi">:</span>
+    <span class="na">plugin</span><span class="pi">:</span> <span class="s">crystal</span></code></pre></figure>
+</div>
+
+<p>After installing the generated snap, <code class="highlighter-rouge">$ crystal-hello</code> will invoke <code class="highlighter-rouge">./bin/hello</code>. Of course you can tweak the names and avoid the <code class="highlighter-rouge">crystal-</code> prefix.</p>
+
+<p>When building the <code class="highlighter-rouge">.snap</code> the following things will happen:</p>
+
+<ol>
+  <li>Installing dependencies via <code class="highlighter-rouge">$ shards install --production</code>.</li>
+  <li>Building all targets via <code class="highlighter-rouge">$ shards build --production</code>.</li>
+  <li>Packaging all executables in <code class="highlighter-rouge">./bin</code> in the final <code class="highlighter-rouge">.snap</code>.</li>
+  <li>Packaging all linked libraries required to run those binaries (detected via <code class="highlighter-rouge">ldd</code>)</li>
+</ol>
+
+<p>In case the app requires some C libraries that are not available by default, you will need to list them as <a href="https://docs.snapcraft.io/t/build-and-staging-dependencies/11451">build-packages</a>.</p>
+
+<p>If you can’t wait, you can grab the PR code and use it as a <a href="https://docs.snapcraft.io/writing-local-plugins">local plugin</a>.</p>
+
+<h2 id="some-technical-details-of-the-crystal-snap">Some technical details of the crystal snap</h2>
+
+<p>While starting to develop the Crystal snap we try to make it work in the <em>strict</em> confinement. The challenge to make it work as strict is how to get libraries and toolchain of host and snap to coexist.</p>
+
+<p>When installing a snap there is no package dependencies that can be declared (like in the <code class="highlighter-rouge">.deb</code> packages). So it would require to have all the libraries included by default in order to have a smooth fresh experience.</p>
+
+<p>As soon as the program to compile becomes more advanced, or a shard library links against a C library, the user will need to deal with some abstraction leaks in packaging related to how those libraries are to be found.</p>
+
+<p>That is the main reason why we stick to the <em>classic</em> confinement model. The caveat is how to let the user know that some native package of the Linux distribution needs to be available as a post-installation step.</p>
+
+<p><a href="https://github.com/crystal-lang/distribution-scripts/pull/39">The current solution</a> is that the crystal command installed with the snap is actually a wrapper that checks the compiler can be used successfully for simple programs. A message regarding required packages is shown if something goes wrong with that check.</p>
+
+<p>While working on this we push to perform some updates in CircleCI regarding its <a href="https://github.com/cibuilds/snapcraft/issues/1">snap</a> <a href="https://github.com/circleci/circleci-docs/pull/3441">support</a> and their response time was awesome.</p>
+
+<h2 id="version-management">Version management</h2>
+
+<p>The store works with a concept called <a href="https://docs.snapcraft.io/channels">channel</a>. For each channel a single version is available. A channel full name is <code class="highlighter-rouge">&lt;track&gt;/&lt;risk&gt;/&lt;branch&gt;</code> where the default track is called <em>latest</em>.</p>
+
+<p>As stated before, the most recent release will be available in the <code class="highlighter-rouge">latest/stable</code> channel, and nightlies in <code class="highlighter-rouge">latest/edge</code>. We have already set up the CI to be able to deliver some <code class="highlighter-rouge">latest/edge/&lt;feature-branch&gt;</code> on demand.</p>
+
+<p>While crystal does not reach <code class="highlighter-rouge">1.0</code>, this schema is enough. You are able to access the latest stable release, <em>and</em> the future version.</p>
+
+<p>There were some discussions regarding how to handle explicit version availability in the store for projects following semver. The general consensus is to create a <em>track</em> for each <code class="highlighter-rouge">Major.minor</code> release, leaving only the latest <code class="highlighter-rouge">Major.minor.patch</code> available in the store. In this schema some projects might leave the <code class="highlighter-rouge">latest</code> track empty to force the user to make an explicit decision. What schema we will follow is still open.</p>
+
+<p><br /></p>
+
+<p>To Canonical, Travis CI, and all the people involved, thanks for an awesome week!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

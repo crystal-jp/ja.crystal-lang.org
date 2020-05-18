@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Good bye Ruby Thursday - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Good bye Ruby Thursday | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Good bye Ruby Thursday" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you don’t know it already, Crystal is a programming language with syntax and semantics similar to Ruby, except that it is not interpreted, it compiles programs to native code." />
+<meta property="og:description" content="If you don’t know it already, Crystal is a programming language with syntax and semantics similar to Ruby, except that it is not interpreted, it compiles programs to native code." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2013/11/14/good-bye-ruby-thursday.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2013/11/14/good-bye-ruby-thursday.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-11-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2013/11/14/good-bye-ruby-thursday.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2013/11/14/good-bye-ruby-thursday.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"If you don’t know it already, Crystal is a programming language with syntax and semantics similar to Ruby, except that it is not interpreted, it compiles programs to native code.","headline":"Good bye Ruby Thursday","dateModified":"2013-11-14T00:00:00+00:00","datePublished":"2013-11-14T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">14 Nov 2013</span>
+          
+        </div>
+
+        <h1 class='title'>Good bye Ruby Thursday</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F11%2F14%2Fgood-bye-ruby-thursday.html&text=Good+bye+Ruby+Thursday&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F11%2F14%2Fgood-bye-ruby-thursday.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2013%2F11%2F14%2Fgood-bye-ruby-thursday.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>If you don’t know it already, Crystal is a programming language with syntax and semantics
+similar to Ruby, except that it is not interpreted, it compiles programs to native code.</p>
+
+<p>So we chose to implement a compiler for Crystal in Ruby. Why?</p>
+
+<ul class="goals">
+  <li>Ruby is an awesome language with an elegant syntax, suitable for very fast prototyping.</li>
+  <li>One day we could write the compiler in Crystal, and porting the code should be relatively easy if the syntax and semantic are similar to Ruby.</li>
+</ul>
+
+<p>We tried many times to implement the compiler in Crystal. But we always had problems with it.</p>
+
+<h3 id="compile-times-were-too-big">Compile times were too big</h3>
+
+<p>This, we thought at first, is because Ruby is sometimes slow.</p>
+
+<p>However, in the beginning the language was pure, very, very similar to Ruby where you never have to specify types. Compilation times were growing exponentially relative to the code size and to the amount of Array instantiations. Trying to compile just part of the compiler started to take minutes. We decided that this was unacceptable.</p>
+
+<p>So we made a small sacrifice: you sometimes have to specify the types of arrays, hashes, and other generic types.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># OK for Ruby, but not for Crystal</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span> <span class="n">of</span> <span class="no">Int32</span> <span class="c1"># OK for Crystal</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>   <span class="c1"># OK for Ruby and for Crystal</span>
+<span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span>          <span class="c1"># OK for Ruby and for Crystal</span>
+<span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s2">"hello"</span>    <span class="c1"># OK for Ruby, error for Crystal (c is Array(Int32))</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="n">of</span> <span class="no">Int32</span> <span class="o">|</span> <span class="no">String</span>
+<span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="s2">"hello"</span>    <span class="c1"># OK for Crystal</span></code></pre></figure>
+</div>
+
+<p>With this little change compile times were much better, growing lineraly relative to the code size.</p>
+
+<p>But still we couldn’t finish the new compiler.</p>
+
+<h3 id="lack-of-features">Lack of features</h3>
+
+<p>In the compiler written in Ruby we used Array, Hash and Set. We accesed the filesystem and we used
+bindings to LLVM. Unless we had those same features in our language and standard library, we would never be able to
+implement a compiler in Crystal.</p>
+
+<p>So we added a lot of funcionality to the standard library. We added bindings to C. We have C structs and unions. We have function pointers. And all of these
+are specified in Crystal, no need to write those in another language.</p>
+
+<p>But still…</p>
+
+<h3 id="bugs">Bugs</h3>
+
+<p>The compiler was not perfect. It had (and still has) bugs. Everything worked fine for small examples
+and for our tests, but writing a compiler in Crystal really started to exercise the compiler in Ruby
+and to reveal lots of bugs and missing features.</p>
+
+<p>So we fixed most of these bugs and added the missing features.</p>
+
+<p>But all of this always meant:</p>
+
+<h3 id="lagging-behind-the-compiler">Lagging behind the compiler</h3>
+
+<p>Every bug fix or new feature we introduced in the compiler written in Ruby had to be ported
+to the compiler written in Crystal (which still didn’t successfully compile). And every now and
+then we were tempted to add new features to the language, and we did, so we started to lag
+more and more.</p>
+
+<p>So one day we decided to do a feature freeze (and also a bug freeze, unless we could workaround the problem).</p>
+
+<p>It was a long path, but also a very interesting and enlightening one:</p>
+
+<ul class="goals">
+  <li>Porting the code from Ruby to Crystal is very easy and most of the time needs few modifications.</li>
+  <li>The ported code behaved exactly the same as in Ruby. We are still amazed that we could capture Ruby's syntax and semantic so well.</li>
+  <li>The ported code revealed bugs in the compiler written in Ruby, which means that, in theory, Crystal
+helps you have more robust and correct code.</li>
+</ul>
+
+<p>And today, Thursday, <a href="https://github.com/crystal-lang/crystal/commit/ad2e815e271aaa7f478cababd478b14e5b789789">we finally did it</a>. We managed to write a compiler for Crystal written in Crystal itself. Yay! The new compiler can compile itself successfully, and this new compiler can compile itself, and the resulting binary is exactly the same as the old one. It can also compile its specs, and they all pass.</p>
+
+<p>The future for Crystal looks bright:</p>
+
+<h3 id="it-is-faster">It is fast(er)</h3>
+
+<p>The compiler written in Ruby takes about 20 seconds to infer the types of the compiler. The compiler written in Crystal takes about 2.8 seconds to do the same.</p>
+
+<p>Remember: we are talking about global type inference here. 2.8 seconds to do semantic analysis for a compiler. Not bad at all!</p>
+
+<p>And we still have many optimizations to apply, both to the code generated by the compiler, to the code present in the compiler and standard library (for instance, Hash has a very naive implementation).</p>
+
+<h3 id="we-dont-depend-on-ruby-anymore">We don’t depend on Ruby anymore</h3>
+
+<p>Because we now have a compiler written in Crystal, we can compile new versions of the compiler just using
+Crystal. Good bye, Ruby. It was a pleasure to have you on our team, but, well, you were a bit slow for
+our needs. Yes, yes, we like a lot of things about you, but this is a compiler we are talking about here. You can’t just have programmers wait minutes and minutes to compile their programs. Oh, maybe we are being a bit harsh on you. You know what? Don’t go away. Come back. You can still help us develop fantastic web application front ends with that friend of yours, Rails. We mean it, seriously. You shine in this. We are not so sure about our backends, though. Erlang and Go really rock for this. Too bad their syntax (and semantic) is not as nice as yours. Will there someday be a language like you, but fast like native code? Probably not. But how about a similar language, where you have to make some small sacrifices if you come from Ruby? We really hope so.</p>
+
+<h3 id="roadmap">Roadmap</h3>
+
+<p>Now we have to fix the remaining bugs in the compiler. We don’t like buggy software so we won’t just continue adding features to the language unless we make it rock solid.</p>
+
+<p>Then we can start thinking about concurrency, better macros, better funcion pointers, structs for real, named arguments, tuples, fibers, a debugger…</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

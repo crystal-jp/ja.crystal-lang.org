@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>The future of Crystal - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>The future of Crystal | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="The future of Crystal" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="(This post is part of Crystal Advent Calendar 2015)" />
+<meta property="og:description" content="(This post is part of Crystal Advent Calendar 2015)" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2015/12/24/the-future-of-crystal.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2015/12/24/the-future-of-crystal.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-12-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/12/24/the-future-of-crystal.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2015/12/24/the-future-of-crystal.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"(This post is part of Crystal Advent Calendar 2015)","headline":"The future of Crystal","dateModified":"2015-12-24T00:00:00+00:00","datePublished":"2015-12-24T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">24 Dec 2015</span>
+          
+        </div>
+
+        <h1 class='title'>The future of Crystal</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F12%2F24%2Fthe-future-of-crystal.html&text=The+future+of+Crystal&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F12%2F24%2Fthe-future-of-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2015%2F12%2F24%2Fthe-future-of-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>(This post is part of <a href="http://www.adventar.org/calendars/800">Crystal Advent Calendar 2015</a>)</p>
+
+<p>This Christmas eve something curious happened: we were happily coding in Crystal
+when, one moment when we took our eyes away from the screen, a translucid figure appeared nearby.
+The entity approached and said: “I’m the Ghost of Christmas Past. Come with me.”</p>
+
+<p>We saw ourselves coding a new language that would resemble Ruby but be compiled and type safe.
+At that moment the language was really like Ruby: to create an empty Array you would write <code class="highlighter-rouge">[]</code>, or
+<code class="highlighter-rouge">Set.new</code> to create an empty set. And we were happy, until we realized compile times were huge,
+exponential, unbearable, and got sad.</p>
+
+<p>We spent an awful time trying to make it work with no avail. Finally, we decided to make a change:
+speficy the types of empty generic types, for example <code class="highlighter-rouge">[] of Int32</code> or <code class="highlighter-rouge">Set(Int32).new</code>.
+Compile times were back to normal. And we were kind of happy again, but at the same time felt
+that we were leaving behind some of Ruby’s feeling. The language diverged.</p>
+
+<p>We looked back at the Ghost of Christmas Past to ask him what did all of that mean, but we
+found a similar but different figure in its place. She said:
+“I’m the Ghost of Christmas Present. Join me.”</p>
+
+<p>Around us, a small but vibrant community was programming in Crystal. They were happy.
+There was no mention of the annoyance of having to specify types for generic types. Everyone
+was feeling that Ruby’s spirit was somehow still present: in the familiar API and classes,
+in the syntax, in the powerful blocks. Additionally, the increased performance, both in terms of
+CPU and concurrency, coupled with better type safety, really paid off, so having to specify
+a type now and then didn’t feel like bothersome.</p>
+
+<p>Again, we looked at the Ghost to ask for a meaning: it seemed that we took a good decision in the
+past, right? But, just as before, there was something else in its place, a mechanical crystalline
+figure. It spoke: “I’m the Ghost of Christmas Yet to Come. Follow me.”</p>
+
+<p>The small community was still programming in Crystal, though most didn’t seem to be as happy as before.
+We tried to ask them why, but nobody noticed our presence. We tried to use a computer and search
+for Crystal on the internet, but our hands couldn’t touch anything. We turned to the Ghost with
+an inquisitive face, and noticed it had a keyboard and a small screen in its chest. We searched
+“Crystal sucks”, which would hopefully show posts of complaints about the language. And indeed
+there were quite a few of them. Most were about huge compile times and memory usage.
+“Huge compile times?”, we thought. “We solved that years ago!”, we shouted to the Ghost.
+The only reply we got from it was “compiling…”, the vision faded and we were back at the office, alone.</p>
+
+<h2 id="back-to-the-present">Back to the present</h2>
+
+<p>“Let’s do some math”, we said. The biggest program we have in Crystal right now is the
+compiler, which has about 40K lines of code. It takes about 10 seconds to compile,
+and it takes 940MB of memory to do so. One of our Rails apps, counting the total number of lines
+in its gems and the code in the “app” directory, has about 320K line of code, 8 times bigger than the compiler.
+If we rewrite it in Crystal, or at least do an application with a similar functionality, it would
+take 80 seconds to compile it, each time, and 8GB of memory to do so. That’s a lot of time to wait
+after each change, and an awful lot of memory too.</p>
+
+<p>Can we improve this situation, with the current language? Can we introduce incremental compilation?
+We spent some time thinking about how to cache a previous compilation’s semantic result (inferred types)
+and use that for the next compilation. An observation is that a method’s type depends exclusively on the type
+of the arguments, the type of the methods it invokes, and the types of instance, class, and global variables.</p>
+
+<p>So, one idea is to cache the inferred instance variables types of all the types in
+a program, together with the types of method instantiations and its dependencies (on which types that
+method depends, and specifically which other methods it calls). If instance variables types remain
+the same, a method’s code didn’t change, and the dependencies (invoked methods) didn’t change,
+we can safely reuse the result (types and generated code) from the previous compilation.</p>
+
+<p>Note that the above “if” starts with “if instance variables types remain the same”. But how can we
+know that? The problem is that the compiler determines their type by traversing the program,
+instantiating methods, and checking what gets assigned to them. So we can’t really reuse the cache
+because we can’t know the final types until we type the whole program! It’s a chicken and egg problem.</p>
+
+<p>The solution seems to be having to specify types of instance, class and global variables. With this,
+once we type a method its type can never change (because everything that’s non-local to a method, like
+instance variables, can’t change anymore). We would be able to cache that information and reuse it for
+next compilations. Not only that, but type inference becomes much simpler and faster, even without a
+cache.</p>
+
+<p>Is this the right thing to do? We will once again diverge a bit more from Ruby. What future do we want?
+Do we want to stick with the current approach at the cost of having to wait a lot of time between each
+compilation? Or is it better to specify some more types but have a more agile development cycle?</p>
+
+<p>What we really want is a language that’s fun to use, and efficient. Having
+to wait a lot of time for compilation to finish isn’t fun at all, even less fun that having to
+annotate a few types now and then. And these types are just for generic, instance, class and global
+variables: no types annotations are required in local variables and method arguments. Considering
+how rarely these types change, compared to how many times you are going to be writing new methods
+and compiling your program, it feels it’s something worth of a change.</p>
+
+<p>We already started working on this new compiler, because we want to do this as soon as possible as a lot of
+code out there will break. While the current compiler works directly on the
+<a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a>, in the new compiler we work with
+a <a href="https://en.wikipedia.org/wiki/Control_flow_graph">flow graph</a>, which will allow us to
+have a simpler compiler (one which anyone could understand and jump right into it and contribute)
+and easier to understand and optimize code. It will also make it possible to introduce new features
+like Ruby’s <code class="highlighter-rouge">retry</code> with minimal effort, because the flow graph allows for cycles and “goto”-like
+jumps.</p>
+
+<p>If you’d like to know more about this change, there’s a <a href="https://github.com/crystal-lang/crystal/issues/1824">tracking issue</a>
+about it.</p>
+
+<h2 id="questions-and-answers">Questions and Answers</h2>
+
+<ul>
+  <li><strong>When will you finish the new compiler?</strong> We don’t know yet. We are working on it slowly but steadily,
+writing it with readability, extensibility and efficiency in mind, and focusing on the hardest parts first.
+Now that we know most of the features the language supports, it’s easier. Remember that the current compiler
+started as an experiment, and as a port of a compiler written in Ruby, so its code is not the best Crystal
+code out there.</li>
+  <li><strong>Will you continue working on the current compiler?</strong> Yes and no. We will fix bugs if they are easy to fix,
+and we will continue extending and improving the standard library.</li>
+  <li><strong>Will all my code stop compiling?</strong> Probably. However, you can use the current compiler’s <code class="highlighter-rouge">tool hierarchy</code>
+to ask it the types of instance variables to make the upgrade easier. In fact we might probably include a tool
+to do the upgrade automatically, it’s really that simple.</li>
+  <li><strong>Will the new compiler include other features?</strong> We hope so! With this change we also plan to support forwarding
+blocks with the usual <code class="highlighter-rouge">&amp;block</code> syntax. Right now this is possible but it always ends up creating a closure, but this
+can be done much better. We also plan to allow recursive calls with blocks, something that you can do in Ruby but
+not in Crystal. We also want to be able to have <code class="highlighter-rouge">Array(Object)</code> or <code class="highlighter-rouge">Array(T)</code> with any kind of <code class="highlighter-rouge">T</code>, something that,
+again, is not quite possible with the current version of the language. So these new type annotations will bring a lot
+more power to the language as a compensation.</li>
+  <li><strong>Will there be more breaking changes like this in the future?</strong> We are pretty sure the answer is no. If we know
+the types of instance, class, and global variables then given a method, the type of <code class="highlighter-rouge">self</code> and the type of its
+arguments we can infer its type by just analyzing that method and the methods it calls. Right now this is not
+possible because the type of some methods depends on how you use a class (what you assign to it). So this change
+will be the last big breaking change.</li>
+</ul>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

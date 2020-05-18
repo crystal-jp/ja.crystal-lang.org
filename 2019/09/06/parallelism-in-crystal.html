@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Parallelism in Crystal - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Parallelism in Crystal | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Parallelism in Crystal" />
+<meta name="author" content="waj,bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal has made a huge step forward to have parallelism as a first class citizen. In short, you can set up the number of worker threads on runtime and each new fiber will be scheduled to run on one of them. Channel and select will work seamlessly. You are allowed to share memory between workers, but you will probably need to take care of some synchronization to keep the state consistent." />
+<meta property="og:description" content="Crystal has made a huge step forward to have parallelism as a first class citizen. In short, you can set up the number of worker threads on runtime and each new fiber will be scheduled to run on one of them. Channel and select will work seamlessly. You are allowed to share memory between workers, but you will probably need to take care of some synchronization to keep the state consistent." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@waj,bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"waj,bcardiff"},"url":"https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"waj,bcardiff"},"description":"Crystal has made a huge step forward to have parallelism as a first class citizen. In short, you can set up the number of worker threads on runtime and each new fiber will be scheduled to run on one of them. Channel and select will work seamlessly. You are allowed to share memory between workers, but you will probably need to take care of some synchronization to keep the state consistent.","headline":"Parallelism in Crystal","dateModified":"2019-09-06T00:00:00+00:00","datePublished":"2019-09-06T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/waj.jpg" width="360" height="360" alt="authors/waj.jpg">
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Juan Wajnerman</span>
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">06 Sep 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Parallelism in Crystal</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F09%2F06%2Fparallelism-in-crystal.html&text=Parallelism+in+Crystal&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F09%2F06%2Fparallelism-in-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F09%2F06%2Fparallelism-in-crystal.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Crystal has made a huge step forward to have parallelism as a first class citizen. In short, you can set up the number of worker threads on runtime and each new fiber will be scheduled to run on one of them. Channel and select will work seamlessly. You are allowed to share memory between workers, but you will probably need to take care of some synchronization to keep the state consistent.</p>
+
+<p>This work required a lot of effort, but it definitely got lighter thanks to the refactors, design discussions and attempts to work on parallelism. Either merged or not, all the past work served as a reference to double check thoughts along the way.</p>
+
+<p>In this article, we will try to cover all the new functionality description, design, challenges we faced and next steps. If you want to start using this right away the first section can be enough. The ultimate goal is to be able to use all the CPU power available, but not changing the language too much. Hence, some of the challenges and open work that can be found towards the end of the article.</p>
+
+<h2 id="how-to-use-it-the-quick-guide">How to use it, the quick guide</h2>
+
+<p>In order to take advantage of these features you need to build your program with <code class="highlighter-rouge">preview_mt</code> support. Eventually this will become the default, but for now you need to opt-in.</p>
+
+<p>As you will read in this document, data can be shared across workers but it’s up to the user to avoid data races. Some std-lib parts still need to be reworked to avoid unsound behaviours.</p>
+
+<ol>
+  <li>Build the program with <code class="highlighter-rouge">-Dpreview_mt</code>. <code class="highlighter-rouge">crystal build -Dpreview_mt main.cr</code></li>
+  <li>Run <code class="highlighter-rouge">./main</code>. (Optionally specify the amount of workers thread as in <code class="highlighter-rouge">CRYSTAL_WORKERS=4</code>, by default is <code class="highlighter-rouge">4</code>)</li>
+</ol>
+
+<p>The first top-level change in the API is that, when spawning new fibers, you can specify if you want the new one to run in the same worker thread.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="kp">spawn</span> <span class="ss">same_thread: </span><span class="kp">true</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>This is particularly useful if you need to ensure certain thread local state or that the caller is the same thread.</p>
+
+<h2 id="early-benchmarks">Early Benchmarks</h2>
+
+<p>The benchmarks shown in this section were generated from <a href="https://github.com/bcardiff/crystal-benchmarks">bcardiff/crystal-benchmarks</a> using <a href="https://github.com/manastech/benchy">manastech/benchy</a> in a <code class="highlighter-rouge">c5.2xlarge</code> EC2 instance.</p>
+
+<h3 id="matrix-multiplication">Matrix Multiplication</h3>
+
+<p>Multiplying matrices is a process that can be parallelized and scales nicely. It also happens to have no I/O so it’s a good example to analyze a CPU-bounded scenario.</p>
+
+<p>In this example, when compiled with multi-thread, one worker thread will delegate and wait for completion of the result for each of the coordinates, while the other worker threads will be picking requests of computation and processing them.</p>
+
+<p>When we compare single-thread with the 1 worker thread doing the actual computation, we can see some increase in the user time. It is slower due to the heavier bookkeeping and synchronization in multi-thread with respect to single-thread. But as soon as workers are added the user will experience a great deal of improvement in performance. Expect all the threads to be running at top speed in this scenario.</p>
+
+<p><img src="/assets/blog/2019-08-matmul-channel.png" class="center" /></p>
+
+<center>wall time for matmul-channel. less is better</center>
+
+<h3 id="hello-world-http-server">Hello World HTTP Server</h3>
+
+<p>A synthetic benchmark that usually appears is an http server that replies <code class="highlighter-rouge">hello world</code> to a <code class="highlighter-rouge">GET /</code> request. While attending each request and building the short response, there will usually be no need for a context-switch, due to I/O operations while building the response.</p>
+
+<p>For example, in the following chart we can depict how the <code class="highlighter-rouge">hello-world-http-server</code> sample behaves. The <code class="highlighter-rouge">wrk</code> tool performing on the same machine, with 2 threads and 100 connections during 30 seconds. There is an interesting increase in the throughput.</p>
+
+<p><img src="/assets/blog/2019-08-hello-world-http-server.png" class="center" /></p>
+
+<center>throughput in requests per second. more is better</center>
+
+<h3 id="channel-primes-generation">Channel Primes Generation</h3>
+
+<p>In the <code class="highlighter-rouge">channel-primes</code> example, the primes are generated by chaining multiple channels in a sort of sequence. The <code class="highlighter-rouge">n</code>-th prime will go through <code class="highlighter-rouge">n</code> channels before printed. This can be seen as a pathological scenario since the algorithm can’t be balanced in an obvious way and there is a lot of communication happening.</p>
+
+<p>In this example we can see that multi-thread is not a silver bullet. The single-thread still outperforms the multi-thread.</p>
+
+<p><img src="/assets/blog/2019-08-channel-primes-wall-time.png" class="center" /></p>
+
+<center>wall time for channel-primes. less is better</center>
+
+<p>Although, depending on the number of workers the wall time difference is less noticable, the cpu time difference will be huge.</p>
+
+<p><img src="/assets/blog/2019-08-channel-primes-cpu-time.png" class="center" /></p>
+
+<center>cpu time for channel-primes. less is better</center>
+
+<h2 id="detailed-description">Detailed description</h2>
+
+<p>We wanted to bring support for parallelism without changing the nature of the language. The programmer should be able to think in units of fibers running, accessing data and, in most cases, not care which thread the code is running in. This implies shared data among threads and fibers. And keeping the threads hidden from the user as much as possible.</p>
+
+<p>Along the way we needed to deal with some changes in the internal implementation and design of some core aspects of the runtime. We also needed to fix some issues in the compiler itself: some were extracted and submitted independently. And last but not least, some issues regarding the sound and safety of the language itself are currently affected by enabling multi-thread.</p>
+
+<p>In single-thread mode there is one worker thread with one event loop. The event loop is responsible of resuming fibers that are waiting for I/O to complete. In multi-thread mode each worker thread has its own event loop and they work basically as multiple instances of the previous mechanism, but with some additional features.</p>
+
+<p>The memory between each worker thread can be shared and is mutable. This is and will be the source of many headaches. You will need to synchronize access to them via locks or use some proper data-structures that can handle concurrent access.</p>
+
+<p>The channels are able to send and receive messages through different worker threads without changes in the API and should be used as the main method of communication and synchronization between fibers.</p>
+
+<p>The <code class="highlighter-rouge">select</code> statement needed some extra care on its own. A <code class="highlighter-rouge">select</code> injects many receivers and senders on different channels. As soon as one of those fulfills the select, the rest of the receivers and senders need to be ignored. To this end, when a fiber is enqueued as sender or receiver in a <code class="highlighter-rouge">select</code> operation, a <code class="highlighter-rouge">SelectContext</code> is created to track the state of the whole <code class="highlighter-rouge">select</code>. On <code class="highlighter-rouge">Channel#dequeue_receiver</code> and <code class="highlighter-rouge">Channel#dequeue_sender</code> is the logic to skip them if the select was already completed.</p>
+
+<p>As soon as the program starts, the initialization of workers threads based on the value of the environment variable <code class="highlighter-rouge">CRYSTAL_WORKERS</code> is done. Each worker thread has its own <code class="highlighter-rouge">Scheduler</code> with the <code class="highlighter-rouge">runnables</code> queue.</p>
+
+<p>Even on multi-thread mode there is still a short time before workers are initialized when the program will work with only one worker. This happens while initializing some constants and class variables.</p>
+
+<p>Through the <code class="highlighter-rouge">Scheduler</code> there are a couple of conditions to protect the state in multi-thread mode. Although the queues are independent, workers need to communicate to one another to dispatch new fibers. If the target worker is not sleeping, the new fiber can be enqueued directly (note that the queue is accessed from the current worker and hence needs to be synchronized). If the target worker is sleeping, a pipe is used to send the new fiber to execute, waking the worker through the event loop. A pipe is created for each worker thread in its scheduler. This is handled in <code class="highlighter-rouge">Scheduler#run_loop</code>, <code class="highlighter-rouge">Scheduler#send_fiber</code>, <code class="highlighter-rouge">Scheduler#enqueue</code>.</p>
+
+<p>Which worker thread will execute a fiber is now decided in a round-robin fashion. This policy might change in the future with some load metric per worker. But we chose the simplest logic we could think of, and it will serve as a baseline for future improvements if needed.</p>
+
+<p>To keep things as simple as possible, regarding the scheduling, once a fiber starts running in a worker thread it will never migrate to another. It can be suspended and resumed, of course. But we explicitly chose to start without fiber stealing.</p>
+
+<h2 id="api-changes">API Changes</h2>
+
+<h3 id="compiling-a-multi-thread-program">Compiling a multi-thread program</h3>
+
+<p>Compiling programs with multi-threading support is available behind the <code class="highlighter-rouge">preview_mt</code> flag for now. And check that you are using Crystal 0.31.0 (not yet released) or a local build of master.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>crystal <span class="nt">--version</span>
+Crystal 0.31.0
+
+<span class="nv">$ </span>crystal build <span class="nt">-Dpreview_mt</span> main.cr <span class="nt">-o</span> main</code></pre></figure>
+</div>
+
+<h3 id="setup-the-number-of-worker-threads-at-runtime">Setup the number of worker threads at runtime</h3>
+
+<p>The number of worker threads can be customized via <code class="highlighter-rouge">CRYSTAL_WORKERS</code> env var. Its default is <code class="highlighter-rouge">4</code>.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>./main <span class="c"># will use 4 workers</span>
+<span class="nv">$ CRYSTAL_WORKERS</span><span class="o">=</span>4 ./main
+<span class="nv">$ CRYSTAL_WORKERS</span><span class="o">=</span>8 ./main</code></pre></figure>
+</div>
+
+<h3 id="spawn">spawn</h3>
+
+<p>By default new fibers created with <code class="highlighter-rouge">spawn</code> are free to run in any of the worker threads. If you need for the same fiber to execute in current worker thread you can use <code class="highlighter-rouge">spawn(same_thread: true) { ... }</code>. This is useful for some C libraries where thread local storage is used.</p>
+
+<h3 id="mutex">Mutex</h3>
+
+<p><code class="highlighter-rouge">Mutex</code> is still the way to request a lock that works across fibers. There is no actual API changes but is worth noticing that the behavior still holds in multi-thread mode. Some of you might know about the existence of the internal <code class="highlighter-rouge">Thread::Mutex</code> that is a wrapper for pthread. Direct use of <code class="highlighter-rouge">Thread::Mutex</code> is discouraged, unless you really know what you’re doing and why you’re doing it. Use the top-level <code class="highlighter-rouge">Mutex</code>.</p>
+
+<h3 id="channel">Channel</h3>
+
+<p>The behaviour of closed channels was revisited. From now on, either in single-thread or multi-thread programs, you will be able to perform a receive action on a closed channel until the already sent messages are consumed. This makes sense because otherwise a sync of the queue and the channel state would be needed. For sure, once the channel is closed, no new messages can be sent through it.</p>
+
+<p><code class="highlighter-rouge">Channel(T)</code> now represents both unbuffered and buffered channels. When initializing them, use <code class="highlighter-rouge">Channel(T).new</code> or <code class="highlighter-rouge">Channel(T).new(capacity)</code>, respectively.</p>
+
+<h3 id="fork">Fork</h3>
+
+<p>Mixing fork and multi-thread programs is problematic. There are a couple of references describing issues on that scenario:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/a/1074663/30948">Fork and existing threads?</a></li>
+  <li><a href="https://thorstenball.com/blog/2014/10/13/why-threads-cant-fork/">Why threads can’t fork</a></li>
+  <li><a href="http://www.linuxprogrammingblog.com/threads-and-fork-think-twice-before-using-them">Threads and fork(): think twice before mixing them</a></li>
+</ul>
+
+<p>The <code class="highlighter-rouge">fork</code> method will not be available in multi-thread and will probably go away as a public API. The std-lib still needs fork to start subprocesses, but this scenario is safe because an exec is performed after the fork.</p>
+
+<p>Another scenario that might need fork is to daemonize a process, but that story needs to evolve a bit still.</p>
+
+<h3 id="locks">Locks</h3>
+
+<p>There is an internal implementation of a Spin-Lock in <code class="highlighter-rouge">Crystal::SpinLock</code> that, when compiled in single-thread, behaves as a Null-Lock. And there is also an internal implementation of a RW-Lock in <code class="highlighter-rouge">Crystal::RWLock</code>.</p>
+
+<p>These locks are used in the runtime and not expected to be used as a public API. But it’s good to know about their existence.</p>
+
+<h2 id="challenges">Challenges</h2>
+
+<p>We went through a couple of iterations before arriving to the current design for multi-thread support. Some of them were discarded due to performance reasons but were similar in essence and API to the current one. Other ideas inspired us to have some level of isolation between processes. Having some clear boundaries makes it simpler to reduce locking and synchronizations. Some of those designs, partially influenced by Rust, would have led to shareable and non-shareable types between processes and new types of closures to mimic whether they could or could not be sent to another process. There were other draft ideas, but we eventually settled on something that will be more aligned with the current nature of a program of running fibers accessing shared data, since we arrived at an implementation we found performant enough. Besides the implementation details to keep the runtime working there are a couple of stories around language semantics that still need to evolve, but as long as you synchronize the shared state you should be safe.</p>
+
+<p>The lifecycle of a channel changed a bit. In short, when a fiber is waiting for a channel, the fiber is no longer <em>runnable</em>. But now, the awaited channel operation has already a designated memory slot where the message should be received. When a message is to be sent through that channel, it will be stored in the designated memory slot (shared memory FTW). Finally, the fiber that was paused will be rescheduled as runnable and the very first operation will be to read and return the message. This can be seen in the <code class="highlighter-rouge">Channel#receive_impl</code> method. If the awaiting fiber was in a thread that was sleeping (no runnable fibers available), the same pipe used to deliver new fibers is used to enqueue the fiber in the sleeping thread, waking it up.</p>
+
+<p>While implementing the changes for channel and select we needed to deal with some corner cases, like a select performing send and receive over the same channel. And we also found ourselves rethinking the invariants of the representation of the channel. It meant a lot to us when we arrived at a design that held similar constraints as those of Go’s channels.</p>
+
+<blockquote>
+  <p>(..) At least one of c.sendq and c.recvq is empty, except for the case of an unbuffered channel with a single goroutine blocked on it for both sending and receiving using a select statement (…)
+<a href="https://github.com/golang/go/blob/master/src/runtime/chan.go#L9-L18">source</a></p>
+</blockquote>
+
+<p>The channel mechanism described above works because of how the event loop is designed. Each worker thread has its own event loop in <code class="highlighter-rouge">Scheduler#run_loop</code> that will pop fibers from the runnable queue or, if empty, will wait until a fiber is sent through the pipe of that worker thread. This mechanism is not only for channels, but for I/O in general. When an I/O operation is to be waited for, the current fiber will be on hold in the IO internal queue readers or writers queue until the event is completed in <code class="highlighter-rouge">IO::Evented#evented_close</code>. Meanwhile, the worker thread can keep running other fibers or become idle. The fiber that was performing I/O is restored by <code class="highlighter-rouge">Scheduler.enqueue</code>, which will handle the logic to communicate to a busy or idle thread.</p>
+
+<p>For the integration with libevent we also needed to initialize one <code class="highlighter-rouge">Crystal::Event::Base</code> per worker thread. We want the <code class="highlighter-rouge">IO</code> to be shareable between workers directly and each of them needs a reference to a <code class="highlighter-rouge">Crystal::Event</code> that wraps the <code class="highlighter-rouge">LibEvent2::Event</code>. The <code class="highlighter-rouge">Crystal::Event</code>s are bound to a single <code class="highlighter-rouge">Crystal::Event::Base</code>. The solution was that each <code class="highlighter-rouge">IO</code> (via <code class="highlighter-rouge">IO::Evented</code>) has the event and waiting fibers for it in a hash indexed per thread. When an event is completed on a thread it will be able to notify the waiting fiber of that thread only.</p>
+
+<p>The <code class="highlighter-rouge">@[ThreadLocal]</code> annotation is not widely used and it has some known issues in OpenBSD and others platforms. An internal <code class="highlighter-rouge">Crystal::ThreadLocalValue(T)</code> class was needed to mimic that behavior and is used in the underlying implementation of <code class="highlighter-rouge">IO</code>.</p>
+
+<p>Constants and class variables are lazily initialized in some scenarios. We would like that to change eventually, but for now a lock is needed during the initialization. Where to put that lock remains a challenge. Because it can’t be in a constant, right? Both <code class="highlighter-rouge">__crystal_once_init</code> and <code class="highlighter-rouge">__crystal_once</code>, internal functions well-known by the compiler, are introduced and used in the lazy initialization functions of constants and class variables.</p>
+
+<p>We mentioned that the starting scheduling algorithm is a round-robin without fiber stealing. We attempted to have a metric of the load of each worker, but since workers can communicate within each other to delegate new fibers, computing the load would imply more state that needs to be synced. On top of that, in the current implementation there are references to fibers in the pipe used for communication, so the <code class="highlighter-rouge">@runnables</code> queue sizes are not an accurate metric.</p>
+
+<p>The GC had multi-thread support in the past, but the performance was not good enough. We finally implemented a RW-Lock between context switches (the readers) and the GC collection (the writer). The implementation of the RW-Lock is inspired in <a href="http://concurrencykit.org/">Concurrency Kit</a> and does not use a Mutex.</p>
+
+<p>Unsurprisingly, but worth noticing, a compiler built with multi-thread support does not yet take advantage of the cores. Up until now, the compiler used <code class="highlighter-rouge">fork</code> when building programs in debug mode. So the <code class="highlighter-rouge">--threads</code> compiler option is ignored on multi-thread due to the issues described <a href="#fork">before</a>. This is a use case of <code class="highlighter-rouge">fork</code> that will not be supported in the future and will need to be rewritten with other constructs.</p>
+
+<p>We will probably aim to keep the single-thread mode available: multi-thread is not <em>always</em> better. This could impact in the realm of shards. It is still unclear whether a shard will explicitly be constrained to work on either mode, but not the other one and, if so, how to state it.</p>
+
+<p>Some of the memory representation and the low level instructions emitted by the compiler to manipulate them do not play nicely with multi-thread mode. At the very least, we need to prevent segfaults to keep the language sound. Again, as long as access to shared data is synchronized, you will be fine, but that means the programmer is responsible and the language is not safe enough. In the following sections we depict some scenarios and the current state to solve them.</p>
+
+<h3 id="language-type-safety">Language type-safety</h3>
+
+<p>When a data structure is accessed concurrently from different threads, if there is no synchronization, the instructions can get interleaved  and lead to unexpected results. This problem is not new and many languages suffer it. When dealing with data structures like Array one can think of some synchronization around the public API in a worst case scenario. But sometimes the inconsistent state can manifest in more subtle ways.</p>
+
+<p>If the language allows value-types larger than the amount of memory than can be atomically written, then you might notice some oddities. Let’s assume we have a shared <code class="highlighter-rouge">Tuple(Int32, Bool)</code> in which a thread constantly sets the value <code class="highlighter-rouge">{0, false}</code>, a second thread sets the value <code class="highlighter-rouge">{1, true}</code>, and a third thread will read the value. Due to interleaved instructions, the last thread will every now and then find the values <code class="highlighter-rouge">{1, false}</code> and <code class="highlighter-rouge">{0, true}</code>. Nothing unsafe happens here, they are possible values of <code class="highlighter-rouge">Tuple(Int32, Bool)</code>, but it’s odd that a value that was never written can be read. Many languages that have value types of arbitrary size usually exhibit this issue.</p>
+
+<p>In Crystal, unions between value-types and reference-types are represented as a tuple of a type id and the value itself. A union of <code class="highlighter-rouge">Int32 | AClass</code> is guaranteed to not have a <code class="highlighter-rouge">nil</code> value. But due to interleaving, the representation of a <code class="highlighter-rouge">nil</code> can appear, and a null pointer exception (a segfault in this case) will happen.</p>
+
+<p>Regarding Array, something similar can happen. An Array of a reference type (without <code class="highlighter-rouge">nil</code> as value) can lead to a segfault, because one thread might remove an item while another is dereferencing the last one. Removing items writes a zero in the memory, so the GC can claim the memory, but the zero address is not a value that can be dereferenced.</p>
+
+<p>There are a couple of ideas to perform the codegen of unions in a different way. And one of them is already working, but at the cost of increasing both the memory footprint and the binary size of the program. We want to iterate on other alternatives and compare them before choosing one. <em>For now</em> you will need to be aware that shared unions that can appear in class variables, instance variables, constants or closured variables are not safe (but will be).</p>
+
+<p>To deal with the Array unsafe behavior, there needs to be a discussion regarding the different approaches and guarantees one might want in shared mutable data structures. The strongest guarantee would be similar to serializing its access (think of a Mutex around every method); a weaker guarantee would be that access is not serialized but will always lead to consistent state (think that every call will produce a consistent final state, but there is no guarantee which one will be the one used); and finally, the void guarantee that is allowing interleaved manipulation of the state.</p>
+
+<p>After the guarantee level is chosen we need to find an algorithm for it. So far, we have worked around an implementation with the weaker one. But it requires some integration with the GC. That integration is currently a bottleneck and we are still iterating. <em>For now</em> you will need to be aware that shared arrays are not safe unless manually synchronized.</p>
+
+<p>The challenges found in Array appear in every manipulation of pointers. Pointers are unsafe and, while working on the code of Array, we definitely wished to have  safe/unsafe sections in the language to guide the review process. There are other structures like Deque that suffer from the same issues.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Although there is some pending work to be done before we can claim that multi-thread mode is a first class citizen of the language, having this update in the runtime is definitely a huge step forward. We want to collect feedback and keep iterating so that, in the next couple of releases, we can remove the <code class="highlighter-rouge">preview</code> from <code class="highlighter-rouge">preview_mt</code>.</p>
+
+<p>We have been able to do all of this thanks to the continued support of <a href="https://www.84codes.com/">84codes</a>, and every other <a href="/sponsors">sponsor</a>. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. <a href="https://opencollective.com/crystal-lang">OpenCollective</a> and <a href="https://salt.bountysource.com/teams/crystal-lang">Bountysource</a> are two available channels for that. Reach out to <a href="mailto:crystal@manas.tech">crystal@manas.tech</a> if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.28.0 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.28.0 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.28.0 released!" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal 0.28.0 has been released!" />
+<meta property="og:description" content="Crystal 0.28.0 has been released!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/04/17/crystal-0.28.0-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/04/17/crystal-0.28.0-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/04/17/crystal-0.28.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/04/17/crystal-0.28.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.28.0 has been released!","headline":"Crystal 0.28.0 released!","dateModified":"2019-04-17T00:00:00+00:00","datePublished":"2019-04-17T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">17 Apr 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.28.0 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F17%2Fcrystal-0.28.0-released.html&text=Crystal+0.28.0+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F17%2Fcrystal-0.28.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F04%2F17%2Fcrystal-0.28.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.28.0">Crystal 0.28.0</a> has been released!</p>
+
+<p>This is a big release that includes some new language constructs, tidying up some existing features, many interesting additions to the std-lib and important changes for the much awaited multi-threading and windows features.</p>
+
+<p>There were <a href="https://github.com/crystal-lang/crystal/compare/0.27.2...0.28.0">221 commits since 0.27.2</a> by 31 contributors.</p>
+
+<p>Let’s review some of the most relevant changes in this release. But don’t miss the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.28.0">release changelog</a> which has a lot of valuable information.</p>
+
+<h1 id="language-changes">Language changes</h1>
+
+<h2 id="enums">Enums</h2>
+
+<p>Enums are usually declared with one line per each member.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">enum</span> <span class="no">State</span>
+  <span class="no">On</span>
+  <span class="no">Off</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>Sometimes you might want to declare it in one line, and since <code class="highlighter-rouge">;</code> is basically a new line for the parser you can do:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">enum</span> <span class="no">State</span>
+  <span class="no">On</span><span class="p">;</span> <span class="no">Off</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>In previous versions using spaces or commas were allowed. From now on <code class="highlighter-rouge">;</code> is the required one. The formatter will migrate commas to <code class="highlighter-rouge">;</code> in this version since that construct was used somewhat frequently. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7607">#7607</a> and  <a href="https://github.com/crystal-lang/crystal/pull/7618">#7618</a>.</p>
+
+<h2 id="ranges">Ranges</h2>
+
+<p>Sometimes you don’t know where to start or finish. The same happens to a <code class="highlighter-rouge">Range</code>. Ranges can now be begin-less and end-less ranges.</p>
+
+<p>Let’s see some basic constructs for iterating ranges:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="p">(</span><span class="mi">3</span><span class="o">..</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">x</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">some_condition</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p></p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="p">(</span><span class="o">..</span><span class="mi">3</span><span class="p">).</span><span class="nf">reverse_each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+  <span class="c1"># ... eventually yields 0, -1, -2</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>Make sure that they stop at some point, please.</p>
+
+<p>The good stuff comes from its integration in std-lib. Check <a href="https://github.com/crystal-lang/crystal/pull/7179">#7179</a> to learn all about them. I will leave here some of my favorites:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">numbers</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="mi">6</span><span class="o">..</span><span class="p">)</span> <span class="c1"># =&gt; [10, 8]</span>
+<span class="n">numbers</span><span class="p">[</span><span class="o">..</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; [1, 10, 3]</span>
+<span class="n">numbers</span><span class="p">[</span><span class="o">...</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># =&gt; [1, 10]</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">zip</span><span class="p">(</span><span class="mi">6</span><span class="o">..</span><span class="p">)</span> <span class="c1"># =&gt; [[1, 6], [2, 7], [3, 8]]</span>
+
+<span class="mi">5</span><span class="p">.</span><span class="nf">clamp</span><span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="p">)</span> <span class="c1"># =&gt; 10</span></code></pre></figure>
+</div>
+<h2 id="offsetof">offsetof</h2>
+
+<p>The expression <code class="highlighter-rouge">offsetof(Type, @ivar)</code> was introduced to the language in order to return the offset of the <code class="highlighter-rouge">@ivar</code> within the memory representation of <code class="highlighter-rouge">Type</code>. One use case for that is working with  <a href="https://github.com/crystal-lang/crystal/issues/7566#issuecomment-474965810">vertex</a>.</p>
+
+<p>Another awesome aspect of this feature is that it went from initial idea to final implementation in only 1 week by the same person. Going from the need to the full implementation of all the aspects in the lexer, parser, compiler, internals, highlighter, formatter is pretty impressive. Read the full story at <a href="https://github.com/crystal-lang/crystal/pull/7589">#7589</a>.</p>
+
+<h2 id="macros">Macros</h2>
+
+<p>Up until now <code class="highlighter-rouge">Type#annotation</code> was available to get the last annotation of a given kind. In <a href="https://github.com/crystal-lang/crystal/pull/7326">#7326</a> <code class="highlighter-rouge">Type#annotations</code> is added to list all annotations.</p>
+
+<p>Another addition is that  <code class="highlighter-rouge">ArrayLiteral#sort_by</code> was added in <a href="https://github.com/crystal-lang/crystal/pull/3947">#3947</a>.</p>
+
+<p>With these two features, we can do something like:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">annotation</span> <span class="no">ReviewedBy</span>
+<span class="k">end</span>
+
+<span class="nd">@[ReviewedBy("Kevin")]</span>
+<span class="nd">@[ReviewedBy("Stuart")]</span>
+<span class="nd">@[ReviewedBy("gru")]</span>
+<span class="k">class</span> <span class="nc">Foo</span>
+<span class="k">end</span>
+
+<span class="p">{</span><span class="sx">% for </span><span class="n">reviewer</span> <span class="k">in</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">annotations</span><span class="p">(</span><span class="no">ReviewedBy</span><span class="p">).</span><span class="nf">sort_by</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">downcase</span><span class="p">)</span> <span class="o">%</span><span class="p">}</span>
+  <span class="nb">puts</span> <span class="p">{{</span><span class="n">reviewer</span><span class="p">[</span><span class="mi">0</span><span class="p">]}}</span>
+<span class="p">{</span><span class="sx">% end </span><span class="o">%</span><span class="p">}</span>
+<span class="c1"># output</span>
+<span class="c1"># gru</span>
+<span class="c1"># Kevin</span>
+<span class="c1"># Stuart</span></code></pre></figure>
+</div>
+
+<p>Note that macros and annotations should not be overused. There are many ways to make a program simple and declarative.</p>
+<h1 id="compiler">Compiler</h1>
+
+<h2 id="deprecated-definitions">Deprecated definitions</h2>
+
+<p>We are introducing some first-class citizen in the language to have a common idiom to mark methods and other constructs as deprecated. The code is able to compile as usual, but the compiler is able to warn the programmer about usages of deprecated definitions.</p>
+
+<p>In this release, these warnings are off by default in order to gather feedback about what would be the best output and workflow for the regular usage.</p>
+
+<p>Given the following program:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="c1"># main.cr</span>
+<span class="nd">@[Deprecated("Use `#bar`")]</span>
+<span class="k">def</span> <span class="nf">foo</span>
+  <span class="mi">42</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">foo</span></code></pre></figure>
+</div>
+
+<p>You can build the program with the new options <code class="highlighter-rouge">--warnings all|none --error-on-warnings</code>.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>./bin/crystal main.cr <span class="nt">--warnings</span> all <span class="nt">--error-on-warnings</span>
+Warning <span class="k">in </span>main.cr:6: Deprecated top-level foo. Use <span class="sb">`</span><span class="c">#bar`</span>
+
+puts foo
+     ^~~
+A total of 1 warnings were found.</code></pre></figure>
+</div>
+
+<p>The warning options are also available in <code class="highlighter-rouge">crystal spec</code> and its exit status will be a combination of the spec itself and the deprecation check.</p>
+
+<p>When building the docs using <code class="highlighter-rouge">crystal docs</code> the deprecated definitions will have a badge. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7653">#7653</a>.</p>
+
+<h2 id="library-lookup">Library lookup</h2>
+
+<p>There was some development to simplify how some libraries and static libraries are looked up and therefore can be overridden in case it is needed. An env var <code class="highlighter-rouge">CRYSTAL_LIBRARY_PATH</code> is now used in the process of determining the location of libraries to link to.</p>
+
+<p>When using <code class="highlighter-rouge">@[Link("awesome", static: true)]</code>, the first step will be to lookup <code class="highlighter-rouge">libawesome.a</code> in the paths listed at <code class="highlighter-rouge">CRYSTAL_LIBRARY_PATH</code>. If nothing is found <code class="highlighter-rouge">awesome</code> will be looked up using <code class="highlighter-rouge">pkg-config --static</code>. If still nothing is found, <code class="highlighter-rouge">libawesome.a</code> will be looked up in <code class="highlighter-rouge">/usr/lib</code>, <code class="highlighter-rouge">/usr/local/lib</code>.</p>
+
+<p>Essentially <code class="highlighter-rouge">CRYSTAL_LIBRARY_PATH</code> has the highest priority in the lookup. But it is also added to the linker for looking up shared libraries.</p>
+
+<p>The compiler package will set a default value of <code class="highlighter-rouge">CRYSTAL_LIBRARY_PATH</code> to the embedded libraries where <code class="highlighter-rouge">libgc.a</code> is located. If the default libraries don’t suit you, just prepend the location where the alternative is located to <code class="highlighter-rouge">CRYSTAL_LIBRARY_PATH</code>.</p>
+
+<p>Read about this change in <a href="https://github.com/crystal-lang/crystal/pull/7562">#7562</a> and in the new entry on the <a href="https://crystal-lang.org/api/0.28.0/Link.html">docs</a></p>
+<h2 id="semantic-fixes">Semantic fixes</h2>
+
+<p>The compiler includes a bunch of fixes and improvements related to how some code constructs were handled.</p>
+
+<p>A <code class="highlighter-rouge">protected initialize</code> will now define a protected <code class="highlighter-rouge">new</code> thanks to <a href="https://github.com/crystal-lang/crystal/pull/7510">#7510</a>.</p>
+
+<p>Some corner cases related to method lookup were fixed in <a href="https://github.com/crystal-lang/crystal/pull/7537">#7537</a>, <a href="https://github.com/crystal-lang/crystal/pull/7536">#7536</a>, and <a href="https://github.com/crystal-lang/crystal/pull/7529">#7529</a>. There should be a couple of fewer surprises now.</p>
+
+<p>The type inference was also improved a bit when dealing with procs in <a href="https://github.com/crystal-lang/crystal/pull/7527">#7527</a> and <a href="https://github.com/crystal-lang/crystal/pull/7568">#7568</a>. If you store procs in structures it might be worth checking out, you might be able to remove a hack or two.</p>
+
+<p>Some error messages were improved to clarify: the scope the user should have in mind thanks to <a href="https://github.com/crystal-lang/crystal/pull/7384">#7384</a>, and some common pitfalls when capturing blocks thanks to <a href="https://github.com/crystal-lang/crystal/pull/7406">#7406</a>.</p>
+<h1 id="concurrency">Concurrency</h1>
+
+<p>We are really happy to include some refactors that move us forward in the way to parallelism and to include an extension to bdwgc that will enable its multi-threading support to work with the Crystal runtime.</p>
+
+<p>Although you can’t use MT right now, the work done at <a href="https://github.com/crystal-lang/crystal/pull/7546">#7546</a> will enable to compare alternatives in the GC and changes in the scheduler when <code class="highlighter-rouge">-D preview_mt</code> is used. While the MT is being developed piece by piece we are trying to avoid slow down in the single-threaded apps.</p>
+
+<p>Two notable refactors introduced were cleanups in <code class="highlighter-rouge">Fiber</code> to extract a <code class="highlighter-rouge">Fiber::StackPool</code> in <a href="https://github.com/crystal-lang/crystal/pull/7417">#7417</a>, and refactor <code class="highlighter-rouge">IO::Syscall</code> as <code class="highlighter-rouge">IO::Evented</code> in <a href="https://github.com/crystal-lang/crystal/pull/7505">#7505</a>.</p>
+
+<h1 id="standard-library">Standard library</h1>
+
+<p>Given an <code class="highlighter-rouge">Enum</code> with <code class="highlighter-rouge">@[Flags]</code> calling <code class="highlighter-rouge">.from_value(0)</code> or <code class="highlighter-rouge">.from_value?(0)</code> will now return <code class="highlighter-rouge">None</code>. Previously it was raising or returning <code class="highlighter-rouge">nil</code>. This is a breaking-change introduced in <a href="https://github.com/crystal-lang/crystal/pull/6516">#6516</a> in order to fix the semantics of those methods.</p>
+
+<p>The module <code class="highlighter-rouge">PartialComparable</code> is deprecated in <a href="https://github.com/crystal-lang/crystal/pull/7664">#7664</a> since its behaviour has been fully integrated into <code class="highlighter-rouge">Comparable</code>.</p>
+<h2 id="numeric">Numeric</h2>
+
+<p>Some time ago we decided to make <code class="highlighter-rouge">Int#/</code> return <code class="highlighter-rouge">Float</code>. That will happen in the <code class="highlighter-rouge">0.29.0</code>. In <code class="highlighter-rouge">0.28.0</code>, you will need to start changing the code to use <code class="highlighter-rouge">Int#//</code>. Luckily there compiler can now assist you in that quest. Build your program and specs with <code class="highlighter-rouge">--warnings all</code>, the usages of <code class="highlighter-rouge">/</code> will pop-up. We’ve done it in <a href="https://github.com/crystal-lang/crystal/pull/7639">#7639</a>.</p>
+
+<p>Another notable change is that we settle to remove the type suffixes of numbers in <a href="https://github.com/crystal-lang/crystal/pull/7525">#7525</a>. The output will be cleaner now. If, given an expression, you want to know the value, type, and static type you can use <code class="highlighter-rouge">pp!(e, e.class, typeof(e))</code>.</p>
+<h2 id="text">Text</h2>
+
+<p>Numbers might be used to represent quantities (Seriously!). These can now be printed in a human-readable form using <code class="highlighter-rouge">Number#humanize</code>, <code class="highlighter-rouge">Int#humanize_bytes</code> and <code class="highlighter-rouge">Number#format</code>. This feature was added in <a href="https://github.com/crystal-lang/crystal/pull/6314">#6314</a>.</p>
+<h2 id="collections">Collections</h2>
+
+<p>The counterpart of deprecating <code class="highlighter-rouge">PartialComparable</code> was that a <code class="highlighter-rouge">Comparable#&lt;=&gt;</code> is now able to return <code class="highlighter-rouge">nil</code>. This was done in order to allow better support of <code class="highlighter-rouge">Array#sort</code> over types that don’t have a total ordering. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6611">#6611</a>.</p>
+
+<p><code class="highlighter-rouge">Iterator#rewind</code> is removed and <code class="highlighter-rouge">#cycle</code> got some performance improvements because now the elements are stored in an array and can be cycled despite the nature of the <code class="highlighter-rouge">Iterator</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7440">#7440</a>.</p>
+
+<p><code class="highlighter-rouge">Indexable#zip</code> and <code class="highlighter-rouge">Indexable#zip?</code> were moved to <code class="highlighter-rouge">Enumerable</code> and now there are far more flexible. They can work with any number of <code class="highlighter-rouge">Indexable</code>, <code class="highlighter-rouge">Iterable</code> or <code class="highlighter-rouge">Iterator</code>.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">"a"</span><span class="o">..</span><span class="s2">"c"</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">9</span><span class="p">.</span><span class="nf">downto</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="c1"># =&gt; [{1, "a", 9}, {2, "b", 8}, {3, "c", 7}]</span></code></pre></figure>
+</div>
+
+<p>Read more at <a href="https://github.com/crystal-lang/crystal/pull/7453">#7453</a>.</p>
+<h2 id="time">Time</h2>
+
+<p><code class="highlighter-rouge">Time</code> got some polishing again but given the impact of the changes we wanted to include, and the new deprecation support we are using that to offer a migration path.</p>
+
+<blockquote>
+  <p>Don’t forget to build with <code class="highlighter-rouge">--warnings all</code> your code at least once!</p>
+</blockquote>
+
+<p>Although you should leave in the present, <code class="highlighter-rouge">Time.now</code> is now deprecated. But only because you need to know where you are. The code will need to decide between <code class="highlighter-rouge">Time.local</code> or <code class="highlighter-rouge">Time.utc</code>, much more explicit. This also affects constructors. <code class="highlighter-rouge">Time.new</code> is also deprecated and <code class="highlighter-rouge">Time.local</code> or <code class="highlighter-rouge">Time.utc</code> can be used to build specific values. Read more at <a href="https://github.com/crystal-lang/crystal/pull/5346">#5346</a> and  <a href="https://github.com/crystal-lang/crystal/pull/7586">#7586</a>.</p>
+
+<p><code class="highlighter-rouge">Time#add_span</code> is renamed and improved in <code class="highlighter-rouge">Time#shift</code>. It now allows changing a time instance by calendar units and handle other units thanks to <a href="https://github.com/crystal-lang/crystal/pull/6598">#6598</a>.</p>
+
+<p>The last breaking-change in is in <code class="highlighter-rouge">Time#date</code> that will now return a <code class="highlighter-rouge">Tuple</code> of <code class="highlighter-rouge">{year, month, day}</code>. You can keep using <code class="highlighter-rouge">Time#at_beginning_of_day</code> if a <code class="highlighter-rouge">Time</code> instance is wanted. Read more at <a href="https://github.com/crystal-lang/crystal/pull/5822">#5822</a>.</p>
+<h2 id="networking">Networking</h2>
+
+<p>There were a couple of efforts to improve <code class="highlighter-rouge">HTTP</code> and <code class="highlighter-rouge">URI</code>. Although they are breaking-changes there should be easy to migrate.</p>
+
+<p>There are a couple of fixes in <code class="highlighter-rouge">URI</code> implementation. <code class="highlighter-rouge">URI#opaque</code> is dropped. <code class="highlighter-rouge">URI#path</code> no longer returns <code class="highlighter-rouge">Nil</code>. The <code class="highlighter-rouge">#parse</code>/<code class="highlighter-rouge">#to_s</code> normalization and default port handling have changed. Read the full story at <a href="https://github.com/crystal-lang/crystal/pull/6323">#6323</a>.</p>
+
+<p><code class="highlighter-rouge">HTTP::Status</code> is introduced to avoid, if wanted, the need to status code numbers. The only breaking change regarding statuses is that <code class="highlighter-rouge">HTTP.default_status_message_for(Int)</code> was replaced by <code class="highlighter-rouge">HTTP::Status.new(Int).description</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7247">#7247</a>.</p>
+
+<p><code class="highlighter-rouge">HTTP::Multipart</code> was moved to <code class="highlighter-rouge">MIME::Multipart</code> in <a href="https://github.com/crystal-lang/crystal/pull/7085">#7085</a>.</p>
+
+<p>In OAuth2 errors we no longer expect a proper JSON to exist. Discover why in <a href="https://github.com/crystal-lang/crystal/pull/7467">#7467</a>.</p>
+
+<p><code class="highlighter-rouge">RequestProcessor</code> connection reuse logic was fixed to deal properly with unconsumed payloads in <a href="https://github.com/crystal-lang/crystal/pull/7055">#7055</a>.</p>
+
+<h2 id="crypto">Crypto</h2>
+
+<p>An <code class="highlighter-rouge">OpenSSL::Algorithm</code> instead of symbol is now used in <code class="highlighter-rouge">digest</code>/<code class="highlighter-rouge">hexdigest</code> to choose the algorithm to use. As a bonus track, LibCrypt’s <code class="highlighter-rouge">PKCS5_PBKDF2_HMAC</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7264">#7264</a>.</p>
+
+<h1 id="next-steps">Next steps</h1>
+
+<p>Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 0.29.</p>
+
+<p>Once again, check your code with <code class="highlighter-rouge">--warnings all</code>. This will help in the migration of your codebase and will probably push some feedback about that tool.</p>
+
+<p>Don’t miss the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.28.0">release changelog</a> which has a lot of valuable information.</p>
+
+<p>The development is possible thanks to the community’s effort, <a href="https://www.84codes.com/">84codes</a>’ support, and every <a href="https://crystal-lang.org/sponsors">supporter</a>.</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

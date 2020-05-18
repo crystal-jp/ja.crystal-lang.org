@@ -1,0 +1,2155 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>継続的インテグレーション (CI) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ci/travis.html" />
+    
+    
+    <link rel="prev" href="hosting/gitlab.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    導入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../getting_started/http_server.html">
+            
+                <a href="../getting_started/http_server.html">
+            
+                    
+                    HTTP サーバー
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../getting_started/cli.html">
+            
+                <a href="../getting_started/cli.html">
+            
+                    
+                    コマンドライアプリケーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../using_the_compiler/">
+            
+                <a href="../using_the_compiler/">
+            
+                    
+                    コンパイラの使い方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../the_shards_command/">
+            
+                <a href="../the_shards_command/">
+            
+                    
+                    shards コマンド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../syntax_and_semantics/">
+            
+                <a href="../syntax_and_semantics/">
+            
+                    
+                    構文とその意味
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../syntax_and_semantics/comments.html">
+            
+                <a href="../syntax_and_semantics/comments.html">
+            
+                    
+                    コメント
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../syntax_and_semantics/literals.html">
+            
+                <a href="../syntax_and_semantics/literals.html">
+            
+                    
+                    リテラル
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../syntax_and_semantics/literals/nil.html">
+            
+                <a href="../syntax_and_semantics/literals/nil.html">
+            
+                    
+                    Nil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../syntax_and_semantics/literals/bool.html">
+            
+                <a href="../syntax_and_semantics/literals/bool.html">
+            
+                    
+                    真偽値 (Bool)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../syntax_and_semantics/literals/integers.html">
+            
+                <a href="../syntax_and_semantics/literals/integers.html">
+            
+                    
+                    整数 (Integer)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../syntax_and_semantics/literals/floats.html">
+            
+                <a href="../syntax_and_semantics/literals/floats.html">
+            
+                    
+                    浮動小数点数 (Float)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="../syntax_and_semantics/literals/char.html">
+            
+                <a href="../syntax_and_semantics/literals/char.html">
+            
+                    
+                    文字 (Char)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.6" data-path="../syntax_and_semantics/literals/string.html">
+            
+                <a href="../syntax_and_semantics/literals/string.html">
+            
+                    
+                    文字列 (String)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.7" data-path="../syntax_and_semantics/literals/symbol.html">
+            
+                <a href="../syntax_and_semantics/literals/symbol.html">
+            
+                    
+                    シンボル (Symbol)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.8" data-path="../syntax_and_semantics/literals/array.html">
+            
+                <a href="../syntax_and_semantics/literals/array.html">
+            
+                    
+                    配列 (Array)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.9" data-path="../syntax_and_semantics/literals/hash.html">
+            
+                <a href="../syntax_and_semantics/literals/hash.html">
+            
+                    
+                    ハッシュ (Hash)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.10" data-path="../syntax_and_semantics/literals/range.html">
+            
+                <a href="../syntax_and_semantics/literals/range.html">
+            
+                    
+                    範囲 (Range)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.11" data-path="../syntax_and_semantics/literals/regex.html">
+            
+                <a href="../syntax_and_semantics/literals/regex.html">
+            
+                    
+                    正規表現 (Regex)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.12" data-path="../syntax_and_semantics/literals/tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/tuple.html">
+            
+                    
+                    タプル (Tuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.13" data-path="../syntax_and_semantics/literals/named_tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/named_tuple.html">
+            
+                    
+                    名前付きタプル (NamedTuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.14" data-path="../syntax_and_semantics/literals/proc.html">
+            
+                <a href="../syntax_and_semantics/literals/proc.html">
+            
+                    
+                    Proc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.15" data-path="../syntax_and_semantics/literals/command.html">
+            
+                <a href="../syntax_and_semantics/literals/command.html">
+            
+                    
+                    コマンド (Command)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../syntax_and_semantics/assignment.html">
+            
+                <a href="../syntax_and_semantics/assignment.html">
+            
+                    
+                    代入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../syntax_and_semantics/local_variables.html">
+            
+                <a href="../syntax_and_semantics/local_variables.html">
+            
+                    
+                    ローカル変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../syntax_and_semantics/control_expressions.html">
+            
+                <a href="../syntax_and_semantics/control_expressions.html">
+            
+                    
+                    制御式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                <a href="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                    
+                    真になる値と偽になる値
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2" data-path="../syntax_and_semantics/if.html">
+            
+                <a href="../syntax_and_semantics/if.html">
+            
+                    
+                    if
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.2.1" data-path="../syntax_and_semantics/as_a_suffix.html">
+            
+                <a href="../syntax_and_semantics/as_a_suffix.html">
+            
+                    
+                    後置 if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.2" data-path="../syntax_and_semantics/as_an_expression.html">
+            
+                <a href="../syntax_and_semantics/as_an_expression.html">
+            
+                    
+                    式としての if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.3" data-path="../syntax_and_semantics/ternary_if.html">
+            
+                <a href="../syntax_and_semantics/ternary_if.html">
+            
+                    
+                    3項演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.4" data-path="../syntax_and_semantics/if_var.html">
+            
+                <a href="../syntax_and_semantics/if_var.html">
+            
+                    
+                    if var
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.5" data-path="../syntax_and_semantics/if_varis_a.html">
+            
+                <a href="../syntax_and_semantics/if_varis_a.html">
+            
+                    
+                    if var.is_a?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.6" data-path="../syntax_and_semantics/if_varresponds_to.html">
+            
+                <a href="../syntax_and_semantics/if_varresponds_to.html">
+            
+                    
+                    if var.responds_to?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.7" data-path="../syntax_and_semantics/if_var_nil.html">
+            
+                <a href="../syntax_and_semantics/if_var_nil.html">
+            
+                    
+                    if var.nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.8" data-path="../syntax_and_semantics/not.html">
+            
+                <a href="../syntax_and_semantics/not.html">
+            
+                    
+                    if !
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3" data-path="../syntax_and_semantics/unless.html">
+            
+                <a href="../syntax_and_semantics/unless.html">
+            
+                    
+                    unless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4" data-path="../syntax_and_semantics/case.html">
+            
+                <a href="../syntax_and_semantics/case.html">
+            
+                    
+                    case
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5" data-path="../syntax_and_semantics/while.html">
+            
+                <a href="../syntax_and_semantics/while.html">
+            
+                    
+                    while
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.5.1" data-path="../syntax_and_semantics/break.html">
+            
+                <a href="../syntax_and_semantics/break.html">
+            
+                    
+                    break
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5.2" data-path="../syntax_and_semantics/next.html">
+            
+                <a href="../syntax_and_semantics/next.html">
+            
+                    
+                    next
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.6" data-path="../syntax_and_semantics/until.html">
+            
+                <a href="../syntax_and_semantics/until.html">
+            
+                    
+                    until
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.7" data-path="../syntax_and_semantics/and.html">
+            
+                <a href="../syntax_and_semantics/and.html">
+            
+                    
+                    &&
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8" data-path="../syntax_and_semantics/or.html">
+            
+                <a href="../syntax_and_semantics/or.html">
+            
+                    
+                    ||
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../syntax_and_semantics/requiring_files.html">
+            
+                <a href="../syntax_and_semantics/requiring_files.html">
+            
+                    
+                    ファイルの require
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../syntax_and_semantics/types_and_methods.html">
+            
+                <a href="../syntax_and_semantics/types_and_methods.html">
+            
+                    
+                    型とメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.1" data-path="../syntax_and_semantics/everything_is_an_object.html">
+            
+                <a href="../syntax_and_semantics/everything_is_an_object.html">
+            
+                    
+                    すべてがオブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../syntax_and_semantics/the_program.html">
+            
+                <a href="../syntax_and_semantics/the_program.html">
+            
+                    
+                    プログラム
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3" data-path="../syntax_and_semantics/classes_and_methods.html">
+            
+                <a href="../syntax_and_semantics/classes_and_methods.html">
+            
+                    
+                    クラスとメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.1" data-path="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                <a href="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                    
+                    new/initialize/allocate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.2" data-path="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                <a href="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                    
+                    メソッドとインスタンス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.3" data-path="../syntax_and_semantics/type_inference.html">
+            
+                <a href="../syntax_and_semantics/type_inference.html">
+            
+                    
+                    型推論
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.4" data-path="../syntax_and_semantics/union_types.html">
+            
+                <a href="../syntax_and_semantics/union_types.html">
+            
+                    
+                    ユニオン型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.5" data-path="../syntax_and_semantics/overloading.html">
+            
+                <a href="../syntax_and_semantics/overloading.html">
+            
+                    
+                    オーバーロード
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.6" data-path="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                <a href="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                    
+                    デフォルト引数と名前付き引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.7" data-path="../syntax_and_semantics/splats_and_tuples.html">
+            
+                <a href="../syntax_and_semantics/splats_and_tuples.html">
+            
+                    
+                    スプラット展開とタプル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.8" data-path="../syntax_and_semantics/type_restrictions.html">
+            
+                <a href="../syntax_and_semantics/type_restrictions.html">
+            
+                    
+                    型制約
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.9" data-path="../syntax_and_semantics/return_types.html">
+            
+                <a href="../syntax_and_semantics/return_types.html">
+            
+                    
+                    戻り値の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.10" data-path="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                <a href="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                    
+                    メソッドの引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.11" data-path="../syntax_and_semantics/operators.html">
+            
+                <a href="../syntax_and_semantics/operators.html">
+            
+                    
+                    演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.12" data-path="../syntax_and_semantics/visibility.html">
+            
+                <a href="../syntax_and_semantics/visibility.html">
+            
+                    
+                    可視性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.13" data-path="../syntax_and_semantics/inheritance.html">
+            
+                <a href="../syntax_and_semantics/inheritance.html">
+            
+                    
+                    継承
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.13.1" data-path="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                <a href="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                    
+                    virtual 型と abstract 型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.14" data-path="../syntax_and_semantics/class_methods.html">
+            
+                <a href="../syntax_and_semantics/class_methods.html">
+            
+                    
+                    クラスメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.15" data-path="../syntax_and_semantics/class_variables.html">
+            
+                <a href="../syntax_and_semantics/class_variables.html">
+            
+                    
+                    クラス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.16" data-path="../syntax_and_semantics/finalize.html">
+            
+                <a href="../syntax_and_semantics/finalize.html">
+            
+                    
+                    finalize
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.4" data-path="../syntax_and_semantics/modules.html">
+            
+                <a href="../syntax_and_semantics/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.5" data-path="../syntax_and_semantics/generics.html">
+            
+                <a href="../syntax_and_semantics/generics.html">
+            
+                    
+                    ジェネリクス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.6" data-path="../syntax_and_semantics/structs.html">
+            
+                <a href="../syntax_and_semantics/structs.html">
+            
+                    
+                    構造体 (Struct)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.7" data-path="../syntax_and_semantics/constants.html">
+            
+                <a href="../syntax_and_semantics/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.8" data-path="../syntax_and_semantics/enum.html">
+            
+                <a href="../syntax_and_semantics/enum.html">
+            
+                    
+                    列挙型 (Enum)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9" data-path="../syntax_and_semantics/blocks_and_procs.html">
+            
+                <a href="../syntax_and_semantics/blocks_and_procs.html">
+            
+                    
+                    ブロックと Proc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.9.1" data-path="../syntax_and_semantics/capturing_blocks.html">
+            
+                <a href="../syntax_and_semantics/capturing_blocks.html">
+            
+                    
+                    ブロックの捕捉
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.2" data-path="../syntax_and_semantics/proc_literal.html">
+            
+                <a href="../syntax_and_semantics/proc_literal.html">
+            
+                    
+                    Proc リテラル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.3" data-path="../syntax_and_semantics/block_forwarding.html">
+            
+                <a href="../syntax_and_semantics/block_forwarding.html">
+            
+                    
+                    ブロックのフォワーディング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.4" data-path="../syntax_and_semantics/closures.html">
+            
+                <a href="../syntax_and_semantics/closures.html">
+            
+                    
+                    クロージャ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.10" data-path="../syntax_and_semantics/alias.html">
+            
+                <a href="../syntax_and_semantics/alias.html">
+            
+                    
+                    型エイリアス (alias)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../syntax_and_semantics/exception_handling.html">
+            
+                <a href="../syntax_and_semantics/exception_handling.html">
+            
+                    
+                    例外の処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../syntax_and_semantics/type_grammar.html">
+            
+                <a href="../syntax_and_semantics/type_grammar.html">
+            
+                    
+                    型の文法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../syntax_and_semantics/type_reflection.html">
+            
+                <a href="../syntax_and_semantics/type_reflection.html">
+            
+                    
+                    型のリフレクション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.10.1" data-path="../syntax_and_semantics/is_a.html">
+            
+                <a href="../syntax_and_semantics/is_a.html">
+            
+                    
+                    is_a?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.2" data-path="../syntax_and_semantics/nil_question.html">
+            
+                <a href="../syntax_and_semantics/nil_question.html">
+            
+                    
+                    nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.3" data-path="../syntax_and_semantics/responds_to.html">
+            
+                <a href="../syntax_and_semantics/responds_to.html">
+            
+                    
+                    responds_to?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.4" data-path="../syntax_and_semantics/as.html">
+            
+                <a href="../syntax_and_semantics/as.html">
+            
+                    
+                    as
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.5" data-path="../syntax_and_semantics/as_question.html">
+            
+                <a href="../syntax_and_semantics/as_question.html">
+            
+                    
+                    as?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.6" data-path="../syntax_and_semantics/typeof.html">
+            
+                <a href="../syntax_and_semantics/typeof.html">
+            
+                    
+                    typeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../syntax_and_semantics/macros.html">
+            
+                <a href="../syntax_and_semantics/macros.html">
+            
+                    
+                    マクロ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.11.1" data-path="../syntax_and_semantics/macros/macro_methods.html">
+            
+                <a href="../syntax_and_semantics/macros/macro_methods.html">
+            
+                    
+                    マクロメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.2" data-path="../syntax_and_semantics/macros/hooks.html">
+            
+                <a href="../syntax_and_semantics/macros/hooks.html">
+            
+                    
+                    フック
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.3" data-path="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                <a href="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                    
+                    フレッシュ変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../syntax_and_semantics/annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations.html">
+            
+                    
+                    アノテーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.12.1" data-path="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                    
+                    組み込みアノテーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../syntax_and_semantics/low_level_primitives.html">
+            
+                <a href="../syntax_and_semantics/low_level_primitives.html">
+            
+                    
+                    低レベルプリミティブ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.13.1" data-path="../syntax_and_semantics/pointerof.html">
+            
+                <a href="../syntax_and_semantics/pointerof.html">
+            
+                    
+                    pointerof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.2" data-path="../syntax_and_semantics/sizeof.html">
+            
+                <a href="../syntax_and_semantics/sizeof.html">
+            
+                    
+                    sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.3" data-path="../syntax_and_semantics/instance_sizeof.html">
+            
+                <a href="../syntax_and_semantics/instance_sizeof.html">
+            
+                    
+                    instance_sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.4" data-path="../syntax_and_semantics/offsetof.html">
+            
+                <a href="../syntax_and_semantics/offsetof.html">
+            
+                    
+                    offsetof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.5" data-path="../syntax_and_semantics/declare_var.html">
+            
+                <a href="../syntax_and_semantics/declare_var.html">
+            
+                    
+                    初期化しない変数宣言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../syntax_and_semantics/compile_time_flags.html">
+            
+                <a href="../syntax_and_semantics/compile_time_flags.html">
+            
+                    
+                    コンパイル時のフラグ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.14.1" data-path="../syntax_and_semantics/cross-compilation.html">
+            
+                <a href="../syntax_and_semantics/cross-compilation.html">
+            
+                    
+                    クロスコンパイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../syntax_and_semantics/c_bindings/">
+            
+                <a href="../syntax_and_semantics/c_bindings/">
+            
+                    
+                    C バインディング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.1" data-path="../syntax_and_semantics/c_bindings/lib.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/lib.html">
+            
+                    
+                    lib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2" data-path="../syntax_and_semantics/c_bindings/fun.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/fun.html">
+            
+                    
+                    fun
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.2.1" data-path="../syntax_and_semantics/c_bindings/out.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/out.html">
+            
+                    
+                    out
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2.2" data-path="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                    
+                    to_unsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.3" data-path="../syntax_and_semantics/c_bindings/struct.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/struct.html">
+            
+                    
+                    struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.4" data-path="../syntax_and_semantics/c_bindings/union.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/union.html">
+            
+                    
+                    union
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.5" data-path="../syntax_and_semantics/c_bindings/enum.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/enum.html">
+            
+                    
+                    enum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.6" data-path="../syntax_and_semantics/c_bindings/variables.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/variables.html">
+            
+                    
+                    変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.7" data-path="../syntax_and_semantics/c_bindings/constants.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.8" data-path="../syntax_and_semantics/c_bindings/type.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/type.html">
+            
+                    
+                    type
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.9" data-path="../syntax_and_semantics/c_bindings/alias.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/alias.html">
+            
+                    
+                    alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.10" data-path="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                    
+                    コールバック
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../syntax_and_semantics/unsafe.html">
+            
+                <a href="../syntax_and_semantics/unsafe.html">
+            
+                    
+                    安全でない (unsafe) コード
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../conventions/">
+            
+                <a href="../conventions/">
+            
+                    
+                    規約
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../conventions/coding_style.html">
+            
+                <a href="../conventions/coding_style.html">
+            
+                    
+                    コーディングスタイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../conventions/documenting_code.html">
+            
+                <a href="../conventions/documenting_code.html">
+            
+                    
+                    コードのドキュメント化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../database/">
+            
+                <a href="../database/">
+            
+                    
+                    データベース
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../database/connection.html">
+            
+                <a href="../database/connection.html">
+            
+                    
+                    接続
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../database/connection_pool.html">
+            
+                <a href="../database/connection_pool.html">
+            
+                    
+                    コネクションプール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../database/transactions.html">
+            
+                <a href="../database/transactions.html">
+            
+                    
+                    トランザクション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ガイド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="performance.html">
+            
+                <a href="performance.html">
+            
+                    
+                    パフォーマンス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="concurrency.html">
+            
+                <a href="concurrency.html">
+            
+                    
+                    並列性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="testing.html">
+            
+                <a href="testing.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="writing_shards.html">
+            
+                <a href="writing_shards.html">
+            
+                    
+                    Shardの作り方
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.4.1" data-path="hosting/github.html">
+            
+                <a href="hosting/github.html">
+            
+                    
+                    GitHub でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4.2" data-path="hosting/gitlab.html">
+            
+                <a href="hosting/gitlab.html">
+            
+                    
+                    GitLab でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.5" data-path="continuous_integration.html">
+            
+                <a href="continuous_integration.html">
+            
+                    
+                    継続的インテグレーション (CI)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.5.1" data-path="ci/travis.html">
+            
+                <a href="ci/travis.html">
+            
+                    
+                    Travis CI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.2" data-path="ci/circleci.html">
+            
+                <a href="ci/circleci.html">
+            
+                    
+                    CircleCI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >継続的インテグレーション (CI)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="continuous-integration">Continuous Integration</h1>
+<p>The ability of having immediate feedback on what we are working should be one of the most important characteristics in software development. Imagine making one change to our source code and having to wait 2 weeks to see if it broke something? oh! That would be a nightmare! For this, Continuous Integration will help a team to have immediate and frequent feedback about the status of what they are building.</p>
+<p>Martin Fowler <a href="https://www.martinfowler.com/articles/continuousIntegration.html" target="_blank">defines Continuous Integration</a> as
+<em>a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.</em></p>
+<p>In the next subsections, we are going to present 2 continuous integration tools: <a href="https://travis-ci.org/" target="_blank">Travis CI</a> and <a href="https://circleci.com/" target="_blank">Circle CI</a> and use them with a Crystal example application.</p>
+<p>These tools not only will let us build and test our code each time the source has changed but also deploy the result (if the build was successful) or use automatic builds, and maybe test against different platforms, to mention a few.</p>
+<h2 id="the-example-application">The example application</h2>
+<p>We are going to use Conway&apos;s Game of Life as the example application. More precisely, we are going to use only the first iterations in <a href="http://codingdojo.org/kata/GameOfLife/" target="_blank">Conway&apos;s Game of Life Kata</a> solution using <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html" target="_blank">TDD</a>.</p>
+<p>Note that we won&apos;t be using TDD in the example itself, but we will mimic as if the example code is the result of the first iterations.</p>
+<p>Another important thing to mention is that we are using <code>crystal init</code> to <a href="../using_the_compiler#creating-a-crystal-project">create the application</a>.</p>
+<p>And here&apos;s the implementation:</p>
+<pre><code class="lang-crystal"><span class="hljs-comment"># src/game_of_life.cr</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Location</span></span>
+  getter x : Int32
+  getter y : Int32
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">self</span></span>.random
+    Location.new(Random.rand(<span class="hljs-number">10</span>), Random.rand(<span class="hljs-number">10</span>))
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span></span>(@x, @y)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">World</span></span>
+  @living_cells : Array(Location)
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">self</span></span>.empty
+    new
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initialize</span></span>(living_cells = [] <span class="hljs-keyword">of</span> Location)
+    @living_cells = living_cells
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_living_at</span></span>(a_location)
+    @living_cells &lt;&lt; a_location
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_empty?</span></span>
+    @living_cells.size == <span class="hljs-number">0</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>And the specs:</p>
+<pre><code class="lang-crystal"><span class="hljs-comment"># spec/game_of_life_spec.cr</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&quot;./spec_helper&quot;</span>
+
+describe <span class="hljs-string">&quot;a new world&quot;</span> <span class="hljs-keyword">do</span>
+  it <span class="hljs-string">&quot;should be empty&quot;</span> <span class="hljs-keyword">do</span>
+    world = World.new
+    world.is_empty?.should be_true
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+describe <span class="hljs-string">&quot;an empty world&quot;</span> <span class="hljs-keyword">do</span>
+  it <span class="hljs-string">&quot;should not be empty after adding a cell&quot;</span> <span class="hljs-keyword">do</span>
+    world = World.empty
+    world.set_living_at(Location.random)
+    world.is_empty?.should be_false
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>And this is all we need for our continuous integration examples! Let&apos;s start!</p>
+<h2 id="continuous-integration-step-by-step">Continuous Integration step by step</h2>
+<p>Here&apos;s the list of items we want to achieve:</p>
+<ol>
+<li>Build and run specs using 3 different Crystal&apos;s versions:<ul>
+<li>latest</li>
+<li>nightly</li>
+<li>0.31.1 (using a Docker image)</li>
+</ul>
+</li>
+<li>Install shards packages</li>
+<li>Install binary dependencies</li>
+<li>Use a database (for example MySQL)</li>
+<li>Cache dependencies to make the build run faster</li>
+</ol>
+<p>From here choose your next steps:</p>
+<ul>
+<li>I want to use <a href="ci/travis.html">Travis CI</a></li>
+<li>I want to use <a href="ci/circleci.html">CircleCI</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="hosting/gitlab.html" class="navigation navigation-prev " aria-label="Previous page: GitLab でのホスト方法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ci/travis.html" class="navigation navigation-next " aria-label="Next page: Travis CI の利用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"継続的インテグレーション (CI)","level":"1.8.5","depth":2,"next":{"title":"Travis CI の利用","level":"1.8.5.1","depth":3,"path":"guides/ci/travis.md","ref":"guides/ci/travis.md","articles":[]},"previous":{"title":"GitLab でのホスト方法","level":"1.8.4.2","depth":3,"path":"guides/hosting/gitlab.md","ref":"guides/hosting/gitlab.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"guides/continuous_integration.md","mtime":"2020-05-18T12:33:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-05-18T12:35:46.965Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

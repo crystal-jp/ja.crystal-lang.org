@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Heroku Buildpack - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Heroku Buildpack | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Heroku Buildpack" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="At the end of 2014 a first draft of a Heroku buildpack for crystal was createad. This was truly great. Being able to run crystal apps in the Heroku stack was charm idea." />
+<meta property="og:description" content="At the end of 2014 a first draft of a Heroku buildpack for crystal was createad. This was truly great. Being able to run crystal apps in the Heroku stack was charm idea." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2016/05/26/heroku-buildpack.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2016/05/26/heroku-buildpack.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-26T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2016/05/26/heroku-buildpack.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2016/05/26/heroku-buildpack.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"At the end of 2014 a first draft of a Heroku buildpack for crystal was createad. This was truly great. Being able to run crystal apps in the Heroku stack was charm idea.","headline":"Heroku Buildpack","dateModified":"2016-05-26T00:00:00+00:00","datePublished":"2016-05-26T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">26 May 2016</span>
+          
+        </div>
+
+        <h1 class='title'>Heroku Buildpack</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2016%2F05%2F26%2Fheroku-buildpack.html&text=Heroku+Buildpack&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2016%2F05%2F26%2Fheroku-buildpack.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2016%2F05%2F26%2Fheroku-buildpack.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>At the end of 2014 a <a href="https://github.com/manastech/heroku-buildpack-crystal/commit/b364f9115706a2a1c97ff40bd44aef1cf73e6288">first draft</a> of a <a href="//heroku.com">Heroku</a> buildpack for crystal was createad. This was truly great. Being able to run crystal apps in the Heroku stack was charm idea.</p>
+
+<p>While we continued to develop the language, the tools, and the standard library, the community around Crystal grew. Many were interested in trying their Crystal-powered web apps in Heroku. The <a href="https://github.com/crystal-lang/heroku-buildpack-crystal/network">network graph</a> at github for the buildpack is quite big, especially for just a bunch of bash scripts!</p>
+
+<p>However, due to some flaws in the approach, the buildpack failed to stay up to date with the latest versions of Crystal; but that is now solved!  Yay!</p>
+
+<p>While efforts to develop web frameworks continue nowadays, we wanted to share the very basic steps to use the Crystal buildpack to deploy a web application in Heroku without the need for any additional dependencies.</p>
+
+<h1 id="create-a-crystal-project">Create a Crystal project</h1>
+
+<p>This assumes you already have <a href="http://crystal-lang.org/docs/installation/">crystal installed</a>.</p>
+
+<p>Use <code class="highlighter-rouge">crystal init app</code> to create the app.</p>
+
+<pre class="code">
+$ crystal init app heroku101
+    create  heroku101/.gitignore
+    create  heroku101/LICENSE
+    create  heroku101/README.md
+    create  heroku101/.travis.yml
+    create  heroku101/shard.yml
+    create  heroku101/src/heroku101.cr
+    create  heroku101/src/heroku101/version.cr
+    create  heroku101/spec/spec_helper.cr
+    create  heroku101/spec/heroku101_spec.cr
+Initialized empty Git repository in /Users/bcardiff/Work/Manas/crystal/heroku101/.git/
+
+$ cd heroku101/
+</pre>
+
+<p><strong>Note:</strong> During the rest of the post all the commands are executed from the <code class="highlighter-rouge">heroku101/</code> directory.</p>
+
+<p>The <code class="highlighter-rouge">shard.yml</code> file declares the name of the project as <code class="highlighter-rouge">heroku101</code>. This will be used by the buildpack to determine the main source file to compile: <code class="highlighter-rouge">./src/heroku101.cr</code>.</p>
+
+<pre class="code">
+$ cat shard.yml
+name: heroku101
+version: 0.1.0
+...
+</pre>
+
+<p>To create a simple http server edit the <code class="highlighter-rouge">src/heroku101.cr</code> file and add the following content:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># file: src/heroku101.cr</span>
+<span class="nb">require</span> <span class="s2">"http/server"</span>
+
+<span class="n">bind</span> <span class="o">=</span> <span class="s2">"0.0.0.0"</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="no">HTTP</span><span class="o">::</span><span class="no">Server</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">bind</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
+  <span class="n">context</span><span class="p">.</span><span class="nf">response</span><span class="p">.</span><span class="nf">content_type</span> <span class="o">=</span> <span class="s2">"text/plain"</span>
+  <span class="n">context</span><span class="p">.</span><span class="nf">response</span> <span class="o">&lt;&lt;</span> <span class="s2">"Hello world, got </span><span class="si">#{</span><span class="n">context</span><span class="p">.</span><span class="nf">request</span><span class="p">.</span><span class="nf">path</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"Listening on http://</span><span class="si">#{</span><span class="n">bind</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">port</span><span class="si">}</span><span class="s2">"</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">listen</span></code></pre></figure>
+</div>
+
+<p>To build and run the program:</p>
+
+<pre class="code">
+$ crystal src/heroku101.cr
+Listening on http://0.0.0.0:8080
+</pre>
+
+<p>Open your browser at <a href="http://0.0.0.0:8080">http://0.0.0.0:8080</a>.</p>
+
+<p>To stop the server just terminate the process by pressing <code class="highlighter-rouge">Ctrl+C</code>.</p>
+
+<h1 id="herokufy-it">Herokufy it</h1>
+
+<p>Right now the project knows nothing about Heroku. To get started, a Heroku application needs first to be registered. The easiest way to do this is via the <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>:</p>
+
+<pre class="code">
+$ heroku create --buildpack https://github.com/crystal-lang/heroku-buildpack-crystal.git
+Creating app... done, ⬢ sleepy-thicket-16179
+Setting buildpack to https://github.com/crystal-lang/heroku-buildpack-crystal.git... done
+https://sleepy-thicket-16179.herokuapp.com/ | https://git.heroku.com/sleepy-thicket-16179.git
+</pre>
+
+<p>The above command will generate a random app name. Check the <a href="https://devcenter.heroku.com/articles/creating-apps">docs</a> to give your app a name from the beginning.</p>
+
+<p>Before deploying, we need to make a small change. Heroku randomly assigns a port number to be used by the app. Thanks to the buildpack, this will be informed in a <code class="highlighter-rouge">--port</code> option when running the application.</p>
+
+<p>So, add a <code class="highlighter-rouge">require "option_parser"</code> at the beginning of <code class="highlighter-rouge">src/heroku101.cr</code> and override the <code class="highlighter-rouge">port</code> variable default with:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">OptionParser</span><span class="p">.</span><span class="nf">parse!</span> <span class="k">do</span> <span class="o">|</span><span class="n">opts</span><span class="o">|</span>
+  <span class="n">opts</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-p PORT"</span><span class="p">,</span> <span class="s2">"--port PORT"</span><span class="p">,</span> <span class="s2">"define port to run server"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">opt</span><span class="o">|</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="nf">to_i</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>The full <code class="highlighter-rouge">src/heroku101.cr</code> should be:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># file: src/heroku101.cr</span>
+<span class="nb">require</span> <span class="s2">"http/server"</span>
+<span class="nb">require</span> <span class="s2">"option_parser"</span>
+
+<span class="n">bind</span> <span class="o">=</span> <span class="s2">"0.0.0.0"</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+
+<span class="no">OptionParser</span><span class="p">.</span><span class="nf">parse!</span> <span class="k">do</span> <span class="o">|</span><span class="n">opts</span><span class="o">|</span>
+  <span class="n">opts</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-p PORT"</span><span class="p">,</span> <span class="s2">"--port PORT"</span><span class="p">,</span> <span class="s2">"define port to run server"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">opt</span><span class="o">|</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="nf">to_i</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="no">HTTP</span><span class="o">::</span><span class="no">Server</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">bind</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">context</span><span class="o">|</span>
+  <span class="n">context</span><span class="p">.</span><span class="nf">response</span><span class="p">.</span><span class="nf">content_type</span> <span class="o">=</span> <span class="s2">"text/plain"</span>
+  <span class="n">context</span><span class="p">.</span><span class="nf">response</span> <span class="o">&lt;&lt;</span> <span class="s2">"Hello world, got </span><span class="si">#{</span><span class="n">context</span><span class="p">.</span><span class="nf">request</span><span class="p">.</span><span class="nf">path</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"Listening on http://</span><span class="si">#{</span><span class="n">bind</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">port</span><span class="si">}</span><span class="s2">"</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">listen</span></code></pre></figure>
+</div>
+
+<p>To build and run with <code class="highlighter-rouge">--port</code> option:</p>
+
+<pre class="code">
+$ crystal src/heroku101.cr -- --port 9090
+Listening on http://0.0.0.0:9090
+</pre>
+
+<p>Or build an optimised release locally and execute it via:</p>
+
+<pre class="code">
+$ crystal build src/heroku101.cr --release
+$ ./heroku101
+Listening on http://0.0.0.0:8080
+^C
+$ ./heroku101 --port 9090
+Listening on http://0.0.0.0:9090
+^C
+</pre>
+
+<h1 id="deploy">Deploy!</h1>
+
+<p>When you are ready to go live with your app just deploy it the usual way with <code class="highlighter-rouge">git push heroku master</code>.</p>
+
+<pre class="code">
+$ git push heroku master
+Counting objects: 22, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (22/22), 2.85 KiB | 0 bytes/s, done.
+Total 22 (delta 3), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Fetching set buildpack https://github.com/crystal-lang/heroku-buildpack-crystal.git... done
+remote: -----&gt; Crystal app detected
+remote: -----&gt; Installing Crystal (0.17.3 due to latest release at https://github.com/crystal-lang/crystal)
+remote: -----&gt; Installing Dependencies
+remote: -----&gt; Compiling src/heroku101.cr (auto-detected from shard.yml)
+remote:
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types     -&gt; (none)
+remote:        Default types for buildpack -&gt; web
+remote:
+remote: -----&gt; Compressing...
+remote:        Done: 289.4K
+remote: -----&gt; Launching...
+remote:        Released v3
+remote:        https://sleepy-thicket-16179.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To https://git.heroku.com/sleepy-thicket-16179.git
+ * [new branch]      master -&gt; master
+</pre>
+
+<p>The buildpack will:</p>
+
+<ol>
+  <li>Install the latest crystal release.</li>
+  <li>Install project dependencies via shards.</li>
+  <li>Compile the main source file in release mode.</li>
+  <li>Run the web server process with <code class="highlighter-rouge">--port</code> option.</li>
+</ol>
+
+<h1 id="specify-the-crystal-version">Specify the crystal version</h1>
+
+<p>If you want to use a different Crystal version, create a <code class="highlighter-rouge">.crystal-version</code> file with the desired version, following <a href="https://github.com/pine/crenv">crenv</a>’s convention.</p>
+
+<pre class="code">
+$ echo '0.17.1' &gt; .crystal-version
+</pre>
+
+<p>Commit the changes in <code class="highlighter-rouge">.crystal-version</code> and deploy.</p>
+
+<pre class="code">
+$ git push heroku master
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 301 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Fetching set buildpack https://github.com/crystal-lang/heroku-buildpack-crystal.git... done
+remote: -----&gt; Crystal app detected
+remote: -----&gt; Installing Crystal (0.17.1 due to .crystal-version file)
+remote: -----&gt; Installing Dependencies
+remote: -----&gt; Compiling src/heroku101.cr (auto-detected from shard.yml)
+...
+</pre>
+
+<p>You will now notice the <code class="highlighter-rouge">(0.17.1 due to .crystal-version file)</code> legend.</p>
+
+<p>Whenever you are ready to upgrade to the latest crystal version, update the content of the file or just remove it and deploy again.</p>
+
+<h2 id="show-me-the-code">Show me the code!</h2>
+
+<p>Find all the sample source code used at
+<a href="https://github.com/bcardiff/sample-crystal-heroku101">https://github.com/bcardiff/sample-crystal-heroku101</a>.</p>
+
+<p>To contribute to crystal buildpack, just <a href="https://github.com/crystal-lang/heroku-buildpack-crystal">fork it</a>. Contributions are welcome!</p>
+
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

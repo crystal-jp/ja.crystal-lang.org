@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.1.0 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.1.0 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.1.0 released!" />
+<meta name="author" content="asterite" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Yesterday we released the first official version of Crystal: 0.1.0. Yay!" />
+<meta property="og:description" content="Yesterday we released the first official version of Crystal: 0.1.0. Yay!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-06-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@asterite" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Yesterday we released the first official version of Crystal: 0.1.0. Yay!","headline":"Crystal 0.1.0 released!","dateModified":"2014-06-19T00:00:00+00:00","datePublished":"2014-06-19T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/asterite.jpg" width="360" height="360" alt="authors/asterite.jpg">
+          
+          
+            <span class="author_name">Ary Borenzweig</span>
+          
+          
+          
+            <span class="date">19 Jun 2014</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.1.0 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F06%2F19%2Fcrystal-0.1.0-released.html&text=Crystal+0.1.0+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F06%2F19%2Fcrystal-0.1.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2014%2F06%2F19%2Fcrystal-0.1.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Yesterday we released the first official version of Crystal: 0.1.0. Yay!</p>
+
+<p>This first release brings some nice things:</p>
+
+<ul class="goals spaced">
+  <li>A way to install Crystal from a tar.gz</li>
+  <li>A way to install Crystal on Mac OSX using Homebrew</li>
+  <li>A (currently almost empty) <a href="https://github.com/crystal-lang/crystal/blob/master/CHANGELOG.md" target="_blank">Changelog</a>, which we'll keep updated from now on</li>
+  <li>A couple of language features which were already there, but since we reached a milestone it's a good opportunity to talk about them :-)</li>
+</ul>
+
+<p>Let’s talk about each of these points.</p>
+
+<h2 id="install-crystal-from-a-targz">Install Crystal from a tar.gz</h2>
+
+<p>First, you need to fulfil some dependencies:</p>
+
+<ul class="goals spaced">
+  <li>LLVM 3.3 and Clang</li>
+  <li>The latest version of the <a href="https://github.com/ivmai/bdwgc/">Boehm-Demers-Weiser conservative garbage collector</a></li>
+  <li>libunwind</li>
+  <li>libpcre</li>
+</ul>
+
+<p>Then, depending on your platform, you need to download one of these:</p>
+
+<ul class="goals spaced">
+  <li>Mac OSX: <a href="http://crystal-lang.s3.amazonaws.com/crystal-darwin-0.1.0-p0.tar.gz">crystal-darwin-0.1.0-p0.tar.gz</a></li>
+  <li>Linux 32 bits: <a href="http://crystal-lang.s3.amazonaws.com/crystal-linux32-0.1.0-p0.tar.gz">crystal-linux32-0.1.0-p0.tar.gz</a></li>
+  <li>Linux 64 bits: <a href="http://crystal-lang.s3.amazonaws.com/crystal-linux64-0.1.0-p0.tar.gz">crystal-linux64-0.1.0-p0.tar.gz</a></li>
+</ul>
+
+<p>Then uncompress it and inside it you will have a <code class="highlighter-rouge">bin/crystal</code> executable. You can create a symbolic link to that executable, and that’s it!</p>
+
+<h2 id="install-crystal-on-mac-osx-using-homebrew">Install Crystal on Mac OSX using Homebrew</h2>
+
+<p>You just need to execute this:</p>
+
+<pre class="code">
+brew install crystal-lang
+</pre>
+
+<p>That’s it! You should have a <code class="highlighter-rouge">crystal</code> executable in your PATH.</p>
+
+<h2 id="the-language-features">The language features</h2>
+
+<p>The language features that we consider make Crystal attractive and efficient are:</p>
+
+<ul class="goals spaced">
+  <li>Function literals, function pointers and closures</li>
+  <li>Macros</li>
+  <li>Tuples</li>
+  <li>Structs</li>
+</ul>
+
+<h3 id="function-literals-function-pointers-and-closures">Function literals, function pointers and closures</h3>
+
+<p>You can create an argument-less function literal like this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">{</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span> <span class="c1">#=&gt; 3</span></code></pre></figure>
+</div>
+
+<p>The return type is automatically inferred.</p>
+
+<p>If you want a function literal with arguments, you need to specify their types:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 3</span></code></pre></figure>
+</div>
+
+<p>A function literal has access to the environment where it was created. For example:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 3</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 12</span></code></pre></figure>
+</div>
+
+<p>That is, it can form a <a href="http://en.wikipedia.org/wiki/Closure_(computer_programming)">closure</a>.</p>
+
+<p>The compiler figures out which variables are accessed inside the function literal and only allocates
+memory for the closure if it’s needed, in order to get maximum memory and speed efficiency.</p>
+
+<p>A closure has also access to the <code class="highlighter-rouge">self</code> of the class where it is declared:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="n">property</span> <span class="n">x</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">x_proxy</span>
+    <span class="o">-&gt;</span><span class="p">{</span> <span class="vi">@x</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">foo</span><span class="p">.</span><span class="nf">x_proxy</span>
+<span class="nb">puts</span> <span class="n">proxy</span><span class="p">.</span><span class="nf">call</span> <span class="c1">#=&gt; 1</span>
+
+<span class="n">foo</span><span class="p">.</span><span class="nf">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">puts</span> <span class="n">proxy</span><span class="p">.</span><span class="nf">call</span> <span class="c1">#=&gt; 10</span></code></pre></figure>
+</div>
+
+<p>A function literal can be passed as a block to a method using an ampersand (<code class="highlighter-rouge">&amp;</code>):</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span>
+  <span class="k">yield</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">&amp;</span><span class="n">f</span>
+<span class="nb">puts</span> <span class="n">value</span> <span class="c1">#=&gt; 3</span></code></pre></figure>
+</div>
+
+<p>You can also get a function pointer to an existing method. In this case, you must
+specify the types of the arguments:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="n">foo</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 3</span></code></pre></figure>
+</div>
+
+<p>You can also get a function pointer to a class’ instance method:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="vi">@x</span> <span class="o">+</span> <span class="n">z</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="n">foo</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
+</div>
+
+<p>Finally, a block can be captured and automatically converted to a function literal,
+but for this you must specify the arguments’ types in the block argument:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span> <span class="p">:</span> <span class="no">Int32</span> <span class="o">-&gt;</span> <span class="no">Int32</span><span class="p">)</span>
+  <span class="n">block</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">foo</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 3</span></code></pre></figure>
+</div>
+
+<p>Note that in this last form a closure is automatically created if needed: in the last
+example <code class="highlighter-rouge">a</code> was captured by the block/function literal.</p>
+
+<p>This last form makes it easier to write function literals without having to specify their
+arguments types everywhere: you only need to specify these in a def’s block argument.</p>
+
+<p>You can use a free variable as a block’s return type to make the compiler infer the return
+type of the block:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># U is a free variable</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span> <span class="p">:</span> <span class="no">Int32</span> <span class="o">-&gt;</span> <span class="no">U</span><span class="p">)</span>
+  <span class="n">block</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">foo</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="nb">puts</span> <span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; 3</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">foo</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">.</span><span class="nf">to_s</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="n">g</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; "2"</span>
+
+<span class="c1"># Or also:</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">to_s</span>
+<span class="nb">p</span> <span class="n">h</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; "2"</span></code></pre></figure>
+</div>
+
+<p>(A small note on free variables: right now the compiler figures out that <code class="highlighter-rouge">U</code> is a free variable because there’s
+no type named <code class="highlighter-rouge">U</code>. In a future version we’ll fix this by letting the compiler know that <code class="highlighter-rouge">U</code> is free right in the
+method’s signature, like it is done in other languages like Java, C#, Rust, D, etc.)</p>
+
+<p>If you don’t care about the return value of a passed block, you can ommit the block’s return type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span> <span class="p">:</span> <span class="no">Int32</span> <span class="o">-&gt;</span> <span class="p">)</span>
+  <span class="n">block</span>
+<span class="k">end</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">foo</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; (void)</span></code></pre></figure>
+</div>
+
+<p>This last form allows for a very nice and comfortable way to specify callbacks:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@callbacks</span> <span class="o">=</span> <span class="p">[]</span> <span class="n">of</span> <span class="o">-&gt;</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">after_save</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+    <span class="vi">@callbacks</span> <span class="o">&lt;&lt;</span> <span class="n">block</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">save</span>
+    <span class="vi">@callbacks</span><span class="p">.</span><span class="nf">each</span> <span class="o">&amp;</span><span class="p">.</span><span class="nf">call</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">after_save</span> <span class="p">{</span> <span class="nb">puts</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">after_save</span> <span class="p">{</span> <span class="nb">puts</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">save</span> <span class="c1"># prints 1 and 2</span></code></pre></figure>
+</div>
+
+<p>We believe all of these features makes the language very flexible and comfortable to use, just like
+in Ruby.</p>
+
+<p>An implementation note: previously a closure was implemented as a void pointer using <a href="http://llvm.org/docs/LangRef.html#trampoline-intrinsics">LLVM’s
+trampoline intrinsics</a>. The problem with this
+approach is that programs had to be compiled with a flag allowing stack/heap execution, which is kind of
+unsafe. Now both function literals and closures are implemented as a pair of void pointers: one for the
+function literal definition and one for the closure environment (or nil, if none). This has the slight
+disadvantage that closures can’t be passed to C. On the other hand, the allow stack/heap execution flag
+is not needed anymore and C functions almost always have a void pointer for custom data, so you
+would never need to pass a closure to it anyway.</p>
+
+<p>Another implementation note: when you use yield, that is, when you don’t capture a block, the compiler
+always inlines the method. In this way the following code:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="n">a</span> <span class="c1">#=&gt; 45</span></code></pre></figure>
+</div>
+
+<p>is exactly the same as the following code, only nicer:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="n">i</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="n">a</span> <span class="c1">#=&gt; 45</span></code></pre></figure>
+</div>
+
+<p>That way Crystal has zero-cost iteration abstraction, while still being able to do stuff like this:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">x</span> <span class="p">}</span>
+<span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="o">&amp;</span><span class="n">f</span></code></pre></figure>
+</div>
+
+<h3 id="macros">Macros</h3>
+
+<p>Macros allow generating code at compile time. For example, the getter macro is simply this:</p>
+
+<pre class="code">
+macro getter(name)
+  def &#123;&#123;name}}
+    @&#123;&#123;name}}
+  end
+end
+
+class Foo
+  getter foo
+
+  # the above is the same as writing:
+  #
+  #     def foo
+  #       @foo
+  #     end
+end
+</pre>
+
+<p>Inside a macro you can use <code class="highlighter-rouge">&amp;#123;{name}}</code> to interpolate <code class="highlighter-rouge">name</code>.</p>
+
+<p>You can also use <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">for</code> inside a macro:</p>
+
+<pre class="code">
+macro generate_methods(names)
+  &#123;% for name, index in names %}
+    &#123;% if index != 1 %}
+      def &#123;&#123;name}}
+        puts 
+      end
+    &#123;% end %}
+  &#123;% end %}
+end
+
+generate_methods [foo, bar, baz]
+foo #=&gt; 0
+baz #=&gt; 2
+bar # (compile-time error, `bar` undefined)
+</pre>
+
+<p>These new macros are relatively new and experimental, so we won’t go over all of the details right now.
+But our idea is to have macros that allow you to generate code as painlessly and effortlessly as possible,
+which remaining powerful. For example, some methods are supported inside a macro:</p>
+
+<pre class="code">
+macro generate_method_downcase(name)
+  def &#123;&#123;name.downcase}}
+    puts "Hello!"
+  end
+end
+
+generate_method_downcase "HELLO"
+hello
+</pre>
+
+<p>Most String and Array methods will be available inside macros, because these are very convenient for code
+generation.</p>
+
+<p>Another cool thing is that you can execute system commands:</p>
+
+<pre class="code">
+macro compile_time_date
+  &#123;&#123; system("date").stringify }}
+end
+
+build_date = compile_time_date
+puts build_date
+</pre>
+
+<p>The <code class="highlighter-rouge">stringify</code> is needed in order to convert the <code class="highlighter-rouge">date</code> output to a string literal, otherwise the generated
+code would be an invalid program (<code class="highlighter-rouge">Thu Jun 19 14:15:57 ART 2014</code> is an invalid program, but <code class="highlighter-rouge">"Thu Jun 19 14:15:57 ART 2014"</code> is not.)</p>
+
+<p>Our idea is to extend this to allow execution of other Crystal programs that would receive AST nodes as argument and
+will generate code that would be embedded in the program currently being compiled. In this way you could generate
+a class definition from a database schema, or a file in the disk, or convert an ERB/HAML template into efficient
+Crystal code. We still have to materialize all of these ideas.</p>
+
+<p>Macros also allow compile-time introspection. For example, you can get the instance variables names of a class:</p>
+
+<pre class="code">
+class Foo
+  def initialize(@x, @y)
+  end
+
+  def instance_vars : Array(String)
+    a = [] of String
+    &#123;% for ivar in @instance_vars %}
+      a.push &#123;&#123;ivar.stringify}}
+    &#123;% end %}
+    a
+  end
+end
+
+foo = Foo.new(1, 2)
+puts foo.instance_vars #=&gt; ["@x", "@y"]
+</pre>
+
+<p>In this last form, the <code class="highlighter-rouge">instance_vars</code> method is expanded after the type inference phase finishes. Because
+this is done at that stage, any invocation of <code class="highlighter-rouge">Foo#instance_vars</code> must know what type it returns, so that’s
+why we need to specify the type (<code class="highlighter-rouge">Array(String)</code> in this case.) Again, all of this is very experimental so
+we won’t explain all of the details here.</p>
+
+<h3 id="tuples">Tuples</h3>
+
+<p>Tuples are a fixed-size list where each element can have a different type:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">tuple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="n">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#=&gt; 1</span>
+<span class="nb">puts</span> <span class="n">tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#=&gt; hello</span></code></pre></figure>
+</div>
+
+<p>Tuples can be decomposed on assignment:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">tuple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">}</span>
+<span class="n">int</span><span class="p">,</span> <span class="n">string</span> <span class="o">=</span> <span class="n">tuple</span>
+<span class="nb">puts</span> <span class="n">int</span>
+<span class="nb">puts</span> <span class="n">string</span></code></pre></figure>
+</div>
+
+<p>This allows returning multiple values from a method dead easy:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">name_and_age</span>
+  <span class="p">{</span><span class="s2">"Crystal"</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">}</span>
+<span class="k">end</span>
+
+<span class="nb">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">name_and_age</span>
+<span class="nb">puts</span> <span class="nb">name</span><span class="p">.</span><span class="nf">size</span> <span class="c1">#=&gt; 7</span>
+<span class="nb">puts</span> <span class="n">age</span><span class="p">.</span><span class="nf">to_i</span>    <span class="c1">#=&gt; 1</span></code></pre></figure>
+</div>
+
+<p>Note that returning an Array won’t work, because an Array mixes the types of everything you put in it:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">name_and_age</span>
+  <span class="p">[</span><span class="s2">"Crystal"</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="nb">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">name_and_age</span>
+<span class="nb">puts</span> <span class="nb">name</span><span class="p">.</span><span class="nf">size</span> <span class="c1">#=&gt; undefined method 'size' for Float64</span>
+<span class="nb">puts</span> <span class="n">age</span><span class="p">.</span><span class="nf">to_i</span></code></pre></figure>
+</div>
+
+<p>Tuples are objects, like everything else in the language, so they have methods. They also include
+the <code class="highlighter-rouge">Enumerable</code> module:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="n">nums</span><span class="p">.</span><span class="nf">size</span> <span class="c1">#=&gt; 3</span>
+<span class="n">nums</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">value</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>In the future, tuples will allow us to implement variable length arguments for methods.</p>
+
+<h3 id="structs">Structs</h3>
+
+<p>A struct is similar to a class, except that it is passed by value and it doesn’t have an object_id.
+It also inherits from <code class="highlighter-rouge">Struct</code>, which inherits from <code class="highlighter-rouge">Value</code>, while a class inherits from <code class="highlighter-rouge">Reference</code>.</p>
+
+<p>Structs are very useful for wrapping other values without indirection costs. And they are specially
+useful for implementing immutable data structures.</p>
+
+<p>For example, we used structs in a <a href="https://github.com/crystal-lang/crystal/blob/master/samples/sdl/raytracer.cr">raytracer</a> sample to represent 3D vectors. The code runs blazingly
+fast. With classes, not that fast.</p>
+
+<p>Structs can inherit other structs, they can be generic and they can include modules. That means that
+most of the time you can just change a class to a struct by just changing the word <code class="highlighter-rouge">class</code> to <code class="highlighter-rouge">struct</code>
+and get a more efficient program if it turns out to be more efficient in that particular program.</p>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>Although we could still add more features to the language in a blind way, we prefer to start writing a real
+program (other than the compiler :-P). Our first task will be writing a web server similar to
+<a href="http://www.sinatrarb.com/">Sinatra</a>.
+In fact, we already started it: it’s called <a href="https://github.com/manastech/frank/blob/master/samples/hello_world.cr">Frank</a>.
+While developing it we’ll be fixing language bugs and enhancing it. We really like dog food. :-)</p>
+
+<h2 id="thanks">Thanks</h2>
+
+<p>We’d like to thank everyone who contributed by sending pull requests, submitting issues, discussing ideas
+and mentioning Crystal in social networks. Big thanks to you!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

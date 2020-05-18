@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.27.1 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.27.1 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.27.1 released!" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal 0.27.1 has been released!" />
+<meta property="og:description" content="Crystal 0.27.1 has been released!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.27.1 has been released!","headline":"Crystal 0.27.1 released!","dateModified":"2019-01-30T00:00:00+00:00","datePublished":"2019-01-30T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">30 Jan 2019</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.27.1 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F01%2F30%2Fcrystal-0.27.1-released.html&text=Crystal+0.27.1+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F01%2F30%2Fcrystal-0.27.1-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2019%2F01%2F30%2Fcrystal-0.27.1-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.27.1">Crystal 0.27.1</a> has been released!</p>
+
+<p>This release includes new features and improvements in compiler errors that will be useful for many scenarios: scientific, web apps, cli, future advent of codes, you name it. There were <a href="https://github.com/crystal-lang/crystal/compare/0.27.0...0.27.1">202 commits since 0.27.0</a> by 33 contributors.</p>
+
+<p>This release ended up being bigger than expected, and we decided to close it at a point that made sense, and defer some WIP for the next version. There are a couple of breaking changes waiting to be merged already to start the process of 0.28.</p>
+
+<p>Let’s review some of the most relevant changes in this release. But don’t miss the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.27.1">release changelog</a> with a lot of valuable information.</p>
+<h1 id="language-changes">Language changes</h1>
+<p>You already know tuples <code class="highlighter-rouge">{1, "foo"}</code>. We now allow a trailing comma as in <code class="highlighter-rouge">{1, "foo", }</code> to be a valid tuple. This comes in really handy when the tuple is generated from macros, for example. More on this at <a href="https://github.com/crystal-lang/crystal/pull/7182">#7182</a>.</p>
+<h1 id="macros">Macros</h1>
+<p>There is a new macro that allows you to embed the content of a text file as a string literal during compile time. Neat for embedding text resources. This new macro comes in two flavors:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">read_file(filename)</code> that will raise a compile time error if the file does not exist.</li>
+  <li><code class="highlighter-rouge">read_file?(filename)</code> that will generate a <code class="highlighter-rouge">nil</code> value if the file does not exist.</li>
+</ul>
+
+<p>You can read about more about at <a href="https://github.com/crystal-lang/crystal/pull/6967">#6967</a> and <a href="https://github.com/crystal-lang/crystal/pull/7094">#7094</a> since there was some rethinking after the first PR and in the <a href="https://crystal-lang.org/api/0.27.1/Crystal/Macros.html#read_file(filename):StringLiteral-instance-method">docs</a>.</p>
+<h1 id="numeric">Numeric</h1>
+<p>The compiler is now able to emit overflow checks, but for now this feature is only available with an opt-in flag, to allow a migration path and feedback. In a future version, the overflow checks will be the default. When you build a program you can pass <code class="highlighter-rouge">-D preview_overflow</code> to enable them. Depending on your setup you might also need to use <code class="highlighter-rouge">-D compiler_rt</code> until we ship the compiler-rt dependency properly.</p>
+
+<p>Assuming the overflow checks are turned on, methods like <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">**</code>, <code class="highlighter-rouge">to_i8</code> and <code class="highlighter-rouge">Int32.new</code> will raise an <code class="highlighter-rouge">OverflowError</code> if the result doesn’t fit within the representable values. This applies to all integer types (including 128).</p>
+
+<p>In case you need wrapping (a.k.a.: previous) behaviour you will need to use <code class="highlighter-rouge">&amp;+</code>, <code class="highlighter-rouge">&amp;-</code>, <code class="highlighter-rouge">&amp;*</code>, <code class="highlighter-rouge">&amp;**</code>, <code class="highlighter-rouge">to_i8!</code>, <code class="highlighter-rouge">Int32.new!</code>.</p>
+
+<p>Many parts of the stdlib and the compiler had been updated to explicit use <code class="highlighter-rouge">&amp;+</code> (like <code class="highlighter-rouge">Hasher</code>) but if we happened to miss any, it would be great to hear about it. Check your apps with <code class="highlighter-rouge">-D preview_overflow</code> and let us know if you found any issues (before the overflow is the default behaviour).</p>
+
+<p>You can read more about that at <a href="https://github.com/crystal-lang/crystal/pull/7206">#7206</a> where you will also find other PRs related to it.</p>
+
+<p>While implementing that, we also took care of some leftovers related to <code class="highlighter-rouge">Int128</code> support like <a href="https://github.com/crystal-lang/crystal/pull/7135">#7135</a></p>
+
+<p>Also, one of those big little changes that bring joy to some of you, is that you are now able to use <code class="highlighter-rouge">BigInt.new("1_000")</code> to mimic <code class="highlighter-rouge">1_000</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7107">#7107</a>.</p>
+<h1 id="collections">Collections</h1>
+<p>There were many additions to <code class="highlighter-rouge">Iterator</code>, <code class="highlighter-rouge">Enumerable</code> that will come in handy in the next advent of code, and when processing collections of data.</p>
+
+<p>Let’s see some quick examples of these additions. For <code class="highlighter-rouge">Iterator#slice_after</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7146">#7146</a>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="n">ary</span><span class="p">.</span><span class="nf">slice_after</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">even?</span><span class="p">).</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span> <span class="p">}</span>
+<span class="c1"># output:</span>
+<span class="c1"># [1, 3, 5, 8]</span>
+<span class="c1"># [10]</span>
+<span class="c1"># [11, 13, 15, 16]</span>
+<span class="c1"># [17]</span></code></pre></figure>
+</div>
+
+<p>For <code class="highlighter-rouge">Iterator#slice_before</code> added by (<a href="https://github.com/crystal-lang/crystal/pull/7152">#7152</a>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="n">ary</span><span class="p">.</span><span class="nf">slice_before</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">even?</span><span class="p">).</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span> <span class="p">}</span>
+<span class="c1"># output:</span>
+<span class="c1"># [1, 3, 5]</span>
+<span class="c1"># [8]</span>
+<span class="c1"># [10, 11, 13, 15]</span>
+<span class="c1"># [16, 17]</span></code></pre></figure>
+</div>
+
+<p>For <code class="highlighter-rouge">Iterator#slice_when</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7159">#7159</a>:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">ary</span><span class="p">.</span><span class="nf">slice_when</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="p">}.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span> <span class="p">}</span>
+<span class="c1"># output:</span>
+<span class="c1"># [1, 1, 1]</span>
+<span class="c1"># [2, 2]</span>
+<span class="c1"># [3]</span>
+<span class="c1"># [4, 4]</span></code></pre></figure>
+</div>
+
+<p>Using <code class="highlighter-rouge">ary.chunk_while { |x, y| x == y }.each { |x| puts x }</code> would’ve lead to the same result.</p>
+
+<p>Note that some of these methods have a <code class="highlighter-rouge">reuse</code> param to avoid unneeded allocations per slice/chunk. Mind the allocation!</p>
+
+<p><code class="highlighter-rouge">Enumerable#one?</code> has joined the party of <code class="highlighter-rouge">#all?</code> and <code class="highlighter-rouge">#none?</code>. It helps you check if a collection has only one truthy value. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7166">#7166</a>.</p>
+
+<p>Multiple methods in <code class="highlighter-rouge">Enumerable</code>, <code class="highlighter-rouge">Iterator</code> and <code class="highlighter-rouge">Array</code> can now accept a pattern. Patterns are things that implement <code class="highlighter-rouge">#===</code> like <code class="highlighter-rouge">Range</code>, <code class="highlighter-rouge">Regex</code>, or any class. This will allow you to write things like:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nf">all?</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">)</span>        <span class="c1"># =&gt; true</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nf">all?</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span>       <span class="c1"># =&gt; true</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">all?</span><span class="p">(</span><span class="no">String</span><span class="p">)</span>    <span class="c1"># =&gt; false</span>
+<span class="sx">%w[foo bar baz]</span><span class="p">.</span><span class="nf">all?</span><span class="p">(</span><span class="sr">/o|a/</span><span class="p">)</span> <span class="c1"># =&gt; true</span></code></pre></figure>
+</div>
+
+<p>This applies to methods like <code class="highlighter-rouge">#select</code>, <code class="highlighter-rouge">#reject</code>, <code class="highlighter-rouge">#all?</code>, <code class="highlighter-rouge">#any?</code>, <code class="highlighter-rouge">#none?</code> and the new ones described above. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7174">#7174</a>.</p>
+
+<p><code class="highlighter-rouge">Enumerable#to_h(&amp;block)</code> will now let you generate a hash from a collection in an easier way. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7150">#7150</a>.</p>
+<h1 id="serialization">Serialization</h1>
+<p>Thanks to <code class="highlighter-rouge">JSON::Any#to_yaml</code> and <code class="highlighter-rouge">YAML::Any#to_json</code> converting between these formats is now a piece of cake. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7232">#7232</a>.</p>
+<h1 id="networking">Networking</h1>
+<p>The following feature will leave some of you speechless. There is now a MIME registry.</p>
+
+<p>Multiple PRs like <a href="https://github.com/crystal-lang/crystal/pull/5765">#5765</a>, <a href="https://github.com/crystal-lang/crystal/pull/7077">#7077</a> and others implement this feature described fully in <a href="https://crystal-lang.org/api/0.27.1/MIME.html">their docs</a>.</p>
+
+<p>Essentially, there is an updated default list of known MIME types, plus the operating system’s MIME database is loaded if available and you can override these values.</p>
+
+<p>The registry can be queried for extensions or filenames.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="nb">require</span> <span class="s2">"mime"</span>
+
+<span class="no">MIME</span><span class="p">.</span><span class="nf">from_extension</span><span class="p">(</span><span class="s2">".html"</span><span class="p">)</span>         <span class="c1"># =&gt; "text/html; charset=utf-8"</span>
+<span class="no">MIME</span><span class="p">.</span><span class="nf">from_filename</span><span class="p">(</span><span class="s2">"path/file.html"</span><span class="p">)</span> <span class="c1"># =&gt; "text/html; charset=utf-8"</span></code></pre></figure>
+</div>
+
+<p>This is used in <code class="highlighter-rouge">HTTP::StaticFileHandler</code> but you can give it other uses for sure.</p>
+<h1 id="system">System</h1>
+
+<p>Every platform integration counts, even the smallest changeset. In <a href="https://github.com/crystal-lang/crystal/pull/7041">#7041</a> the inlined ASM when compiling for ARM got a fix. And in <a href="https://github.com/crystal-lang/crystal/pull/6972">#6972</a> methods to get  hostname and cpu count in Win32 were implemented.</p>
+<h1 id="compiler">Compiler</h1>
+<p>There were many fixes related to improving error messages of the compiler in different scenarios. Don’t miss the full changelog. One of the most noticeable improvements is related to the type inference in recursions that involve blocks.</p>
+
+<p>The following code was unable to compile as is in 0.27.0 but now it works like a charm.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="k">class</span> <span class="nc">Tree</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@value</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">,</span> <span class="vi">@children</span> <span class="p">:</span> <span class="no">Array</span><span class="p">(</span><span class="no">Tree</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">sum</span> <span class="p">:</span> <span class="no">Int32</span>
+    <span class="vi">@value</span> <span class="o">+</span> <span class="vi">@children</span><span class="p">.</span><span class="nf">each</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">sum</span><span class="p">).</span><span class="nf">sum</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Tree</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[]</span> <span class="k">of</span> <span class="no">Tree</span><span class="p">).</span><span class="nf">sum</span></code></pre></figure>
+</div>
+
+<p>Read more at <a href="https://github.com/crystal-lang/crystal/pull/7161">#7161</a>.</p>
+<h1 id="formatter">Formatter</h1>
+
+<p>The formatter didn’t fall short on improvements. Besides handling more cases, and handling some of them better, <a href="https://github.com/crystal-lang/crystal/pull/7257">#7257</a> has reworked the CLI to return more accurate status codes, behave more consistently and support opt-in error traces for people who want to get involved in the formatter itself.</p>
+<h1 id="next-steps">Next steps</h1>
+
+<p>Please update your Crystal and report any issues. We will keep moving forward and start the development focusing in 0.28. In case you missed it, there are ways to test your shards and apps with <a href="https://crystal-lang.org/2018/09/04/using-circleci-2.0-for-your-crystal-projects.html">nightly releases</a>, it’s great to keep updated on upcoming breaking changes.</p>
+
+<p>The development is possible thanks to the community’s effort, <a href="https://www.84codes.com/">84codes</a>’ support, and every <a href="https://crystal-lang.org/sponsors">supporter</a>.</p>
+
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

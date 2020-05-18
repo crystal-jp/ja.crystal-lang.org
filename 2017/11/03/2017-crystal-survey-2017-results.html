@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal Survey 2017 Results - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal Survey 2017 Results | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal Survey 2017 Results" />
+<meta name="author" content="sdogruyol" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This year, the Crystal team launched the first official State of Crystal survey. We’re amazed by the fantastic feedback from the community. We received 757 responses. Thanks a lot to everyone who took the time to respond! We tried our best to read through all of your comments and suggestions. Without further ado, let’s take a look at the results. How did you discover Crystal? (hover for more info) We wanted to learn how you discovered Crystal, and were surprised to find that a lot of you arrived at Crystal through search engines. On the other hand, we confirmed how important HackerNews and Reddit are to divulge young and small projects such as Crystal. Every now and then, someone from the community posts something interesting about Crystal, the post makes it to HN and Reddit front pages and in the next few days we notice a wave of new users and contributors on the different community channels. Using Crystal (hover for more info) There’s a deeper story that we see in these numbers, which is consistent with what we hear in informal discussions about Crystal: the community is eager to start using the language in production, but is waiting for more concrete signals from the project. A considerable part of the community doesn’t even mind about that and trusts the ecosystem enough to take the leap. (hover for more info) Crystal community is growing rapidly. We’ve got a steady growing user base with a lot of new Crystal developers joining every week. (hover for more info) Most of the current Crystal projects are less than 1000 lines, however there are also 17 projects which are in between 10000 and 100000 lines. (hover for more info) Crystal is a beauty, we know that a lot of you are excited to use it for your daily work :) What are some ways you or your company are using Crystal at work? 220 people answered this free form question. Here are the most common answers to how companies are using Crystal: Microservices CPU performance intensive apps CLI tools Background workers Big Data processing Ruby replacement Some very interesting ones Genome analysis HPC Embedded GUI applications How could we help make Crystal more accepted at your company? No surprises in the list: we know all of these are the main gaps to fill and we’re happy to be aligned with the community. Stable release (1.0) Parallelism Windows support More resources and documentation Better tools (IDEs e.g) More libraries More streamlined release cycles What editor(s) do you use when writing Crystal? Crystal developers do love using Vim, here’s the major editors being used Vim - 34% Atom - 32.2% Visual Studio Code - 28.8% Sublime Text - 28.4% Emacs - 8.1% Platforms (hover for more info) Linux is the main platform Crystal developers choose followed by Mac OS. There’s also a notable amount (17.9%) of Crystal developers using Windows. We see a similar pattern in target platforms. Linux is the most targeted platform. Interestingly we see Android, iOS and Javascript in a noticable ratio. Towards 1.0 (hover for more info) Crystal developers tend to follow the latest stable release. (hover for more info) We try to keep breaking changes as minimum as possible. More than %60 of Crystal developers don’t have any significant changes to their code when upgrading to a new version. (hover for more info) Using OS package managers to install Crystal is the most common and simple way to start. There are also prebuilt binary tarballs for major platforms. What critical libraries are missing in the Crystal ecosystem? To improve the Crystal ecosystem, we asked what libraries are needed the most GUI ORM Third party SDKs (AWS, Google, etc.) Machine learning What development tools, if any, can make you more productive when working with Crystal? We asked what tools would make Crystal developers more productive. IDE Debugger Code coverage &amp; Linters Faster compile times Learning Resources Which learning resources, if any, did you use to learn Crystal? The official Crystal docs (https://crystal-lang.org/reference/) Crystal for Rubyists (http://www.crystalforrubyists.com/) Gitter/IRC/Help from the community Ruby background :) From 1 to 5, 1 being not difficult and 5 being very difficult. Crystal’s Future What can we make to make you well informed about Crystal’s future? More blog posts Monthly development updates More social media (Twitter, Facebook e.g) activity and interaction. More transparency. What improvements are needed before Crystal v1.0 can be released? (General feedback) Parallelism Windows support Stable APIs Compiler improvements Better type inference Community &amp; Demographics Crystal community takes its’ welcoming and niceness from Ruby. We’re happy to see that over 64% of all respondents said they feel welcome in the Crystal community, with 33.3% not sure. What can we do to make you feel more welcome in the Crystal community? Feeling quite welcome already :) Merch store! More events, meetups, project discussion What domain do you use Crystal in? Crystal developers use Crystal for many different domains. Servers / Backend Web Development Network Programming DevOps IoT Data Science Gaming Big Data Which programming languages are you most comfortable with? Crystal developers come from various programming languages, most of them being dynamic programming languages. However Ruby definitely has a special place :) Ruby JavaScript Python PHP Java C C++ C# Closing Thoughts At the end of the survey, we asked: “Anything else you’d like to tell us?” I’ll let some of the quotes speak for themselves: Keep up the great work! I love Crystal, and I want to use it more! Thank you! Crystal is my first loved programming language :) I can’t wait for the 1.0 release! Great job on everything so far. I love you guys, keep it up! As a Rubyist with no prior experience with compiled languages, this was definitely and by far the easiest way to learn about them and get used to a strongly typed language. Thanks to everyone who make Crystal and this survey possible &lt;3 Happy Crystalling!" />
+<meta property="og:description" content="This year, the Crystal team launched the first official State of Crystal survey. We’re amazed by the fantastic feedback from the community. We received 757 responses. Thanks a lot to everyone who took the time to respond! We tried our best to read through all of your comments and suggestions. Without further ado, let’s take a look at the results. How did you discover Crystal? (hover for more info) We wanted to learn how you discovered Crystal, and were surprised to find that a lot of you arrived at Crystal through search engines. On the other hand, we confirmed how important HackerNews and Reddit are to divulge young and small projects such as Crystal. Every now and then, someone from the community posts something interesting about Crystal, the post makes it to HN and Reddit front pages and in the next few days we notice a wave of new users and contributors on the different community channels. Using Crystal (hover for more info) There’s a deeper story that we see in these numbers, which is consistent with what we hear in informal discussions about Crystal: the community is eager to start using the language in production, but is waiting for more concrete signals from the project. A considerable part of the community doesn’t even mind about that and trusts the ecosystem enough to take the leap. (hover for more info) Crystal community is growing rapidly. We’ve got a steady growing user base with a lot of new Crystal developers joining every week. (hover for more info) Most of the current Crystal projects are less than 1000 lines, however there are also 17 projects which are in between 10000 and 100000 lines. (hover for more info) Crystal is a beauty, we know that a lot of you are excited to use it for your daily work :) What are some ways you or your company are using Crystal at work? 220 people answered this free form question. Here are the most common answers to how companies are using Crystal: Microservices CPU performance intensive apps CLI tools Background workers Big Data processing Ruby replacement Some very interesting ones Genome analysis HPC Embedded GUI applications How could we help make Crystal more accepted at your company? No surprises in the list: we know all of these are the main gaps to fill and we’re happy to be aligned with the community. Stable release (1.0) Parallelism Windows support More resources and documentation Better tools (IDEs e.g) More libraries More streamlined release cycles What editor(s) do you use when writing Crystal? Crystal developers do love using Vim, here’s the major editors being used Vim - 34% Atom - 32.2% Visual Studio Code - 28.8% Sublime Text - 28.4% Emacs - 8.1% Platforms (hover for more info) Linux is the main platform Crystal developers choose followed by Mac OS. There’s also a notable amount (17.9%) of Crystal developers using Windows. We see a similar pattern in target platforms. Linux is the most targeted platform. Interestingly we see Android, iOS and Javascript in a noticable ratio. Towards 1.0 (hover for more info) Crystal developers tend to follow the latest stable release. (hover for more info) We try to keep breaking changes as minimum as possible. More than %60 of Crystal developers don’t have any significant changes to their code when upgrading to a new version. (hover for more info) Using OS package managers to install Crystal is the most common and simple way to start. There are also prebuilt binary tarballs for major platforms. What critical libraries are missing in the Crystal ecosystem? To improve the Crystal ecosystem, we asked what libraries are needed the most GUI ORM Third party SDKs (AWS, Google, etc.) Machine learning What development tools, if any, can make you more productive when working with Crystal? We asked what tools would make Crystal developers more productive. IDE Debugger Code coverage &amp; Linters Faster compile times Learning Resources Which learning resources, if any, did you use to learn Crystal? The official Crystal docs (https://crystal-lang.org/reference/) Crystal for Rubyists (http://www.crystalforrubyists.com/) Gitter/IRC/Help from the community Ruby background :) From 1 to 5, 1 being not difficult and 5 being very difficult. Crystal’s Future What can we make to make you well informed about Crystal’s future? More blog posts Monthly development updates More social media (Twitter, Facebook e.g) activity and interaction. More transparency. What improvements are needed before Crystal v1.0 can be released? (General feedback) Parallelism Windows support Stable APIs Compiler improvements Better type inference Community &amp; Demographics Crystal community takes its’ welcoming and niceness from Ruby. We’re happy to see that over 64% of all respondents said they feel welcome in the Crystal community, with 33.3% not sure. What can we do to make you feel more welcome in the Crystal community? Feeling quite welcome already :) Merch store! More events, meetups, project discussion What domain do you use Crystal in? Crystal developers use Crystal for many different domains. Servers / Backend Web Development Network Programming DevOps IoT Data Science Gaming Big Data Which programming languages are you most comfortable with? Crystal developers come from various programming languages, most of them being dynamic programming languages. However Ruby definitely has a special place :) Ruby JavaScript Python PHP Java C C++ C# Closing Thoughts At the end of the survey, we asked: “Anything else you’d like to tell us?” I’ll let some of the quotes speak for themselves: Keep up the great work! I love Crystal, and I want to use it more! Thank you! Crystal is my first loved programming language :) I can’t wait for the 1.0 release! Great job on everything so far. I love you guys, keep it up! As a Rubyist with no prior experience with compiled languages, this was definitely and by far the easiest way to learn about them and get used to a strongly typed language. Thanks to everyone who make Crystal and this survey possible &lt;3 Happy Crystalling!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2017/11/03/2017-crystal-survey-2017-results.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2017/11/03/2017-crystal-survey-2017-results.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@sdogruyol" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/11/03/2017-crystal-survey-2017-results.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"sdogruyol"},"url":"https://ja.crystal-lang.org/2017/11/03/2017-crystal-survey-2017-results.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"sdogruyol"},"description":"This year, the Crystal team launched the first official State of Crystal survey. We’re amazed by the fantastic feedback from the community. We received 757 responses. Thanks a lot to everyone who took the time to respond! We tried our best to read through all of your comments and suggestions. Without further ado, let’s take a look at the results. How did you discover Crystal? (hover for more info) We wanted to learn how you discovered Crystal, and were surprised to find that a lot of you arrived at Crystal through search engines. On the other hand, we confirmed how important HackerNews and Reddit are to divulge young and small projects such as Crystal. Every now and then, someone from the community posts something interesting about Crystal, the post makes it to HN and Reddit front pages and in the next few days we notice a wave of new users and contributors on the different community channels. Using Crystal (hover for more info) There’s a deeper story that we see in these numbers, which is consistent with what we hear in informal discussions about Crystal: the community is eager to start using the language in production, but is waiting for more concrete signals from the project. A considerable part of the community doesn’t even mind about that and trusts the ecosystem enough to take the leap. (hover for more info) Crystal community is growing rapidly. We’ve got a steady growing user base with a lot of new Crystal developers joining every week. (hover for more info) Most of the current Crystal projects are less than 1000 lines, however there are also 17 projects which are in between 10000 and 100000 lines. (hover for more info) Crystal is a beauty, we know that a lot of you are excited to use it for your daily work :) What are some ways you or your company are using Crystal at work? 220 people answered this free form question. Here are the most common answers to how companies are using Crystal: Microservices CPU performance intensive apps CLI tools Background workers Big Data processing Ruby replacement Some very interesting ones Genome analysis HPC Embedded GUI applications How could we help make Crystal more accepted at your company? No surprises in the list: we know all of these are the main gaps to fill and we’re happy to be aligned with the community. Stable release (1.0) Parallelism Windows support More resources and documentation Better tools (IDEs e.g) More libraries More streamlined release cycles What editor(s) do you use when writing Crystal? Crystal developers do love using Vim, here’s the major editors being used Vim - 34% Atom - 32.2% Visual Studio Code - 28.8% Sublime Text - 28.4% Emacs - 8.1% Platforms (hover for more info) Linux is the main platform Crystal developers choose followed by Mac OS. There’s also a notable amount (17.9%) of Crystal developers using Windows. We see a similar pattern in target platforms. Linux is the most targeted platform. Interestingly we see Android, iOS and Javascript in a noticable ratio. Towards 1.0 (hover for more info) Crystal developers tend to follow the latest stable release. (hover for more info) We try to keep breaking changes as minimum as possible. More than %60 of Crystal developers don’t have any significant changes to their code when upgrading to a new version. (hover for more info) Using OS package managers to install Crystal is the most common and simple way to start. There are also prebuilt binary tarballs for major platforms. What critical libraries are missing in the Crystal ecosystem? To improve the Crystal ecosystem, we asked what libraries are needed the most GUI ORM Third party SDKs (AWS, Google, etc.) Machine learning What development tools, if any, can make you more productive when working with Crystal? We asked what tools would make Crystal developers more productive. IDE Debugger Code coverage &amp; Linters Faster compile times Learning Resources Which learning resources, if any, did you use to learn Crystal? The official Crystal docs (https://crystal-lang.org/reference/) Crystal for Rubyists (http://www.crystalforrubyists.com/) Gitter/IRC/Help from the community Ruby background :) From 1 to 5, 1 being not difficult and 5 being very difficult. Crystal’s Future What can we make to make you well informed about Crystal’s future? More blog posts Monthly development updates More social media (Twitter, Facebook e.g) activity and interaction. More transparency. What improvements are needed before Crystal v1.0 can be released? (General feedback) Parallelism Windows support Stable APIs Compiler improvements Better type inference Community &amp; Demographics Crystal community takes its’ welcoming and niceness from Ruby. We’re happy to see that over 64% of all respondents said they feel welcome in the Crystal community, with 33.3% not sure. What can we do to make you feel more welcome in the Crystal community? Feeling quite welcome already :) Merch store! More events, meetups, project discussion What domain do you use Crystal in? Crystal developers use Crystal for many different domains. Servers / Backend Web Development Network Programming DevOps IoT Data Science Gaming Big Data Which programming languages are you most comfortable with? Crystal developers come from various programming languages, most of them being dynamic programming languages. However Ruby definitely has a special place :) Ruby JavaScript Python PHP Java C C++ C# Closing Thoughts At the end of the survey, we asked: “Anything else you’d like to tell us?” I’ll let some of the quotes speak for themselves: Keep up the great work! I love Crystal, and I want to use it more! Thank you! Crystal is my first loved programming language :) I can’t wait for the 1.0 release! Great job on everything so far. I love you guys, keep it up! As a Rubyist with no prior experience with compiled languages, this was definitely and by far the easiest way to learn about them and get used to a strongly typed language. Thanks to everyone who make Crystal and this survey possible &lt;3 Happy Crystalling!","headline":"Crystal Survey 2017 Results","dateModified":"2017-11-03T00:00:00+00:00","datePublished":"2017-11-03T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/sdogruyol.jpg" width="284" height="278" alt="authors/sdogruyol.jpg">
+          
+          
+            <span class="author_name">Serdar Doğruyol</span>
+          
+          
+          
+            <span class="date">03 Nov 2017</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal Survey 2017 Results</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F11%2F03%2F2017-crystal-survey-2017-results.html&text=Crystal+Survey+2017+Results&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F11%2F03%2F2017-crystal-survey-2017-results.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F11%2F03%2F2017-crystal-survey-2017-results.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>This year, the Crystal team launched the first official <a href="https://crystal-lang.org/2017/07/31/launching-the-2017-state-of-crystal-survey.html">State of Crystal survey</a>. We’re amazed by the fantastic feedback from the community.</p>
+
+<p>We received <strong><em>757 responses</em></strong>. Thanks a lot to everyone who took the time to respond! We tried our best to read through all of your comments and suggestions.</p>
+
+<p>Without further ado, let’s take a look at the results.</p>
+
+<h2 id="how-did-you-discover-crystal">How did you discover Crystal?</h2>
+
+<p><img src="https://cdn.pbrd.co/images/GUwgT8n.png" alt="19.9% Google or other search engines, 19.4% HackerNews, 15.6% Reddit, 10.9% Twitter" title="19.9% Google or other search engines, 19.4% HackerNews, 15.6% Reddit, 10.9% Twitter" />
+(hover for more info)</p>
+
+<p>We wanted to learn how you discovered Crystal, and were surprised to find that a lot of you arrived at Crystal through search engines. On the other hand, we confirmed how important HackerNews and Reddit are to divulge young and small projects such as Crystal. Every now and then, someone from the community posts something interesting about Crystal, the post makes it to HN and Reddit front pages and in the next few days we notice a wave of new users and contributors on the different community channels.</p>
+
+<h1 id="using-crystal">Using Crystal</h1>
+
+<p><img src="https://cdn.pbrd.co/images/GP33qmx.png" alt="47.2% Yes, I'm using Crystal for hobby projects, 32.1% No, but I' planning to use Crystal, %10.7 No, I'm not using Crystal, %9.9 Yes, I'm Using Crystal in production" title="%47.2 Yes, I'm using Crystal for hobby projects, 32.1% No, but I'm planning to use Crystal, 10.7% No, I'm not using Crystal, 9.9% Yes, I'm Using Crystal in production" />
+(hover for more info)</p>
+
+<p>There’s a deeper story that we see in these numbers, which is consistent with what we hear in informal discussions about Crystal: the community is eager to start using the language in production, but is waiting for more concrete signals from the project. A considerable part of the community doesn’t even mind about that and trusts the ecosystem enough to take the leap.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GP35Uvi.png" alt="34.7% Less than a month, 19% More than 12 months, 18.9% 1-3 Months, 15.2% 3-6 Months" title="34.7% Less than a month, 19% More than 12 months, 18.9% 1-3 Months, 15.2% 3-6 Months" />
+(hover for more info)</p>
+
+<p>Crystal community is growing rapidly. We’ve got a steady growing user base with a lot of new Crystal developers joining every week.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GP38e1h.png" alt="63.1% Less than 1.000, 23% 1000 to 10000 lines, 11.5% Not sure, 2% 10000 to 100000 lines" title="63.1% Less than 1.000, 23% 1000 to 10000 lines, 11.5% Not sure, 2% 10000 to 100000 lines" />
+(hover for more info)</p>
+
+<p>Most of the current Crystal projects are less than 1000 lines, however there are also 17 projects which are in between 10000 and 100000 lines.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GP39tRi.png" alt="46.6% Yes, 32.9% Not sure, 11.9% No, 8.9% Not applicable" title="46.6% Yes, 32.9% Not sure, 11.9% No, 8.9% Not applicable" />
+(hover for more info)</p>
+
+<p>Crystal is a beauty, we know that a lot of you are excited to use it for your daily work :)</p>
+
+<h2 id="what-are-some-ways-you-or-your-company-are-using-crystal-at-work">What are some ways you or your company are using Crystal at work?</h2>
+
+<p>220 people answered this free form question. Here are the most common answers to how companies are using Crystal:</p>
+
+<ul>
+  <li>Microservices</li>
+  <li>CPU performance intensive apps</li>
+  <li>CLI tools</li>
+  <li>Background workers</li>
+  <li>Big Data processing</li>
+  <li>Ruby replacement</li>
+</ul>
+
+<p>Some very interesting ones</p>
+
+<ul>
+  <li>Genome analysis</li>
+  <li>HPC</li>
+  <li>Embedded GUI applications</li>
+</ul>
+
+<h2 id="how-could-we-help-make-crystal-more-accepted-at-your-company">How could we help make Crystal more accepted at your company?</h2>
+
+<p>No surprises in the list: we know all of these are the main gaps to fill and we’re happy to be aligned with the community.</p>
+
+<ul>
+  <li>Stable release (1.0)</li>
+  <li>Parallelism</li>
+  <li>Windows support</li>
+  <li>More resources and documentation</li>
+  <li>Better tools (IDEs e.g)</li>
+  <li>More libraries</li>
+  <li>More streamlined release cycles</li>
+</ul>
+
+<h2 id="what-editors-do-you-use-when-writing-crystal">What editor(s) do you use when writing Crystal?</h2>
+
+<p>Crystal developers do love using Vim, here’s the major editors being used</p>
+
+<ul>
+  <li>Vim - 34%</li>
+  <li>Atom - 32.2%</li>
+  <li>Visual Studio Code - 28.8%</li>
+  <li>Sublime Text - 28.4%</li>
+  <li>Emacs - 8.1%</li>
+</ul>
+
+<h1 id="platforms">Platforms</h1>
+
+<p><img src="https://cdn.pbrd.co/images/GPbEV09.png" alt="Linux 66%, Mac OS 57.5%, Windows 17.9%, 2.8% BSD-variant" title="Linux 66%, Mac OS 57.5%, Windows 17.9%, 2.8% BSD-variant" />
+(hover for more info)</p>
+
+<p>Linux is the main platform Crystal developers choose followed by Mac OS. There’s also a notable amount (17.9%) of Crystal developers using Windows.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GPbIN3w.png" alt="Linux 91.2%, Mac OS 41.5%, Windows 31.1%, Android 13.1%, iOS 10.9%, 5.3% BSD-variant, 9.4% Javascript, 6% Embeeded" title="Linux 91.2%, Mac OS 41.5%, Windows 31.1%, Android 13.1%, iOS 10.9%, 5.3% BSD-variant, 9.4% Javascript, 6% Embeeded" /></p>
+
+<p>We see a similar pattern in target platforms. Linux is the most targeted platform. Interestingly we see Android, iOS and Javascript in a noticable ratio.</p>
+
+<h1 id="towards-10">Towards 1.0</h1>
+
+<p><img src="https://cdn.pbrd.co/images/GPbKSji.png" alt="0.23.* 56.9%, Not sure 22.4%, Master 6.4%" title="0.23.* 56.9%, Not sure 22.4%, Master 6.4%" />
+(hover for more info)</p>
+
+<p>Crystal developers tend to follow the latest stable release.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GPdzxCW.png" alt="No 60.7%, Yes, but it happens rarely 29.8%, Yes, and it happens oftern 9.4%" title="No 60.7%, Yes, but it happens rarely 29.8%, Yes, and it happens oftern 9.4%" />
+(hover for more info)</p>
+
+<p>We try to keep breaking changes as minimum as possible. More than %60 of Crystal developers don’t have any significant changes to their code when upgrading to a new version.</p>
+
+<p><img src="https://cdn.pbrd.co/images/GPdDVTd.png" alt="OS Package manager 86.4%, Binary tarballs 7%, Manually 4.7%" title="OS Package manager 86.4%, Binary tarballs 7%, Manually 4.7%" />
+(hover for more info)</p>
+
+<p>Using OS package managers to install Crystal is the most common and simple way to start. There are also prebuilt binary tarballs for major platforms.</p>
+
+<h2 id="what-critical-libraries-are-missing-in-the-crystal-ecosystem">What critical libraries are missing in the Crystal ecosystem?</h2>
+
+<p>To improve the Crystal ecosystem, we asked what libraries are needed the most</p>
+
+<ul>
+  <li>GUI</li>
+  <li>ORM</li>
+  <li>Third party SDKs (AWS, Google, etc.)</li>
+  <li>Machine learning</li>
+</ul>
+
+<h2 id="what-development-tools-if-any-can-make-you-more-productive-when-working-with-crystal">What development tools, if any, can make you more productive when working with Crystal?</h2>
+
+<p>We asked what tools would make Crystal developers more productive.</p>
+
+<ul>
+  <li>IDE</li>
+  <li>Debugger</li>
+  <li>Code coverage &amp; Linters</li>
+  <li>Faster compile times</li>
+</ul>
+
+<h1 id="learning-resources">Learning Resources</h1>
+
+<h2 id="which-learning-resources-if-any-did-you-use-to-learn-crystal">Which learning resources, if any, did you use to learn Crystal?</h2>
+
+<ul>
+  <li>The official Crystal docs (https://crystal-lang.org/reference/)</li>
+  <li>Crystal for Rubyists (http://www.crystalforrubyists.com/)</li>
+  <li>Gitter/IRC/Help from the community</li>
+  <li>Ruby background :)</li>
+</ul>
+
+<p><img src="https://cdn.pbrd.co/images/GQ5ea8Q.png" alt="How difficult did you find learning Crystal?" title="How difficult did you find learning Crystal?" /></p>
+
+<p>From 1 to 5, 1 being not difficult and 5 being very difficult.</p>
+
+<h2 id="crystals-future">Crystal’s Future</h2>
+
+<p><img src="https://cdn.pbrd.co/images/GQ5f1wZ.png" alt="Yes 42.8%, No 31.8%, 25.4% I don't know" title="Yes 42.8%, No 31.8%, 25.4% I don't know" /></p>
+
+<h2 id="what-can-we-make-to-make-you-well-informed-about-crystals-future">What can we make to make you well informed about Crystal’s future?</h2>
+
+<ul>
+  <li>More blog posts</li>
+  <li>Monthly development updates</li>
+  <li>More social media (Twitter, Facebook e.g) activity and interaction.</li>
+  <li>More transparency.</li>
+</ul>
+
+<h2 id="what-improvements-are-needed-before-crystal-v10-can-be-released-general-feedback">What improvements are needed before Crystal v1.0 can be released? (General feedback)</h2>
+
+<ul>
+  <li>Parallelism</li>
+  <li>Windows support</li>
+  <li>Stable APIs</li>
+  <li>Compiler improvements</li>
+  <li>Better type inference</li>
+</ul>
+
+<h2 id="community--demographics">Community &amp; Demographics</h2>
+
+<p><img src="https://cdn.pbrd.co/images/GQ5lQzp.png" alt="Yes 64.7%, I don't know 33.3%, 2.0% No" title="[Yes 64.7%, I don't know 33.3%, 2.0% No" /></p>
+
+<p>Crystal community takes its’ welcoming and niceness from Ruby. We’re happy to see that over 64% of all respondents said they feel welcome in the Crystal community, with 33.3% not sure.</p>
+
+<h2 id="what-can-we-do-to-make-you-feel-more-welcome-in-the-crystal-community">What can we do to make you feel more welcome in the Crystal community?</h2>
+
+<ul>
+  <li>Feeling quite welcome already :)</li>
+  <li>Merch store!</li>
+  <li>More events, meetups, project discussion</li>
+</ul>
+
+<h2 id="what-domain-do-you-use-crystal-in">What domain do you use Crystal in?</h2>
+
+<p>Crystal developers use Crystal for many different domains.</p>
+
+<ol>
+  <li>Servers / Backend</li>
+  <li>Web Development</li>
+  <li>Network Programming</li>
+  <li>DevOps</li>
+  <li>IoT</li>
+  <li>Data Science</li>
+  <li>Gaming</li>
+  <li>Big Data</li>
+</ol>
+
+<h2 id="which-programming-languages-are-you-most-comfortable-with">Which programming languages are you most comfortable with?</h2>
+
+<p>Crystal developers come from various programming languages, most of them being dynamic programming languages. However Ruby definitely has a special place :)</p>
+
+<ol>
+  <li>Ruby</li>
+  <li>JavaScript</li>
+  <li>Python</li>
+  <li>PHP</li>
+  <li>Java</li>
+  <li>C</li>
+  <li>C++</li>
+  <li>C#</li>
+</ol>
+
+<hr />
+
+<h1 id="closing-thoughts">Closing Thoughts</h1>
+
+<p>At the end of the survey, we asked: “Anything else you’d like to tell us?”</p>
+
+<p>I’ll let some of the quotes speak for themselves:</p>
+
+<blockquote>
+  <p>Keep up the great work!</p>
+</blockquote>
+
+<blockquote>
+  <p>I love Crystal, and I want to use it more! Thank you!</p>
+</blockquote>
+
+<blockquote>
+  <p>Crystal is my first loved programming language :)</p>
+</blockquote>
+
+<blockquote>
+  <p>I can’t wait for the 1.0 release! Great job on everything so far.</p>
+</blockquote>
+
+<blockquote>
+  <p>I love you guys, keep it up! As a Rubyist with no prior experience with compiled languages, this was definitely and by far the easiest way to learn about them and get used to a strongly typed language.</p>
+</blockquote>
+
+<p>Thanks to everyone who make Crystal and this survey possible &lt;3</p>
+
+<p>Happy Crystalling!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

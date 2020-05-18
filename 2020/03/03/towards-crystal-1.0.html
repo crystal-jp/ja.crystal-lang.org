@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Towards Crystal 1.0 - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Towards Crystal 1.0 | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Towards Crystal 1.0" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases." />
+<meta property="og:description" content="Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases.","headline":"Towards Crystal 1.0","dateModified":"2020-03-03T00:00:00+00:00","datePublished":"2020-03-03T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">03 Mar 2020</span>
+          
+        </div>
+
+        <h1 class='title'>Towards Crystal 1.0</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F03%2F03%2Ftowards-crystal-1.0.html&text=Towards+Crystal+1.0&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F03%2F03%2Ftowards-crystal-1.0.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F03%2F03%2Ftowards-crystal-1.0.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases.</p>
+
+<p>There are three main aspects of the Crystal ecosystem that in a way compete for resources and design decisions (when we say “Crystal ecosystem”, we mean: the compiler, the std-lib, official-ish and community shards, apps that depend on Crystal, and the community itself):</p>
+
+<p>The language is already widely used, so we want to minimize the number of breaking changes, and when we can’t avoid them, at least minimize their impact on existing codebases.
+We want 1.0 to be a stable version of the language.
+We want the language to keep evolving (said another way, we don’t want the fact that we reached 1.0 to mean that we’re left with an ossified language).</p>
+
+<p>The challenge at hand is to get as quickly as possible to a 1.0 version of Crystal that is at the same time as faithful as possible to the current state of the language, stable enough for individuals and organizations to feel comfortable adopting it for even their highest impact projects, and a solid foundation for future major versions.</p>
+
+<p>Considering this context, the most important question to answer almost continuously is: what should happen before 1.0 and what can wait? Let’s delve into that!</p>
+
+<h2 id="what-can-wait---after-10">What <strong>can</strong> wait? - after 1.0</h2>
+
+<p>Since we created Crystal, the language kept evolving through a very free process of exploration of new ideas, sometimes experimental ones, that we hoped would bring joy and productivity to the programmer at the end of the day. Sometimes these ideas end up requiring changes in the language. We want to continue receiving and exploring these new ideas, because these organic processes are what made Crystal what it is.</p>
+
+<p>However, paying excessive attention to these kinds of novel ideas takes away precious resources and focus from the main goal of releasing 1.0. While approaching that, there will be less focus on new and enhanced features that require changes to the language.</p>
+
+<p>There are also important features that are strongly wanted, but they do not require changes in the language itself. These will likely keep receiving lots of attention from the community and we will do our best to review and give feedback to help them move forward. But we will mainly be focused on the features that are holding back 1.0.</p>
+
+<p>Let us go over some of those features, which might well make it into eventual 1.x versions of the language:</p>
+
+<p><strong>Windows</strong>: We aim for most of the shards and apps built on Crystal to be portable. The std-lib should hide platform specific aspects as well as possible. With that in mind adding more platforms to the supported list should not impact neither the language nor the public API. Again, recently we integrated a CI for Windows to ensure we continue moving steadily forward.</p>
+
+<p><strong>Debugger</strong>: Improving the debugging capabilities requires changes to the compiler and tool ecosystem but not to the language. There is ongoing effort from the community and further collaboration is expected and welcome. The current efforts are looking amazing. These may or may not land in 1.0, it depends a lot on timing of testing and feedback.</p>
+
+<p><strong>Multi-threading</strong>: There are pending stories to make multi-thread mode a non preview feature. To mention a few: which the desired guarantees for some parts of the std-lib are, or how the scheduler and runtime could be improved. We already polished <code class="highlighter-rouge">GC</code>, <code class="highlighter-rouge">Channel</code>, <code class="highlighter-rouge">select</code> and <code class="highlighter-rouge">IO</code> to behave correctly with multi-threading on. Future potential enhancements may allow you to use multiple threads more freely, but the core aspects of the language and runtime are set and done.</p>
+
+<p><strong>X or Y compiler bug</strong>: We will keep fixing them, before and after 1.0. Their existence didn’t prevent the existing community from building awesome stuff.</p>
+
+<h2 id="what-cant-wait---before-10">What <strong>can’t</strong> wait? - before 1.0</h2>
+
+<p>So, what is missing to reach 1.0?</p>
+
+<p><strong>tooling</strong>: There are a couple of stories regarding tooling that are missing and need improvements. Shards needs to be more solid for 1.0 (you might have noticed some work in the last couple of weeks on that).</p>
+
+<p><strong>multi-thread stability &amp; documentation</strong>: With 0.33.0 we added some new features for multi-thread and improved IO handling. We want and need thread-safe IO, Channel and runtime.</p>
+
+<p><strong>std-lib polishing</strong>: Although the std-lib will keep evolving we know there are a couple of modules that do need at least a couple of iterations. We want to improve the current API before 1.0 so we allow more solid solutions to be built upon these features. Some examples of these modules include logging, Errno and general exceptions type hierarchy, as well as removing clutter from the top-level namespace.</p>
+
+<p>These areas are the ones Manas &amp; the rest of the core-team will invest most of their effort until 1.0 is reached.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>With this post, we want to provide some clarity on what to expect and what not to expect from the Crystal core team for the next few months.</p>
+
+<p>Of course, other areas that are not mentioned can still receive contributions. But we want to be transparent on the need to aim for fewer, smaller and self-contained changes in the API to include them in 1.0. Said another way, we’ll be much more conservative as regards our merge policy until we get to 1.0.</p>
+
+<p>We already have many plans for after 1.0 that we’ll be excited to start sharing and investing efforts on after celebrating Crystal 1.0. Let’s get there first!</p>
+
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

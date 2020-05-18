@@ -1,0 +1,2353 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>並列性 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="testing.html" />
+    
+    
+    <link rel="prev" href="performance.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    導入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../getting_started/http_server.html">
+            
+                <a href="../getting_started/http_server.html">
+            
+                    
+                    HTTP サーバー
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../getting_started/cli.html">
+            
+                <a href="../getting_started/cli.html">
+            
+                    
+                    コマンドライアプリケーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../using_the_compiler/">
+            
+                <a href="../using_the_compiler/">
+            
+                    
+                    コンパイラの使い方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../the_shards_command/">
+            
+                <a href="../the_shards_command/">
+            
+                    
+                    shards コマンド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../syntax_and_semantics/">
+            
+                <a href="../syntax_and_semantics/">
+            
+                    
+                    構文とその意味
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../syntax_and_semantics/comments.html">
+            
+                <a href="../syntax_and_semantics/comments.html">
+            
+                    
+                    コメント
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../syntax_and_semantics/literals.html">
+            
+                <a href="../syntax_and_semantics/literals.html">
+            
+                    
+                    リテラル
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../syntax_and_semantics/literals/nil.html">
+            
+                <a href="../syntax_and_semantics/literals/nil.html">
+            
+                    
+                    Nil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../syntax_and_semantics/literals/bool.html">
+            
+                <a href="../syntax_and_semantics/literals/bool.html">
+            
+                    
+                    真偽値 (Bool)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../syntax_and_semantics/literals/integers.html">
+            
+                <a href="../syntax_and_semantics/literals/integers.html">
+            
+                    
+                    整数 (Integer)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../syntax_and_semantics/literals/floats.html">
+            
+                <a href="../syntax_and_semantics/literals/floats.html">
+            
+                    
+                    浮動小数点数 (Float)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="../syntax_and_semantics/literals/char.html">
+            
+                <a href="../syntax_and_semantics/literals/char.html">
+            
+                    
+                    文字 (Char)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.6" data-path="../syntax_and_semantics/literals/string.html">
+            
+                <a href="../syntax_and_semantics/literals/string.html">
+            
+                    
+                    文字列 (String)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.7" data-path="../syntax_and_semantics/literals/symbol.html">
+            
+                <a href="../syntax_and_semantics/literals/symbol.html">
+            
+                    
+                    シンボル (Symbol)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.8" data-path="../syntax_and_semantics/literals/array.html">
+            
+                <a href="../syntax_and_semantics/literals/array.html">
+            
+                    
+                    配列 (Array)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.9" data-path="../syntax_and_semantics/literals/hash.html">
+            
+                <a href="../syntax_and_semantics/literals/hash.html">
+            
+                    
+                    ハッシュ (Hash)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.10" data-path="../syntax_and_semantics/literals/range.html">
+            
+                <a href="../syntax_and_semantics/literals/range.html">
+            
+                    
+                    範囲 (Range)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.11" data-path="../syntax_and_semantics/literals/regex.html">
+            
+                <a href="../syntax_and_semantics/literals/regex.html">
+            
+                    
+                    正規表現 (Regex)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.12" data-path="../syntax_and_semantics/literals/tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/tuple.html">
+            
+                    
+                    タプル (Tuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.13" data-path="../syntax_and_semantics/literals/named_tuple.html">
+            
+                <a href="../syntax_and_semantics/literals/named_tuple.html">
+            
+                    
+                    名前付きタプル (NamedTuple)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.14" data-path="../syntax_and_semantics/literals/proc.html">
+            
+                <a href="../syntax_and_semantics/literals/proc.html">
+            
+                    
+                    Proc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.15" data-path="../syntax_and_semantics/literals/command.html">
+            
+                <a href="../syntax_and_semantics/literals/command.html">
+            
+                    
+                    コマンド (Command)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../syntax_and_semantics/assignment.html">
+            
+                <a href="../syntax_and_semantics/assignment.html">
+            
+                    
+                    代入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../syntax_and_semantics/local_variables.html">
+            
+                <a href="../syntax_and_semantics/local_variables.html">
+            
+                    
+                    ローカル変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../syntax_and_semantics/control_expressions.html">
+            
+                <a href="../syntax_and_semantics/control_expressions.html">
+            
+                    
+                    制御式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                <a href="../syntax_and_semantics/truthy_and_falsey_values.html">
+            
+                    
+                    真になる値と偽になる値
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2" data-path="../syntax_and_semantics/if.html">
+            
+                <a href="../syntax_and_semantics/if.html">
+            
+                    
+                    if
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.2.1" data-path="../syntax_and_semantics/as_a_suffix.html">
+            
+                <a href="../syntax_and_semantics/as_a_suffix.html">
+            
+                    
+                    後置 if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.2" data-path="../syntax_and_semantics/as_an_expression.html">
+            
+                <a href="../syntax_and_semantics/as_an_expression.html">
+            
+                    
+                    式としての if
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.3" data-path="../syntax_and_semantics/ternary_if.html">
+            
+                <a href="../syntax_and_semantics/ternary_if.html">
+            
+                    
+                    3項演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.4" data-path="../syntax_and_semantics/if_var.html">
+            
+                <a href="../syntax_and_semantics/if_var.html">
+            
+                    
+                    if var
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.5" data-path="../syntax_and_semantics/if_varis_a.html">
+            
+                <a href="../syntax_and_semantics/if_varis_a.html">
+            
+                    
+                    if var.is_a?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.6" data-path="../syntax_and_semantics/if_varresponds_to.html">
+            
+                <a href="../syntax_and_semantics/if_varresponds_to.html">
+            
+                    
+                    if var.responds_to?(...)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.7" data-path="../syntax_and_semantics/if_var_nil.html">
+            
+                <a href="../syntax_and_semantics/if_var_nil.html">
+            
+                    
+                    if var.nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.2.8" data-path="../syntax_and_semantics/not.html">
+            
+                <a href="../syntax_and_semantics/not.html">
+            
+                    
+                    if !
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.3" data-path="../syntax_and_semantics/unless.html">
+            
+                <a href="../syntax_and_semantics/unless.html">
+            
+                    
+                    unless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.4" data-path="../syntax_and_semantics/case.html">
+            
+                <a href="../syntax_and_semantics/case.html">
+            
+                    
+                    case
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5" data-path="../syntax_and_semantics/while.html">
+            
+                <a href="../syntax_and_semantics/while.html">
+            
+                    
+                    while
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.5.1" data-path="../syntax_and_semantics/break.html">
+            
+                <a href="../syntax_and_semantics/break.html">
+            
+                    
+                    break
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.5.2" data-path="../syntax_and_semantics/next.html">
+            
+                <a href="../syntax_and_semantics/next.html">
+            
+                    
+                    next
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.6" data-path="../syntax_and_semantics/until.html">
+            
+                <a href="../syntax_and_semantics/until.html">
+            
+                    
+                    until
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.7" data-path="../syntax_and_semantics/and.html">
+            
+                <a href="../syntax_and_semantics/and.html">
+            
+                    
+                    &&
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5.8" data-path="../syntax_and_semantics/or.html">
+            
+                <a href="../syntax_and_semantics/or.html">
+            
+                    
+                    ||
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../syntax_and_semantics/requiring_files.html">
+            
+                <a href="../syntax_and_semantics/requiring_files.html">
+            
+                    
+                    ファイルの require
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../syntax_and_semantics/types_and_methods.html">
+            
+                <a href="../syntax_and_semantics/types_and_methods.html">
+            
+                    
+                    型とメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.1" data-path="../syntax_and_semantics/everything_is_an_object.html">
+            
+                <a href="../syntax_and_semantics/everything_is_an_object.html">
+            
+                    
+                    すべてがオブジェクト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.2" data-path="../syntax_and_semantics/the_program.html">
+            
+                <a href="../syntax_and_semantics/the_program.html">
+            
+                    
+                    プログラム
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3" data-path="../syntax_and_semantics/classes_and_methods.html">
+            
+                <a href="../syntax_and_semantics/classes_and_methods.html">
+            
+                    
+                    クラスとメソッド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.1" data-path="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                <a href="../syntax_and_semantics/new,_initialize_and_allocate.html">
+            
+                    
+                    new/initialize/allocate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.2" data-path="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                <a href="../syntax_and_semantics/methods_and_instance_variables.html">
+            
+                    
+                    メソッドとインスタンス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.3" data-path="../syntax_and_semantics/type_inference.html">
+            
+                <a href="../syntax_and_semantics/type_inference.html">
+            
+                    
+                    型推論
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.4" data-path="../syntax_and_semantics/union_types.html">
+            
+                <a href="../syntax_and_semantics/union_types.html">
+            
+                    
+                    ユニオン型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.5" data-path="../syntax_and_semantics/overloading.html">
+            
+                <a href="../syntax_and_semantics/overloading.html">
+            
+                    
+                    オーバーロード
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.6" data-path="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                <a href="../syntax_and_semantics/default_and_named_arguments.html">
+            
+                    
+                    デフォルト引数と名前付き引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.7" data-path="../syntax_and_semantics/splats_and_tuples.html">
+            
+                <a href="../syntax_and_semantics/splats_and_tuples.html">
+            
+                    
+                    スプラット展開とタプル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.8" data-path="../syntax_and_semantics/type_restrictions.html">
+            
+                <a href="../syntax_and_semantics/type_restrictions.html">
+            
+                    
+                    型制約
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.9" data-path="../syntax_and_semantics/return_types.html">
+            
+                <a href="../syntax_and_semantics/return_types.html">
+            
+                    
+                    戻り値の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.10" data-path="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                <a href="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
+            
+                    
+                    メソッドの引数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.11" data-path="../syntax_and_semantics/operators.html">
+            
+                <a href="../syntax_and_semantics/operators.html">
+            
+                    
+                    演算子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.12" data-path="../syntax_and_semantics/visibility.html">
+            
+                <a href="../syntax_and_semantics/visibility.html">
+            
+                    
+                    可視性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.13" data-path="../syntax_and_semantics/inheritance.html">
+            
+                <a href="../syntax_and_semantics/inheritance.html">
+            
+                    
+                    継承
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.3.13.1" data-path="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                <a href="../syntax_and_semantics/virtual_and_abstract_types.html">
+            
+                    
+                    virtual 型と abstract 型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.14" data-path="../syntax_and_semantics/class_methods.html">
+            
+                <a href="../syntax_and_semantics/class_methods.html">
+            
+                    
+                    クラスメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.15" data-path="../syntax_and_semantics/class_variables.html">
+            
+                <a href="../syntax_and_semantics/class_variables.html">
+            
+                    
+                    クラス変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.3.16" data-path="../syntax_and_semantics/finalize.html">
+            
+                <a href="../syntax_and_semantics/finalize.html">
+            
+                    
+                    finalize
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.4" data-path="../syntax_and_semantics/modules.html">
+            
+                <a href="../syntax_and_semantics/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.5" data-path="../syntax_and_semantics/generics.html">
+            
+                <a href="../syntax_and_semantics/generics.html">
+            
+                    
+                    ジェネリクス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.6" data-path="../syntax_and_semantics/structs.html">
+            
+                <a href="../syntax_and_semantics/structs.html">
+            
+                    
+                    構造体 (Struct)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.7" data-path="../syntax_and_semantics/constants.html">
+            
+                <a href="../syntax_and_semantics/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.8" data-path="../syntax_and_semantics/enum.html">
+            
+                <a href="../syntax_and_semantics/enum.html">
+            
+                    
+                    列挙型 (Enum)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9" data-path="../syntax_and_semantics/blocks_and_procs.html">
+            
+                <a href="../syntax_and_semantics/blocks_and_procs.html">
+            
+                    
+                    ブロックと Proc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.7.9.1" data-path="../syntax_and_semantics/capturing_blocks.html">
+            
+                <a href="../syntax_and_semantics/capturing_blocks.html">
+            
+                    
+                    ブロックの捕捉
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.2" data-path="../syntax_and_semantics/proc_literal.html">
+            
+                <a href="../syntax_and_semantics/proc_literal.html">
+            
+                    
+                    Proc リテラル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.3" data-path="../syntax_and_semantics/block_forwarding.html">
+            
+                <a href="../syntax_and_semantics/block_forwarding.html">
+            
+                    
+                    ブロックのフォワーディング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.9.4" data-path="../syntax_and_semantics/closures.html">
+            
+                <a href="../syntax_and_semantics/closures.html">
+            
+                    
+                    クロージャ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7.10" data-path="../syntax_and_semantics/alias.html">
+            
+                <a href="../syntax_and_semantics/alias.html">
+            
+                    
+                    型エイリアス (alias)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../syntax_and_semantics/exception_handling.html">
+            
+                <a href="../syntax_and_semantics/exception_handling.html">
+            
+                    
+                    例外の処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../syntax_and_semantics/type_grammar.html">
+            
+                <a href="../syntax_and_semantics/type_grammar.html">
+            
+                    
+                    型の文法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../syntax_and_semantics/type_reflection.html">
+            
+                <a href="../syntax_and_semantics/type_reflection.html">
+            
+                    
+                    型のリフレクション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.10.1" data-path="../syntax_and_semantics/is_a.html">
+            
+                <a href="../syntax_and_semantics/is_a.html">
+            
+                    
+                    is_a?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.2" data-path="../syntax_and_semantics/nil_question.html">
+            
+                <a href="../syntax_and_semantics/nil_question.html">
+            
+                    
+                    nil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.3" data-path="../syntax_and_semantics/responds_to.html">
+            
+                <a href="../syntax_and_semantics/responds_to.html">
+            
+                    
+                    responds_to?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.4" data-path="../syntax_and_semantics/as.html">
+            
+                <a href="../syntax_and_semantics/as.html">
+            
+                    
+                    as
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.5" data-path="../syntax_and_semantics/as_question.html">
+            
+                <a href="../syntax_and_semantics/as_question.html">
+            
+                    
+                    as?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10.6" data-path="../syntax_and_semantics/typeof.html">
+            
+                <a href="../syntax_and_semantics/typeof.html">
+            
+                    
+                    typeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../syntax_and_semantics/macros.html">
+            
+                <a href="../syntax_and_semantics/macros.html">
+            
+                    
+                    マクロ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.11.1" data-path="../syntax_and_semantics/macros/macro_methods.html">
+            
+                <a href="../syntax_and_semantics/macros/macro_methods.html">
+            
+                    
+                    マクロメソッド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.2" data-path="../syntax_and_semantics/macros/hooks.html">
+            
+                <a href="../syntax_and_semantics/macros/hooks.html">
+            
+                    
+                    フック
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11.3" data-path="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                <a href="../syntax_and_semantics/macros/fresh_variables.html">
+            
+                    
+                    フレッシュ変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../syntax_and_semantics/annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations.html">
+            
+                    
+                    アノテーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.12.1" data-path="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                <a href="../syntax_and_semantics/annotations/built_in_annotations.html">
+            
+                    
+                    組み込みアノテーション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../syntax_and_semantics/low_level_primitives.html">
+            
+                <a href="../syntax_and_semantics/low_level_primitives.html">
+            
+                    
+                    低レベルプリミティブ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.13.1" data-path="../syntax_and_semantics/pointerof.html">
+            
+                <a href="../syntax_and_semantics/pointerof.html">
+            
+                    
+                    pointerof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.2" data-path="../syntax_and_semantics/sizeof.html">
+            
+                <a href="../syntax_and_semantics/sizeof.html">
+            
+                    
+                    sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.3" data-path="../syntax_and_semantics/instance_sizeof.html">
+            
+                <a href="../syntax_and_semantics/instance_sizeof.html">
+            
+                    
+                    instance_sizeof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.4" data-path="../syntax_and_semantics/offsetof.html">
+            
+                <a href="../syntax_and_semantics/offsetof.html">
+            
+                    
+                    offsetof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13.5" data-path="../syntax_and_semantics/declare_var.html">
+            
+                <a href="../syntax_and_semantics/declare_var.html">
+            
+                    
+                    初期化しない変数宣言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../syntax_and_semantics/compile_time_flags.html">
+            
+                <a href="../syntax_and_semantics/compile_time_flags.html">
+            
+                    
+                    コンパイル時のフラグ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.14.1" data-path="../syntax_and_semantics/cross-compilation.html">
+            
+                <a href="../syntax_and_semantics/cross-compilation.html">
+            
+                    
+                    クロスコンパイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../syntax_and_semantics/c_bindings/">
+            
+                <a href="../syntax_and_semantics/c_bindings/">
+            
+                    
+                    C バインディング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.1" data-path="../syntax_and_semantics/c_bindings/lib.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/lib.html">
+            
+                    
+                    lib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2" data-path="../syntax_and_semantics/c_bindings/fun.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/fun.html">
+            
+                    
+                    fun
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.15.2.1" data-path="../syntax_and_semantics/c_bindings/out.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/out.html">
+            
+                    
+                    out
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.2.2" data-path="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/to_unsafe.html">
+            
+                    
+                    to_unsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.3" data-path="../syntax_and_semantics/c_bindings/struct.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/struct.html">
+            
+                    
+                    struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.4" data-path="../syntax_and_semantics/c_bindings/union.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/union.html">
+            
+                    
+                    union
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.5" data-path="../syntax_and_semantics/c_bindings/enum.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/enum.html">
+            
+                    
+                    enum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.6" data-path="../syntax_and_semantics/c_bindings/variables.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/variables.html">
+            
+                    
+                    変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.7" data-path="../syntax_and_semantics/c_bindings/constants.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/constants.html">
+            
+                    
+                    定数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.8" data-path="../syntax_and_semantics/c_bindings/type.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/type.html">
+            
+                    
+                    type
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.9" data-path="../syntax_and_semantics/c_bindings/alias.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/alias.html">
+            
+                    
+                    alias
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15.10" data-path="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                <a href="../syntax_and_semantics/c_bindings/callbacks.html">
+            
+                    
+                    コールバック
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../syntax_and_semantics/unsafe.html">
+            
+                <a href="../syntax_and_semantics/unsafe.html">
+            
+                    
+                    安全でない (unsafe) コード
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../conventions/">
+            
+                <a href="../conventions/">
+            
+                    
+                    規約
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../conventions/coding_style.html">
+            
+                <a href="../conventions/coding_style.html">
+            
+                    
+                    コーディングスタイル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../conventions/documenting_code.html">
+            
+                <a href="../conventions/documenting_code.html">
+            
+                    
+                    コードのドキュメント化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../database/">
+            
+                <a href="../database/">
+            
+                    
+                    データベース
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../database/connection.html">
+            
+                <a href="../database/connection.html">
+            
+                    
+                    接続
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../database/connection_pool.html">
+            
+                <a href="../database/connection_pool.html">
+            
+                    
+                    コネクションプール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../database/transactions.html">
+            
+                <a href="../database/transactions.html">
+            
+                    
+                    トランザクション
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ガイド
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="performance.html">
+            
+                <a href="performance.html">
+            
+                    
+                    パフォーマンス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.2" data-path="concurrency.html">
+            
+                <a href="concurrency.html">
+            
+                    
+                    並列性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="testing.html">
+            
+                <a href="testing.html">
+            
+                    
+                    テスト
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="writing_shards.html">
+            
+                <a href="writing_shards.html">
+            
+                    
+                    Shardの作り方
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.4.1" data-path="hosting/github.html">
+            
+                <a href="hosting/github.html">
+            
+                    
+                    GitHub でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4.2" data-path="hosting/gitlab.html">
+            
+                <a href="hosting/gitlab.html">
+            
+                    
+                    GitLab でのホスト方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="continuous_integration.html">
+            
+                <a href="continuous_integration.html">
+            
+                    
+                    継続的インテグレーション (CI)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.5.1" data-path="ci/travis.html">
+            
+                <a href="ci/travis.html">
+            
+                    
+                    Travis CI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5.2" data-path="ci/circleci.html">
+            
+                <a href="ci/circleci.html">
+            
+                    
+                    CircleCI の利用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >並列性</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E26;&#x884C;&#x51E6;&#x7406;">&#x4E26;&#x884C;&#x51E6;&#x7406;</h1>
+<h2 id="&#x4E26;&#x884C;&#x51E6;&#x7406;&#xFF08;concurrency&#xFF09;-vs-&#x4E26;&#x5217;&#x51E6;&#x7406;&#xFF08;parallelism&#xFF09;">&#x4E26;&#x884C;&#x51E6;&#x7406;&#xFF08;Concurrency&#xFF09; vs. &#x4E26;&#x5217;&#x51E6;&#x7406;&#xFF08;Parallelism&#xFF09;</h2>
+<p>&#x3057;&#x3070;&#x3057;&#x3070;&#x6DF7;&#x540C;&#x3055;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;&#x4E26;&#x884C;&#x51E6;&#x7406;&#xFF08;concurrency&#xFF09;&#x300D;&#x3068;&#x300C;&#x4E26;&#x5217;&#x51E6;&#x7406;&#xFF08;parallelism&#xFF09;&#x300D;&#x3068;&#x3044;&#x3046;&#x8A00;&#x8449;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x540C;&#x3058;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x4E26;&#x884C;&#x51E6;&#x7406;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#xFF08;concarrent system&#xFF09;&#x306F;&#x3044;&#x304F;&#x3064;&#x3082;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x3092;&#x6271;&#x3048;&#x308B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;1&#x7A2E;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x5FC5;&#x305A;&#x3057;&#x3082;&#x305D;&#x308C;&#x3089;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x304C;&#x540C;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x30AD;&#x30C3;&#x30C1;&#x30F3;&#x3067;&#x6599;&#x7406;&#x3092;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x3053;&#x308D;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3042;&#x306A;&#x305F;&#x306F;&#x7389;&#x306D;&#x304E;&#x3092;&#x304D;&#x3056;&#x3093;&#x3067;&#x30D5;&#x30E9;&#x30A4;&#x30D1;&#x30F3;&#x306B;&#x653E;&#x308A;&#x8FBC;&#x307F;&#x3001;&#x305D;&#x308C;&#x304C;&#x7092;&#x3081;&#x4E0A;&#x304C;&#x308B;&#x307E;&#x3067;&#x306E;&#x9593;&#x306B;&#x30C8;&#x30DE;&#x30C8;&#x3092;&#x5207;&#x3063;&#x305F;&#x308A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x540C;&#x6642;&#x306B;&#x884C;&#x3046;&#x306E;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x306B;&#x3042;&#x306A;&#x305F;&#x306E;&#x6642;&#x9593;&#x3092;&#x5272;&#x308A;&#x632F;&#x3063;&#x3066;&#x51E6;&#x7406;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4E26;&#x5217;&#x51E6;&#x7406;&#xFF08;parallelism&#xFF09;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3001;&#x7247;&#x624B;&#x3067;&#x7389;&#x306D;&#x304E;&#x306E;&#x5165;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30A4;&#x30D1;&#x30F3;&#x3092;&#x632F;&#x308A;&#x306A;&#x304C;&#x3089;&#x3082;&#x3046;&#x7247;&#x65B9;&#x306E;&#x624B;&#x3067;&#x30C8;&#x30DE;&#x30C8;&#x3092;&#x5207;&#x308B;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x308B;&#x6642;&#x70B9;&#x3067;&#x306F;&#xFF0C;Crystal &#x306F;&#x300C;&#x4E26;&#x884C;&#x51E6;&#x7406;&#x300D;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;&#x4E26;&#x5217;&#x51E6;&#x7406;&#x300D;&#x306F;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x3064;&#x307E;&#x308A;&#x3001;&#x3044;&#x304F;&#x3064;&#x3082;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x306B;&#x5C11;&#x3057;&#x305A;&#x3064;&#x6642;&#x9593;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x304C;&#x3001;&#x5B8C;&#x5168;&#x306B;&#x540C;&#x3058;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;2&#x3064;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x30D1;&#x30B9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30AB;&#x30EC;&#x30F3;&#x30C8;&#x30FB;&#x30DE;&#x30FC;&#x30AF;&#xFF06;&#x30B9;&#x30A4;&#x30FC;&#x30D7;&#x65B9;&#x5F0F;&#x3067;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x305F;&#x30AC;&#x30D9;&#x30FC;&#x30B8;&#x30B3;&#x30EC;&#x30AF;&#x30BF;&#xFF08;GC&#xFF09;&#xFF08;&#x73FE;&#x6642;&#x70B9;&#x3067;&#x306F; <a href="http://www.hboehm.info/gc/" target="_blank">Boehm GC</a>) &#x3092;&#x9664;&#x3044;&#x3066;&#x3001;Crystal &#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x5358;&#x4E00;&#x306E; OS &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x4E0A;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#xFF08;fiber&#xFF09;">&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#xFF08;Fiber&#xFF09;</h3>
+<p>&#x4E26;&#x884C;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x305F;&#x3081;&#x306B;&#x3001;Crystal &#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;OS&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3068;&#x3088;&#x304F;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3088;&#x308A;&#x8EFD;&#x91CF;&#x3067;&#x3001;&#x305D;&#x306E;&#x5B9F;&#x884C;&#x306F;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306B;&#x3088;&#x3063;&#x3066;&#x5185;&#x90E8;&#x7684;&#x306B;&#x7BA1;&#x7406;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x8907;&#x6570;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3001;Crystal&#x306F;&#x9069;&#x5207;&#x306A;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x305D;&#x308C;&#x3089;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;">&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;</h3>
+<p>I/O&#x306B;&#x95A2;&#x4FC2;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x306A;&#x3093;&#x3067;&#x3082;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x304A;&#x4E16;&#x8A71;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x304A;&#x304B;&#x3052;&#x3067;&#x3001;&#x305F;&#x3068;&#x3048;&#x6642;&#x9593;&#x306E;&#x304B;&#x304B;&#x308B;&#x51E6;&#x7406;&#x304C;I/O&#x306B;&#x5BFE;&#x3057;&#x3066;&#x884C;&#x308F;&#x308C;&#x3066;&#x3044;&#x3066;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x304C;&#x305D;&#x306E;&#x7D42;&#x4E86;&#x3092;&#x5F85;&#x3063;&#x3066;&#x3044;&#x308B;&#x72B6;&#x614B;&#x3067;&#x3082;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x5225;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x7D4C;&#x7531;&#x3067;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x53D7;&#x4FE1;&#x64CD;&#x4F5C;&#x306A;&#x3069;&#x306F;&#x3001;&#x3053;&#x3046;&#x3057;&#x305F;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x308B;&#x51E6;&#x7406;&#x306E;&#x4E00;&#x4F8B;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#xFF08;channel&#xFF09;">&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#xFF08;Channel&#xFF09;</h3>
+<p>Crystal &#x306F; <a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes" target="_blank">CSP</a> &#x3092;&#x53C2;&#x8003;&#x306B;&#x3057;&#x305F;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x6709;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30E1;&#x30E2;&#x30EA;&#x306E;&#x5171;&#x6709;&#x3084;&#x30ED;&#x30C3;&#x30AF;&#x3084;&#x30BB;&#x30DE;&#x30D5;&#x30A9;&#x306A;&#x3069;&#x3068;&#x3044;&#x3063;&#x305F;&#x7279;&#x5225;&#x306A;&#x6A5F;&#x69CB;&#x3092;&#x6C17;&#x306B;&#x304B;&#x3051;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x3001;&#x7570;&#x306A;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x9593;&#x3067;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x3084;&#x308A;&#x3068;&#x308A;&#x304C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x5B9F;&#x884C;">&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x5B9F;&#x884C;</h2>
+<p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x958B;&#x59CB;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x307E;&#x305A;&#x30C8;&#x30C3;&#x30D7;&#x30EC;&#x30D9;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x3001;&#x3055;&#x3089;&#x306B;&#x591A;&#x304F;&#x306E;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x901A;&#x308A;&#x3067;&#x3059;&#x3002;</p>
+<ul>
+<li>&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x9069;&#x5207;&#x306A;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x300C;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x300D;</li>
+<li>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3084;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x3001;&#x30D1;&#x30A4;&#x30D7;&#x3001;&#x30B7;&#x30B0;&#x30CA;&#x30EB;&#x3001;&#x30BF;&#x30A4;&#x30DE;&#xFF08;<code>sleep</code>&#x3057;&#x305F;&#x3068;&#x304D;&#x306A;&#x3069;&#xFF09;&#x306B;&#x3088;&#x308B;&#x975E;&#x540C;&#x671F;&#x30BF;&#x30B9;&#x30AF;&#x3092;&#x6271;&#x3046;&#x305F;&#x3081;&#x306E;&#x300C;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x300D;&#xFF08;&#x3053;&#x308C;&#x3082;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306E;1&#x7A2E;&#xFF09;</li>
+<li>&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x9593;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x3084;&#x308A;&#x3068;&#x308A;&#x3059;&#x308B;&#x300C;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x300D;&#x30E9;&#x30A4;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306F;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x3084;&#x308A;&#x3068;&#x308B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3068;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306E;&#x9593;&#x3092;&#x8ABF;&#x6574;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li>&quot;&#x3082;&#x3046;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x306A;&#x3044;&quot; &#x30E1;&#x30E2;&#x30EA;&#x3092;&#x6383;&#x9664;&#x3059;&#x308B;&#x300C;&#x30AC;&#x30D9;&#x30FC;&#x30B8;&#x30B3;&#x30EC;&#x30AF;&#x30BF;&#x300D;</li>
+</ul>
+<h3 id="&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x5358;&#x4F53;">&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x5358;&#x4F53;</h3>
+<p>&#x5358;&#x4E00;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3068;&#x6BD4;&#x3079;&#x308B;&#x3068;&#x3088;&#x308A;&#x8EFD;&#x91CF;&#x306A;&#x51E6;&#x7406;&#x306E;&#x5B9F;&#x884C;&#x5358;&#x4F4D;&#x3067;&#x3059;&#x3002;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x3001;&#x901A;&#x5E38; OS &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x4E0A;&#x306E;<a href="https://en.wikipedia.org/wiki/Call_stack" target="_blank">&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x30E1;&#x30E2;&#x30EA;</a>&#x4E0A;&#x306B;8MB&#x304C;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x305F;&#x5C0F;&#x3055;&#x306A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3068;&#x9055;&#x3063;&#x3066;&#x5354;&#x8ABF;&#x7684;&#x306B;&#x52D5;&#x4F5C;&#x3057;&#x307E;&#x3059;&#x3002;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306F;&#x30D7;&#x30EA;&#x30A8;&#x30F3;&#x30D7;&#x30C6;&#x30A3;&#x30D6;&#xFF08;&#x975E;&#x540C;&#x671F;&#x30DE;&#x30EB;&#x30C1;&#x30BF;&#x30B9;&#x30AF;&#xFF09;&#x306A;&#x306E;&#x3067;&#xFF0C;OS&#x306F;&#x3044;&#x3064;&#x3067;&#x3082;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306B;&#x5272;&#x308A;&#x8FBC;&#x3093;&#x3067;&#x5225;&#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x30E9;&#x30A4;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x660E;&#x793A;&#x7684;&#x306B;&#x300C;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3078;&#x51E6;&#x7406;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x3066;&#x826F;&#x3044;&#x300D;&#x3068;&#x4F1D;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;I/O &#x306B;&#x3088;&#x308B;&#x5F85;&#x3061;&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x3044;&#x305F;&#x5834;&#x5408;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x300C;&#x304A;&#x30FC;&#x3044;&#xFF0C;&#x81EA;&#x5206;&#x306F;I/O&#x304C;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x5F85;&#x305F;&#x306A;&#x3044;&#x3068;&#x3044;&#x3051;&#x306A;&#x3044;&#x304B;&#x3089;&#x3001;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3044;&#x3044;&#x3088;&#x3002;I/O&#x306E;&#x6E96;&#x5099;&#x304C;&#x3067;&#x304D;&#x305F;&#x3089;&#x5E30;&#x3063;&#x3066;&#x304D;&#x3066;&#x306D;&#x300D;&#x3068;&#x544A;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x3046;&#x3057;&#x305F;&#x5354;&#x8ABF;&#x52D5;&#x4F5C;&#x306E;&#x5229;&#x70B9;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5207;&#x308A;&#x66FF;&#x3048;&#xFF08;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x9593;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#xFF09;&#x306B;&#x3088;&#x308B;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30D8;&#x30C3;&#x30C9;&#x306E;&#x5927;&#x90E8;&#x5206;&#x3092;&#x306A;&#x304F;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3068;&#x6BD4;&#x3079;&#x3066;&#x8EFD;&#x91CF;&#x3067;&#x3001;8MB&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x3066;&#x3044;&#x3066;&#x3082;&#x305D;&#x306E;&#x958B;&#x59CB;&#x6642;&#x306B;&#x306F;4KB&#x3068;&#x3044;&#x3046;&#x5C0F;&#x3055;&#x306A;&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x9818;&#x57DF;&#x3057;&#x304B;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>64&#x30D3;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x3067;&#x306F;&#x6570;&#x767E;&#x4E07;&#x3082;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;32&#x30D3;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x306E;&#x5834;&#x5408;&#x306F;&#x305D;&#x308C;&#x307B;&#x3069;&#x591A;&#x304F;&#x306F;&#x306A;&#x304F;&#x3001;&#x751F;&#x6210;&#x3067;&#x304D;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;512&#x500B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;32&#x30D3;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x306F;&#x3082;&#x306F;&#x3084;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x306A;&#x304F;&#x306A;&#x308A;&#x3064;&#x3064;&#x3042;&#x308A;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x6211;&#x3005;&#x306F;&#x5C06;&#x6765;&#x3092;&#x898B;&#x636E;&#x3048;&#x3066;64&#x30D3;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x306B;&#x3088;&#x308A;&#x6CE8;&#x529B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;">&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;</h3>
+<p>&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x30AD;&#x30E5;&#x30FC;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#xFF08;&#x4F8B;&#x3048;&#x3070;&#xFF0C;&#x65B0;&#x3057;&#x304F;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306A;&#x72B6;&#x614B;&#x3067;&#x3059;&#xFF09;</li>
+<li>&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#xFF08;&#x5225;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#xFF09;&#x4ED6;&#x306B;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306F;&#x6E96;&#x5099;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x3066;&#x3044;&#x308B;&#x306A;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x304C;&#x3042;&#x308B;&#x304B;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3001;&#x305D;&#x306E;&#x51E6;&#x7406;&#x3092;&#x5F85;&#x3063;&#x3066;&#x3044;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;&#x73FE;&#x6642;&#x70B9;&#x3067;&#x306F;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306F;<code>epoll</code>&#x3084;<code>kqueue</code>&#x3068;&#x8A00;&#x3063;&#x305F;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x65B9;&#x5F0F;&#x3092;&#x62BD;&#x8C61;&#x5316;&#x3057;&#x305F;<code>libevent</code>&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x81EA;&#x4E3B;&#x7684;&#x306B;&#x5F85;&#x6A5F;&#x3057;&#x3066;&#x3044;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#xFF08;<code>Fiber.yield</code>&#x306B;&#x3088;&#x3063;&#x3066;&#x300C;&#x7D9A;&#x3051;&#x3066;&#x5B9F;&#x884C;&#x3067;&#x304D;&#x308B;&#x3051;&#x308C;&#x3069;&#x3001;&#x4ED6;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3044;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x3042;&#x308C;&#x3070;&#x3001;&#x305D;&#x3063;&#x3061;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3066;&#x3044;&#x3044;&#x3088;&#x300D;&#x3068;&#x5BA3;&#x8A00;&#x3057;&#x305F;&#x3082;&#x306E;&#xFF09;</li>
+</ul>
+<h3 id="&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x3084;&#x308A;&#x53D6;&#x308A;">&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x3084;&#x308A;&#x53D6;&#x308A;</h3>
+<p>&#x73FE;&#x6642;&#x70B9;&#x3067;&#x306F;&#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x3057;&#x304B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3067;&#x304D;&#x306A;&#x305F;&#x3081;&#x3001;&#x8907;&#x6570;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304B;&#x3089;&#x540C;&#x3058;&#x30AF;&#x30E9;&#x30B9;&#x5909;&#x6570;&#x3092;&#x53C2;&#x7167;&#x3084;&#x5909;&#x66F4;&#x3057;&#x3066;&#x3082;&#x554F;&#x984C;&#x306A;&#x304F;&#x52D5;&#x4F5C;&#x3057;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x4E00;&#x65E6;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#xFF08;&#x4E26;&#x5217;&#x51E6;&#x7406;&#xFF09;&#x304C;&#x8A00;&#x8A9E;&#x306B;&#x5C0E;&#x5165;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x305D;&#x3046;&#x3044;&#x3046;&#x8A33;&#x306B;&#x3082;&#x3044;&#x304B;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3053;&#x3068;&#x304C;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x3084;&#x308A;&#x3068;&#x308A;&#x306B;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x4F7F;&#x3044;&#x3001;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x7D4C;&#x7531;&#x3067;&#x9001;&#x53D7;&#x4FE1;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x63A8;&#x5968;&#x3055;&#x308C;&#x308B;&#x7406;&#x7531;&#x3067;&#x3059;&#x3002;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306F;&#x5185;&#x90E8;&#x7684;&#x306B;&#x30C7;&#x30FC;&#x30BF;&#x7AF6;&#x5408;&#x3092;&#x907F;&#x3051;&#x308B;&#x305F;&#x3081;&#x306E;&#x30ED;&#x30C3;&#x30AF;&#x6A5F;&#x69CB;&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5916;&#x304B;&#x3089;&#x4F7F;&#x3046;&#x5206;&#x306B;&#x306F;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x8003;&#x616E;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306E;&#x306A;&#x3044;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x9001;&#x53D7;&#x4FE1;&#x624B;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;</h2>
+<h3 id="&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306E;&#x751F;&#x6210;">&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306E;&#x751F;&#x6210;</h3>
+<p>&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x306B;&#x306F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x4ED8;&#x304D;&#x3067;<code>spawn</code>&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">spawn <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># ...</span>
+  socket.gets
+  <span class="hljs-comment"># ...</span>
+<span class="hljs-keyword">end</span>
+
+spawn <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># ...</span>
+  sleep <span class="hljs-number">5</span>.seconds
+  <span class="hljs-comment">#  ...</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x3053;&#x3053;&#x306B;&#x306F;&#x3001;2&#x3064;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;1&#x3064;&#x76EE;&#x306F;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x304B;&#x3089;&#x4F55;&#x304B;&#x3092;&#x8AAD;&#x307F;&#x51FA;&#x3059;&#x3082;&#x306E;&#x3067;&#x3001;&#x3082;&#x3046;&#x4E00;&#x3064;&#x306F;<code>sleep</code>&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;1&#x3064;&#x3081;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;<code>socket.gets</code>&#x306E;&#x884C;&#x306B;&#x5230;&#x9054;&#x3059;&#x308B;&#x3068;&#x4E00;&#x65E6;&#x4E2D;&#x65AD;&#x3057;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306B;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x306B;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x6E96;&#x5099;&#x3067;&#x304D;&#x305F;&#x6642;&#x70B9;&#x3067;&#x3053;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x518D;&#x958B;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x4F1D;&#x3048;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;2&#x3064;&#x3081;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3061;&#x3089;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;5&#x79D2;&#x9593;&#x30B9;&#x30EA;&#x30FC;&#x30D7;&#x3057;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306B;5&#x79D2;&#x7D4C;&#x3063;&#x305F;&#x3089;&#x3053;&#x3061;&#x3089;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x518D;&#x958B;&#x3059;&#x308B;&#x3088;&#x3046;&#x4F1D;&#x3048;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x4ED6;&#x306B;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306F;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306F;CPU&#x3092;&#x6D88;&#x8CBB;&#x3059;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x3001;&#x3069;&#x3061;&#x3089;&#x304B;&#x306E;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x307E;&#x3067;&#x5F85;&#x6A5F;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><code>socket.gets</code>&#x3084;<code>sleep</code>&#x304C;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x7406;&#x7531;&#x306F;&#x3001;&#x305D;&#x308C;&#x3089;&#x304C;&#x30E9;&#x30A4;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x3084;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x3068;&#x76F4;&#x63A5;&#x4F1A;&#x8A71;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3089;&#x3067;&#x3001;&#x9B54;&#x6CD5;&#x3067;&#x3082;&#x306A;&#x3093;&#x3067;&#x3082;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x57FA;&#x672C;&#x7684;&#x306B;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x4F7F;&#x7528;&#x8005;&#x304C;&#x305D;&#x3046;&#x3057;&#x305F;&#x4E00;&#x5207;&#x3092;&#x6C17;&#x306B;&#x304B;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x914D;&#x616E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305F;&#x3060;&#x3057;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#xFF08;&#x751F;&#x6210;&#x5F8C;&#xFF09;&#x5373;&#x5EA7;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">spawn <span class="hljs-keyword">do</span>
+  loop <span class="hljs-keyword">do</span>
+    puts <span class="hljs-string">&quot;Hello!&quot;</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x4E0A;&#x8A18;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x4F55;&#x3082;&#x51FA;&#x529B;&#x305B;&#x305A;&#x5373;&#x5EA7;&#x306B;&#x7D42;&#x4E86;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x305D;&#x306E;&#x7406;&#x7531;&#x306F;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x30FC;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x6642;&#x70B9;&#x3067;&#x5373;&#x5EA7;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;&#x4E0A;&#x306E;&#x4F8B;&#x3067;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3057;&#x305F;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x7D42;&#x308F;&#x308A;&#x306B;&#x9054;&#x3057;&#x3066;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3082;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x7559;&#x5B88;&#x65B9;&#x6CD5;&#x306E;&#x4E00;&#x3064;&#x306F;&#x3001;<code>sleep</code>&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">spawn <span class="hljs-keyword">do</span>
+  loop <span class="hljs-keyword">do</span>
+    puts <span class="hljs-string">&quot;Hello!&quot;</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+sleep <span class="hljs-number">1</span>.second
+</code></pre>
+<p>&#x4ECA;&#x56DE;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;1&#x79D2;&#x9593; &quot;Hello!&quot; &#x3068;&#x51FA;&#x529B;&#x3057;&#x7D9A;&#x3051;&#x3066;&#x304B;&#x3089;&#x7D42;&#x4E86;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F; <code>sleep</code>&#x306B;&#x3088;&#x3063;&#x3066;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;1&#x79D2;&#x5F8C;&#x306B;&#x518D;&#x958B;&#x3059;&#x308B;&#x3088;&#x3046;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x3001;&#x305D;&#x306E;&#x9593;&#x306B;&#x4ED6;&#x306E; &quot;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306A;&quot; &#xFF08;&#x3053;&#x306E;&#x5834;&#x5408;&#x306F;&#x3059;&#x3050;&#x4E0A;&#x3067;&#x751F;&#x6210;&#x3055;&#x308C;&#x3066;&#x3044;&#x305F;&#xFF09;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x4ED6;&#x306B;&#x306F;&#x3053;&#x3093;&#x306A;&#x65B9;&#x6CD5;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">spawn <span class="hljs-keyword">do</span>
+  loop <span class="hljs-keyword">do</span>
+    puts <span class="hljs-string">&quot;Hello!&quot;</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+Fiber.<span class="hljs-keyword">yield</span>
+</code></pre>
+<p>&#x4ECA;&#x5EA6;&#x306F; <code>Fiber.yield</code> &#x304C;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x826F;&#x3044;&#x3068;&#x4F1D;&#x3048;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x7D50;&#x679C;&#x3001;&#x6A19;&#x6E96;&#x51FA;&#x529B;&#x304C;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x308B;&#xFF08;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30B3;&#x30FC;&#x30EB;&#x304C;&#x6A19;&#x6E96;&#x51FA;&#x529B;&#x306E;&#x6E96;&#x5099;&#x304C;&#x3067;&#x304D;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3064;&#x3088;&#x3046;&#x4F1D;&#x3048;&#x3066;&#x304F;&#x308B;&#xFF09;&#x307E;&#x3067; &quot;Hello!&quot; &#x3068;&#x51FA;&#x529B;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;&#x6A19;&#x6E96;&#x51FA;&#x529B;&#x306F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x306A;&#x3044;<em>&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;</em>&#x3002;</p>
+<p>&#x3082;&#x3057;&#x3001;&#x751F;&#x6210;&#x3057;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3055;&#x305B;&#x7D9A;&#x3051;&#x305F;&#x3044;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x5F15;&#x6570;&#x306A;&#x3057;&#x306E; <code>sleep</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">spawn <span class="hljs-keyword">do</span>
+  loop <span class="hljs-keyword">do</span>
+    puts <span class="hljs-string">&quot;Hello!&quot;</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+sleep
+</code></pre>
+<p>&#x4E0A;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x5358;&#x7D14;&#x306B;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x884C;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x306E;&#x3067;&#x3001;&#x3082;&#x3061;&#x308D;&#x3093;<code>spawn</code>&#x3092;&#x4F7F;&#x308F;&#x305A;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>sleep</code>&#x306F;&#x3001;&#x8907;&#x6570;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x3055;&#x3089;&#x306B;&#x6709;&#x7528;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3059;&#x308B;">&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3068;&#x3057;&#x3066;&#x751F;&#x6210;&#x3059;&#x308B;</h3>
+<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x3001;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x6E21;&#x3057;&#x3066;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x305C;&#x3053;&#x308C;&#x304C;&#x4FBF;&#x5229;&#x306A;&#x306E;&#x304B;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x6B21;&#x306E;&#x4F8B;&#x3092;&#x307F;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-crystal">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>
+  spawn <span class="hljs-keyword">do</span>
+    puts(i)
+  <span class="hljs-keyword">end</span>
+  i += <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+Fiber.<span class="hljs-keyword">yield</span>
+</code></pre>
+<p>&#x4E0A;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F; &quot;10&quot; &#x3092;10&#x56DE;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306E;&#x554F;&#x984C;&#x306F;&#x3001;1&#x3064;&#x306E;&#x5909;&#x6570; <code>i</code> &#x3092;&#x5168;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x3066;&#x3001;<code>Fiber.yield</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x9803;&#x306B;&#x306F;&#x305D;&#x306E;&#x5024;&#x304C;10&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3063;&#x3066;&#x3044;&#x308B;&#x70B9;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x306B;&#x306F;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>
+  proc = -&gt;(x : Int32) <span class="hljs-keyword">do</span>
+    spawn <span class="hljs-keyword">do</span>
+      puts(x)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  proc.call(i)
+  i += <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+Fiber.<span class="hljs-keyword">yield</span>
+</code></pre>
+<p>&#x4ECA;&#x5EA6;&#x306F;&#x6B63;&#x3057;&#x304F;&#x52D5;&#x4F5C;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x306A;&#x305C;&#x304B;&#x3068;&#x8A00;&#x3046;&#x3068; <a href="http://crystal-lang.org/api/Proc.html" target="_blank">Proc</a> &#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x305D;&#x308C;&#x306B; <code>i</code> &#x3092;&#x6E21;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x3053;&#x3046;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;<code>i</code> &#x306E;&#x5024;&#x304C;&#x30B3;&#x30D4;&#x30FC;&#x3055;&#x308C;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x4ED5;&#x69D8;&#x3059;&#x308B;&#x306E;&#x306F;&#x305D;&#x306E;&#x30B3;&#x30D4;&#x30FC;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x30DC;&#x30A4;&#x30E9;&#x30FC;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x56DE;&#x907F;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x5F0F;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x4E0A;&#x8A18;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x5C55;&#x958B;&#x3059;&#x308B;<code>spawn</code> &#x30DE;&#x30AF;&#x30ED;&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3044;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306B;&#x306F;&#x3053;&#x3046;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<pre><code class="lang-crystal">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>
+  spawn puts(i)
+  i += <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+Fiber.<span class="hljs-keyword">yield</span>
+</code></pre>
+<p>&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x306F;&#x3001;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x51E6;&#x7406;&#x306E;&#x4E2D;&#x3067;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306E;&#x5024;&#x304C;&#x5909;&#x5316;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306B;&#x306F;&#x4FBF;&#x5229;&#x306A;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;&#x3002;&#x3053;&#x3046;&#x3057;&#x305F;&#x554F;&#x984C;&#x306F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5F15;&#x6570;&#x3067;&#x306F;&#x767A;&#x751F;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x60F3;&#x5B9A;&#x3057;&#x305F;&#x901A;&#x308A;&#x306B;&#x52D5;&#x4F5C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal"><span class="hljs-number">10</span>.times <span class="hljs-keyword">do</span> |i|
+  spawn <span class="hljs-keyword">do</span>
+    puts i
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+Fiber.<span class="hljs-keyword">yield</span>
+</code></pre>
+<h3 id="&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x305D;&#x306E;&#x7D42;&#x4E86;&#x3092;&#x5F85;&#x3064;">&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x305D;&#x306E;&#x7D42;&#x4E86;&#x3092;&#x5F85;&#x3064;</h3>
+<p>&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x6642;&#x306B;&#x3082;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x304C;&#x4F7F;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">channel = Channel(Nil).new
+
+spawn <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;Before send&quot;</span>
+  channel.send(<span class="hljs-literal">nil</span>)
+  puts <span class="hljs-string">&quot;After send&quot;</span>
+<span class="hljs-keyword">end</span>
+
+puts <span class="hljs-string">&quot;Before receive&quot;</span>
+channel.receive
+puts <span class="hljs-string">&quot;After receive&quot;</span>
+</code></pre>
+<p>&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x51FA;&#x529B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x901A;&#x308A;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-text">Before receive
+Before send
+After receive
+</code></pre>
+<p>&#x307E;&#x305A;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x307E;&#x3060;&#x305D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;<code>channel.receive</code>&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x6642;&#x70B9;&#x3067;&#x3001;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x51E6;&#x7406;&#x304C;&#x79FB;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;<code>channel.send(nil)</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x5024;&#x304C;&#x6E21;&#x3055;&#x308C;&#x308B;&#x306E;&#x3092;&#x5F85;&#x3063;&#x3066;&#x3044;&#x305F;<code>channel.receive</code>&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x5F8C;&#x3001;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x5B9F;&#x884C;&#x3092;&#x7D9A;&#x3051;&#x3066;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F; &quot;After send&quot; &#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x6A5F;&#x4F1A;&#x306E;&#x306A;&#x3044;&#x307E;&#x307E;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4E0A;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x5358;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x3053;&#x3068;&#x3092;&#x4F1D;&#x3048;&#x308B;&#x3060;&#x3051;&#x306E;&#x76EE;&#x7684;&#x3067; <code>nil</code> &#x3092;&#x4F7F;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x9593;&#x3067;&#x5024;&#x3092;&#x53D7;&#x3051;&#x6E21;&#x3059;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">channel = Channel(Int32).new
+
+spawn <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;Before first send&quot;</span>
+  channel.send(<span class="hljs-number">1</span>)
+  puts <span class="hljs-string">&quot;Before second send&quot;</span>
+  channel.send(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">end</span>
+
+puts <span class="hljs-string">&quot;Before first receive&quot;</span>
+value = channel.receive
+puts value <span class="hljs-comment"># =&gt; 1</span>
+
+puts <span class="hljs-string">&quot;Before second receive&quot;</span>
+value = channel.receive
+puts value <span class="hljs-comment"># =&gt; 2</span>
+</code></pre>
+<p>&#x51FA;&#x529B;&#x306F;&#x3053;&#x3046;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-text">Before first receive
+Before first send
+1
+Before second receive
+Before second send
+2
+</code></pre>
+<p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x3044;&#x3064;<code>receive</code>&#x3092;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x304B;&#x3001;&#x3064;&#x307E;&#x308A;&#x3044;&#x3064;&#x305D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x5B9F;&#x884C;&#x304C;&#x5207;&#x308A;&#x66FF;&#x308F;&#x3063;&#x305F;&#x304B;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<code>send</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x5F85;&#x3061;&#x53D7;&#x3051;&#x3066;&#x3044;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306E;&#x5B9F;&#x884C;&#x304C;&#x518D;&#x958B;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4ECA;&#x56DE;&#x306F;&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x5024;&#x3092;&#x6E21;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3060;&#x308A;&#x3001;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x304B;&#x3089;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x308A;&#x3057;&#x3066;&#x3001;&#x3053;&#x306E;&#x5024;&#x3092;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x5834;&#x5408;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;I/O&#x3092;&#x5F85;&#x305F;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3051;&#x306A;&#x304F;&#x306A;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;I/O&#x306E;&#x6E96;&#x5099;&#x304C;&#x3067;&#x304D;&#x308B;&#x307E;&#x3067;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;&#x5024;&#x304C;&#x5230;&#x7740;&#x3057;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x901A;&#x3058;&#x3066;&#x305D;&#x308C;&#x304C;&#x9001;&#x4FE1;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x305D;&#x306E;&#x5024;&#x3092;&#x53D7;&#x4FE1;&#x3057;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x3042;&#x3052;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal"><span class="hljs-keyword">require</span> <span class="hljs-string">&quot;socket&quot;</span>
+
+channel = Channel(String).new
+
+spawn <span class="hljs-keyword">do</span>
+  server = TCPServer.new(<span class="hljs-string">&quot;0.0.0.0&quot;</span>, <span class="hljs-number">8080</span>)
+  socket = server.accept
+  <span class="hljs-keyword">while</span> line = socket.gets
+    channel.send(line)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+spawn <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">while</span> line = gets
+    channel.send(line)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-number">3</span>.times <span class="hljs-keyword">do</span>
+  puts channel.receive
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;2&#x3064;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x751F;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;1&#x3064;&#x76EE;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;TCP&#x30B5;&#x30FC;&#x30D0;&#x3092;&#x7ACB;&#x3066;&#x3066;&#x30B3;&#x30CD;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;1&#x3064;&#x53D7;&#x3051;&#x5165;&#x308C;&#x3001;&#x305D;&#x3053;&#x304B;&#x3089;&#x884C;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306B;&#x6E21;&#x3059;&#x3082;&#x306E;&#x3002;2&#x3064;&#x76EE;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x304B;&#x3089;&#x884C;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3080;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306F;&#x3001;&#x30BD;&#x30B1;&#x30C3;&#x30C8;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x307E;&#x308C;&#x305F;&#x306E;&#x304B;&#x6A19;&#x6E96;&#x5165;&#x529B;&#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x307E;&#x308C;&#x305F;&#x306E;&#x304B;&#x306B;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;&#x3001;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306B;&#x6E21;&#x3055;&#x308C;&#x305F;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;3&#x56DE;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3060;&#x3089;&#x7D42;&#x4E86;&#x3057;&#x307E;&#x3059;&#x3002;<code>gets</code> &#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x306F;&#x3001;&#x305D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30EB;&#x30FC;&#x30D7;&#x306B;&#x8AAD;&#x307F;&#x51FA;&#x3059;&#x5024;&#x304C;&#x5230;&#x7740;&#x3057;&#x305F;&#x3089;&#x518D;&#x958B;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x4F1D;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x540C;&#x69D8;&#x306B;&#x3001;&#x51E6;&#x7406;&#x3092;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x8907;&#x6570;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5F85;&#x3061;&#x53D7;&#x3051;&#x3066;&#x3001;&#x305D;&#x308C;&#x3089;&#x306E;&#x5024;&#x3092;&#x96C6;&#x7D04;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">channel = Channel(Int32).new
+
+<span class="hljs-number">10</span>.times <span class="hljs-keyword">do</span> |i|
+  spawn <span class="hljs-keyword">do</span>
+    channel.send(i * <span class="hljs-number">2</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+sum = <span class="hljs-number">0</span>
+<span class="hljs-number">10</span>.times <span class="hljs-keyword">do</span>
+  sum += channel.receive
+<span class="hljs-keyword">end</span>
+puts sum <span class="hljs-comment"># =&gt; 90</span>
+</code></pre>
+<p>&#x3082;&#x3061;&#x308D;&#x3093;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x5185;&#x3067;<code>receive</code> &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<pre><code class="lang-crystal">channel = Channel(Int32).new
+
+spawn <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;Before send&quot;</span>
+  channel.send(<span class="hljs-number">1</span>)
+  puts <span class="hljs-string">&quot;After send&quot;</span>
+<span class="hljs-keyword">end</span>
+
+spawn <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;Before receive&quot;</span>
+  puts channel.receive
+  puts <span class="hljs-string">&quot;After receive&quot;</span>
+<span class="hljs-keyword">end</span>
+
+puts <span class="hljs-string">&quot;Before yield&quot;</span>
+Fiber.<span class="hljs-keyword">yield</span>
+puts <span class="hljs-string">&quot;After yield&quot;</span>
+</code></pre>
+<p>&#x51FA;&#x529B;&#x306F;&#x3053;&#x3046;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-text">Before yield
+Before send
+Before receive
+1
+After receive
+After send
+After yield
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x307E;&#x305A;<code>channel.send</code>&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x307E;&#x3060;&#x3060;&#x308C;&#x3082;&#x305D;&#x306E;&#x5024;&#x3092;&#x5F85;&#x3063;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x304C;&#x3044;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;&#x3002;2&#x3064;&#x76EE;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306B;&#x3059;&#x3067;&#x306B;&#x5024;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x305D;&#x308C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x5B9F;&#x884C;&#x3092;&#x7D9A;&#x3051;&#x3001;&#x305D;&#x306E;&#x5F8C;&#x307E;&#x305A;1&#x3064;&#x76EE;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3001;&#x6700;&#x5F8C;&#x306B;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x3046;&#x3057;&#x305F;&#x9806;&#x5E8F;&#x306B;&#x306A;&#x308B;&#x7406;&#x7531;&#x306F;&#x3001;<code>Fiber.yield</code>&#x304C;&#x305D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x5B9F;&#x884C;&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x6700;&#x5F8C;&#x306B;&#x7F6E;&#x304F;&#x305F;&#x3081;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x4ED8;&#x304D;&#x30C1;&#x30E3;&#x30CD;&#x30EB;">&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x4ED8;&#x304D;&#x30C1;&#x30E3;&#x30CD;&#x30EB;</h3>
+<p>&#x4E0A;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x306E;&#x306A;&#x3044;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3001;&#x3064;&#x307E;&#x308A;&#x5024;&#x3092;&#x9001;&#x4FE1;&#x3057;&#x305F;&#x969B;&#x306B;&#x305D;&#x306E;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306E;&#x5024;&#x3092;&#x5F85;&#x3063;&#x3066;&#x3044;&#x308B;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x304C;&#x3042;&#x308C;&#x3070;&#x305D;&#x3061;&#x3089;&#x306B;&#x51E6;&#x7406;&#x304C;&#x79FB;&#x308B;&#x3082;&#x306E;&#x3001;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<p>&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x4ED8;&#x304D;&#x306E;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x5834;&#x5408;&#x3001;<code>send</code>&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3066;&#x3082;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x304C;&#x4E00;&#x676F;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x306F;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x51E6;&#x7406;&#x304C;&#x5207;&#x308A;&#x66FF;&#x308F;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-crystal"><span class="hljs-comment"># &#x5BB9;&#x91CF;&#x304C;2&#x306E;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x4ED8;&#x304D;&#x30C1;&#x30E3;&#x30CD;&#x30EB;</span>
+channel = Channel(Int32).new(<span class="hljs-number">2</span>)
+
+spawn <span class="hljs-keyword">do</span>
+  puts <span class="hljs-string">&quot;Before send 1&quot;</span>
+  channel.send(<span class="hljs-number">1</span>)
+  puts <span class="hljs-string">&quot;Before send 2&quot;</span>
+  channel.send(<span class="hljs-number">2</span>)
+  puts <span class="hljs-string">&quot;Before send 3&quot;</span>
+  channel.send(<span class="hljs-number">3</span>)
+  puts <span class="hljs-string">&quot;After send&quot;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-number">3</span>.times <span class="hljs-keyword">do</span> |i|
+  puts channel.receive
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x51FA;&#x529B;&#x306F;&#x3053;&#x3046;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>Before send 1
+Before send 2
+Before send 3
+1
+2
+After send
+3
+</code></pre><p>&#x6700;&#x521D;&#x306E;&#xFF12;&#x56DE;&#x306E;send&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x969B;&#x306B;&#x3001;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x51E6;&#x7406;&#x304C;&#x5207;&#x308A;&#x66FF;&#x308F;&#x3089;&#x306A;&#x304B;&#x3063;&#x305F;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;3&#x56DE;&#x76EE;&#x306E;send&#x3067;&#x306F;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x306E;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x304C;&#x3044;&#x3063;&#x3071;&#x3044;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x51E6;&#x7406;&#x304C;&#x79FB;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;2&#x3064;&#x306E;&#x5024;&#x304C;&#x53D6;&#x308A;&#x51FA;&#x3055;&#x308C;&#x3066;&#x30C1;&#x30E3;&#x30CD;&#x30EB;&#x304C;&#x7A7A;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;3&#x56DE;&#x76EE;&#x306E;<code>receive</code>&#x306F;&#x30E1;&#x30A4;&#x30F3;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x3066;&#x4ED6;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30D0;&#x306B;&#x51E6;&#x7406;&#x304C;&#x79FB;&#x308A;&#x3001;&#x3055;&#x3089;&#x306B;&#x5024;&#x304C;&#x9001;&#x4FE1;&#x3055;&#x308C;&#x305F;&#x308A;&#x3001;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x308A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="performance.html" class="navigation navigation-prev " aria-label="Previous page: パフォーマンス">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="testing.html" class="navigation navigation-next " aria-label="Next page: テスト">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"並列性","level":"1.8.2","depth":2,"next":{"title":"テスト","level":"1.8.3","depth":2,"path":"guides/testing.md","ref":"guides/testing.md","articles":[]},"previous":{"title":"パフォーマンス","level":"1.8.1","depth":2,"path":"guides/performance.md","ref":"guides/performance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"guides/concurrency.md","mtime":"2020-05-18T12:33:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-05-18T12:35:46.965Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

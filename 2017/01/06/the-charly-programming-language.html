@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>The Charly programming language - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>The Charly programming language | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="The Charly programming language" />
+<meta name="author" content="lschutz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, let us know!" />
+<meta property="og:description" content="This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, let us know!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@lschutz" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"lschutz"},"url":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"lschutz"},"description":"This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, let us know!","headline":"The Charly programming language","dateModified":"2017-01-06T00:00:00+00:00","datePublished":"2017-01-06T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/lschutz.jpg" width="400" height="400" alt="authors/lschutz.jpg">
+          
+          
+            <span class="author_name">Leonard Schütz</span>
+          
+          
+          
+            <span class="date">06 Jan 2017</span>
+          
+        </div>
+
+        <h1 class='title'>The Charly programming language</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F06%2Fthe-charly-programming-language.html&text=The+Charly+programming+language&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F06%2Fthe-charly-programming-language.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F06%2Fthe-charly-programming-language.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><em>This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, <a href="http://twitter.com/intent/tweet?text=@CrystalLanguage%20I%20want%20to%20write%20about...">let us know</a>!</em></p>
+
+<p><em>Today’s guest author is Leonard Schütz. He created the Charly programming language as a means to learn how to create a programming language, and after a first iteration in Ruby, he moved to Crystal to implement the language interpreter. In this post, he presents the language, shows how it works, and why he chose Crystal to implement it.</em></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Charly is a dynamically typed and object-oriented programming language. The syntax is mostly inspired by languages like JavaScript or Ruby, but offers more freedom when writing. The first difference one might notice is the absence of semicolons or the missing need for parenthesis in most of the languages control structures. Charly, as it is right now, is just a toy language written in spare time.</p>
+
+<h1 id="how-does-it-look">How does it look?</h1>
+
+<p>Below is an implementation of the <a href="https://en.wikipedia.org/wiki/Bubblesort">Bubblesort algorithm</a> written in Charly. It is part of the standard library which is also written in Charly.</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">func</span> <span class="nx">sort</span><span class="p">(</span><span class="nx">sort_function</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sorted</span> <span class="o">=</span> <span class="p">@</span><span class="nd">copy</span><span class="p">()</span>
+
+    <span class="kd">let</span> <span class="nx">left</span>
+    <span class="kd">let</span> <span class="nx">right</span>
+
+    <span class="p">@</span><span class="nd">length</span><span class="p">().</span><span class="nx">times</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">(@</span><span class="nd">length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">).</span><span class="nx">times</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nx">left</span> <span class="o">=</span> <span class="nx">sorted</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+        <span class="nx">right</span> <span class="o">=</span> <span class="nx">sorted</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nx">sort_function</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">sorted</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">right</span>
+          <span class="nx">sorted</span><span class="p">[</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="nx">left</span>
+        <span class="p">}</span>
+
+      <span class="p">})</span>
+    <span class="p">})</span>
+
+    <span class="nx">sorted</span>
+  <span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>This program prints out the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a> in a 60x180 sized box.</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="mi">60</span><span class="p">.</span><span class="nx">times</span><span class="p">(</span><span class="nx">func</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="mi">180</span><span class="p">.</span><span class="nx">times</span><span class="p">(</span><span class="nx">func</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="o">!</span><span class="p">(</span><span class="nx">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="o">||</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="nx">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">-</span> <span class="mf">1.5</span>
+      <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">a</span> <span class="o">/</span> <span class="mi">30</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">99</span> <span class="p">{</span>
+      <span class="nx">write</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span> <span class="p">{</span>
+      <span class="nx">write</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">write</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="nx">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="p">})</span></code></pre></figure>
+
+</div>
+
+<p><a href="https://gist.github.com/KCreate/62f0f135697ad3df3b3801b194b03acc">This link</a> takes you to an expression parser / interpreter written entirely in Charly. It supports the addition and multiplication of integer values.</p>
+
+<h1 id="how-does-it-work">How does it work?</h1>
+
+<p>First, Charly turns the source file into a list of tokens. A token is basically just a string with a type.
+A simple hello-world program may consist of the following tokens:</p>
+
+<pre class="code">
+$ cat test/debug.ch
+print("Hello World")
+$ charly test/debug.ch -f lint -f tokens
+1:1:5     │ Identifier  │ print
+1:6:1     │ LeftParen   │ (
+1:7:13    │ String      │ "Hello World"
+1:20:1    │ RightParen  │ )
+1:21:1    │ Newline     │
+2:1:1     │ EOF         │
+</pre>
+
+<p>This part of the program is called the lexer (Lexical Analysis). It turns the source-code into logical groups of characters. For example, the print identifier is now a token of the type Identifier, containing the string print. Same goes for the text which is being printed. It is now a token of the type String, containing the string Hello World.</p>
+
+<p>After the whole program was turned into a list of tokens, the parser turns them into an AST (Abstract Syntax Tree). The AST is a way of representing a program as a tree structure. Each node has a type and 0 or more children. The expression <code class="highlighter-rouge">1 + 2 * 3</code> would produce an AST which looks like this:</p>
+
+<p><img src="/assets/blog/charly-ast_1.png" class="center" /></p>
+
+<p>Something more sophisticated such as a method-call on an object might look like this:</p>
+
+<p><img src="/assets/blog/charly-ast_2.png" class="center" /></p>
+
+<p>Once the whole program has been turned into the AST, the interpreter starts to recursively traverse this structure.
+This procedure follows the <a href="https://en.wikipedia.org/wiki/Visitor_pattern">Visitor pattern</a> to separate the AST and language logic.</p>
+
+<p>Take a <code class="highlighter-rouge">BinaryExpression</code> as an example. It has three properties. The two values of the expression and an operator.
+This operator could be a plus, minus or any other operator the language supports.
+It first resolves the two values, checks what operator is being used and applies it to the two values.
+Depending on which value is on which side, this procedure might produce completly different results.
+<code class="highlighter-rouge">3 + [1, 2]</code> is not the same as <code class="highlighter-rouge">[1, 2] + 3</code> (<code class="highlighter-rouge">NAN</code> and <code class="highlighter-rouge">[1, 2, 3]</code>).</p>
+
+<p>A <code class="highlighter-rouge">IdentifierLiteral</code> would load a value from the current scope, a <code class="highlighter-rouge">CallExpression</code> would invoke a pre-defined function and so on.</p>
+
+<h1 id="why-crystal">Why Crystal?</h1>
+
+<p>The main reasons behind using Crystal for this project were speed and simplicity.</p>
+
+<p>Crystal’s syntax and standard library are both inspired by Ruby. This means you can reuse a lot of knowledge and established principles and practices from the Ruby world, in your Crystal projects. A lot of the API details are pretty similar. For example, if you’re unable to find any information on how to open files in Crystal, you can even google “Ruby open file” and you’ll discover that the first answer on StackOverflow is 100% valid Crystal code. Of course this doesn’t hold up for more complicated things but you can always use it as a place of inspiration.</p>
+
+<p>Another great thing about Crystal is that you don’t have to deal with a lot of low-level stuff. Crystal’s standard library takes care of most things you’d consider low-level, even memory management. If you really need to do low-level stuff, you have access to <a href="https://crystal-lang.org/api/master/Pointer.html">raw pointers</a> and <a href="https://crystal-lang.org/reference/syntax_and_semantics/c_bindings/">bindings to C</a>. This is also how the regex literal is implemented in Crystal. Internally it binds to the <a href="http://www.pcre.org/">PCRE Library</a> and places an easy-to-use abstraction over it. Instead of reinventing the wheel, Crystal just binds to already existing C libraries. Crystal also binds to the C standard library, <a href="https://www.openssl.org/">OpenSSL</a>, <a href="https://gmplib.org/">LibGMP</a>, <a href="http://xmlsoft.org/">LibXML2</a>, <a href="http://pyyaml.org/wiki/LibYAML">LibYAML</a> and many others.</p>
+
+<p>Another big reason for switching to Crystal was speed. Crystal is <a href="https://github.com/kostya/benchmarks">blazingly</a> fast. The old Charly implementation, which used Ruby 2.3, took over 300 milliseconds just to parse a single file. On top of that, it took about 1.8 seconds to run the test suite. The program written in Crystal and compiled with the <code class="highlighter-rouge">--release</code> option, took about 1-2 milliseconds to do all of that! Pretty impressive.</p>
+
+<p>Since Crystal uses LLVM, your program runs through all of their optimization passes. These include, but are not limited to: constant-folding, dead-code-elimination, function-inlining and even the evaluation of complete code branches at compile-time. You won’t get that with Ruby ;)</p>
+
+<p>It took me about a week to rewrite most of the interpreter in Crystal, with only small bug fixes and changes to the standard library taking longer than that.</p>
+
+<p>Another great thing about developing in Crystal, is that the compiler itself is also written in Crystal. This means Crystal is self-hosted. There were multiple occasions where I copied code from Crystal’s compiler and adapted it for my own use. Crystal’s parser and lexer for example were really helpful in understanding how these things work (I had never written a parser and lexer before).</p>
+
+<h1 id="the-macro-system">The Macro System</h1>
+
+<p>The Macro system was really handy in a lot places. It was mainly used to avoid boilerplate and to follow the DRY pattern.</p>
+
+<p>For some real examples of how the Macro system could be used, look at these files:</p>
+
+<ul>
+  <li><a href="https://github.com/charly-lang/charly/blob/c8827b1e52b844afc705d1a00033044d5d49f444/src/charly/syntax/ast.cr#L72-L85">syntax/ast.cr</a></li>
+  <li><a href="https://github.com/charly-lang/charly/blob/67342f7430602ee89bfa8d10b2784f354c1c9d42/src/charly/interpreter/internals.cr#L19-L51">interpreter/internals.cr</a></li>
+</ul>
+
+<p>Crystal’s standard library for example, uses macros to provide the <a href="https://crystal-lang.org/api/master/Class.html#property%28%2Anames%29-macro">property</a> method. You can use it to avoid boilerplate when introducing new instance variables to your classes.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>In it’s current state, Charly is just a learning project for myself. At the moment, I wouldn’t recommend using it for anything serious beside as a learning resource on how to write an interpreter yourself. Charly is being developed on <a href="https://github.com/charly-lang">GitHub</a>, so feel free to open any issues, propose new features or even send your own pull requests. Feedback in the comments of this article is also greatly appreciated.</p>
+
+<p>I’ve started using Crystal around August 2016 and I’m absolutely in love with it. It is one of the most expressive and rewarding languages I have ever written code in. If you haven’t used Crystal before, you should try it out now.</p>
+
+<h1 id="about-the-author">About the Author</h1>
+
+<p>My name is Leonard Schütz, I’m a 16 year old student from Switzerland.
+I’m currently an apprentice at Siemens in the field of Healthcare, where I work mostly with PHP, EWS and other web technologies.
+In my spare time I like to work on side-projects, of which the Charly programming language is my current one.</p>
+
+<p>Feel free to follow me on <a href="https://twitter.com/leni4838">Twitter</a>, <a href="https://github.com/KCreate">GitHub</a> or check out my website at <a href="https://leonardschuetz.ch">leonardschuetz.ch</a></p>
+
+<p>Thanks for reading!</p>
+
+<h1 id="links--sources">Links &amp; Sources</h1>
+
+<ul>
+  <li>Leonard Schütz: <a href="https://leonardschuetz.ch">leonardschuetz.ch</a></li>
+  <li>Charly Programming Language: <a href="https://github.com/charly-lang/charly">charly-lang/charly</a></li>
+  <li>GraphViz (used for AST visualisations): <a href="http://www.graphviz.org/">www.graphviz.org</a></li>
+  <li>“Ruby open file” on stackoverflow: <a href="http://stackoverflow.com/questions/4475957/how-to-read-an-open-file-in-ruby">how-to-read-an-open-file-in-ruby</a></li>
+  <li>Old test suite used for the ruby interpreter: <a href="https://github.com/charly-lang/charly/blob/92bc26e06068bdce926f01f1cd49a5faeb01180c/test/main.ch">test/main.ch</a></li>
+</ul>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
