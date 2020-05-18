@@ -83,7 +83,7 @@ C バインディング中で有効な型は、
 
 fun の型を書く際に利用できる構文は[型の文法](../type_grammar.html)を参照してください。
 
-標準ライブラリには [LibC](https://github.com/crystal-lang/crystal/blob/master/src/lib_c.cr) ライブラリが定義されていて、`int` や `short`、`size_t` といった一般的な C の型のエイリアスを提供しています。それらはバインディングで以下のように利用できます。
+標準ライブラリには [LibC](https://github.com/crystal-lang/crystal/blob/master/src/lib_c.cr) ライブラリが定義されており、`int` や `short`、`size_t` といった一般的な C の型のエイリアスを提供しています。それらはバインディングで以下のように利用できます。
 
 ```crystal
 lib MyLib

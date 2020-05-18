@@ -116,7 +116,7 @@ end
 * X86_StdCall
 * X86_FastCall
 
-これらの詳細は[ここ](http://llvm.org/docs/LangRef.html#calling-conventions)で確認できます。
+詳しい説明は[こちら](http://llvm.org/docs/LangRef.html#calling-conventions)を参照してください。
 
 ## Flags
 

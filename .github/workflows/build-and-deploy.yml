@@ -1,0 +1,29 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run `make public`
+        run: |
+          pushd locale/ja/crystal-book
+          sed -i -e 's/npm install/npm config set unsafe-perm true \&\& &/' Dockerfile
+          docker-compose build
+          popd
+
+          pushd locale/ja/crystal-website
+          docker-compose build
+          popd
+
+          make public
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./public

@@ -1,6 +1,6 @@
 # コンパイル時のフラグ
 
-型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。デフォルトではホストの [LLVM ターゲット](http://llvm.org/docs/LangRef.html#target-triple)を `-` で区切ったものがフラグとなります。実際のターゲットを得るには `llvm-config --host-target` を実行します。
+型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。デフォルトではホストの [LLVM ターゲットトリプル](http://llvm.org/docs/LangRef.html#target-triple) を `-` で区切ったものがフラグとなります。実際のターゲットを得るには `llvm-config --host-target` を実行します。
 
 ```console
 $ llvm-config --host-target

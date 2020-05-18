@@ -11,9 +11,9 @@ struct Point
 end
 ```
 
-構造体は [Value](https://crystal-lang.org/api/Value.html) を継承しているので、このインスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 [Reference](https://crystal-lang.org/api/Reference.html) を継承しているクラスのインスタンスの場合は値はヒープに確保され、参照渡しされます)。
+構造体は [Value](https://crystal-lang.org/api/Value.html) を継承しているので、インスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 [Reference](https://crystal-lang.org/api/Reference.html) を継承しているクラスのインスタンスの場合は、値はヒープに確保され、参照渡しされます)。
 
-そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には[パフォーマンスガイド](https://crystal-lang.org/docs/guides/performance.html#use-structs-when-possible)を参照してください)。
+そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には[パフォーマンスガイド](https://ja.crystal-lang.org/docs/guides/performance.html#use-structs-when-possible)を参照してください)。
 
 変更される (mutable) 構造体も利用できますが、値を変更するようなコードを書いたときに、下で説明するようなことで予想外の挙動をすることに十分に注意する必要があります。
 
@@ -80,7 +80,7 @@ puts strukt.array   # => ["str", "foo"]
 
 ## 継承
 
-* 構造体は暗黙に [Struct](http://crystal-lang.org/api/Struct.html) を継承しており、これは [Value](http://crystal-lang.org/api/Value.html) を継承してます。一方、クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承しています。
+* 構造体は暗黙に [Struct](http://crystal-lang.org/api/Struct.html) を継承しており、これは [Value](http://crystal-lang.org/api/Value.html) を継承しています。一方クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承しています。
 * 構造体は abstract でない構造体を継承することはできません。
 
 2番目のものには、構造体はメモリレイアウトが厳密に定まっていないといけない、という事情があります。例えば、次の `Point` という構造体は8バイトの大きさがあるとします。そして、配列のバッファに各点の情報が埋め込まれると考えてください。

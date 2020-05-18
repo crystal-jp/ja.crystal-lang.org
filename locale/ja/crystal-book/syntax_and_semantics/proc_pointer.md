@@ -1,1 +1,1 @@
-# Proc pointer
+# Proc ポインタ

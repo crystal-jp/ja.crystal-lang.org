@@ -1,20 +1,20 @@
 ---
-subtitle: From tar.gz
+subtitle: tar.gz からの
 ---
 
-You can download Crystal in a standalone `.tar.gz` file with everything you need to get started.
+Crystal をスタンドアローンの `.tar.gz` ファイルからインストールすることができます。
 
-The latest files can be found on the [Releases page at GitHub](https://github.com/crystal-lang/crystal/releases).
+最新のファイルは[GitHub のリリースページ](https://github.com/crystal-lang/crystal/releases)から入手できます。
 
-Download the file for your platform and uncompress it. Inside it you will have a `bin/crystal` executable.
+それぞれのプラットフォームに合わせて適切なファイルをダウンロードして展開してください。その中に、`bin/crystal` という実行可能ファイルが含まれています。
 
-To make it simpler to use, you can create a symbolic link available in the path:
+実行ファイルに対して、パスの通った場所のシンボリックを貼っておけば、より簡単に利用することができるでしょう。
 
 <div class="code_section">{% highlight bash %}
 ln -s [full path to bin/crystal] /usr/local/bin/crystal
 {% endhighlight bash %}</div>
 
-Then you can invoke the compiler by just typing:
+こうしておけば、次のようにするだけでコンパイラを実行できます。
 
 <div class="code_section">{% highlight bash %}
 crystal --version

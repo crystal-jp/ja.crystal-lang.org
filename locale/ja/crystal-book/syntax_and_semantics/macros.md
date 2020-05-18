@@ -70,13 +70,13 @@ Foo.emphasize(10) # => "***10***"
 define_method :foo, 1
 ```
 
-マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には、[`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を利用することができます。
+マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) が利用できます。
 
 ## マクロにおけるメソッド呼び出し
 
-コンパイル時に、メソッドの**既定のサブセット**を AST ノードに対して実行することが可能です。これらのメソッドは[Crystal::Macros](http://crystal-lang.org/api/Crystal/Macros.html)というフェクトのモジュールでドキュメント化されています。
+コンパイル時に、メソッドの**既定のサブセット**を AST ノードに対して実行することが可能です。これらのメソッドは [Crystal::Macros](http://crystal-lang.org/api/Crystal/Macros.html) というフェイクのモジュールでドキュメントされています。
 
-例えば、上の例では [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を実行することで問題を解決できます。
+例えば、上の例では [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を呼び出すことで問題を解決できます。
 
 ```crystal
 macro define_method(name, content)
@@ -153,7 +153,7 @@ bar # => two
 baz # => 3
 ```
 
-通常のコードと同様に、[`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop.html) と [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) そして偽の [`BoolLiteral`](https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html) は*偽となり*、それ意外はすべて*真となり*ます。
+通常のコードと同様に、[`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop.html) と [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) そして偽の [`BoolLiteral`](https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html) は*偽となり*、それ以外はすべて*真となり*ます。
 
 マクロの条件分岐は、マクロの外側でも使用することができます。
 
@@ -181,7 +181,7 @@ PI_2 # => 6.28318...
 PI_3 # => 9.42477...
 ```
 
-[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) の各要素に対して繰り返し実行するには、次のようにします。
+[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を繰り返すには次のようにします。
 
 ```crystal
 macro define_dummy_methods(names)
@@ -201,7 +201,7 @@ baz # => 2
 
 上記の `index` 変数は任意です。
 
-[`HashLiteral`](https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html) の各要素に対して繰り返し実行するには、次のようにします。
+[`HashLiteral`](https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html) を繰り返すには次のようにします。
 
 ```crystal
 macro define_dummy_methods(hash)
@@ -253,7 +253,7 @@ baz # => 2
 
 引数は [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) に変換されてマクロに渡されます。
 
-さらに、[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を埋め込む際に `*` を使うと、要素がカンマで分割されて埋め込まれます。
+さらに、[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を埋め込む際に `*` を使うと、要素がカンマ区切りのものとして埋め込まれます
 
 ```crystal
 macro println(*values)

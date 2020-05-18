@@ -1,18 +1,18 @@
 ---
-subtitle: On Kubuntu
+subtitle: Kubuntu への
 ---
 
-In Ubuntu derived distributions, you can use the official Crystal repository. [Snapcraft](#snapcraft) and [Linuxbrew](#linuxbrew) are also available.
+Ubuntu 系のディストリビューションでは、公式の Crystal リポジトリを利用してインストールできます。[Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。
 
-## Setup repository
+## リポジトリの設定
 
-First you have to add the repository to your APT configuration. For easy setup just run in your command line:
+まずは、公式の Crystal リポジトリを追加するために Apt を設定します。簡単にその設定を行うためのスクリプトを用意していますので、以下のコマンドをそのまま実行してください。
 
 <div class="code_section">{% highlight bash %}
 curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
 {% endhighlight bash %}</div>
 
-That will add the signing key and the repository configuration. If you prefer to do it manually, execute the following commands:
+これで、署名用のキーとリポジトリの設定が追加されます。もし手動で設定したいのであれば、以下のコマンドを実行してください。
 
 <div class="code_section">{% highlight bash %}
 curl -sL "https://keybase.io/crystal/pgp_keys.asc" | sudo apt-key add -
@@ -20,15 +20,15 @@ echo "deb https://dist.crystal-lang.org/apt crystal main" | sudo tee /etc/apt/so
 sudo apt-get update
 {% endhighlight bash %}</div>
 
-## Install
+## インストール
 
-Once the repository is configured you're ready to install Crystal:
+リポジトリの設定が完了すれば、Crystal がインストールできます。
 
 <div class="code_section">{% highlight bash %}
 sudo apt install crystal
 {% endhighlight bash %}</div>
 
-The following packages are not required, but recommended for using the respective features in the standard library:
+次のパッケージは必ずしも必要なわけではありません。ですが、標準ライブラリの対応する機能を利用するのであればインストールを推奨します。
 
 <div class="code_section">{% highlight bash %}
 sudo apt install libssl-dev      # for using OpenSSL
@@ -39,14 +39,14 @@ sudo apt install libreadline-dev # for using Readline
 sudo apt install libz-dev        # for using crystal play
 {% endhighlight bash %}</div>
 
-## Upgrade
+## アップグレード
 
-When a new Crystal version is released you can upgrade your system using:
+新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。
 
 <div class="code_section">{% highlight bash %}
 sudo apt update
 sudo apt install crystal
 {% endhighlight bash %}</div>
 
-{% include install_from_snapcraft.md distro="kubuntu" %}
+{% include install_from_snapcraft.md distro='kubuntu' %}
 {% include install_from_linuxbrew.md %}

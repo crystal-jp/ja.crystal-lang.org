@@ -5,7 +5,7 @@
 例:
 
 ```crystal
-value = rand < 0.5 ?-3 : nil
+value = rand < 0.5 ? -3 : nil
 result = value.as?(Int32) || 10
 
 value.as?(Int32).try &.abs

@@ -62,7 +62,7 @@ if a = @a
 end
 ```
 
-他の手法として、標準ライブラリの[`Object#try`](https://crystal-lang.org/api/Object.html#try%28%26block%29-instance-method)メソッドを使うこともできます。これは`nil`でない場合にのみブロックを実行する、というメソッドです。
+他の手法として、標準ライブラリの [`Object#try`](https://crystal-lang.org/api/Object.html#try%28%26block%29-instance-method) を使うこともできます。これは `nil` ではない場合にのみブロックを実行する、というメソッドです。
 
 ```crystal
 @a.try do |a|

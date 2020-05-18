@@ -1,13 +1,13 @@
-## Linuxbrew
+## Linuxbrew を使う
 
-If you have [Linuxbrew](https://linuxbrew.sh) installed you're ready to install Crystal:
+[Linuxbrew](https://linuxbrew.sh) がインストールされていれば、Crystal をインストールする準備は万端です。
 
 <div class="code_section">{% highlight bash %}
 brew update
 brew install crystal-lang
 {% endhighlight bash %}</div>
 
-If you're planning to contribute to the language itself you might find useful to install LLVM as well. So replace the last line with:
+言語にコントリビュートするつもりであれば、同時に LLVM もインストールしておくとよいでしょう。その場合、最後の行を以下の通りに変更してください。
 
 <div class="code_section">{% highlight bash %}
 brew install crystal-lang --with-llvm

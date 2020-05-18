@@ -11,7 +11,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 124/135
+翻訳済み/全体 = 157/168
 
 <details>
 
@@ -159,6 +159,39 @@
 | `crystal-book/guides/continuous_integration.md`                                                     | ×    |
 | `crystal-book/guides/ci/travis.md`                                                                  | ×    |
 | `crystal-book/guides/ci/circleci.md`                                                                | ×    |
+| `crystal-website/_config.yml`                                                                       | ○    |
+| `crystal-website/_includes/sponsors_sidebar.html`                                                   | ○    |
+| `crystal-website/_layouts/default.html`                                                             | ○    |
+| `crystal-website/_layouts/install.html`                                                             | ○    |
+| `crystal-website/blog/index.html`                                                                   | ○    |
+| `crystal-website/community/index.html`                                                              | ○    |
+| `crystal-website/docs.html`                                                                         | ○    |
 | `crystal-website/index.html`                                                                        | ○    |
+| `crystal-website/media/index.html`                                                                  | ○    |
+| `crystal-website/sponsors/index.html`                                                               | ○    |
+| `crystal-website/sponsors/original-sponsors.html`                                                   | ○    |
+| `crystal-website/_data/install.yaml`                                                                | ○    |
+| `crystal-website/install/index.html`                                                                | ○    |
+| `crystal-website/install/from_sources.md`                                                           | ○    |
+| `crystal-website/install/from_targz.md`                                                             | ○    |
+| `crystal-website/install/on_alpine_linux.md`                                                        | ○    |
+| `crystal-website/install/on_arch_linux.md`                                                          | ○    |
+| `crystal-website/install/on_centos.md`                                                              | ○    |
+| `crystal-website/install/on_debian.md`                                                              | ○    |
+| `crystal-website/install/on_elementary_os.md`                                                       | ○    |
+| `crystal-website/install/on_fedora.md`                                                              | ○    |
+| `crystal-website/install/on_freebsd.md`                                                             | ○    |
+| `crystal-website/install/on_gentoo_linux.md`                                                        | ○    |
+| `crystal-website/install/on_kde_neon.md`                                                            | ○    |
+| `crystal-website/install/on_kubuntu.md`                                                             | ○    |
+| `crystal-website/install/on_linux_mint.md`                                                          | ○    |
+| `crystal-website/install/on_mac_os.md`                                                              | ○    |
+| `crystal-website/install/on_manjaro.md`                                                             | ○    |
+| `crystal-website/install/on_opensuse.md`                                                            | ○    |
+| `crystal-website/install/on_redhat.md`                                                              | ○    |
+| `crystal-website/install/on_ubuntu.md`                                                              | ○    |
+| `crystal-website/install/on_wsl.md`                                                                 | ○    |
+| `crystal-website/_includes/install_from_linuxbrew.md`                                               | ○    |
+| `crystal-website/_includes/install_from_snapcraft.md`                                               | ○    |
 
 </details>

@@ -353,7 +353,7 @@ twice do |i|
   puts "Got #{i}"
 end
 
-# Ouptut:
+# Output:
 # Skipping 1
 # Got 2
 ```
@@ -382,7 +382,7 @@ end
 # 3
 ```
 
-`next` が複数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
+`next` が引数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
 
 ## with ... yield
 
@@ -435,7 +435,7 @@ end
 
 整数の渡せる `[]` メソッドを持つどのような型のブロック引数に対してもアンパックができます。
 
-また、[Tuple](http://crystal-lang.org/api/Tuple.html) の引数であれば、括弧が無くても自動で展開されます。
+また、引数が [Tuple](http://crystal-lang.org/api/Tuple.html) のみであれば、括弧が無くても自動で展開されます。
 
 ```crystal
 array = [{1, "one", true}, {2, "two", false}]
@@ -444,7 +444,7 @@ array.each do |number, word, bool|
 end
 ```
 
-例えば [Hash(K, V)#each](http://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) はブロックに `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
+例えば [Hash(K, V)#each](http://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) は `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
 
 ```crystal
 h = {"foo" => "bar"}

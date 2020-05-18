@@ -1,6 +1,6 @@
 # out
 
-[waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) 関数について考えてみてください。
+[waitpid](http://www.gnu.org/software/libc/manual/html_node/Process-Completion.html) 関数を考えてみましょう。
 
 ```crystal
 lib C
