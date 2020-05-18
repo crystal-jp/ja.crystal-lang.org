@@ -1,12 +1,12 @@
-## Snapcraft
+## Snapcraft を使う
 
-The Crystal snap requires to be run in classic confinement. If you have `snapd` installed you're ready to install Crystal:
+Crystal の snap は classic な制限環境下を要求します。`snapd` がインストールしてあれば、Crystal をインストールする準備は万端です。
 
 <div class="code_section">{% highlight bash %}
 sudo snap install crystal --classic
 {% endhighlight bash %}</div>
 
-You can also install the latest nightly build by using the `edge` channel.
+最新のバージョンを `edge` チャンネルを使ってインストールすることもできます。
 
 <div class="code_section">{% highlight bash %}
 sudo snap install crystal --classic --edge
@@ -14,4 +14,4 @@ sudo snap install crystal --classic --edge
 
 {% assign snapcraft_url = 'https://snapcraft.io/install/crystal/' | append: include.distro %}
 
-Find further information at [Crystal's snapcraft page]({{ snapcraft_url }})
+より詳しい情報は [Crystal の snapcraft のページ ]を参照してください ({{ snapcraft_url }})

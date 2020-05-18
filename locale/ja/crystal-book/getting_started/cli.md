@@ -56,7 +56,7 @@ end
 さて、これがどうやって動作するというのでしょうか？　それは……魔法のように！　いえいえ、実のところ魔法ではないのです。実装が簡単になったのは Crystal のおかげです。
 プログラムが開始すると、まず`OptionParser#parse`に渡されたブロックが実行されます。このブロックですべてのオプションを定義しています。ブロックが実行されたのち、オプションパーサーがアプリケーションに渡された引数を処理して、定義したオプションにマッチするかを確認します。ここで、オプションがマッチしたときに、`parser#on`に渡されたブロックが実行される、というわけです。
 
-`OptionParser`のすべてを[公式の API ドキュメント](https://crystal-lang.org/api/latest/OptionParser.html)によって確認できます。そして、そこから1クリックでソースコードを見ることができます。……これが魔法ではないということの証明です。
+`OptionParser` のすべてを[公式の API ドキュメント](https://crystal-lang.org/api/latest/OptionParser.html)によって確認できます。そして、そこから1クリックでソースコードを見ることができます。……これが魔法ではないということの証明です。
 
 さて、それではアプリケーションを実際に実行してみましょう。[コンパイラの実行方法](../using_the_compiler/README.md)は2種類あります。
 
@@ -73,9 +73,9 @@ Welcome to The Beatles App!
     -h, --help                       Show help
 ```
 
-Let's build another _fabulous_ application with the following feature:
+続けて、こんな機能を持つ_ファビュラスな_アプリケーションを作ってみましょう:
 
-By default (i.e. no options given) the application will display the names of the Fab Four. But, if we pass the option `-t` / `--twist` it will display the names in uppercase:
+デフォルトでは (オプションが与えられなかったときに) The Fab Four のメンバーを表示します。しかし、`-t` もしくは `--twist` が渡されたときには、名前を大文字にします。
 
 ```crystal
 # file: twist_and_shout.cr
@@ -275,7 +275,7 @@ user_input = gets
 puts "The Beatles are singing: 🎵#{user_input}🎶🎸🥁"
 ```
 
- [`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method)メソッドはアプリケーションの実行を、ユーザーの入力が終了する (`Enter`が押される) まで**停止**させます。
+The method [`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) will **pause** the execution of the application, until the user finishes entering the input (pressing the `Enter` key).
 ユーザーが`Enter`を押すと、実行が再開して`user_input`にユーザーの入力した値が入ります。
 
 しかし、ここでユーザーが何も入力しなかったらどうなるのでしょう？　この場合は、空文字列 (ユーザーが `Enter`を押した場合) もしくは `Nil` 値 (`Ctrl+D`によって入力ストリームを閉じた場合) が返ります。
@@ -303,7 +303,7 @@ In let_it_cli.cr:5:46
 Error: undefined method 'upper_case' for Nil (compile-time type is (String | Nil))
 ```
 
-つまり、こういうことです。ユーザーの入力した値の型は`String | Nil`という[ユニオン型](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html)なのです。
+つまり、こういうことです。We should have known better: the type of the user input is the [union type](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html) `String | Nil`.
 というわけで、`Nil`もしくは`""` (空文字列) かをチェックして、自然に動作するようにしましょう。
 
 ```crystal
@@ -329,7 +329,7 @@ puts "The Beatles are singing: 🎵#{lyrics.upcase}🎶🎸🥁"
 ここからは、アプリケーションの出力という、2つ目のトピックに取りかかっていきます。
 はじめに、アプリケーションは現時点でも情報を表示してはいるけど、そこまで良い表示だとは言えません。. せっかくなので出力を_色付け_してみましょう。
 
-これを達成するために[`Colorize`](https://crystal-lang.org/api/latest/Colorize.html)モジュールを使いたいと思います。
+これを達成するために [`Colorize`](https://crystal-lang.org/api/latest/Colorize.html) モジュールを使いたいと思います。
 
 色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。黒い背景に黄色の文字で表示します。
 
@@ -371,7 +371,7 @@ puts "The Beatles are singing: #{"🎵#{user_input}🎶🎸🥁".colorize.mode(:
 生まれ変わったアプリケーションを試してみてください……そして、違いを_聴き取って_ください。
 **今**、私たちは2つのファビュラスなアプリケーションを実装したのです。
 
-**利用できる色**や**テキストの装飾**の一覧は[API ドキュメント](https://crystal-lang.org/api/latest/Colorize.html)で確認できます。
+**利用できる色**や**テキストの装飾**の一覧は [API ドキュメント](https://crystal-lang.org/api/latest/Colorize.html)で確認できます。
 
 ## テスト
 
@@ -383,10 +383,10 @@ puts "The Beatles are singing: #{"🎵#{user_input}🎶🎸🥁".colorize.mode(:
 
 よりリッチなCLI アプリケーションを構築しようと思ったとき、これらのライブラリが助けになります。`Readline`と`NCurses`という、2つのよく知られたライブラリです。
 
-[GNU Readline Library](http://www.gnu.org/software/readline/)というドキュメントで述べられているように、`Readline`はユーザーに対してコマンドライン編集機能を提供します。
-`Readline`は、ファイル名補完などの自動補完、キーバインディングのカスタマイズなど、様々な機能を持っています。それらの機能を使いたいのであれば[crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shardが`Readline`を簡単に扱える API を提供しています。
+[GNU Readline Library](http://www.gnu.org/software/readline/) で述べられているように、`Readline` はユーザーに対してコマンドライン編集機能を提供します。
+`Readline`は、ファイル名補完などの自動補完、キーバインディングのカスタマイズなど、様々な機能を持っています。それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
 
 続いて、`NCurses`(New Curses) の紹介です。このライブラリは端末で_グラフィカルな_ユーザーインターフェースを開発することを可能にします。その名前が暗に示すように、これは`Curses`というライブラリの改良版です。`Curses` は Rouge というテキストベースのダンジョン探索アドベンチャーゲームのために開発されました。
-`NCurses` を Crystal から扱える [shardは2つ](https://crystalshards.org/?filter=ncurses)ほど存在しています。
+`NCurses` を Crystal から扱える [shaeds は2つ](https://crystalshards.org/?filter=ncurses)ほど存在しています。
 
 これでこの文章はおしまいです 😎🎶

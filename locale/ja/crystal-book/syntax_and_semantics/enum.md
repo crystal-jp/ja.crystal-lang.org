@@ -117,7 +117,7 @@ Color::Blue.red?# => false
 
 ## 用途
 
-列挙型は [Symbol](http://crystal-lang.org/api/Symbol.html) の型安全の代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.html)に指定することができます。
+列挙型は [Symbol](http://crystal-lang.org/api/Symbol.html) の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.html)に指定することができます。
 
 ```crystal
 def paint(color : Color)

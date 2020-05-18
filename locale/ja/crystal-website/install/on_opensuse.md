@@ -1,13 +1,13 @@
 ---
-subtitle: On OpenSUSE
+subtitle: OpenSUSE への
 ---
 
-On OpenSUSE, Crystal can be installed from the official rpm package using Zypper.
-[Snapcraft](#snapcraft) is also available.
+OpenSUSE では、Zypper を使って公式の rpm パッケージからインストールできます。
+[Snapcraft](#snapcraft) も使えます。
 
-## Setup repository
+## リポジトリの設定
 
-First add the signing key:
+まず、署名用のキーを追加します。
 
 <div class="code_section">
 {% highlight bash %}
@@ -15,7 +15,7 @@ rpm --import https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
 {% endhighlight bash %}
 </div>
 
-Next configure the repository in Zypper:
+次に Zypper のリポジトリを設定します。
 
 <div class="code_section">
 {% highlight bash %}
@@ -23,9 +23,9 @@ sudo zypper ar -e -f -t rpm-md https://dist.crystal-lang.org/rpm/ Crystal
 {% endhighlight bash %}
 </div>
 
-## Install
+## インストール
 
-Once the repository is configured, Crystal can be installed:
+リポジトリの設定が完了すれば、Crystal はインストールできます。
 
 <div class="code_section">
 {% highlight bash %}
@@ -33,9 +33,9 @@ sudo zypper install crystal
 {% endhighlight bash %}
 </div>
 
-## Upgrade
+## アップグレード
 
-When a new Crystal version is released you can upgrade Crystal using:
+新しい Crystal のバージョンがリリースされたら、このようにしてアップグレードできます。
 
 <div class="code_section">
 {% highlight bash %}
@@ -43,4 +43,4 @@ sudo zypper update crystal
 {% endhighlight bash %}
 </div>
 
-{% include install_from_snapcraft.md distro="opensuse" %}
+{% include install_from_snapcraft.md distro='opensuse' %}

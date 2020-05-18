@@ -12,4 +12,4 @@ Crystal は次の目標を掲げるプログラミング言語です。
 
 ここから、ドキュメント内のどのページへ移動してもよいです。ですが、もし Crystal をこれから始めるのであれば、[Getting Started](./getting_started/README.md) の章をまず読むと良いでしょう。
 
-**Crystalの標準ライブラリのドキュメントは[APIドキュメント](https://crystal-lang.org/api)にあります。**
+**Crystal の標準ライブラリのドキュメントは [API ドキュメント](https://crystal-lang.org/api)にあります。**

@@ -5,7 +5,7 @@ Crystal は基本的な[クロスコンパイル](http://en.wikipedia.org/wiki/C
 そのために、コンパイラに以下の2つのフラグを用意しています。
 
 * `--cross-compile`: クロスコンパイルモードを有効にする
-* `--target`: ビルドに利用する[LLVM ターゲットトリプル](http://llvm.org/docs/LangRef.html#target-triple)を指定して、デフォルトの[コンパイル時のフラグ](compile_time_flags.html)を設定する
+* `--target`: ビルドに使用する [LLVM ターゲットトリプル](http://llvm.org/docs/LangRef.html#target-triple) を指定して、デフォルトの[コンパイル時のフラグ](compile_time_flags.html)を設定する。
 
 `--target` フラグを得るには、インストールされたLLVM 3.5を使って `llvm-config --host-target` を実行します。例えば、Linux であれば "x86_64-unknown-linux-gnu" となるでしょう。
 
@@ -17,7 +17,7 @@ Crystal は基本的な[クロスコンパイル](http://en.wikipedia.org/wiki/C
 crystal build your_program.cr --cross-compile --target "x86_64-unknown-linux-gnu"
 ```
 
-これで、`.o` ([オブジェクトファイル](http://en.wikipedia.org/wiki/Object_file)) が生成され、クロスコンパイルの対象システム上で実行すべきコマンドが表示されます。例をあげます。
+これで `.o` ([オブジェクトファイル](http://en.wikipedia.org/wiki/Object_file)) が生成され、クロスコンパイルの対象システム上で実行すべきコマンドが表示されます。例をあげます。
 
 ```bash
 cc your_program.o -o your_program -lpcre -lrt -lm -lgc -lunwind

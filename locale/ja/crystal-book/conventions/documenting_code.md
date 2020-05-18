@@ -1,6 +1,6 @@
 # コードのドキュメント化
 
-Crystal は、[Markdown](https://daringfireball.net/projects/markdown/)のサブセットのコメントからドキュメントを生成します。
+Crystal のドキュメンテーションコメントは [Markdown](https://daringfireball.net/projects/markdown/) のサブセットになっています。
 
 プロジェクトのドキュメントを生成するには`crystal docs`を実行します。デフォルトでは`docs`ディレクトリが生成され、`docs/index.html`がエントリーポイントとなります。より詳細には[コンパイラの利用 - ドキュメントの生成](../using_the_compiler/#crystal-docs)を閲覧してください。
 

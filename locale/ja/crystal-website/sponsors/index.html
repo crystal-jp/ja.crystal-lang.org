@@ -14,74 +14,17 @@ description: これらの企業や個人は、Crystal の発展を維持する�
           <th>これまでの合計</th>
           <th>開始時期</th>
         </thead>
-        <tbody>
-          
-          {% for sp in site.data.sponsors %}
-            {% capture sponsor_class %}level-{{sp.level}} sponsor{% endcapture %}
-            
-            <tr class="{{sponsor_class}}">
-              <td class="col-logo">
-                
-                {% if sp.logo %}
-                  
-                  <div class="logo">
-                    
-                    {% if sp.url %}
-                      <a href="{{sp.url}}" target="_blank">
-                        {% img '{{ assets[sp.logo].filename }}' %}
-                      </a>
-                    {% else %}
-                      {% img '{{ assets[sp.logo].filename }}' %}
-                    {% endif %}
-                  
-                  </div>
-                
-                {% else %}
-                  &nbsp;
-                {% endif %}
-              
-              </td>
-              <td class="name">
-                
-                {% if sp.url %}
-                  <a href="{{sp.url}}" target="_blank">
-                    {{sp.name}}
-                  </a>
-                {% else %}
-                  {{sp.name}}
-                {% endif %}
-              
-              </td>
-              <td class="this_month">
-                
-                {{sp.this_month}}
-              
-              </td>
-              <td class="all_time">
-                
-                {{sp.all_time}}
-              
-              </td>
-              <td class="since">
-                
-                {{sp.since}}
-              
-              </td>
-            </tr>
-          
-          {% endfor %}
-        
-        </tbody>
+        <tbody>{% for sp in site.data.sponsors %} {% capture sponsor_class %}level-{{sp.level}} sponsor{% endcapture %}<tr class="{{sponsor_class}}">
+              <td class="col-logo">{% if sp.logo %}<div class="logo">{% if sp.url %} <a href="{{sp.url}}" target="_blank"> {% img '{{ assets[sp.logo].filename }}' %} </a> {% else %} {% img '{{ assets[sp.logo].filename }}' %} {% endif %}</div>{% else %}   {% endif %}</td>
+              <td class="name">{% if sp.url %} <a href="{{sp.url}}" target="_blank"> {{sp.name}} </a> {% else %} {{sp.name}} {% endif %}</td>
+              <td class="this_month">{{sp.this_month}}</td>
+              <td class="all_time">{{sp.all_time}}</td>
+              <td class="since">{{sp.since}}</td>
+            </tr>{% endfor %}</tbody>
       </table>
     </div>
 
-    <div class="col s12 m3 offset-m1 sponsors-sidebar">
-      
-      {% include sponsors_sidebar.html %}
-
-      
-
-      <div class="row original">
+    <div class="col s12 m3 offset-m1 sponsors-sidebar">{% include sponsors_sidebar.html %}<div class="row original">
         <div class="col">
           <h2>オリジナルのスポンサー</h2>
           <p>オリジナルのスポンサーは<a href="/sponsors/original-sponsors.html">こちら</a>で確認できます。</p>

@@ -1,34 +1,15 @@
 ---
-title: Install
-description: You can install Crystal in different ways. Select your platform to find specific instructions.
+title: インストール
+description: Crystal はいくつかの方法でインストールできます。プラトッフォームを選んで詳しいインストール方法を確認してください。
 layout: default
 permalink: /install/
 ---
 <div class="container">
   <div class="row">
     <div class="col offset-m1 m10 s12">
-      <div class="distro-list">
-        {% for item in site.data.install %}
-        <div>
-          <a href="{{ item.url }}">
-            <div class="distro-icon">
-              <img src="{{ item.icon | asset_path }}">
-            </div>
-            {{item.caption}}
-          </a>
-        </div>
-        {% endfor %}
-      </div>
+      <div class="distro-list">{% for item in site.data.install %}<div><a href="{{ item.url }}"> <span class="distro-icon"> <img src="{{ item.icon | asset_path }}"> </span> {{item.caption}} </a></div>{% endfor %}</div>
     </div>
   </div>
-</div>
-
-<br />
-
-<hr class="hr-light">
+</div><br /><hr class="hr-light">
 <div class="done-install">
-  <h1>Missing platform?</h1>
-
-  <a href="https://forum.crystal-lang.org/c/help-support" target="_blank" class="btn btn-large btn-flat">Forum
-    support</a>.
-</div>
+  <h1>プラットフォームが見当たりませんか？</h1><a href="https://forum.crystal-lang.org/c/help-support" target="_blank" class="btn btn-large btn-flat">フォーラムでのサポート</a>。</div>

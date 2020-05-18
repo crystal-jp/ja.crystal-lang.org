@@ -13,8 +13,7 @@ end
 
 外部ライブラリによって確保された、Crystalのガベージコレクタによって直接管理されていないリソースを解放するためにこのメソッドは使ってください。
 
-例えば[`IO::FileDescriptor#finalize`](https://crystal-lang.org/api/IO/FileDescriptor.html#finalize-instance-method)
-や[`OpenSSL::Digest#finalize`](https://crystal-lang.org/api/OpenSSL/Digest.html#finalize-instance-method)などで実際に利用されています。
+例えば [`IO::FileDescriptor#finalize`](https://crystal-lang.org/api/IO/FileDescriptor.html#finalize-instance-method) や [`OpenSSL::Digest#finalize`](https://crystal-lang.org/api/OpenSSL/Digest.html#finalize-instance-method) で実際に利用されています。
 
 **注意**:
 

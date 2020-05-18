@@ -1,23 +1,23 @@
 ---
-subtitle: From sources
+subtitle: ソースコードからの
 ---
 
-If you want to contribute then you might want to install Crystal from sources.
+もしコントリビュートしたいと考えているのであれば、Crystal をソースコードからインストールしたくなることと思います。
 
-1. [Install the latest Crystal release](/install). To compile Crystal, you need Crystal :).
+1. [最新のリリースの Crystal をインストールしてください](/install)。Crystal をコンパイルするには、Crystal 自身が必要なのです。
 
-2. Make sure a supported LLVM version is present in the path. When possible, use the latest supported version: 8.0.
+2. サポートしているバージョンの LLVM にパスが通っているか確認してください。可能なら、サポートしている最新のバージョン 8.0 の LLVM を使ってください。
 
-3. Make sure to install [all the required libraries](https://github.com/crystal-lang/crystal/wiki/All-required-libraries). You might also want to read the [contributing guide](https://github.com/crystal-lang/crystal/blob/master/CONTRIBUTING.md).
+3. そして、[すべての必要なライブラリ (英語)](https://github.com/crystal-lang/crystal/wiki/All-required-libraries) がインストールされていることを確認してください。また、[コントリビューションガイド (英語)](https://github.com/crystal-lang/crystal/blob/master/CONTRIBUTING.md) にも目を通しておくとよいでしょう。
 
-4. Clone the repository: `git clone https://github.com/crystal-lang/crystal`
+4. リポジトリをクローンしてください。 `git clone https://github.com/crystal-lang/crystal`
 
-5. Run `make` to build your own version of the compiler.
+5. `make` を実行してコンパイラをビルドします。
 
-6. Run `make std_spec compiler_spec` to ensure all specs pass, and you've installed everything correctly.
+6. `make std_spec compiler_spec` を実行して、spec をパスして正しくインストールできていることを確認してください。
 
-7. Use `bin/crystal` to run your crystal files.
+7. これで、`bin/crystal` が Crystal ファイルの実行に使えるようになります。
 
-If you would like more information about `bin/crystal`, check out the [using the compiler](https://crystal-lang.org/reference/using_the_compiler/) documentation.
+`bin/crystal` コマンドについてより詳しい情報が必要な場合は、ドキュメントの[コンパイラの使い方](https://ja.crystal-lang.org/reference/using_the_compiler/)を参照してください。
 
-Note: The actual binary is built in to `.build/crystal`, but the `bin/crystal` wrapper script is what you should use to run crystal.
+注意: 実際にビルドされたバイナリは `.build/crystal` に置かれています。ですが、 `bin/crystal` ラッパースクリプトを Crystal の実行に使うべきです。

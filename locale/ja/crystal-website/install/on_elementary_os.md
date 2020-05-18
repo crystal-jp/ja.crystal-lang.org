@@ -1,5 +1,5 @@
 ---
-subtitle: On Elementary OS
+subtitle: Elementary OS への
 ---
 
-{% include install_from_snapcraft.md distro="elementary" %}
+{% include install_from_snapcraft.md distro='elementary' %}

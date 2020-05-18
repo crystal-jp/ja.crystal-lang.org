@@ -25,7 +25,7 @@ else
 end
 ```
 
-`case`において、対象の値と条件式は*case 等価性演算子* (`===`) によって比較されます。これは[`Object`](https://crystal-lang.org/api/Object.html#%3D%3D%3D%28other%29-instance-method)に定義されたメソッドで、case 文で使う際に意味があるようにサブクラスでオーバライドされています。例えば、[`Class`](https://crystal-lang.org/api/Class.html#%3D%3D%3D%28other%29-instance-method) 型では case 等価性が「比較対象のオブジェクトがそのクラスのインスタンスかどうか」として定義されていたり、[`Regex`](https://crystal-lang.org/api/Regex.html#%3D%3D%3D%28other%3AString%29-instance-method) では「比較対象の文字列にマッチするかどうか」で、[`Range`](https://crystal-lang.org/api/Range.html#%3D%3D%3D%28value%29-instance-method)では「比較対象の値が含まれるかどうか」で定義されています。
+`case`において、対象の値と条件式は*case 等価性演算子* (`===`) によって比較されます。これは [`Object`](https://crystal-lang.org/api/Object.html#%3D%3D%3D%28other%29-instance-method) に定義されたメソッドで、case 文で使う際に意味があるようにサブクラスでオーバライドされています。例えば、[`Class`](https://crystal-lang.org/api/Class.html#%3D%3D%3D%28other%29-instance-method) 型では「オブジェクトがそのクラスのインスタンスがどうか」として定義されていたり、[`Regex`](https://crystal-lang.org/api/Regex.html#%3D%3D%3D%28other%3AString%29-instance-method) では「比較対象の文字列にマッチするかどうか」で、[`Range`](https://crystal-lang.org/api/Range.html#%3D%3D%3D%28value%29-instance-method) では「比較対等の値が自身に含まれるかどうか」で定義されています。
 
 もし`when`節の条件式に型が与えられていれば、代わりに`is_a?`が使われます。そして、case 式が変数、もしくは変数への代入であるとき、その変数の型に対して制約が加えられます。
 

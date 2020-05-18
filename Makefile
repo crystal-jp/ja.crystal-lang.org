@@ -4,12 +4,17 @@ GITBOOK ?= gitbook
 TRANSLATE_FILES := \
     /crystal-book/***.md \
     /crystal-website/_config.yml \
+		/crystal-website/_data/install.yaml \
     /crystal-website/_includes/sponsors_sidebar.html \
+    /crystal-website/_includes/install_from_*.md \
     /crystal-website/_layouts/default.html \
-    /crystal-website/blog/index.html \
+    /crystal-website/_layouts/install.html \
+		/crystal-website/blog/index.html \
     /crystal-website/community/index.html \
     /crystal-website/docs.html \
     /crystal-website/index.html \
+		/crystal-website/install/index.html \
+		/crystal-website/install/*.md \
     /crystal-website/media/index.html \
     /crystal-website/sponsors/index.html \
     /crystal-website/sponsors/original-sponsors.html \
