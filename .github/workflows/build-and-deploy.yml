@@ -1,0 +1,20 @@
+name: Build and Deploy
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run `make public`
+        run: |
+          pushd locale/ja/crystal-book
+          docker-compose build
+          popd
+
+          pushd locale/ja/crystal-website
+          docker-compose build
+          popd
+
+          make public
