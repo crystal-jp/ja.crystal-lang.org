@@ -1,5 +1,8 @@
 name: Build and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -19,3 +22,8 @@ jobs:
           popd
 
           make public
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./public
