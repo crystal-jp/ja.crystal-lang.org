@@ -14,4 +14,4 @@ sudo snap install crystal --classic --edge
 
 {% assign snapcraft_url = 'https://snapcraft.io/install/crystal/' | append: include.distro %}
 
-より詳しい情報は [Crystal の snapcraft のページ ]を参照してください ({{ snapcraft_url }})
+より詳しい情報は [Crystal の snapcraft のページ]({{ snapcraft_url }})を参照してください。
