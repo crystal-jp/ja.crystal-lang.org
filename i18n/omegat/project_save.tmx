@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="4.3.2_0_6a661c5e" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="4.3.2_0_6a661c5e0" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -672,6 +672,18 @@ end{% endhighlight %}</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150905T051346Z" creationid="hirofumiwakasugi" creationdate="20150905T051346Z">
         <seg># &amp;&amp;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># (actual - expected).abs &lt;= delta
+actual.should contain(expected)         # passes if actual.includes?(expected)
+actual.should match(expected)           # passes if actual =~ expected</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T140522Z" creationid="akiji" creationdate="20200505T140522Z">
+        <seg># (actual - expected).abs &lt;= delta
+actual.should contain(expected)         # actual.includes?(expected) が真なら合格
+actual.should match(expected)           # actual =~ expected が真なら合格</seg>
       </tuv>
     </tu>
     <tu>
@@ -2046,6 +2058,22 @@ add 1, 2</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># Passes if this block raises an exception of type MyError</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234752Z" creationid="akiji" creationdate="20200516T101202Z">
+        <seg># ブロック内でMyError型の例外が発生し、</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Passes if this block raises an exception of type MyError.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101122Z" creationid="akiji" creationdate="20200507T013338Z">
+        <seg># ブロック内でMyError型の例外が発生すれば合格</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Performance</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T022632Z" creationid="hirofumiwakasugi" creationdate="20150905T051354Z">
@@ -2140,6 +2168,52 @@ loop do</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T211722Z" creationid="makenowjust" creationdate="20200412T211722Z">
         <seg># Returns the number of horns this unicorn has.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Run all specs in files matching spec/**/*_spec.cr
+crystal spec
+
+# Run  all specs in files matching spec/**/*_spec.cr without colors
+crystal spec --no-color
+
+# Run all specs in files matching spec/my/test/**/*_spec.cr
+crystal spec spec/my/test/
+
+# Run all specs in spec/my/test/file_spec.cr
+crystal spec spec/my/test/file_spec.cr
+
+# Run the spec or group defined in line 14 of spec/my/test/file_spec.cr
+crystal spec spec/my/test/file_spec.cr:14
+
+# Run all specs tagged with "fast"
+crystal spec --tag 'fast'
+
+# Run all specs not tagged with "slow"
+crystal spec --tag '~slow'</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200521T001007Z" creationid="akiji" creationdate="20200518T070525Z">
+        <seg># ファイル名が spec/**/*_spec.cr にマッチするファイル内の全specを実行
+crystal spec
+
+# ファイル名が spec/**/*_spec.cr にマッチするファイル内の全specを実行（出力を色分けしない）
+crystal spec --no-color
+
+# ファイル名が spec/my/test/**/*_spec.cr にマッチするファイル内の全specを実行
+crystal spec spec/my/test/
+
+# 特定のファイル spec/my/test/file_spec.cr 内の全specを実行 
+crystal spec spec/my/test/file_spec.cr
+
+# 特定のファイル spec/my/test/file_spec.cr の14行目で定義されたspecや、グループ内のspecを実行
+crystal spec spec/my/test/file_spec.cr:14
+
+# "fast" タグが付けられたspecを全て実行
+crystal spec --tag 'fast'
+
+# "slow" タグが付いていないspecを全て実行
+crystal spec --tag '~slow'</seg>
       </tuv>
     </tu>
     <tu>
@@ -3023,6 +3097,22 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T031129Z" creationid="hirofumiwakasugi" creationdate="20151009T031028Z">
         <seg># そして、それを含んでいるかのチェックをランタイムに行う必要がある</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># and the error message contains "error message".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101219Z" creationid="akiji" creationdate="20200516T101219Z">
+        <seg># エラーメッセージが"error message"だったら合格</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># and the error message matches the regular expression.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234758Z" creationid="akiji" creationdate="20200516T101254Z">
+        <seg># かつエラーメッセージが正規表現にマッチすれば合格</seg>
       </tuv>
     </tu>
     <tu>
@@ -10165,6 +10255,30 @@ XML
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt; and &lt;g2&gt;context&lt;/g2&gt; take a description as argument (which should usually be a string) and a block containing the individual specs or nested groupings.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234234Z" creationid="akiji" creationdate="20200505T134448Z">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;は引数（通常は文字列）に概要をとり、個々のspecやネストしたグループを含むブロックを与えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt;, &lt;g2&gt;context&lt;/g2&gt; and &lt;g3&gt;it&lt;/g3&gt; blocks can be marked with &lt;g4&gt;focus: true&lt;/g4&gt;, like this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101932Z" creationid="akiji" creationdate="20200516T101510Z">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;、&lt;g3&gt;it&lt;/g3&gt;ブロックには、以下のように &lt;g4&gt;focus: true&lt;/g4&gt; を指定することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt;, &lt;g2&gt;context&lt;/g2&gt; and &lt;g3&gt;it&lt;/g3&gt; blocks can be tagged, like this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234930Z" creationid="akiji" creationdate="20200516T101929Z">
+        <seg>&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;、&lt;g3&gt;it&lt;/g3&gt;ブロックには以下のようにしてタグをつけることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;enum&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171416Z" creationid="makenowjust" creationdate="20200413T171416Z">
@@ -11570,6 +11684,14 @@ an application not intended to be used as a dependency.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A basic spec looks something like this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T124533Z" creationid="akiji" creationdate="20200505T124533Z">
+        <seg>基本の spec はこのうような感じになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A block can also specify more than the arguments yielded, and these will be `nil`:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150916T022920Z" creationid="hirofumiwakasugi" creationdate="20150916T022546Z">
@@ -12283,6 +12405,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>All specs of a project are compiled and executed through the command &lt;g2&gt;crystal spec&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T235035Z" creationid="akiji" creationdate="20200516T102823Z">
+        <seg>&lt;g2&gt;crystal spec&lt;/g2&gt;コマンドでは、プロジェクト内の全てのspecがコンパイルされて実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All types are non-nilable in Crystal, and nilable variables are represented as a union between the type and nil.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T211444Z" creationid="makenowjust" creationdate="20200413T211444Z">
@@ -12415,6 +12545,14 @@ extra syntax to manipulate the AST nodes.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T074633Z" creationid="makenowjust" creationdate="20200424T074152Z">
         <seg>&lt;g1&gt;if&lt;/g1&gt;は与えられた条件式が&lt;g2&gt;真&lt;/g2&gt;である場合にthen節を評価します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An &lt;g1&gt;it&lt;/g1&gt; block contains an example that should invoke the code to be tested and define what is expected of it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T132409Z" creationid="akiji" creationdate="20200505T132205Z">
+        <seg>&lt;g1&gt;it&lt;/g1&gt;ブロックには、テスト対象コードの実行例と、その結果がどうなるべきかの定義を記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12725,6 +12863,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An optional (but strongly recommended) descriptive string states it's purpose and a block contains the main logic performing the test.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T232815Z" creationid="akiji" creationdate="20200505T125751Z">
+        <seg>ここには、そのテストの意図を説明する文字列（オプションですが、強く推奨）とともに、テストが実行するロジックを納めたブロックが与えられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An optional trailing colon is preferred for readability.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215250Z" creationid="makenowjust" creationdate="20200412T214630Z">
@@ -12737,6 +12883,14 @@ a sequence of digits and underscores, optionally followed by a suffix.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151009T012105Z" creationid="hirofumiwakasugi" creationdate="20151009T012105Z">
         <seg>型制約でアンダースコアを使うことが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Anatomy of a spec file</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T124545Z" creationid="akiji" creationdate="20200505T124545Z">
+        <seg>specファイルの構造</seg>
       </tuv>
     </tu>
     <tu>
@@ -13548,6 +13702,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>By convention, specs live in the &lt;g1&gt;spec/&lt;/g1&gt; directory of a project.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T064855Z" creationid="akiji" creationdate="20200518T064855Z">
+        <seg>慣例的に、specはプロジェクト内の&lt;g1&gt;spec/&lt;/g1&gt;ディレクトリに置かれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>By default the require path is the location of the standard library that comes with the compiler, and the "lib" directory relative to the current working directory (given by &lt;g1&gt;pwd&lt;/g1&gt; in a Unix shell).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T084639Z" creationid="makenowjust" creationdate="20200427T084639Z">
@@ -13922,6 +14084,14 @@ Color::Blue.red? #=&gt; false
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Comparisons</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T135851Z" creationid="akiji" creationdate="20200505T135851Z">
+        <seg>比較</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Compile and &lt;g1&gt;run the application&lt;/g1&gt;, all in one command.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T175709Z" creationid="makenowjust" creationdate="20200413T174308Z">
@@ -13958,6 +14128,14 @@ Color::Blue.red? #=&gt; false
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T150814Z" creationid="makenowjust" creationdate="20200419T150814Z">
         <seg>リリースモードでないコンパイルは十分に早く、また生成されるバイナリもそれなりのパフォーマンスではあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Concrete test cases are defined in &lt;g1&gt;it&lt;/g1&gt; blocks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T125210Z" creationid="akiji" creationdate="20200505T125210Z">
+        <seg>具体的なテストケースは&lt;g1&gt;it&lt;/g1&gt;ブロック内に記述します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14122,6 +14300,14 @@ Counter.instances #=&gt; 3
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214859Z" creationid="makenowjust" creationdate="20200412T210253Z">
         <seg>Crystal は、&lt;g1&gt;Markdown&lt;/g1&gt;のサブセットのコメントからドキュメントを生成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Crystal comes with a fully-featured spec library in the &lt;g1&gt;&lt;g2&gt;Spec&lt;/g2&gt; module&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T124010Z" creationid="akiji" creationdate="20200505T124010Z">
+        <seg>Crystalには、 &lt;g1&gt;&lt;g2&gt;Spec&lt;/g2&gt;モジュール&lt;/g1&gt;内に、フル機能の spec ライブラリが用意されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14413,6 +14599,14 @@ Returns the name of `self`.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Each example can contain multiple expectations, but it should test only one specific behaviour.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T132534Z" creationid="akiji" creationdate="20200505T132511Z">
+        <seg>各実行例には複数の式を含めることが可能ですが、1つの挙動に対するテストのみを行うべきです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Each of the above kinds of variables will be explained later on.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T054307Z" creationid="hirofumiwakasugi" creationdate="20150902T054307Z">
@@ -14467,6 +14661,14 @@ Employee.new "Peter" # 'Employee:Class#new' (1 for 2) を実行すると</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T165947Z" creationid="makenowjust" creationdate="20200419T165947Z">
         <seg>環境変数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Equivalence, Identity and Type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T134801Z" creationid="akiji" creationdate="20200505T134801Z">
+        <seg>等価性、同一性、型</seg>
       </tuv>
     </tu>
     <tu>
@@ -14560,6 +14762,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Examples</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T070410Z" creationid="akiji" creationdate="20200518T070410Z">
+        <seg>コマンド例</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Except for the pipes, all delimiters can be nested meaning a start delimiter inside the string escapes the next end delimiter.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T193305Z" creationid="makenowjust" creationdate="20200419T193305Z">
@@ -14608,10 +14818,34 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Expectations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T074814Z" creationid="akiji" creationdate="20200505T134514Z">
+        <seg>Expectation（想定結果）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Expectations define if the value being tested (&lt;g1&gt;actual&lt;/g1&gt;) matches a certain value or specific criteria.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T135251Z" creationid="akiji" creationdate="20200505T134730Z">
+        <seg>Expactationは、テスト対象の（&lt;g1&gt;実際の&lt;/g1&gt;）値が、特定の値や一定の基準に合致するかどうかを定義します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Expected: true</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T165202Z" creationid="makenowjust" creationdate="20200419T165202Z">
         <seg>Expected: true</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Expecting errors</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T141636Z" creationid="akiji" creationdate="20200505T141636Z">
+        <seg>エラーを想定する</seg>
       </tuv>
     </tu>
     <tu>
@@ -14780,6 +15014,14 @@ new &lt;g2&gt;shard.lock&lt;/g2&gt; file.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T190701Z" creationid="makenowjust" creationdate="20200419T185611Z">
         <seg>浮動小数点数 (Float)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Focusing on a group of specs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101428Z" creationid="akiji" creationdate="20200516T101428Z">
+        <seg>特定のグループにフォーカスしたspec</seg>
       </tuv>
     </tu>
     <tu>
@@ -15229,6 +15471,14 @@ the following arguments can be used:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For unit tests, it is recommended to follow the conventions for method names: Outer &lt;g1&gt;describe&lt;/g1&gt; is the name of the class, inner &lt;g2&gt;describe&lt;/g2&gt; targets methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233859Z" creationid="akiji" creationdate="20200505T133821Z">
+        <seg>単体テストでは、外側の&lt;g1&gt;describe&lt;/g1&gt;にクラス名を、内側の&lt;g2&gt;describe&lt;/g2&gt;にテスト対象のメソッドを指定するという組み合わせが推奨されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Free variables allow type inference to be used when creating generic types.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T072402Z" creationid="hirofumiwakasugi" creationdate="20150908T040818Z">
@@ -15257,6 +15507,14 @@ the following arguments can be used:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T210319Z" creationid="makenowjust" creationdate="20200413T210319Z">
         <seg>production-readyに向けてファンドをお願いします: </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Further &lt;g4&gt;describe&lt;/g4&gt; sections can be nested within the outer unit to specify smaller units under test (such as individual methods).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233247Z" creationid="akiji" creationdate="20200505T133722Z">
+        <seg> &lt;g4&gt;describe&lt;/g4&gt;セクションはネストさせることができ、より小さな単位 （個々のメソッドなど）を指定します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16078,6 +16336,14 @@ files inside that folder are appended.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If any such thing is marked with &lt;g1&gt;focus: true&lt;/g1&gt; then only those examples will run.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101624Z" creationid="akiji" creationdate="20200516T101547Z">
+        <seg>もし&lt;g1&gt;focus: true&lt;/g1&gt;が指定されたブロックがあった場合、指定されたブロックのみが実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If for any reason you can't or don't want to use one of the previous installation methods, you can still download Crystal in a standalone .tar.gz file with everything you need to get started.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T055610Z" creationid="hirofumiwakasugi" creationdate="20150831T052600Z">
@@ -16323,6 +16589,14 @@ the value of each named variable is printed on its own line.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the expectation is met, code execution continues.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T133017Z" creationid="akiji" creationdate="20200505T133017Z">
+        <seg>もし結果が想定通りであれば、コードの実行を継続します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the left-hand side contains just one variable, the right-hand side is considered an array:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T060149Z" creationid="hirofumiwakasugi" creationdate="20150902T060132Z">
@@ -16359,6 +16633,14 @@ the value of each named variable is printed on its own line.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T175549Z" creationid="makenowjust" creationdate="20200422T175540Z">
         <seg>代入式の右辺に1つしか式が無かった場合、次の例のように各変数に順にインデックスして代入していきます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the specified line is the beginning of a &lt;g1&gt;describe&lt;/g1&gt; or &lt;g2&gt;context&lt;/g2&gt; section, all specs inside that group are run.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T065229Z" creationid="akiji" creationdate="20200518T065229Z">
+        <seg>指定された行が&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;セクションの先頭だった場合は、そのセクション内の全てのspecが実行されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16943,6 +17225,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In test files, specs are structured by example groups which are defined by &lt;g1&gt;describe&lt;/g1&gt; and &lt;g2&gt;context&lt;/g2&gt; sections.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233230Z" creationid="akiji" creationdate="20200505T133338Z">
+        <seg>テストファイル内では、specは&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;といったセクションで実行例をグルーピングします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In that block we define all the options.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T173629Z" creationid="makenowjust" creationdate="20200413T173314Z">
@@ -17295,10 +17585,26 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Inspired by &lt;g1&gt;Rspec&lt;/g1&gt;, it includes a domain specific language (DSL) that allows you to write examples in a way similar to plain english.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T124438Z" creationid="akiji" creationdate="20200505T124341Z">
+        <seg>また、&lt;g1&gt;Rspec&lt;/g1&gt;を参考に、素の英語に近い形で実行例を記述できるドメイン固有言語（DSL：Domain Specific Language）を導入しまています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Installation</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173305Z" creationid="makenowjust" creationdate="20200419T173305Z">
         <seg>インストール方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Instance methods are prefixed with &lt;g3&gt;#&lt;/g3&gt;, class methods with &lt;g4&gt;.&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233919Z" creationid="akiji" creationdate="20200505T133958Z">
+        <seg>インスタンスメソッドの場合はメソッド名の前に &lt;g3&gt;#&lt;/g3&gt;を、クラスメソッドの場合は&lt;g4&gt;.&lt;/g4&gt;を付けましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17535,6 +17841,14 @@ entrypoints for the docs generator.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It has a different name, but behaves exactly like &lt;g4&gt;describe&lt;/g4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233955Z" creationid="akiji" creationdate="20200505T134251Z">
+        <seg>これは、名前が違うだけで、その挙動は&lt;g4&gt;describe&lt;/g4&gt;と全く変わりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It has the same effect as writing &lt;g1&gt;is_a?(Nil)&lt;/g1&gt; but it's shorter and easier to read and write.</seg>
       </tuv>
       <tuv lang="JA" changeid="tobias" changedate="20200501T145248Z" creationid="tobias" creationdate="20200501T145248Z">
@@ -17732,6 +18046,14 @@ installs across computers and systems.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200414T000940Z" creationid="makenowjust" creationdate="20200414T000747Z">
         <seg>ただ1つの値を持ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It provides a structure for writing executable examples of how your code should behave.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T232629Z" creationid="akiji" creationdate="20200505T124133Z">
+        <seg>これは、あなたのコードがどのような挙動を示すべきかを示す実行例を記述する構造を提供するものです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18140,6 +18462,22 @@ code that is pasted into a program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Many projects use a custom &lt;g2&gt;spec helper&lt;/g2&gt; which organizes these includes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T125129Z" creationid="akiji" creationdate="20200505T125129Z">
+        <seg>多くのプロジェクトでは、 これらのインクルードを取りまとめるカスタムの&lt;g2&gt;spec ヘルパ&lt;/g2&gt;を使用しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Many projects use a custom spec helper file, usually named &lt;g1&gt;spec/spec_helper.cr&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200521T001035Z" creationid="akiji" creationdate="20200518T071950Z">
+        <seg>多くのプロジェクトでは、（通常&lt;g1&gt;spec/spec_helper.cr&lt;/g1&gt;という名前の）カスタムされたspecヘルパファイルを使用しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Marking a class as abstract will also prevent us from creating an instance of it:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T035618Z" creationid="hirofumiwakasugi" creationdate="20150910T035546Z">
@@ -18387,6 +18725,14 @@ with the `yield` keyword.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T060243Z" creationid="hirofumiwakasugi" creationdate="20150902T060243Z">
         <seg>多重代入は、メソッド名が `=` で終わるメソッドに対しても有効です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Multiple tags can be specified by giving an &lt;g1&gt;&lt;g2&gt;Enumerable&lt;/g2&gt;&lt;/g1&gt;, such as &lt;g3&gt;&lt;g4&gt;Array&lt;/g4&gt;&lt;/g3&gt; or &lt;g5&gt;&lt;g6&gt;Set&lt;/g6&gt;&lt;/g5&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T102334Z" creationid="akiji" creationdate="20200516T102334Z">
+        <seg>&lt;g3&gt;&lt;g4&gt;Array&lt;/g4&gt;&lt;/g3&gt;や&lt;g5&gt;&lt;g6&gt;Set&lt;/g6&gt;&lt;/g5&gt;といった&lt;g1&gt;&lt;g2&gt;Enumerable&lt;/g2&gt;&lt;/g1&gt;型を使用して、複数のタグを指定することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18656,6 +19002,14 @@ end up in the resulting string.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200429T151138Z" creationid="akiji" creationdate="20200429T144125Z">
         <seg>最初の２回のsendが実行された際に、他のファイバに処理が切り替わらなかったことに注目してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that the identity expectation uses &lt;g5&gt;.same?&lt;/g5&gt; which tests if &lt;g6&gt;&lt;g7&gt;#object_id&lt;/g7&gt;&lt;/g6&gt; are identical.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T135504Z" creationid="akiji" creationdate="20200505T135504Z">
+        <seg>同一性をテストするExpectationは&lt;g6&gt;&lt;g7&gt;#object_id&lt;/g7&gt;&lt;/g6&gt;が同一かどうかをテストする&lt;g5&gt;.same?&lt;/g5&gt;メソッドを使用することに注意してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19143,6 +19497,14 @@ specifying the current working directory.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Other matchers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T135858Z" creationid="akiji" creationdate="20200505T135858Z">
+        <seg>その他の条件</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Otherwise a compile-time error is issued.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T085242Z" creationid="makenowjust" creationdate="20200427T085242Z">
@@ -19179,6 +19541,14 @@ specifying the current working directory.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T170107Z" creationid="makenowjust" creationdate="20200419T170107Z">
         <seg>指定されていなければ、コンパイラはデフォルト値を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Otherwise the example has &lt;g4&gt;failed&lt;/g4&gt; and other code in this block will not be executed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233143Z" creationid="akiji" creationdate="20200505T133144Z">
+        <seg>そうでない場合、その実行例はその時点で&lt;g4&gt;failed&lt;/g4&gt;となり、同じブロックに記述されたそれ以降のコードは実行されません。.</seg>
       </tuv>
     </tu>
     <tu>
@@ -19406,6 +19776,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150907T023548Z" creationid="hirofumiwakasugi" creationdate="20150907T023519Z">
         <seg>例外を発生させることはメモリの割り当てを伴うので、一般的に例外処理は遅くなる傾向があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Randomizing order of specs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T065737Z" creationid="akiji" creationdate="20200518T065737Z">
+        <seg>ランダムな順序でのspec実行</seg>
       </tuv>
     </tu>
     <tu>
@@ -19734,6 +20112,14 @@ end</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T173933Z" creationid="makenowjust" creationdate="20200419T173933Z">
         <seg>&lt;g1&gt;&lt;g2&gt;shards install&lt;/g2&gt;&lt;/g1&gt;を実行すると、指定された依存関係の解決とインストールが行なわれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Running specs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T102503Z" creationid="akiji" creationdate="20200516T102503Z">
+        <seg>specの実行</seg>
       </tuv>
     </tu>
     <tu>
@@ -20222,11 +20608,43 @@ some_method  # OK, 1
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Spec files must end with &lt;g2&gt;_spec.cr&lt;/g2&gt; to be recognizable as such by the compiler command.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T065018Z" creationid="akiji" creationdate="20200518T065018Z">
+        <seg>コンパイラコマンドが認識できるように、spec ファイルのファイル名は末尾が&lt;g2&gt;_spec.cr&lt;/g2&gt;でなければなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Spec helper</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T070921Z" creationid="akiji" creationdate="20200518T070921Z">
+        <seg>specヘルパ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Special macros exist that are invoked in some situations, as hooks:
 `inherited`, `included` and `method_missing`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151002T012437Z" creationid="hirofumiwakasugi" creationdate="20151002T012437Z">
         <seg>ある状況において実行される特別なマクロがフックとして存在します。それらは、`inherited`、`included` そして `method_missing` です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Specs run in random order will display a seed value upon completion.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T070101Z" creationid="akiji" creationdate="20200518T070101Z">
+        <seg>ランダムな順番でspecが実行された場合、終了時にseed値が表示されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Specs, by default, run in the order defined, but can be run in a random order by passing &lt;g1&gt;--order random&lt;/g1&gt; to &lt;g2&gt;crystal spec&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T235235Z" creationid="akiji" creationdate="20200518T065834Z">
+        <seg>&lt;g2&gt;crystal spec&lt;/g2&gt;に&lt;g1&gt;--order random&lt;/g1&gt;を指定すると、通常は定義され手順で実行されるspecを、ランダムな順序で実行可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20379,6 +20797,30 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Tagging an example group (&lt;g1&gt;describe&lt;/g1&gt; or &lt;g2&gt;context&lt;/g2&gt;) extends to all of the contained examples.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T102203Z" creationid="akiji" creationdate="20200516T102203Z">
+        <seg>実行例のグループ（&lt;g1&gt;describe&lt;/g1&gt;や&lt;g2&gt;context&lt;/g2&gt;）に対して指定されたタグは、その内部の実行例全てに適用されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Tagging specs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101634Z" creationid="akiji" creationdate="20200516T101634Z">
+        <seg>specのタグ付け</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Tags can be used to group specs, allowing to only run a subset of specs when providing a &lt;g1&gt;--tag&lt;/g1&gt; argument to the spec runner (see &lt;g2&gt;Using the compiler&lt;/g2&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234912Z" creationid="akiji" creationdate="20200516T101907Z">
+        <seg>タグはspecをグループ付けするのに使用され、specを実行する際（&lt;g2&gt;Using the compiler&lt;/g2&gt;を参照）に&lt;g1&gt;--tag&lt;/g1&gt;引数を指定することで、specの一部のみを実行することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Tells the compiler how to link a C library.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T072342Z" creationid="hirofumiwakasugi" creationdate="20150919T072342Z">
@@ -20411,10 +20853,26 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Test cases that have been defined or outlined but are not yet expected to work can be defined using &lt;g1&gt;pending&lt;/g1&gt; instead of &lt;g2&gt;it&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T232833Z" creationid="akiji" creationdate="20200505T132115Z">
+        <seg>&lt;g2&gt;it&lt;/g2&gt;の代わりに&lt;g1&gt;pending&lt;/g1&gt;を使用することで、概要だけを記載して実行はしないテストケースを定義することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Testing</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T184716Z" creationid="makenowjust" creationdate="20200413T184716Z">
         <seg>テスト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Testing Crystal Code</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T123744Z" creationid="akiji" creationdate="20200505T123744Z">
+        <seg>Crystalコードのテスト</seg>
       </tuv>
     </tu>
     <tu>
@@ -20705,6 +21163,14 @@ and immediately executes it.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150919T073440Z" creationid="hirofumiwakasugi" creationdate="20150919T073440Z">
         <seg>こういった関数の例としては C の `setjmp` があげられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The Crystal compiler has a &lt;g1&gt;spec&lt;/g1&gt; command with tools to constrain which examples get run and tailor the output.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T102723Z" creationid="akiji" creationdate="20200516T102723Z">
+        <seg>Crystalコンパイラには&lt;g1&gt;spec&lt;/g1&gt;コマンドがあり、どの実行例が実行されるかを指定したり出力を調整したりできるツールが用意され居ます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21426,6 +21892,14 @@ in a folder structure mirroring the Crystal namespaces.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T094757Z" creationid="makenowjust" creationdate="20200424T094757Z">
         <seg>まず条件式に対して判定が行なわれて、&lt;g1&gt;真であった&lt;/g1&gt;ときに本体が実行されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The default formatter outputs the file and line style command for failing specs which makes it easy to rerun just this individual spec.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T235201Z" creationid="akiji" creationdate="20200518T065607Z">
+        <seg>デフォルトのフォーマッタは、失敗したspecについて、後でそのsepcだけを再テストしやすいように、ファイル名と行数を含んだ形式のコマンド例を出力します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22476,6 +22950,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There are methods to create expectations which test for equivalence (&lt;g1&gt;eq&lt;/g1&gt;), identity (&lt;g2&gt;be&lt;/g2&gt;), type (&lt;g3&gt;be_a&lt;/g3&gt;), and nil (&lt;g4&gt;be_nil&lt;/g4&gt;).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234353Z" creationid="akiji" creationdate="20200505T135148Z">
+        <seg>等価性(&lt;g1&gt;eq&lt;/g1&gt;)、同一性 (&lt;g2&gt;be&lt;/g2&gt;)、型 (&lt;g3&gt;be_a&lt;/g3&gt;)と nil (&lt;g4&gt;be_nil&lt;/g4&gt;)をテストするためのExpectationを生成するメソッドが用意されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There are two floating point types, &lt;g1&gt;Float32&lt;/g1&gt; and &lt;g2&gt;Float64&lt;/g2&gt;,
 which correspond to the &lt;g3&gt;binary32&lt;/g3&gt;
 and &lt;g4&gt;binary64&lt;/g4&gt;
@@ -22619,10 +23101,26 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These matchers run a block and pass if it raises a certain exception.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T141732Z" creationid="akiji" creationdate="20200505T141732Z">
+        <seg>以下の例は、ブロックの実行時に特定の例外が発生した場合に合格になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These methods are documented in a ficticious [Macros](http://crystal-lang.org/api/Macros.html) module.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20151001T035716Z" creationid="hirofumiwakasugi" creationdate="20151001T035654Z">
         <seg>これらのメソッドは [Macros](http://crystal-lang.org/api/Macros.html) という「フェイクの」モジュールでドキュメント化されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These methods are invoked on the value being tested with an expectation as argument.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233111Z" creationid="akiji" creationdate="20200505T132731Z">
+        <seg>これらのメソッドは、テスト対象となる値に対して、想定される結果を引数として実行されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22715,11 +23213,27 @@ types defined by IEEE.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>They return the rescued exception so it can be used for further expectations, for example to verify specific properties of the exception.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200516T101356Z" creationid="akiji" creationdate="20200516T101356Z">
+        <seg>これらは発生した例外を返すので、その例外の特定のプロパティをチェックするといった別のテストに使用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>They should be separated from
 the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T164331Z" creationid="makenowjust" creationdate="20200419T164236Z">
         <seg>これらは他の引数とは &lt;g2&gt;--&lt;/g2&gt; で区切る必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They will not be run but show up in the spec report as pending.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T232902Z" creationid="akiji" creationdate="20200505T132204Z">
+        <seg>それらは実行されず、spec レポートには pending とだけ記載されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22892,6 +23406,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This file is used to require &lt;g1&gt;spec&lt;/g1&gt; and other includes like code from the project needed for every spec file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T072315Z" creationid="akiji" creationdate="20200518T072315Z">
+        <seg>このファイルは、&lt;g1&gt;spec&lt;/g1&gt;を require したり、個々のspecファイルが使用するコードをプロジェクト内から取り込むのに使用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This form allows you to specify the return type and to check it against the proc's body.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T021835Z" creationid="hirofumiwakasugi" creationdate="20150902T021555Z">
@@ -22928,6 +23450,14 @@ the other arguments by a double dash (&lt;g2&gt;--&lt;/g2&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150912T063345Z" creationid="hirofumiwakasugi" creationdate="20150912T063138Z">
         <seg>それは、以下が許されてしまうということです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is also a good place to define global helper methods that make writing specs easier and avoid code duplication.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200521T001103Z" creationid="akiji" creationdate="20200518T072515Z">
+        <seg>ここは、コードの重複を排除してspecの記述を容易にするために、テスト全体で利用するヘルパメソッドを置くのにも良い場所です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23050,6 +23580,22 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T070910Z" creationid="akiji" creationdate="20200428T080804Z">
         <seg>この方法は、繰り返し処理の中でローカル変数の値が変化するような場合には便利な方法です。。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is only possible for reference types and won't work for value types like structs or numbers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234425Z" creationid="akiji" creationdate="20200505T135819Z">
+        <seg>これは参照型でのみ利用可能で、structや数値といった値型に対しては使えません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is only true if the expected value points to &lt;g8&gt;the same object&lt;/g8&gt; instead of &lt;g9&gt;an equivalent one&lt;/g9&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T075326Z" creationid="akiji" creationdate="20200505T135706Z">
+        <seg>このメソッドは、実際の実行結果が想定した値と&lt;g9&gt;等価な値&lt;/g9&gt;であるだけでなく、&lt;g8&gt;同じオブジェクト&lt;/g8&gt;を指す場合のみ true を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23282,6 +23828,14 @@ will automatically format all &lt;g2&gt;.cr&lt;/g2&gt; files in current director
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T061628Z" creationid="hirofumiwakasugi" creationdate="20150831T060757Z">
         <seg>このスクリプトは、グローバルにインストールされたコンパイラ、もしくは自分でビルドしたコンパイラがあればそれを実行します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This seed value can be used to rerun the specs in that same order by passing the seed value to &lt;g1&gt;--order&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T235258Z" creationid="akiji" creationdate="20200518T070356Z">
+        <seg>このシード値を&lt;g1&gt;--order&lt;/g1&gt; で指定することで、もう一度同じ順番でspecを実行することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23725,6 +24279,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To establish certain contexts - think &lt;g1&gt;empty array&lt;/g1&gt; versus &lt;g2&gt;array with elements&lt;/g2&gt; - the &lt;g3&gt;context&lt;/g3&gt; method may be used to communicate this to the reader.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T134225Z" creationid="akiji" creationdate="20200505T134225Z">
+        <seg>&lt;g1&gt;空の配列&lt;/g1&gt;と&lt;g2&gt;要素を含む配列&lt;/g2&gt;といったコンテキストの違いを明確に読み手に伝えるために、&lt;g3&gt;context&lt;/g3&gt;メソッドを使用することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To format a single file:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215749Z" creationid="makenowjust" creationdate="20200412T215749Z">
@@ -24055,6 +24617,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To use the spec module and DSL, you need to add &lt;g1&gt;require "spec"&lt;/g1&gt; to your spec files.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T124800Z" creationid="akiji" creationdate="20200505T124724Z">
+        <seg>spec モジュールやDLSを使用するには、specファイルに&lt;g1&gt;require "spec"&lt;/g1&gt;を追加する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To work with these, first assign them to a variable:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T022436Z" creationid="hirofumiwakasugi" creationdate="20150903T022436Z">
@@ -24075,6 +24645,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150903T010634Z" creationid="hirofumiwakasugi" creationdate="20150903T010134Z">
         <seg>複数の条件分岐を組み合わせた「if-else-if」の文を書くには `elsif` を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Truthiness</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T135844Z" creationid="akiji" creationdate="20200505T135844Z">
+        <seg>真偽状態</seg>
       </tuv>
     </tu>
     <tu>
@@ -24187,6 +24765,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150908T043620Z" creationid="hirofumiwakasugi" creationdate="20150908T042427Z">
         <seg>型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Typically a top level &lt;g3&gt;describe&lt;/g3&gt; defines the outer unit (such as a class) to be tested by the spec.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T133544Z" creationid="akiji" creationdate="20200505T133443Z">
+        <seg>通常、トップレベルの&lt;g3&gt;describe&lt;/g3&gt;は、そのsupcのテスト対象となる外側の単位（クラスなど）を定義します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24672,6 +25258,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150910T035003Z" creationid="hirofumiwakasugi" creationdate="20150910T034728Z">
         <seg>`Animal` のインスタンス化には意味がないため、`Animal` を直接インスタンス化することは絶対にあり得ないでしょう。ただ、コンパイラにはその事情がわかりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When &lt;g1&gt;spec&lt;/g1&gt; is included, every object has the instance methods &lt;g2&gt;#should&lt;/g2&gt; and &lt;g3&gt;#should_not&lt;/g3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T233046Z" creationid="akiji" creationdate="20200505T132613Z">
+        <seg>&lt;g1&gt;spec&lt;/g1&gt;がインクルードされると、すべてのオブジェクトにインスタンスメソッドとして&lt;g2&gt;#should&lt;/g2&gt; と &lt;g3&gt;#should_not&lt;/g3&gt;が追加されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25234,6 +25828,14 @@ end
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can compile and run specs from folder trees, individual files, or specific lines in a file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T065123Z" creationid="akiji" creationdate="20200518T065123Z">
+        <seg>specはフォルダ全体や、単独のファイル、ファイル内の特定の行といった単位で実行可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can declare/assign multiple variables at the same time by separating expressions with a comma (&lt;g1&gt;,&lt;/g1&gt;):</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T175351Z" creationid="makenowjust" creationdate="20200422T175351Z">
@@ -25480,6 +26082,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200504T064705Z" creationid="akiji" creationdate="20200428T053704Z">
         <seg>キッチンで料理をしているところを考えてみましょう。あなたは玉ねぎをきざんでフライパンに放り込み、それが炒め上がるまでの間にトマトを切ったりできます。しかし、すべての動作を同時に行うのではなく、それぞれのタスクにあなたの時間を割り振って処理することでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can turn off colors with the switch &lt;g1&gt;--no-color&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200518T070536Z" creationid="akiji" creationdate="20200518T065713Z">
+        <seg>&lt;g1&gt;--no-color&lt;/g1&gt;スイッチを指定すると、出力の色分けを停止できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -35039,6 +35649,56 @@ end
         <seg>abstract def talk
 end
 ```</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>actual.should be &lt; expected  # passes if actual &lt;  expected
+actual.should be &lt;= expected # passes if actual &lt;= expected
+actual.should be &gt; expected  # passes if actual &gt;  expected
+actual.should be &gt;= expected # passes if actual &gt;= expected</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T140238Z" creationid="akiji" creationdate="20200505T140238Z">
+        <seg>actual.should be &lt; expected  # actual &lt;  expected であれば合格
+actual.should be &lt;= expected # actual &lt;= expected であれば合格
+actual.should be &gt; expected  # actual &gt;  expected であれば合格
+actual.should be &gt;= expected # actual &gt;= expected であれば合格</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>actual.should be_close(expected, delta) # passes if actual is within delta of expected:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200520T234502Z" creationid="akiji" creationdate="20200505T140409Z">
+        <seg>actual.should be_close(expected, delta) # actual が expected から delta 以内の値であれば合格</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>actual.should be_true   # passes if actual == true
+actual.should be_false  # passes if actual == false
+actual.should be_truthy # passes if actual is truthy (neither nil nor false nor Pointer.null)
+actual.should be_falsey # passes if actual is falsey (nil, false or Pointer.null)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T140213Z" creationid="akiji" creationdate="20200505T140044Z">
+        <seg>actual.should be_true   # actual == trueであれば合格
+actual.should be_false  # actual == falseであれば合格
+actual.should be_truthy # actual が truthy な値（nil でも false でも Pointer.null でもない）であれば合格
+actual.should be_falsey # actual が alsey な値（nil や false、もしくはPointer.null）であれば合格</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>actual.should eq(expected)   # passes if actual == expected
+actual.should be(expected)   # passes if actual.same?(expected)
+actual.should be_a(expected) # passes if actual.is_a?(expected)
+actual.should be_nil         # passes if actual.nil?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="akiji" changedate="20200505T140006Z" creationid="akiji" creationdate="20200505T140006Z">
+        <seg>actual.should eq(expected)   # actual == expected であれば合格
+actual.should be(expected)   # actual.same?(expected) であれば合格
+actual.should be_a(expected) # actual.is_a?(expected) であれば合格
+actual.should be_nil         # actual.nil? であれば合格</seg>
       </tuv>
     </tu>
     <tu>

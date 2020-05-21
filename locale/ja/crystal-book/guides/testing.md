@@ -1,10 +1,10 @@
-# Testing Crystal Code
+# Crystalコードのテスト
 
-Crystal comes with a fully-featured spec library in the [`Spec` module](https://crystal-lang.org/api/latest/Spec.html). It provides a structure for writing executable examples of how your code should behave.
+Crystalには、 [`Spec`モジュール](https://crystal-lang.org/api/latest/Spec.html)内に、フル機能の spec ライブラリが用意されています。これは、あなたのコードがどのような挙動を示すべきかを示す実行例を記述する構造を提供するものです。
 
-Inspired by [Rspec](http://rspec.info/), it includes a domain specific language (DSL) that allows you to write examples in a way similar to plain english.
+また、[Rspec](http://rspec.info/)を参考に、素の英語に近い形で実行例を記述できるドメイン固有言語（DSL：Domain Specific Language）を導入しまています。
 
-A basic spec looks something like this:
+基本の spec はこのうような感じになります。
 
 ```crystal
 require "spec"
@@ -28,94 +28,94 @@ describe Array do
 end
 ```
 
-## Anatomy of a spec file
+## specファイルの構造
 
-To use the spec module and DSL, you need to add `require "spec"` to your spec files. Many projects use a custom [spec helper](#spec-helper) which organizes these includes.
+spec モジュールやDLSを使用するには、specファイルに`require "spec"`を追加する必要があります。多くのプロジェクトでは、 これらのインクルードを取りまとめるカスタムの[spec ヘルパ](#spec-helper)を使用しています。
 
-Concrete test cases are defined in `it` blocks. An optional (but strongly recommended) descriptive string states it's purpose and a block contains the main logic performing the test.
+具体的なテストケースは`it`ブロック内に記述します。ここには、そのテストの意図を説明する文字列（オプションですが、強く推奨）とともに、テストが実行するロジックを納めたブロックが与えられます。
 
-Test cases that have been defined or outlined but are not yet expected to work can be defined using `pending` instead of `it`. They will not be run but show up in the spec report as pending.
+`it`の代わりに`pending`を使用することで、概要だけを記載して実行はしないテストケースを定義することもできます。それらは実行されず、spec レポートには pending とだけ記載されます。
 
-An `it` block contains an example that should invoke the code to be tested and define what is expected of it. Each example can contain multiple expectations, but it should test only one specific behaviour.
+`it`ブロックには、テスト対象コードの実行例と、その結果がどうなるべきかの定義を記述します。各実行例には複数の式を含めることが可能ですが、1つの挙動に対するテストのみを行うべきです。
 
-When `spec` is included, every object has the instance methods `#should` and `#should_not`. These methods are invoked on the value being tested with an expectation as argument. If the expectation is met, code execution continues. Otherwise the example has *failed* and other code in this block will not be executed.
+`spec`がインクルードされると、すべてのオブジェクトにインスタンスメソッドとして`#should` と `#should_not`が追加されます。これらのメソッドは、テスト対象となる値に対して、想定される結果を引数として実行されます。もし結果が想定通りであれば、コードの実行を継続します。そうでない場合、その実行例はその時点で*failed*となり、同じブロックに記述されたそれ以降のコードは実行されません。.
 
-In test files, specs are structured by example groups which are defined by `describe` and `context` sections. Typically a top level `describe` defines the outer unit (such as a class) to be tested by the spec. Further `describe` sections can be nested within the outer unit to specify smaller units under test (such as individual methods).
+テストファイル内では、specは`describe`や`context`といったセクションで実行例をグルーピングします。通常、トップレベルの`describe`は、そのsupcのテスト対象となる外側の単位（クラスなど）を定義します。 `describe`セクションはネストさせることができ、より小さな単位 （個々のメソッドなど）を指定します。
 
-For unit tests, it is recommended to follow the conventions for method names: Outer `describe` is the name of the class, inner `describe` targets methods. Instance methods are prefixed with `#`, class methods with `.`.
+単体テストでは、外側の`describe`にクラス名を、内側の`describe`にテスト対象のメソッドを指定するという組み合わせが推奨されます。インスタンスメソッドの場合はメソッド名の前に `#`を、クラスメソッドの場合は`.`を付けましょう。
 
-To establish certain contexts - think *empty array* versus *array with elements* - the `context` method may be used to communicate this to the reader. It has a different name, but behaves exactly like `describe`.
+*空の配列*と*要素を含む配列*といったコンテキストの違いを明確に読み手に伝えるために、`context`メソッドを使用することもできます。これは、名前が違うだけで、その挙動は`describe`と全く変わりません。
 
-`describe` and `context` take a description as argument (which should usually be a string) and a block containing the individual specs or nested groupings.
+`describe`や`context`は引数（通常は文字列）に概要をとり、個々のspecやネストしたグループを含むブロックを与えます。
 
-## Expectations
+## Expectation（想定結果）
 
-Expectations define if the value being tested (*actual*) matches a certain value or specific criteria.
+Expactationは、テスト対象の（*実際の*）値が、特定の値や一定の基準に合致するかどうかを定義します。
 
-### Equivalence, Identity and Type
+### 等価性、同一性、型
 
-There are methods to create expectations which test for equivalence (`eq`), identity (`be`), type (`be_a`), and nil (`be_nil`).
-Note that the identity expectation uses `.same?` which tests if [`#object_id`](https://crystal-lang.org/api/latest/Reference.html#object_id%3AUInt64-instance-method) are identical. This is only true if the expected value points to *the same object* instead of *an equivalent one*. This is only possible for reference types and won't work for value types like structs or numbers.
+等価性(`eq`)、同一性 (`be`)、型 (`be_a`)と nil (`be_nil`)をテストするためのExpectationを生成するメソッドが用意されています。
+同一性をテストするExpectationは[`#object_id`](https://crystal-lang.org/api/latest/Reference.html#object_id%3AUInt64-instance-method)が同一かどうかをテストする`.same?`メソッドを使用することに注意してください。このメソッドは、実際の実行結果が想定した値と*等価な値*であるだけでなく、*同じオブジェクト*を指す場合のみ true を返します。これは参照型でのみ利用可能で、structや数値といった値型に対しては使えません。
 
 ```crystal
-actual.should eq(expected)   # passes if actual == expected
-actual.should be(expected)   # passes if actual.same?(expected)
-actual.should be_a(expected) # passes if actual.is_a?(expected)
-actual.should be_nil         # passes if actual.nil?
+actual.should eq(expected)   # actual == expected であれば合格
+actual.should be(expected)   # actual.same?(expected) であれば合格
+actual.should be_a(expected) # actual.is_a?(expected) であれば合格
+actual.should be_nil         # actual.nil? であれば合格
 ```
 
-### Truthiness
+### 真偽状態
 
 ```crystal
-actual.should be_true   # passes if actual == true
-actual.should be_false  # passes if actual == false
-actual.should be_truthy # passes if actual is truthy (neither nil nor false nor Pointer.null)
-actual.should be_falsey # passes if actual is falsey (nil, false or Pointer.null)
+actual.should be_true   # actual == trueであれば合格
+actual.should be_false  # actual == falseであれば合格
+actual.should be_truthy # actual が truthy な値（nil でも false でも Pointer.null でもない）であれば合格
+actual.should be_falsey # actual が alsey な値（nil や false、もしくはPointer.null）であれば合格
 ```
 
-### Comparisons
+### 比較
 
 ```crystal
-actual.should be < expected  # passes if actual <  expected
-actual.should be <= expected # passes if actual <= expected
-actual.should be > expected  # passes if actual >  expected
-actual.should be >= expected # passes if actual >= expected
+actual.should be < expected  # actual <  expected であれば合格
+actual.should be <= expected # actual <= expected であれば合格
+actual.should be > expected  # actual >  expected であれば合格
+actual.should be >= expected # actual >= expected であれば合格
 ```
 
-### Other matchers
+### その他の条件
 
 ```crystal
-actual.should be_close(expected, delta) # passes if actual is within delta of expected:
+actual.should be_close(expected, delta) # actual が expected から delta 以内の値であれば合格
                                         # (actual - expected).abs <= delta
-actual.should contain(expected)         # passes if actual.includes?(expected)
-actual.should match(expected)           # passes if actual =~ expected
+actual.should contain(expected)         # actual.includes?(expected) が真なら合格
+actual.should match(expected)           # actual =~ expected が真なら合格
 ```
 
-### Expecting errors
+### エラーを想定する
 
-These matchers run a block and pass if it raises a certain exception.
+以下の例は、ブロックの実行時に特定の例外が発生した場合に合格になります。
 
 ```crystal
 expect_raises(MyError) do
-  # Passes if this block raises an exception of type MyError.
+  # ブロック内でMyError型の例外が発生すれば合格
 end
 
 expect_raises(MyError, "error message") do
-  # Passes if this block raises an exception of type MyError
-  # and the error message contains "error message".
+  # ブロック内でMyError型の例外が発生し、
+  # エラーメッセージが"error message"だったら合格
 end
 
 expect_raises(MyError, /error \w{7}/) do
-  # Passes if this block raises an exception of type MyError
-  # and the error message matches the regular expression.
+  # ブロック内でMyError型の例外が発生し、
+  # かつエラーメッセージが正規表現にマッチすれば合格
 end
 ```
 
-They return the rescued exception so it can be used for further expectations, for example to verify specific properties of the exception.
+これらは発生した例外を返すので、その例外の特定のプロパティをチェックするといった別のテストに使用することができます。
 
-## Focusing on a group of specs
+## 特定のグループにフォーカスしたspec
 
-`describe`, `context` and `it` blocks can be marked with `focus: true`, like this:
+`describe`や`context`、`it`ブロックには、以下のように `focus: true` を指定することができます。
 
 ```crystal
 it "adds", focus: true do
@@ -123,13 +123,13 @@ it "adds", focus: true do
 end
 ```
 
-If any such thing is marked with `focus: true` then only those examples will run.
+もし`focus: true`が指定されたブロックがあった場合、指定されたブロックのみが実行されます。
 
-## Tagging specs
+## specのタグ付け
 
-Tags can be used to group specs, allowing to only run a subset of specs when providing a `--tag` argument to the spec runner (see [Using the compiler](../using_the_compiler/README.md)).
+タグはspecをグループ付けするのに使用され、specを実行する際（[Using the compiler](../using_the_compiler/README.md)を参照）に`--tag`引数を指定することで、specの一部のみを実行することができます。
 
-`describe`, `context` and `it` blocks can be tagged, like this:
+`describe`や`context`、`it`ブロックには以下のようにしてタグをつけることができます。
 
 ```crystal
 it "is slow", tags: "slow" do
@@ -142,58 +142,58 @@ it "is fast", tags: "fast" do
 end
 ```
 
-Tagging an example group (`describe` or `context`) extends to all of the contained examples.
+実行例のグループ（`describe`や`context`）に対して指定されたタグは、その内部の実行例全てに適用されます。
 
-Multiple tags can be specified by giving an [`Enumerable`](https://crystal-lang.org/api/Enumerable.html), such as [`Array`](https://crystal-lang.org/api/Array.html) or [`Set`](https://crystal-lang.org/api/Set.html).
+[`Array`](https://crystal-lang.org/api/Array.html)や[`Set`](https://crystal-lang.org/api/Set.html)といった[`Enumerable`](https://crystal-lang.org/api/Enumerable.html)型を使用して、複数のタグを指定することもできます。
 
-## Running specs
+## specの実行
 
-The Crystal compiler has a `spec` command with tools to constrain which examples get run and tailor the output. All specs of a project are compiled and executed through the command `crystal spec`.
+Crystalコンパイラには`spec`コマンドがあり、どの実行例が実行されるかを指定したり出力を調整したりできるツールが用意され居ます。`crystal spec`コマンドでは、プロジェクト内の全てのspecがコンパイルされて実行されます。
 
-By convention, specs live in the `spec/` directory of a project. Spec files must end with `_spec.cr` to be recognizable as such by the compiler command.
+慣例的に、specはプロジェクト内の`spec/`ディレクトリに置かれます。コンパイラコマンドが認識できるように、spec ファイルのファイル名は末尾が`_spec.cr`でなければなりません。
 
-You can compile and run specs from folder trees, individual files, or specific lines in a file. If the specified line is the beginning of a `describe` or `context` section, all specs inside that group are run.
+specはフォルダ全体や、単独のファイル、ファイル内の特定の行といった単位で実行可能です。指定された行が`describe`や`context`セクションの先頭だった場合は、そのセクション内の全てのspecが実行されます。
 
-The default formatter outputs the file and line style command for failing specs which makes it easy to rerun just this individual spec.
+デフォルトのフォーマッタは、失敗したspecについて、後でそのsepcだけを再テストしやすいように、ファイル名と行数を含んだ形式のコマンド例を出力します。
 
-You can turn off colors with the switch `--no-color`.
+`--no-color`スイッチを指定すると、出力の色分けを停止できます。
 
-### Randomizing order of specs
+### ランダムな順序でのspec実行
 
-Specs, by default, run in the order defined, but can be run in a random order by passing `--order random` to `crystal spec`.
+`crystal spec`に`--order random`を指定すると、通常は定義され手順で実行されるspecを、ランダムな順序で実行可能です。
 
-Specs run in random order will display a seed value upon completion. This seed value can be used to rerun the specs in that same order by passing the seed value to `--order`.
+ランダムな順番でspecが実行された場合、終了時にseed値が表示されます。このシード値を`--order` で指定することで、もう一度同じ順番でspecを実行することができます。
 
-### Examples
+### コマンド例
 
 ```bash
-# Run all specs in files matching spec/**/*_spec.cr
+# ファイル名が spec/**/*_spec.cr にマッチするファイル内の全specを実行
 crystal spec
 
-# Run  all specs in files matching spec/**/*_spec.cr without colors
+# ファイル名が spec/**/*_spec.cr にマッチするファイル内の全specを実行（出力を色分けしない）
 crystal spec --no-color
 
-# Run all specs in files matching spec/my/test/**/*_spec.cr
+# ファイル名が spec/my/test/**/*_spec.cr にマッチするファイル内の全specを実行
 crystal spec spec/my/test/
 
-# Run all specs in spec/my/test/file_spec.cr
+# 特定のファイル spec/my/test/file_spec.cr 内の全specを実行
 crystal spec spec/my/test/file_spec.cr
 
-# Run the spec or group defined in line 14 of spec/my/test/file_spec.cr
+# 特定のファイル spec/my/test/file_spec.cr の14行目で定義されたspecや、グループ内のspecを実行
 crystal spec spec/my/test/file_spec.cr:14
 
-# Run all specs tagged with "fast"
+# "fast" タグが付けられたspecを全て実行
 crystal spec --tag 'fast'
 
-# Run all specs not tagged with "slow"
+# "slow" タグが付いていないspecを全て実行
 crystal spec --tag '~slow'
 ```
 
-## Spec helper
+## specヘルパ
 
-Many projects use a custom spec helper file, usually named `spec/spec_helper.cr`.
+多くのプロジェクトでは、（通常`spec/spec_helper.cr`という名前の）カスタムされたspecヘルパファイルを使用しています。
 
-This file is used to require `spec` and other includes like code from the project needed for every spec file. This is also a good place to define global helper methods that make writing specs easier and avoid code duplication.
+このファイルは、`spec`を require したり、個々のspecファイルが使用するコードをプロジェクト内から取り込むのに使用します。ここは、コードの重複を排除してspecの記述を容易にするために、テスト全体で利用するヘルパメソッドを置くのにも良い場所です。
 
 ```crystal
 # spec/spec_helper.cr
