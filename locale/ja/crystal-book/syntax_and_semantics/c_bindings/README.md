@@ -1,5 +1,5 @@
-# C bindings
+# C バインディング
 
 Crystal では、既存の C ライブラリに対して、C を1行も書かずにバインディングすることができます。
 
-Additionally, it provides some conveniences like `out` and `to_unsafe` so writing bindings is as painless as possible.
+さらに、`out` や `to_unsafe` といった便利なものを用意しているので、可能な限り楽にバインディングを書けるようになっています。

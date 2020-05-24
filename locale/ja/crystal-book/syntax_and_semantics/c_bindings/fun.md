@@ -1,6 +1,6 @@
 # fun
 
-A `fun` declaration inside a `lib` binds to a C function.
+`lib` の中で `fun` を宣言すると、C 関数へのバインディングとなります。
 
 ```crystal
 lib C
@@ -9,7 +9,7 @@ lib C
 end
 ```
 
-Once you bind it, the function is available inside the `C` type as if it was a class method:
+バインディングを設定したら、その関数は `C` 型でクラスメソッドのように利用できます。
 
 ```crystal
 C.cos(1.5) # => 0.0707372
@@ -35,7 +35,7 @@ end
 C.srand(1_u32)
 ```
 
-可変長引数を持つ関数にバインディングすることもできます。
+可変長引数を持つ関数をバインディングすることもできます。
 
 ```crystal
 lib X
@@ -45,13 +45,13 @@ end
 X.variadic(1, 2, 3, 4)
 ```
 
-Note that there are no implicit conversions (except `to_unsafe`, which is explained later) when invoking a C function: you must pass the exact type that is expected. For integers and floats you can use the various `to_...` methods.
+C の関数を呼び出すときに (後に説明する `to_unsafe` を除いては) 暗黙的な変換は行われないことに注意してください。つまり、期待される型を正確に渡す必要があります。整数と浮動小数点数に関しては`to_...` メソッドが利用できます。
 
-## Function names
+## 関数名
 
-Function names in a `lib` definition can start with an upper case letter. That's different from methods and function definitions outside a `lib`, which must start with a lower case letter.
+`lib` 中での関数名は大文字からはじめることができます。`lib` の外では関数名は小文字から始める必要があり、ここは異なっています。
 
-Function names in Crystal can be different from the C name. The following example shows how to bind the C function name `SDL_Init` as `LibSDL.init` in Crystal.
+これは、Crystal の関数名は C でのそれとは異なるためです。次は `SDL_Init` という名前の C の関数を Crystal では `LibSDL.init` としてバインディングする例です。
 
 ```crystal
 lib LibSDL
@@ -59,7 +59,7 @@ lib LibSDL
 end
 ```
 
-The C name can be put in quotes to be able to write a name that is not a valid identifier:
+C での名前が有効な識別子ではない場合、ダブルクオートで囲って記述します。
 
 ```crystal
 lib LLVMIntrinsics
@@ -67,23 +67,23 @@ lib LLVMIntrinsics
 end
 ```
 
-This can also be used to give shorter, nicer names to C functions, as these tend to be long and are usually prefixed with the library name.
+C の関数名は長い傾向があり、ライブラリ名で就職されている場合もあるため、より短かく分かりやすい名前をつけるためにこれを使うこともできます。
 
-## Types in C Bindings
+## C バインディング中の型
 
-The valid types to use in C bindings are:
-* Primitive types (`Int8`, ..., `Int64`, `UInt8`, ..., `UInt64`, `Float32`, `Float64`)
-* Pointer types (`Pointer(Int32)`, which can also be written as `Int32*`)
-* Static arrays (`StaticArray(Int32, 8)`, which can also be written as `Int32[8]`)
-* Function types (`Function(Int32, Int32)`, which can also be written as `Int32 -> Int32`)
-* Other `struct`, `union`, `enum`, `type` or `alias` declared previously.
-* `Void`: the absence of a return value.
-* `NoReturn`: similar to `Void`, but the compiler understands that no code can be executed after that invocation.
-* Crystal structs marked with the `@[Extern]` attribute
+C バインディング中で有効な型は、
+* プリミティブ型 (`Int8`、……、`Int64`、`UInt8`、……、`UInt64`、`Float32`、`Float64`)
+* ポインタ型 (`Pointer(Int32)`、これは `Int32*` のようにも書けます)
+* 静的配列 (`StaticArray(Int32, 8)`、これは `Int32[8]` のようにも書けます)
+* 関数型 (`Function(Int32, Int32)`、これは `Int32 -> Int32` のようにも書けます)
+* その他の、これまでに宣言された `struct`、`union`、`enum`、`type` もしくは `alias`
+* `Void`: 戻り値がないことを意味します
+* `NoReturn`: `Void` と似ているが、呼び出し後に続くコードを実行しないことをコンパイラが理解します
+* `@[Extern]` 属性の指定された Crystal の構造体
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in fun types.
+fun の型を書く際に利用できる構文は[型の文法](../type_grammar.html)を参照してください。
 
-The standard library defines the [LibC](https://github.com/crystal-lang/crystal/blob/master/src/lib_c.cr) lib with aliases for common C types, like `int`, `short`, `size_t`. それらはバインディングで以下のように利用できます。
+標準ライブラリには [LibC](https://github.com/crystal-lang/crystal/blob/master/src/lib_c.cr) ライブラリが定義されており、`int` や `short`、`size_t` といった一般的な C の型のエイリアスを提供しています。それらはバインディングで以下のように利用できます。
 
 ```crystal
 lib MyLib
@@ -91,4 +91,4 @@ lib MyLib
 end
 ```
 
-**Note:** The C `char` type is `UInt8` in Crystal, so a `char*` or a `const char*` is `UInt8*`. The `Char` type in Crystal is a unicode codepoint so it is represented by four bytes, making it similar to an `Int32`, not to an `UInt8`. There's also the alias `LibC::Char` if in doubt.
+**注意:** C の `char` 型は Crystal では `UInt8` です。なので、`char*` や `const char*` は `UInt8*` になります。Crystal の `Char` 型は Unicode のコードポイントであるため、4バイトで表現されます。つまり `UInt8` ではなく `Int32` に近いです。もし気になるのであれば、 `LibC::Char` というエイリアスが定義されていることを確認してみてください。

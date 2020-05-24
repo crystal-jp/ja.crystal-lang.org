@@ -1,50 +1,33 @@
-# Operators
+# 演算子
 
-Crystal supports a number of operators, with one, two or three operands.
+Crystal には単項、2項、3項の演算子があります。
 
-Operator expressions are actually parsed as method calls. For example `a + b`
-is semantically equivalent to `a.+(b)`, a call to method `+` on `a` with
-argument `b`.
+演算子は実際にはメソッド呼び出しとしてパースされます。例えば `a + b` は意味的には `a.+(b)` (`a` をレシーバに、`b` を引数にして `+` メソッドを呼び出す) と同じものになります。
 
-There are however some special rules regarding operator syntax:
+しかし、演算子の構文に関してはいくつか特別な規則があります。
 
-* The dot (`.`) usually put between receiver and method name
-   (i.e. the *operator*) can be omitted.
-* Chained sequences of operator calls are restructured by the compiler in order
-   to implement [operator precedence](#operator-precedence).
-   Enforcing operator precedence makes sure that an expression such as
-   `1 * 2 + 3 * 4` is parsed as `(1 * 2) + (2 * 3)` to honour regular math rules.
-* Regular method names must start with a letter or underscore, but operators
-   only consist of special characters. Any method not starting with a letter or
-   underscore is an operator  method.
-* Available operators are whitelisted in the compiler (see
-   [List of Operators](#list-of-operators) below) which allows symbol-only method
-   names and treats them as operators, including their precedence rules.
+* レシーバとメソッド名 (つまり*演算子名*) の間に置くドット (`.`) は省略できます。
+* 連続した演算子の呼び出しは[演算子の優先順位](#operator-precedence)に応じてコンパイラによって適切に並べ替えられます。
+   演算子の優先順位を適用することで、`1 * 2 + 3 * 4` は通常のマッチ規則に従って `(1 * 2) + (2 * 3)` のようにパースされます。
+* 通常のメソッド名は小文字がアンダースコアからはじまりますが、演算子の名前は特別な記号のみからなります。小文字やアンダースコアからはじまらない名前のメソッドは演算子です。
+* 有効な演算子名は記号のみのメソッド名を許可するコンパイラの中のホワイトリストにあるものに限られ ([演算子の一覧](#list-of-operators)を参照) 、これらの名前は演算子として扱われ優先順位を持ちます。
 
-Operators are implemented like any regular method, and the standard library
-offers many implementations, for example for math expressions.
+演算子は通常のメソッドのように定義できて、標準ライブラリでは数学の式の演算子などいくつもの実装が提供されています。
 
-## Defining operator methods
+## 演算子メソッドの定義
 
-Most operators can be implemented as regular methods.
+ほとんどの演算子は通常のメソッドとして実装されます。
 
-One can assign any meaning to the operators, but it is advisable to stay within
-similar semantics to the generic operator meaning to avoid cryptic code that is
-confusing and behaves unexpectedly.
+ある演算子に対してどのような意味を持たせることもできますが、混乱するような直感的でないコードになることを避けるため、演算子の一般的な意味に近いものにすることをおすすめします。
 
-A few operators are defined directly by the compiler and cannot be redefined
-in user code. Examples for this are the inversion operator `!`, the assignment
-operator `=`, [combined assignment operators](#combined-assignments) such as
-`||=` and [range operators](#range). Whether a method can be redefined is
-indicated by the colum *Overloadable* in the below operator tables.
+いくつかの少数の演算子はコンパイラによって直接実装され、ユーザーが再定義することはできません。例えば論理反転演算子 `!` や、代入演算子 `=`、`||=`のような[複合代入演算子](#combined-assignments)、そして[範囲演算子](#range)などがそれに当てはまります。メソッドが再定義可能かどうかは、下にある演算子の一覧の*オーバーロード可能か*の項目で示されています。
 
-### Unary operators
+### 単項演算子
 
-Unary operators are written in prefix notation and have only a single operand.
-Thus, a method implementation receives no arguments and only operates on `self`.
+単項演算子はプレフィックスの記法として書かれ、1つのオペランドを取るものです。
+そして、メソッドとしての実装は引数を取らず`self`に対して作用します。
 
-The following example demonstrates the `Vector2` type as a two-dimensional
-vector with a unary operator method `-` for vector inversion.
+次の例は2次元のベクトルを表す`Vector2`に、単項演算子の`-`をベクトルの反転させるものとして定義したものです。
 
 ```crystal
 struct Vector2
@@ -53,7 +36,7 @@ struct Vector2
   def initialize(@x : Int32, @y : Int32)
   end
 
-  # Unary operator. Returns the inverted vector to `self`.
+  # 単項演算子。`self` を反転させたベクトルを返す。
   def - : self
     Vector2.new(-x, -y)
   end
@@ -63,14 +46,11 @@ v1 = Vector2.new(1, 2)
 -v1 # => Vector2(@x=-1, @y=-2)
 ```
 
-## Binary operators
+## 2項演算子
 
-Binary operators have two operands. Thus, a method implementation receives
-exactly one argument representing the second operand. The first operand is the
-receiver `self`.
+2項の演算子は2つのオペランドを取ります。そして、メソッドとしての実装ではちょうど1つの引数を取り、それが2番目のオペランドに対応します。1つ目のオペランドは`self`として受け取ります。
 
-The following example demonstrates the `Vector2` type as a two-dimensional
-vector with a binary operator method `+` for vector addition.
+次の例は2次元のベクトルを表す`Vector2`に、2項演算子`+`を2つのベクトルを足し合わせるものとして定義したものです。
 
 ```crystal
 struct Vector2
@@ -79,7 +59,7 @@ struct Vector2
   def initialize(@x : Int32, @y : Int32)
   end
 
-  # Binary operator. Returns *other* added to `self`.
+  # 2項演算子。`self`と**other**を足し合わせたものを返す。
   def +(other : self) : self
     Vector2.new(x + other.x, y + other.y)
   end
@@ -90,79 +70,73 @@ v2 = Vector2.new(3, 4)
 v1 + v2 # => Vector2(@x=4, @y=6)
 ```
 
-Per convention, the return type of a binary operator should be the type of the
-first operand (the receiver), so that `typeof(a <op> b) == typeof(a)`.
-Otherwise the assignment operator (`a <op>= b`) would unintentionally change the
-type of `a`.
-There can be reasonable exceptions though. For example in the standard library
-the float division operator `/` on integer types always returns `Float64`,
-because the quotient must not be limited to the value range of integers.
+慣例的に、2項演算子の戻り値の方は1つ目のオペランド (レシーバ) と同じものにします。つまり `typeof(a <op> b) == typeof(a)` ということです。
+そうでないと代入演算子 (`a <op>= b`) の場合に意図せず `a` の型が変わってしまうことになります。
+ですが、妥当な例外も中には存在します。例えば標準ライブラリには、浮動小数点数の割り算をする演算子 `/` は整数型に対しても常に `Float64` を返します。なぜなら、除算の結果は整数の範囲になるとは限らないからです。
 
-## Ternary operators
+## 3項演算子
 
-The [conditional operator (`? :`)](./ternary_if.md) is the only ternary
-operator. It not parsed as a method, and its meaning cannot be changed.
-The compiler transforms it to an `if` expression.
+[条件分岐をする演算子 (`? : `)](./ternary_if.md)が唯一の3項演算子です。これはメソッドとしてパースされず、意味を変更することはできません。
+コンパイラは内部的にこれを `if` 式に変換します。
 
-## Operator Precedence
+## 演算子の優先順位
 
-This list is sorted by precedence, so upper entries bind stronger than lower
-ones.
+次の表は優先順位の高いものから低いものへ順ににソートされています。
 
 <table>
 <thead>
 <tr>
-<th>Category</th>
-<th>Operators</th>
+<th>分類</th>
+<th>演算子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Index accessors</td>
+<td>インデックス</td>
 <td><code>[]</code>, <code>[]?</code></td>
 </tr>
 <tr>
-<td>Unary</td>
+<td>単項演算子</td>
 <td><code>+</code>, <code>&amp;+</code>, <code>-</code>, <code>&amp;-</code>, <code>!</code>, <code>~</code>, <code>*</code>, <code>**</code></td>
 </tr>
 <tr>
-<td>Exponential</td>
+<td>指数</td>
 <td><code>**</code>, <code>&amp;**</code></td>
 </tr>
 <tr>
-<td>Multiplicative</td>
+<td>乗除法</td>
 <td><code>*</code>, <code>&amp;*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
 </tr>
 <tr>
-<td>Additive</td>
+<td>加減法</td>
 <td><code>+</code>, <code>&amp;+</code>, <code>-</code>, <code>&amp;-</code></td>
 </tr>
 <tr>
-<td>Shift</td>
+<td>ビットシフト</td>
 <td><code>&lt;&lt;</code>, <code>>></code></td>
 </tr>
 <tr>
-<td>Binary AND</td>
+<td>ビット AND</td>
 <td><code>&amp;</code></td>
 </tr>
 <tr>
-<td>Binary OR/XOR</td>
+<td>ビット OR/XOR</td>
 <td><code>|</code>,<code>^</code></td>
 </tr>
 <tr>
-<td>Equality</td>
+<td>等価性</td>
 <td><code>==</code>, <code>!=</code>, <code>=~</code>, <code>!~</code>, <code>===</code></td>
 </tr>
 <tr>
-<td>Comparison</td>
+<td>比較</td>
 <td><code>&lt;</code>, <code>&lt;=</code>, <code>></code>, <code>>=</code>, <code>&lt;=></code></td>
 </tr>
 <tr>
-<td>Logical AND</td>
+<td>論理 AND</td>
 <td><code>&amp;&amp;</code></td>
 </tr>
 <tr>
-<td>Logical OR</td>
+<td>論理 OR</td>
 <td><code>||</code></td>
 </tr>
 <tr>
@@ -170,7 +144,7 @@ ones.
 <td><code>..</code>, <code>...</code></td>
 </tr>
 <tr>
-<td>Conditional</td>
+<td>条件分岐</td>
 <td><code>?:</code></td>
 </tr>
 <tr>
@@ -180,144 +154,137 @@ ones.
 </tbody>
 </table>
 
-## List of operators
+## 演算子の一覧
 
-### Arithmetic operators
+### 算術演算子
 
-#### Unary
+#### 単項演算子
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `+` | positive | `+1` | yes |
-| `&+` | wrapping positive | `&+1` | yes |
-| `-` | negative | `-1` | yes |
-| `&-` | wrapping negative | `&-1` | yes |
+| `+` | 正の数にする | `+1` | yes |
+| `&+` | 正の数にする (オーバフローの可能性がある) | `&+1` | yes |
+| `-` | 負の数にする | `-1` | yes |
+| `&-` | 負の数にする (オーバーフローの可能性がある) | `&-1` | yes |
 
-#### Multiplicative
+#### 乗除法
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `**` | exponentiation | `1 ** 2` | yes |
-| `&**` | wrapping exponentiation | `1 &** 2` | yes |
-| `*` | multiplication | `1 * 2` | yes |
-| `&*` | wrapping multiplication | `1 &* 2` | yes |
-| `/` | division | `1 / 2` | yes |
-| `//` | floor division | `1 // 2` | yes |
-| `%` | modulus | `1 % 2` | yes |
+| `**` | 指数 | `1 ** 2` | yes |
+| `&**` | 指数 (オーバーフローの可能性がある) | `1 &** 2` | yes |
+| `*` | 乗法 | `1 * 2` | yes |
+| `&*` | 乗法 (オーバーフローの可能性がある) | `1 &* 2` | yes |
+| `/` | 除法 | `1 / 2` | yes |
+| `//` | 整数に丸められる除法 | `1 // 2` | yes |
+| `%` | 余り | `1 % 2` | yes |
 
-#### Additive
+#### 加減法
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `+` | addition | `1 + 2` | yes |
-| `&+` | wrapping addition | `1 &+ 2` | yes |
-| `-` | subtraction | `1 - 2` | yes |
-| `&-` | wrapping subtraction | `1 &- 2` | yes |
+| `+` | 加法 | `1 + 2` | yes |
+| `&+` | 加法 (オーバーフローの可能性がある) | `1 &+ 2` | yes |
+| `-` | 減法 | `1 - 2` | yes |
+| `&-` | 減法 (オーバーフローの可能性がある) | `1 &- 2` | yes |
 
-### Other unary operators
+### その他の単項演算子
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `!` | inversion | `!true` | no |
-| `~` | binary complement | `~1` | yes |
+| `!` | 論理反転 | `!true` | no |
+| `~` | ビット反転 | `~1` | yes |
 
-### Shifts
+### ビットスフト
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `<<` | shift left, append | `1 << 2`, `STDOUT << "foo"` | yes |
-| `>>` | shift right | `1 >> 2` | yes |
+| `<<` | 左シフト、もしくは追記 | `1 << 2`, `STDOUT << "foo"` | yes |
+| `>>` | 右シフト | `1 >> 2` | yes |
 
-### Binary
+### ビット演算
 
 <table>
 <thead>
 <tr>
-<th>Operator</th>
-<th>Description</th>
-<th>Example</th>
-<th>Overloadable</th>
+<th>演算子名</th>
+<th>説明</th>
+<th>例</th>
+<th>オーバーロード可能か</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>&amp;</code></td>
-<td>binary AND</td>
+<td>ビット AND</td>
 <td><code>1 &amp; 2</code></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>|</code></td>
-<td>binary OR</td>
+<td>ビット OR</td>
 <td><code>1 | 2</code></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>^</code></td>
-<td>binary XOR</td>
+<td>ビット XOR</td>
 <td><code>1 ^ 2</code></td>
 <td>yes</td>
 </tr>
 </tbody>
 </table>
 
-### Equality
+### 等価性
 
-Three base operators test equality:
+基本となる等価性の検査の方法として次のものがあります。
 
-* `==`: Checks whether the values of the operands are equal
-* `=~`: Checks whether the value of the first operand matches the value of the
-   second operand with pattern matching.
-* `===`: Checks whether the left hand operand matches the right hand operand in
-   [case equality](case.html). This operator is applied in `case ... when`
-   conditions.
+* `==`: オペランドの値が等しいかどうか
+* `=~`: 最初のオペランドが2番目のオペランドの値がパターンマッチするかどうか
+* `===`: [case 等価性](case.html)によって左のオペランドが右のオペランドにマッチするかどうか。この演算子は `case ... when` の条件分岐でも用いられます。
 
-The first two operators also have inversion operators (`!=` and `!~`) whose
-semantical intention is just the inverse of the base operator: `a != b` is
-supposed to be equivalent to `!(a == b)` and `a !~ b` to `!(a =~ b)`.
-Nevertheless, these inversions can be defined with a custom implementation. This
-can be useful for example to improve performance (non-equality can often be
-proven faster than equality).
+最初の2つに関しては結果を反転させたものも存在します (`!=` と `!~`)。`a != b` は `!(a == b)` と同じだと考えられて、`a !~ b` は `!(a =~ b)` と同じだと考えられます。
+もちろん、これらの演算子を独自に実装することもできます。等価でないことを確認することが等価であることを確認するよりも高速な場合に、パフォーマンスを改善するのに役に立ちます。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `==` | equals | `1 == 2` | yes |
-| `!=` | not equals | `1 != 2` | yes |
-| `=~` | pattern match | `"foo" =~ /fo/` | yes |
-| `!~` | no pattern match | `"foo" !~ /fo/` | yes |
-| `===` | [case equality](case.html) | `/foo/ === "foo"` | yes |
+| `==` | 等価性の検査 | `1 == 2` | yes |
+| `!=` | 非等価性の検査 | `1 != 2` | yes |
+| `=~` | パターンマッチの検査 | `"foo" =~ /fo/` | yes |
+| `!~` | パターンマッチしないことの検査 | `"foo" !~ /fo/` | yes |
+| `===` | [case 等価性](case.html) | `/foo/ === "foo"` | yes |
 
-### Comparison
+### 比較
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `<` | less | `1 < 2` | yes |
-| `<=` | less or equal | `1 <= 2` | yes |
-| `>` | greater | `1 > 2` | yes |
-| `>=` | greater or equal | `1 >= 2` | yes |
-| `<=>` | comparison | `1 <=> 2` | yes |
+| `<` | より小さい | `1 < 2` | yes |
+| `<=` | より小さいか等しい (以下) | `1 <= 2` | yes |
+| `>` | より大きい | `1 > 2` | yes |
+| `>=` | より大きいか等しい (以上) | `1 >= 2` | yes |
+| `<=>` | 比較 | `1 <=> 2` | yes |
 
-### Logical
+### 論理演算子
 
 <table>
 <thead>
 <tr>
-<th>Operator</th>
-<th>Description</th>
-<th>Example</th>
-<th>Overloadable</th>
+<th>演算子名</th>
+<th>説明</th>
+<th>例</th>
+<th>オーバーロード可能か</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>&amp;&amp;</code></td>
-<td><a href="and.html">logical AND</a></td>
+<td><a href="and.html">論理 AND</a></td>
 <td><code>true &amp;&amp; false</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>||</code></td>
-<td><a href="or.html">logical OR</a></td>
+<td><a href="or.html">論理 OR</a></td>
 <td><code>true || false</code></td>
 <td>no</td>
 </tr>
@@ -326,194 +293,181 @@ proven faster than equality).
 
 ### 範囲 (Range)
 
-The range operators are used in [Range](literals/range.md)
-literals.
+[Range](literals/range.md) リテラルに範囲演算子は使われます。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `..` | range | `1..10` | no |
-| `...` | exclusive range | `1...10` | no |
+| `..` | 範囲 | `1..10` | no |
+| `...` | 末尾を含まない範囲 | `1...10` | no |
 
-### Splats
+### スプラット
 
-Splat operators can only be used for destructing tuples in method arguments.
-See [Splats and Tuples](splats_and_tuples.md) for details.
+スプラット演算子はタプルを引数に展開するときにのみ利用できます。
+詳細は[スプラット展開とタプル](splats_and_tuples.md)を参照してください。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `*` | splat | `*foo` | no |
-| `**` | double splat | `**foo` | no |
+| `*` | スプラット展開 | `*foo` | no |
+| `**` | 二重スプラット展開 | `**foo` | no |
 
-### Conditional
+### 条件分岐
 
-The [conditional operator (`? :`)](./ternary_if.md) is internally rewritten to
-an `if` expression by the compiler.
+[条件分岐をする演算子 (`? :`)](./ternary_if.md) はコンパイラによって内部的には `if` 式に変換されます。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `? :` | conditional | `a == b ? c : d` | no |
+| `? :` | 条件分岐 | `a == b ?c : d` | no |
 
-### Assignments
+### 代入
 
-The assignment operator `=` assigns the value of the second operand to the first
-operand. The first operand is either a variable (in this case the operator can't
-be redefined) or a call (in this case the operator can be redefined).
-See [assignment](assignment.md) for details.
+代入演算子 `=` は2番目のオペランドの値を最初のオペランドの示す先に代入します。最初のオペランドは変数 (この場合は再定義できません) もしくはメソッド呼び出し (この場合は再定義できます) のどちらかになります。
+詳細は[代入](assignment.md)を参照してください。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `=` | variable assignment | `a = 1` | no |
-| `=` | call assignment | `a.b = 1` | yes |
-| `[]=` | index assignment | `a[0] = 1` | yes |
+| `=` | 変数への代入 | `a = 1` | no |
+| `=` | 呼び出し代入 | `a.b = 1` | yes |
+| `[]=` | インデックス指定の代入 | `a[0] = 1` | yes |
 
-### Combined assignments
+### 複合代入
 
-The assignment operator `=` is the basis for all operators that combine an
-operator with assignment. The general form is `a <op>= b` and the compiler
-transform that into `a = a <op> b`.
+代入 `=` は演算子と代入を組み合わせたものの基礎となっています。一般的な形は `a <op>= b` で、コンパイラはこれを `a = a <op> b` に変換します。
 
-Exceptions to the general expansion formula are the logical operators:
+例外として、論理演算子に対する複合代入は次のように変換されます。
 
-* `a ||= b` transforms to `a || (a = b)`
-* `a &&= b` transforms to `a && (a = b)`
+* `a ||= b` は `a || (a = b)` と変換される。
+* `a &&= b` は `a && (a = b)` と変換される。
 
-There is another special case when `a` is an index accessor (`[]`), it is
-changed to the nilable variant (`[]?` on the right hand side:
+その他に、これまでの例の `a` がインデクッス指定の代入 (`[]`) の場合も、nil を受け入れるものに変換されます (右側では `[]?` が使われます)。
 
-* `a[i] ||= b` transforms to `a[i] = (a[i]? || b)`
-* `a[i] &&= b` transforms to `a[i] = (a[i]? && b)`
+* `a[i] ||= b` は `a[i] = (a[i]? || b)` に変換されます。
+* `a[i] &&= b` は `a[i] = (a[i]? && b)` に変換されます。
 
-All transformations assume the receiver (`a`) is a variable. If it is a call,
-the replacements are semantically equivalent but the implementation is a bit
-more complex (introducing an anonymous temporary variable) and expects `a=` to
-be callable.
+すべての変換ではレシーバ (`a`) が変数であることを前提としています。呼び出しだった場合も同様の意味の形に変換されますが、実装は少し複雑になり(一時的な変数を利用します)、また`a=`が呼び出せる必要があります。
 
-The receiver can't be anything else than a variable or call.
+レシーバは変数もしくは呼び出し以外にはなりません。
 
 <table>
 <thead>
 <tr>
-<th>Operator</th>
-<th>Description</th>
-<th>Example</th>
-<th>Overloadable</th>
+<th>演算子名</th>
+<th>説明</th>
+<th>例</th>
+<th>オーバーロード可能か</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>+=</code></td>
-<td>addition <em>and</em> assignment</td>
+<td>加法<em>複合</em>代入</td>
 <td><code>i += 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&amp;+=</code></td>
-<td>wrapping addition <em>and</em> assignment</td>
+<td>オーバーフローの起こる加法の<em>複合</em>代入</td>
 <td><code>i &amp;+= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>-=</code></td>
-<td>subtraction <em>and</em> assignment</td>
+<td>減法<em>複合</em>代入</td>
 <td><code>i -= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&amp;-=</code></td>
-<td>wrapping subtraction <em>and</em> assignment</td>
+<td>オーバーフローの起こる減法<em>複合</em>代入</td>
 <td><code>i &amp;-= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>*=</code></td>
-<td>multiplication <em>and</em> assignment</td>
+<td>乗法<em>複合</em>代入</td>
 <td><code>i *= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&amp;*=</code></td>
-<td>wrapping multiplication <em>and</em> assignment</td>
+<td>オーバーフローの起こる<em>複合</em>代入</td>
 <td><code>i &amp;*= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>/=</code></td>
-<td>division <em>and</em> assignment</td>
+<td>除法<em>複合</em>代入</td>
 <td><code>i /= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>//=</code></td>
-<td>floor division <em>and</em> assignment</td>
+<td>整数に丸められる除法の<em>複合</em>代入</td>
 <td><code>i //= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>%=</code></td>
-<td>modulo <em>and</em> assignment</td>
+<td>余りの<em>複合</em>代入</td>
 <td><code>i %= 1</code></td>
 <td>yes</td>
 </tr>
 <tr>
 <td><code>|=</code></td>
-<td>binary or <em>and</em> assignment</td>
+<td>ビット OR <em>複合</em>代入</td>
 <td><code>i |= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&amp;=</code></td>
-<td>binary and <em>and</em> assignment</td>
+<td>ビット AND <em>複合</em>代入</td>
 <td><code>i &amp;= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>^=</code></td>
-<td>binary xor <em>and</em> assignment</td>
+<td>ビット XOR <em>複合</em>代入</td>
 <td><code>i ^= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>**=</code></td>
-<td>exponential <em>and</em> assignment</td>
+<td>指数の<em>複合</em>代入</td>
 <td><code>i **= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&lt;&lt;=</code></td>
-<td>left shift <em>and</em> assignment</td>
+<td>左シフト<em>複合</em>代入</td>
 <td><code>i &lt;&lt;= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>>>=</code></td>
-<td>right shift <em>and</em> assignment</td>
+<td>右シフト<em>複合</em>代入</td>
 <td><code>i >>= 1</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>||=</code></td>
-<td>logical or <em>and</em>  assignment</td>
+<td>論理 OR <em>複合</em>代入</td>
 <td><code>i ||= true</code></td>
 <td>no</td>
 </tr>
 <tr>
 <td><code>&amp;&amp;=</code></td>
-<td>logical and <em>and</em> assignment</td>
+<td>論理 AND <em>複合</em>代入</td>
 <td><code>i &amp;&amp;= true</code></td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 
-### Index Accessors
+### インデックスアクセサ
 
-Index accessors are used to query a value by index or key, for example an array
-item or map entry. The nilable variant `[]?` is supposed to return `nil` when
-the index is not found, while the non-nilable variant raises in that case.
-Implementations in the standard-library usually raise [`KeyError`](https://crystal-lang.org/api/latest/KeyError.html)
-or [`IndexError`](https://crystal-lang.org/api/latest/IndexError.html).
+インデックスアクセサは配列の要素やハッシュのエントリなど、インデックスもしくはキーに対応する値を取得するために使います。nil を受け入れるもの `[]?` はもしインデックスに対応する値が存在しなかった場合に `nil` を返すものです。nil を受け入れない場合はその場合にはエラーを起こします。
+標準ライブラリではそのような場合に通常では [`KeyError`](https://crystal-lang.org/api/latest/KeyError.html) か [`IndexError`](https://crystal-lang.org/api/latest/IndexError.html) をエラーとして生じさせます。
 
-| Operator | Description | Example | Overloadable |
+| 演算子名 | 説明 | 例 | オーバーロード可能か |
 |---|---|---|---|
-| `[]` | index accessor | `ary[i]` | yes |
-| `[]?` | nilable index accessor | `ary[i]?` | yes |
+| `[]` | インデックスアクセサ | `ary[i]` | yes |
+| `[]?` | nil を受け入れるインデックスアクセサ | `ary[i]?` | yes |

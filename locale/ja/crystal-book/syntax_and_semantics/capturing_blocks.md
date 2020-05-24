@@ -1,6 +1,6 @@
-# Capturing blocks
+# ブロックの捕捉
 
-A block can be captured and turned into a `Proc`, which represents a block of code with an associated context: the closured data.
+ブロックを捕捉して `Proc` にすることができます。これはコンテキストに結び付いてコードブロック (クロージャ) を表すものです。
 
 ブロックを捕捉するには、メソッドにブロック引数を設定し、その名前とインプット/アウトプットの型を指定する必要があります。例をあげます。
 
@@ -13,7 +13,7 @@ proc = int_to_int { |x| x + 1 }
 proc.call(1) # => 2
 ```
 
-The above code captures the block of code passed to `int_to_int` in the `block` variable, and returns it from the method. The type of `proc` is [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html), a function that accepts a single `Int32` argument and returns an `Int32`.
+上記のコードでは、`int_to_int` に渡されたコードブロックを `block` という変数に捕捉し、それをメソッドの戻り値としています。このとき、`proc` の型は [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html) で、これは単一の `Int32` を引数に取り、`Int32` を返す関数となります。
 
 この方法で、ブロックをコールバックとして保存しておくこともできます。
 
@@ -35,7 +35,7 @@ model.on_save { puts "Saved!" }
 model.save # prints "Saved!"
 ```
 
-In the above example the type of `&block` wasn't specified: this just means that the captured block doesn't have arguments and doesn't return anything.
+上記の例において、`&block` の型を指定していません。これは捕捉されたブロックが引数を何も受け取らず、戻り値も返さないことを示しています。
 
 戻り値の型が指定されていないとき、proc の呼び出しは何も返さないことに注意してください。
 
@@ -62,10 +62,10 @@ proc = some_proc { |x| x.to_s }
 proc.call(1) # "1"
 ```
 
-## break and next
+## break と next
 
-`return` and `break` can't be used inside a captured block. `next` can be used and will exit and give the value of the captured block.
+`return` と `break` を捕捉されたブロックの中で使用することはできません。`next` は捕捉されたブロックの中で使用することができて、ブロックを終了し与えられた値をブロックの呼び出し結果とします。
 
 ## with ... yield
 
-The default receiver within a captured block can't be changed by using `with ... yield`.
+捕捉されたブロックのレシーバは`with ... yield`を使って変更することはできません。

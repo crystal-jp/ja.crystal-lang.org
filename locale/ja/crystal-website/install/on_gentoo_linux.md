@@ -1,12 +1,12 @@
 ---
-subtitle: On Gentoo Linux
+subtitle: Gentoo Linux への
 ---
 
-Gentoo Linux includes the Crystal compiler in the main overlay.
+Gentoo Linux は main オーバレイに Crystal のコンパイラを含んでいます。
 
-## Configuration
+## 設定
 
-You might want to take a look at the available configuration flags first:
+まずはじめに次の設定フラグを有効にする必要があるでしょう。
 
 <div class="code_section">
 {% highlight bash %}
@@ -23,7 +23,7 @@ You might want to take a look at the available configuration flags first:
 {% endhighlight bash %}
 </div>
 
-## Install
+## インストール
 
 <div class="code_section">
 {% highlight bash %}

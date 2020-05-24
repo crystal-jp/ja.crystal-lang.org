@@ -1,6 +1,6 @@
 # instance_sizeof
 
-The `instance_sizeof` expression returns an `Int32` with the instance size of a given class. 例をあげます。
+`instance_sizeof` は与えられたクラスのインスタンスのサイズを `Int32` で返します。例をあげます。
 
 ```crystal
 class Point
@@ -14,4 +14,4 @@ Point.new 1, 2
 instance_sizeof(Point) # => 12
 ```
 
-Even though the instance has two `Int32` fields, the compiler always includes an extra `Int32` field for the type id of the object. したがって、最終的にこのインスタンスのサイズは 8 ではなく 12 となります。
+上記では、インスタンスは2つの `Int32` のフィールドを持っています。ただし、オブジェクトの型 ID のために、コンパイラによって常に `Int32` フィールドが追加されます。したがって、最終的にこのインスタンスのサイズは 8 ではなく 12 となります。

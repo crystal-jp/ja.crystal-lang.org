@@ -1,6 +1,6 @@
 # as?
 
-The `as?` pseudo-method is similar to `as`, except that it returns `nil` instead of raising an exception when the type doesn't match. It also can't be used to cast between pointer types and other types.
+`as?` という疑似メソッドは `as` に似ていますが、型がマッチしなかった際に例外を投げるのではなく `nil` を返すという点が異なります。しかしポインタ型を他の型へキャストすることはできません。
 
 例:
 

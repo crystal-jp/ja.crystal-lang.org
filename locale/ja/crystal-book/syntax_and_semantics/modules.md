@@ -1,9 +1,9 @@
-# Modules
+# モジュール
 
 モジュールは以下の2つの役割のためにあります。
 
-* as namespaces for defining other types, methods and constants
-* as partial types that can be mixed in other types
+* 型やメソッド、定数を定義する名前空間としての役割
+* 他の型へ mixin する部分的な型としての役割
 
 まず、名前空間としてモジュールを使用する例を見てみましょう。
 
@@ -18,9 +18,9 @@ Curses::Window.new
 
 あなたがライブラリの作者であれば、上記のように型などの定義をモジュールの内部で行うことによって名前の衝突を避けるべきです。ただし、標準ライブラリには基本的に名前空間が設定されていません。これは、標準ライブラリの型やメソッドはごく一般的に利用されるものなので、そのたびに長い名前を書かずに済むようにするためです。
 
-To use a module as a partial type you use `include` or `extend`.
+モジュールを部分的な型として使いたい場合、`include` もしくは `extend` を使います。
 
-An `include` makes a type include methods defined in that module as instance methods:
+`include` はモジュールで定義されたメソッドをインスタンスメソッドとして利用できるようにします。
 
 ```crystal
 module ItemsSize
@@ -41,11 +41,11 @@ items = Items.new
 items.size # => 3
 ```
 
-In the above example, it is as if we pasted the `size` method from the module into the `Items` class. この仕組みは、それぞれの型に対して、その親や先祖のリストを持たせることで機能しています。最初の状態では、このリストはスーパークラスから始まります。As modules are included they are **prepended** to this list. そして、あるメソッドが自身の型に見つからないとき、そのリストをたどってメソッドを探します。When you invoke `super`, the first type in this ancestors list is used.
+上記の例では、まるでモジュールの `size` メソッドを `Items` クラスに貼り付けたようになっていることが分かるでしょう。この仕組みは、それぞれの型に対して、その親や先祖のリストを持たせることで機能しています。最初の状態では、このリストはスーパークラスから始まります。モジュールがインクルードされたとき、モジュールはそのリストの**先頭に追加**されます。そして、あるメソッドが自身の型に見つからないとき、そのリストをたどってメソッドを探します。また、`super` を実行したときには、その祖先リストの先頭の型が対象となります。
 
-A `module` can include other modules, so when a method is not found in it it will be looked up in the included modules.
+`module` が別のモジュールをインクルードすることも可能です。そのとき、モジュールにメソッドが見つからなかった場合は、インクルードされたモジュールの中を探します。
 
-An `extend` makes a type include methods defined in that module as class methods:
+`extend` はモジュールで定義されたメソッドをクラスメソッドとして利用できるようにします。
 
 ```crystal
 module SomeSize
@@ -61,7 +61,7 @@ end
 Items.size # => 3
 ```
 
-Both `include` and `extend` make constants defined in the module available to the including/extending type.
+また、`include` と `extend` のどちらを使った場合も、モジュールで定義された定数を利用できるようになります。
 
 トップレベルで `include`/`extend` することもできます。そうすると、何度も名前空間を書かなくても済むようになります (もちろん、その分だけ名前が衝突する可能性は高くなりますが) 。
 
@@ -83,7 +83,7 @@ some_method  # OK, 1
 
 ## extend self
 
-A common pattern for modules is `extend self`:
+モジュールでよく使われるパターンに `extend self` というものがあります。
 
 ```crystal
 module Base64
@@ -124,11 +124,11 @@ end
 Moo.new # undefined method 'new' for Moo:Module
 ```
 
-# Module Type Checking
+# モジュールの型検査
 
-Modules can also be used for type checking.
+モジュールは型を検査するのにも使えます。
 
-If we define two modules with names `A` and `B`:
+2つのモジュールが `A` と `B` を考えてください。
 
 ```crystal
 module A; end
@@ -136,7 +136,7 @@ module A; end
 module B; end
 ```
 
-These can be included into classes:
+これらをクラスにインクルードします。
 
 ```crystal
 class One
@@ -152,8 +152,7 @@ class Three < Two
 end
 ```
 
-We can then type check against instances of these classes with not only their class, but the
-included modules as well:
+このとき、クラスによって型検査をするだけではなく、モジュールで型検査をすることができます。
 
 ```crystal
 one = One.new
@@ -167,15 +166,15 @@ three.is_a?(A) # => true
 three.is_a?(B) # => true
 ```
 
-This allows you to define arrays and methods based on module type instead of class:
+これによって、クラスの代わりにモジュールに基づく配列を作ったりすることができます。
 ```crystal
 one = One.new
 two = Two.new
 three = Three.new
 
 new_array = Array(A).new
-new_array << one   # Ok, One inherits module A
-new_array << three # Ok, Three includes module A
+new_array << one   # One は A をインクルードしているのでOK
+new_array << three # Three は A をインクルードしているのでOK
 
-new_array << two # Error, because Two does not inherit module A
+new_array << two # Two は A をインクルードしていないのでエラー
 ```

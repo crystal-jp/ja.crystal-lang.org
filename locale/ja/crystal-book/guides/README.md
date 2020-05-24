@@ -1,3 +1,3 @@
-# Guides
+# ガイド
 
-Read these guides to get the best out of Crystal.
+Crystal の力を最高に引き出すにはこのガイドを読んでください。

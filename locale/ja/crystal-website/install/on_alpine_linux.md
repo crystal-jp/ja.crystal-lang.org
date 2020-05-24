@@ -1,12 +1,12 @@
 ---
-subtitle: On Alpine Linux
+subtitle: Alpine Linux への
 ---
 
-Alpine Linux includes the Crystal compiler in the community repository, starting from version Alpine 3.7.
+Alpine Linux では、バージョン 3.7 から Crystal のコンパイラがコミュニティリポジトリに含まれています。
 
-Currently, the package is only available for `aarch64` and `x86_64` platforms.
+今のところはパッケージは `aarch64` と `x86_64` のプラットフォームでのみ有効です。
 
-## Install
+## インストール
 
 <div class="code_section">
 {% highlight bash %}

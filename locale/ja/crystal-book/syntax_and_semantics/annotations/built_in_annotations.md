@@ -1,4 +1,4 @@
-The Crystal standard library includes some pre-defined annotations:
+Crystal の標準ライブラリにはこれらの事前に定義されたアノテーションがあります。
 
 * [Link](#link)
 * [Extern](#extern)
@@ -13,11 +13,11 @@ The Crystal standard library includes some pre-defined annotations:
 
 ## Link
 
-C ライブラリのリンクをコンパイラに指示します。This is explained in the [lib](../c_bindings/lib.html) section.
+C ライブラリのリンクをコンパイラに指示します。詳細は [lib](../c_bindings/lib.html) のセクションを参照してください。
 
 ## Extern
 
-Marking a Crystal struct with this attribute makes it possible to use it in lib declarations:
+このアノテーションをつけた Crystal の構造体はlibの宣言の中でも使えるようになります。
 
 ```crystal
 @[Extern]
@@ -25,14 +25,14 @@ struct MyStruct
 end
 
 lib MyLib
-  fun my_func(s : MyStruct) # OK (gives an error without the Extern attribute)
+  fun my_func(s : MyStruct) # OK (Extern がない場合はエラー)
 end
 ```
 
-You can also make a struct behave like a C union (this can be pretty unsafe):
+構造体をCの共用体のようにするためにも使えます (これはかなり安全ではありません)。
 
 ```crystal
-# A struct to easily convert between Int32 codepoints and Chars
+# Int32 のコードポイントと文字列の間で簡単に変換できる構造体
 @[Extern(union: true)]
 struct Int32OrChar
   property int = 0
@@ -49,22 +49,21 @@ s.char # => 'B'
 
 ## ThreadLocal
 
-The `@[ThreadLocal]` attribute can be applied to class variables and C external variables. これによって、それらの変数がスレッドローカルになります。
+`@[ThreadLocal]` アノテーションはクラス変数とCの外部変数に対して適用できます。これによって、それらの変数がスレッドローカルになります。
 
 ```crystal
 class DontUseThis
-  # One for each thread
+  # スレッドごとに1つずつ
   @[ThreadLocal]
   @@values = [] of Int32
 end
 ```
 
-ThreadLocal is used in the standard library to implement the runtime and shouldn't be
-needed or used outside it.
+ThreadLocal は標準ライブラリでランタイムを実装するのに使われていますが、その外で使うことはないでしょう。
 
 ## Packed
 
-Marks a [C struct](../c_bindings/struct.html) as packed, which prevents the automatic insertion of padding bytes between fields. This is typically only needed if the C library explicitly uses packed structs.
+[C の構造体](../c_bindings/struct.html)をパックし、自動でフィールド間のパディングが挿入されるのを防ぎます。C のライブラリがパックされた構造体を利用する場合に、これは必要になるでしょう。
 
 ## AlwaysInline
 
@@ -79,7 +78,7 @@ end
 
 ## NoInline
 
-メソッドを呼び出しをインラインにしないようにコンパイラに指示します。This has no effect if the method yields, since functions which yield are always inlined.
+メソッドを呼び出しをインライン化にしないようにコンパイラに指示します。これはメソッドが yield する場合には効果がありません。なぜならその場合は常にインライン化されるためです。
 
 ```crystal
 @[NoInline]
@@ -90,15 +89,15 @@ end
 
 ## ReturnsTwice
 
-Marks a method or [lib fun](../c_bindings/fun.html) as returning twice. The C `setjmp` is an example of such a function.
+メソッドもしくは [lib 中の fun](../c_bindings/fun.html) が2度リターンすることを指示します。そのような関数としては、C言語の `setjmp` があげられます。
 
 ## Raises
 
-Marks a method or [lib fun](../c_bindings/fun.html) as potentially raising an exception. This is explained in the [callbacks](../c_bindings/callbacks.html) section.
+メソッドもしくは [lib 中の fun](../c_bindings/fun.html) が例外を発生させる可能性があることを指示します。詳細は [コールバック](../c_bindings/callbacks.html) のセクションを参照してください。
 
 ## CallConvention
 
-Indicates the call convention of a [lib fun](../c_bindings/fun.html). 例をあげます。
+[lib fun](../c_bindings/fun.html) の呼び出し規約を指定します。例をあげます。
 
 ```crystal
 lib LibFoo
@@ -109,7 +108,7 @@ end
 
 有効な呼出規約は以下のとおりです。
 
-* C (the default)
+* C (デフォルト)
 * Fast
 * Cold
 * WebKit_JS
@@ -117,8 +116,8 @@ end
 * X86_StdCall
 * X86_FastCall
 
-They are explained [here](http://llvm.org/docs/LangRef.html#calling-conventions).
+詳しい説明は[こちら](http://llvm.org/docs/LangRef.html#calling-conventions)を参照してください。
 
 ## Flags
 
-Marks an [enum](../enum.html) as a "flags enum", which changes the behaviour of some of its methods, like `to_s`.
+[列挙型](../enum.html)を「フラグ列挙型」とします。これによって、`to_s` などいくつかのメソッドの挙動が変更されます。

@@ -1,6 +1,6 @@
 # タプル (Tuple)
 
-[Tuple](http://crystal-lang.org/api/Tuple.html)は通常タプルリテラルによって生成します。
+[Tuple](http://crystal-lang.org/api/Tuple.html) は通常タプルリテラルにより生成します。
 
 ```crystal
 tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
@@ -9,7 +9,7 @@ tuple[1]                  # => "hello" (String)
 tuple[2]                  # => 'x'     (Char)
 ```
 
-空のタプルを作るには[Tuple.new](https://crystal-lang.org/api/Tuple.html#new%28%2Aargs%3A%2AT%29-class-method)を使ってください。
+空のタプルを作るには [Tuple.new](https://crystal-lang.org/api/Tuple.html#new%28%2Aargs%3A%2AT%29-class-method) を使ってください。
 
 タプルの型は次のようして書けます。
 

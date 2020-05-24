@@ -29,7 +29,7 @@ If a connection can't be created, or if a connection loss occurs while the state
 
 > The retry logic only happens when the statement is sent through the `DB::Database` . If it is sent through a `DB::Connection` or `DB::Transaction` no retry is performed since the code will state that certain connection object was expected to be used.
 
-## Configuration
+## 設定
 
 The behavior of the pool can be configured from a set of parameters that can appear as query string in the connection URI.
 

@@ -1,6 +1,6 @@
-# Enums
+# 列挙型 (Enum)
 
-Enum はひと組になった整数を表すもので、そのそれぞれの値が名前を持っています。例をあげます。
+列挙型 (Enum) は整数の集合で、そのそれぞれの値が名前を持っています。例をあげます。
 
 ```crystal
 enum Color
@@ -10,30 +10,30 @@ enum Color
 end
 ```
 
-An enum is defined with the `enum` keyword, followed by its name. Enum はその本体に値を持ちます。Values start with the value `0` and are incremented by one. それらのデフォルト値を上書きすることも可能です。
+`enum` キーワードに続けてその名前を書くことで、列挙型を定義できます。列挙型はその本体に値を持ちます。値は最初に `0` から始まって、1ずつ増えていきます。それらのデフォルト値を上書きすることも可能です。
 
 ```crystal
 enum Color
   Red        # 0
   Green      # 1
-  Blue   = 5 # overwritten to 5
+  Blue   = 5 # 5に上書きする
   Yellow     # 6 (5 + 1)
 end
 ```
 
-Enum のそれぞれの定数は Enum の型を持ちます。
+列挙型のそれぞれの定数はその列挙型を型として持ちます。
 
 ```crystal
 Color::Red # :: Color
 ```
 
-To get the underlying value you invoke `value` on it:
+紐付いている値を参照するには `value` を呼び出してください。
 
 ```crystal
 Color::Green.value # => 1
 ```
 
-The type of the value is `Int32` by default but can be changed:
+この値の型は `Int32` ですが、変更することができます。
 
 ```crystal
 enum Color : UInt8
@@ -45,13 +45,13 @@ end
 Color::Red.value # :: UInt8
 ```
 
-ただし、整数型のみしか指定することができません。
+ただし、整数型しか指定することはできません。
 
-All enums inherit from [Enum](http://crystal-lang.org/api/Enum.html).
+すべての列挙型は [Enum](http://crystal-lang.org/api/Enum.html) を継承しています。
 
-## Flags enums
+## フラグ列挙型
 
-An enum can be marked with the `@[Flags]` attribute. これを指定するとデフォルトの値が変わります。
+列挙型に `@[Flags]` という属性を指定することができます。これを指定するとデフォルトの値が変わります。
 
 ```crystal
 @[Flags]
@@ -62,41 +62,41 @@ enum IOMode
 end
 ```
 
-The `@[Flags]` attribute makes the first constant's value be `1`, and successive constants are multiplied by `2`.
+`@[Flags]` 属性を指定することで、最初の定数の値は `1` になり、以降は前の値を `2` 倍したものになります。
 
-Implicit constants, `None` and `All`, are automatically added to these enums, where `None` has the value `0` and `All` has the "or"ed value of all constants.
+また、暗黙の定数として `None` と `All` が自動的に列挙型に追加されます。ここで `None` の値は `0` で、`All` はすべての定数のビット ORを取ったものになります。
 
 ```crystal
 IOMode::None.value # => 0
 IOMode::All.value  # => 7
 ```
 
-Additionally, some `Enum` methods check the `@[Flags]` attribute. 例をあげます。
+さらに、`Enum` のメソッドには `@[Flags]` 属性によって振る舞いを換えるものがいくつかあります。例をあげます。
 
 ```crystal
 puts(Color::Red)                    # prints "Red"
 puts(IOMode::Write | IOMode::Async) # prints "Write, Async"
 ```
 
-## Enums from integers
+## 整数から列挙型を作る
 
-整数から Enum を作ることができます。
-
-```crystal
-puts Color.new(1) # => prints "Green"
-```
-
-Values that don't correspond to an enum's constants are allowed: the value will still be of type `Color`, but when printed you will get the underlying value:
+整数から列挙型を作ることができます。
 
 ```crystal
-puts Color.new(10) # => prints "10"
+puts Color.new(1) # => "Green" と出力
 ```
 
-これは主に C の整数を Crystal の Enum に変換する用途で利用します。
+列挙型の定数にない値を指定することも可能です。その場合は、あくまでも型は `Color` となりますが、出力してときにはその値がそのまま出力されます。
 
-## Methods
+```crystal
+puts Color.new(10) # => "10" と出力
+```
 
-クラスや構造体と同様に、Enum にもメソッドを定義することが可能です。
+これは主に C の整数を Crystal の列挙型に変換する用途で利用します。
+
+## メソッド
+
+クラスや構造体と同様に、列挙型にもメソッドを定義することが可能です。
 
 ```crystal
 enum Color
@@ -113,11 +113,11 @@ Color::Red.red?# => true
 Color::Blue.red?# => false
 ```
 
-Class variables are allowed, but instance variables are not.
+クラス変数を使うこともできますが、インスタンス変数を使うことはできません。
 
-## 使い方
+## 用途
 
-Enums are a type-safe alternative to [Symbol](http://crystal-lang.org/api/Symbol.html). For example, an API's method can specify a [type restriction](type_restrictions.html) using an enum type:
+列挙型は [Symbol](http://crystal-lang.org/api/Symbol.html) の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.html)に指定することができます。
 
 ```crystal
 def paint(color : Color)
@@ -148,6 +148,6 @@ end
 paint :red
 ```
 
-However, if the programmer makes a typo, say `:reed`, the error will only be caught at runtime, while attempting to use `Color::Reed` will result in a compile-time error.
+ただ、この場合はもしプログラマが `:reed` とタイポしてしまったとすると、実行時にエラーが発生することになります。一方、`Color::Reed` であればコンパイルエラーとなります。
 
-したがって、Enum を利用できるときには常に Enum を利用することを推奨します。シンボルを使うのは API の内部的な実装に留めて、公開する API ではシンボルを使わないようにしましょう。ただし、最終的には各自が自由に判断できることなので、必ずそうしなければならないというわけではありません。
+したがって、列挙型を利用できるときには常に列挙型を利用することを推奨します。シンボルを使うのは API の内部的な実装に留めて、公開する API ではシンボルを使わないようにしましょう。ただし、最終的には各自が自由に判断できることなので、必ずそうしなければならないというわけではありません。

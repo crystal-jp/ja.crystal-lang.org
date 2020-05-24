@@ -1,8 +1,8 @@
-# Return types
+# 戻り値の型
 
 メソッドの戻り値の型は、コンパイラの型推論によって決まります。しかし、以下の2つの理由から、戻り値の型を指定したい場合があるでしょう。
 
-1. To make sure that the method returns the type that you want
+1. メソッドが返す戻り値の型を明確にする
 2. ドキュメンテーションコメントに表示する
 
 例をあげます。
@@ -13,11 +13,11 @@ def some_method : String
 end
 ```
 
-The return type follows the [type grammar](type_grammar.html).
+戻り値の型は[型の文法](type_grammar.html)の記法に従います。
 
-## Nil return type
+## Nil
 
-Marking a method as returning `Nil` will make it return `nil` regardless of what it actually returns:
+戻り値の型に `Nil` を指定すると、明示的に `nil` を返さなくても `nil` が返るようになります。
 
 ```crystal
 def some_method : Nil
@@ -27,22 +27,22 @@ end
 some_method # => nil
 ```
 
-This is useful for two reasons:
+これは次の2つの点で有用です。
 
-1. Making sure a method returns `nil` without needing to add an extra `nil` at the end, or at every return point
-2. Documenting that the method's return value is of no interest
+1. 追加で末尾に `nil` を置いて戻り値を設定しなくても、明確に `nil` を返せる
+2. 戻り値に意味がないということをドキュメントに表示できる
 
-These methods usually imply a side effect.
+このようなにすることは通常、メソッドに副作用があることを仄めかしています
 
-Using `Void` is the same, but `Nil` is more idiomatic: `Void` is preferred in C bindings.
+`Void` を使っても同様の結果を得られますが、`Void` は C バインディング向けの型のため、`Nil` を使う方が自然です。
 
-## NoReturn return type
+## NoReturn
 
-Some expressions won't return to the current scope and therefore have no return type. This is expressed as the special return type `NoReturn`.
+いくつかのメソッドは実行元に戻って来ず、戻り値の型を持たない場合があります。そのようなものは `NoReturn` という特別な型によって表現れます。
 
-Typical examples for non-returning methods and keywords are `return`, `exit`, `raise`, `next`, and `break`.
+`return` や `exit`、`raise`、`next`、そして `break` といったキーワードがこの型になります。
 
-This is for example useful for deconstructing union types:
+これはユニオン型を分解する際に便利なことがあります。
 
 ```
 string = STDIN.gets
@@ -51,8 +51,8 @@ typeof(raise "Empty input")           # => NoReturn
 typeof(string || raise "Empty input") # => String
 ```
 
-The compiler recognizes that in case `string` is `Nil`, the right hand side of the expression `string || raise` will be evaluated. Since `typeof(raise "Empty input")` is `NoReturn` the execution would not return to the current scope in that case. That leaves only `String` as resulting type of the expression.
+`string` が `Nil` のときは `string || raise` の右辺を評価するものというようにコンパイラは解釈します。`typeof(raise "Empty input")` は実行されたとすると返ってこないため、 `NoReturn` 型となります。そのため最終的に `String` のみが式の結果の型として残ります。
 
-Every expression whose code paths all result in `NoReturn` will be `NoReturn` as well. `NoReturn` does not show up in a union type because it would essentially be included in every expression's type. It is only used when an expression will never return to the current scope.
+どのように分岐しても `NoReturn` になる場合は、結果の型も `NoReturn` になります。`NoReturn` は他の全ての型に含まれるため、ユニオン型の中には現れません。実行元に戻ってこない場合だけにこの型は利用されます。
 
-`NoReturn` can be explicitly set as return type of a method or function definition but will usually be inferred by the compiler.
+`NoReturn` を明示的にメソッドもしくは関数の戻り値の型制約として指定することもできますが、通常はコンパイラによって推論されるでしょう。

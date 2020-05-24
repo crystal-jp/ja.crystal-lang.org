@@ -140,7 +140,7 @@ e.g.
 name: palindrome-example
 ```
 
-#### Description
+#### 説明
 Add a `description` to your `shard.yml`.
 
 A `description` is a single line description used to search for and find your shard.

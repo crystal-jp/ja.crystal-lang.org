@@ -1,61 +1,61 @@
-# Method arguments
+# メソッドの引数
 
-This is the formal specification of method and call arguments.
+これはメソッドの引数と呼び出しの形式的な仕様です。
 
-## Components of a method definition
+## メソッド定義のコンポーネント
 
-A method definition consists of:
+メソッド定義は次のものから構成されます。
 
-* required and optional positional arguments
-* an optional splat argument, whose name can be empty
-* required and optional named arguments
-* an optional double splat argument
+* 必須もしくはオプションの位置指定の引数がいくつか
+* 任意でスプラット展開指定された引数 (名前が空の場合もある)
+* 必須もしくはオプションの名前付き引数がいくつか
+* 任意で二重スプラット展開指定された引数
 
 例をあげます。
 
 ```crystal
 def foo(
-  # These are positional arguments:
+  # 位置指定の引数:
   x, y, z = 1,
-  # This is the splat argument:
+  # スプラット展開指定された引数:
   *args,
-  # These are the named arguments:
+  # 名前付き引数:
   a, b, c = 2,
-  # This is the double splat argument:
+  # 二重スプラット展開指定された引数
   **options
 )
 end
 ```
 
-Each one of them is optional, so a method can do without the double splat, without the splat, without keyword arguments and without positional arguments.
+これらを指定するかどうかは、それぞれ任意です。なのでスプラット、二重スプラット、キーワード引数、位置指定の引数を持たないようなメソッドを定義することができます。
 
-## Components of a method call
+## メソッド呼び出しのコンポーネント
 
-A method call also has some parts:
+メソッド呼び出しは次のパーツを持ちます。
 
 ```crystal
 foo(
-  # These are positional arguments
+  # 位置指定の引数:
   1, 2,
-  # These are named arguments
+  # 名前付き引数:
   a: 1, b: 2
 )
 ```
 
-Additionally, a call argument can have a splat (`*`) or double splat (`**`). A splat expands a [Tuple](literals/tuple.html) into positional arguments, while a double splat expands a [NamedTuple](literals/named_tuple.html) into named arguments. Multiple argument splats and double splats are allowed.
+くわえてメソッドはスプラット展開 (`*`) と二重スプラット展開 (`**`) を持つことができます。スプラット展開は [Tuple](literals/tuple.html) を位置指定の引数に展開して、二重スプラット展開は [NamedTuple](literals/named_tuple.html) を名前付き引数に展開します。複数のスプラット展開と二重スプラット展開をすることができます。
 
-## How call arguments are matched to method arguments
+## どのように渡された引数がメソッドの引数にマッチするのか
 
-When invoking a method, the algorithm to match call arguments to method arguments is:
+メソッドを呼び出す際、次のアルゴリズムが渡された引数をメソッドの引数にマッチさせるのに使われます。
 
-* First positional arguments are matched with positional method arguments. The number of these must be at least the number of positional arguments without a default value. If there's a splat method argument with a name (the case without a name is explained below), more positional arguments are allowed and they are captured as a tuple. Positional arguments never match past the splat method argument.
-* Then named arguments are matched, by name, with any argument in the method (it can be before or after the splat method argument). If an argument was already filled by a positional argument then it's an error.
-* Extra named arguments are placed in the double splat method argument, as a [NamedTuple](literals/named_tuple.html), if it exists, otherwise it's an error.
+* まず、位置指定の引数が対応する位置指定の引数にマッチします。このようにマッチした引数の数は、少なくともデフォルト値のない位置指定の引数の数である必要があります。もしスプラット指定された引数に名前があれば、(名前がない場合についてはあとで説明します)、よりたくさんの位置指定の引数を渡すことができて、それらはタプルとしてその引数にキャプチャされます。位置指定の引数はスプラット指定されたメソッドの引数のあとではマッチしません。
+* 続けて、名前付き引数がその名前によって、対応する引数にマッチします。このマッチする引数はスプラット指定された引数の前でも後でも構いません。もしその引数が位置指定の引数として既にマッチしていた場合、エラーが起こります。
+* その他の名前付き引数は二重スプラット指定の引数があればそちらに [NamedTuple](literals/named_tuple.html) として配置されます。二重スプラット指定の引数がなければエラーが起こります。
 
-When a splat method argument has no name, it means no more positional arguments can be passed, and next arguments must be passed as named arguments. 例をあげます。
+スプラット指定された引数に名前がついていないときは、位置指定の引数をさらに渡すことはできませんが、以降の引数は名前付き引数として渡さなければいけないことを意味します。例をあげます。
 
 ```crystal
-# Only one positional argument allowed, y must be passed as a named argument
+# ちょうど1つの位置指定の引数と、y という名前の名前付き引数を渡さなければいけないメソッド
 def foo(x, *, y)
 end
 
@@ -64,10 +64,10 @@ foo 1, 2     # Error: wrong number of arguments (given 2, expected 1)
 foo 1, y: 10 # OK
 ```
 
-But even if a splat method argument has a name, arguments that follow it must be passed as named arguments:
+しかし、スプラット指定された引数が名前を持っていた場合でも、以降の引数は名前付き引数として渡さなければいけないことは変わりません。
 
 ```crystal
-# One or more positional argument allowed, y must be passed as a named argument
+# 1つ以上の位置指定の引数と、y という名前の名前付き引数を渡さなければいけないメソッド
 def foo(x, *args, y)
 end
 
@@ -78,10 +78,10 @@ foo 1, y: 10      # OK
 foo 1, 2, 3, y: 4 # OK
 ```
 
-There's also the possibility of making a method only receive named arguments (and list them), by placing the star at the beginning:
+最初にアスタリスクを置くことで、すべての引数を名前付き引数として渡さなければいけないようなメソッドを作ることもできます。
 
 ```crystal
-# A method with two required named arguments: x and y
+# x と y という2つの名前付き引数を渡さなければいけないメソッド
 def foo(*, x, y)
 end
 
@@ -90,10 +90,10 @@ foo x: 1       # Error: missing argument: y
 foo x: 1, y: 2 # OK
 ```
 
-Arguments past the star can also have default values. It means: they must be passed as named arguments, but they aren't required (so: optional named arguments):
+アスタリスク以降の引数はデフォルト値を持つこともできます。つまり、その引数は名前付き引数として渡さなければいけないけれど、それは必須ではないという、オプショナルな名前付き引数になる、ということです。
 
 ```crystal
-# A method with two required named arguments: x and y
+# どちらも名前付き引数として渡さなければいけないが、x は必須で y は必須ではないメソッド
 def foo(*, x, y = 2)
 end
 
@@ -102,22 +102,22 @@ foo x: 1       # OK, y is 2
 foo x: 1, y: 3 # OK, y is 3
 ```
 
-Because arguments (without a default value) after the splat method argument must be passed by name, two methods with different required named arguments overload:
+スプラット指定された引数のあとの引数は必ず名前付き引数として渡されるため、その名前によってメソッドのオーバロードをすることができます。
 
 ```crystal
 def foo(*, x)
-  puts "Passed with x: #{x}"
+  puts "x と共に渡された: #{x}"
 end
 
 def foo(*, y)
-  puts "Passed with y: #{y}"
+  puts "y と共に渡された: #{y}"
 end
 
-foo x: 1 # => Passed with x: 1
-foo y: 2 # => Passed with y: 2
+foo x: 1 # => x と共に渡された: 1
+foo y: 2 # => y と共に渡された: 2
 ```
 
-Positional arguments can always be matched by name:
+位置指定の引数も名前付き引数として渡すことができます。
 
 ```crystal
 def foo(x, *, y)
@@ -127,40 +127,40 @@ foo 1, y: 2    # OK
 foo y: 2, x: 3 # OK
 ```
 
-## External names
+## 外部名
 
-An external name can be specified for a method argument. The external name is the one used when passing an argument as a named argument, and the internal name is the one used inside the method definition:
+メソッドの引数には外部名を指定できます。外部名は名前付き引数として渡す際に使う名前で、内部名はメソッド定義の本体で使う名前となります。
 
 ```crystal
 def foo(external_name internal_name)
-  # here we use internal_name
+  # ここで internal_name を使えます
 end
 
 foo external_name: 1
 ```
 
-This covers two uses cases.
+これには2つのユースケースがあります。
 
-The first use case is using keywords as named arguments:
+1つはキーワードを名前付き引数として使いたい場合です。
 
 ```crystal
 def plan(begin begin_time, end end_time)
-  puts "Planning between #{begin_time} and #{end_time}"
+  puts "#{begin_time} と #{end_time} の間で予定しています"
 end
 
 plan begin: Time.now, end: 2.days.from_now
 ```
 
-The second use case is making a method argument more readable inside a method body:
+2つ目のユースケースは、メソッド本体での可読性を向上させるため、です。
 
 ```crystal
 def increment(value, by)
-  # OK, but reads odd
+  # OK、ですが読んでいて違和感があります
   value + by
 end
 
 def increment(value, by amount)
-  # Better
+  # こちらの方が良いでしょう
   value + amount
 end
 ```

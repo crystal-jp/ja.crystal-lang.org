@@ -1,23 +1,23 @@
-# Exception handling
+# 例外の処理
 
 Crystal では、例外を発生 (raise) させ、それを捕捉 (rescue) することによってエラーハンドリングを行います。
 
-## Raising exception
+## 例外を発生させる
 
-You raise exceptions by invoking a top-level `raise` method. Unlike other keywords, `raise` is a regular method with two overloads: [one accepting a String](https://crystal-lang.org/api/toplevel.html#raise%28exception%3AException%29%3ANoReturn-class-method) and another [accepting an Exception instance](https://crystal-lang.org/api/toplevel.html#raise%28message%3AString%29%3ANoReturn-class-method):
+例外を発生させるにはトップレベルの `raise` メソッドを使います。他のキーワードと異なり、`raise` は通常のメソッドであり、2つのオーバーロードがあります。その1つは[文字列を受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28exception%3AException%29%3ANoReturn-class-method)で、もう1つは[例外オブジェクトを受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28message%3AString%29%3ANoReturn-class-method)です。
 
 ```crystal
 raise "OH NO!"
 raise Exception.new("Some error")
 ```
 
-The String version just creates a new [Exception](http://crystal-lang.org/api/Exception.html) instance with that message.
+文字列の場合は、単純にそのメッセージを含んだ [Exception](http://crystal-lang.org/api/Exception.html) のインスタンスを生成します。
 
-Only `Exception` instances or subclasses can be raised.
+そして、raise の対象に指定することができるのは `Exception` のインスタンス、もしくはそのサブクラスのみに限られます。
 
-## Defining custom exceptions
+## 独自の例外を定義する
 
-To define a custom exception type, just subclass from [Exception](http://crystal-lang.org/api/Exception.html):
+独自の例外を定義したい場合には、[Exception](http://crystal-lang.org/api/Exception.html) からサブクラスを作成します。
 
 ```crystal
 class MyException < Exception
@@ -29,9 +29,9 @@ end
 
 通常のクラスのように、自分でコンストラクタを定義することもできますし、デフォルトのコンストラクタを利用することも可能です。
 
-## Rescuing exceptions
+## 例外の捕捉
 
-To rescue any exception use a `begin ... rescue ... end` expression:
+例外を捕捉するには、`begin ... rescue ... end` の構文を使用します。
 
 ```crystal
 begin
@@ -43,7 +43,7 @@ end
 # Output: Rescued!
 ```
 
-To access the rescued exception you can specify a variable in the `rescue` clause:
+捕捉された例外にアクセスしたいときは、`rescue` 節に変数を指定することが可能です。
 
 ```crystal
 begin
@@ -79,7 +79,7 @@ end
 # Output: Rescued MyException: OH NO!
 ```
 
-Multiple `rescue` clauses can be specified:
+複数の `rescue` 節を指定することも可能です。
 
 ```crystal
 begin
@@ -107,7 +107,7 @@ end
 
 ## else
 
-An `else` clause is executed only if no exceptions were rescued:
+`else` 節は例外が発生しなかった場合にのみ実行されます。
 
 ```crystal
 begin
@@ -115,15 +115,15 @@ begin
 rescue
   # 例外が発生するとここが実行される
 else
-  # execute this if an exception isn't raised
+  # 例外が発生しなかった場合のみここが実行される
 end
 ```
 
-An `else` clause can only be specified if at least one `rescue` clause is specified.
+`else` 節を指定する場合、少なくとも1つの `rescue` 節が指定されている必要があります。
 
 ## ensure
 
-An `ensure` clause is executed at the end of a `begin ... end` or `begin ... rescue ... end` expression regardless of whether an exception was raised or not:
+`ensure` 節は例外が発生したかどうかに関係なく、`begin ... end` または `begin ... rescue ... end` のあとで必ず実行されます。
 
 ```crystal
 begin
@@ -132,8 +132,8 @@ ensure
   puts "Cleanup..."
 end
 
-# Will print "Cleanup..." after invoking something_dangerous,
-# regardless of whether it raised or not
+# 例外が発生したかどうかに関わらず、
+# something_dangerous が実行されたあとに "Cleanup..." が出力される
 ```
 
 または
@@ -146,24 +146,24 @@ rescue
 else
   # ...
 ensure
-  # this will always be executed
+  # ここは必ず実行される
 end
 ```
 
-`ensure` clauses are usually used for clean up, freeing resources, etc.
+通常、`ensure` 節は処理の後始末やリソースの解放などに利用します。
 
-## Short syntax form
+## 短縮記法
 
-Exception handling has a short syntax form: assume a method or block definition is an implicit `begin ... end` expression, then specify `rescue`, `else`, and `ensure` clauses:
+例外処理には短縮記法が用意されています。それは、メソッドの定義は暗黙的に `begin ... end` 構文であるとして、`rescue`や`else`、`ensure` 節を指定できるというものです。
 
 ```crystal
 def some_method
   something_dangerous
 rescue
-  # execute if an exception is raised
+  # 例外が発生するとここが実行される
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 def some_method
   begin
     something_dangerous
@@ -173,16 +173,16 @@ def some_method
 end
 ```
 
-With `ensure`:
+`ensure` と共に利用した場合は次のようになります。
 
 ```crystal
 def some_method
   something_dangerous
 ensure
-  # always execute this
+  # ここは常に実行される
 end
 
-# The above is the same as:
+# 上記は以下と同じ
 def some_method
   begin
     something_dangerous
@@ -191,9 +191,9 @@ def some_method
   end
 end
 
-# Similarly, the shorthand also works with blocks:
+# また短縮記法はブロックに対しても同様にはたらく
 (1..10).each do |n|
-  # potentially dangerous operation
+  # 潜在的に危険な操作をする
 
 
 rescue
@@ -205,9 +205,9 @@ ensure
 end
 ```
 
-## Type inference
+## 型推論
 
-Variables declared inside the `begin` part of an exception handler also get the `Nil` type when considered inside a `rescue` or `ensure` body. 例をあげます。
+例外処理において、`begin` 節の中で宣言された変数は `rescue` または `ensure` 内においては `Nil` t型を持っているものとして扱われます。例をあげます。
 
 ```crystal
 begin
@@ -217,7 +217,7 @@ ensure
 end
 ```
 
-The above happens even if `something_dangerous_that_returns_Int32` never raises, or if `a` was assigned a value and then a method that potentially raises is executed:
+このとき、もし `something_dangerous_that_returns_Int32` が例外を発生させない場合であってもエラーが発生します。さらに `a` に先に値に代入されて、それから例外を発生させる可能性があるメソッドが実行された場合であってもエラーとなります。
 
 ```crystal
 begin
@@ -228,11 +228,11 @@ ensure
 end
 ```
 
-Although it is obvious that `a` will always be assigned a value, the compiler will still think `a` might never had a chance to be initialized. このロジックは将来的には改定されるかもしれません。ただ、現時点では例外処理の中で行うことは必要最小限に留め、コードの意図を明確にして書くことが求められます。
+この場合、`a` に常に値が代入されていることは明白なのですが、それでもコンパイラは `a` が初期化されていない可能性があると解釈します。このロジックは将来的には改定されるかもしれません。ただ、現時点では例外処理の中で行うことは必要最小限に留め、コードの意図を明確にして書くことが求められます。
 
 ```crystal
-# Clearer than the above: `a` doesn't need
-# to be in the exception handling code.
+# 例外処理のコードの内部で `a` を宣言する必要はないため、
+# こう書くことで意図がより明確になる
 a = 1
 begin
   something_dangerous
@@ -241,16 +241,16 @@ ensure
 end
 ```
 
-## Alternative ways to do error handling
+## 例外処理の他の方法
 
 例外はエラーハンドリング機構の1つですが、必ずしも例外処理でしかエラーを扱うことができないわけではありません。例外を発生させることはメモリの割り当てを伴うので、一般的に例外処理は遅くなる傾向があります。
 
-The standard library usually provides a couple of methods to accomplish something: one raises, one returns `nil`. 例をあげます。
+そこで、標準ライブラリでは、例外を発生する方法に加えて、`nil` を返す方法も用意しています。例をあげます。
 
 ```crystal
 array = [1, 2, 3]
 array[4]  # raises because of IndexError
-array[4]? # returns nil because of index out of bounds
+array[4]?# インデックス範囲外のため nil が返る
 ```
 
-The usual convention is to provide an alternative "question" method to signal that this variant of the method returns `nil` instead of raising. This lets the user choose whether she wants to deal with exceptions or with `nil`. Note, however, that this is not available for every method out there, as exceptions are still the preferred way because they don't pollute the code with error handling logic.
+慣習として、メソッドが例外を発生させる代わりに `nil` を返すことができる場合は、それを示すためにクエスチョンマークのついたメソッドとして提供することになっています。こうすることで、ユーザーが例外を利用するか `nil` を利用するかを選択することが可能です。ただ、すべてのメソッドにこの方法が用意されているわけではありません。また、エラーハンドリングのロジックが混ざることによってコードが汚れてしまうのを避けるという意味でも、例外を発生させるというのは好ましい方法でしょう。

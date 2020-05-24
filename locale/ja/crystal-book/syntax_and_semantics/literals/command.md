@@ -14,7 +14,7 @@
 $?.success? # => true
 ```
 
-内部的にはコンパイラはコマンドリテラルを [`` `()``](https://crystal-lang.org/api/latest/toplevel.html#%60(command):String-class-method) メソッドに文字列リテラルを渡すように書き換えています。つまり `` `echo #{argument}` `` と `%x(echo #{argument})` は `` `("echo #{argument}")`` のように書き換えられています。
+内部的にはコマンドリテラルを [`` `()``](https://crystal-lang.org/api/latest/toplevel.html#%60(command):String-class-method) メソッドに文字列を渡すいおうに書き換えています。つまり `` `echo #{argument}` `` と `%x(echo #{argument})` は `` `("echo #{argument}")`` のように書き換えられています。
 
 ## セキュリティ上の懸念
 
@@ -27,7 +27,7 @@ user_input = "hello; rm -rf *"
 
 このコマンドは `hello` と出力したあとに現在のディレクトリのファイルとフォルダを全て削除します。
 
-これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。また標準ライブラリにある [`Process`](https://crystal-lang.org/api/latest/Process.html) を使うとユーザーの入力を安全にコマンドの引数として渡すことができます
+これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。また、標準ライブラリにある [`Process`](https://crystal-lang.org/api/latest/Process.html) を使うとユーザーの入力を安全にコマンドの引数として渡すことができます。
 
 ```cr
 user_input = "hello; rm -rf *"

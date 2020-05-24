@@ -1,5 +1,5 @@
 ---
-subtitle: On Manjaro
+subtitle: Manjaro への
 ---
 
-{% include install_from_snapcraft.md distro="manjaro" %}
+{% include install_from_snapcraft.md distro='manjaro' %}

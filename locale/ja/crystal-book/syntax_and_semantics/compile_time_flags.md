@@ -1,41 +1,41 @@
-# Compile-time flags
+# コンパイル時のフラグ
 
-型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。These flags are by default read from the hosts [LLVM Target Triple](http://llvm.org/docs/LangRef.html#target-triple), split on `-`. To get the target you can execute `llvm-config --host-target`.
+型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。デフォルトではホストの [LLVM ターゲットトリプル](http://llvm.org/docs/LangRef.html#target-triple) を `-` で区切ったものがフラグとなります。実際のターゲットを得るには `llvm-config --host-target` を実行します。
 
 ```console
 $ llvm-config --host-target
 x86_64-unknown-linux-gnu
 
-# so the flags are: x86_64, unknown, linux, gnu
+# よって、フラグは x86_64, unknown, linux, gnu となります
 ```
 
-To define a flag, simply use the `--define` or `-D` option, like so:
+フラグを定義するには、`--define` もしくは `-D` オプションを使います。
 
 ```bash
 crystal some_program.cr -Dflag
 ```
 
-Additionally, if a program is compiled with `--release`, the `release` flag will be set.
+また、`--release` オプションをつけてプログラムをコンパイルqした場合には `release` フラグが有効になります。
 
-You can check if a flag is defined with the `flag?` macro method:
+フラグが定義されているかどうかは `flag?` マクロメソッドを使うことで確認できます。
 
 ```crystal
 {% if flag?(:x86_64) %}
-  # some specific code for 64 bits platforms
+  # 64ビットプラットフォーム固有のコード
 {% else %}
-  # some specific code for non-64 bits platforms
+  # 64ビットでないプラットフォームに固有のコード
 {% end %}
 ```
 
-`flag?` returns a boolean, so you can use it with `&&` and `||`:
+`flag?` は真偽値を返すので、`&&` や`||` を使うこともできます。
 
 ```crystal
 {% if flag?(:linux) && flag?(:x86_64) %}
-  # some specific code for linux 64 bits
+  # Linux で64ビットの場合に固有のコード
 {% end %}
 ```
 
-これらのフラグは、一般的に C 言語のバインディングにおいて、型や関数を条件に応じて定義するときに利用します。For example, the very well known `size_t` type is defined like this in Crystal:
+これらのフラグは、一般的に C 言語のバインディングにおいて、型や関数を条件に応じて定義するときに利用します。例えば、`size_t` というよく知られた型は、Crystal では以下のように定義されています。
 
 ```crystal
 lib C

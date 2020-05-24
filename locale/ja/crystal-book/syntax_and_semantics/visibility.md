@@ -1,12 +1,12 @@
-# Visibility
+# 可視性
 
-メソッドのデフォルトの可視性は public になっており、どこからでも実行することが可能です。There is no `public` keyword for this reason.
+メソッドのデフォルトの可視性は public になっており、どこからでも実行することが可能です。そのため `public` キーワードは存在しません。
 
-Methods _can_ be marked as `private` or `protected`.
+メソッドは`private`もしくは`protected`を指定することが_できます_。
 
-## Private methods
+## プライベートメソッド
 
-A `private` method can only be invoked without a receiver, that is, without something before the dot. The only exception is `self` as a receiver:
+`private` メソッドはレシーバのない形式でのみ呼び出すことができます。例外として、`self` をレシーバとすることはできます。
 
 ```crystal
 class Person
@@ -15,16 +15,16 @@ class Person
   end
 
   def say_hello
-    say "hello"      # OK, no receiver
-    self.say "hello" # OK, self is a receiver, but it's allowed.
+    say "hello"      # レシーバが無いため OK
+    self.say "hello" # self がレシーバのため OK
 
     other = Person.new "Other"
-    other.say "hello" # other というレシーバが指定されているのでエラー
+    other.say "hello" # other がレシーバのためエラー
   end
 end
 ```
 
-Note that `private` methods are visible by subclasses:
+`private` メソッドはサブクラスから呼び出すこともできることには注意してください。
 
 ```crystal
 class Employee < Person
@@ -34,9 +34,9 @@ class Employee < Person
 end
 ```
 
-## Private types
+## プライベート型
 
-Private types can only be referenced inside the namespace where they are defined, and never be fully qualified.
+プライベート型は自身の定義された名前空間の内側からのみ参照できて、完全なパスで参照することのできない型です。
 
 ```crystal
 class Foo
@@ -50,7 +50,7 @@ end
 Foo::Bar # Error
 ```
 
-`private` can be used with `class`, `module`, `lib`, `enum`, `alias` and constants:
+この場合の `private` は `class`、`module`、`lib`、`enum`、そして`alias`と定数に対して指定することができます。
 
 ```crystal
 class Foo
@@ -62,15 +62,15 @@ end
 Foo::ONE # Error
 ```
 
-## Protected methods
+## プロテクテッドメソッド
 
-A `protected` method can only be invoked on:
+`protected` メソッドは次のレシーバに対してのみ呼び出せるメソッドです。
 
-1. instances of the same type as the current type
-2. instances in the same namespace (class, struct, module, etc.) as the current type
+1. 現在の型と同じ型のインスタンス
+2. 現在の型と同じ名前空間 (クラス、構造体、モジュールなど) の型のインスタンス
 
 ```crystal
-# Example of 1
+# 1 の場合の例
 
 class Person
   protected def say(message)
@@ -78,7 +78,7 @@ class Person
   end
 
   def say_hello
-    say "hello"      # OK, implicit self is a Person
+    say "hello"      # 暗黙の self は Person なので OK
     self.say "hello" # self は Person なので OK
 
     other = Person.new "Other"
@@ -89,14 +89,14 @@ end
 class Animal
   def make_a_person_talk
     person = Person.new
-    person.say "hello" # Error: person is a Person but current type is an Animal
+    person.say "hello" # person は Person だけど、現在の型は Animal なのでエラー
   end
 end
 
 one_more = Person.new "One more"
-one_more.say "hello" # Error: one_more is a Person but current type is the Program
+one_more.say "hello" # one_more は Person だけど現在の型は Program なのでエラー
 
-# Example of 2
+# 2 の場合の例
 
 module Namespace
   class Foo
@@ -107,7 +107,7 @@ module Namespace
 
   class Bar
     def bar
-      # Works, because Foo and Bar are under Namespace
+      # Foo と Bar は Namespace 以下で定義されているので正しく動作します。
       Foo.new.foo
     end
   end
@@ -116,7 +116,7 @@ end
 Namespace::Bar.new.bar
 ```
 
-A `protected` method can only be invoked from the scope of its class or its descendants. That includes the class scope and bodies of class methods and instance methods of the same type the protected method is defined on, as well as all types including or inherinting that type and all types in that namespace.
+`protected` メソッドは現在のスコープや、そのさらに下のスコープからのみ呼び出すことができます。これはクラスのスコープやクラスメソッドの本体部分、プロテクテッドメソッドを定義した型のインスタンスメソッドを含み、その型を継承したクラスや同じ名前空間のすべて型に対しても同様です。
 
 ```crystal
 class Parent
@@ -159,19 +159,19 @@ class Parent::Sub
 end
 ```
 
-## Private top-level methods
+## トップレベルのプライベートメソッド
 
-A `private` top-level method is only visible in the current file.
+`private` をトップレベルのメソッドにつけると、現在のファイルからのみ見えるものになります。
 
 ```crystal
-# In file one.cr
+# one.cr:
 private def greet
   puts "Hello"
 end
 
 greet # => "Hello"
 
-# In file two.cr
+# two.cr:
 require "./one"
 
 greet # undefined local variable or method 'greet'
@@ -179,12 +179,12 @@ greet # undefined local variable or method 'greet'
 
 このことで、あるファイルの中でのみ利用できるヘルパーメソッドを定義することが可能です。
 
-## Private top-level types
+## トップレベルのプライベート型
 
-A `private` top-level type is only visible in the current file.
+`private` をトップレベルの型につけると、現在のファイルからのみ見えるものになります。
 
 ```crystal
-# In file one.cr
+# one.cr:
 private class Greeter
   def self.greet
     "Hello"
@@ -193,7 +193,7 @@ end
 
 Greeter.greet # => "Hello"
 
-# In file two.cr
+# two.cr:
 require "./one"
 
 Greeter.greet # undefined constant 'Greeter'

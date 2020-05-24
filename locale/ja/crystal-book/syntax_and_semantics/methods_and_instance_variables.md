@@ -1,4 +1,4 @@
-# Methods and instance variables
+# メソッドとインスタンス変数
 
 コンストラクタの引数にインスタンス変数を指定する短縮記法を使うと、インスタンス変数への代入をより簡潔に書くことができます。
 
@@ -14,7 +14,7 @@ class Person
 end
 ```
 
-Right now, we can't do much with a person aside from create it with a name. Its age will always be zero. それでは、person が年をとることができるようにしてみましょう。
+今のところ、名前をつけて Person のインスタンスを生成することくらいしかできません。age は常に0のままです。それでは、person が年齢を重ねることができるようにしてみましょう。
 
 ```crystal
 class Person
@@ -44,9 +44,9 @@ peter.age # => 0
 
 メソッド名の先頭は小文字である必要があります。また、メソッド名には使うのは小文字とアンダースコア、そして数値のみとすることが慣習的です。
 
-## Getters and setters
+## ゲッターとセッター
 
-The Crystal [Standard Library](https://crystal-lang.org/api) provides macros which simplify the definition of getter and setter methods:
+Crystal の[標準ライブラリ](https://crystal-lang.org/api)にはゲッターとセッターを簡潔に定義するためのマクロがいくつかあります。
 
 ```crystal
 class Person
@@ -63,9 +63,9 @@ john.age = 32
 john.age # => 32
 ```
 
-For more information on getter and setter macros, see the standard library documentation for [Object#getter](https://crystal-lang.org/api/latest/Object.html#getter%28%2Anames%2C%26block%29-macro), [Object#setter](https://crystal-lang.org/api/latest/Object.html#setter%28%2Anames%29-macro), and [Object#property](https://crystal-lang.org/api/latest/Object.html#property%28%2Anames%2C%26block%29-macro).
+ゲッターとセッターのマクロの詳細は、標準ライブラリの [Object#getter](https://crystal-lang.org/api/latest/Object.html#getter%28%2Anames%2C%26block%29-macro) や [Object#setter](https://crystal-lang.org/api/latest/Object.html#setter%28%2Anames%29-macro)、[Object#property](https://crystal-lang.org/api/latest/Object.html#property%28%2Anames%2C%26block%29-macro) の辺りを参照してください。
 
-As a side note, we can define `become_older` inside the original `Person` definition, or in a separate definition: Crystal combines all definitions into a single class. つまり、以下の場合でも問題なく動作します。
+少し捕捉をすると、上記のように `become_older` メソッドを元々の `Person` クラスのなか で定義するだけではなく、元々のクラスと別で改めて定義することも可能です。Crystal はそれらのすべての定義を1つのクラスにまとめます。つまり、以下の場合でも問題なく動作します。
 
 ```crystal
 class Person
@@ -81,7 +81,7 @@ class Person
 end
 ```
 
-## Redefining methods, and previous_def
+## メソッドの再定義とprevious_def
 
 もしあるメソッドが再度定義された場合、最後に定義されたものが優先されます。
 
@@ -103,7 +103,7 @@ person.become_older
 person.age # => 2
 ```
 
-You can invoke the previously redefined method with `previous_def`:
+そのとき`previous_def`を使って以前に定義されたメソッドを呼び出すことが可能です。
 
 ```crystal
 class Person
@@ -124,11 +124,11 @@ person.become_older
 person.age # => 3
 ```
 
-Without arguments or parentheses, `previous_def` receives the same arguments as the method's arguments. 上記に当てはまらない場合には、指定した引数が渡されます。
+引数も括弧もない場合、`previous_def` には呼び出し元のメソッドと同じ引数がそのまま渡されます。そうでない場合には、指定した引数が渡されます。
 
-## Catch-all initialization
+## キャッチオール初期化
 
-Instance variables can also be initialized outside `initialize` methods:
+インスタンス変数は `initialize` メソッドの外部で初期化することもできます。
 
 ```crystal
 class Person
@@ -139,5 +139,5 @@ class Person
 end
 ```
 
-This will initialize `@age` to zero in every constructor. This is useful to avoid duplication, but also to avoid the `Nil` type when reopening a class and adding instance variables to it.
+このとき `@age` はどのコンストラクタでも0で初期化されます。これは重複を避けることができるだけでなく、クラスを再オープンしてインスタンス変数を追加する際に`Nil`型になることを防ぐことにも役立ちます。
 
