@@ -45,7 +45,7 @@ alias Int32OrNil = Int32?
 alias Int32OrNil = Int32 | ::Nil
 ```
 
-通常のコードにおいても、`Int32?` は `Int32 | ::Nil` のユニオン型を表します。
+In regular code, `Int32?` is a syntax error.
 
 ## ポインタ型
 
