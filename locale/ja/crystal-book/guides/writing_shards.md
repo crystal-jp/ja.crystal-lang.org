@@ -1,33 +1,33 @@
-# Writing Shards
+# shard の作り方
 
-How to write and release Crystal Shards.
+ここでは Crystal の shard の作り方とリリース方法について説明します。
 
-## _What's a Shard?_
+## _shard とは？_
 
-Simply put, a Shard is a package of Crystal code, made to be shared-with and used-by other projects.
+簡単に言うと、shard とは Crystal のコードのパッケージで、他のプロジェクトとコードを共有したり他のプロジェクトのコードを使ったりできます。
 
-See [the Shards command](../the_shards_command/README.md) for details.
+詳しくは [shards コマンド](../the_shards_command/README.md)の章を参照してください。
 
-## Introduction
+## 導入
 
-In this tutorial, we'll be making a Crystal library called _palindrome-example_.
+このチュートリアルでは、_palindrome-example_ という Crystal のライブラリを作ります。
 
-> For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam
+> 知らない方のために説明すると、palindrome (回文) というのは前から読んでも後ろから読んでも同じになるような語のことです。例えば、 racecar や mom、dad、kayak、madam などの単語が挙げられます。
 
-### Requirements
+### 必要なもの
 
-In order to release a Crystal Shard, and follow along with this tutorial, you will need the following:
-* A working installation of the [Crystal compiler](../using_the_compiler/README.md)
-* A working installation of [Git](https://git-scm.com)
-* A [GitHub](https://github.com) or [GitLab](https://gitlab.com/) account
+Crystal の shard をリリースするために、そしてこのチュートリアルを続けていくためには、次のものが必要です。
+* [Crystal のコンパイラ](../using_the_compiler/README.md)が動作するようにインストールされていること
+* [Git](https://git-scm.com) が動作するようにインストールされていること
+* [GitHub](https://github.com) もしくは [GitLab](https://gitlab.com/) のアカウント
 
-### Creating the Project
+### プロジェクトの作成
 
-Begin by using [the Crystal compiler](../using_the_compiler/README.md)'s `init lib` command to create a Crystal library with the standard directory structure.
+[Crystal のコンパイラ](../using_the_compiler/README.md) の `init lib` コマンドを使って、標準的なディレクトリ構造を持った Cryatal ライブラリのディレクトリを作成してください。
 
-In your terminal: `crystal init lib <YOUR-SHARD-NAME>`
+ターミナルで、次のように実行します: `crystal init lib <YOUR-SHARD-NAME>`
 
-e.g.
+例:
 ```session
 $ crystal init lib palindrome-example
     create  palindrome-example/.gitignore
@@ -43,14 +43,14 @@ $ crystal init lib palindrome-example
 Initialized empty Git repository in /<YOUR-DIRECTORY>/.../palindrome-example/.git/
 ```
 
-...and `cd` into the directory:
+こうしたら、`cd` で作ったディレクトリに移動してください。
 
-e.g.
+例:
 ```bash
 cd palindrome-example
 ```
 
-Then `add` & `commit` to start tracking the files with Git:
+そして、`add` と `commit` をして、ファイルを Git にトラッキングされるようにしましょう。
 
 ```session
 $  git add -A
@@ -69,102 +69,102 @@ create mode 100644 src/palindrome-example.cr
 create mode 100644 src/palindrome-example/version.cr
 ```
 
-### Writing the Code
+### コードを書く
 
-The code you write is up to you, but how you write it impacts whether people want to use your library and/or help you maintain it.
+どんなコードを書こうとも自由ですが、どのようなコードを書いたかは、そのライブラリを使おうとしている、もしくはライブラリにコントリビュートしたいという人にとって影響のあることです。
 
-#### Testing the Code
-- Test your code. All of it. It's the only way for anyone, including you, to know if it works.
-- Crystal has [a built-in testing library](https://crystal-lang.org/api/Spec.html). Use it!
+#### コードのテスト
+- コードのテストを書きましょう。それがすべてです。人々 (あなたを含む) にとって、テストだけがどのように機能するものなのかを示すものになります。
+- Crystal は[ビルトインのテスト用ライブラリ](https://crystal-lang.org/api/Spec.html)を持っています。それを使ってください。
 
-#### Documentation
-- Document your code with comments. All of it. Even the private methods.
-- Crystal has [a built-in documentation generator](../conventions/documenting_code.md). Use it!
+#### ドキュメント化
+- コメントでコードをドキュメント化してください。それがすべてです。private なメソッドでもドキュメントを書きましょう。
+- Crystal は[組み込みのドキュメントジェネレータ](../conventions/documenting_code.md)を持っています。それを使ってください。
 
-Run `crystal docs` to convert your code and comments into interlinking API documentation. Open the files in the `/docs/` directory with a web browser to see how your documentation is looking along the way.
+`crystal docs` を実行することで、コードのコメントを API ドキュメントに変換できます。`/docs/` ディレクトリのファイルを Web ブラウザで開くことで、生成されたドキュメントがどのようなものか確認できます。
 
-See below for instructions on hosting your compiler-generated docs on GitHub/GitLab Pages.
+以降で、コンパイラが生成したドキュメントを GitHub や GitLab でホスティングする方法が説明されています。
 
-Once your documentation is ready and available, you can add a documentation badge to your repository so users know that it exists. In GitLab this badge belongs to the project so we'll cover it in the GitLab instructions below, for GitHub it is common to place it below the description in your README.md like so:
-(Be sure to replace `<LINK-TO-YOUR-DOCUMENTATION>` accordingly)
+ドキュメントのホスティングが完了したら、その存在を報せるためにリポジトリにドキュメンテーションバッジを追加するといいでしょう。GitLab では以降で説明する方法で、このバッジをプロジェクトに設定することができます。GitHub では README.md に次のように追加します。
+(`<LINK-TO-YOUR-DOCUMENTATION>` を自分のものに置き換えることを忘れないでください
 
 ```Markdown
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>)
 ```
 
-### Writing a README
+### README を書く
 
-A good README can make or break your project.
-[Awesome README](https://github.com/matiassingers/awesome-readme) is a nice curation of examples and resources on the topic.
+良い README があるかどうかはプロジェクトの成功を左右します。
+[Awesome README](https://github.com/matiassingers/awesome-readme) はこの話題の素晴らしい例やリソースのキュレーテッドリストになっています。
 
-Most importantly, your README should explain:
-1. What your library is
-2. What it does
-3. How to use it
+最も重要なことですが、README では次のことが説明されているべきでしょう。
+1. このライブラリが何なのか
+2. 何をするものなのか
+3. どのようにして使うのか
 
-This explanation should include a few examples along with subheadings.
+この説明にはいくつかの例を適切に章立てして含めるべきです。
 
-NOTE: Be sure to replace all instances of `[your-github-name]` in the Crystal-generated README template with your GitHub/GitLab username. If you're using GitLab, you'll also want to change all instances of `github` with `gitlab`.
+注意: Crystal の生成した README のテンプレート中の `[your-github-name]` という部分を実際の GitHub もしくは GitLab のユーザー名で置換するのを忘れないでください。また GitLab を使っている場合は、`github` を `gitlab` に変更してください。
 
 
 #### コーディングスタイル
-- It's fine to have your own style, but sticking to [some core rubrics defined by the Crystal team](../conventions/coding_style.md) can help keep your code consistent, readable and usable for other developers.
-- Utilize Crystal's [built-in code formatter](../conventions/documenting_code.md) to automatically format all `.cr` files in a directory.
+- 自身のスタイルを持つことは良いことですが、[Crystal チームの慣習的なスタイル](../conventions/coding_style.md)に従うことで、コードの一貫性や可読性を保ち、他の開発者の理解しやすいものにできます。
+- Crystal [組み込みのフォーマッタ](../conventions/documenting_code.md)を活用して、すべての `.cr` ファイルをフォーマットしましょう。
 
-e.g.
+例:
 ```
 crystal tool format
 ```
 
-To check if your code is formatted correctly, or to check if using the formatter wouldn't produce any changes, simply add `--check` to the end of this command.
+`--check` をコマンドの末尾につけることで、コードが正しくフォーマットされているかを確かめる、要するにフォーマッタがコードを変更しないことを確かめられます。
 
-e.g.
+例:
 ```
 crystal tool format --check
 ```
 
-See the Travis CI section below to implement this in your build.
+以降の Travis CI の章で、ビルド時にこのチェックを追加する方法が説明されています。
 
 
-### Writing a `shard.yml`
+### `shard.yml` を書く
 
-[The spec](https://github.com/crystal-lang/shards/blob/master/SPEC.md) is your rulebook. Follow it.
+[仕様書](https://github.com/crystal-lang/shards/blob/master/SPEC.md)を見てください。これに従いましょう。
 
-#### Name
-Your `shard.yml`'s `name` property should be concise and descriptive.
+#### 名前
+`shard.yml`ので `name` プロパティは簡潔かつ説明的なものにすべきです。
 
-- Search [crystalshards.xyz](https://crystalshards.xyz/) to check if your name is already taken.
+- [crystalshards.xyz](https://crystalshards.xyz/) で検索して、既に使われている名前でないか確認しておきましょう。
 
-e.g.
+例:
 ```YAML
 name: palindrome-example
 ```
 
-#### 説明
-Add a `description` to your `shard.yml`.
+#### 説明文
+`description` を `shard.yml` に追加しましょう。
 
-A `description` is a single line description used to search for and find your shard.
+`description` は1行の説明文で、検索の際に使われます。
 
-A description should be:
-1. Informative
-2. Discoverable
+description は次のようにすべきです。
+1. 有益な情報を含む
+2. 発見可能なものにする
 
-#### Optimizing
-It's hard for anyone to use your project if they can't find it.
-[crystalshards.xyz](https://crystalshards.xyz/) is currently the go-to place for Crystal libraries, so that's what we'll optimize for.
+#### 最適化
+見つけられるものでなければ、誰もあなたのプロジェクトを利用しないでしょう。
+今のところ、[crystalshards.xyz](https://crystalshards.xyz/) に Crystal のライブラリは集約されています。なので、ここに向けて最適化します。
 
-There are people looking for the _exact_ functionality of our library and the _general_ functionality of our library.
-e.g. Bob needs a palindrome library, but Felipe is just looking for libraries involving text and Susan is looking for libraries involving spelling.
+_精確な_機能からライブラリを探す人と、_一般的な_機能からライブラリを探す人がいます。
+例えば Bob は回文を扱うライブラリを必要としていて、一方で Felipe が探しているのはテキストを扱うライブラリで、Susan が探しているのはスペルについてのライブラリ、といったように、です。
 
-Our `name` is already descriptive enough for Bob's search of "palindrome". We don't need to repeat the _palindrome_ keyword. Instead, we'll catch Susan's search for "spelling" and Felipe's search for "text".
+この場合、`name` にはすでに Bob の探している "palindrome" という単語が含まれています。なので _palindrome_ と繰り返す必要はないでしょう。代わりに、Susan の探している "spelling" や Felipe の探している "text" といった単語を含めるようにするといいでしょう。
 ```YAML
 description: |
   A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.
 ```
 
-### Hosting
+### ホスティング
 
-From here the guide differs depending on whether you are hosting your repo on GitHub or GitLab. If you're hosting somewhere else, please feel free to write up a guide and add it to this book!
+ここからのガイドは GitHub で公開するか GitLab で公開するかによって変わってきます。それ以外の場所で公開しているのであれば、ぜひガイドを書いて、このリファレンスに追加するよう言ってください。
 
 * [GitHub でのホスト方法](./hosting/github.html)
 * [GitLab でのホスト方法](./hosting/gitlab.html)

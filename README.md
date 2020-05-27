@@ -153,7 +153,7 @@
 | `crystal-book/guides/performance.md`                                                                | ○    |
 | `crystal-book/guides/concurrency.md`                                                                | ○    |
 | `crystal-book/guides/testing.md`                                                                    | ×    |
-| `crystal-book/guides/writing_shards.md`                                                             | △    |
+| `crystal-book/guides/writing_shards.md`                                                             | ○    |
 | `crystal-book/guides/hosting/github.md`                                                             | ×    |
 | `crystal-book/guides/hosting/gitlab.md`                                                             | ×    |
 | `crystal-book/guides/continuous_integration.md`                                                     | ×    |
