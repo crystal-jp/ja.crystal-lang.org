@@ -353,7 +353,7 @@ twice do |i|
   puts "Got #{i}"
 end
 
-# Output:
+# Ouptut:
 # Skipping 1
 # Got 2
 ```
