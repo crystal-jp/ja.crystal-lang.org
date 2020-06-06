@@ -7,8 +7,6 @@
   - [crystal-jp/crystal-website](https://github.com/crystal-jp/crystal-website)
   - [crystal-lang/crystal-book](https://github.com/crystal-lang/crystal-book)
 
-**注意**: 現在、一括して翻訳を進めているためPull Request等を受け取れる状態にありません。
-
 ## ステータス
 
 翻訳済み/全体 = 157/168
