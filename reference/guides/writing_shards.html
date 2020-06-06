@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Shardの作り方 · GitBook</title>
+        <title>shard の作り方 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -1847,7 +1847,7 @@
                 <a href="writing_shards.html">
             
                     
-                    Shardの作り方
+                    shard の作り方
             
                 </a>
             
@@ -1967,7 +1967,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Shardの作り方</a>
+        <a href=".." >shard の作り方</a>
     </h1>
 </div>
 
@@ -1982,27 +1982,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="writing-shards">Writing Shards</h1>
-<p>How to write and release Crystal Shards.</p>
-<h2 id="whats-a-shard"><em>What&apos;s a Shard?</em></h2>
-<p>Simply put, a Shard is a package of Crystal code, made to be shared-with and used-by other projects.</p>
-<p>See <a href="../the_shards_command/">the Shards command</a> for details.</p>
-<h2 id="introduction">Introduction</h2>
-<p>In this tutorial, we&apos;ll be making a Crystal library called <em>palindrome-example</em>.</p>
+                                <h1 id="shard-&#x306E;&#x4F5C;&#x308A;&#x65B9;">shard &#x306E;&#x4F5C;&#x308A;&#x65B9;</h1>
+<p>&#x3053;&#x3053;&#x3067;&#x306F; Crystal &#x306E; shard &#x306E;&#x4F5C;&#x308A;&#x65B9;&#x3068;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="shard-&#x3068;&#x306F;&#xFF1F;"><em>shard &#x3068;&#x306F;&#xFF1F;</em></h2>
+<p>&#x7C21;&#x5358;&#x306B;&#x8A00;&#x3046;&#x3068;&#x3001;shard &#x3068;&#x306F; Crystal &#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3067;&#x3001;&#x4ED6;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5171;&#x6709;&#x3057;&#x305F;&#x308A;&#x4ED6;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x308A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x8A73;&#x3057;&#x304F;&#x306F; <a href="../the_shards_command/">shards &#x30B3;&#x30DE;&#x30F3;&#x30C9;</a>&#x306E;&#x7AE0;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<h2 id="&#x5C0E;&#x5165;">&#x5C0E;&#x5165;</h2>
+<p>&#x3053;&#x306E;&#x30C1;&#x30E5;&#x30FC;&#x30C8;&#x30EA;&#x30A2;&#x30EB;&#x3067;&#x306F;&#x3001;<em>palindrome-example</em> &#x3068;&#x3044;&#x3046; Crystal &#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <blockquote>
-<p>For those who don&apos;t know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam</p>
+<p>&#x77E5;&#x3089;&#x306A;&#x3044;&#x65B9;&#x306E;&#x305F;&#x3081;&#x306B;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3068;&#x3001;palindrome (&#x56DE;&#x6587;) &#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x524D;&#x304B;&#x3089;&#x8AAD;&#x3093;&#x3067;&#x3082;&#x5F8C;&#x308D;&#x304B;&#x3089;&#x8AAD;&#x3093;&#x3067;&#x3082;&#x540C;&#x3058;&#x306B;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;&#x8A9E;&#x306E;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001; racecar &#x3084; mom&#x3001;dad&#x3001;kayak&#x3001;madam &#x306A;&#x3069;&#x306E;&#x5358;&#x8A9E;&#x304C;&#x6319;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
-<h3 id="requirements">Requirements</h3>
-<p>In order to release a Crystal Shard, and follow along with this tutorial, you will need the following:</p>
+<h3 id="&#x5FC5;&#x8981;&#x306A;&#x3082;&#x306E;">&#x5FC5;&#x8981;&#x306A;&#x3082;&#x306E;</h3>
+<p>Crystal &#x306E; shard &#x3092;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x305D;&#x3057;&#x3066;&#x3053;&#x306E;&#x30C1;&#x30E5;&#x30FC;&#x30C8;&#x30EA;&#x30A2;&#x30EB;&#x3092;&#x7D9A;&#x3051;&#x3066;&#x3044;&#x304F;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3082;&#x306E;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</p>
 <ul>
-<li>A working installation of the <a href="../using_the_compiler/">Crystal compiler</a></li>
-<li>A working installation of <a href="https://git-scm.com" target="_blank">Git</a></li>
-<li>A <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com/" target="_blank">GitLab</a> account</li>
+<li><a href="../using_the_compiler/">Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;</a>&#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;</li>
+<li><a href="https://git-scm.com" target="_blank">Git</a> &#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;</li>
+<li><a href="https://github.com" target="_blank">GitHub</a> &#x3082;&#x3057;&#x304F;&#x306F; <a href="https://gitlab.com/" target="_blank">GitLab</a> &#x306E;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;</li>
 </ul>
-<h3 id="creating-the-project">Creating the Project</h3>
-<p>Begin by using <a href="../using_the_compiler/">the Crystal compiler</a>&apos;s <code>init lib</code> command to create a Crystal library with the standard directory structure.</p>
-<p>In your terminal: <code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
-<p>e.g.</p>
+<h3 id="&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;">&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;</h3>
+<p><a href="../using_the_compiler/">Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;</a> &#x306E; <code>init lib</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x9020;&#x3092;&#x6301;&#x3063;&#x305F; Cryatal &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;: <code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
+<p>&#x4F8B;:</p>
 <pre><code class="lang-session">$ crystal init lib palindrome-example
     create  palindrome-example/.gitignore
     create  palindrome-example/.editorconfig
@@ -2016,11 +2016,11 @@
     create  palindrome-example/spec/palindrome-example_spec.cr
 Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-example/.git/
 </code></pre>
-<p>...and <code>cd</code> into the directory:</p>
-<p>e.g.</p>
+<p>&#x3053;&#x3046;&#x3057;&#x305F;&#x3089;&#x3001;<code>cd</code> &#x3067;&#x4F5C;&#x3063;&#x305F;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x79FB;&#x52D5;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p>&#x4F8B;:</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">cd</span> palindrome-example
 </code></pre>
-<p>Then <code>add</code> &amp; <code>commit</code> to start tracking the files with Git:</p>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;<code>add</code> &#x3068; <code>commit</code> &#x3092;&#x3057;&#x3066;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092; Git &#x306B;&#x30C8;&#x30E9;&#x30C3;&#x30AD;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-session">$  git add -A
 $  git commit -am &quot;First Commit&quot;
 [master (root-commit) 77bad84] First Commit
@@ -2036,75 +2036,75 @@ create mode 100644 spec/spec_helper.cr
 create mode 100644 src/palindrome-example.cr
 create mode 100644 src/palindrome-example/version.cr
 </code></pre>
-<h3 id="writing-the-code">Writing the Code</h3>
-<p>The code you write is up to you, but how you write it impacts whether people want to use your library and/or help you maintain it.</p>
-<h4 id="testing-the-code">Testing the Code</h4>
+<h3 id="&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;">&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;</h3>
+<p>&#x3069;&#x3093;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3053;&#x3046;&#x3068;&#x3082;&#x81EA;&#x7531;&#x3067;&#x3059;&#x304C;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x305F;&#x304B;&#x306F;&#x3001;&#x305D;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x4F7F;&#x304A;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x30B3;&#x30F3;&#x30C8;&#x30EA;&#x30D3;&#x30E5;&#x30FC;&#x30C8;&#x3057;&#x305F;&#x3044;&#x3068;&#x3044;&#x3046;&#x4EBA;&#x306B;&#x3068;&#x3063;&#x3066;&#x5F71;&#x97FF;&#x306E;&#x3042;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<h4 id="&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;">&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;</h4>
 <ul>
-<li>Test your code. All of it. It&apos;s the only way for anyone, including you, to know if it works.</li>
-<li>Crystal has <a href="https://crystal-lang.org/api/Spec.html" target="_blank">a built-in testing library</a>. Use it!</li>
+<li>&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x66F8;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x308C;&#x304C;&#x3059;&#x3079;&#x3066;&#x3067;&#x3059;&#x3002;&#x4EBA;&#x3005; (&#x3042;&#x306A;&#x305F;&#x3092;&#x542B;&#x3080;) &#x306B;&#x3068;&#x3063;&#x3066;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x3060;&#x3051;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x6A5F;&#x80FD;&#x3059;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x304B;&#x3092;&#x793A;&#x3059;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li>Crystal &#x306F;<a href="https://crystal-lang.org/api/Spec.html" target="_blank">&#x30D3;&#x30EB;&#x30C8;&#x30A4;&#x30F3;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x7528;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;</a>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
 </ul>
-<h4 id="documentation">Documentation</h4>
+<h4 id="&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;">&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;</h4>
 <ul>
-<li>Document your code with comments. All of it. Even the private methods.</li>
-<li>Crystal has <a href="../conventions/documenting_code.html">a built-in documentation generator</a>. Use it!</li>
+<li>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3067;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305D;&#x308C;&#x304C;&#x3059;&#x3079;&#x3066;&#x3067;&#x3059;&#x3002;private &#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3082;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x66F8;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>Crystal &#x306F;<a href="../conventions/documenting_code.html">&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;</a>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
 </ul>
-<p>Run <code>crystal docs</code> to convert your code and comments into interlinking API documentation. Open the files in the <code>/docs/</code> directory with a web browser to see how your documentation is looking along the way.</p>
-<p>See below for instructions on hosting your compiler-generated docs on GitHub/GitLab Pages.</p>
-<p>Once your documentation is ready and available, you can add a documentation badge to your repository so users know that it exists. In GitLab this badge belongs to the project so we&apos;ll cover it in the GitLab instructions below, for GitHub it is common to place it below the description in your README.md like so:
-(Be sure to replace <code>&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</code> accordingly)</p>
+<p><code>crystal docs</code> &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092; API &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x5909;&#x63DB;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>/docs/</code> &#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092; Web &#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x958B;&#x304F;&#x3053;&#x3068;&#x3067;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x304B;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4EE5;&#x964D;&#x3067;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x751F;&#x6210;&#x3057;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092; GitHub &#x3084; GitLab &#x3067;&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E;&#x5B58;&#x5728;&#x3092;&#x5831;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D0;&#x30C3;&#x30B8;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;GitLab &#x3067;&#x306F;&#x4EE5;&#x964D;&#x3067;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3067;&#x3001;&#x3053;&#x306E;&#x30D0;&#x30C3;&#x30B8;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;GitHub &#x3067;&#x306F; README.md &#x306B;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
+(<code>&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</code> &#x3092;&#x81EA;&#x5206;&#x306E;&#x3082;&#x306E;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x3092;&#x5FD8;&#x308C;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;</p>
 <pre><code class="lang-Markdown">[<span class="hljs-string">![Docs</span>](<span class="hljs-link">https://img.shields.io/badge/docs-available-brightgreen.svg</span>)](<span class="hljs-link">&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</span>)
 </code></pre>
-<h3 id="writing-a-readme">Writing a README</h3>
-<p>A good README can make or break your project.
-<a href="https://github.com/matiassingers/awesome-readme" target="_blank">Awesome README</a> is a nice curation of examples and resources on the topic.</p>
-<p>Most importantly, your README should explain:</p>
+<h3 id="readme-&#x3092;&#x66F8;&#x304F;">README &#x3092;&#x66F8;&#x304F;</h3>
+<p>&#x826F;&#x3044; README &#x304C;&#x3042;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306F;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x6210;&#x529F;&#x3092;&#x5DE6;&#x53F3;&#x3057;&#x307E;&#x3059;&#x3002;
+<a href="https://github.com/matiassingers/awesome-readme" target="_blank">Awesome README</a> &#x306F;&#x3053;&#x306E;&#x8A71;&#x984C;&#x306E;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x4F8B;&#x3084;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x30AD;&#x30E5;&#x30EC;&#x30FC;&#x30C6;&#x30C3;&#x30C9;&#x30EA;&#x30B9;&#x30C8;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6700;&#x3082;&#x91CD;&#x8981;&#x306A;&#x3053;&#x3068;&#x3067;&#x3059;&#x304C;&#x3001;README &#x3067;&#x306F;&#x6B21;&#x306E;&#x3053;&#x3068;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <ol>
-<li>What your library is</li>
-<li>What it does</li>
-<li>How to use it</li>
+<li>&#x3053;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;&#x4F55;&#x306A;&#x306E;&#x304B;</li>
+<li>&#x4F55;&#x3092;&#x3059;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x304B;</li>
+<li>&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x306E;&#x304B;</li>
 </ol>
-<p>This explanation should include a few examples along with subheadings.</p>
-<p>NOTE: Be sure to replace all instances of <code>[your-github-name]</code> in the Crystal-generated README template with your GitHub/GitLab username. If you&apos;re using GitLab, you&apos;ll also want to change all instances of <code>github</code> with <code>gitlab</code>.</p>
+<p>&#x3053;&#x306E;&#x8AAC;&#x660E;&#x306B;&#x306F;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x4F8B;&#x3092;&#x9069;&#x5207;&#x306B;&#x7AE0;&#x7ACB;&#x3066;&#x3057;&#x3066;&#x542B;&#x3081;&#x308B;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x6CE8;&#x610F;: Crystal &#x306E;&#x751F;&#x6210;&#x3057;&#x305F; README &#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x4E2D;&#x306E; <code>[your-github-name]</code> &#x3068;&#x3044;&#x3046;&#x90E8;&#x5206;&#x3092;&#x5B9F;&#x969B;&#x306E; GitHub &#x3082;&#x3057;&#x304F;&#x306F; GitLab &#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x3067;&#x7F6E;&#x63DB;&#x3059;&#x308B;&#x306E;&#x3092;&#x5FD8;&#x308C;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x307E;&#x305F; GitLab &#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;<code>github</code> &#x3092; <code>gitlab</code> &#x306B;&#x5909;&#x66F4;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <h4 id="&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x30B9;&#x30BF;&#x30A4;&#x30EB;">&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x30B9;&#x30BF;&#x30A4;&#x30EB;</h4>
 <ul>
-<li>It&apos;s fine to have your own style, but sticking to <a href="../conventions/coding_style.html">some core rubrics defined by the Crystal team</a> can help keep your code consistent, readable and usable for other developers.</li>
-<li>Utilize Crystal&apos;s <a href="../conventions/documenting_code.html">built-in code formatter</a> to automatically format all <code>.cr</code> files in a directory.</li>
+<li>&#x81EA;&#x8EAB;&#x306E;&#x30B9;&#x30BF;&#x30A4;&#x30EB;&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x306F;&#x826F;&#x3044;&#x3053;&#x3068;&#x3067;&#x3059;&#x304C;&#x3001;<a href="../conventions/coding_style.html">Crystal &#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6163;&#x7FD2;&#x7684;&#x306A;&#x30B9;&#x30BF;&#x30A4;&#x30EB;</a>&#x306B;&#x5F93;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x4E00;&#x8CAB;&#x6027;&#x3084;&#x53EF;&#x8AAD;&#x6027;&#x3092;&#x4FDD;&#x3061;&#x3001;&#x4ED6;&#x306E;&#x958B;&#x767A;&#x8005;&#x306E;&#x7406;&#x89E3;&#x3057;&#x3084;&#x3059;&#x3044;&#x3082;&#x306E;&#x306B;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+<li>Crystal <a href="../conventions/documenting_code.html">&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30BF;</a>&#x3092;&#x6D3B;&#x7528;&#x3057;&#x3066;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E; <code>.cr</code> &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
 </ul>
-<p>e.g.</p>
+<p>&#x4F8B;:</p>
 <pre><code>crystal tool format
-</code></pre><p>To check if your code is formatted correctly, or to check if using the formatter wouldn&apos;t produce any changes, simply add <code>--check</code> to the end of this command.</p>
-<p>e.g.</p>
+</code></pre><p><code>--check</code> &#x3092;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x672B;&#x5C3E;&#x306B;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x6B63;&#x3057;&#x304F;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x78BA;&#x304B;&#x3081;&#x308B;&#x3001;&#x8981;&#x3059;&#x308B;&#x306B;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30BF;&#x304C;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5909;&#x66F4;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x78BA;&#x304B;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;:</p>
 <pre><code>crystal tool format --check
-</code></pre><p>See the Travis CI section below to implement this in your build.</p>
-<h3 id="writing-a-shardyml">Writing a <code>shard.yml</code></h3>
-<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md" target="_blank">The spec</a> is your rulebook. Follow it.</p>
-<h4 id="name">Name</h4>
-<p>Your <code>shard.yml</code>&apos;s <code>name</code> property should be concise and descriptive.</p>
+</code></pre><p>&#x4EE5;&#x964D;&#x306E; Travis CI &#x306E;&#x7AE0;&#x3067;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x6642;&#x306B;&#x3053;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="shardyml-&#x3092;&#x66F8;&#x304F;"><code>shard.yml</code> &#x3092;&#x66F8;&#x304F;</h3>
+<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md" target="_blank">&#x4ED5;&#x69D8;&#x66F8;</a>&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3053;&#x308C;&#x306B;&#x5F93;&#x3044;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<h4 id="&#x540D;&#x524D;">&#x540D;&#x524D;</h4>
+<p><code>shard.yml</code>&#x306E;&#x3067; <code>name</code> &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x306F;&#x7C21;&#x6F54;&#x304B;&#x3064;&#x8AAC;&#x660E;&#x7684;&#x306A;&#x3082;&#x306E;&#x306B;&#x3059;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
 <ul>
-<li>Search <a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> to check if your name is already taken.</li>
+<li><a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> &#x3067;&#x691C;&#x7D22;&#x3057;&#x3066;&#x3001;&#x65E2;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x540D;&#x524D;&#x3067;&#x306A;&#x3044;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
 </ul>
-<p>e.g.</p>
+<p>&#x4F8B;:</p>
 <pre><code class="lang-YAML"><span class="hljs-attr">name:</span> palindrome-example
 </code></pre>
-<h4 id="&#x8AAC;&#x660E;">&#x8AAC;&#x660E;</h4>
-<p>Add a <code>description</code> to your <code>shard.yml</code>.</p>
-<p>A <code>description</code> is a single line description used to search for and find your shard.</p>
-<p>A description should be:</p>
+<h4 id="&#x8AAC;&#x660E;&#x6587;">&#x8AAC;&#x660E;&#x6587;</h4>
+<p><code>description</code> &#x3092; <code>shard.yml</code> &#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>description</code> &#x306F;1&#x884C;&#x306E;&#x8AAC;&#x660E;&#x6587;&#x3067;&#x3001;&#x691C;&#x7D22;&#x306E;&#x969B;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>description &#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
 <ol>
-<li>Informative</li>
-<li>Discoverable</li>
+<li>&#x6709;&#x76CA;&#x306A;&#x60C5;&#x5831;&#x3092;&#x542B;&#x3080;</li>
+<li>&#x767A;&#x898B;&#x53EF;&#x80FD;&#x306A;&#x3082;&#x306E;&#x306B;&#x3059;&#x308B;</li>
 </ol>
-<h4 id="optimizing">Optimizing</h4>
-<p>It&apos;s hard for anyone to use your project if they can&apos;t find it.
-<a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> is currently the go-to place for Crystal libraries, so that&apos;s what we&apos;ll optimize for.</p>
-<p>There are people looking for the <em>exact</em> functionality of our library and the <em>general</em> functionality of our library.
-e.g. Bob needs a palindrome library, but Felipe is just looking for libraries involving text and Susan is looking for libraries involving spelling.</p>
-<p>Our <code>name</code> is already descriptive enough for Bob&apos;s search of &quot;palindrome&quot;. We don&apos;t need to repeat the <em>palindrome</em> keyword. Instead, we&apos;ll catch Susan&apos;s search for &quot;spelling&quot; and Felipe&apos;s search for &quot;text&quot;.</p>
+<h4 id="&#x6700;&#x9069;&#x5316;">&#x6700;&#x9069;&#x5316;</h4>
+<p>&#x898B;&#x3064;&#x3051;&#x3089;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x8AB0;&#x3082;&#x3042;&#x306A;&#x305F;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3057;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x4ECA;&#x306E;&#x3068;&#x3053;&#x308D;&#x3001;<a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> &#x306B; Crystal &#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x96C6;&#x7D04;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x306B;&#x5411;&#x3051;&#x3066;&#x6700;&#x9069;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p><em>&#x7CBE;&#x78BA;&#x306A;</em>&#x6A5F;&#x80FD;&#x304B;&#x3089;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63A2;&#x3059;&#x4EBA;&#x3068;&#x3001;<em>&#x4E00;&#x822C;&#x7684;&#x306A;</em>&#x6A5F;&#x80FD;&#x304B;&#x3089;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63A2;&#x3059;&#x4EBA;&#x304C;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x4F8B;&#x3048;&#x3070; Bob &#x306F;&#x56DE;&#x6587;&#x3092;&#x6271;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x5FC5;&#x8981;&#x3068;&#x3057;&#x3066;&#x3044;&#x3066;&#x3001;&#x4E00;&#x65B9;&#x3067; Felipe &#x304C;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3092;&#x6271;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3001;Susan &#x304C;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x30B9;&#x30DA;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3001;&#x3068;&#x3044;&#x3063;&#x305F;&#x3088;&#x3046;&#x306B;&#x3001;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;<code>name</code> &#x306B;&#x306F;&#x3059;&#x3067;&#x306B; Bob &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;palindrome&quot; &#x3068;&#x3044;&#x3046;&#x5358;&#x8A9E;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067; <em>palindrome</em> &#x3068;&#x7E70;&#x308A;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x3001;Susan &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;spelling&quot; &#x3084; Felipe &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;text&quot; &#x3068;&#x3044;&#x3063;&#x305F;&#x5358;&#x8A9E;&#x3092;&#x542B;&#x3081;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-YAML"><span class="hljs-attr">description:</span> <span class="hljs-string">|
   A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.
 </span></code></pre>
-<h3 id="hosting">Hosting</h3>
-<p>From here the guide differs depending on whether you are hosting your repo on GitHub or GitLab. If you&apos;re hosting somewhere else, please feel free to write up a guide and add it to this book!</p>
+<h3 id="&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;">&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;</h3>
+<p>&#x3053;&#x3053;&#x304B;&#x3089;&#x306E;&#x30AC;&#x30A4;&#x30C9;&#x306F; GitHub &#x3067;&#x516C;&#x958B;&#x3059;&#x308B;&#x304B; GitLab &#x3067;&#x516C;&#x958B;&#x3059;&#x308B;&#x304B;&#x306B;&#x3088;&#x3063;&#x3066;&#x5909;&#x308F;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x6240;&#x3067;&#x516C;&#x958B;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x305C;&#x3072;&#x30AC;&#x30A4;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3001;&#x3053;&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x306B;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3088;&#x3046;&#x8A00;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <ul>
 <li><a href="hosting/github.html">GitHub &#x3067;&#x306E;&#x30DB;&#x30B9;&#x30C8;&#x65B9;&#x6CD5;</a></li>
 <li><a href="hosting/gitlab.html">GitLab &#x3067;&#x306E;&#x30DB;&#x30B9;&#x30C8;&#x65B9;&#x6CD5;</a></li>
@@ -2152,7 +2152,7 @@ e.g. Bob needs a palindrome library, but Felipe is just looking for libraries in
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shardの作り方","level":"1.8.4","depth":2,"next":{"title":"GitHub でのホスト方法","level":"1.8.4.1","depth":3,"path":"guides/hosting/github.md","ref":"guides/hosting/github.md","articles":[]},"previous":{"title":"テスト","level":"1.8.3","depth":2,"path":"guides/testing.md","ref":"guides/testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"guides/writing_shards.md","mtime":"2020-05-20T14:18:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-05-20T14:20:55.606Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"shard の作り方","level":"1.8.4","depth":2,"next":{"title":"GitHub でのホスト方法","level":"1.8.4.1","depth":3,"path":"guides/hosting/github.md","ref":"guides/hosting/github.md","articles":[]},"previous":{"title":"テスト","level":"1.8.3","depth":2,"path":"guides/testing.md","ref":"guides/testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"guides/writing_shards.md","mtime":"2020-06-06T14:58:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-06-06T15:00:33.331Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
