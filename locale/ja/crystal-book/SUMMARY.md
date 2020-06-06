@@ -125,7 +125,7 @@
    * [パフォーマンス](guides/performance.md)
    * [並列性](guides/concurrency.md)
    * [テスト](guides/testing.md)
-   * [Shardの作り方](guides/writing_shards.md)
+   * [shard の作り方](guides/writing_shards.md)
       * [GitHub でのホスト方法](guides/hosting/github.md)
       * [GitLab でのホスト方法](guides/hosting/gitlab.md)
    * [継続的インテグレーション (CI)](guides/continuous_integration.md)

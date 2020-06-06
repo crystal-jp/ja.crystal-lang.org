@@ -65,7 +65,7 @@ Accordingly with the outcome of this command, Travis CI will return a [build sta
 
 If you want to verify that all your code has been formatted with `crystal tool format`, add a script for `crystal tool format --check`. If the code is not formatted correctly, this will [break the build](https://docs.travis-ci.com/user/for-beginners/#breaking-the-build) just as failing tests would.
 
-e.g.
+例:
 ```YAML
 script:
   - crystal spec
