@@ -7,6 +7,222 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Crystal 0.35.0 released!</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;Crystal 0.35.0&lt;/a&gt; has been released!&lt;/p&gt;
+
+&lt;p&gt;It seems everybody wanted to jump in and polish some corner of the std-lib before 1.0. There was a lot of activity iterating in some recent additions and more cleanups. Also, there were a lot of improvements on debugging, Windows support and stabilization on other platforms runtime.&lt;/p&gt;
+
+&lt;p&gt;This will be the last 0.x release. Get ready for some 1.0.0-preX releases.&lt;/p&gt;
+
+&lt;p&gt;There are &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.34.0...0.35.0&quot;&gt;242 commits since 0.34.0&lt;/a&gt; by 38 contributors.&lt;/p&gt;
+
+&lt;p&gt;Let’s get right into some of the highlights in this release. They are plenty. Don’t miss out on the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;release changelog&lt;/a&gt; which has a lot of valuable information.&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;h3 id=&quot;exhaustive-case-take-2&quot;&gt;Exhaustive Case (take 2)&lt;/h3&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html#exhaustive-case&quot;&gt;previous release&lt;/a&gt; we allowed the compiler to check the exhaustivity of the case conditions. From the feedback received, we decided to:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Allow the &lt;code class=&quot;highlighter-rouge&quot;&gt;case ... when&lt;/code&gt; to be as before: there is an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt;, hence the conditions can be non-exhaustive.&lt;/li&gt;
+  &lt;li&gt;Introduce the &lt;code class=&quot;highlighter-rouge&quot;&gt;case ... in&lt;/code&gt; statements as experimental: they don’t have an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt;, and the conditions need to be exhaustive or the code will not compile. Experimental means that it’s subject to change based on feedback. Even between minor releases.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This decision stays closer to a more familiar &lt;code class=&quot;highlighter-rouge&quot;&gt;case ...  when&lt;/code&gt; semantics and will allow further iteration on the exhaustive case constructs without affecting existing code. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9258&quot;&gt;#9258&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9045&quot;&gt;#9045&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;code_section&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles! Totally fine&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Error: missing case String&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To make this change, we needed to make &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; a proper keyword. Although it is a breaking-change, &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; was already used in the macro sublanguage as a keyword.&lt;/p&gt;
+
+&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
+
+&lt;p&gt;We are making a breaking-change in the compiler CLI to make it more comfortable for shebang &lt;code class=&quot;highlighter-rouge&quot;&gt;#!&lt;/code&gt; scripts. From now on when running the compiler with a file argument instead of a command like &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal path/to/file.cr arg1 arg2&lt;/code&gt; the file will be compiled, and then executed with the arguments. This means the arguments affect only the program to run and not the compiler.&lt;/p&gt;
+
+&lt;p&gt;If you need to use compile flags and want to execute the program with some arguments you can still use the run command: &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal run path/to/file.cr -Dcompiler_flag --release -- arg1 arg2&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt; will split compiler options from program options. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9171&quot;&gt;#9171&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another breaking-change use for some shell integrations is that &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env&lt;/code&gt; will now quote the values. This means it’s safe to &lt;code class=&quot;highlighter-rouge&quot;&gt;eval &quot;$(crystal env)&quot;&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env VARIABLE&lt;/code&gt; is still the same. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9428&quot;&gt;#9428&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The parser got a lot of love. Fixing edge cases, bugs and even a considerable refactor in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9208&quot;&gt;#9208&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some features of the language needed to iterate to work better together. In this release the time came for auto-casting regarding multi-dispatch and regarding default values against unions. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;. This should solve unfortunate surprises in some scenarios.&lt;/p&gt;
+
+&lt;p&gt;Beyond the improvements of existing features, probably one long awaited feature concerns improvements in Crystal’s debugging capabilities. The story is not yet complete, but in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt; a huge step forward was made. You can check out an article about &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;how to debug a Crystal program in VS Code article&lt;/a&gt; for more information, configuration and screenshots.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;@[Link]&lt;/code&gt; annotation was slightly redesigned. It has a better integration with pkg-config and we dropped the &lt;code class=&quot;highlighter-rouge&quot;&gt;static:&lt;/code&gt; option. This will allow us to focus on future stories for tweaking linking, yet providing good defaults. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8972&quot;&gt;#8972&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;For crystal package maintainers&lt;/strong&gt;, it is worth noticing that when building the compiler the &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_CONFIG_PATH&lt;/code&gt; only needs the path of the std-lib. The &lt;code class=&quot;highlighter-rouge&quot;&gt;lib&lt;/code&gt; directory is now always included by the compiler. This will allow future stories for tweaking the shards installation path. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9315&quot;&gt;#9315&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another change that can impact packages is that the &lt;code class=&quot;highlighter-rouge&quot;&gt;SOURCE_DATE_EPOCH&lt;/code&gt; environment variable can be used while building the compiler to advertise the source date. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9088&quot;&gt;#9088&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;shards&quot;&gt;Shards&lt;/h2&gt;
+
+&lt;p&gt;Shards v0.11.1 is bundled in this release.&lt;/p&gt;
+
+&lt;p&gt;The main thing you need to know is that the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property is &lt;strong&gt;effectively mandatory&lt;/strong&gt; now. It is used to filter which versions of a shard are available based on the crystal environment. You can check the semantics in &lt;a href=&quot;https://github.com/crystal-lang/shards/blob/v0.11.1/SPEC.md#crystal&quot;&gt;shards/SPEC.md&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep backward compatibility if the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; is missing, it will be interpreted as &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; 1.0.0&lt;/code&gt;. So everything will keep working until Crystal 1.0.0. Yet, if this is inconvenient you can pass &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; to avoid the check entirely.&lt;/p&gt;
+
+&lt;p&gt;We believe that dependency versions need to be stated clearly for better expectations on consumers. The std-lib and language version is also a dependency.&lt;/p&gt;
+
+&lt;p&gt;The semantics of the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property though is slightly different from dependencies’ version: &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: x.y.z&lt;/code&gt; is interpreted as &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) for convenience. The result is that on every &lt;strong&gt;major&lt;/strong&gt; release there will be some maintenance burden.&lt;/p&gt;
+
+&lt;p&gt;We recommend running &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; on your current project. You will notice that the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; has a new version format with some additions. And there will be a &lt;code class=&quot;highlighter-rouge&quot;&gt;lib/.shards.info&lt;/code&gt; file that will describe the installed dependencies. This new file does not need to be tracked.&lt;/p&gt;
+
+&lt;p&gt;Finally a new feature is that dependencies allow you to express intersections like &lt;code class=&quot;highlighter-rouge&quot;&gt;version: &amp;gt;= 1.0.0, &amp;lt; 2.0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a comprehensive list of changes in this shards version you can check its &lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.11.0&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
+
+&lt;p&gt;You will see many breaking-changes in this release. Most of them have deprecation warnings as usual. We didn’t want to go to 1.0 without cleaning up a lot of stuff beforehand. The cleanup probably should have happened before. It’s been hard to prioritize, but we are getting to it.&lt;/p&gt;
+
+&lt;p&gt;Many methods have an &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; argument that is a sink or target of the computation. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5916&quot;&gt;#5916&lt;/a&gt; you can read the motivation to standardize them as the first argument in these functions. It got implemented in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9134&quot;&gt;#9134&lt;/a&gt; and some follow up PRs.&lt;/p&gt;
+
+&lt;p&gt;Related to all these &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; methods, on &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;, instead of returning &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; values, there are new overloads to emit directly the result to the &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;; read more in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9236&quot;&gt;#9236&lt;/a&gt;. This affects &lt;code class=&quot;highlighter-rouge&quot;&gt;#underscore&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#titleize&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#capitalize&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#upcase&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;#downcase&lt;/code&gt; methods.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Keep an eye on &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/9291&quot;&gt;#9291&lt;/a&gt; for a proposal to improve the interpolation of strings so they can emit directly to an &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Another breaking-change in &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; is that &lt;code class=&quot;highlighter-rouge&quot;&gt;#skip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_utf8&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_byte&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_bytes&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;#skip_to_end&lt;/code&gt; return the number of bytes it skipped/written. This is similar to what other languages do, and serves to account for the position in the stream while writing in it, without additional calls. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9233&quot;&gt;#9233&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9363&quot;&gt;#9363&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We are introducing the &lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; annotation to mark which parts of the std-lib, language, or shard should be used with extra care. An experimental feature is allowed to change, break, or disappear despite the semver guarantees. For now, the annotation is used in the documentation generator tool. We have a few draft ideas to give more formal semantics to it. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You might notice that the &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; types got some refactors and small method renames. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Speaking of features, the &lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt; is now allowed to define sub-commands. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9009&quot;&gt;#9009&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some other clean-ups: &lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Zlib&lt;/code&gt; were moved inside &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress&lt;/code&gt; module in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8886&quot;&gt;#8886&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt; was renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress::Deflate&lt;/code&gt;, actually. You might need to &lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;compress/gzip&quot;&lt;/code&gt; and change some constants here or there. The &lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;gzip&quot;&lt;/code&gt; is still available but will show a deprecation warning.&lt;/p&gt;
+
+&lt;p&gt;Some efforts were dedicated to&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;FileUtils&lt;/code&gt;, to clean them up and to ensure operations are available from both APIs. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9175&quot;&gt;#9175&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;macros&quot;&gt;Macros&lt;/h3&gt;
+
+&lt;p&gt;If you are into cross-compiling you’ll be quite happy with the introduction of &lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; macro method. Similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; but it resolves on the host machine. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
+
+&lt;p&gt;The overflow detection was fixed to correctly handle operations with mixed sign operands. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9403&quot;&gt;#9403&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We added &lt;code class=&quot;highlighter-rouge&quot;&gt;Int#digits&lt;/code&gt; but along the way it was mandatory to reverse the output of &lt;code class=&quot;highlighter-rouge&quot;&gt;BigInt#digits&lt;/code&gt; for consistency. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9383&quot;&gt;#9383&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; migrated to their own packages: &lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt;. They served well but in the presence of &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt; it’s better to remove them from the std-lib. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9272&quot;&gt;#9272&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
+
+&lt;p&gt;From now on the default precision of &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; will be seconds, without fractions. You can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; named argument to choose between 0, 3, 6, 9 precision digits. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; we are dropping the logic to show the fraction of seconds depending on the time value.&lt;/p&gt;
+
+&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
+
+&lt;p&gt;We’ve updated the SSL server secure defaults in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9026&quot;&gt;#9026&lt;/a&gt;. And fixed some &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; sporadic failures during SSL handshake in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9177&quot;&gt;#9177&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are a couple of breaking-changes in &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; though. We improved the error handling and logging in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9115&quot;&gt;#9115&lt;/a&gt; and integrated it with the new logging module. The &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Request#remote_address&lt;/code&gt; type was changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Address?&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9210&quot;&gt;#9210&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;logging&quot;&gt;Logging&lt;/h3&gt;
+
+&lt;p&gt;First of all, huge thanks for all the feedback and early adopters of the new logging module introduced in &lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html&quot;&gt;0.34.0&lt;/a&gt;. There are several changes that, though they are indeed breaking-changes, do not affect the main APIs. Together they bring additional functionality and improved performance in some use cases.&lt;/p&gt;
+
+&lt;p&gt;We renamed &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Severity::Warning&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Warn&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9293&quot;&gt;#9293&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.warn { ... }&lt;/code&gt; was, and still is, the way to emit a warning. This change affects the &lt;code class=&quot;highlighter-rouge&quot;&gt;:warning&lt;/code&gt; and configuration via environment variables mostly. Similarly, we dropped &lt;code class=&quot;highlighter-rouge&quot;&gt;Verbose&lt;/code&gt;, and added &lt;code class=&quot;highlighter-rouge&quot;&gt;Trace&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Notice&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9107&quot;&gt;#9107&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The setup of logging got simpler. There are a couple of &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; methods. Each of them will always set up the binding fully between sources and backends.&lt;/p&gt;
+
+&lt;div class=&quot;code_section&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:debug&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show debug or above in the stdout for all source&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;db.*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:trace&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show trace or above in the stdout for db.* sources and nothing else&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup_from_env&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will grab the value of LOG_LEVEL env variable&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You might notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; is now using a single environment variable as input. More flexibility will come later, but the new named arguments should offer a better experience. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9145&quot;&gt;#9145&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Each entry could already have context information that is grabbed from the running fiber. We essentially split &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Context&lt;/code&gt; responsibilities between &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt;. The former is a hash-like structure of &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; with some allocation and algorithmic optimizations. The main work was done in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9227&quot;&gt;#9227&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9295&quot;&gt;#9295&lt;/a&gt;. These refactors also drop the immutability guarantee in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; that was achieved via cloning.&lt;/p&gt;
+
+&lt;p&gt;One wanted feature that this enables is the possibility to attach local metadata or structured information to a log entry. That is, without the penalty of changing and restoring the context of the current fiber. We were allowed to do this while keeping the initial design of avoiding the creation of values if the entry is not to be emitted.&lt;/p&gt;
+
+&lt;div class=&quot;code_section&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Program started&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Program started&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# same as previous&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;User logged in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# local data&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;User logged in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expr_that_computes_hash_named_tuple_or_metadata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# with exception&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# with exception, no local data&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# same as previous&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;action: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# empty message&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;How to create custom log formatters was revisited in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9211&quot;&gt;#9211&lt;/a&gt;. Creating a formatter from a block or proc is still an option, but check in some simplified ways to define a formatter from a string directly.&lt;/p&gt;
+
+&lt;p&gt;If you want to test that log entries are emitted you can use the new spec helper &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.capture&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9201&quot;&gt;#9201&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;concurrency&quot;&gt;Concurrency&lt;/h3&gt;
+
+&lt;p&gt;We dropped &lt;code class=&quot;highlighter-rouge&quot;&gt;Concurrent::Future&lt;/code&gt; and top-level methods &lt;code class=&quot;highlighter-rouge&quot;&gt;delay&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;future&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;lazy&lt;/code&gt;. If you want to keep using them, use the &lt;a href=&quot;https://github.com/crystal-community/future.cr&quot;&gt;github:crystal-community/future.cr&lt;/a&gt; shard. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9093&quot;&gt;#9093&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another feature that was dropped is the &lt;code class=&quot;highlighter-rouge&quot;&gt;parallel&lt;/code&gt; macro in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9097&quot;&gt;#9097&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We expect to develop a more robust approach to cover these scenarios post 1.0.&lt;/p&gt;
+
+&lt;h3 id=&quot;runtime&quot;&gt;Runtime&lt;/h3&gt;
+
+&lt;p&gt;We deprecated &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#kill&lt;/code&gt; in favor of  &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#signal&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9006&quot;&gt;#9006&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We also deprecated the top-level &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt;, since it won’t be available in multi-threading. If this is a stopper issue for you, &lt;code class=&quot;highlighter-rouge&quot;&gt;Process.fork&lt;/code&gt; is still available. But it is no longer a public API. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9136&quot;&gt;#9136&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;platforms&quot;&gt;Platforms&lt;/h3&gt;
+
+&lt;p&gt;For macOS users, we fixed some compatibility issues with 10.15 (Catalina) in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9296&quot;&gt;#9296&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For BSD users, we added support for DragonFly(BSD) in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9178&quot;&gt;#9178&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For musl users, we fixed some weird segfaults in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9238&quot;&gt;#9238&lt;/a&gt; and fixed some empty backtraces &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9267&quot;&gt;#9267&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For Windows users, well, lots of stuff. To see the ongoing efforts don’t miss the &lt;a href=&quot;https://github.com/crystal-lang/crystal/wiki/Porting-to-Windows&quot;&gt;wiki page&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5430&quot;&gt;#5430&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Regarding actual changes in this release for Windows we have:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; improvements &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9015&quot;&gt;#9015&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9038&quot;&gt;#9038&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9037&quot;&gt;#9037&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9257&quot;&gt;#9257&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; behaviour was aligned in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9207&quot;&gt;#9207&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process&lt;/code&gt; was implemented &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9047&quot;&gt;#9047&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9021&quot;&gt;#9021&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9122&quot;&gt;#9122&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9112&quot;&gt;#9112&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9149&quot;&gt;#9149&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9310&quot;&gt;#9310&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal spec&lt;/code&gt; command deals with Windows paths in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9234&quot;&gt;#9234&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;And the compiler is able to bootstrap itself on windows. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9054&quot;&gt;#9054&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9062&quot;&gt;#9062&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9095&quot;&gt;#9095&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9106&quot;&gt;#9106&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9307&quot;&gt;#9307&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Again, note that there are still some parts of the std-lib that are not ready to work on Windows.&lt;/p&gt;
+
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+
+&lt;p&gt;The main story in the doc generator tool is the support to show a version picker. An external &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; file will let you specify the current and past releases to populate the version picker. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8792&quot;&gt;#8792&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9074&quot;&gt;#9074&lt;/a&gt;, and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9254&quot;&gt;#9254&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 1.0.0. We expect to release some 1.0.0-preX to iterate on some final fixes.&lt;/p&gt;
+
+&lt;p&gt;We acknowledge that there were a lot of cleanups in the last couple of releases. We did our best to stay below a discomfort threshold.&lt;/p&gt;
+
+&lt;p&gt;All the deprecated definitions will be removed for 1.0. We want a clean 1.0.&lt;/p&gt;
+
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2020/06/09/crystal-0.35.0-released.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/06/09/crystal-0.35.0-released.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal 0.34.0 released!</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.34.0&quot;&gt;Crystal 0.34.0&lt;/a&gt; has been released!&lt;/p&gt;
 
@@ -930,218 +1146,6 @@ Even after merging &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull
         <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2019/09/23/crystal-0.31.0-released.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2019/09/23/crystal-0.31.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Parallelism in Crystal</title>
-        <description>&lt;p&gt;Crystal has made a huge step forward to have parallelism as a first class citizen. In short, you can set up the number of worker threads on runtime and each new fiber will be scheduled to run on one of them. Channel and select will work seamlessly. You are allowed to share memory between workers, but you will probably need to take care of some synchronization to keep the state consistent.&lt;/p&gt;
-
-&lt;p&gt;This work required a lot of effort, but it definitely got lighter thanks to the refactors, design discussions and attempts to work on parallelism. Either merged or not, all the past work served as a reference to double check thoughts along the way.&lt;/p&gt;
-
-&lt;p&gt;In this article, we will try to cover all the new functionality description, design, challenges we faced and next steps. If you want to start using this right away the first section can be enough. The ultimate goal is to be able to use all the CPU power available, but not changing the language too much. Hence, some of the challenges and open work that can be found towards the end of the article.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-use-it-the-quick-guide&quot;&gt;How to use it, the quick guide&lt;/h2&gt;
-
-&lt;p&gt;In order to take advantage of these features you need to build your program with &lt;code class=&quot;highlighter-rouge&quot;&gt;preview_mt&lt;/code&gt; support. Eventually this will become the default, but for now you need to opt-in.&lt;/p&gt;
-
-&lt;p&gt;As you will read in this document, data can be shared across workers but it’s up to the user to avoid data races. Some std-lib parts still need to be reworked to avoid unsound behaviours.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Build the program with &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dpreview_mt&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal build -Dpreview_mt main.cr&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;./main&lt;/code&gt;. (Optionally specify the amount of workers thread as in &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_WORKERS=4&lt;/code&gt;, by default is &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The first top-level change in the API is that, when spawning new fibers, you can specify if you want the new one to run in the same worker thread.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;kp&quot;&gt;spawn&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;same_thread: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This is particularly useful if you need to ensure certain thread local state or that the caller is the same thread.&lt;/p&gt;
-
-&lt;h2 id=&quot;early-benchmarks&quot;&gt;Early Benchmarks&lt;/h2&gt;
-
-&lt;p&gt;The benchmarks shown in this section were generated from &lt;a href=&quot;https://github.com/bcardiff/crystal-benchmarks&quot;&gt;bcardiff/crystal-benchmarks&lt;/a&gt; using &lt;a href=&quot;https://github.com/manastech/benchy&quot;&gt;manastech/benchy&lt;/a&gt; in a &lt;code class=&quot;highlighter-rouge&quot;&gt;c5.2xlarge&lt;/code&gt; EC2 instance.&lt;/p&gt;
-
-&lt;h3 id=&quot;matrix-multiplication&quot;&gt;Matrix Multiplication&lt;/h3&gt;
-
-&lt;p&gt;Multiplying matrices is a process that can be parallelized and scales nicely. It also happens to have no I/O so it’s a good example to analyze a CPU-bounded scenario.&lt;/p&gt;
-
-&lt;p&gt;In this example, when compiled with multi-thread, one worker thread will delegate and wait for completion of the result for each of the coordinates, while the other worker threads will be picking requests of computation and processing them.&lt;/p&gt;
-
-&lt;p&gt;When we compare single-thread with the 1 worker thread doing the actual computation, we can see some increase in the user time. It is slower due to the heavier bookkeeping and synchronization in multi-thread with respect to single-thread. But as soon as workers are added the user will experience a great deal of improvement in performance. Expect all the threads to be running at top speed in this scenario.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blog/2019-08-matmul-channel.png&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;wall time for matmul-channel. less is better&lt;/center&gt;
-
-&lt;h3 id=&quot;hello-world-http-server&quot;&gt;Hello World HTTP Server&lt;/h3&gt;
-
-&lt;p&gt;A synthetic benchmark that usually appears is an http server that replies &lt;code class=&quot;highlighter-rouge&quot;&gt;hello world&lt;/code&gt; to a &lt;code class=&quot;highlighter-rouge&quot;&gt;GET /&lt;/code&gt; request. While attending each request and building the short response, there will usually be no need for a context-switch, due to I/O operations while building the response.&lt;/p&gt;
-
-&lt;p&gt;For example, in the following chart we can depict how the &lt;code class=&quot;highlighter-rouge&quot;&gt;hello-world-http-server&lt;/code&gt; sample behaves. The &lt;code class=&quot;highlighter-rouge&quot;&gt;wrk&lt;/code&gt; tool performing on the same machine, with 2 threads and 100 connections during 30 seconds. There is an interesting increase in the throughput.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blog/2019-08-hello-world-http-server.png&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;throughput in requests per second. more is better&lt;/center&gt;
-
-&lt;h3 id=&quot;channel-primes-generation&quot;&gt;Channel Primes Generation&lt;/h3&gt;
-
-&lt;p&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;channel-primes&lt;/code&gt; example, the primes are generated by chaining multiple channels in a sort of sequence. The &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;-th prime will go through &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; channels before printed. This can be seen as a pathological scenario since the algorithm can’t be balanced in an obvious way and there is a lot of communication happening.&lt;/p&gt;
-
-&lt;p&gt;In this example we can see that multi-thread is not a silver bullet. The single-thread still outperforms the multi-thread.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blog/2019-08-channel-primes-wall-time.png&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;wall time for channel-primes. less is better&lt;/center&gt;
-
-&lt;p&gt;Although, depending on the number of workers the wall time difference is less noticable, the cpu time difference will be huge.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/blog/2019-08-channel-primes-cpu-time.png&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
-
-&lt;center&gt;cpu time for channel-primes. less is better&lt;/center&gt;
-
-&lt;h2 id=&quot;detailed-description&quot;&gt;Detailed description&lt;/h2&gt;
-
-&lt;p&gt;We wanted to bring support for parallelism without changing the nature of the language. The programmer should be able to think in units of fibers running, accessing data and, in most cases, not care which thread the code is running in. This implies shared data among threads and fibers. And keeping the threads hidden from the user as much as possible.&lt;/p&gt;
-
-&lt;p&gt;Along the way we needed to deal with some changes in the internal implementation and design of some core aspects of the runtime. We also needed to fix some issues in the compiler itself: some were extracted and submitted independently. And last but not least, some issues regarding the sound and safety of the language itself are currently affected by enabling multi-thread.&lt;/p&gt;
-
-&lt;p&gt;In single-thread mode there is one worker thread with one event loop. The event loop is responsible of resuming fibers that are waiting for I/O to complete. In multi-thread mode each worker thread has its own event loop and they work basically as multiple instances of the previous mechanism, but with some additional features.&lt;/p&gt;
-
-&lt;p&gt;The memory between each worker thread can be shared and is mutable. This is and will be the source of many headaches. You will need to synchronize access to them via locks or use some proper data-structures that can handle concurrent access.&lt;/p&gt;
-
-&lt;p&gt;The channels are able to send and receive messages through different worker threads without changes in the API and should be used as the main method of communication and synchronization between fibers.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; statement needed some extra care on its own. A &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; injects many receivers and senders on different channels. As soon as one of those fulfills the select, the rest of the receivers and senders need to be ignored. To this end, when a fiber is enqueued as sender or receiver in a &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; operation, a &lt;code class=&quot;highlighter-rouge&quot;&gt;SelectContext&lt;/code&gt; is created to track the state of the whole &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;. On &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel#dequeue_receiver&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel#dequeue_sender&lt;/code&gt; is the logic to skip them if the select was already completed.&lt;/p&gt;
-
-&lt;p&gt;As soon as the program starts, the initialization of workers threads based on the value of the environment variable &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_WORKERS&lt;/code&gt; is done. Each worker thread has its own &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; with the &lt;code class=&quot;highlighter-rouge&quot;&gt;runnables&lt;/code&gt; queue.&lt;/p&gt;
-
-&lt;p&gt;Even on multi-thread mode there is still a short time before workers are initialized when the program will work with only one worker. This happens while initializing some constants and class variables.&lt;/p&gt;
-
-&lt;p&gt;Through the &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler&lt;/code&gt; there are a couple of conditions to protect the state in multi-thread mode. Although the queues are independent, workers need to communicate to one another to dispatch new fibers. If the target worker is not sleeping, the new fiber can be enqueued directly (note that the queue is accessed from the current worker and hence needs to be synchronized). If the target worker is sleeping, a pipe is used to send the new fiber to execute, waking the worker through the event loop. A pipe is created for each worker thread in its scheduler. This is handled in &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler#run_loop&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler#send_fiber&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler#enqueue&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Which worker thread will execute a fiber is now decided in a round-robin fashion. This policy might change in the future with some load metric per worker. But we chose the simplest logic we could think of, and it will serve as a baseline for future improvements if needed.&lt;/p&gt;
-
-&lt;p&gt;To keep things as simple as possible, regarding the scheduling, once a fiber starts running in a worker thread it will never migrate to another. It can be suspended and resumed, of course. But we explicitly chose to start without fiber stealing.&lt;/p&gt;
-
-&lt;h2 id=&quot;api-changes&quot;&gt;API Changes&lt;/h2&gt;
-
-&lt;h3 id=&quot;compiling-a-multi-thread-program&quot;&gt;Compiling a multi-thread program&lt;/h3&gt;
-
-&lt;p&gt;Compiling programs with multi-threading support is available behind the &lt;code class=&quot;highlighter-rouge&quot;&gt;preview_mt&lt;/code&gt; flag for now. And check that you are using Crystal 0.31.0 (not yet released) or a local build of master.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;crystal &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-Crystal 0.31.0
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;crystal build &lt;span class=&quot;nt&quot;&gt;-Dpreview_mt&lt;/span&gt; main.cr &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; main&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;setup-the-number-of-worker-threads-at-runtime&quot;&gt;Setup the number of worker threads at runtime&lt;/h3&gt;
-
-&lt;p&gt;The number of worker threads can be customized via &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_WORKERS&lt;/code&gt; env var. Its default is &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./main &lt;span class=&quot;c&quot;&gt;# will use 4 workers&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ CRYSTAL_WORKERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4 ./main
-&lt;span class=&quot;nv&quot;&gt;$ CRYSTAL_WORKERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8 ./main&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;spawn&quot;&gt;spawn&lt;/h3&gt;
-
-&lt;p&gt;By default new fibers created with &lt;code class=&quot;highlighter-rouge&quot;&gt;spawn&lt;/code&gt; are free to run in any of the worker threads. If you need for the same fiber to execute in current worker thread you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;spawn(same_thread: true) { ... }&lt;/code&gt;. This is useful for some C libraries where thread local storage is used.&lt;/p&gt;
-
-&lt;h3 id=&quot;mutex&quot;&gt;Mutex&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Mutex&lt;/code&gt; is still the way to request a lock that works across fibers. There is no actual API changes but is worth noticing that the behavior still holds in multi-thread mode. Some of you might know about the existence of the internal &lt;code class=&quot;highlighter-rouge&quot;&gt;Thread::Mutex&lt;/code&gt; that is a wrapper for pthread. Direct use of &lt;code class=&quot;highlighter-rouge&quot;&gt;Thread::Mutex&lt;/code&gt; is discouraged, unless you really know what you’re doing and why you’re doing it. Use the top-level &lt;code class=&quot;highlighter-rouge&quot;&gt;Mutex&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;channel&quot;&gt;Channel&lt;/h3&gt;
-
-&lt;p&gt;The behaviour of closed channels was revisited. From now on, either in single-thread or multi-thread programs, you will be able to perform a receive action on a closed channel until the already sent messages are consumed. This makes sense because otherwise a sync of the queue and the channel state would be needed. For sure, once the channel is closed, no new messages can be sent through it.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Channel(T)&lt;/code&gt; now represents both unbuffered and buffered channels. When initializing them, use &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel(T).new&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel(T).new(capacity)&lt;/code&gt;, respectively.&lt;/p&gt;
-
-&lt;h3 id=&quot;fork&quot;&gt;Fork&lt;/h3&gt;
-
-&lt;p&gt;Mixing fork and multi-thread programs is problematic. There are a couple of references describing issues on that scenario:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/1074663/30948&quot;&gt;Fork and existing threads?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://thorstenball.com/blog/2014/10/13/why-threads-cant-fork/&quot;&gt;Why threads can’t fork&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.linuxprogrammingblog.com/threads-and-fork-think-twice-before-using-them&quot;&gt;Threads and fork(): think twice before mixing them&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; method will not be available in multi-thread and will probably go away as a public API. The std-lib still needs fork to start subprocesses, but this scenario is safe because an exec is performed after the fork.&lt;/p&gt;
-
-&lt;p&gt;Another scenario that might need fork is to daemonize a process, but that story needs to evolve a bit still.&lt;/p&gt;
-
-&lt;h3 id=&quot;locks&quot;&gt;Locks&lt;/h3&gt;
-
-&lt;p&gt;There is an internal implementation of a Spin-Lock in &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::SpinLock&lt;/code&gt; that, when compiled in single-thread, behaves as a Null-Lock. And there is also an internal implementation of a RW-Lock in &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::RWLock&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;These locks are used in the runtime and not expected to be used as a public API. But it’s good to know about their existence.&lt;/p&gt;
-
-&lt;h2 id=&quot;challenges&quot;&gt;Challenges&lt;/h2&gt;
-
-&lt;p&gt;We went through a couple of iterations before arriving to the current design for multi-thread support. Some of them were discarded due to performance reasons but were similar in essence and API to the current one. Other ideas inspired us to have some level of isolation between processes. Having some clear boundaries makes it simpler to reduce locking and synchronizations. Some of those designs, partially influenced by Rust, would have led to shareable and non-shareable types between processes and new types of closures to mimic whether they could or could not be sent to another process. There were other draft ideas, but we eventually settled on something that will be more aligned with the current nature of a program of running fibers accessing shared data, since we arrived at an implementation we found performant enough. Besides the implementation details to keep the runtime working there are a couple of stories around language semantics that still need to evolve, but as long as you synchronize the shared state you should be safe.&lt;/p&gt;
-
-&lt;p&gt;The lifecycle of a channel changed a bit. In short, when a fiber is waiting for a channel, the fiber is no longer &lt;em&gt;runnable&lt;/em&gt;. But now, the awaited channel operation has already a designated memory slot where the message should be received. When a message is to be sent through that channel, it will be stored in the designated memory slot (shared memory FTW). Finally, the fiber that was paused will be rescheduled as runnable and the very first operation will be to read and return the message. This can be seen in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel#receive_impl&lt;/code&gt; method. If the awaiting fiber was in a thread that was sleeping (no runnable fibers available), the same pipe used to deliver new fibers is used to enqueue the fiber in the sleeping thread, waking it up.&lt;/p&gt;
-
-&lt;p&gt;While implementing the changes for channel and select we needed to deal with some corner cases, like a select performing send and receive over the same channel. And we also found ourselves rethinking the invariants of the representation of the channel. It meant a lot to us when we arrived at a design that held similar constraints as those of Go’s channels.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;(..) At least one of c.sendq and c.recvq is empty, except for the case of an unbuffered channel with a single goroutine blocked on it for both sending and receiving using a select statement (…)
-&lt;a href=&quot;https://github.com/golang/go/blob/master/src/runtime/chan.go#L9-L18&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The channel mechanism described above works because of how the event loop is designed. Each worker thread has its own event loop in &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler#run_loop&lt;/code&gt; that will pop fibers from the runnable queue or, if empty, will wait until a fiber is sent through the pipe of that worker thread. This mechanism is not only for channels, but for I/O in general. When an I/O operation is to be waited for, the current fiber will be on hold in the IO internal queue readers or writers queue until the event is completed in &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Evented#evented_close&lt;/code&gt;. Meanwhile, the worker thread can keep running other fibers or become idle. The fiber that was performing I/O is restored by &lt;code class=&quot;highlighter-rouge&quot;&gt;Scheduler.enqueue&lt;/code&gt;, which will handle the logic to communicate to a busy or idle thread.&lt;/p&gt;
-
-&lt;p&gt;For the integration with libevent we also needed to initialize one &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::Event::Base&lt;/code&gt; per worker thread. We want the &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; to be shareable between workers directly and each of them needs a reference to a &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::Event&lt;/code&gt; that wraps the &lt;code class=&quot;highlighter-rouge&quot;&gt;LibEvent2::Event&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::Event&lt;/code&gt;s are bound to a single &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::Event::Base&lt;/code&gt;. The solution was that each &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; (via &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Evented&lt;/code&gt;) has the event and waiting fibers for it in a hash indexed per thread. When an event is completed on a thread it will be able to notify the waiting fiber of that thread only.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;@[ThreadLocal]&lt;/code&gt; annotation is not widely used and it has some known issues in OpenBSD and others platforms. An internal &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal::ThreadLocalValue(T)&lt;/code&gt; class was needed to mimic that behavior and is used in the underlying implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Constants and class variables are lazily initialized in some scenarios. We would like that to change eventually, but for now a lock is needed during the initialization. Where to put that lock remains a challenge. Because it can’t be in a constant, right? Both &lt;code class=&quot;highlighter-rouge&quot;&gt;__crystal_once_init&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;__crystal_once&lt;/code&gt;, internal functions well-known by the compiler, are introduced and used in the lazy initialization functions of constants and class variables.&lt;/p&gt;
-
-&lt;p&gt;We mentioned that the starting scheduling algorithm is a round-robin without fiber stealing. We attempted to have a metric of the load of each worker, but since workers can communicate within each other to delegate new fibers, computing the load would imply more state that needs to be synced. On top of that, in the current implementation there are references to fibers in the pipe used for communication, so the &lt;code class=&quot;highlighter-rouge&quot;&gt;@runnables&lt;/code&gt; queue sizes are not an accurate metric.&lt;/p&gt;
-
-&lt;p&gt;The GC had multi-thread support in the past, but the performance was not good enough. We finally implemented a RW-Lock between context switches (the readers) and the GC collection (the writer). The implementation of the RW-Lock is inspired in &lt;a href=&quot;http://concurrencykit.org/&quot;&gt;Concurrency Kit&lt;/a&gt; and does not use a Mutex.&lt;/p&gt;
-
-&lt;p&gt;Unsurprisingly, but worth noticing, a compiler built with multi-thread support does not yet take advantage of the cores. Up until now, the compiler used &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; when building programs in debug mode. So the &lt;code class=&quot;highlighter-rouge&quot;&gt;--threads&lt;/code&gt; compiler option is ignored on multi-thread due to the issues described &lt;a href=&quot;#fork&quot;&gt;before&lt;/a&gt;. This is a use case of &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; that will not be supported in the future and will need to be rewritten with other constructs.&lt;/p&gt;
-
-&lt;p&gt;We will probably aim to keep the single-thread mode available: multi-thread is not &lt;em&gt;always&lt;/em&gt; better. This could impact in the realm of shards. It is still unclear whether a shard will explicitly be constrained to work on either mode, but not the other one and, if so, how to state it.&lt;/p&gt;
-
-&lt;p&gt;Some of the memory representation and the low level instructions emitted by the compiler to manipulate them do not play nicely with multi-thread mode. At the very least, we need to prevent segfaults to keep the language sound. Again, as long as access to shared data is synchronized, you will be fine, but that means the programmer is responsible and the language is not safe enough. In the following sections we depict some scenarios and the current state to solve them.&lt;/p&gt;
-
-&lt;h3 id=&quot;language-type-safety&quot;&gt;Language type-safety&lt;/h3&gt;
-
-&lt;p&gt;When a data structure is accessed concurrently from different threads, if there is no synchronization, the instructions can get interleaved  and lead to unexpected results. This problem is not new and many languages suffer it. When dealing with data structures like Array one can think of some synchronization around the public API in a worst case scenario. But sometimes the inconsistent state can manifest in more subtle ways.&lt;/p&gt;
-
-&lt;p&gt;If the language allows value-types larger than the amount of memory than can be atomically written, then you might notice some oddities. Let’s assume we have a shared &lt;code class=&quot;highlighter-rouge&quot;&gt;Tuple(Int32, Bool)&lt;/code&gt; in which a thread constantly sets the value &lt;code class=&quot;highlighter-rouge&quot;&gt;{0, false}&lt;/code&gt;, a second thread sets the value &lt;code class=&quot;highlighter-rouge&quot;&gt;{1, true}&lt;/code&gt;, and a third thread will read the value. Due to interleaved instructions, the last thread will every now and then find the values &lt;code class=&quot;highlighter-rouge&quot;&gt;{1, false}&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;{0, true}&lt;/code&gt;. Nothing unsafe happens here, they are possible values of &lt;code class=&quot;highlighter-rouge&quot;&gt;Tuple(Int32, Bool)&lt;/code&gt;, but it’s odd that a value that was never written can be read. Many languages that have value types of arbitrary size usually exhibit this issue.&lt;/p&gt;
-
-&lt;p&gt;In Crystal, unions between value-types and reference-types are represented as a tuple of a type id and the value itself. A union of &lt;code class=&quot;highlighter-rouge&quot;&gt;Int32 | AClass&lt;/code&gt; is guaranteed to not have a &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; value. But due to interleaving, the representation of a &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; can appear, and a null pointer exception (a segfault in this case) will happen.&lt;/p&gt;
-
-&lt;p&gt;Regarding Array, something similar can happen. An Array of a reference type (without &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; as value) can lead to a segfault, because one thread might remove an item while another is dereferencing the last one. Removing items writes a zero in the memory, so the GC can claim the memory, but the zero address is not a value that can be dereferenced.&lt;/p&gt;
-
-&lt;p&gt;There are a couple of ideas to perform the codegen of unions in a different way. And one of them is already working, but at the cost of increasing both the memory footprint and the binary size of the program. We want to iterate on other alternatives and compare them before choosing one. &lt;em&gt;For now&lt;/em&gt; you will need to be aware that shared unions that can appear in class variables, instance variables, constants or closured variables are not safe (but will be).&lt;/p&gt;
-
-&lt;p&gt;To deal with the Array unsafe behavior, there needs to be a discussion regarding the different approaches and guarantees one might want in shared mutable data structures. The strongest guarantee would be similar to serializing its access (think of a Mutex around every method); a weaker guarantee would be that access is not serialized but will always lead to consistent state (think that every call will produce a consistent final state, but there is no guarantee which one will be the one used); and finally, the void guarantee that is allowing interleaved manipulation of the state.&lt;/p&gt;
-
-&lt;p&gt;After the guarantee level is chosen we need to find an algorithm for it. So far, we have worked around an implementation with the weaker one. But it requires some integration with the GC. That integration is currently a bottleneck and we are still iterating. &lt;em&gt;For now&lt;/em&gt; you will need to be aware that shared arrays are not safe unless manually synchronized.&lt;/p&gt;
-
-&lt;p&gt;The challenges found in Array appear in every manipulation of pointers. Pointers are unsafe and, while working on the code of Array, we definitely wished to have  safe/unsafe sections in the language to guide the review process. There are other structures like Deque that suffer from the same issues.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
-
-&lt;p&gt;Although there is some pending work to be done before we can claim that multi-thread mode is a first class citizen of the language, having this update in the runtime is definitely a huge step forward. We want to collect feedback and keep iterating so that, in the next couple of releases, we can remove the &lt;code class=&quot;highlighter-rouge&quot;&gt;preview&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;preview_mt&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
-</description>
-        <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2019/09/06/parallelism-in-crystal.html</guid>
       </item>
     
   </channel>
