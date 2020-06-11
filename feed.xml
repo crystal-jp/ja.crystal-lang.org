@@ -32,7 +32,7 @@
 &lt;p&gt;この決定によって &lt;code class=&quot;highlighter-rouge&quot;&gt;case ...  when&lt;/code&gt; の意味は身近なままとなり、既存のコードに影響することなく網羅性チェックをする case 文を洗練させていくことが可能になります。より詳細な議論は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9258&quot;&gt;#9258&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9045&quot;&gt;#9045&lt;/a&gt;を参照してください。&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles!Totally fine&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles! Totally fine&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -55,9 +55,9 @@
 
 &lt;p&gt;パーサーはたくさんの愛を受けました。エッジケースの修正や、そこそこのリファクタリングが&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9208&quot;&gt;#9208&lt;/a&gt;でされています。&lt;/p&gt;
 
-&lt;p&gt;言語のいくつかの機能はより良い動作のために反芻が必要でした。このリリースではオートキャストが多重ディスパッチやユニオンのデフォルト値に対して動作するゆおになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;を確認してください。これはいくつかの場合の予期しない残念な挙動を解決するでしょう。&lt;/p&gt;
+&lt;p&gt;言語のいくつかの機能はより良い動作のために反芻が必要でした。このリリースではオートキャストが多重ディスパッチやユニオンのデフォルト値に対して動作するようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;を確認してください。これはいくつかの場合の予期しない残念な挙動を解決するでしょう。&lt;/p&gt;
 
-&lt;p&gt;既存の機能の改善の前に、Crystal のデバッグ機能の改善を待ち臨んでいる人もいることでしょう。この改善はまだ完了してはいませんが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt;で大きな一歩を踏み出すことができました。この &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;VSCode で Crystal のプログラムをどうやってデバッグするかを説明した記事&lt;/a&gt;で、どう設定すれば良いかや、スクリーンショットを確認できます。&lt;/p&gt;
+&lt;p&gt;既存の機能の改善の背景には、Crystal のデバッグ機能の改善を待ち望まれていたことがあります。この改善はまだ完了してはいませんが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt;で大きな一歩を踏み出すことができました。この &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;VSCode で Crystal のプログラムをどうやってデバッグするかを説明した記事&lt;/a&gt;で、どう設定すれば良いかや、スクリーンショットを確認できます。&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Link]&lt;/code&gt; アノテーションは少しだけ再デザインされました。pkg-config とより統合されて、&lt;code class=&quot;highlighter-rouge&quot;&gt;static:&lt;/code&gt; オプションのサポートが無くなりました。これによって将来、デフォルト値をいい感じに提供しつつ、リンクを詳細に設定できるようにすることを見据えています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8972&quot;&gt;#8972&lt;/a&gt;を確認してください。&lt;/p&gt;
 
@@ -97,9 +97,9 @@
 
 &lt;p&gt;その他の &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; の破壊的な変更としては、&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_utf8&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_byte&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_bytes&lt;/code&gt;、や&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip_to_end&lt;/code&gt; がスキップした/書き込んだバイト数の数値を返すようになったことがあります。これは他の言語でもそのようになっており、書き込み中に追加の呼び出しなく現在のストリームを位置を把握できるようになります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9233&quot;&gt;#9233&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9363&quot;&gt;#9363&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; アノテーションという、ライブラリや言語、shardの部分に細心の注意と共に使う必要のあるという指定をするためのものが導入されました。実験的ば (experimental) 機能は変更や破壊、もしくは削除を Semver の規約に関わらず行なっても良いものとします。今のところ、アノテーションはドキュメントジェネレータで利用されています。ですが、他にも追加の機能のアイディアがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;を確認してください。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; アノテーションという、ライブラリや言語、shardの部分に細心の注意と共に使う必要のあるという指定をするためのものが導入されました。実験的な (experimental) 機能は変更や破壊、もしくは削除を Semver の規約に関わらず行なっても良いものとします。今のところ、アノテーションはドキュメントジェネレータで利用されています。ですが、他にも追加の機能のアイディアがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; 型がリガクタリングされて、いくつかのメソッドの名前が変更されたことに注意する必要があるかもしれません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;を確認してください。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; 型がリファクタリングされて、いくつかのメソッドの名前が変更されたことに注意する必要があるかもしれません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;を確認してください。&lt;/p&gt;
 
 &lt;p&gt;さて、&lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt; がサブコマンドを定義できるようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9009&quot;&gt;#9009&lt;/a&gt;を確認してください。&lt;/p&gt;
 
@@ -109,7 +109,7 @@
 
 &lt;h3 id=&quot;マクロ&quot;&gt;マクロ&lt;/h3&gt;
 
-&lt;p&gt;クロスコンパイルの際、&lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; というマクロが追加されたことを知っておくと便利でしょう。これは &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; のようなものですが、ホストのマシンの情報に基いて解決されます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;を確認してください。&lt;/p&gt;
+&lt;p&gt;クロスコンパイルの際、&lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; というマクロが追加されたことを知っておくと便利でしょう。これは &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; のようなものですが、ホストのマシンで解決されます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;を確認してください。&lt;/p&gt;
 
 &lt;h3 id=&quot;数値計算&quot;&gt;数値計算&lt;/h3&gt;
 
@@ -123,7 +123,7 @@
 
 &lt;h3 id=&quot;時刻&quot;&gt;時刻&lt;/h3&gt;
 
-&lt;p&gt;これからは &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; のデフォルトの精度は秒となり、それ以上の精度は出力されません。より細かな精度が必要な場合は &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; という名前付き引数に 0. 3, 6, 9 という精度の桁数を指定してください。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; で、時刻に応じて細かな秒を表示する機能を削除しています。&lt;/p&gt;
+&lt;p&gt;これからは &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; のデフォルトの精度は秒となり、それ以上の精度は出力されません。より細かな精度が必要な場合は &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; という名前付き引数に 0. 3, 6, 9 という精度の桁数を指定してください。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; で、時刻に応じて小数点以下の秒を表示する機能を削除しています。&lt;/p&gt;
 
 &lt;h3 id=&quot;ネットワーク&quot;&gt;ネットワーク&lt;/h3&gt;
 
@@ -137,7 +137,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9293&quot;&gt;#9293&lt;/a&gt;で &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Severity::Warning&lt;/code&gt; を &lt;code class=&quot;highlighter-rouge&quot;&gt;Warn&lt;/code&gt; へと名前を変更しました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.warn { ... }&lt;/code&gt; がありましたが、これはそのままで、警告を表します。。この変更は &lt;code class=&quot;highlighter-rouge&quot;&gt;:warning&lt;/code&gt; やほとんどの環境変数経由での設定に影響します。同様に &lt;code class=&quot;highlighter-rouge&quot;&gt;Verbose&lt;/code&gt; を削除して、&lt;code class=&quot;highlighter-rouge&quot;&gt;Trace&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;Notice&lt;/code&gt; を &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9107&quot;&gt;#9107&lt;/a&gt;で追加しました。&lt;/p&gt;
 
-&lt;p&gt;ログのセットアップがよりシンプルになりました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; 系の2つのメソッドがあります。これらのメソッドはソースとバックエンドの間の設定を完全にまとめます。&lt;/p&gt;
+&lt;p&gt;ログのセットアップがよりシンプルになりました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; 系の2つのメソッドがあります。これらのメソッドは常にソースとバックエンドの間のバインディングを完全に設定するでしょう。&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:debug&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show debug or above in the stdout for all source&lt;/span&gt;
