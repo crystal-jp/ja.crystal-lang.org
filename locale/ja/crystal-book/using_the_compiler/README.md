@@ -1,7 +1,5 @@
 # コンパイラの使い方
 
-Once [installed](https://crystal-lang.org/install/), the Crystal compiler should be available as `crystal` command.
-
 ## コンパイルと同時に実行する
 
 ファイル名を1つ指定して[`crystal run`](#crystal-run)コマンドを実行することで、プログラムのコンパイルと実行を一発で行うことができます。

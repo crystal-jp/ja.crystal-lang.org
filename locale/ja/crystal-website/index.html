@@ -25,7 +25,7 @@ custom_body_classes:
       <h2>構文</h2>
       <p>Crystal の構文は Ruby の影響をつよく受けています。そのため自然に読めて、簡単に書けます。そして、 Ruby 開発の経験があれば習得は容易でしょう。</p>
       <div class='code_section'>{% include sample_server.md %}</div>
-      <p class="read-more"><a href="https://crystal-lang.org/reference/overview/">言語リファレンスで Crystal の学習をはじめましょう</a></p>
+      <p class="read-more"><a href="https://ja.crystal-lang.org/reference/overview/">言語リファレンスで Crystal の学習をはじめましょう</a></p>
     </div>
   </div>
 
@@ -34,7 +34,7 @@ custom_body_classes:
       <h2>型システム</h2>
       <p>Crystal は静的に型チェックされるプログラミング言語です。そのため、実行時にエラーを起こすのではなく、コンパイラが早期に型エラーを発見するでしょう。さらに、Crystal は型推論も備えています。ほとんどの場合、型注釈は必要ありません。</p>
       <div class="code_section">{% include sample_type_system.md %}</div>
-      <p class="read-more"><a href="https://crystal-lang.org/reference/syntax_and_semantics/types_and_methods.html">Crystal の方システムについて、より詳しく見る</a></p>
+      <p class="read-more"><a href="https://ja.crystal-lang.org/reference/syntax_and_semantics/types_and_methods.html">Crystal の方システムについて、より詳しく見る</a></p>
     </div>
   </div>
 
@@ -55,7 +55,7 @@ custom_body_classes:
       <h2>マクロ</h2>
       <p>Crystal はメタプログラミングに対する答えとして、強力なマクロシステムを備えています。この力は基本的なテンプレート処理から AST の分析や型の分析、さらには外部コマンドの実行までに及びます。</p>
       <div class="code_section">{% include sample_macros.md %}</div>
-      <p class="read-more"><a href="https://crystal-lang.org/reference/syntax_and_semantics/macros.html">マクロについてより詳しく見る</a></p>
+      <p class="read-more"><a href="https://ja.crystal-lang.org/reference/syntax_and_semantics/macros.html">マクロについてより詳しく見る</a></p>
     </div>
   </div>
 
@@ -64,7 +64,7 @@ custom_body_classes:
       <h2>並列モデル</h2>
       <p>Crystal はファイバーと呼ばれる軽量スレッドを用いて、並列性を獲得しています。ファイバー同士は Go や Clojure のようなチャネルを用いて協調します。共有メモリやロックは用いません。</p>
       <div class="code_section">{% include sample_concurrency.md %}</div>
-      <p class="read-more"><a href="https://crystal-lang.org/reference/guides/concurrency.html">Crystal の並列モデルについてより詳しく見る</a></p>
+      <p class="read-more"><a href="https://ja.crystal-lang.org/reference/guides/concurrency.html">Crystal の並列モデルについてより詳しく見る</a></p>
     </div>
   </div>
 
@@ -73,7 +73,7 @@ custom_body_classes:
       <h2>C バインディング</h2>
       <p>Crystal ではネイティブのライブラリを呼ぶため構文を持っており、低レベルのタスクの再実装は必要ありません。</p>
       <div class="code_section">{% include sample_bindings.md %}</div>
-      <p class="read-more"><a href="https://crystal-lang.org/reference/syntax_and_semantics/c_bindings/">C ライブラリのバインディング方法について学ぶ</a></p>
+      <p class="read-more"><a href="https://ja.crystal-lang.org/reference/syntax_and_semantics/c_bindings/">C ライブラリのバインディング方法について学ぶ</a></p>
     </div>
   </div>
 
@@ -101,7 +101,7 @@ custom_body_classes:
   <hr class="fullwidth">
   <div class="row">
     <div class="col s12">
-      <h2>ブログ記事 (一部未翻訳)</h2>{% assign articles = site.posts | where_exp: &#39;item&#39;,&#39;item.release_notes != true&#39; %} {% for post in articles limit: 3 %} {% include blog_row.html post=post %} {% endfor %}<p><a href="/blog">さらに記事を見る</a></p>
+      <h2>ブログ記事 (一部未翻訳)</h2>{% assign articles = site.posts | where_exp: 'item','item.release_notes != true' %} {% for post in articles limit: 3 %} {% include blog_row.html post=post %} {% endfor %}<p><a href="/blog">さらに記事を見る</a></p>
     </div>
   </div>
 
@@ -109,7 +109,7 @@ custom_body_classes:
     <div class="col s12">
       <h2>リリースノート (一部未翻訳)</h2>
       <table class="bordered no-underline">
-        <tbody>{% assign releases = site.posts | where: &#39;release_notes&#39;,true %} {% for post in releases limit: 10 %}<tr>
+        <tbody>{% assign releases = site.posts | where: 'release_notes',true %} {% for post in releases limit: 10 %}<tr>
             <td></td>
             <td><a href="{{ post.url }}"> {{ post.title }} </a></td>
             <td>{{ post.date | date_to_string }}</td>{% endfor %}</tbody>
