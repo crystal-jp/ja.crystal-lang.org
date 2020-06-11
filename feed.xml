@@ -7,32 +7,32 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Crystal 0.35.0 released!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;Crystal 0.35.0&lt;/a&gt; has been released!&lt;/p&gt;
+        <title>Crystal 0.35.0がリリースされました！</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;Crystal 0.35.0&lt;/a&gt; がリリースされました。&lt;/p&gt;
 
-&lt;p&gt;It seems everybody wanted to jump in and polish some corner of the std-lib before 1.0. There was a lot of activity iterating in some recent additions and more cleanups. Also, there were a lot of improvements on debugging, Windows support and stabilization on other platforms runtime.&lt;/p&gt;
+&lt;p&gt;今回のリリースはみなさんの待ち望んでいた、1.0直前の標準ライブラリに磨きをかけるものです。この中には最近のいくつかの追加やより洗練された実装の繰り返しといった、多くの活動があります。他には、デバッグの改善や Windows のサポート、その他のプラットフォームでのランタイムの安定化などを含みます。&lt;/p&gt;
 
-&lt;p&gt;This will be the last 0.x release. Get ready for some 1.0.0-preX releases.&lt;/p&gt;
+&lt;p&gt;このリリースが最後のバージョン 0.x のリリースになるでしょう。1.0.0-preX のリリースに向けて準備をしていてください。&lt;/p&gt;
 
-&lt;p&gt;There are &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.34.0...0.35.0&quot;&gt;242 commits since 0.34.0&lt;/a&gt; by 38 contributors.&lt;/p&gt;
+&lt;p&gt;38人のコントリビューターによって&lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.34.0...0.35.0&quot;&gt;0.34.0から242のコミット&lt;/a&gt;がありました。&lt;/p&gt;
 
-&lt;p&gt;Let’s get right into some of the highlights in this release. They are plenty. Don’t miss out on the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;release changelog&lt;/a&gt; which has a lot of valuable information.&lt;/p&gt;
+&lt;p&gt;それでは今回のリリースのハイライトを紹介していきます。たくさんの紹介するものがあります。ですが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;リリースのチェンジログ&lt;/a&gt;にもたくさんの価値ある情報があることを忘れないでください。&lt;/p&gt;
 
-&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+&lt;h2 id=&quot;言語の変更&quot;&gt;言語の変更&lt;/h2&gt;
 
-&lt;h3 id=&quot;exhaustive-case-take-2&quot;&gt;Exhaustive Case (take 2)&lt;/h3&gt;
+&lt;h3 id=&quot;網羅性チェック-テイク2&quot;&gt;網羅性チェック (テイク2)&lt;/h3&gt;
 
-&lt;p&gt;In the &lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html#exhaustive-case&quot;&gt;previous release&lt;/a&gt; we allowed the compiler to check the exhaustivity of the case conditions. From the feedback received, we decided to:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html#exhaustive-case&quot;&gt;前回のリリース&lt;/a&gt;で、コンパイラは case 文の条件節の網羅性チェックをするようになりました。ですが、フィーバックを受けて、次のことを決定しました。&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Allow the &lt;code class=&quot;highlighter-rouge&quot;&gt;case ... when&lt;/code&gt; to be as before: there is an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt;, hence the conditions can be non-exhaustive.&lt;/li&gt;
-  &lt;li&gt;Introduce the &lt;code class=&quot;highlighter-rouge&quot;&gt;case ... in&lt;/code&gt; statements as experimental: they don’t have an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt;, and the conditions need to be exhaustive or the code will not compile. Experimental means that it’s subject to change based on feedback. Even between minor releases.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;case ... when&lt;/code&gt; を前のように戻す。暗黙の &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; があって、条件節は網羅的でなくてもよい。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;case ... in&lt;/code&gt; 文を実験的に導入する。こちらは暗黙の &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt; を持たず、条件の網羅性が確認できなければコンパイルが通らない。実験的というのはフォードバックを元に変更される可能性がある、ということです。たとえマイナーリリースの間でも、その変更は行なわれる可能性があります。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;This decision stays closer to a more familiar &lt;code class=&quot;highlighter-rouge&quot;&gt;case ...  when&lt;/code&gt; semantics and will allow further iteration on the exhaustive case constructs without affecting existing code. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9258&quot;&gt;#9258&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9045&quot;&gt;#9045&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;この決定によって &lt;code class=&quot;highlighter-rouge&quot;&gt;case ...  when&lt;/code&gt; の意味は身近なままとなり、既存のコードに影響することなく網羅性チェックをする case 文を洗練させていくことが可能になります。より詳細な議論は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9258&quot;&gt;#9258&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9045&quot;&gt;#9045&lt;/a&gt;を参照してください。&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles! Totally fine&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles!Totally fine&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -43,101 +43,101 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;To make this change, we needed to make &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; a proper keyword. Although it is a breaking-change, &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; was already used in the macro sublanguage as a keyword.&lt;/p&gt;
+&lt;p&gt;この変更によって &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; が正式なキーワードとなりました。これは破壊的な変更ですが、&lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; はこれまでもマクロ中ではキーワードとして扱われていました。&lt;/p&gt;
 
-&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
+&lt;h2 id=&quot;コンパイラ&quot;&gt;コンパイラ&lt;/h2&gt;
 
-&lt;p&gt;We are making a breaking-change in the compiler CLI to make it more comfortable for shebang &lt;code class=&quot;highlighter-rouge&quot;&gt;#!&lt;/code&gt; scripts. From now on when running the compiler with a file argument instead of a command like &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal path/to/file.cr arg1 arg2&lt;/code&gt; the file will be compiled, and then executed with the arguments. This means the arguments affect only the program to run and not the compiler.&lt;/p&gt;
+&lt;p&gt;コンパイラに破壊的な変更があり、コンパイラの CLI がシバン &lt;code class=&quot;highlighter-rouge&quot;&gt;#!&lt;/code&gt; によるスクリプトをより安心して動作させられるようになりました。これからは、コマンドの代わりにファイルを引数にしてコンパイラを実行すると (&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal path/to/file.cr arg1 arg2&lt;/code&gt; のように)、ファイルがコンパイルされて、そしてそれを実行する、という動作をします。このとき、引数はプログラムにだけ影響して、コンパイラに影響しない、ということです。&lt;/p&gt;
 
-&lt;p&gt;If you need to use compile flags and want to execute the program with some arguments you can still use the run command: &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal run path/to/file.cr -Dcompiler_flag --release -- arg1 arg2&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt; will split compiler options from program options. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9171&quot;&gt;#9171&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;コンパイラフラグを使いたい場合や引数と共にプログラムを実行したい場合は、次のように run コマンドが使えます。&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal run path/to/file.cr -Dcompiler_flag --release -- arg1 arg2&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt; はコンパイラのオプションとプログラムのオプションを切り分けます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9171&quot;&gt;#9171&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Another breaking-change use for some shell integrations is that &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env&lt;/code&gt; will now quote the values. This means it’s safe to &lt;code class=&quot;highlighter-rouge&quot;&gt;eval &quot;$(crystal env)&quot;&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env VARIABLE&lt;/code&gt; is still the same. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9428&quot;&gt;#9428&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;他の破壊的な変更としては、&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env&lt;/code&gt; がシェル向けにクオートをするようになりました。つまり、&lt;code class=&quot;highlighter-rouge&quot;&gt;eval &quot;$(crystal env)&quot;&lt;/code&gt; が安全にできるようになったということです。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env VARIABLE&lt;/code&gt; はこれまでの通りです。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9428&quot;&gt;#9428&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;The parser got a lot of love. Fixing edge cases, bugs and even a considerable refactor in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9208&quot;&gt;#9208&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;パーサーはたくさんの愛を受けました。エッジケースの修正や、そこそこのリファクタリングが&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9208&quot;&gt;#9208&lt;/a&gt;でされています。&lt;/p&gt;
 
-&lt;p&gt;Some features of the language needed to iterate to work better together. In this release the time came for auto-casting regarding multi-dispatch and regarding default values against unions. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;. This should solve unfortunate surprises in some scenarios.&lt;/p&gt;
+&lt;p&gt;言語のいくつかの機能はより良い動作のために反芻が必要でした。このリリースではオートキャストが多重ディスパッチやユニオンのデフォルト値に対して動作するゆおになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;を確認してください。これはいくつかの場合の予期しない残念な挙動を解決するでしょう。&lt;/p&gt;
 
-&lt;p&gt;Beyond the improvements of existing features, probably one long awaited feature concerns improvements in Crystal’s debugging capabilities. The story is not yet complete, but in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt; a huge step forward was made. You can check out an article about &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;how to debug a Crystal program in VS Code article&lt;/a&gt; for more information, configuration and screenshots.&lt;/p&gt;
+&lt;p&gt;既存の機能の改善の前に、Crystal のデバッグ機能の改善を待ち臨んでいる人もいることでしょう。この改善はまだ完了してはいませんが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt;で大きな一歩を踏み出すことができました。この &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;VSCode で Crystal のプログラムをどうやってデバッグするかを説明した記事&lt;/a&gt;で、どう設定すれば良いかや、スクリーンショットを確認できます。&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;@[Link]&lt;/code&gt; annotation was slightly redesigned. It has a better integration with pkg-config and we dropped the &lt;code class=&quot;highlighter-rouge&quot;&gt;static:&lt;/code&gt; option. This will allow us to focus on future stories for tweaking linking, yet providing good defaults. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8972&quot;&gt;#8972&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Link]&lt;/code&gt; アノテーションは少しだけ再デザインされました。pkg-config とより統合されて、&lt;code class=&quot;highlighter-rouge&quot;&gt;static:&lt;/code&gt; オプションのサポートが無くなりました。これによって将来、デフォルト値をいい感じに提供しつつ、リンクを詳細に設定できるようにすることを見据えています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8972&quot;&gt;#8972&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;For crystal package maintainers&lt;/strong&gt;, it is worth noticing that when building the compiler the &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_CONFIG_PATH&lt;/code&gt; only needs the path of the std-lib. The &lt;code class=&quot;highlighter-rouge&quot;&gt;lib&lt;/code&gt; directory is now always included by the compiler. This will allow future stories for tweaking the shards installation path. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9315&quot;&gt;#9315&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Crystal パッケージのメンテナにとって&lt;/strong&gt;、コンパイラをビルドする際に&lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_CONFIG_PATH&lt;/code&gt; が標準ライブラリのパスのみを必要とするようになったという知らせは価値があるでしょう。&lt;code class=&quot;highlighter-rouge&quot;&gt;lib&lt;/code&gt; ディレクトリはコンパイラによって常に含まれるようになりました。将来的には shaeds のインストールパスを細かく設定できるようにしたいと考えています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9315&quot;&gt;#9315&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Another change that can impact packages is that the &lt;code class=&quot;highlighter-rouge&quot;&gt;SOURCE_DATE_EPOCH&lt;/code&gt; environment variable can be used while building the compiler to advertise the source date. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9088&quot;&gt;#9088&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;その他の変更として、&lt;code class=&quot;highlighter-rouge&quot;&gt;SOURCE_DATE_EPOCH&lt;/code&gt; という環境変数を使うことでコンパイラをビルドする際にソースコードの時刻を伝えることができるようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9088&quot;&gt;#9088&lt;/a&gt;を確認してください。&lt;/p&gt;
 
 &lt;h2 id=&quot;shards&quot;&gt;Shards&lt;/h2&gt;
 
-&lt;p&gt;Shards v0.11.1 is bundled in this release.&lt;/p&gt;
+&lt;p&gt;Shards v0.11.1 が今回のリリースではバンドルされます。&lt;/p&gt;
 
-&lt;p&gt;The main thing you need to know is that the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property is &lt;strong&gt;effectively mandatory&lt;/strong&gt; now. It is used to filter which versions of a shard are available based on the crystal environment. You can check the semantics in &lt;a href=&quot;https://github.com/crystal-lang/shards/blob/v0.11.1/SPEC.md#crystal&quot;&gt;shards/SPEC.md&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;今回の把握すべき主要な変更は &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティが&lt;strong&gt;効果的に機能する&lt;/strong&gt;ようになった点です。このプロパティは、有効な shard のバージョンを Crystal 環境に基いて決定するのに使われます。詳細は動作は &lt;a href=&quot;https://github.com/crystal-lang/shards/blob/v0.11.1/SPEC.md#crystal&quot;&gt;shards/SPEC.md&lt;/a&gt; を確認してください。&lt;/p&gt;
 
-&lt;p&gt;To keep backward compatibility if the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; is missing, it will be interpreted as &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; 1.0.0&lt;/code&gt;. So everything will keep working until Crystal 1.0.0. Yet, if this is inconvenient you can pass &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; to avoid the check entirely.&lt;/p&gt;
+&lt;p&gt;後方互換性のために &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティが &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; に無かった場合、&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; 1.0.0&lt;/code&gt;として解釈されます。よって、Crystal 1.0.0 まではそのままでも動作し続けるでしょう。また、この挙動が不便な場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を渡すことでこのチェックを無視できます。&lt;/p&gt;
 
-&lt;p&gt;We believe that dependency versions need to be stated clearly for better expectations on consumers. The std-lib and language version is also a dependency.&lt;/p&gt;
+&lt;p&gt;利用者の期待を高めるには、依存するバージョンを明示する必要があると考えられます。そして、標準ライブラリや言語のバージョンもまた依存関係なのです。&lt;/p&gt;
 
-&lt;p&gt;The semantics of the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property though is slightly different from dependencies’ version: &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: x.y.z&lt;/code&gt; is interpreted as &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) for convenience. The result is that on every &lt;strong&gt;major&lt;/strong&gt; release there will be some maintenance burden.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティの動作は依存関係のバージョン指定とほとんど同じように動作します。違いは、利便性のため &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: x.y.z&lt;/code&gt; が &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; のように (つまり、 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) 解釈されることです。この結果、任意の&lt;strong&gt;メジャー&lt;/strong&gt;リリースで何らかの対応が必要になります。&lt;/p&gt;
 
-&lt;p&gt;We recommend running &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; on your current project. You will notice that the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; has a new version format with some additions. And there will be a &lt;code class=&quot;highlighter-rouge&quot;&gt;lib/.shards.info&lt;/code&gt; file that will describe the installed dependencies. This new file does not need to be tracked.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; を現在のプロジェクトで実行することを推奨します。これによって、&lt;code class=&quot;highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; がいくつかの追加の新しいバージョンのフォーマットを持つことに気付くかもしれません。そして、&lt;code class=&quot;highlighter-rouge&quot;&gt;lib/.shards.info&lt;/code&gt; ファイルがインストールした依存関係を説明するものとして追加されています。この新しいファイルはバージョン管理システムでトラックする必要はありません。&lt;/p&gt;
 
-&lt;p&gt;Finally a new feature is that dependencies allow you to express intersections like &lt;code class=&quot;highlighter-rouge&quot;&gt;version: &amp;gt;= 1.0.0, &amp;lt; 2.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;最後に、依存関係のバージョン指定で &lt;code class=&quot;highlighter-rouge&quot;&gt;version: &amp;gt;= 1.0.0, &amp;lt; 2.0&lt;/code&gt; のように複数の指定を交差させられるようになったことを紹介します。&lt;/p&gt;
 
-&lt;p&gt;For a comprehensive list of changes in this shards version you can check its &lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.11.0&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;このバージョンでの shards の完全な変更のリストは&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.11.0&quot;&gt;チェンジログ&lt;/a&gt;を参照してください。&lt;/p&gt;
 
-&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
+&lt;h2 id=&quot;標準ライブラリ&quot;&gt;標準ライブラリ&lt;/h2&gt;
 
-&lt;p&gt;You will see many breaking-changes in this release. Most of them have deprecation warnings as usual. We didn’t want to go to 1.0 without cleaning up a lot of stuff beforehand. The cleanup probably should have happened before. It’s been hard to prioritize, but we are getting to it.&lt;/p&gt;
+&lt;p&gt;このリリースにはいくつもの破壊的変更が含まれます。それらの大半は普通、非推奨の警告が出るようになっています。標準ライブラリの整理なしに1.0へと進むことはないつもりです。このような整理は以前にもあったはずです。これに優先順位を付けることは簡単ではなく、地道に進めています。&lt;/p&gt;
 
-&lt;p&gt;Many methods have an &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; argument that is a sink or target of the computation. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5916&quot;&gt;#5916&lt;/a&gt; you can read the motivation to standardize them as the first argument in these functions. It got implemented in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9134&quot;&gt;#9134&lt;/a&gt; and some follow up PRs.&lt;/p&gt;
+&lt;p&gt;計算結果の出力や入力に &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; を引数に取る多くのメソッドがあります。&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5916&quot;&gt;#5916&lt;/a&gt; で、このような引数を最初の引数にすることを標準化する提案がありました。これは &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9134&quot;&gt;#9134&lt;/a&gt; といくつかのそれに続く PR で実現されました。&lt;/p&gt;
 
-&lt;p&gt;Related to all these &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; methods, on &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;, instead of returning &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; values, there are new overloads to emit directly the result to the &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;; read more in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9236&quot;&gt;#9236&lt;/a&gt;. This affects &lt;code class=&quot;highlighter-rouge&quot;&gt;#underscore&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#titleize&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#capitalize&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#upcase&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;#downcase&lt;/code&gt; methods.&lt;/p&gt;
+&lt;p&gt;これらのすべての &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; メソッドに関係して、&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; クラスのメソッドで、&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; の値を返すものについて、値を返すのではなく結果を &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; に書き込むようなオーバロードが追加されました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9236&quot;&gt;#9236&lt;/a&gt;を確認してください。この影響を受けるのは &lt;code class=&quot;highlighter-rouge&quot;&gt;#underscore&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#titleize&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#capitalize&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#upcase&lt;/code&gt;、そして&lt;code class=&quot;highlighter-rouge&quot;&gt;#downcase&lt;/code&gt; といったメソッドです。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Keep an eye on &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/9291&quot;&gt;#9291&lt;/a&gt; for a proposal to improve the interpolation of strings so they can emit directly to an &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;.&lt;/p&gt;
+  &lt;p&gt;文字列のインターポレーションの際に生成された文字列が直接 &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; に渡されるようにするための改善の提案として、&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/9291&quot;&gt;#9291&lt;/a&gt;に目を通しておくといいでしょう。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Another breaking-change in &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; is that &lt;code class=&quot;highlighter-rouge&quot;&gt;#skip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_utf8&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_byte&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#write_bytes&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;#skip_to_end&lt;/code&gt; return the number of bytes it skipped/written. This is similar to what other languages do, and serves to account for the position in the stream while writing in it, without additional calls. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9233&quot;&gt;#9233&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9363&quot;&gt;#9363&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;その他の &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; の破壊的な変更としては、&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_utf8&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_byte&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_bytes&lt;/code&gt;、や&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip_to_end&lt;/code&gt; がスキップした/書き込んだバイト数の数値を返すようになったことがあります。これは他の言語でもそのようになっており、書き込み中に追加の呼び出しなく現在のストリームを位置を把握できるようになります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9233&quot;&gt;#9233&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9363&quot;&gt;#9363&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;We are introducing the &lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; annotation to mark which parts of the std-lib, language, or shard should be used with extra care. An experimental feature is allowed to change, break, or disappear despite the semver guarantees. For now, the annotation is used in the documentation generator tool. We have a few draft ideas to give more formal semantics to it. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; アノテーションという、ライブラリや言語、shardの部分に細心の注意と共に使う必要のあるという指定をするためのものが導入されました。実験的ば (experimental) 機能は変更や破壊、もしくは削除を Semver の規約に関わらず行なっても良いものとします。今のところ、アノテーションはドキュメントジェネレータで利用されています。ですが、他にも追加の機能のアイディアがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;You might notice that the &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; types got some refactors and small method renames. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; 型がリガクタリングされて、いくつかのメソッドの名前が変更されたことに注意する必要があるかもしれません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Speaking of features, the &lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt; is now allowed to define sub-commands. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9009&quot;&gt;#9009&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;さて、&lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt; がサブコマンドを定義できるようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9009&quot;&gt;#9009&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Some other clean-ups: &lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Zlib&lt;/code&gt; were moved inside &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress&lt;/code&gt; module in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8886&quot;&gt;#8886&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt; was renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress::Deflate&lt;/code&gt;, actually. You might need to &lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;compress/gzip&quot;&lt;/code&gt; and change some constants here or there. The &lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;gzip&quot;&lt;/code&gt; is still available but will show a deprecation warning.&lt;/p&gt;
+&lt;p&gt;その他に整理したものとしては&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8886&quot;&gt;#8886&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;、そして&lt;code class=&quot;highlighter-rouge&quot;&gt;Zlib&lt;/code&gt; が &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress&lt;/code&gt; モジュールに移動されました。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt; は &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress::Deflate&lt;/code&gt; に名前が変更されています。&lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;compress/gzip&quot;&lt;/code&gt; として、これらの定数を変更する必要があります。&lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;gzip&quot;&lt;/code&gt; は依然として有効ですが、警告メッセージが表示されることになります。&lt;/p&gt;
 
-&lt;p&gt;Some efforts were dedicated to&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;FileUtils&lt;/code&gt;, to clean them up and to ensure operations are available from both APIs. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9175&quot;&gt;#9175&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;いくつかの変更が &lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;FileUtils&lt;/code&gt; にあります。これらは整理されて、強制する操作が両方の API で有効になりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9175&quot;&gt;#9175&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;macros&quot;&gt;Macros&lt;/h3&gt;
+&lt;h3 id=&quot;マクロ&quot;&gt;マクロ&lt;/h3&gt;
 
-&lt;p&gt;If you are into cross-compiling you’ll be quite happy with the introduction of &lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; macro method. Similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; but it resolves on the host machine. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;クロスコンパイルの際、&lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; というマクロが追加されたことを知っておくと便利でしょう。これは &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; のようなものですが、ホストのマシンの情報に基いて解決されます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
+&lt;h3 id=&quot;数値計算&quot;&gt;数値計算&lt;/h3&gt;
 
-&lt;p&gt;The overflow detection was fixed to correctly handle operations with mixed sign operands. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9403&quot;&gt;#9403&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;符号付きと符号無しの数値の混ざった演算のオーバーフローの検出が修正されました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9403&quot;&gt;#9403&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;We added &lt;code class=&quot;highlighter-rouge&quot;&gt;Int#digits&lt;/code&gt; but along the way it was mandatory to reverse the output of &lt;code class=&quot;highlighter-rouge&quot;&gt;BigInt#digits&lt;/code&gt; for consistency. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9383&quot;&gt;#9383&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Int#digits&lt;/code&gt; というメソッドが追加されて、一貫性のため &lt;code class=&quot;highlighter-rouge&quot;&gt;BigInt#digits&lt;/code&gt; の出力が反転されました。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9383&quot;&gt;#9383&lt;/a&gt; を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
+&lt;h3 id=&quot;シリアライズ&quot;&gt;シリアライズ&lt;/h3&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; migrated to their own packages: &lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt;. They served well but in the presence of &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt; it’s better to remove them from the std-lib. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9272&quot;&gt;#9272&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; を使っている場合は、&lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; と &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt; に移行してください。これらの機能は十分なものでしたが、現在は &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt; がより良いものとしてあるため、標準ライブラリから削除されました。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9272&quot;&gt;#9272&lt;/a&gt; を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
+&lt;h3 id=&quot;時刻&quot;&gt;時刻&lt;/h3&gt;
 
-&lt;p&gt;From now on the default precision of &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; will be seconds, without fractions. You can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; named argument to choose between 0, 3, 6, 9 precision digits. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; we are dropping the logic to show the fraction of seconds depending on the time value.&lt;/p&gt;
+&lt;p&gt;これからは &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; のデフォルトの精度は秒となり、それ以上の精度は出力されません。より細かな精度が必要な場合は &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; という名前付き引数に 0. 3, 6, 9 という精度の桁数を指定してください。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; で、時刻に応じて細かな秒を表示する機能を削除しています。&lt;/p&gt;
 
-&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
+&lt;h3 id=&quot;ネットワーク&quot;&gt;ネットワーク&lt;/h3&gt;
 
-&lt;p&gt;We’ve updated the SSL server secure defaults in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9026&quot;&gt;#9026&lt;/a&gt;. And fixed some &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; sporadic failures during SSL handshake in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9177&quot;&gt;#9177&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;SSL サーバーのデフォルト値を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9026&quot;&gt;#9026&lt;/a&gt;で更新しました。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; が SSL ハンドシェイク中に時折失敗する問題を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9177&quot;&gt;#9177&lt;/a&gt;で修正しました。&lt;/p&gt;
 
-&lt;p&gt;There are a couple of breaking-changes in &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; though. We improved the error handling and logging in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9115&quot;&gt;#9115&lt;/a&gt; and integrated it with the new logging module. The &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Request#remote_address&lt;/code&gt; type was changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Address?&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9210&quot;&gt;#9210&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;そして、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt;に2つの破壊的な変更があります。エラーハンドリングとログまわりの処理を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9115&quot;&gt;#9115&lt;/a&gt;で改善し、新しいログモジュールと統合しました。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9210&quot;&gt;#9210&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Request#remote_address&lt;/code&gt; の型を &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Address?&lt;/code&gt; に変更しました。&lt;/p&gt;
 
-&lt;h3 id=&quot;logging&quot;&gt;Logging&lt;/h3&gt;
+&lt;h3 id=&quot;ログ&quot;&gt;ログ&lt;/h3&gt;
 
-&lt;p&gt;First of all, huge thanks for all the feedback and early adopters of the new logging module introduced in &lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html&quot;&gt;0.34.0&lt;/a&gt;. There are several changes that, though they are indeed breaking-changes, do not affect the main APIs. Together they bring additional functionality and improved performance in some use cases.&lt;/p&gt;
+&lt;p&gt;まず初めに、&lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html&quot;&gt;0.34.0&lt;/a&gt;で導入した新しいログモジールを早期に試してフィードバックを送ってくださった皆様に感謝いたします。破壊的な変更を含むいくつかの変更点がありますが、それらは主要な API には影響しません。これらを組み合わせることで、追加の機能といくつかのユースケースでのパーフォマンスの改善を達成しています。&lt;/p&gt;
 
-&lt;p&gt;We renamed &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Severity::Warning&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Warn&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9293&quot;&gt;#9293&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.warn { ... }&lt;/code&gt; was, and still is, the way to emit a warning. This change affects the &lt;code class=&quot;highlighter-rouge&quot;&gt;:warning&lt;/code&gt; and configuration via environment variables mostly. Similarly, we dropped &lt;code class=&quot;highlighter-rouge&quot;&gt;Verbose&lt;/code&gt;, and added &lt;code class=&quot;highlighter-rouge&quot;&gt;Trace&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Notice&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9107&quot;&gt;#9107&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9293&quot;&gt;#9293&lt;/a&gt;で &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Severity::Warning&lt;/code&gt; を &lt;code class=&quot;highlighter-rouge&quot;&gt;Warn&lt;/code&gt; へと名前を変更しました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.warn { ... }&lt;/code&gt; がありましたが、これはそのままで、警告を表します。。この変更は &lt;code class=&quot;highlighter-rouge&quot;&gt;:warning&lt;/code&gt; やほとんどの環境変数経由での設定に影響します。同様に &lt;code class=&quot;highlighter-rouge&quot;&gt;Verbose&lt;/code&gt; を削除して、&lt;code class=&quot;highlighter-rouge&quot;&gt;Trace&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;Notice&lt;/code&gt; を &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9107&quot;&gt;#9107&lt;/a&gt;で追加しました。&lt;/p&gt;
 
-&lt;p&gt;The setup of logging got simpler. There are a couple of &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; methods. Each of them will always set up the binding fully between sources and backends.&lt;/p&gt;
+&lt;p&gt;ログのセットアップがよりシンプルになりました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; 系の2つのメソッドがあります。これらのメソッドはソースとバックエンドの間の設定を完全にまとめます。&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:debug&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show debug or above in the stdout for all source&lt;/span&gt;
@@ -145,11 +145,11 @@
 &lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup_from_env&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will grab the value of LOG_LEVEL env variable&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;You might notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; is now using a single environment variable as input. More flexibility will come later, but the new named arguments should offer a better experience. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9145&quot;&gt;#9145&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; が1つの環境変数を受け取って動作するようになったことにも注意してください。より柔軟なものが今後追加されるかもしれませんが、名前付き引数はより良い体験を提供するはずです。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9145&quot;&gt;#9145&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Each entry could already have context information that is grabbed from the running fiber. We essentially split &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Context&lt;/code&gt; responsibilities between &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt;. The former is a hash-like structure of &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; with some allocation and algorithmic optimizations. The main work was done in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9227&quot;&gt;#9227&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9295&quot;&gt;#9295&lt;/a&gt;. These refactors also drop the immutability guarantee in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; that was achieved via cloning.&lt;/p&gt;
+&lt;p&gt;各エントリはこれまでより、現在実行しているファイバーから取得したコンテキストの情報を持っていました。その &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Context&lt;/code&gt; の責務を &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; に分割することにしました。前者は&lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; から &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; へのハッシュのようなデータ構造ですが、アロケーションやアルゴリズム的な最適化がされています。これらは主に&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9227&quot;&gt;#9227&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9295&quot;&gt;#9295&lt;/a&gt;で実装されました。これらのリファクタリングによって、クローンによって獲得していた &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; の不変性 (immutability) が無くなりました。&lt;/p&gt;
 
-&lt;p&gt;One wanted feature that this enables is the possibility to attach local metadata or structured information to a log entry. That is, without the penalty of changing and restoring the context of the current fiber. We were allowed to do this while keeping the initial design of avoiding the creation of values if the entry is not to be emitted.&lt;/p&gt;
+&lt;p&gt;ログエントリにローカルのメタデータや構造化された情報を追加したいという機能が望まれていました。もちろん、現在のファイバのコンテキストに対する変更や復旧が最小であるものが望ましいです。エントリが出力されていない場合は値の生成を省略するという当初の設計を保って、これを達成しました。&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Program started&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -162,59 +162,59 @@
 &lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;action: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# empty message&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;How to create custom log formatters was revisited in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9211&quot;&gt;#9211&lt;/a&gt;. Creating a formatter from a block or proc is still an option, but check in some simplified ways to define a formatter from a string directly.&lt;/p&gt;
+&lt;p&gt;カスタムのログフォーマッタを作る方法は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9211&quot;&gt;#9211&lt;/a&gt;で再検討されました。ブロックや Proc からフォーマッタを作る方法はまだ利用できますが、文字列から直接フォーマッタを定義するシンプルな方法を確認してみてください。&lt;/p&gt;
 
-&lt;p&gt;If you want to test that log entries are emitted you can use the new spec helper &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.capture&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9201&quot;&gt;#9201&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;出力するログのエントリーをテストしたい場合、新しく追加された &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.capture&lt;/code&gt; というヘルパーが利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9201&quot;&gt;#9201&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;concurrency&quot;&gt;Concurrency&lt;/h3&gt;
+&lt;h3 id=&quot;並行処理&quot;&gt;並行処理&lt;/h3&gt;
 
-&lt;p&gt;We dropped &lt;code class=&quot;highlighter-rouge&quot;&gt;Concurrent::Future&lt;/code&gt; and top-level methods &lt;code class=&quot;highlighter-rouge&quot;&gt;delay&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;future&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;lazy&lt;/code&gt;. If you want to keep using them, use the &lt;a href=&quot;https://github.com/crystal-community/future.cr&quot;&gt;github:crystal-community/future.cr&lt;/a&gt; shard. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9093&quot;&gt;#9093&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Concurrent::Future&lt;/code&gt; とトップレベルの &lt;code class=&quot;highlighter-rouge&quot;&gt;delay&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;future&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;lazy&lt;/code&gt; を削除しました。これらを使い続けたい場合 &lt;a href=&quot;https://github.com/crystal-community/future.cr&quot;&gt;github:crystal-community/future.cr&lt;/a&gt; shard を利用してください。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9093&quot;&gt;#9093&lt;/a&gt; を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Another feature that was dropped is the &lt;code class=&quot;highlighter-rouge&quot;&gt;parallel&lt;/code&gt; macro in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9097&quot;&gt;#9097&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;その他に&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9097&quot;&gt;#9097&lt;/a&gt;で &lt;code class=&quot;highlighter-rouge&quot;&gt;parallel&lt;/code&gt; マクロが削除されました。&lt;/p&gt;
 
-&lt;p&gt;We expect to develop a more robust approach to cover these scenarios post 1.0.&lt;/p&gt;
+&lt;p&gt;1.0 以降に向けて、より堅牢で様々な利用に耐えうるもの開発したいと考えています。&lt;/p&gt;
 
-&lt;h3 id=&quot;runtime&quot;&gt;Runtime&lt;/h3&gt;
+&lt;h3 id=&quot;ランタイム&quot;&gt;ランタイム&lt;/h3&gt;
 
-&lt;p&gt;We deprecated &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#kill&lt;/code&gt; in favor of  &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#signal&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9006&quot;&gt;#9006&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process#signal&lt;/code&gt; があるので &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#kill&lt;/code&gt; を非推奨としました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9006&quot;&gt;#9006&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;We also deprecated the top-level &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt;, since it won’t be available in multi-threading. If this is a stopper issue for you, &lt;code class=&quot;highlighter-rouge&quot;&gt;Process.fork&lt;/code&gt; is still available. But it is no longer a public API. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9136&quot;&gt;#9136&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;また &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; も非推奨となりました。これはマルチスレッド環境では有効ではありません。この変更が問題である場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;Process.fork&lt;/code&gt; はまだ利用できるのでそちらを使ってください。しかし、このメソッドはもはや公開された API ではありません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9136&quot;&gt;#9136&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;platforms&quot;&gt;Platforms&lt;/h3&gt;
+&lt;h3 id=&quot;プラットフォーム&quot;&gt;プラットフォーム&lt;/h3&gt;
 
-&lt;p&gt;For macOS users, we fixed some compatibility issues with 10.15 (Catalina) in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9296&quot;&gt;#9296&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;macOS ユーザーへ、10.15 (Catalina) で起こるいくつかの互換性の問題を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9296&quot;&gt;#9296&lt;/a&gt;で修正しました。&lt;/p&gt;
 
-&lt;p&gt;For BSD users, we added support for DragonFly(BSD) in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9178&quot;&gt;#9178&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;BSD のユーザーヘ、DragonFly(BSD) のサポートを&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9178&quot;&gt;#9178&lt;/a&gt;で追加しました。&lt;/p&gt;
 
-&lt;p&gt;For musl users, we fixed some weird segfaults in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9238&quot;&gt;#9238&lt;/a&gt; and fixed some empty backtraces &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9267&quot;&gt;#9267&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;musl ユーザーへ、奇妙な segfaults が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9238&quot;&gt;#9238&lt;/a&gt;で、バックトレースが空になる問題が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9267&quot;&gt;#9267&lt;/a&gt;で修正されました。&lt;/p&gt;
 
-&lt;p&gt;For Windows users, well, lots of stuff. To see the ongoing efforts don’t miss the &lt;a href=&quot;https://github.com/crystal-lang/crystal/wiki/Porting-to-Windows&quot;&gt;wiki page&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5430&quot;&gt;#5430&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Windows ユーザーへはたくさんのお知らせがあります。現在進行中の取り組みを見るには &lt;a href=&quot;https://github.com/crystal-lang/crystal/wiki/Porting-to-Windows&quot;&gt;Wiki ページ&lt;/a&gt;や&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5430&quot;&gt;#5430&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;Regarding actual changes in this release for Windows we have:&lt;/p&gt;
+&lt;p&gt;今回のリリースでの Windows 向けの変更としては次のようなものがあります。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; improvements &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9015&quot;&gt;#9015&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9038&quot;&gt;#9038&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9037&quot;&gt;#9037&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9257&quot;&gt;#9257&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; behaviour was aligned in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9207&quot;&gt;#9207&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process&lt;/code&gt; was implemented &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9047&quot;&gt;#9047&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9021&quot;&gt;#9021&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9122&quot;&gt;#9122&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9112&quot;&gt;#9112&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9149&quot;&gt;#9149&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9310&quot;&gt;#9310&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal spec&lt;/code&gt; command deals with Windows paths in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9234&quot;&gt;#9234&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;And the compiler is able to bootstrap itself on windows. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9054&quot;&gt;#9054&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9062&quot;&gt;#9062&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9095&quot;&gt;#9095&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9106&quot;&gt;#9106&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9307&quot;&gt;#9307&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; の改善が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9015&quot;&gt;#9015&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9038&quot;&gt;#9038&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9037&quot;&gt;#9037&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9257&quot;&gt;#9257&lt;/a&gt;で行なわれました。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; の振舞いが&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9207&quot;&gt;#9207&lt;/a&gt;でアラインメントされました。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process&lt;/code&gt; が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9047&quot;&gt;#9047&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9021&quot;&gt;#9021&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9122&quot;&gt;#9122&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9112&quot;&gt;#9112&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9149&quot;&gt;#9149&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9310&quot;&gt;#9310&lt;/a&gt;で実装されました。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal spec&lt;/code&gt; コマンドが Windows のパスで動作するように&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9234&quot;&gt;#9234&lt;/a&gt;で修正されました。&lt;/li&gt;
+  &lt;li&gt;そして、コンパイラ自身を Windows 上でブートストラップできるようになりました。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9054&quot;&gt;#9054&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9062&quot;&gt;#9062&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9095&quot;&gt;#9095&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9106&quot;&gt;#9106&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9307&quot;&gt;#9307&lt;/a&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Again, note that there are still some parts of the std-lib that are not ready to work on Windows.&lt;/p&gt;
+&lt;p&gt;ですが、まだ標準ライブラリのすべての部分が Windows で利用できるというというわけではないことには注意してください。&lt;/p&gt;
 
-&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+&lt;h3 id=&quot;ツール&quot;&gt;ツール&lt;/h3&gt;
 
-&lt;p&gt;The main story in the doc generator tool is the support to show a version picker. An external &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; file will let you specify the current and past releases to populate the version picker. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8792&quot;&gt;#8792&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9074&quot;&gt;#9074&lt;/a&gt;, and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9254&quot;&gt;#9254&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;主要な変更はドキュメントジェネレータで、バージョンピッカーをサポートするようになりました。外部に &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; ファイルを用意して、現在と過去のリリースを指定することでバージョンピッカーに反映できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8792&quot;&gt;#8792&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9074&quot;&gt;#9074&lt;/a&gt;、それと&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9254&quot;&gt;#9254&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+&lt;h2 id=&quot;次のステップ&quot;&gt;次のステップ&lt;/h2&gt;
 
-&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 1.0.0. We expect to release some 1.0.0-preX to iterate on some final fixes.&lt;/p&gt;
+&lt;p&gt;Crystal をアップデートしてください。そして、問題の報告を心待ちにしています。私たちは1.0.0に向けての開発を始めています。1.0.0-preX のようなリリースをして、最終的な調整を重ねていくでしょう。&lt;/p&gt;
 
-&lt;p&gt;We acknowledge that there were a lot of cleanups in the last couple of releases. We did our best to stay below a discomfort threshold.&lt;/p&gt;
+&lt;p&gt;ここ数回のリリースで修正が多かったことは認めます。ですが、不快感は最小になるように心掛けたつもりです。&lt;/p&gt;
 
-&lt;p&gt;All the deprecated definitions will be removed for 1.0. We want a clean 1.0.&lt;/p&gt;
+&lt;p&gt;すべての非推奨にした定義は1.0では削除される予定です。1.0をクリーンなバージョンにしたいと思っています。&lt;/p&gt;
 
-&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; と &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; の2箇所えで受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を探している場合は &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
