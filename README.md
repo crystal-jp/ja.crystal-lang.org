@@ -9,7 +9,7 @@
 
 ## ステータス
 
-翻訳済み/全体 = 157/168
+翻訳済み/全体 = 158/169
 
 <details>
 
@@ -191,5 +191,6 @@
 | `crystal-website/install/on_wsl.md`                                                                 | ○    |
 | `crystal-website/_includes/install_from_linuxbrew.md`                                               | ○    |
 | `crystal-website/_includes/install_from_snapcraft.md`                                               | ○    |
+| `crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md`                                      | ○    |
 
 </details>

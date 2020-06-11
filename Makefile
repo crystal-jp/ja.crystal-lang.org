@@ -9,6 +9,7 @@ TRANSLATE_FILES := \
     /crystal-website/_includes/install_from_*.md \
     /crystal-website/_layouts/default.html \
     /crystal-website/_layouts/install.html \
+    /crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md \
     /crystal-website/blog/index.html \
     /crystal-website/community/index.html \
     /crystal-website/docs.html \
@@ -18,6 +19,9 @@ TRANSLATE_FILES := \
     /crystal-website/media/index.html \
     /crystal-website/sponsors/index.html \
     /crystal-website/sponsors/original-sponsors.html \
+
+FIX_ENTITY_FILES := \
+    /crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md \
 
 # 翻訳元から翻訳対象のディレクトリ `i18n/source` にファイルをコピーする
 .PHONY: i18n/source
@@ -31,6 +35,7 @@ locale/ja: locale/ja/crystal-book/book.json
 	rsync -Cav --exclude='.git' --exclude='/crystal-book/book.json' $(patsubst %, --exclude='%', $(TRANSLATE_FILES)) locale/en/ locale/ja/
 	# 翻訳結果のファイルを `i18n/target` からコピーしてくる
 	rsync -Cav --exclude='.gitkeep' i18n/target/ locale/ja/
+	sed -i '' -e 's/&amp;/\&/g' $(patsubst %, locale/ja/%, $(FIX_ENTITY_FILES))
 
 locale/ja/crystal-book/book.json: locale/en/crystal-book/book.json
 	# `crystal-book/book.json` から `ga` (Google Analytics) プラグインを外して、`edit-link` プラグインの設定を更新する。
