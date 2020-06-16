@@ -191,7 +191,7 @@
   <div class="row">
     <div class="col s12">
       <h2>Null 参照チェック</h2>
-      <p>Crystal ではすべての型は nil を許容しません。そして nil を許容する変数は、その型と nil とのユニオン型となります。要するに、コンパイラはコンパイル時に自動的に null 参照をチェックしてくれる、ということです。これは<a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare" target="_blank">1億ドルの失敗</a>から免れる助けになるでしょう。</p>
+      <p>Crystal ではすべての型は nil を許容しません。そして nil を許容する変数は、その型と nil とのユニオン型となります。要するに、コンパイラはコンパイル時に自動的に null 参照をチェックしてくれる、ということです。これは<a href="https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare" target="_blank">10億ドルの失敗</a>から免れる助けになるでしょう。</p>
       <div class="code_section"><figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="k">if</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
   <span class="n">my_string</span> <span class="o">=</span> <span class="s2">"hello world"</span>
 <span class="k">end</span>
