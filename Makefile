@@ -36,6 +36,7 @@ locale/ja: locale/ja/crystal-book/book.json
 	# 翻訳結果のファイルを `i18n/target` からコピーしてくる
 	rsync -Cav --exclude='.gitkeep' i18n/target/ locale/ja/
 	sed -i '' -e 's/&amp;/\&/g' $(patsubst %, locale/ja/%, $(FIX_ENTITY_FILES))
+	sed -i '' -e 's/\\&quot;//g' locale/ja/crystal-website/community/index.html
 
 locale/ja/crystal-book/book.json: locale/en/crystal-book/book.json
 	# `crystal-book/book.json` から `ga` (Google Analytics) プラグインを外して、`edit-link` プラグインの設定を更新する。
