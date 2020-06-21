@@ -7,6 +7,39 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Crystal 0.35.1がリリースされました！</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.1&quot;&gt;Crystal 0.35.1&lt;/a&gt; がリリースされました。&lt;/p&gt;
+
+&lt;p&gt;このリリースは0.35.0ほど刺激的なものではありません。もしこちらのアナウンスを見ていなければ、&lt;a href=&quot;/2020/06/09/crystal-0.35.0-released.html&quot;&gt;こちらをまず読んでください&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;このパッチリリースは最近の追加や2つのリグレッションの修正を反映させるものです。&lt;/p&gt;
+
+&lt;p&gt;5人のコントリビュータによって&lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.35.0...0.35.1&quot;&gt;0.35.0から13のコミットが&lt;/a&gt;ありました。&lt;/p&gt;
+
+&lt;p&gt;それでは今回のリリースのハイライトを紹介していきます。ですが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.1&quot;&gt;リリースのチェンジログ&lt;/a&gt;にもたくさんの価値ある情報があることを忘れないでください。&lt;/p&gt;
+
+&lt;h2 id=&quot;標準ライブラリ&quot;&gt;標準ライブラリ&lt;/h2&gt;
+
+&lt;p&gt;0.35.0で導入された&lt;code class=&quot;highlighter-rouge&quot;&gt;IO#write&lt;/code&gt;の変更が取り消されることになりました。以前のように&lt;code class=&quot;highlighter-rouge&quot;&gt;Nil&lt;/code&gt;を返すことになります。この意図的な変更は想定以上に破壊的でした。振り回してしまったことをお詫びします。&lt;/p&gt;
+
+&lt;p&gt;このため、0.35.0向けにアップデートした shard については、0.35.0と十分に比較する必要があります。0.35.0 向けにアップデートしていない shard はとくに追加で何かすることはありません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9469&quot;&gt;#9469&lt;/a&gt;を確認してください。&lt;/p&gt;
+
+&lt;p&gt;OpenSSL クライアントのコンテキストは利便性のため、デフォルトでやや厳格でない暗号も設定されるようになりました。サーバーのコンテキストはよりセキュアなものになっています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9459&quot;&gt;#9459&lt;/a&gt;を確認してください。&lt;/p&gt;
+
+&lt;h2 id=&quot;次のステップ&quot;&gt;次のステップ&lt;/h2&gt;
+
+&lt;p&gt;Crystal をアップデートしてください。そして、問題の報告を心待ちにしています。私たちは1.0.0に向けての開発を始めています。1.0.0-preX のようなリリースをして、最終的な調整を重ねていくでしょう。&lt;/p&gt;
+
+&lt;p&gt;すべての非推奨にした定義は1.0では削除される予定です。1.0をクリーンなバージョンにしたいと思っています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; で受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を見つけた場合は、&lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal 0.35.0がリリースされました！</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;Crystal 0.35.0&lt;/a&gt; がリリースされました。&lt;/p&gt;
 
@@ -214,7 +247,7 @@
 
 &lt;p&gt;すべての非推奨にした定義は1.0では削除される予定です。1.0をクリーンなバージョンにしたいと思っています。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; と &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; の2箇所えで受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を探している場合は &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; と &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; の2箇所で受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を探している場合は &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
@@ -1039,113 +1072,6 @@ Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8394&
         <pubDate>Mon, 30 Sep 2019 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2019/09/30/crystal-0.31.1-released.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2019/09/30/crystal-0.31.1-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Crystal 0.31.0 released!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.31.0&quot;&gt;Crystal 0.31.0&lt;/a&gt; has been released!&lt;/p&gt;
-
-&lt;p&gt;This release comes with multi-threading preview, changes in numbers, performance improvements and as usual fixes and improvements in across the std-lib.&lt;/p&gt;
-
-&lt;p&gt;There are &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.30.1...0.31.0&quot;&gt;191 commits since 0.30.1&lt;/a&gt; by 23 contributors.&lt;/p&gt;
-
-&lt;p&gt;Let’s review some highlights in this release. But don’t miss the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.31.0&quot;&gt;release changelog&lt;/a&gt; which has a lot of valuable information.&lt;/p&gt;
-
-&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
-
-&lt;p&gt;There is a new, and cleaner, way to declare type restrictions for non-captured blocks in a method.&lt;/p&gt;
-
-&lt;p&gt;A nameless parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt; can now appear at the end of the list. It can optionally have type restrictions that will be used by the compiler and by the doc tool.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;There is no need to rewrite your current code base, but it’s a feature that will improve a bit the understanding to the reader. Especially if you used &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;block : T -&amp;gt; S&lt;/code&gt;, but didn’t mention &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; in the method body. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8117&quot;&gt;#8117&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
-
-&lt;p&gt;Since Crystal 0.29 the compiler is able to emit warnings. This feature is now opt-out, since the default is changed to &lt;code class=&quot;highlighter-rouge&quot;&gt;--warnings=all&lt;/code&gt;. This will help you identify usages of deprecated methods and other language constructs as they appear. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8171&quot;&gt;#8171&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;LLVM 8.0 is used in the Linux official packages. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8155&quot;&gt;#8155&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
-
-&lt;h3 id=&quot;multithreading&quot;&gt;Multithreading&lt;/h3&gt;
-
-&lt;p&gt;One of the most awaited features landed between the previous release and this one, behind the &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dpreview_mt&lt;/code&gt; flag: Multithreading.
-Even after merging &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8112&quot;&gt;#8112&lt;/a&gt; there were a couple of iterations to fix corner cases and stabilize the runtime.&lt;/p&gt;
-
-&lt;p&gt;Don’t miss &lt;a href=&quot;https://crystal-lang.org/2019/09/06/parallelism-in-crystal.html&quot;&gt;its dedicated blog post&lt;/a&gt; where you can find out how to use it, the main API changes and its current limitations.&lt;/p&gt;
-
-&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
-
-&lt;p&gt;There were a couple of changes in the numeric part of the std-lib announced a long time ago that finally made its way in this release.&lt;/p&gt;
-
-&lt;p&gt;Overflows are handled by default. &lt;code class=&quot;highlighter-rouge&quot;&gt;Int32::MAX + 1&lt;/code&gt; will no longer wrap around. In case you need non-overflow operation you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;Int32::MAX &amp;amp;+ 1&lt;/code&gt;. Same with &lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;. In some architectures LLVM requires the compiler-rt library. We ported what was needed so there is no external dependency. If the new default behavior is blocking you, use &lt;code class=&quot;highlighter-rouge&quot;&gt;-Ddisable_overflow&lt;/code&gt; to keep the same semantics as in 0.30 or &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dskip_crystal_compiler_rt&lt;/code&gt; to not include out compiler-rt port and link against another build of it. The &lt;code class=&quot;highlighter-rouge&quot;&gt;disable_overflow&lt;/code&gt; flag is temporal and it will go away. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8170&quot;&gt;#8170&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt; will represent always the arithmetic division. This also means its result will be a float (of some kind). The expression &lt;code class=&quot;highlighter-rouge&quot;&gt;a.sum / a.size&lt;/code&gt; will return the average, whatever numeric type is used in a. If you want the integer division that preserves the type of the left-hand side operarand use &lt;code class=&quot;highlighter-rouge&quot;&gt;//&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8120&quot;&gt;#8120&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
-
-&lt;p&gt;The major changes in the collections are related to performance. &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt; were in the eye of these changes &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8017&quot;&gt;#8017&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8042&quot;&gt;#8042&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8048&quot;&gt;#8048&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8087&quot;&gt;#8087&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8116&quot;&gt;#8116&lt;/a&gt;. There seems to always be room for improvement (take 1).&lt;/p&gt;
-
-&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
-
-&lt;p&gt;There is a breaking-change regarding XML, yet the main API has not changed. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8134&quot;&gt;#8134&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;A probably more impactful change is that JSON and YAML deserialization can now handle &lt;code class=&quot;highlighter-rouge&quot;&gt;NamedTuple&lt;/code&gt; with nilable fields. Read more at  &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8109&quot;&gt;#8109&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;And there was some missing setting in YAML to emit unicode. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8132&quot;&gt;#8132&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
-
-&lt;p&gt;Optimizations were not only present in collections. Follow the path and you will find improvements in &lt;code class=&quot;highlighter-rouge&quot;&gt;Path#join&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Dir.glob&lt;/code&gt;.  &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8078&quot;&gt;#8078&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8082&quot;&gt;#8082&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8081&quot;&gt;#8081&lt;/a&gt;. There seems to always be room for improvement (take 2).&lt;/p&gt;
-
-&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server::Response#respond_with_error&lt;/code&gt; is deprecated in favor of &lt;code class=&quot;highlighter-rouge&quot;&gt;#respond_with_status&lt;/code&gt; that will also handle the final state of the connection and default status description. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/6988&quot;&gt;#6988&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The built-in HTTP server will respond in a more controlled way to requests with long URIs or large header fields. The default limit of 1MB can be configured. The response will be &lt;code class=&quot;highlighter-rouge&quot;&gt;414 Request-URI too long&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;431 Request Header Fields Too Large&lt;/code&gt; respectively. This logic is implemented in &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Request.from_io&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8013&quot;&gt;#8013&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;other-deprecations&quot;&gt;Other deprecations&lt;/h3&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Markdown&lt;/code&gt; module is no longer exposed in the std-lib. It’s still used internally and there is an ongoing discussion regarding a future official markdown package. For now, the best replacement is &lt;a href=&quot;https://github.com/icyleaf/markd&quot;&gt;icyleaf/markd&lt;/a&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8115&quot;&gt;#8115&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/4613&quot;&gt;#4613&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You should drop the &lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser#parse!&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8041&quot;&gt;#8041&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;crystal-db-070&quot;&gt;Crystal-db 0.7.0&lt;/h3&gt;
-
-&lt;p&gt;A new release of &lt;a href=&quot;https://github.com/crystal-lang/crystal-db&quot;&gt;crystal-lang/crystal-db&lt;/a&gt; is also available. Updates to drivers and frameworks were sent to use the new release.&lt;/p&gt;
-
-&lt;p&gt;Some concurrency issues that might cause a peak in the number of connections created were fixed. This is also an important update for multi-threading contexts. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal-db/pull/109&quot;&gt;crystal-db#109&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;There is also a breaking-change required to avoid an ambiguity for drivers that support columns with Array values. &lt;code class=&quot;highlighter-rouge&quot;&gt;db.query(&quot;SELECT ...&quot;, [1,2])&lt;/code&gt; now means a single argument: &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2]&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;db.query(&quot;SELECT ...&quot;, args: [1, 2])&lt;/code&gt; means that two arguments are passed to the query.&lt;/p&gt;
-
-&lt;h2 id=&quot;spec&quot;&gt;Spec&lt;/h2&gt;
-
-&lt;p&gt;Given a &lt;code class=&quot;highlighter-rouge&quot;&gt;describe&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;context&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;it&lt;/code&gt; in a spec, you can now add a &lt;code class=&quot;highlighter-rouge&quot;&gt;focus: true&lt;/code&gt;. When you do that, only the things that are marked with &lt;code class=&quot;highlighter-rouge&quot;&gt;focus: true&lt;/code&gt; will run.&lt;/p&gt;
-
-&lt;p&gt;Also, if a line that ended someplace outside the &lt;code class=&quot;highlighter-rouge&quot;&gt;it&lt;/code&gt; but inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;describe&lt;/code&gt; is specified, the whole &lt;code class=&quot;highlighter-rouge&quot;&gt;describe&lt;/code&gt; will run.&lt;/p&gt;
-
-&lt;p&gt;This new behavior leads to a breaking change in case you shared local variables within &lt;code class=&quot;highlighter-rouge&quot;&gt;it&lt;/code&gt; blocks. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8125&quot;&gt;#8125&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;doc-generator&quot;&gt;Doc generator&lt;/h2&gt;
-
-&lt;p&gt;Writing documentation for a type hierarchy got a bit better. The content of a previous &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt; or ancestor is automatically inherited (with a nice note stating so) or it can be explicitly placed within new docs using an &lt;code class=&quot;highlighter-rouge&quot;&gt;:inherit:&lt;/code&gt; placeholder. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/6989&quot;&gt;#6989&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-
-&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 0.32.&lt;/p&gt;
-
-&lt;p&gt;It will also be helpful if your shards are run against Crystal nightly releases. Either Docker or Snap are the current channels to get them easily. This will help reduce the friction of a release while checking if the ecosystem is in good shape.&lt;/p&gt;
-
-&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
-</description>
-        <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2019/09/23/crystal-0.31.0-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2019/09/23/crystal-0.31.0-released.html</guid>
       </item>
     
   </channel>
