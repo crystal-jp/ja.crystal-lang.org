@@ -143,7 +143,7 @@
 | `crystal-book/conventions/README.md`                                                                | ○    |
 | `crystal-book/conventions/coding_style.md`                                                          | ○    |
 | `crystal-book/conventions/documenting_code.md`                                                      | ○    |
-| `crystal-book/database/README.md`                                                                   | ×    |
+| `crystal-book/database/README.md`                                                                   | ○    |
 | `crystal-book/database/connection.md`                                                               | △    |
 | `crystal-book/database/connection_pool.md`                                                          | ×    |
 | `crystal-book/database/transactions.md`                                                             | ×    |
