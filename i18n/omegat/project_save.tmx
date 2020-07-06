@@ -941,6 +941,34 @@ when {1, 2, 3} # Syntax error: wrong number of tuple elements (given 3, expected
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg># ... perform for each row in the ResultSet</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235250Z" creationid="daiki" creationdate="20200705T235250Z">
+        <seg># ... ResultSet の各行が実行される</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># ... use db to perform queries
+end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001422Z" creationid="daiki" creationdate="20200706T001422Z">
+        <seg># ... クエリを実行するために db を利用します
+end</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># ... use db to perform queries
+ensure</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001331Z" creationid="daiki" creationdate="20200706T001331Z">
+        <seg># ... クエリを実行するために db を利用します
+ensure</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># 2 x Int32 = 2 x 4 = 8
 instance_sizeof(Point) #=&gt; 12
 ```</seg>
@@ -12215,6 +12243,22 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;DB.open&lt;/g1&gt; will allow you to easily connect to a database using a connection uri.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T192316Z" creationid="daiki" creationdate="20200705T192201Z">
+        <seg>&lt;g1&gt;DB.open&lt;/g1&gt; はコネクション uri を用いて容易なデータベースへの接続を提供します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;Database#query&lt;/g1&gt; returns a &lt;g2&gt;ResultSet&lt;/g2&gt; that needs to be closed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235034Z" creationid="daiki" creationdate="20200705T235034Z">
+        <seg>&lt;g1&gt;Database#query&lt;/g1&gt; はクローズする必要のある &lt;g2&gt;ResultSet&lt;/g2&gt; を返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;Database&lt;/g1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T171518Z" creationid="makenowjust" creationdate="20200413T171518Z">
@@ -13871,6 +13915,22 @@ second operand with pattern matching.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal-lang/crystal-mysql&lt;/g1&gt;https://github.com/crystal-lang/crystal-mysql&lt;e2/&gt; for mysql &amp; mariadb</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190202Z" creationid="daiki" creationdate="20200705T190202Z">
+        <seg>&lt;g1&gt;crystal-lang/crystal-mysql&lt;/g1&gt;https://github.com/crystal-lang/crystal-mysql&lt;e2/&gt; mysql と mariadb 用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;crystal-lang/crystal-sqlite3&lt;/g1&gt;https://github.com/crystal-lang/crystal-sqlite3&lt;e2/&gt; for sqlite</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190147Z" creationid="daiki" creationdate="20200705T190147Z">
+        <seg>&lt;g1&gt;crystal-lang/crystal-sqlite3&lt;/g1&gt;https://github.com/crystal-lang/crystal-sqlite3&lt;e2/&gt; sqlite用</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;g1&gt;crystalshards.xyz&lt;/g1&gt;https://crystalshards.xyz/&lt;e2/&gt; is currently the go-to place for Crystal libraries, so that's what we'll optimize for.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200527T162924Z" creationid="makenowjust" creationdate="20200527T162924Z">
@@ -14619,6 +14679,14 @@ second operand with pattern matching.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T170637Z" creationid="makenowjust" creationdate="20200413T170637Z">
         <seg>&lt;g1&gt;while&lt;/g1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;g1&gt;will/crystal-pg&lt;/g1&gt;https://github.com/will/crystal-pg&lt;e2/&gt; for postgres</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190213Z" creationid="daiki" creationdate="20200705T190213Z">
+        <seg>&lt;g1&gt;will/crystal-pg&lt;/g1&gt;https://github.com/will/crystal-pg&lt;e2/&gt; postgres 用</seg>
       </tuv>
     </tu>
     <tu>
@@ -17362,6 +17430,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>All available methods to perform statements in a database are defined in &lt;g1&gt;DB::QueryMethods&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T000126Z" creationid="daiki" creationdate="20200706T000126Z">
+        <seg>データベース内で文を実行するためのすべての利用可能なメソッドは &lt;g1&gt;DB::QueryMethods&lt;/g1&gt; で定義されています。 </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>All enums inherit from &lt;g1&gt;Enum&lt;/g1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T182107Z" creationid="makenowjust" creationdate="20200505T182107Z">
@@ -17507,6 +17583,14 @@ in undefined behavior and most likely crashing your program.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Also some drivers may offer additional functionality like postgres &lt;g1&gt;LISTEN&lt;/g1&gt;/&lt;g2&gt;NOTIFY&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190718Z" creationid="daiki" creationdate="20200705T190533Z">
+        <seg>また、いくつかのドライバーでは postgres の &lt;g1&gt;LISTEN&lt;/g1&gt;/&lt;g2&gt;NOTIFY&lt;/g2&gt;のように追加の機能を提供します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also, it accepts a &lt;g2&gt;type&lt;/g2&gt; that must be known at compile-time as its argument.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200512T113232Z" creationid="makenowjust" creationdate="20200512T113232Z">
@@ -17551,6 +17635,14 @@ in undefined behavior and most likely crashing your program.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072011Z" creationid="hirofumiwakasugi" creationdate="20150901T072011Z">
         <seg>また、`run` コマンドを使っても同様のことが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Alternatively you can use a non yielding &lt;g1&gt;DB.open&lt;/g1&gt; method as long as &lt;g2&gt;Database#close&lt;/g2&gt; is called at the end.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001526Z" creationid="daiki" creationdate="20200705T193436Z">
+        <seg>代わりに、最後に &lt;g2&gt;Database#close&lt;/g2&gt; が呼ばれるまで終了しない yield を用いない &lt;g1&gt;DB.open&lt;/g1&gt; を使うこともできます。 </seg>
       </tuv>
     </tu>
     <tu>
@@ -18812,6 +18904,14 @@ foo(String) # =&gt; Array(String)</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150918T061646Z" creationid="hirofumiwakasugi" creationdate="20150918T061646Z">
         <seg>[Proc リテラル](literals/proc.html)のセクションで説明したように、既存のメソッドから Proc を作ることも可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As in &lt;g3&gt;Database#open&lt;/g3&gt;, if called with a block, the &lt;g4&gt;ResultSet&lt;/g4&gt; will be closed implicitly.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235201Z" creationid="daiki" creationdate="20200705T235201Z">
+        <seg>&lt;g3&gt;Database#open&lt;/g3&gt; のように、 ブロックとともに呼び出した場合は、 &lt;g4&gt;ResultSet&lt;/g4&gt; は暗黙のうちにクローズされます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20285,6 +20385,14 @@ to implement &lt;g1&gt;operator precedence&lt;/g1&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Choose the appropriate driver from the list above and add it as any shard to your application's &lt;g1&gt;shard.yml&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T000906Z" creationid="daiki" creationdate="20200705T191123Z">
+        <seg>上のリストから適切なドライバを選択し、アプリケーションの &lt;g1&gt;shard.yml&lt;/g1&gt; に任意の shard を追加します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Class methods</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200504T130016Z" creationid="makenowjust" creationdate="20200504T130016Z">
@@ -21394,6 +21502,14 @@ but also to format code samples included in documentation blocks.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Database</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T185005Z" creationid="daiki" creationdate="20200705T185005Z">
+        <seg>データベース</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Debian</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200518T071337Z" creationid="makenowjust" creationdate="20200518T071337Z">
@@ -21642,6 +21758,14 @@ Returns the name of `self`.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T082936Z" creationid="hirofumiwakasugi" creationdate="20150831T082936Z">
         <seg>それぞれのプラットフォームに合わせて適切なファイルをダウンロードして展開してください。その中に、`bin/crystal` という実行ファイルが含まれています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>During this guide &lt;g1&gt;crystal-lang/crystal-mysql&lt;/g1&gt; will be used.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T191935Z" creationid="daiki" creationdate="20200705T191935Z">
+        <seg>このガイドを通して &lt;g1&gt;crystal-lang/crystal-mysql&lt;/g1&gt; を使用します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22109,6 +22233,14 @@ or &lt;g3&gt;&lt;g4&gt;OpenSSL::Digest#finalize&lt;/g4&gt;&lt;/g3&gt;https://cry
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T095130Z" creationid="makenowjust" creationdate="20200502T095130Z">
         <seg>例外として、論理演算子に対する複合代入は次のように変換されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Exec</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T193551Z" creationid="daiki" creationdate="20200705T193551Z">
+        <seg>実行</seg>
       </tuv>
     </tu>
     <tu>
@@ -27118,6 +27250,14 @@ item or map entry.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Installing the shard</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190738Z" creationid="daiki" creationdate="20200705T190738Z">
+        <seg>shard のインストール</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instance and class methods</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200510T104554Z" creationid="makenowjust" creationdate="20200510T104545Z">
@@ -29383,6 +29523,14 @@ MyBox.new("hello") # : MyBox(String)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>MySQL uses &lt;g2&gt;?&lt;/g2&gt; for parameter expansion and assignment is based on argument order.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001605Z" creationid="daiki" creationdate="20200705T234508Z">
+        <seg>MySQL ではパラメータの展開に &lt;g2&gt;?&lt;/g2&gt; を使用し、代入は引数の順序に基づいて行われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>NOTE</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214455Z" creationid="makenowjust" creationdate="20200412T214455Z">
@@ -30611,6 +30759,14 @@ confusing and behaves unexpectedly.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Open database</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T192035Z" creationid="daiki" creationdate="20200705T192035Z">
+        <seg>データベースのオープン</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Open the files in the &lt;g2&gt;/docs/&lt;/g2&gt; directory with a web browser to see how your documentation is looking along the way.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200527T160257Z" creationid="makenowjust" creationdate="20200527T160257Z">
@@ -30732,6 +30888,22 @@ offers many implementations, for example for math expressions.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Or read a scalar value without dealing explicitly with the ResultSet:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001721Z" creationid="daiki" creationdate="20200706T000037Z">
+        <seg>また、ResultSet を明示的に取り扱わずにスカラ値を読み込むこともできます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Or read a single row:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235957Z" creationid="daiki" creationdate="20200705T235957Z">
+        <seg>１行で読み取ることもできます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Or use &lt;g1&gt;loop&lt;/g1&gt;, found in the standard library:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200424T095208Z" creationid="makenowjust" creationdate="20200424T095208Z">
@@ -30800,6 +30972,14 @@ offers many implementations, for example for math expressions.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200511T032222Z" creationid="makenowjust" creationdate="20200511T032119Z">
         <seg>その他の、これまでに宣言された &lt;g1&gt;struct&lt;/g1&gt;、&lt;g2&gt;union&lt;/g2&gt;、&lt;g3&gt;enum&lt;/g3&gt;、&lt;g4&gt;type&lt;/g4&gt; もしくは &lt;g5&gt;alias&lt;/g5&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Other connection uris are</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T192606Z" creationid="daiki" creationdate="20200705T192606Z">
+        <seg>その他の接続 uri です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31251,6 +31431,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>PostgreSQL uses &lt;g3&gt;$n&lt;/g3&gt; where &lt;g4&gt;n&lt;/g4&gt; is the ordinal number of the argument (starting with 1).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T234719Z" creationid="daiki" creationdate="20200705T234719Z">
+        <seg>PostgreSQL では &lt;g3&gt;$n&lt;/g3&gt; を使用し、 &lt;g4&gt;n&lt;/g4&gt; は1から始まる引数の順序です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Prefer to use the dedicated &lt;g1&gt;String.build&lt;/g1&gt; optimized for building strings, instead of creating an intermediate &lt;g2&gt;IO::Memory&lt;/g2&gt; allocation.</seg>
       </tuv>
       <tuv lang="JA" changeid="akiji" changedate="20200430T131447Z" creationid="akiji" creationdate="20200430T131447Z">
@@ -31391,6 +31579,14 @@ first operand (the receiver), so that &lt;g1&gt;typeof(a &lt;op&gt; b) == typeof
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T180254Z" creationid="makenowjust" creationdate="20200505T180254Z">
         <seg>疑似定数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Query</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T234730Z" creationid="daiki" creationdate="20200705T234730Z">
+        <seg>クエリ</seg>
       </tuv>
     </tu>
     <tu>
@@ -35717,6 +35913,14 @@ vector with a unary operator method &lt;g2&gt;-&lt;/g2&gt; for vector inversion.
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The following packages are compliant with crystal-db</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190028Z" creationid="daiki" creationdate="20200705T190028Z">
+        <seg>次のパッケージ群は crystal-db に準拠しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The following packages are not required, but recommended for using the respective features in the standard library:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200518T102919Z" creationid="makenowjust" creationdate="20200518T102919Z">
@@ -35729,6 +35933,14 @@ vector with a unary operator method &lt;g2&gt;-&lt;/g2&gt; for vector inversion.
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200427T135409Z" creationid="makenowjust" creationdate="20200427T134932Z">
         <seg>これらの規則はインスタンス変数に関するものとして記述されていますが、クラス変数に対しても同様に扱われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The following sample connects to a local mysql database named test with user root and password blank.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T192517Z" creationid="daiki" creationdate="20200705T192517Z">
+        <seg>次のサンプルでは、root ユーザーでパスワードを入力せず、 test という名前のローカルの mysql データベースに接続しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -36139,6 +36351,14 @@ the index is not found, while the non-nilable variant raises in that case.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The package &lt;g1&gt;crystal-lang/crystal-db&lt;/g1&gt;https://github.com/crystal-lang/crystal-db&lt;e2/&gt; offers a unified api across different drivers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190540Z" creationid="daiki" creationdate="20200705T185548Z">
+        <seg>&lt;g1&gt;crystal-lang/crystal-db&lt;/g1&gt;https://github.com/crystal-lang/crystal-db&lt;e2/&gt; パッケージは異なるドライバーに対して統一された API を提供します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The parser got a lot of love.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200610T131956Z" creationid="makenowjust" creationdate="20200610T131956Z">
@@ -36420,6 +36640,14 @@ literals.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The schema of the uri determines the expected driver.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T192306Z" creationid="daiki" creationdate="20200705T192306Z">
+        <seg>uri のスキーマは期待されるドライバーを決定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The second call's value is "hello" because a &lt;g3&gt;break&lt;/g3&gt; was performed.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200505T190431Z" creationid="makenowjust" creationdate="20200505T190431Z">
@@ -36617,6 +36845,14 @@ that status_ptr points to, unless status_ptr is a null pointer.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T214450Z" creationid="makenowjust" creationdate="20200412T214450Z">
         <seg>次のキーワードがサポートされています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The syntax for using query parameters depends on the database driver because they are typically just passed through to the database.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001556Z" creationid="daiki" creationdate="20200705T234317Z">
+        <seg>クエリパラメータを使用するための構文はデータベースドライバに依存します。なぜならそれらは通常データベースに渡されるだけだからです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -37241,6 +37477,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There are many convenient query methods built on top of &lt;g1&gt;#query&lt;/g1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235853Z" creationid="daiki" creationdate="20200705T235853Z">
+        <seg>最上位の &lt;g1&gt;#query&lt;/g1&gt; には、多くの便利なクエリメソッドが構築されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There are people looking for the &lt;g1&gt;exact&lt;/g1&gt; functionality of our library and the &lt;g2&gt;general&lt;/g2&gt; functionality of our library.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200527T163139Z" creationid="makenowjust" creationdate="20200527T163139Z">
@@ -37352,6 +37596,14 @@ changed to the nilable variant (&lt;g3&gt;[]?&lt;/g3&gt; on the right hand side:
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200502T103644Z" creationid="makenowjust" creationdate="20200502T103644Z">
         <seg>そのため &lt;g1&gt;public&lt;/g1&gt; キーワードは存在しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There is no need to explicitly require &lt;g1&gt;crystal-lang/crystal-db&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T191233Z" creationid="daiki" creationdate="20200705T191233Z">
+        <seg>&lt;g1&gt;crystal-lang/crystal-db&lt;/g1&gt; を明示的に追加する必要はありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -38108,6 +38360,14 @@ proven faster than equality).</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150902T021835Z" creationid="hirofumiwakasugi" creationdate="20150902T021555Z">
         <seg>この形式の場合、戻り値の型を指定することができるため、Proc の本体の戻り値が正しい型であるかをチェックすることが可能です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This guide presents the api of crystal-db, the sql commands might need to be adapted for the concrete driver due to differences between postgres, mysql and sqlite.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190414Z" creationid="daiki" creationdate="20200705T190301Z">
+        <seg>このガイドでは、crystal-db の API を紹介していますが、 postgres 、 mysql 、 sqlite の違いにより、具体的なドライバに合わせてsqlコマンドを変更する必要があるかもしれません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -39130,6 +39390,14 @@ server.listen</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To access a relational database you will need a shard designed for the database server you want to use.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T190307Z" creationid="daiki" creationdate="20200705T185018Z">
+        <seg>リレーショナルデータベースにアクセスするには、使用したいデータベースサーバー用に設計された Shard が必要です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To access the rescued exception you can specify a variable in the &lt;g1&gt;rescue&lt;/g1&gt; clause:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200506T103505Z" creationid="makenowjust" creationdate="20200506T103505Z">
@@ -39182,6 +39450,14 @@ server.listen</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T212123Z" creationid="makenowjust" creationdate="20200412T212123Z">
         <seg>自動的に他の型にリンクさせたい場合は、1つのバックティック (バッククォート) で囲みます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To avoid &lt;g1&gt;SQL injection&lt;/g1&gt;https://owasp.org/www-community/attacks/SQL_Injection&lt;e5/&gt; values can be provided as query parameters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001550Z" creationid="daiki" creationdate="20200705T234148Z">
+        <seg>&lt;g1&gt;SQL injection&lt;/g1&gt;https://owasp.org/www-community/attacks/SQL_Injection&lt;e5/&gt; を避けるため、クエリパラメータとして値を与えることが出来ます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -39549,6 +39825,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To execute sql statements you can use &lt;g1&gt;Database#exec&lt;/g1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001530Z" creationid="daiki" creationdate="20200705T233943Z">
+        <seg>sql 文を実行するには &lt;g1&gt;Database#exec&lt;/g1&gt; を利用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To format a single file:</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200412T215749Z" creationid="makenowjust" creationdate="20200412T215749Z">
@@ -39875,6 +40159,14 @@ by joining multiple literals with a backslash:</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150906T072147Z" creationid="hirofumiwakasugi" creationdate="20150906T072122Z">
         <seg>より明示的にそのことを示したい場合は、`&amp;block` という引数をダミーとして引数の最後に指定してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To perform a query and get the result set use &lt;g1&gt;Database#query&lt;/g1&gt;, arguments can be used as in &lt;g2&gt;Database#exec&lt;/g2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200706T001636Z" creationid="daiki" creationdate="20200705T234916Z">
+        <seg>クエリを実行し結果セットを得るために &lt;g1&gt;Database#query&lt;/g1&gt; を使用します。引数は &lt;g2&gt;Database#exec&lt;/g2&gt; と同様です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -42148,6 +42440,14 @@ and [Reddit](http://www.reddit.com/r/crystal_programming).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When reading values from the database there is no type information during compile time that crystal can use.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235500Z" creationid="daiki" creationdate="20200705T235441Z">
+        <seg>データベースから値を読み込む際には、コンパイル時に crystal が使用できる型情報がありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When running the application, it will request a phrase to the user and the magic will happen!</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T181714Z" creationid="makenowjust" creationdate="20200413T181714Z">
@@ -43126,6 +43426,14 @@ end</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can read multiple columns at once:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235927Z" creationid="daiki" creationdate="20200705T235927Z">
+        <seg>一度に複数の列を読み取ることが出来ます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can read this document from top to bottom, but it’s advisable to jump through sections because some concepts are interrelated and can’t be explained in isolation.</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150901T072303Z" creationid="hirofumiwakasugi" creationdate="20150901T071512Z">
@@ -43760,6 +44068,14 @@ https://github.com/crystal-lang/crystal-book</seg>
       </tuv>
       <tuv lang="JA" changeid="hirofumiwakasugi" changedate="20150831T060327Z" creationid="hirofumiwakasugi" creationdate="20150831T060327Z">
         <seg>また、あわせて LLVM 3.5 も必要です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You will need to call &lt;g1&gt;rs.read(T)&lt;/g1&gt; with the type &lt;g2&gt;T&lt;/g2&gt; you expect to get from the database.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="daiki" changedate="20200705T235636Z" creationid="daiki" creationdate="20200705T235636Z">
+        <seg>データベースから取得するとされるタイプ &lt;g2&gt;T&lt;/g2&gt; と共に &lt;g1&gt;rs.read(T)&lt;/g1&gt; を呼び出す必要があります。</seg>
       </tuv>
     </tu>
     <tu>
