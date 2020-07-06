@@ -28,7 +28,7 @@ dependencies:
 
 ## データベースのオープン
 
-`DB.open` はコネクション uri を用いて容易なデータベースへの接続を提供します。uri のスキーマは期待されるドライバーを決定します。次のサンプルでは、root ユーザーでパスワードを入力せず、 test という名前のローカルの mysql データベースに接続しています。
+`DB.open` はコネクション uri を用いて容易なデータベースへの接続を提供します。uri のスキーマは期待されるドライバーを決定します。次のサンプルでは、root ユーザーを空パスワードで、 test という名前のローカルの mysql データベースに接続しています。
 
 ```crystal
 require "db"
@@ -45,7 +45,7 @@ end
 * `mysql://user:password@server:port/database`
 * `postgres://server:port/database`
 
-代わりに、最後に `Database#close` が呼ばれるまで終了しない yield を用いない `DB.open` を使うこともできます。
+あるいは、最後に `Database#close` が呼ばれるまで終了しない yield を用いない `DB.open` を使うこともできます。
 
 ```crystal
 require "db"
@@ -67,7 +67,7 @@ sql 文を実行するには `Database#exec` を利用します。
 db.exec "create table contacts (name varchar(30), age int)"
 ```
 
-[SQL injection](https://owasp.org/www-community/attacks/SQL_Injection) を避けるため、クエリパラメータとして値を与えることが出来ます。
+[SQL インジェクション](https://owasp.org/www-community/attacks/SQL_Injection) を避けるため、クエリパラメータとして値を与えることが出来ます。
 クエリパラメータを使用するための構文はデータベースドライバに依存します。なぜならそれらは通常データベースに渡されるだけだからです。MySQL ではパラメータの展開に `?` を使用し、代入は引数の順序に基づいて行われます。PostgreSQL では `$n` を使用し、 `n` は1から始まる引数の順序です。
 
 ```crystal
@@ -119,7 +119,7 @@ name, age = rs.read(String, Int32)
 name, age = db.query_one "select name, age from contacts order by age desc limit 1", as: {String, Int32}
 ```
 
-また、ResultSet を明示的に取り扱わずにスカラ値を読み込むこともできます:
+また、ResultSet を明示的に取り扱わずにスカラ値を読み取ることもできます:
 
 ```crystal
 max_age = db.scalar "select max(age) from contacts"
