@@ -1,24 +1,24 @@
-# Database
+# データベース
 
-To access a relational database you will need a shard designed for the database server you want to use. The package [crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) offers a unified api across different drivers.
+リレーショナルデータベースにアクセスするには、使用したいデータベースサーバー用に設計された Shard が必要です。[crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) パッケージは異なるドライバーに対して統一された API を提供します。
 
-The following packages are compliant with crystal-db
+次のパッケージ群は crystal-db に準拠しています。
 
-* [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3) for sqlite
-* [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql) for mysql & mariadb
-* [will/crystal-pg](https://github.com/will/crystal-pg) for postgres
+* [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3) sqlite用
+* [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql) mysql と mariadb 用
+* [will/crystal-pg](https://github.com/will/crystal-pg) postgres 用
 
-This guide presents the api of crystal-db, the sql commands might need to be adapted for the concrete driver due to differences between postgres, mysql and sqlite.
+このガイドでは、crystal-db の API を紹介していますが、 postgres 、 mysql 、 sqlite の違いにより、具体的なドライバに合わせてsqlコマンドを変更する必要があるかもしれません。
 
-Also some drivers may offer additional functionality like postgres `LISTEN`/`NOTIFY`.
+また、いくつかのドライバーでは postgres の `LISTEN`/`NOTIFY`のように追加の機能を提供します。
 
-## Installing the shard
+## shard のインストール
 
-Choose the appropriate driver from the list above and add it as any shard to your application's `shard.yml`
+上のリストから適切なドライバを選択し、アプリケーションの `shard.yml` に任意の shard を追加します。
 
-There is no need to explicitly require `crystal-lang/crystal-db`
+`crystal-lang/crystal-db` を明示的に追加する必要はありません。
 
-During this guide `crystal-lang/crystal-mysql` will be used.
+このガイドを通して `crystal-lang/crystal-mysql` を使用します。
 
 ```yaml
 dependencies:
@@ -26,26 +26,26 @@ dependencies:
     github: crystal-lang/crystal-mysql
 ```
 
-## Open database
+## データベースのオープン
 
-`DB.open` will allow you to easily connect to a database using a connection uri. The schema of the uri determines the expected driver. The following sample connects to a local mysql database named test with user root and password blank.
+`DB.open` はコネクション uri を用いて容易なデータベースへの接続を提供します。uri のスキーマは期待されるドライバーを決定します。次のサンプルでは、root ユーザーを空パスワードで、 test という名前のローカルの mysql データベースに接続しています。
 
 ```crystal
 require "db"
 require "mysql"
 
 DB.open "mysql://root@localhost/test" do |db|
-  # ... use db to perform queries
+  # ... クエリを実行するために db を利用します
 end
 ```
 
-Other connection uris are
+その他の接続 uri です。
 
 * `sqlite3:///path/to/data.db`
 * `mysql://user:password@server:port/database`
 * `postgres://server:port/database`
 
-Alternatively you can use a non yielding `DB.open` method as long as `Database#close` is called at the end.
+あるいは、最後に `Database#close` が呼ばれるまで終了しない yield を用いない `DB.open` を使うこともできます。
 
 ```crystal
 require "db"
@@ -53,22 +53,22 @@ require "mysql"
 
 db = DB.open "mysql://root@localhost/test"
 begin
-  # ... use db to perform queries
+  # ... クエリを実行するために db を利用します
 ensure
   db.close
 end
 ```
 
-## Exec
+## 実行
 
-To execute sql statements you can use `Database#exec`
+sql 文を実行するには `Database#exec` を利用します。
 
 ```crystal
 db.exec "create table contacts (name varchar(30), age int)"
 ```
 
-To avoid [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection) values can be provided as query parameters.
-The syntax for using query parameters depends on the database driver because they are typically just passed through to the database. MySQL uses `?` for parameter expansion and assignment is based on argument order. PostgreSQL uses `$n` where `n` is the ordinal number of the argument (starting with 1).
+[SQL インジェクション](https://owasp.org/www-community/attacks/SQL_Injection) を避けるため、クエリパラメータとして値を与えることが出来ます。
+クエリパラメータを使用するための構文はデータベースドライバに依存します。なぜならそれらは通常データベースに渡されるだけだからです。MySQL ではパラメータの展開に `?` を使用し、代入は引数の順序に基づいて行われます。PostgreSQL では `$n` を使用し、 `n` は1から始まる引数の順序です。
 
 ```crystal
 # MySQL
@@ -77,21 +77,21 @@ db.exec "insert into contacts values (?, ?)", "John", 30
 db.exec "insert into contacts values ($1, $2)", "Sarah", 33
 ```
 
-## Query
+## クエリ
 
-To perform a query and get the result set use `Database#query`, arguments can be used as in `Database#exec`.
+クエリを実行し結果セットを得るために `Database#query` を使用します。引数は `Database#exec` と同様です。
 
-`Database#query` returns a `ResultSet` that needs to be closed. As in `Database#open`, if called with a block, the `ResultSet` will be closed implicitly.
+`Database#query` はクローズする必要のある `ResultSet` を返します。`Database#open` のように、 ブロックとともに呼び出した場合は、 `ResultSet` は暗黙のうちにクローズされます。
 
 ```crystal
 db.query "select name, age from contacts order by age desc" do |rs|
   rs.each do
-    # ... perform for each row in the ResultSet
+    # ... ResultSet の各行が実行される
   end
 end
 ```
 
-When reading values from the database there is no type information during compile time that crystal can use. You will need to call `rs.read(T)` with the type `T` you expect to get from the database.
+データベースから値を読み込む際には、コンパイル時に crystal が使用できる型情報がありません。データベースから取得するとされるタイプ `T` と共に `rs.read(T)` を呼び出す必要があります。
 
 ```crystal
 db.query "select name, age from contacts order by age desc" do |rs|
@@ -105,24 +105,24 @@ db.query "select name, age from contacts order by age desc" do |rs|
 end
 ```
 
-There are many convenient query methods built on top of `#query`.
+最上位の `#query` には、多くの便利なクエリメソッドが構築されています。
 
-You can read multiple columns at once:
+一度に複数の列を読み取ることが出来ます:
 
 ```crystal
 name, age = rs.read(String, Int32)
 ```
 
-Or read a single row:
+１行で読み取ることもできます:
 
 ```crystal
 name, age = db.query_one "select name, age from contacts order by age desc limit 1", as: {String, Int32}
 ```
 
-Or read a scalar value without dealing explicitly with the ResultSet:
+また、ResultSet を明示的に取り扱わずにスカラ値を読み取ることもできます:
 
 ```crystal
 max_age = db.scalar "select max(age) from contacts"
 ```
 
-All available methods to perform statements in a database are defined in `DB::QueryMethods`.
+データベース内で文を実行するためのすべての利用可能なメソッドは `DB::QueryMethods` で定義されています。
