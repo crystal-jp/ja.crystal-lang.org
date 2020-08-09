@@ -66,7 +66,7 @@ end
 今回は2番目の方法でいきたいと思います。
 
 ```shell-session
-$ crystal ./help.cr -- -h
+$ crystal run ./help.cr -- -h
 
 Welcome to The Beatles App!
     -v, --version                    Show version
@@ -172,7 +172,7 @@ end
 試してみましょう。
 
 ```shell-session
-$ crystal ./hello_goodbye.cr -- -g "Penny Lane"
+$ crystal run ./hello_goodbye.cr -- -g "Penny Lane"
 
 You say goodbye, and Ringo Starr say hello to Penny Lane!
 ```
@@ -180,7 +180,7 @@ You say goodbye, and Ringo Starr say hello to Penny Lane!
 いい感じですね。アプリケーションが段々といい感じになってきました。ですが、**渡されたオプションを宣言していなかった場合、どうなるのでしょうか？**　例えば -n を渡してみましょう。
 
 ```shell-session
-$ crystal ./hello_goodbye.cr -- -n
+$ crystal run ./hello_goodbye.cr -- -n
 Unhandled exception: Invalid option: -n (OptionParser::InvalidOption)
   from ...
 ```
@@ -275,7 +275,7 @@ user_input = gets
 puts "The Beatles are singing: 🎵#{user_input}🎶🎸🥁"
 ```
 
-The method [`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) will **pause** the execution of the application, until the user finishes entering the input (pressing the `Enter` key).
+[`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) メソッドはアプリケーションの実行を、ユーザーの入力が終了する (`Enter` が押される) まで**停止**させます。
 ユーザーが`Enter`を押すと、実行が再開して`user_input`にユーザーの入力した値が入ります。
 
 しかし、ここでユーザーが何も入力しなかったらどうなるのでしょう？　この場合は、空文字列 (ユーザーが `Enter`を押した場合) もしくは `Nil` 値 (`Ctrl+D`によって入力ストリームを閉じた場合) が返ります。
@@ -293,7 +293,7 @@ puts "The Beatles are singing: 🎵#{user_input.upcase}🎶🎸🥁"
 これを実行しようとしてみると、 Crystal はこんな風にしてコンパイルに失敗するでしょう。
 
 ```shell-session
-$ crystal ./let_it_cli.cr
+$ crystal run ./let_it_cli.cr
 Showing last frame. Use --error-trace for full trace.
 
 In let_it_cli.cr:5:46
@@ -303,7 +303,7 @@ In let_it_cli.cr:5:46
 Error: undefined method 'upper_case' for Nil (compile-time type is (String | Nil))
 ```
 
-つまり、こういうことです。We should have known better: the type of the user input is the [union type](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html) `String | Nil`.
+つまり、こういうことです。ユーザーの入力した値の型は `String | Nil` という[ユニオン型](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html)なのです。
 というわけで、`Nil`もしくは`""` (空文字列) かをチェックして、自然に動作するようにしましょう。
 
 ```crystal

@@ -11,6 +11,7 @@ TRANSLATE_FILES := \
     /crystal-website/_layouts/install.html \
     /crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md \
     /crystal-website/_posts/2020-06-19-crystal-0.35.1-released.md \
+    /crystal-website/_posts/2020-08-06-shards-0.12.0-released.md \
     /crystal-website/blog/index.html \
     /crystal-website/community/index.html \
     /crystal-website/docs.html \
