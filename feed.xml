@@ -7,6 +7,48 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Shards 0.12.0 がリリースされました！</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.12.0&quot;&gt;Shards 0.12.0&lt;/a&gt; がリリースされました！&lt;/p&gt;
+
+&lt;p&gt;この Shards のリリースではいくつかのかすり傷のような問題を解決して、言語の異なるバージョンに対して機能する健全なパッケージエコシステムを手軽に可能にする機能を追加し、加えてあちこちを修正する際の摩擦を減らすことにフォーカスしています。&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.12.0&quot;&gt;リリースのチェンジログ&lt;/a&gt;にも目を通してください。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注意: この新しいリリースを使うには、Shards をソースコードからビルドするか、1.0.0-pre1 の Crystal がリリースされるまではナイトリー版の Crystal を使う必要があります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;依存関係の &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; ファイルがエラーを起こしたときに、より適切なエラーメッセージが表示されるようになりました。この改善は &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/408&quot;&gt;#408&lt;/a&gt; によるものです。&lt;/p&gt;
+
+&lt;p&gt;開発の際、依存関係をフォークしたものに切り替えることがあります。このシナリオは複数のコマンドで適切に処理されていませんでしたが、今回のリリースで修正されています。可能なら、Shards は元の依存関係の変更に関わらずバージョン選択を尊重するようにします。もしフォーク元の依存関係が曖昧であれば、エラーが表示されます。&lt;/p&gt;
+
+&lt;p&gt;フォーク元の依存関係が曖昧であるというのは、例えば、もしアプリケーションがパッケージ &lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; を要求していて、2つが &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; を要求しているにも関わらず、どちらも異なるフォークを参照している場合などがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/419&quot;&gt;#419&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/429&quot;&gt;#429&lt;/a&gt;を確認してください。&lt;/p&gt;
+
+&lt;p&gt;前回のリリースで crystal プロパティが必須になり、そのパッケージが期待するコンパイラと標準ライブラリのバージョンを指定できるようになりました。同時に、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; が追加され、このチェックを無視できるようにもなっています。しばしば Shards を指定したものとは異なるバージョンの Crystal と共に動作させたい場合があります。ライブラリのメンテナが、サポートする Crystal のバージョンを選択するときやテストやリリースの際などに、そのような状況になります。&lt;/p&gt;
+
+&lt;p&gt;破壊的変更の起こりうる Crystal のバージョン (0.x から 1.x や 1.x から 2.x など) が開発されている間は、プロジェクトの CI でナイトリー版を使い &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を指定するのは合理的でしょう。ですが、一度安定版がリリースされてエコシステムがそれに並べば、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; は必要なくなります。なお、crystal プロパティは依存関係解決の探索空間を枝刈りするのにも役立っています。&lt;/p&gt;
+
+&lt;p&gt;このリリースでは、Shards は &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; 環境変数を読み取って、追加の CLI オプションとして認識するようになりました。なので、CI のどこかで &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; が実行されている場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; が利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/417&quot;&gt;#417&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/420&quot;&gt;#420&lt;/a&gt;を確認してください。&lt;/p&gt;
+
+&lt;p&gt;このリリースの特筆すべき機能は shards のオーバライドです。この機能はまだ初期段階なので、フィードバックをお待ちしています。この機能をリリースすることで可能になるワークフローや単純化されるものがあり、今後の Crystal のメジャーリリースを補助するものになることを期待しています。この機能は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/422&quot;&gt;#422&lt;/a&gt;で実装され、動機は&lt;a href=&quot;https://github.com/crystal-lang/shards/issues/412&quot;&gt;#412&lt;/a&gt;で説明されています。&lt;/p&gt;
+
+&lt;p&gt;ローカルでのオーバーライド機能は &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.override.yml&lt;/code&gt; ファイルを用意するか、&lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OVERRIDE&lt;/code&gt; 環境変数で指定したファイルを用意することで有効になります。もし依存関係がオーバーライドファイルに載っていた場合、その他の依存関係のグラフの状態に関わらず、そのバージョンが使われることになります。&lt;/p&gt;
+
+&lt;p&gt;上記のロジックによって、次の場合のワークフローが単純化されるでしょう。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ある shard の開発者が、新バージョンをリリースして使えるようにする代わりに、手元の開発版のコピーを使いたいとき。&lt;/li&gt;
+  &lt;li&gt;中間の依存関係が新しいバージョンの依存関係と衝突しているのを回避したいとき。&lt;/li&gt;
+  &lt;li&gt;わざわざフォークしたり依存関係をいじったりしなくても、深いところにある依存関係のパッチを当てることができます。&lt;/li&gt;
+  &lt;li&gt;開発ワークフローを複雑にすることなく、依存関係の上流の開発版に対するテストをすることもできます。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あなたならこの機能をどのようにして使いますか？&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2020/08/06/shards-0.12.0-released.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/08/06/shards-0.12.0-released.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal 0.35.1がリリースされました！</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.1&quot;&gt;Crystal 0.35.1&lt;/a&gt; がリリースされました。&lt;/p&gt;
 
@@ -1033,45 +1075,6 @@ Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8394&
         <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2019/12/11/crystal-0.32.0-released.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2019/12/11/crystal-0.32.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Crystal 0.31.1 released!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.31.1&quot;&gt;Crystal 0.31.1&lt;/a&gt; has been released!&lt;/p&gt;
-
-&lt;p&gt;This release comes after a week of stabilizing the 0.31.0 with feedback from the community mainly. There were fixes, workaround, and improvements that should unlock migrating to 0.31 in some contexts.&lt;/p&gt;
-
-&lt;p&gt;There are &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.31.0...0.31.1&quot;&gt;9 commits since 0.31.0&lt;/a&gt; by 4 contributors.&lt;/p&gt;
-
-&lt;p&gt;Let’s review some highlights in this release. But don’t miss the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.31.0&quot;&gt;release changelog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The main updates for 0.31 can be found in the &lt;a href=&quot;/2019/09/23/crystal-0.31.0-released.html&quot;&gt;release post of 0.31.0&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;var = uninitialized T&lt;/code&gt; expression is now typed in a way that allows subtypes of &lt;code class=&quot;highlighter-rouge&quot;&gt;T&lt;/code&gt; to be stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt;. This bug was preventing the usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel&lt;/code&gt; with subtypes as reported in &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/8216&quot;&gt;#8261&lt;/a&gt; and fixed in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8221&quot;&gt;#8221&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
-
-&lt;h3 id=&quot;multithreading&quot;&gt;Multithreading&lt;/h3&gt;
-
-&lt;p&gt;The patch that gives bdw-gc support to green threads was updated. We were using our initial proposal from &lt;a href=&quot;https://github.com/ivmai/bdwgc/pull/277&quot;&gt;ivmai/bdwgc#277&lt;/a&gt; but we updated it to its final state &lt;a href=&quot;https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce&quot;&gt;ivmai/bdwgc:5668de&lt;/a&gt;. This was needed to allow some distros to use the upcoming features of bdw-gc. And is also a preparation step for the next release of the GC. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8225&quot;&gt;#8225&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;spec&quot;&gt;Spec&lt;/h2&gt;
-
-&lt;p&gt;Define blocks to be run before and after the whole suite with &lt;code class=&quot;highlighter-rouge&quot;&gt;Spec.before_suite&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Spec.after_suite&lt;/code&gt;. You can declare as many as you want. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8238&quot;&gt;#8238&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-
-&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 0.32.&lt;/p&gt;
-
-&lt;p&gt;It will also be helpful if your shards are run against Crystal nightly releases. Either Docker or Snap are the current channels to get them easily. This will help reduce the friction of a release while checking if the ecosystem is in good shape.&lt;/p&gt;
-
-&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
-</description>
-        <pubDate>Mon, 30 Sep 2019 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2019/09/30/crystal-0.31.1-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2019/09/30/crystal-0.31.1-released.html</guid>
       </item>
     
   </channel>
