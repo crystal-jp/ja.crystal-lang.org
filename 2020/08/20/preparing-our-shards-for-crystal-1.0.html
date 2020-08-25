@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Preparing our shards for Crystal 1.0 - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Preparing our shards for Crystal 1.0 | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Preparing our shards for Crystal 1.0" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A shard always has one or more dependencies. These dependencies are subject to change. The author might be more or less conservative regarding any breaking-changes. I want to revisit what are the mechanisms to check if the shard we are working on is up to date with the upcoming changes of its dependencies." />
+<meta property="og:description" content="A shard always has one or more dependencies. These dependencies are subject to change. The author might be more or less conservative regarding any breaking-changes. I want to revisit what are the mechanisms to check if the shard we are working on is up to date with the upcoming changes of its dependencies." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"A shard always has one or more dependencies. These dependencies are subject to change. The author might be more or less conservative regarding any breaking-changes. I want to revisit what are the mechanisms to check if the shard we are working on is up to date with the upcoming changes of its dependencies.","headline":"Preparing our shards for Crystal 1.0","dateModified":"2020-08-20T00:00:00+00:00","datePublished":"2020-08-20T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">5 days ago</span>
+          
+        </div>
+
+        <h1 class='title'>Preparing our shards for Crystal 1.0</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F08%2F20%2Fpreparing-our-shards-for-crystal-1.0.html&text=Preparing+our+shards+for+Crystal+1.0&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F08%2F20%2Fpreparing-our-shards-for-crystal-1.0.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2020%2F08%2F20%2Fpreparing-our-shards-for-crystal-1.0.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>A shard always has one or more dependencies. These dependencies are subject to change. The author might be more or less conservative regarding any breaking-changes. I want to revisit what are the mechanisms to check if the shard we are working on is up to date with the upcoming changes of its dependencies.</p>
+
+<p>Of course, the process described here is a bit opinionated. Depending on the release process of your shard and the branching scheme used, some things might need a little tweaking. Nonetheless, I think it is valuable to revisit at least one alternative to do it.</p>
+
+<p>When I say that the shard always has at least one dependency it is because the std-lib, and the language, act as yet another dependency.</p>
+
+<h1 id="version-checks">Version checks</h1>
+
+<p>As dependencies evolve, it is up to you to decide whether to support just the latest release and force everybody to be on edge, or to support some older versions.</p>
+
+<p>Thanks to the built-in reflection macros and methods as <code class="highlighter-rouge">has_constant?</code>, <code class="highlighter-rouge">has_method?</code>, <code class="highlighter-rouge">responds_to?</code>, etc., we can have code that compiles and works on multiple versions of a dependency.</p>
+
+<p>One other mechanism that is not as fancy, but simple, is the <code class="highlighter-rouge">compare_versions</code> macro. If <code class="highlighter-rouge">AwesomeDependency</code> defines a <code class="highlighter-rouge">AwesomeDependency::VERSION</code> (as it is encouraged by the init template), then <code class="highlighter-rouge">{% if compare_versions(AwesomeDependency::VERSION, "2.0.0") &gt;= 0 %}</code> is available to use features only on 2.0.0 or later releases.</p>
+
+<h2 id="advertised-version">Advertised version</h2>
+
+<p>If the 3.x version of AwesomeDependency is being developed, we encourage you to set <code class="highlighter-rouge">AwesomeDependency::VERSION</code> to <code class="highlighter-rouge">"3.0.0-dev"</code> or something alike. <code class="highlighter-rouge">"3.0.0"</code> may be good enough, but some prefer to keep that value for the tagged release only.</p>
+
+<p>If the <code class="highlighter-rouge">AwesomeDependency::VERSION</code> is not increased <em>during</em> the development of 3.x and is kept as the latest 2.x release, then it will be impossible to use <code class="highlighter-rouge">compare_versions</code> to check for 3.x.</p>
+
+<p>If <code class="highlighter-rouge">AwesomeDependency::VERSION = "3.0.0-dev"</code> and we want to start supporting that version in our development branch, we will need to use something like <code class="highlighter-rouge">{% if compare_versions(AwesomeDependency::VERSION, "3.0.0-0") &gt;= 0 %}</code>, with a trailing <code class="highlighter-rouge">-0</code>. This is because <code class="highlighter-rouge">3.0.0-0 &lt; 3.0.0-a &lt; 3.0.0-dev &lt; 3.0.0-z &lt; 3.0.0</code>.</p>
+
+<h1 id="declaring-dependencies">Declaring dependencies</h1>
+
+<p>At this point, we need to mention how dependencies can be declared. As mentioned before, on a tagged release, the <code class="highlighter-rouge">shard.yml</code> acts as a contract. This contract states what are the supported versions of each dependency. Shards allows us to declare dependencies, not only as version ranges, but also on a branch, or with no version. Still, I would recommend using version ranges, with lower and upper bound versions, on every formal release of a shard. The other variations should be limited to applications with a <code class="highlighter-rouge">shard.lock</code> or work in progress.</p>
+
+<p>My recommendation is that dependencies are declared as:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">~&gt; 0.9.2</code> (ie: <code class="highlighter-rouge">&gt;= 0.9.2, &lt; 0.10</code>) for 0.x versions dependencies, since the next minor release can have breaking changes.</li>
+  <li><code class="highlighter-rouge">~&gt; 2.2</code> (ie: <code class="highlighter-rouge">&gt;= 2.2, &lt; 3.0</code>) for non 0.x dependencies where any patch level would work.</li>
+  <li><code class="highlighter-rouge">~&gt; 2.2, &gt;= 2.2.3</code> (ie: <code class="highlighter-rouge">&gt;= 2.2.3, &lt; 3.0</code>) for non 0.x dependencies where at least certain patch is required. Potentially, this could be the current patch version if you want.</li>
+  <li><code class="highlighter-rouge">&gt;= 2.2.3, &lt; 5.0.0</code> for cases where you want to support a wide range of versions.</li>
+</ul>
+
+<p>Note that <code class="highlighter-rouge">~&gt; 0.9</code>, without a patch number, is <code class="highlighter-rouge">&gt;= 0.9, &lt; 1.0</code>. This might be too optimistic for a 0.x dependency, so I would discourage it.</p>
+
+<p>You might be tempted to say <em>any version is fine</em> but: Did you check older versions to honor that contract? Are you sure that future versions will be supported? Each dependency might be different: in some cases you might be able to feel more secure about this, depending on the author, maintainer and scope of the shard.</p>
+
+<p>Assuming we are on board with having the above recommendations on the tagged releases of our shard, we can move on to the next topic: How can we check our shard against upcoming or recently released versions of our dependencies.</p>
+
+<p>My pick is to have the supported versions of the dependencies in the <code class="highlighter-rouge">shard.yml</code> of the development branch. That is, exactly as they will be published upon release.</p>
+
+<p>Thanks to <a href="https://github.com/crystal-lang/shards/pull/422">shards override feature</a> in <a href="https://crystal-lang.org/2020/08/06/shards-0.12.0-released.html">Shards v0.12</a> we can have a <code class="highlighter-rouge">shard.edge.yml</code> file were we can force the usage of the development branch of <code class="highlighter-rouge">AwesomeDependency</code>, locally or on a CI, and use the <code class="highlighter-rouge">compare_versions</code> or other mechanism to check against unreleased changes of that dependency.</p>
+
+<p>We can also have multiple overrides files if we want to check individual dependencies.</p>
+
+<p>If this mechanism is used with a cron on the CI we will have nightly checks of the dependencies.</p>
+
+<p>Another alternative would be to set version ranges on dependencies only when releasing our shard. This would leave unrestricted dependencies in our development branch, but I think that that will require more work upon release, and it will still require the override to avoid picking the latest release by default.</p>
+
+<h1 id="moving-to-crystal-10">Moving to Crystal 1.0</h1>
+
+<p>So far we haven’t mentioned Crystal 1.0. What’s the deal with this release or any other major releases? The shards out in the wild declare which std-lib and language version they work with.</p>
+
+<p>The <code class="highlighter-rouge">crystal:</code> property in the <code class="highlighter-rouge">shard.yml</code> declares this. Out in the wild, almost every shard has an implicit <code class="highlighter-rouge">&lt; 1.0</code> right now. When using <code class="highlighter-rouge">crystal: x.y[.z]</code>, it is interpreted that the shard will work with <code class="highlighter-rouge">~&gt; x.y, &gt;= x.y.z</code> (ie: <code class="highlighter-rouge">&gt;= x.y.z, &lt; (x+1).0.0</code>) of the std-lib and language version. This is the same as one of the previously suggested version restriction patterns.</p>
+
+<p>As with any dependency, we are free to state that any crystal version will work with our release <code class="highlighter-rouge">crystal: *</code>, or remove the upper bound <code class="highlighter-rouge">crystal: &gt; 0.35</code>. But again, how can you be sure of that claim?</p>
+
+<p>Up until now, checking if a shard can work with the upcoming Crystal release required us to use a Crystal nightly build. We still need to do this, but the Crystal nightlies release has a <code class="highlighter-rouge">1.0.0-dev</code> version currently.</p>
+
+<p>Since the Crystal version we are using is <code class="highlighter-rouge">1.0.0-dev</code>, shards out in the wild are not candidates. And it is possible that they won’t be available until a 1.x tag is released. How could that be?</p>
+
+<p>To avoid locking us in this, or other major Crystal release, the <code class="highlighter-rouge">--ignore-crystal-version</code> Shards option can be used. It will not be needed when migrating from Crystal 1.0 to 1.1, but it will come handy again when Crystal 2.0 is developed.</p>
+
+<p>You can set the <code class="highlighter-rouge">SHARDS_OPTS</code> environment variable to <code class="highlighter-rouge">--ignore-crystal-version</code> in your CI if the <code class="highlighter-rouge">shards install</code> command is performed implicitly along the way.</p>
+
+<h1 id="preparing-all-the-ecosystem-for-crystal-10">Preparing all the ecosystem for Crystal 1.0</h1>
+
+<p>Let’s revisit the whole state with a more concrete hypothetical (and pessimistic) example. We are the authors of <code class="highlighter-rouge">BelovedShard</code> that depends on <code class="highlighter-rouge">AwesomeShard</code>. So far everything is working on Crystal 0.35. <code class="highlighter-rouge">BelovedShard</code> is in <code class="highlighter-rouge">1.5.0</code> and <code class="highlighter-rouge">AwesomeShard</code> is in <code class="highlighter-rouge">2.2.3</code>.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># BelovedShard's shard.yml file</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">beloved_shard</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">1.5.0</span>
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="na">awesome</span><span class="pi">:</span>
+    <span class="na">github</span><span class="pi">:</span> <span class="s">acme/awesome_shard</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">~&gt; 2.2</span>
+<span class="na">crystal</span><span class="pi">:</span> <span class="s">0.35</span></code></pre></figure>
+</div>
+
+<p><br /></p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># AwesomeShard's shard.yml file</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">awesome_shard</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">2.2.3</span>
+<span class="na">crystal</span><span class="pi">:</span> <span class="s">0.35</span></code></pre></figure>
+</div>
+
+<p>When trying to use Crystal 1.0.0-dev on <code class="highlighter-rouge">BelovedShard</code>, we might stumble onto some issues with <code class="highlighter-rouge">AwesomeShard</code> and we might not be a maintainer of it. Thanks to Shards override you can fork and change the source of the awesome shard to it.</p>
+
+<p>Whether the Awesome fix is done in the main repo, or in a fork, or in the development branch, or in a <code class="highlighter-rouge">crystal/1.0</code> branch, it does not make too much of a difference. All this information will be stated in the shard override file.</p>
+
+<p>The important question is: Which Crystal versions will the next version of Awesome support: <code class="highlighter-rouge">&gt;= 1.0, &lt; 2.0</code> or <code class="highlighter-rouge">&gt;= 0.35, &lt; 2.0</code>? This should guide us when changing the <code class="highlighter-rouge">crystal:</code> property in the <code class="highlighter-rouge">shard.yml</code>, and also tell us if we need to use <code class="highlighter-rouge">compare_versions(Crystal::VERSION, "1.0.0-0")</code> or not.</p>
+
+<p>Changing the <code class="highlighter-rouge">shard.yml</code> is not required right from the start. This can be delayed thanks to <code class="highlighter-rouge">--ignore-crystal-version</code>, but it is a good practice to have a clear idea of what the goal is for that property, since it affects the code to be written.</p>
+
+<p>Let’s suppose that AwesomeShard was fixed for Crystal 1.0.0-dev in it’s development branch. It will support 1.0 only upon release, but for now <code class="highlighter-rouge">crystal: 0.35</code> is still there, since it might want to release a <code class="highlighter-rouge">2.2.4</code> patch before Crystal 1.0 is released. This means that changes to Awesome use <code class="highlighter-rouge">compare_versions</code> and sometime, after Crystal 1.0 is released, those checks will go away and drop support for 0.35.</p>
+
+<p>More importantly, this means that the development branch of Awesome <em>should</em> work with Crystal 1.0.0-dev.</p>
+
+<p>Now let’s focus on BelovedShard where we want the same: the development branch should work with Crystal 1.0.0-dev. But we don’t want to wait for Awesome to be released.</p>
+
+<p>In our CI (or sometimes locally) we can use the following setup to accomplish that:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># BelovedShard's override file shard.edge.yml</span>
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="na">awesome</span><span class="pi">:</span>
+    <span class="na">github</span><span class="pi">:</span> <span class="s">acme/awesome_shard</span>
+    <span class="na">branch</span><span class="pi">:</span> <span class="s">develop</span></code></pre></figure>
+</div>
+
+<p>Set <code class="highlighter-rouge">SHARDS_OPTS=--ignore-crystal-version</code> and <code class="highlighter-rouge">SHARDS_OVERRIDE=shard.edge.yml</code>.</p>
+
+<p>This will make the <code class="highlighter-rouge">shards install</code> command use the development branch of Awesome, and it will not complain about the Crystal version mismatch (we are running a Crystal 1.x, but shard.yml in awesome states <code class="highlighter-rouge">&gt;= 0.35, &lt; 1.0</code>).</p>
+
+<p>While changing BelovedShard we might need to <code class="highlighter-rouge">compare_versions(Crystal::VERSION, "1.0.0-0")</code> and <code class="highlighter-rouge">compare_versions(Awesome::VERSION, "2.3.0-0")</code>. But our development branch is able to move forward and stay up to date with Crystal and Awesome. Awesome!</p>
+
+<p>While Crystal 1.0.0-dev keeps evolving, we can iterate on both shards.</p>
+
+<p>Once Crystal 1.0 is released, each shard will make the explicit decision about which version of the std-lib and language is supported. This will trigger changes in the <code class="highlighter-rouge">shard.yml</code> and maybe some code clean-ups.</p>
+
+<h1 id="closing-thoughts">Closing thoughts</h1>
+
+<p>There are other workflows to keep things up to date. This is just one option.</p>
+
+<p>As a community, other patterns might appear or be preferred in the long run. The recent changes in Shards aimed to provide at least one option that works and can be adapted to some extent.</p>
+
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
