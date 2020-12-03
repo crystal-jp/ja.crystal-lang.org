@@ -7625,6 +7625,8 @@ i.extra-icons {
     background-position: 1px -1px; }
   i.extra-icons.gitter {
     background-position: -24px -24px; }
+  i.extra-icons.discord {
+    background-position: 0px -72px; }
   i.extra-icons.google {
     background-position: -47px -24px; }
   i.extra-icons.twitter {
@@ -8220,6 +8222,44 @@ code.highlighter-rouge {
     .main #logo-container #logo-canvas {
       width: 100px;
       height: 100px; } }
+.top-banner {
+  background: #828282; }
+  .top-banner a {
+    color: #ffffff;
+    line-height: 60px;
+    padding: 0;
+    height: 120px;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap; }
+  .top-banner .tb-register {
+    background: #9d9d9d;
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.3rem;
+    font-style: italic;
+    padding: 0 1rem;
+    text-align: center; }
+  .top-banner .tb-title {
+    font-size: 1.15rem;
+    padding: 0 0.5em;
+    text-align: center; }
+  .top-banner .tb-thin {
+    font-weight: 200; }
+  .top-banner .tb-gap {
+    flex-grow: 1; }
+  .top-banner .tb-date {
+    font-size: .9rem;
+    padding: 0 0.5em;
+    display: none; }
+
+@media only screen and (min-width: 841px) {
+  .top-banner a {
+    flex-flow: row;
+    height: 60px; }
+  .top-banner .tb-title {
+    text-align: left; }
+  .top-banner .tb-date {
+    display: flex; } }
 .fc .fc-list-heading, .fc .fc-event-dot {
   display: none; }
 .fc tbody tr:nth-of-type(2) td {
