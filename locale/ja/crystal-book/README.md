@@ -21,36 +21,28 @@ Crystal は次の目標を掲げるプログラミング言語です。
 
 ### ローカルでのビルドとサーバーの起動方法
 
-```
-$ git clone https://github.com/crystal-lang/crystal-book.git
+```console
+$ git clone https://github.com/crystal-lang/crystal-book
 $ cd crystal-book
-$ npm install -g gitbook-cli@2.3.0
-$ npm install
-$ gitbook install
-$ gitbook serve
-Live reload server started on port: 35729
-Press CTRL+C to quit ...
-
-info: 8 plugins are installed
-info: loading plugin "ga"... OK
-...
-Starting server ...
-Serving book on http://localhost:4000
-
 ```
 
-HTML の出力は`_book`ディレクトリになります (一部のリンクはローカルでは上手く開けません)。
-依存関係をシステム全体にインストールしないで、Docker 環境を利用することもできます。
+ライブプレビューを実行 (http://127.0.0.1:8000):
 
+```console
+$ make serve
+INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+INFO    -  Documentation built in 3.02 seconds
+INFO    -  Serving on http://127.0.0.1:8000
+...
 ```
-$ docker-compose up
-...
-gitbook_1  | Starting server ...
-gitbook_1  | Serving book on http://localhost:4000
-gitbook_1  | Restart after change in file node_modules/.bin
-...
+
+`site` ディレクトリにビルド (いくつかの機能はファイルをローカルで開いていると動作しません):
+
+```console
+$ make build
 ```
 
 ### ページの追加方法
 
-ページを追加する場合、Markdown ファイルを希望の場所に配置してください。例: `overview/hello_world.md`。そして、言語リファレンスのナビゲーションである`SUMMARY.md`にリンクを追加してください。
+ページを追加する場合、Markdown ファイルを希望の場所に配置してください。そして、言語リファレンスのナビゲーションである`SUMMARY.md`にリンクを追加してください。

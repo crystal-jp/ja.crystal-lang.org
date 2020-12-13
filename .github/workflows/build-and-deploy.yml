@@ -13,8 +13,7 @@ jobs:
       - name: Run `make public`
         run: |
           pushd locale/ja/crystal-book
-          sed -i -e 's/npm install/npm config set unsafe-perm true \&\& &/' Dockerfile
-          docker-compose build
+          make build
           popd
 
           pushd locale/ja/crystal-website
