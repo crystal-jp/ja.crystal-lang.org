@@ -1,2199 +1,2623 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>shard の作り方 · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ja.crystal-lang.org/reference/guides/writing_shards.html">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>shard の作り方 - Crystal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6910b76c.min.css">
+      
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
         
+          
+          
+          <meta name="theme-color" content="#000000">
         
+      
     
-    <link rel="stylesheet" href="../gitbook/style.css">
-
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
+    
+      
         
-
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
     
-
     
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    <link rel="next" href="hosting/github.html" />
-    
-    
-    <link rel="prev" href="testing.html" />
-    
-
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    導入
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../getting_started/">
-            
-                <a href="../getting_started/">
-            
-                    
-                    Getting Started
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.2.1" data-path="../getting_started/http_server.html">
-            
-                <a href="../getting_started/http_server.html">
-            
-                    
-                    HTTP サーバー
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="../getting_started/cli.html">
-            
-                <a href="../getting_started/cli.html">
-            
-                    
-                    コマンドライアプリケーション
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../using_the_compiler/">
-            
-                <a href="../using_the_compiler/">
-            
-                    
-                    コンパイラの使い方
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../the_shards_command/">
-            
-                <a href="../the_shards_command/">
-            
-                    
-                    shards コマンド
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../syntax_and_semantics/">
-            
-                <a href="../syntax_and_semantics/">
-            
-                    
-                    構文とその意味
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../syntax_and_semantics/comments.html">
-            
-                <a href="../syntax_and_semantics/comments.html">
-            
-                    
-                    コメント
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../syntax_and_semantics/literals.html">
-            
-                <a href="../syntax_and_semantics/literals.html">
-            
-                    
-                    リテラル
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.2.1" data-path="../syntax_and_semantics/literals/nil.html">
-            
-                <a href="../syntax_and_semantics/literals/nil.html">
-            
-                    
-                    Nil
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.2" data-path="../syntax_and_semantics/literals/bool.html">
-            
-                <a href="../syntax_and_semantics/literals/bool.html">
-            
-                    
-                    真偽値 (Bool)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.3" data-path="../syntax_and_semantics/literals/integers.html">
-            
-                <a href="../syntax_and_semantics/literals/integers.html">
-            
-                    
-                    整数 (Integer)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.4" data-path="../syntax_and_semantics/literals/floats.html">
-            
-                <a href="../syntax_and_semantics/literals/floats.html">
-            
-                    
-                    浮動小数点数 (Float)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.5" data-path="../syntax_and_semantics/literals/char.html">
-            
-                <a href="../syntax_and_semantics/literals/char.html">
-            
-                    
-                    文字 (Char)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.6" data-path="../syntax_and_semantics/literals/string.html">
-            
-                <a href="../syntax_and_semantics/literals/string.html">
-            
-                    
-                    文字列 (String)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.7" data-path="../syntax_and_semantics/literals/symbol.html">
-            
-                <a href="../syntax_and_semantics/literals/symbol.html">
-            
-                    
-                    シンボル (Symbol)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.8" data-path="../syntax_and_semantics/literals/array.html">
-            
-                <a href="../syntax_and_semantics/literals/array.html">
-            
-                    
-                    配列 (Array)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.9" data-path="../syntax_and_semantics/literals/hash.html">
-            
-                <a href="../syntax_and_semantics/literals/hash.html">
-            
-                    
-                    ハッシュ (Hash)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.10" data-path="../syntax_and_semantics/literals/range.html">
-            
-                <a href="../syntax_and_semantics/literals/range.html">
-            
-                    
-                    範囲 (Range)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.11" data-path="../syntax_and_semantics/literals/regex.html">
-            
-                <a href="../syntax_and_semantics/literals/regex.html">
-            
-                    
-                    正規表現 (Regex)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.12" data-path="../syntax_and_semantics/literals/tuple.html">
-            
-                <a href="../syntax_and_semantics/literals/tuple.html">
-            
-                    
-                    タプル (Tuple)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.13" data-path="../syntax_and_semantics/literals/named_tuple.html">
-            
-                <a href="../syntax_and_semantics/literals/named_tuple.html">
-            
-                    
-                    名前付きタプル (NamedTuple)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.14" data-path="../syntax_and_semantics/literals/proc.html">
-            
-                <a href="../syntax_and_semantics/literals/proc.html">
-            
-                    
-                    Proc
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2.15" data-path="../syntax_and_semantics/literals/command.html">
-            
-                <a href="../syntax_and_semantics/literals/command.html">
-            
-                    
-                    コマンド (Command)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../syntax_and_semantics/assignment.html">
-            
-                <a href="../syntax_and_semantics/assignment.html">
-            
-                    
-                    代入
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../syntax_and_semantics/local_variables.html">
-            
-                <a href="../syntax_and_semantics/local_variables.html">
-            
-                    
-                    ローカル変数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../syntax_and_semantics/control_expressions.html">
-            
-                <a href="../syntax_and_semantics/control_expressions.html">
-            
-                    
-                    制御式
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.5.1" data-path="../syntax_and_semantics/truthy_and_falsey_values.html">
-            
-                <a href="../syntax_and_semantics/truthy_and_falsey_values.html">
-            
-                    
-                    真になる値と偽になる値
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2" data-path="../syntax_and_semantics/if.html">
-            
-                <a href="../syntax_and_semantics/if.html">
-            
-                    
-                    if
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.5.2.1" data-path="../syntax_and_semantics/as_a_suffix.html">
-            
-                <a href="../syntax_and_semantics/as_a_suffix.html">
-            
-                    
-                    後置 if
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.2" data-path="../syntax_and_semantics/as_an_expression.html">
-            
-                <a href="../syntax_and_semantics/as_an_expression.html">
-            
-                    
-                    式としての if
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.3" data-path="../syntax_and_semantics/ternary_if.html">
-            
-                <a href="../syntax_and_semantics/ternary_if.html">
-            
-                    
-                    3項演算子
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.4" data-path="../syntax_and_semantics/if_var.html">
-            
-                <a href="../syntax_and_semantics/if_var.html">
-            
-                    
-                    if var
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.5" data-path="../syntax_and_semantics/if_varis_a.html">
-            
-                <a href="../syntax_and_semantics/if_varis_a.html">
-            
-                    
-                    if var.is_a?(...)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.6" data-path="../syntax_and_semantics/if_varresponds_to.html">
-            
-                <a href="../syntax_and_semantics/if_varresponds_to.html">
-            
-                    
-                    if var.responds_to?(...)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.7" data-path="../syntax_and_semantics/if_var_nil.html">
-            
-                <a href="../syntax_and_semantics/if_var_nil.html">
-            
-                    
-                    if var.nil?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.2.8" data-path="../syntax_and_semantics/not.html">
-            
-                <a href="../syntax_and_semantics/not.html">
-            
-                    
-                    if !
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.3" data-path="../syntax_and_semantics/unless.html">
-            
-                <a href="../syntax_and_semantics/unless.html">
-            
-                    
-                    unless
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.4" data-path="../syntax_and_semantics/case.html">
-            
-                <a href="../syntax_and_semantics/case.html">
-            
-                    
-                    case
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.5" data-path="../syntax_and_semantics/while.html">
-            
-                <a href="../syntax_and_semantics/while.html">
-            
-                    
-                    while
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.5.5.1" data-path="../syntax_and_semantics/break.html">
-            
-                <a href="../syntax_and_semantics/break.html">
-            
-                    
-                    break
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.5.2" data-path="../syntax_and_semantics/next.html">
-            
-                <a href="../syntax_and_semantics/next.html">
-            
-                    
-                    next
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.6" data-path="../syntax_and_semantics/until.html">
-            
-                <a href="../syntax_and_semantics/until.html">
-            
-                    
-                    until
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.7" data-path="../syntax_and_semantics/and.html">
-            
-                <a href="../syntax_and_semantics/and.html">
-            
-                    
-                    &&
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5.8" data-path="../syntax_and_semantics/or.html">
-            
-                <a href="../syntax_and_semantics/or.html">
-            
-                    
-                    ||
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.6" data-path="../syntax_and_semantics/requiring_files.html">
-            
-                <a href="../syntax_and_semantics/requiring_files.html">
-            
-                    
-                    ファイルの require
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7" data-path="../syntax_and_semantics/types_and_methods.html">
-            
-                <a href="../syntax_and_semantics/types_and_methods.html">
-            
-                    
-                    型とメソッド
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.7.1" data-path="../syntax_and_semantics/everything_is_an_object.html">
-            
-                <a href="../syntax_and_semantics/everything_is_an_object.html">
-            
-                    
-                    すべてがオブジェクト
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.2" data-path="../syntax_and_semantics/the_program.html">
-            
-                <a href="../syntax_and_semantics/the_program.html">
-            
-                    
-                    プログラム
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3" data-path="../syntax_and_semantics/classes_and_methods.html">
-            
-                <a href="../syntax_and_semantics/classes_and_methods.html">
-            
-                    
-                    クラスとメソッド
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.7.3.1" data-path="../syntax_and_semantics/new,_initialize_and_allocate.html">
-            
-                <a href="../syntax_and_semantics/new,_initialize_and_allocate.html">
-            
-                    
-                    new/initialize/allocate
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.2" data-path="../syntax_and_semantics/methods_and_instance_variables.html">
-            
-                <a href="../syntax_and_semantics/methods_and_instance_variables.html">
-            
-                    
-                    メソッドとインスタンス変数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.3" data-path="../syntax_and_semantics/type_inference.html">
-            
-                <a href="../syntax_and_semantics/type_inference.html">
-            
-                    
-                    型推論
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.4" data-path="../syntax_and_semantics/union_types.html">
-            
-                <a href="../syntax_and_semantics/union_types.html">
-            
-                    
-                    ユニオン型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.5" data-path="../syntax_and_semantics/overloading.html">
-            
-                <a href="../syntax_and_semantics/overloading.html">
-            
-                    
-                    オーバーロード
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.6" data-path="../syntax_and_semantics/default_and_named_arguments.html">
-            
-                <a href="../syntax_and_semantics/default_and_named_arguments.html">
-            
-                    
-                    デフォルト引数と名前付き引数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.7" data-path="../syntax_and_semantics/splats_and_tuples.html">
-            
-                <a href="../syntax_and_semantics/splats_and_tuples.html">
-            
-                    
-                    スプラット展開とタプル
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.8" data-path="../syntax_and_semantics/type_restrictions.html">
-            
-                <a href="../syntax_and_semantics/type_restrictions.html">
-            
-                    
-                    型制約
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.9" data-path="../syntax_and_semantics/return_types.html">
-            
-                <a href="../syntax_and_semantics/return_types.html">
-            
-                    
-                    戻り値の型
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.10" data-path="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
-            
-                <a href="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html">
-            
-                    
-                    メソッドの引数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.11" data-path="../syntax_and_semantics/operators.html">
-            
-                <a href="../syntax_and_semantics/operators.html">
-            
-                    
-                    演算子
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.12" data-path="../syntax_and_semantics/visibility.html">
-            
-                <a href="../syntax_and_semantics/visibility.html">
-            
-                    
-                    可視性
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.13" data-path="../syntax_and_semantics/inheritance.html">
-            
-                <a href="../syntax_and_semantics/inheritance.html">
-            
-                    
-                    継承
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.7.3.13.1" data-path="../syntax_and_semantics/virtual_and_abstract_types.html">
-            
-                <a href="../syntax_and_semantics/virtual_and_abstract_types.html">
-            
-                    
-                    virtual 型と abstract 型
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.14" data-path="../syntax_and_semantics/class_methods.html">
-            
-                <a href="../syntax_and_semantics/class_methods.html">
-            
-                    
-                    クラスメソッド
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.15" data-path="../syntax_and_semantics/class_variables.html">
-            
-                <a href="../syntax_and_semantics/class_variables.html">
-            
-                    
-                    クラス変数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.3.16" data-path="../syntax_and_semantics/finalize.html">
-            
-                <a href="../syntax_and_semantics/finalize.html">
-            
-                    
-                    finalize
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.4" data-path="../syntax_and_semantics/modules.html">
-            
-                <a href="../syntax_and_semantics/modules.html">
-            
-                    
-                    モジュール
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.5" data-path="../syntax_and_semantics/generics.html">
-            
-                <a href="../syntax_and_semantics/generics.html">
-            
-                    
-                    ジェネリクス
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.6" data-path="../syntax_and_semantics/structs.html">
-            
-                <a href="../syntax_and_semantics/structs.html">
-            
-                    
-                    構造体 (Struct)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.7" data-path="../syntax_and_semantics/constants.html">
-            
-                <a href="../syntax_and_semantics/constants.html">
-            
-                    
-                    定数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.8" data-path="../syntax_and_semantics/enum.html">
-            
-                <a href="../syntax_and_semantics/enum.html">
-            
-                    
-                    列挙型 (Enum)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.9" data-path="../syntax_and_semantics/blocks_and_procs.html">
-            
-                <a href="../syntax_and_semantics/blocks_and_procs.html">
-            
-                    
-                    ブロックと Proc
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.7.9.1" data-path="../syntax_and_semantics/capturing_blocks.html">
-            
-                <a href="../syntax_and_semantics/capturing_blocks.html">
-            
-                    
-                    ブロックの捕捉
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.9.2" data-path="../syntax_and_semantics/proc_literal.html">
-            
-                <a href="../syntax_and_semantics/proc_literal.html">
-            
-                    
-                    Proc リテラル
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.9.3" data-path="../syntax_and_semantics/block_forwarding.html">
-            
-                <a href="../syntax_and_semantics/block_forwarding.html">
-            
-                    
-                    ブロックのフォワーディング
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.9.4" data-path="../syntax_and_semantics/closures.html">
-            
-                <a href="../syntax_and_semantics/closures.html">
-            
-                    
-                    クロージャ
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.7.10" data-path="../syntax_and_semantics/alias.html">
-            
-                <a href="../syntax_and_semantics/alias.html">
-            
-                    
-                    型エイリアス (alias)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.8" data-path="../syntax_and_semantics/exception_handling.html">
-            
-                <a href="../syntax_and_semantics/exception_handling.html">
-            
-                    
-                    例外の処理
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.9" data-path="../syntax_and_semantics/type_grammar.html">
-            
-                <a href="../syntax_and_semantics/type_grammar.html">
-            
-                    
-                    型の文法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10" data-path="../syntax_and_semantics/type_reflection.html">
-            
-                <a href="../syntax_and_semantics/type_reflection.html">
-            
-                    
-                    型のリフレクション
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.10.1" data-path="../syntax_and_semantics/is_a.html">
-            
-                <a href="../syntax_and_semantics/is_a.html">
-            
-                    
-                    is_a?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10.2" data-path="../syntax_and_semantics/nil_question.html">
-            
-                <a href="../syntax_and_semantics/nil_question.html">
-            
-                    
-                    nil?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10.3" data-path="../syntax_and_semantics/responds_to.html">
-            
-                <a href="../syntax_and_semantics/responds_to.html">
-            
-                    
-                    responds_to?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10.4" data-path="../syntax_and_semantics/as.html">
-            
-                <a href="../syntax_and_semantics/as.html">
-            
-                    
-                    as
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10.5" data-path="../syntax_and_semantics/as_question.html">
-            
-                <a href="../syntax_and_semantics/as_question.html">
-            
-                    
-                    as?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.10.6" data-path="../syntax_and_semantics/typeof.html">
-            
-                <a href="../syntax_and_semantics/typeof.html">
-            
-                    
-                    typeof
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.11" data-path="../syntax_and_semantics/macros.html">
-            
-                <a href="../syntax_and_semantics/macros.html">
-            
-                    
-                    マクロ
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.11.1" data-path="../syntax_and_semantics/macros/macro_methods.html">
-            
-                <a href="../syntax_and_semantics/macros/macro_methods.html">
-            
-                    
-                    マクロメソッド
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.11.2" data-path="../syntax_and_semantics/macros/hooks.html">
-            
-                <a href="../syntax_and_semantics/macros/hooks.html">
-            
-                    
-                    フック
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.11.3" data-path="../syntax_and_semantics/macros/fresh_variables.html">
-            
-                <a href="../syntax_and_semantics/macros/fresh_variables.html">
-            
-                    
-                    フレッシュ変数
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.12" data-path="../syntax_and_semantics/annotations.html">
-            
-                <a href="../syntax_and_semantics/annotations.html">
-            
-                    
-                    アノテーション
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.12.1" data-path="../syntax_and_semantics/annotations/built_in_annotations.html">
-            
-                <a href="../syntax_and_semantics/annotations/built_in_annotations.html">
-            
-                    
-                    組み込みアノテーション
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13" data-path="../syntax_and_semantics/low_level_primitives.html">
-            
-                <a href="../syntax_and_semantics/low_level_primitives.html">
-            
-                    
-                    低レベルプリミティブ
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.13.1" data-path="../syntax_and_semantics/pointerof.html">
-            
-                <a href="../syntax_and_semantics/pointerof.html">
-            
-                    
-                    pointerof
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13.2" data-path="../syntax_and_semantics/sizeof.html">
-            
-                <a href="../syntax_and_semantics/sizeof.html">
-            
-                    
-                    sizeof
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13.3" data-path="../syntax_and_semantics/instance_sizeof.html">
-            
-                <a href="../syntax_and_semantics/instance_sizeof.html">
-            
-                    
-                    instance_sizeof
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13.4" data-path="../syntax_and_semantics/offsetof.html">
-            
-                <a href="../syntax_and_semantics/offsetof.html">
-            
-                    
-                    offsetof
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.13.5" data-path="../syntax_and_semantics/declare_var.html">
-            
-                <a href="../syntax_and_semantics/declare_var.html">
-            
-                    
-                    初期化しない変数宣言
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.14" data-path="../syntax_and_semantics/compile_time_flags.html">
-            
-                <a href="../syntax_and_semantics/compile_time_flags.html">
-            
-                    
-                    コンパイル時のフラグ
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.14.1" data-path="../syntax_and_semantics/cross-compilation.html">
-            
-                <a href="../syntax_and_semantics/cross-compilation.html">
-            
-                    
-                    クロスコンパイル
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15" data-path="../syntax_and_semantics/c_bindings/">
-            
-                <a href="../syntax_and_semantics/c_bindings/">
-            
-                    
-                    C バインディング
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.15.1" data-path="../syntax_and_semantics/c_bindings/lib.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/lib.html">
-            
-                    
-                    lib
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.2" data-path="../syntax_and_semantics/c_bindings/fun.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/fun.html">
-            
-                    
-                    fun
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.15.2.1" data-path="../syntax_and_semantics/c_bindings/out.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/out.html">
-            
-                    
-                    out
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.2.2" data-path="../syntax_and_semantics/c_bindings/to_unsafe.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/to_unsafe.html">
-            
-                    
-                    to_unsafe
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.3" data-path="../syntax_and_semantics/c_bindings/struct.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/struct.html">
-            
-                    
-                    struct
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.4" data-path="../syntax_and_semantics/c_bindings/union.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/union.html">
-            
-                    
-                    union
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.5" data-path="../syntax_and_semantics/c_bindings/enum.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/enum.html">
-            
-                    
-                    enum
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.6" data-path="../syntax_and_semantics/c_bindings/variables.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/variables.html">
-            
-                    
-                    変数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.7" data-path="../syntax_and_semantics/c_bindings/constants.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/constants.html">
-            
-                    
-                    定数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.8" data-path="../syntax_and_semantics/c_bindings/type.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/type.html">
-            
-                    
-                    type
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.9" data-path="../syntax_and_semantics/c_bindings/alias.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/alias.html">
-            
-                    
-                    alias
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.15.10" data-path="../syntax_and_semantics/c_bindings/callbacks.html">
-            
-                <a href="../syntax_and_semantics/c_bindings/callbacks.html">
-            
-                    
-                    コールバック
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.16" data-path="../syntax_and_semantics/unsafe.html">
-            
-                <a href="../syntax_and_semantics/unsafe.html">
-            
-                    
-                    安全でない (unsafe) コード
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../conventions/">
-            
-                <a href="../conventions/">
-            
-                    
-                    規約
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../conventions/coding_style.html">
-            
-                <a href="../conventions/coding_style.html">
-            
-                    
-                    コーディングスタイル
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../conventions/documenting_code.html">
-            
-                <a href="../conventions/documenting_code.html">
-            
-                    
-                    コードのドキュメント化
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../database/">
-            
-                <a href="../database/">
-            
-                    
-                    データベース
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../database/connection.html">
-            
-                <a href="../database/connection.html">
-            
-                    
-                    接続
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../database/connection_pool.html">
-            
-                <a href="../database/connection_pool.html">
-            
-                    
-                    コネクションプール
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../database/transactions.html">
-            
-                <a href="../database/transactions.html">
-            
-                    
-                    トランザクション
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    ガイド
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="performance.html">
-            
-                <a href="performance.html">
-            
-                    
-                    パフォーマンス
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="concurrency.html">
-            
-                <a href="concurrency.html">
-            
-                    
-                    並列性
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="testing.html">
-            
-                <a href="testing.html">
-            
-                    
-                    テスト
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.8.4" data-path="writing_shards.html">
-            
-                <a href="writing_shards.html">
-            
-                    
-                    shard の作り方
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.4.1" data-path="hosting/github.html">
-            
-                <a href="hosting/github.html">
-            
-                    
-                    GitHub でのホスト方法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4.2" data-path="hosting/gitlab.html">
-            
-                <a href="hosting/gitlab.html">
-            
-                    
-                    GitLab でのホスト方法
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="continuous_integration.html">
-            
-                <a href="continuous_integration.html">
-            
-                    
-                    継続的インテグレーション (CI)
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.5.1" data-path="ci/travis.html">
-            
-                <a href="ci/travis.html">
-            
-                    
-                    Travis CI の利用
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5.2" data-path="ci/circleci.html">
-            
-                <a href="ci/circleci.html">
-            
-                    
-                    CircleCI の利用
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="#shard" class="md-skip">
+          Skip to content
         </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
 
-    <div class="book-body">
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://ja.crystal-lang.org/reference/" title="Crystal" class="md-header-nav__button md-logo" aria-label="Crystal">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Crystal
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              shard の作り方
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
         
-            <div class="body-inner">
-                
+<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
                     
 
-<div class="book-header" role="navigation">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://ja.crystal-lang.org/reference/" title="Crystal" class="md-nav__button md-logo" aria-label="Crystal">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Crystal
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >shard の作り方</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="shard-&#x306E;&#x4F5C;&#x308A;&#x65B9;">shard &#x306E;&#x4F5C;&#x308A;&#x65B9;</h1>
-<p>&#x3053;&#x3053;&#x3067;&#x306F; Crystal &#x306E; shard &#x306E;&#x4F5C;&#x308A;&#x65B9;&#x3068;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="shard-&#x3068;&#x306F;&#xFF1F;"><em>shard &#x3068;&#x306F;&#xFF1F;</em></h2>
-<p>&#x7C21;&#x5358;&#x306B;&#x8A00;&#x3046;&#x3068;&#x3001;shard &#x3068;&#x306F; Crystal &#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3067;&#x3001;&#x4ED6;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5171;&#x6709;&#x3057;&#x305F;&#x308A;&#x4ED6;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x308A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x8A73;&#x3057;&#x304F;&#x306F; <a href="../the_shards_command/">shards &#x30B3;&#x30DE;&#x30F3;&#x30C9;</a>&#x306E;&#x7AE0;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h2 id="&#x5C0E;&#x5165;">&#x5C0E;&#x5165;</h2>
-<p>&#x3053;&#x306E;&#x30C1;&#x30E5;&#x30FC;&#x30C8;&#x30EA;&#x30A2;&#x30EB;&#x3067;&#x306F;&#x3001;<em>palindrome-example</em> &#x3068;&#x3044;&#x3046; Crystal &#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" class="md-nav__link">
+      導入
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    <label class="md-nav__link" for="nav-2">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../getting_started/index.html" style="display: block">
+      
+        Getting Started
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../getting_started/index.html" style="display: block">
+        
+          Getting Started
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting_started/http_server.html" class="md-nav__link">
+      HTTP サーバー
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting_started/cli.html" class="md-nav__link">
+      コマンドライアプリケーション
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../using_the_compiler/index.html" class="md-nav__link">
+      コンパイラの使い方
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../the_shards_command/index.html" class="md-nav__link">
+      shards コマンド
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../overview/index.html" class="md-nav__link">
+      このガイドについて
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/index.html" style="display: block">
+      
+        構文とその意味
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="構文とその意味" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/index.html" style="display: block">
+        
+          構文とその意味
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/comments.html" class="md-nav__link">
+      コメント
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" >
+    <label class="md-nav__link" for="nav-6-2">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/literals/index.html" style="display: block">
+      
+        リテラル
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="リテラル" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/literals/index.html" style="display: block">
+        
+          リテラル
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/nil.html" class="md-nav__link">
+      Nil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/bool.html" class="md-nav__link">
+      真偽値 (Bool)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/integers.html" class="md-nav__link">
+      整数 (Integer)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/floats.html" class="md-nav__link">
+      浮動小数点数 (Float)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/char.html" class="md-nav__link">
+      文字 (Char)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/string.html" class="md-nav__link">
+      文字列 (String)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/symbol.html" class="md-nav__link">
+      シンボル (Symbol)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/array.html" class="md-nav__link">
+      配列 (Array)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/hash.html" class="md-nav__link">
+      ハッシュ (Hash)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/range.html" class="md-nav__link">
+      範囲 (Range)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/regex.html" class="md-nav__link">
+      正規表現 (Regex)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/tuple.html" class="md-nav__link">
+      タプル (Tuple)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/named_tuple.html" class="md-nav__link">
+      名前付きタプル (NamedTuple)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/proc.html" class="md-nav__link">
+      Proc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/literals/command.html" class="md-nav__link">
+      コマンド (Command)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/assignment.html" class="md-nav__link">
+      代入
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/local_variables.html" class="md-nav__link">
+      ローカル変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5" >
+    <label class="md-nav__link" for="nav-6-5">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/control_expressions.html" style="display: block">
+      
+        制御式
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="制御式" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/control_expressions.html" style="display: block">
+        
+          制御式
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/truthy_and_falsey_values.html" class="md-nav__link">
+      真になる値と偽になる値
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5-2" type="checkbox" id="nav-6-5-2" >
+    <label class="md-nav__link" for="nav-6-5-2">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/if.html" style="display: block">
+      
+        if
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="if" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-5-2">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/if.html" style="display: block">
+        
+          if
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/as_a_suffix.html" class="md-nav__link">
+      後置 if
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/as_an_expression.html" class="md-nav__link">
+      式としての if
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/ternary_if.html" class="md-nav__link">
+      3項演算子
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/if_var.html" class="md-nav__link">
+      if var
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/if_varis_a.html" class="md-nav__link">
+      if var.is_a?(...)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/if_varresponds_to.html" class="md-nav__link">
+      if var.responds_to?(...)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/if_var_nil.html" class="md-nav__link">
+      if var.nil?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/not.html" class="md-nav__link">
+      if !
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/unless.html" class="md-nav__link">
+      unless
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/case.html" class="md-nav__link">
+      case
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5-5" type="checkbox" id="nav-6-5-5" >
+    <label class="md-nav__link" for="nav-6-5-5">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/while.html" style="display: block">
+      
+        while
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="while" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-5-5">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/while.html" style="display: block">
+        
+          while
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/break.html" class="md-nav__link">
+      break
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/next.html" class="md-nav__link">
+      next
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/until.html" class="md-nav__link">
+      until
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/and.html" class="md-nav__link">
+      &&
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/or.html" class="md-nav__link">
+      ||
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/requiring_files.html" class="md-nav__link">
+      ファイルの require
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7" >
+    <label class="md-nav__link" for="nav-6-7">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/types_and_methods.html" style="display: block">
+      
+        型とメソッド
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="型とメソッド" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-7">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/types_and_methods.html" style="display: block">
+        
+          型とメソッド
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/everything_is_an_object.html" class="md-nav__link">
+      すべてがオブジェクト
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/the_program.html" class="md-nav__link">
+      プログラム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-3" type="checkbox" id="nav-6-7-3" >
+    <label class="md-nav__link" for="nav-6-7-3">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/classes_and_methods.html" style="display: block">
+      
+        クラスとメソッド
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="クラスとメソッド" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-7-3">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/classes_and_methods.html" style="display: block">
+        
+          クラスとメソッド
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/new%2C_initialize_and_allocate.html" class="md-nav__link">
+      new/initialize/allocate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/methods_and_instance_variables.html" class="md-nav__link">
+      メソッドとインスタンス変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/type_inference.html" class="md-nav__link">
+      型推論
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/union_types.html" class="md-nav__link">
+      ユニオン型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/overloading.html" class="md-nav__link">
+      オーバーロード
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/default_and_named_arguments.html" class="md-nav__link">
+      デフォルト引数と名前付き引数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/splats_and_tuples.html" class="md-nav__link">
+      スプラット展開とタプル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/type_restrictions.html" class="md-nav__link">
+      型制約
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/return_types.html" class="md-nav__link">
+      戻り値の型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html" class="md-nav__link">
+      メソッドの引数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/operators.html" class="md-nav__link">
+      演算子
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/visibility.html" class="md-nav__link">
+      可視性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-3-13" type="checkbox" id="nav-6-7-3-13" >
+    <label class="md-nav__link" for="nav-6-7-3-13">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/inheritance.html" style="display: block">
+      
+        継承
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="継承" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-7-3-13">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/inheritance.html" style="display: block">
+        
+          継承
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/virtual_and_abstract_types.html" class="md-nav__link">
+      virtual 型と abstract 型
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/class_methods.html" class="md-nav__link">
+      クラスメソッド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/class_variables.html" class="md-nav__link">
+      クラス変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/finalize.html" class="md-nav__link">
+      finalize
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/modules.html" class="md-nav__link">
+      モジュール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/generics.html" class="md-nav__link">
+      ジェネリクス
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/structs.html" class="md-nav__link">
+      構造体 (Struct)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/constants.html" class="md-nav__link">
+      定数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/enum.html" class="md-nav__link">
+      列挙型 (Enum)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-9" type="checkbox" id="nav-6-7-9" >
+    <label class="md-nav__link" for="nav-6-7-9">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/blocks_and_procs.html" style="display: block">
+      
+        ブロックと Proc
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="ブロックと Proc" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-7-9">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/blocks_and_procs.html" style="display: block">
+        
+          ブロックと Proc
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/capturing_blocks.html" class="md-nav__link">
+      ブロックの捕捉
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/proc_literal.html" class="md-nav__link">
+      Proc リテラル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/block_forwarding.html" class="md-nav__link">
+      ブロックのフォワーディング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/closures.html" class="md-nav__link">
+      クロージャ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/alias.html" class="md-nav__link">
+      型エイリアス (alias)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/exception_handling.html" class="md-nav__link">
+      例外の処理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/type_grammar.html" class="md-nav__link">
+      型の文法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10" >
+    <label class="md-nav__link" for="nav-6-10">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/type_reflection.html" style="display: block">
+      
+        型のリフレクション
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="型のリフレクション" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-10">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/type_reflection.html" style="display: block">
+        
+          型のリフレクション
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/is_a.html" class="md-nav__link">
+      is_a?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/nil_question.html" class="md-nav__link">
+      nil?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/responds_to.html" class="md-nav__link">
+      responds_to?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/as.html" class="md-nav__link">
+      as
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/as_question.html" class="md-nav__link">
+      as?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/typeof.html" class="md-nav__link">
+      typeof
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11" >
+    <label class="md-nav__link" for="nav-6-11">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/macros/index.html" style="display: block">
+      
+        マクロ
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="マクロ" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-11">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/macros/index.html" style="display: block">
+        
+          マクロ
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/macros/macro_methods.html" class="md-nav__link">
+      マクロメソッド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/macros/hooks.html" class="md-nav__link">
+      フック
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/macros/fresh_variables.html" class="md-nav__link">
+      フレッシュ変数
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12" >
+    <label class="md-nav__link" for="nav-6-12">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/annotations/index.html" style="display: block">
+      
+        アノテーション
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="アノテーション" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-12">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/annotations/index.html" style="display: block">
+        
+          アノテーション
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/annotations/built_in_annotations.html" class="md-nav__link">
+      組み込みアノテーション
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-13" type="checkbox" id="nav-6-13" >
+    <label class="md-nav__link" for="nav-6-13">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/low_level_primitives.html" style="display: block">
+      
+        低レベルプリミティブ
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="低レベルプリミティブ" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-13">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/low_level_primitives.html" style="display: block">
+        
+          低レベルプリミティブ
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/pointerof.html" class="md-nav__link">
+      pointerof
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/sizeof.html" class="md-nav__link">
+      sizeof
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/instance_sizeof.html" class="md-nav__link">
+      instance_sizeof
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/offsetof.html" class="md-nav__link">
+      offsetof
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/declare_var.html" class="md-nav__link">
+      初期化しない変数宣言
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-14" type="checkbox" id="nav-6-14" >
+    <label class="md-nav__link" for="nav-6-14">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/compile_time_flags.html" style="display: block">
+      
+        コンパイル時のフラグ
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="コンパイル時のフラグ" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-14">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/compile_time_flags.html" style="display: block">
+        
+          コンパイル時のフラグ
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/cross-compilation.html" class="md-nav__link">
+      クロスコンパイル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-15" type="checkbox" id="nav-6-15" >
+    <label class="md-nav__link" for="nav-6-15">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/c_bindings/index.html" style="display: block">
+      
+        C バインディング
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="C バインディング" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-15">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/c_bindings/index.html" style="display: block">
+        
+          C バインディング
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/lib.html" class="md-nav__link">
+      lib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-15-2" type="checkbox" id="nav-6-15-2" >
+    <label class="md-nav__link" for="nav-6-15-2">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../syntax_and_semantics/c_bindings/fun.html" style="display: block">
+      
+        fun
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="fun" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-15-2">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../syntax_and_semantics/c_bindings/fun.html" style="display: block">
+        
+          fun
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/out.html" class="md-nav__link">
+      out
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/to_unsafe.html" class="md-nav__link">
+      to_unsafe
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/struct.html" class="md-nav__link">
+      struct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/union.html" class="md-nav__link">
+      union
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/enum.html" class="md-nav__link">
+      enum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/variables.html" class="md-nav__link">
+      変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/constants.html" class="md-nav__link">
+      定数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/type.html" class="md-nav__link">
+      type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/alias.html" class="md-nav__link">
+      型エイリアス (alias)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/c_bindings/callbacks.html" class="md-nav__link">
+      コールバック
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../syntax_and_semantics/unsafe.html" class="md-nav__link">
+      安全でない (unsafe) コード
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+    <label class="md-nav__link" for="nav-7">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../conventions/index.html" style="display: block">
+      
+        規約
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="規約" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../conventions/index.html" style="display: block">
+        
+          規約
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conventions/coding_style.html" class="md-nav__link">
+      コーディングスタイル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conventions/documenting_code.html" class="md-nav__link">
+      コードのドキュメント化
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+    <label class="md-nav__link" for="nav-8">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="../database/index.html" style="display: block">
+      
+        データベース
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="データベース" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../database/index.html" style="display: block">
+        
+          データベース
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../database/connection.html" class="md-nav__link">
+      接続
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../database/connection_pool.html" class="md-nav__link">
+      コネクションプール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../database/transactions.html" class="md-nav__link">
+      トランザクション
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+    <label class="md-nav__link" for="nav-9">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="index.html" style="display: block">
+      
+        ガイド
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="ガイド" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="index.html" style="display: block">
+        
+          ガイド
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="performance.html" class="md-nav__link">
+      パフォーマンス
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="concurrency.html" class="md-nav__link">
+      並列性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="testing.html" class="md-nav__link">
+      テスト
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4" checked>
+    <label class="md-nav__link" for="nav-9-4">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="writing_shards.html" class="md-nav__link--active" style="display: block">
+      
+        shard の作り方
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="shard の作り方" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-4">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="writing_shards.html" class="md-nav__link--active" style="display: block">
+        
+          shard の作り方
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hosting/github.html" class="md-nav__link">
+      GitHub でのホスト方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hosting/gitlab.html" class="md-nav__link">
+      GitLab でのホスト方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-5" type="checkbox" id="nav-9-5" >
+    <label class="md-nav__link" for="nav-9-5">
+      <span class="md-nav__icon md-icon"></span>
+      
+        <a href="ci/index.html" style="display: block">
+      
+        継続的インテグレーション (CI)
+      </a>
+    </label>
+    <nav class="md-nav" aria-label="継続的インテグレーション (CI)" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-5">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="ci/index.html" style="display: block">
+        
+          継続的インテグレーション (CI)
+        </a>
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ci/travis.html" class="md-nav__link">
+      Travis CI の利用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ci/circleci.html" class="md-nav__link">
+      CircleCI の利用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shard_1" class="md-nav__link">
+    shard とは？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    導入
+  </a>
+  
+    <nav class="md-nav" aria-label="導入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    必要なもの
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    プロジェクトの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    コードを書く
+  </a>
+  
+    <nav class="md-nav" aria-label="コードを書く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コードのテスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ドキュメント化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme" class="md-nav__link">
+    README を書く
+  </a>
+  
+    <nav class="md-nav" aria-label="README を書く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    コーディングスタイル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shardyml" class="md-nav__link">
+    shard.yml を書く
+  </a>
+  
+    <nav class="md-nav" aria-label="shard.yml を書く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    名前
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    説明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    最適化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ホスティング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/crystal-jp/ja.crystal-lang.org/tree/master/locale/ja/crystal-book/docs/guides/writing_shards.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="shard">shard の作り方</h1>
+<p>ここでは Crystal の shard の作り方とリリース方法について説明します。</p>
+<h2 id="shard_1"><em>shard とは？</em></h2>
+<p>簡単に言うと、shard とは Crystal のコードのパッケージで、他のプロジェクトとコードを共有したり他のプロジェクトのコードを使ったりできます。</p>
+<p>詳しくは <a href="../the_shards_command/index.html">shards コマンド</a>の章を参照してください。</p>
+<h2 id="_1">導入</h2>
+<p>このチュートリアルでは、<em>palindrome-example</em> という Crystal のライブラリを作ります。</p>
 <blockquote>
-<p>&#x77E5;&#x3089;&#x306A;&#x3044;&#x65B9;&#x306E;&#x305F;&#x3081;&#x306B;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3068;&#x3001;palindrome (&#x56DE;&#x6587;) &#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x524D;&#x304B;&#x3089;&#x8AAD;&#x3093;&#x3067;&#x3082;&#x5F8C;&#x308D;&#x304B;&#x3089;&#x8AAD;&#x3093;&#x3067;&#x3082;&#x540C;&#x3058;&#x306B;&#x306A;&#x308B;&#x3088;&#x3046;&#x306A;&#x8A9E;&#x306E;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001; racecar &#x3084; mom&#x3001;dad&#x3001;kayak&#x3001;madam &#x306A;&#x3069;&#x306E;&#x5358;&#x8A9E;&#x304C;&#x6319;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>知らない方のために説明すると、palindrome (回文) というのは前から読んでも後ろから読んでも同じになるような語のことです。例えば、 racecar や mom、dad、kayak、madam などの単語が挙げられます。</p>
 </blockquote>
-<h3 id="&#x5FC5;&#x8981;&#x306A;&#x3082;&#x306E;">&#x5FC5;&#x8981;&#x306A;&#x3082;&#x306E;</h3>
-<p>Crystal &#x306E; shard &#x3092;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x305D;&#x3057;&#x3066;&#x3053;&#x306E;&#x30C1;&#x30E5;&#x30FC;&#x30C8;&#x30EA;&#x30A2;&#x30EB;&#x3092;&#x7D9A;&#x3051;&#x3066;&#x3044;&#x304F;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3082;&#x306E;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="_2">必要なもの</h3>
+<p>Crystal の shard をリリースするために、そしてこのチュートリアルを続けていくためには、次のものが必要です。</p>
 <ul>
-<li><a href="../using_the_compiler/">Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;</a>&#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;</li>
-<li><a href="https://git-scm.com" target="_blank">Git</a> &#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;</li>
-<li><a href="https://github.com" target="_blank">GitHub</a> &#x3082;&#x3057;&#x304F;&#x306F; <a href="https://gitlab.com/" target="_blank">GitLab</a> &#x306E;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;</li>
+<li><a href="../using_the_compiler/index.html">Crystal のコンパイラ</a>が動作するようにインストールされていること</li>
+<li><a href="https://git-scm.com">Git</a> が動作するようにインストールされていること</li>
+<li><a href="https://github.com">GitHub</a> もしくは <a href="https://gitlab.com/">GitLab</a> のアカウント</li>
 </ul>
-<h3 id="&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;">&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x4F5C;&#x6210;</h3>
-<p><a href="../using_the_compiler/">Crystal &#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;</a> &#x306E; <code>init lib</code> &#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x6A19;&#x6E96;&#x7684;&#x306A;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x9020;&#x3092;&#x6301;&#x3063;&#x305F; Cryatal &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3059;: <code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
-<p>&#x4F8B;:</p>
-<pre><code class="lang-session">$ crystal init lib palindrome-example
-    create  palindrome-example/.gitignore
-    create  palindrome-example/.editorconfig
-    create  palindrome-example/LICENSE
-    create  palindrome-example/README.md
-    create  palindrome-example/.travis.yml
-    create  palindrome-example/shard.yml
-    create  palindrome-example/src/palindrome-example.cr
-    create  palindrome-example/src/palindrome-example/version.cr
-    create  palindrome-example/spec/spec_helper.cr
-    create  palindrome-example/spec/palindrome-example_spec.cr
-Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-example/.git/
-</code></pre>
-<p>&#x3053;&#x3046;&#x3057;&#x305F;&#x3089;&#x3001;<code>cd</code> &#x3067;&#x4F5C;&#x3063;&#x305F;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x79FB;&#x52D5;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<p>&#x4F8B;:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> palindrome-example
-</code></pre>
-<p>&#x305D;&#x3057;&#x3066;&#x3001;<code>add</code> &#x3068; <code>commit</code> &#x3092;&#x3057;&#x3066;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092; Git &#x306B;&#x30C8;&#x30E9;&#x30C3;&#x30AD;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-session">$  git add -A
-$  git commit -am &quot;First Commit&quot;
-[master (root-commit) 77bad84] First Commit
-10 files changed, 102 insertions(+)
-create mode 100644 .editorconfig
-create mode 100644 .gitignore
-create mode 100644 .travis.yml
-create mode 100644 LICENSE
-create mode 100644 README.md
-create mode 100644 shard.yml
-create mode 100644 spec/palindrome-example_spec.cr
-create mode 100644 spec/spec_helper.cr
-create mode 100644 src/palindrome-example.cr
-create mode 100644 src/palindrome-example/version.cr
-</code></pre>
-<h3 id="&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;">&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;</h3>
-<p>&#x3069;&#x3093;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3053;&#x3046;&#x3068;&#x3082;&#x81EA;&#x7531;&#x3067;&#x3059;&#x304C;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x305F;&#x304B;&#x306F;&#x3001;&#x305D;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x4F7F;&#x304A;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x30B3;&#x30F3;&#x30C8;&#x30EA;&#x30D3;&#x30E5;&#x30FC;&#x30C8;&#x3057;&#x305F;&#x3044;&#x3068;&#x3044;&#x3046;&#x4EBA;&#x306B;&#x3068;&#x3063;&#x3066;&#x5F71;&#x97FF;&#x306E;&#x3042;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
-<h4 id="&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;">&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;</h4>
+<h3 id="_3">プロジェクトの作成</h3>
+<p><a href="../using_the_compiler/index.html">Crystal のコンパイラ</a> の <code>init lib</code> コマンドを使って、標準的なディレクトリ構造を持った Cryatal ライブラリのディレクトリを作成してください。</p>
+<p>ターミナルで、次のように実行します: <code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
+<p>例:
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal init lib palindrome-example
+<span class="go">    create  palindrome-example/.gitignore</span>
+<span class="go">    create  palindrome-example/.editorconfig</span>
+<span class="go">    create  palindrome-example/LICENSE</span>
+<span class="go">    create  palindrome-example/README.md</span>
+<span class="go">    create  palindrome-example/.travis.yml</span>
+<span class="go">    create  palindrome-example/shard.yml</span>
+<span class="go">    create  palindrome-example/src/palindrome-example.cr</span>
+<span class="go">    create  palindrome-example/src/palindrome-example/version.cr</span>
+<span class="go">    create  palindrome-example/spec/spec_helper.cr</span>
+<span class="go">    create  palindrome-example/spec/palindrome-example_spec.cr</span>
+<span class="go">Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-example/.git/</span>
+</code></pre></div></p>
+<p>こうしたら、<code>cd</code> で作ったディレクトリに移動してください。</p>
+<p>例:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> palindrome-example
+</code></pre></div></p>
+<p>そして、<code>add</code> と <code>commit</code> をして、ファイルを Git にトラッキングされるようにしましょう。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> git add -A
+<span class="gp">$</span> git commit -am <span class="s2">&quot;First Commit&quot;</span>
+<span class="go">[master (root-commit) 77bad84] First Commit</span>
+<span class="go">10 files changed, 102 insertions(+)</span>
+<span class="go">create mode 100644 .editorconfig</span>
+<span class="go">create mode 100644 .gitignore</span>
+<span class="go">create mode 100644 .travis.yml</span>
+<span class="go">create mode 100644 LICENSE</span>
+<span class="go">create mode 100644 README.md</span>
+<span class="go">create mode 100644 shard.yml</span>
+<span class="go">create mode 100644 spec/palindrome-example_spec.cr</span>
+<span class="go">create mode 100644 spec/spec_helper.cr</span>
+<span class="go">create mode 100644 src/palindrome-example.cr</span>
+<span class="go">create mode 100644 src/palindrome-example/version.cr</span>
+</code></pre></div>
+<h3 id="_4">コードを書く</h3>
+<p>どんなコードを書こうとも自由ですが、どのようなコードを書いたかは、そのライブラリを使おうとしている、もしくはライブラリにコントリビュートしたいという人にとって影響のあることです。</p>
+<h4 id="_5">コードのテスト</h4>
 <ul>
-<li>&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x66F8;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x308C;&#x304C;&#x3059;&#x3079;&#x3066;&#x3067;&#x3059;&#x3002;&#x4EBA;&#x3005; (&#x3042;&#x306A;&#x305F;&#x3092;&#x542B;&#x3080;) &#x306B;&#x3068;&#x3063;&#x3066;&#x3001;&#x30C6;&#x30B9;&#x30C8;&#x3060;&#x3051;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x6A5F;&#x80FD;&#x3059;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x304B;&#x3092;&#x793A;&#x3059;&#x3082;&#x306E;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</li>
-<li>Crystal &#x306F;<a href="https://crystal-lang.org/api/Spec.html" target="_blank">&#x30D3;&#x30EB;&#x30C8;&#x30A4;&#x30F3;&#x306E;&#x30C6;&#x30B9;&#x30C8;&#x7528;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;</a>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
+<li>コードのテストを書きましょう。それがすべてです。人々 (あなたを含む) にとって、テストだけがどのように機能するものなのかを示すものになります。</li>
+<li>Crystal は<a href="https://crystal-lang.org/api/Spec.html">ビルトインのテスト用ライブラリ</a>を持っています。それを使ってください。</li>
 </ul>
-<h4 id="&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;">&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;</h4>
+<h4 id="_6">ドキュメント化</h4>
 <ul>
-<li>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3067;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x5316;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x305D;&#x308C;&#x304C;&#x3059;&#x3079;&#x3066;&#x3067;&#x3059;&#x3002;private &#x306A;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3082;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x66F8;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
-<li>Crystal &#x306F;<a href="../conventions/documenting_code.html">&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x30B8;&#x30A7;&#x30CD;&#x30EC;&#x30FC;&#x30BF;</a>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
+<li>コメントでコードをドキュメント化してください。それがすべてです。private なメソッドでもドキュメントを書きましょう。</li>
+<li>Crystal は<a href="../conventions/documenting_code.html">組み込みのドキュメントジェネレータ</a>を持っています。それを使ってください。</li>
 </ul>
-<p><code>crystal docs</code> &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092; API &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x5909;&#x63DB;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>/docs/</code> &#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092; Web &#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x958B;&#x304F;&#x3053;&#x3068;&#x3067;&#x3001;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x304B;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4EE5;&#x964D;&#x3067;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x751F;&#x6210;&#x3057;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092; GitHub &#x3084; GitLab &#x3067;&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E;&#x5B58;&#x5728;&#x3092;&#x5831;&#x305B;&#x308B;&#x305F;&#x3081;&#x306B;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30D0;&#x30C3;&#x30B8;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;GitLab &#x3067;&#x306F;&#x4EE5;&#x964D;&#x3067;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3067;&#x3001;&#x3053;&#x306E;&#x30D0;&#x30C3;&#x30B8;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;GitHub &#x3067;&#x306F; README.md &#x306B;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
-(<code>&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</code> &#x3092;&#x81EA;&#x5206;&#x306E;&#x3082;&#x306E;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x308B;&#x3053;&#x3068;&#x3092;&#x5FD8;&#x308C;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;</p>
-<pre><code class="lang-Markdown">[<span class="hljs-string">![Docs</span>](<span class="hljs-link">https://img.shields.io/badge/docs-available-brightgreen.svg</span>)](<span class="hljs-link">&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</span>)
-</code></pre>
-<h3 id="readme-&#x3092;&#x66F8;&#x304F;">README &#x3092;&#x66F8;&#x304F;</h3>
-<p>&#x826F;&#x3044; README &#x304C;&#x3042;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306F;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x6210;&#x529F;&#x3092;&#x5DE6;&#x53F3;&#x3057;&#x307E;&#x3059;&#x3002;
-<a href="https://github.com/matiassingers/awesome-readme" target="_blank">Awesome README</a> &#x306F;&#x3053;&#x306E;&#x8A71;&#x984C;&#x306E;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x4F8B;&#x3084;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x30AD;&#x30E5;&#x30EC;&#x30FC;&#x30C6;&#x30C3;&#x30C9;&#x30EA;&#x30B9;&#x30C8;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x6700;&#x3082;&#x91CD;&#x8981;&#x306A;&#x3053;&#x3068;&#x3067;&#x3059;&#x304C;&#x3001;README &#x3067;&#x306F;&#x6B21;&#x306E;&#x3053;&#x3068;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<ol>
-<li>&#x3053;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304C;&#x4F55;&#x306A;&#x306E;&#x304B;</li>
-<li>&#x4F55;&#x3092;&#x3059;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x304B;</li>
-<li>&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x306E;&#x304B;</li>
-</ol>
-<p>&#x3053;&#x306E;&#x8AAC;&#x660E;&#x306B;&#x306F;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x4F8B;&#x3092;&#x9069;&#x5207;&#x306B;&#x7AE0;&#x7ACB;&#x3066;&#x3057;&#x3066;&#x542B;&#x3081;&#x308B;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x6CE8;&#x610F;: Crystal &#x306E;&#x751F;&#x6210;&#x3057;&#x305F; README &#x306E;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x4E2D;&#x306E; <code>[your-github-name]</code> &#x3068;&#x3044;&#x3046;&#x90E8;&#x5206;&#x3092;&#x5B9F;&#x969B;&#x306E; GitHub &#x3082;&#x3057;&#x304F;&#x306F; GitLab &#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x3067;&#x7F6E;&#x63DB;&#x3059;&#x308B;&#x306E;&#x3092;&#x5FD8;&#x308C;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x307E;&#x305F; GitLab &#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;<code>github</code> &#x3092; <code>gitlab</code> &#x306B;&#x5909;&#x66F4;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h4 id="&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x30B9;&#x30BF;&#x30A4;&#x30EB;">&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x30B9;&#x30BF;&#x30A4;&#x30EB;</h4>
-<ul>
-<li>&#x81EA;&#x8EAB;&#x306E;&#x30B9;&#x30BF;&#x30A4;&#x30EB;&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x306F;&#x826F;&#x3044;&#x3053;&#x3068;&#x3067;&#x3059;&#x304C;&#x3001;<a href="../conventions/coding_style.html">Crystal &#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6163;&#x7FD2;&#x7684;&#x306A;&#x30B9;&#x30BF;&#x30A4;&#x30EB;</a>&#x306B;&#x5F93;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x4E00;&#x8CAB;&#x6027;&#x3084;&#x53EF;&#x8AAD;&#x6027;&#x3092;&#x4FDD;&#x3061;&#x3001;&#x4ED6;&#x306E;&#x958B;&#x767A;&#x8005;&#x306E;&#x7406;&#x89E3;&#x3057;&#x3084;&#x3059;&#x3044;&#x3082;&#x306E;&#x306B;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
-<li>Crystal <a href="../conventions/documenting_code.html">&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30BF;</a>&#x3092;&#x6D3B;&#x7528;&#x3057;&#x3066;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E; <code>.cr</code> &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
-</ul>
-<p>&#x4F8B;:</p>
-<pre><code>crystal tool format
-</code></pre><p><code>--check</code> &#x3092;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x672B;&#x5C3E;&#x306B;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x6B63;&#x3057;&#x304F;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x78BA;&#x304B;&#x3081;&#x308B;&#x3001;&#x8981;&#x3059;&#x308B;&#x306B;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30BF;&#x304C;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5909;&#x66F4;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x78BA;&#x304B;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x4F8B;:</p>
-<pre><code>crystal tool format --check
-</code></pre><p>&#x4EE5;&#x964D;&#x306E; Travis CI &#x306E;&#x7AE0;&#x3067;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x6642;&#x306B;&#x3053;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<h3 id="shardyml-&#x3092;&#x66F8;&#x304F;"><code>shard.yml</code> &#x3092;&#x66F8;&#x304F;</h3>
-<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md" target="_blank">&#x4ED5;&#x69D8;&#x66F8;</a>&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3053;&#x308C;&#x306B;&#x5F93;&#x3044;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<h4 id="&#x540D;&#x524D;">&#x540D;&#x524D;</h4>
-<p><code>shard.yml</code>&#x306E;&#x3067; <code>name</code> &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x306F;&#x7C21;&#x6F54;&#x304B;&#x3064;&#x8AAC;&#x660E;&#x7684;&#x306A;&#x3082;&#x306E;&#x306B;&#x3059;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
-<ul>
-<li><a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> &#x3067;&#x691C;&#x7D22;&#x3057;&#x3066;&#x3001;&#x65E2;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x540D;&#x524D;&#x3067;&#x306A;&#x3044;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x304A;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
-</ul>
-<p>&#x4F8B;:</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">name:</span> palindrome-example
-</code></pre>
-<h4 id="&#x8AAC;&#x660E;&#x6587;">&#x8AAC;&#x660E;&#x6587;</h4>
-<p><code>description</code> &#x3092; <code>shard.yml</code> &#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<p><code>description</code> &#x306F;1&#x884C;&#x306E;&#x8AAC;&#x660E;&#x6587;&#x3067;&#x3001;&#x691C;&#x7D22;&#x306E;&#x969B;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;</p>
-<p>description &#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;</p>
-<ol>
-<li>&#x6709;&#x76CA;&#x306A;&#x60C5;&#x5831;&#x3092;&#x542B;&#x3080;</li>
-<li>&#x767A;&#x898B;&#x53EF;&#x80FD;&#x306A;&#x3082;&#x306E;&#x306B;&#x3059;&#x308B;</li>
-</ol>
-<h4 id="&#x6700;&#x9069;&#x5316;">&#x6700;&#x9069;&#x5316;</h4>
-<p>&#x898B;&#x3064;&#x3051;&#x3089;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x8AB0;&#x3082;&#x3042;&#x306A;&#x305F;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3057;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
-&#x4ECA;&#x306E;&#x3068;&#x3053;&#x308D;&#x3001;<a href="https://crystalshards.xyz/" target="_blank">crystalshards.xyz</a> &#x306B; Crystal &#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x96C6;&#x7D04;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x306B;&#x5411;&#x3051;&#x3066;&#x6700;&#x9069;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p><em>&#x7CBE;&#x78BA;&#x306A;</em>&#x6A5F;&#x80FD;&#x304B;&#x3089;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63A2;&#x3059;&#x4EBA;&#x3068;&#x3001;<em>&#x4E00;&#x822C;&#x7684;&#x306A;</em>&#x6A5F;&#x80FD;&#x304B;&#x3089;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x63A2;&#x3059;&#x4EBA;&#x304C;&#x3044;&#x307E;&#x3059;&#x3002;
-&#x4F8B;&#x3048;&#x3070; Bob &#x306F;&#x56DE;&#x6587;&#x3092;&#x6271;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x5FC5;&#x8981;&#x3068;&#x3057;&#x3066;&#x3044;&#x3066;&#x3001;&#x4E00;&#x65B9;&#x3067; Felipe &#x304C;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3092;&#x6271;&#x3046;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3001;Susan &#x304C;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x30B9;&#x30DA;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3001;&#x3068;&#x3044;&#x3063;&#x305F;&#x3088;&#x3046;&#x306B;&#x3001;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;<code>name</code> &#x306B;&#x306F;&#x3059;&#x3067;&#x306B; Bob &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;palindrome&quot; &#x3068;&#x3044;&#x3046;&#x5358;&#x8A9E;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067; <em>palindrome</em> &#x3068;&#x7E70;&#x308A;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x3001;Susan &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;spelling&quot; &#x3084; Felipe &#x306E;&#x63A2;&#x3057;&#x3066;&#x3044;&#x308B; &quot;text&quot; &#x3068;&#x3044;&#x3063;&#x305F;&#x5358;&#x8A9E;&#x3092;&#x542B;&#x3081;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
-<pre><code class="lang-YAML"><span class="hljs-attr">description:</span> <span class="hljs-string">|
-  A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.
-</span></code></pre>
-<h3 id="&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;">&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;</h3>
-<p>&#x3053;&#x3053;&#x304B;&#x3089;&#x306E;&#x30AC;&#x30A4;&#x30C9;&#x306F; GitHub &#x3067;&#x516C;&#x958B;&#x3059;&#x308B;&#x304B; GitLab &#x3067;&#x516C;&#x958B;&#x3059;&#x308B;&#x304B;&#x306B;&#x3088;&#x3063;&#x3066;&#x5909;&#x308F;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x5834;&#x6240;&#x3067;&#x516C;&#x958B;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;&#x305C;&#x3072;&#x30AC;&#x30A4;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3001;&#x3053;&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x306B;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3088;&#x3046;&#x8A00;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<ul>
-<li><a href="hosting/github.html">GitHub &#x3067;&#x306E;&#x30DB;&#x30B9;&#x30C8;&#x65B9;&#x6CD5;</a></li>
-<li><a href="hosting/gitlab.html">GitLab &#x3067;&#x306E;&#x30DB;&#x30B9;&#x30C8;&#x65B9;&#x6CD5;</a></li>
-</ul>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<p><code>crystal docs</code> を実行することで、コードのコメントを API ドキュメントに変換できます。<code>/docs/</code> ディレクトリのファイルを Web ブラウザで開くことで、生成されたドキュメントがどのようなものか確認できます。</p>
+<p>以降で、コンパイラが生成したドキュメントを GitHub や GitLab でホスティングする方法が説明されています。</p>
+<p>ドキュメントのホスティングが完了したら、その存在を報せるためにリポジトリにドキュメンテーションバッジを追加するといいでしょう。GitLab では以降で説明する方法で、このバッジをプロジェクトに設定することができます。GitHub では README.md に次のように追加します。
+(<code>&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</code> を自分のものに置き換えることを忘れないでください</p>
+<div class="highlight"><pre><span></span><code>[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](&lt;LINK-TO-YOUR-DOCUMENTATION&gt;)
+</code></pre></div>
+<h3 id="readme">README を書く</h3>
+<p>良い README があるかどうかはプロジェクトの成功を左右します。
+<a href="https://github.com/matiassingers/awesome-readme">Awesome README</a> はこの話題の素晴らしい例やリソースのキュレーテッドリストになっています。</p>
+<p>最も重要なことですが、README では次のことが説明されているべきでしょう。
+1. このライブラリが何なのか
+2. 何をするものなのか
+3. どのようにして使うのか</p>
+<p>この説明にはいくつかの例を適切に章立てして含めるべきです。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 </div>
-
-                        </div>
-                    </div>
+<p>Be sure to replace all instances of <code>[your-github-name]</code> in the Crystal-generated README template with your GitHub/GitLab username. また GitLab を使っている場合は、<code>github</code> を <code>gitlab</code> に変更してください。</p>
+<h4 id="_7">コーディングスタイル</h4>
+<ul>
+<li>自身のスタイルを持つことは良いことですが、<a href="../conventions/coding_style.html">Crystal チームの慣習的なスタイル</a>に従うことで、コードの一貫性や可読性を保ち、他の開発者の理解しやすいものにできます。</li>
+<li>Crystal <a href="../conventions/documenting_code.html">組み込みのフォーマッタ</a>を活用して、すべての <code>.cr</code> ファイルをフォーマットしましょう。</li>
+</ul>
+<p>例:
+<div class="highlight"><pre><span></span><code>crystal tool format
+</code></pre></div></p>
+<p><code>--check</code> をコマンドの末尾につけることで、コードが正しくフォーマットされているかを確かめる、要するにフォーマッタがコードを変更しないことを確かめられます。</p>
+<p>例:
+<div class="highlight"><pre><span></span><code>crystal tool format --check
+</code></pre></div></p>
+<p>以降の Travis CI の章で、ビルド時にこのチェックを追加する方法が説明されています。</p>
+<h3 id="shardyml"><code>shard.yml</code> を書く</h3>
+<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md">仕様書</a>を見てください。これに従いましょう。</p>
+<h4 id="_8">名前</h4>
+<p><code>shard.yml</code>ので <code>name</code> プロパティは簡潔かつ説明的なものにすべきです。</p>
+<ul>
+<li><a href="https://crystalshards.xyz/">crystalshards.xyz</a> で検索して、既に使われている名前でないか確認しておきましょう。</li>
+</ul>
+<p>例:
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">palindrome-example</span>
+</code></pre></div></p>
+<h4 id="_9">説明</h4>
+<p><code>description</code> を <code>shard.yml</code> に追加しましょう。</p>
+<p><code>description</code> は1行の説明文で、検索の際に使われます。</p>
+<p>description は次のようにすべきです。
+1. 有益な情報を含む
+2. 発見可能なものにする</p>
+<h4 id="_10">最適化</h4>
+<p>見つけられるものでなければ、誰もあなたのプロジェクトを利用しないでしょう。
+今のところ、<a href="https://crystalshards.xyz/">crystalshards.xyz</a> に Crystal のライブラリは集約されています。なので、ここに向けて最適化します。</p>
+<p>_精確な_機能からライブラリを探す人と、_一般的な_機能からライブラリを探す人がいます。
+例えば Bob は回文を扱うライブラリを必要としていて、一方で Felipe が探しているのはテキストを扱うライブラリで、Susan が探しているのはスペルについてのライブラリ、といったように、です。</p>
+<p>この場合、<code>name</code> にはすでに Bob の探している "palindrome" という単語が含まれています。なので <em>palindrome</em> と繰り返す必要はないでしょう。代わりに、Susan の探している "spelling" や Felipe の探している "text" といった単語を含めるようにするといいでしょう。
+<div class="highlight"><pre><span></span><code><span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+  <span class="no">A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.</span>
+</code></pre></div></p>
+<h3 id="_11">ホスティング</h3>
+<p>ここからのガイドは GitHub で公開するか GitLab で公開するかによって変わってきます。それ以外の場所で公開しているのであれば、ぜひガイドを書いて、このリファレンスに追加するよう言ってください。</p>
+<ul>
+<li><a href="hosting/github.html">GitHub でのホスト方法</a></li>
+<li><a href="hosting/gitlab.html">GitLab でのホスト方法</a></li>
+</ul>
                 
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="testing.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-
-            
-                
-                <a href="testing.html" class="navigation navigation-prev " aria-label="Previous page: テスト">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="hosting/github.html" class="navigation navigation-next " aria-label="Next page: GitHub でのホスト方法">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                テスト
+              </div>
+            </div>
+          </a>
         
+        
+          <a href="hosting/github.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                GitHub でのホスト方法
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"shard の作り方","level":"1.8.4","depth":2,"next":{"title":"GitHub でのホスト方法","level":"1.8.4.1","depth":3,"path":"guides/hosting/github.md","ref":"guides/hosting/github.md","articles":[]},"previous":{"title":"テスト","level":"1.8.3","depth":2,"path":"guides/testing.md","ref":"guides/testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","offline"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"このページを編集","base":"https:/github.com/crystal-jp/ja.crystal-lang.org/edit/master/locale/ja/crystal-book"},"offline":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"contributePrefix":"https://github.com/crystal-lang/crystal-book/"},"gitbook":"3.2.2"},"file":{"path":"guides/writing_shards.md","mtime":"2020-12-03T13:32:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-12-03T13:35:07.846Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
         
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-        
-        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
-        
+      <script src="../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
     
-        
-        <script src="../gitbook/gitbook-plugin-offline/service-worker-registration.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
-    </body>
+  </body>
 </html>
-
