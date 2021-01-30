@@ -2360,7 +2360,7 @@
 <h2 id="_1">エスケープ文字</h2>
 <p>文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。</p>
 <p>次のエスケープシーケンスが有効です。
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>                  <span class="c1"># ダブルクォート</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>                  <span class="c1"># ダブルクオート</span>
 <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>                  <span class="c1"># バックスラッシュ</span>
 <span class="s2">&quot;\a&quot;</span>                  <span class="c1"># アラート</span>
 <span class="s2">&quot;</span><span class="se">\b</span><span class="s2">&quot;</span>                  <span class="c1"># バックスペース</span>
@@ -2368,9 +2368,9 @@
 <span class="s2">&quot;</span><span class="se">\f</span><span class="s2">&quot;</span>                  <span class="c1"># フォームフィード (改ページ)</span>
 <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>                  <span class="c1"># 改行</span>
 <span class="s2">&quot;\r&quot;</span>                  <span class="c1"># キャリッジリターン (復帰)</span>
-<span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>                  <span class="c1"># タブ文字</span>
+<span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>                  <span class="c1"># タブ</span>
 <span class="s2">&quot;</span><span class="se">\v</span><span class="s2">&quot;</span>                  <span class="c1"># 垂直タブ</span>
-<span class="s2">&quot;\888&quot;</span>                <span class="c1"># 8進数による ASCII 文字</span>
+<span class="s2">&quot;</span><span class="se">\377</span><span class="s2">&quot;</span>                <span class="c1"># 8進数による ASCII 文字</span>
 <span class="s2">&quot;</span><span class="se">\xFF</span><span class="s2">&quot;</span>                <span class="c1"># 16進数による ASCII 文字</span>
 <span class="s2">&quot;\uFFFF&quot;</span>              <span class="c1"># 16進数によるユニコード文字</span>
 <span class="s2">&quot;\u{0}&quot;</span><span class="o">..</span><span class="s2">&quot;\u{10FFFF}&quot;</span> <span class="c1"># 16進数によるユニコード文字</span>
@@ -2432,7 +2432,7 @@
 <span class="sx">%w(foo\nbar baz)</span> <span class="c1"># =&gt; [&quot;foo\\nbar&quot;, &quot;baz&quot;]</span>
 <span class="sx">%w(foo(bar) baz)</span> <span class="c1"># =&gt; [&quot;foo(bar)&quot;, &quot;baz&quot;]</span>
 </code></pre></div>
-<p><code>%w</code>で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。もちろん、エスケープされた1つのスペース (<code></code>) では文字列は区切られません。</p>
+<p>Note that literal denoted by <code>%w</code> does not apply interpolation nor escapes except spaces. もちろん、エスケープされた1つのスペース (<code></code>) では文字列は区切られません。</p>
 <div class="highlight"><pre><span></span><code><span class="sx">%w(foo\ bar baz)</span> <span class="c1"># =&gt; [&quot;foo bar&quot;, &quot;baz&quot;]</span>
 </code></pre></div>
 <h2 id="_5">複数行の文字列</h2>
@@ -2453,7 +2453,7 @@
 <p>この場合、先頭の空白が結果の文字列に含まれることはありません。</p>
 <h2 id="_6">ヒアドキュメント</h2>
 <p><em>ヒアドキュメント</em>ないし<em>heredoc</em>は複数行にまたがる文字列の便利な書き方です。
-ヒアドキュメントは<code>&lt;&lt;-</code>とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。ヒアドキュメントは続く行から開始して、最初に指定した識別子のみを含む行 (先頭の空白は無視されます) で終了します。また、ヒアドキュメントのあとには改行の他にアルファベットと数字の文字以外の文字が続く場合があります。</p>
+ヒアドキュメントは<code>&lt;&lt;-</code>とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。ヒアドメントは続く行から開始して、次の行に最初に指定した識別子<em>のみ</em>を含む行で終了します。オプションで先頭に空白文字を入れることもできます。</p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;&lt;-</span><span class="dl">XML</span>
 <span class="sh">&lt;parent&gt;</span>
 <span class="sh">  &lt;child /&gt;</span>
@@ -2471,18 +2471,25 @@
 <span class="sh">      world</span>
 <span class="dl">  STRING</span>
 </code></pre></div>
-<p>ヒアドキュメントの直後にそれに対するメソッド呼び出しを続けたり、括弧の中でヒアドキュメントを使うことも可能です。</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;&lt;-</span><span class="dl">SOME</span><span class="o">.</span><span class="n">upcase</span> <span class="c1"># =&gt; &quot;HELLO&quot;</span>
+<p>ヒアドキュメントの識別子のあとで同じ行の場合、ヒアドキュメントの内容の前に任意の式を続けることができます。このとき、ヒアドキュメントの識別子は文字列リテラルの終端のように機能します。ですが、その文字列の内容は終端のヒアドキュメントの識別子までの後続の行のものとなります。</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;&lt;-</span><span class="dl">STRING</span><span class="o">.</span><span class="n">upcase</span> <span class="c1"># =&gt; &quot;HELLO&quot;</span>
 <span class="sh">hello</span>
-<span class="dl">SOME</span>
+<span class="dl">STRING</span>
 
 <span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
   <span class="n">string</span><span class="o">.</span><span class="n">upcase</span>
 <span class="k">end</span>
 
-<span class="n">upcase</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="dl">SOME</span><span class="p">)</span> <span class="c1"># =&gt; &quot;HELLO&quot;</span>
-<span class="sh">  hello</span>
-<span class="dl">  SOME</span>
+<span class="n">upcase</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="dl">STRING</span><span class="p">)</span> <span class="c1"># =&gt; &quot;HELLO WORLD&quot;</span>
+<span class="sh">  Hello World</span>
+<span class="dl">  STRING</span>
+</code></pre></div>
+<p>もし複数のヒアドキュメントが同じ行で開始した場合、それらの内容は逐次的に読み込まれます。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="dl">FIRST</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="dl">SECOND</span><span class="p">)</span> <span class="c1"># prints &quot;HelloWorld&quot;</span>
+<span class="sh">  Hello</span>
+<span class="dl">  FIRST</span>
+<span class="sh">  World</span>
+<span class="dl">  SECOND</span>
 </code></pre></div>
 <p>ヒアドキュメントの中では一般的に補間とエスケープが有効になっています。</p>
 <p>ヒアドキュメントの中で補間やエスケープを禁止したい場合、ヒアドキュメント冒頭の識別子をシングルクォートで囲ってください。</p>

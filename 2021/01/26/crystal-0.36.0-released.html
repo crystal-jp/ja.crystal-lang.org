@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 0.36.0 released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crystal 0.36.0 released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Crystal 0.36.0 released!" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal 0.36.0 has been released!" />
+<meta property="og:description" content="Crystal 0.36.0 has been released!" />
+<link rel="canonical" href="https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-26T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.36.0 has been released!","headline":"Crystal 0.36.0 released!","dateModified":"2021-01-26T00:00:00+00:00","datePublished":"2021-01-26T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <!-- <div class="top-banner">
+  <a href="https://www.eventbrite.co.uk/e/raw-crystal-2020-tickets-127439094763" target="_blank">
+    <span class="tb-title">RAW CRYSTAL<span class="tb-thin"> | 2020</span></span>
+    <span class="tb-gap"></span>
+    <span class="tb-date">Dec 11</span>
+    <span class="tb-register">REGISTER AT <em>Eventbrite</em></span>
+  </a>
+</div>
+ -->
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" width="360" height="360" alt="authors/bcardiff.jpg">
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          
+          
+            <span class="date">4 days ago</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 0.36.0 released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F01%2F26%2Fcrystal-0.36.0-released.html&text=Crystal+0.36.0+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F01%2F26%2Fcrystal-0.36.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F01%2F26%2Fcrystal-0.36.0-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.36.0">Crystal 0.36.0</a> has been released!</p>
+
+<p>Since 0.35.1 there has been lots and lots of polishing, new features, and important fixes. This created a bigger delta than we wanted to transition from the last 0.x release to the first 1.0-preX. As a result, we are releasing a 0.36.0. This should help the community migrate their packages with less friction to the changes that will appear in 1.0. It will also give us a chance to get rid of a couple of recently introduced deprecations.</p>
+
+<p>Note that this release will be available in <a href="/2020/08/24/announcing-new-apt-and-rpm-repositories.html">the new apt and rpm repositories post</a>, as well as GitHub release artifacts. You might need to update your package repositories.</p>
+
+<p>There were <a href="https://github.com/crystal-lang/crystal/compare/0.35.1...0.36.0">346 commits since 0.35.1</a> by 54 contributors.</p>
+
+<p>Let’s get right into some highlights in this release. Don’t miss out on the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.36.0">release changelog</a>.</p>
+
+<h2 id="language-changes">Language changes</h2>
+
+<p>Although instance variables can have annotations, we must apply them in the base class that declares them. So we reject annotations on instance variables redefined in a child class. We might lift this restriction in the future, but we are going to play it safe first. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9502">#9502</a>.</p>
+
+<p>The <code class="highlighter-rouge">**</code> operator is right-associative from now on. This matches Ruby and a couple of other programming languages. So <code class="highlighter-rouge">2 ** 2 ** 3 == 2 ** (2 ** 3) == 256</code>. But note that the negation is done before the exponentiation because of how we parse negative number literals. So <code class="highlighter-rouge">-2 ** 2 == (-2) ** 2 == 4</code>, which is different to Ruby. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9684">#9684</a>.</p>
+
+<p>Some releases ago <code class="highlighter-rouge">TypeNode#annotation</code> was added. The former less powerful <code class="highlighter-rouge">TypeNode#has_attribute?</code> is deprecated now. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9950">#9950</a>.</p>
+
+<h2 id="compiler">Compiler</h2>
+
+<p>There are several fixes that, although formally lead to breaking-changes, are mostly edge cases that required some polishing.</p>
+
+<ul>
+  <li>You can’t use keywords as block arguments names. <a href="https://github.com/crystal-lang/crystal/pull/9704">#9704</a></li>
+  <li>The <code class="highlighter-rouge">a-b -c</code> expression is now correctly parsed as <code class="highlighter-rouge">(a - b) - c</code>. <a href="https://github.com/crystal-lang/crystal/pull/9652">#9652</a>, <a href="https://github.com/crystal-lang/crystal/pull/9884">#9884</a>.</li>
+</ul>
+
+<p>When using abstract <code class="highlighter-rouge">def</code>s, the compiler will enforce a couple of additional rules that should improve the maintenance of the code base.</p>
+
+<ul>
+  <li>Abstract <code class="highlighter-rouge">def</code> implementations must honor abstract declaration regarding type restrictions, splats, default values, and keyword arguments.
+<a href="https://github.com/crystal-lang/crystal/pull/9585">#9585</a>, <a href="https://github.com/crystal-lang/crystal/pull/9634">#9634</a>, <a href="https://github.com/crystal-lang/crystal/pull/9633">#9633</a>.</li>
+  <li>Abstract <code class="highlighter-rouge">def</code> implementations must honor return type abstract declaration. <a href="https://github.com/crystal-lang/crystal/pull/9810">#9810</a></li>
+</ul>
+
+<p>A simple example of what this enforce would be:</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Foo</span>
+  <span class="k">abstract</span> <span class="k">def</span> <span class="nf">m</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Bar</span> <span class="o">&lt;</span> <span class="no">Foo</span>
+  <span class="k">def</span> <span class="nf">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># Error: because Foo#m can be called with no argument.</span>
+                <span class="c1">#           Declare it as def m(x = 1) to make the compiler happy.</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>Regarding typing, we improved a couple of stories.</p>
+
+<ul>
+  <li>The type variables unification is more correct regarding union types. (<a href="https://github.com/crystal-lang/crystal/pull/10267">#10267</a>, thanks @HertzDevil)</li>
+  <li>Exhaustive case expressions types to non-nilable value if all the cases allow it. <a href="https://github.com/crystal-lang/crystal/pull/9659">#9659</a></li>
+  <li>Auto-casting deals better when the type restriction is a union by using, if possible, the exact type of the literal argument. <a href="https://github.com/crystal-lang/crystal/pull/9610">#9610</a></li>
+  <li>Typing rules involving closured variables got smarter. <a href="https://github.com/crystal-lang/crystal/pull/9986">#9986</a></li>
+  <li>Typing rules involving type restrictions, unions and boolean operators are really smarter. <a href="https://github.com/crystal-lang/crystal/pull/10147">#10147</a>.</li>
+</ul>
+
+<p>How smarter you would like to know. Here is a sneak peak of what is now possible but it wasn’t before.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">||</span> <span class="mf">1.0</span> <span class="o">||</span> <span class="s1">'a'</span> <span class="o">||</span> <span class="s2">""</span> <span class="c1"># x : Int32 | Float64 | Char | String</span>
+
+<span class="c1"># when-clauses of &gt;= 3 types now work, including else-branches of the case statement</span>
+<span class="k">case</span> <span class="n">x</span>
+<span class="k">when</span> <span class="no">Int32</span><span class="p">,</span> <span class="no">Float64</span><span class="p">,</span> <span class="no">Char</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Int32 | Float64 | Char</span>
+<span class="k">else</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; String</span>
+<span class="k">end</span>
+
+<span class="c1"># negations of disjunctions now work</span>
+<span class="k">if</span> <span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span> <span class="o">||</span> <span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Float64</span><span class="p">))</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Char | String</span>
+<span class="k">else</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Int32 | Float64</span>
+<span class="k">end</span>
+
+<span class="c1"># the de Morgan equivalent of the above also works now</span>
+<span class="k">if</span> <span class="o">!</span><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Int32</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Float64</span><span class="p">)</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Char | String</span>
+<span class="k">else</span>
+  <span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Int32 | Float64</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<p>You can also declare <code class="highlighter-rouge">def</code>s overloads with different named tuple types. Really handy if you are into using tuples a lot. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10245">#10245</a>.</p>
+
+<p>A breaking-change that affects C bindings is introduced in <a href="https://github.com/crystal-lang/crystal/pull/10254">#10254</a>. Callbacks within <code class="highlighter-rouge">lib</code> should be declared now as <code class="highlighter-rouge">alias</code> instead of <code class="highlighter-rouge">type</code>. One less quirk in the compiler.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-diff" data-lang="diff">lib YourLib
+<span class="gd">---  type ACallback = Int32 -&gt; Int32
+</span><span class="gi">+++ alias ACallback = Int32 -&gt; Int32
+</span>end</code></pre></figure>
+</div>
+
+<p>A second breaking-change that affects C bindings is that a Crystal nil value is no longer translated to a null pointer value. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9872">#9872</a>.</p>
+<h2 id="standard-library">Standard library</h2>
+
+<p>The following top-level deprecated definitions are dropped: <code class="highlighter-rouge">CRC32</code>, <code class="highlighter-rouge">Adler32</code>, <code class="highlighter-rouge">Flate</code>, <code class="highlighter-rouge">Gzip</code>, <code class="highlighter-rouge">Zip</code>, <code class="highlighter-rouge">Zlib</code>, <code class="highlighter-rouge">with_color</code>. You will need to migrate to the <code class="highlighter-rouge">Compress</code> and <code class="highlighter-rouge">Digest</code> namespace. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9530">#9530</a>, <a href="https://github.com/crystal-lang/crystal/pull/9529">#9529</a>, and <a href="https://github.com/crystal-lang/crystal/pull/9531">#9531</a>.</p>
+
+<p>The <code class="highlighter-rouge">SemanticVersion</code> obeys the standard (as it should). This causes some breaking-changes if you rely on invalid version names, but otherwise you are safe. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9868">#9868</a>.</p>
+
+<p>Unfortunately some breaking-changes are silent. There is no simple way to show a warning. Such a case is when the return type of a method is changed. This is what happens to <code class="highlighter-rouge">File.size</code> and <code class="highlighter-rouge">FileInfo#size</code> since they now return Int64 instead of UInt64. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10015">#10015</a>.</p>
+
+<h3 id="numeric">Numeric</h3>
+
+<p>If you use <code class="highlighter-rouge">Complex</code>, you will need to rewrite some operations like <code class="highlighter-rouge">Complex#exp</code>, <code class="highlighter-rouge">Complex#log</code>, etc. to <code class="highlighter-rouge">Math.exp</code>, <code class="highlighter-rouge">Math.log</code>. This is the same API as for other numerical types. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9739">#9739</a>.</p>
+
+<h3 id="text">Text</h3>
+
+<p><code class="highlighter-rouge">String</code> can hold arbitrary byte sequences. When these turned out to be invalid UTF-8 sequences, operations like <code class="highlighter-rouge">String#index</code>, <code class="highlighter-rouge">String#includes?</code>, and <code class="highlighter-rouge">Char::Reader</code> were misbehaving. In the presence of an invalid UTF-8 sequence, the data is now iterated a bit more slowly, like 1 byte at a time, until a valid sequence is found. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9713">#9713</a>.</p>
+
+<h3 id="collections">Collections</h3>
+
+<p>There is a set of changes seeking consistency over the collection types. Unfortunately some are silent breaking changes.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Hash#reject!</code>, <code class="highlighter-rouge">Hash#select!</code>, and <code class="highlighter-rouge">Hash#compact!</code> return <code class="highlighter-rouge">self</code> always, as <code class="highlighter-rouge">Array</code>. Bonus point: you can method chain. <a href="https://github.com/crystal-lang/crystal/pull/9904">#9904</a>.</li>
+  <li><code class="highlighter-rouge">Set#delete</code> returns <code class="highlighter-rouge">Bool</code> to indicate if the element was present. <a href="https://github.com/crystal-lang/crystal/pull/9590">#9590</a>.</li>
+  <li>Use <code class="highlighter-rouge">Hash#reject!</code> instead of <code class="highlighter-rouge">Hash#delete_if</code>. <a href="https://github.com/crystal-lang/crystal/pull/9878">#9878</a>.</li>
+  <li>Use <code class="highlighter-rouge">Enumerable#select</code> instead of <code class="highlighter-rouge">Enumerable#grep</code>. <a href="https://github.com/crystal-lang/crystal/pull/9711">#9711</a>.</li>
+  <li><code class="highlighter-rouge">Hash#key_index</code> was removed. <a href="https://github.com/crystal-lang/crystal/pull/10016">#10016</a></li>
+</ul>
+
+<p>But not every change is a removal, the following additions are also part of the release!</p>
+
+<ul>
+  <li>Allow <code class="highlighter-rouge">Iterator#zip</code> to take multiple <code class="highlighter-rouge">Iterator</code> arguments. <a href="https://github.com/crystal-lang/crystal/pull/9944">#9944</a></li>
+  <li><code class="highlighter-rouge">Array#shift</code> and <code class="highlighter-rouge">Array#unshift</code> got faster. <a href="https://github.com/crystal-lang/crystal/pull/10081">#10081</a></li>
+</ul>
+
+<h3 id="serialization">Serialization</h3>
+
+<p>We try to have one way to do things. This comes at the expense of needing to migrate old solutions that served us well. <code class="highlighter-rouge">JSON.mapping</code> and <code class="highlighter-rouge">YAML.mapping</code> are no longer part of the std-lib since there is a more flexible alternative: <code class="highlighter-rouge">JSON::Serializable</code>, <code class="highlighter-rouge">YAML::Serializable</code>. You can either migrate or, if you still want them, you can use <a href="https://github.com/crystal-lang/json_mapping.cr">github:crystal-lang/json_mapping.cr</a> and <a href="https://github.com/crystal-lang/yaml_mapping.cr">github:crystal-lang/yaml_mapping.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9527">#9527</a> and <a href="https://github.com/crystal-lang/crystal/pull/9526">#9526</a>.</p>
+
+<p>You can now declare properties that will be used only on serialization or deserialization. If your model has a field that should be hashed for serialization this comes in really handy. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9567">#9567</a>.</p>
+
+<p>Another addition is that you can use <code class="highlighter-rouge">use_json_discriminator</code> and <code class="highlighter-rouge">use_yaml_discriminator</code> with other types than <code class="highlighter-rouge">String</code>. For example, you can use numbers or enums to map the corresponding type. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9222">#9222</a> and <a href="https://github.com/crystal-lang/crystal/pull/10149">#10149</a>.</p>
+
+<h3 id="time">Time</h3>
+
+<p>It’s time to mention some small breaking-changes:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Time::Span.new</code> deprecated variants are no longer available. (<a href="https://github.com/crystal-lang/crystal/pull/10051">#10051</a></li>
+  <li><code class="highlighter-rouge">Time::Span#duration</code> is deprecated in favor of <code class="highlighter-rouge">#abs</code>. <code class="highlighter-rouge">Time::Span</code> is already a duration, right? <a href="https://github.com/crystal-lang/crystal/pull/10144">#10144</a></li>
+</ul>
+
+<h3 id="files">Files</h3>
+
+<p>Some breaking-changes are almost bug-fixes, but since they mean changing a known behavior, it is worth mentioning them as such. After <a href="https://github.com/crystal-lang/crystal/pull/10180">#10180</a>, <code class="highlighter-rouge">FileUtils.cp_r</code> will behave as expected when destination is a directory: the destination is calculated with <code class="highlighter-rouge">File.join(dest_path, File.basename(src_path))</code>.</p>
+
+<h3 id="networking">Networking</h3>
+
+<p>The <code class="highlighter-rouge">HTTP::Params</code> is renamed to <code class="highlighter-rouge">URI::Params</code>. In this release there is a deprecated alias that will allow you to deal with this migration more gradually. But I would not count on this alias to remain for long. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10098">#10098</a>.</p>
+
+<p>Another breaking-change is the renaming of <code class="highlighter-rouge">URI#full_path</code> to <code class="highlighter-rouge">URI#request_target</code>. Some edge-case behaviors also change to match the expected definition. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10099">#10099</a>.</p>
+
+<p><code class="highlighter-rouge">URI::Params</code> (former <code class="highlighter-rouge">HTTP::Params</code>), as you know, is used to represent query strings that can hold multiple values for a key. When assigning a new value to a key you will override all values of that key. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9605">#9605</a></p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">params</span> <span class="o">=</span> <span class="no">URI</span><span class="o">::</span><span class="no">Params</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"color=red&amp;color=blue&amp;console=gameboy"</span><span class="p">)</span>
+<span class="n">params</span><span class="p">[</span><span class="s2">"color"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"green"</span>
+<span class="n">params</span> <span class="c1"># =&gt; =&gt; "color=green&amp;console=gameboy"</span></code></pre></figure>
+</div>
+
+<p>The <code class="highlighter-rouge">HTTP::Client</code> can now be used with any <code class="highlighter-rouge">IO</code> instead of <code class="highlighter-rouge">TCPSocket</code>. If you happen to have an application that uses HTTP as protocol over UNIX Sockets, like Docker, you can now talk to it. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9543">#9543</a></p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="nb">require</span> <span class="s2">"http"</span>
+
+<span class="n">io</span> <span class="o">=</span> <span class="no">UNIXSocket</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"/var/run/docker.sock"</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">HTTP</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s2">"localhost"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"/v1.40/images/json"</span></code></pre></figure>
+</div>
+
+<h3 id="logging">Logging</h3>
+
+<p>To have only one module to log them all, the former <code class="highlighter-rouge">Logger</code> is no longer in the std-lib. Migrate to <code class="highlighter-rouge">Log</code> or, for just a little longer, you can keep using <a href="https://github.com/crystal-lang/logger.cr">github:crystal-lang/logger.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9525">#9525</a>.</p>
+
+<p>If you need more excuses to migrate to <code class="highlighter-rouge">Log</code>, the <code class="highlighter-rouge">Log::Backend</code> can now emit their entries with different strategies that should help keeping the throughput of the app in the presence of logging. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9432">#9432</a>.</p>
+
+<h3 id="crypto">Crypto</h3>
+
+<p>Time for some security alerts. The std-lib prevents by default the Secure Client-Initiated Renegotiation vulnerability attack. In <a href="https://github.com/crystal-lang/crystal/pull/9815">#9815</a> you can find more info and a small patch if you need to secure existing apps. Also, if you use <code class="highlighter-rouge">verify_mode=force-peer</code>, it is now correctly set up. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9668">#9668</a>.</p>
+
+<p>The <code class="highlighter-rouge">Digest</code> module is now backed by <code class="highlighter-rouge">OpenSSL</code>. Most used algorithms have their own class that is easy to use: <code class="highlighter-rouge">Digest::MD5</code>, <code class="highlighter-rouge">Digest::SHA1</code>, <code class="highlighter-rouge">Digest::SHA256</code>, <code class="highlighter-rouge">Digest::SHA512</code>. Bonus: <code class="highlighter-rouge">Digest#file</code> and <code class="highlighter-rouge">Digest#update(IO)</code> are available to compute digest from file and <code class="highlighter-rouge">IO</code> content. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9864">#9864</a>.</p>
+
+<h3 id="concurrency">Concurrency</h3>
+
+<p>We hid some <code class="highlighter-rouge">Channel</code> API that should have been internal since the beginning. I doubt this will cause any issues. Read more <a href="https://github.com/crystal-lang/crystal/pull/9564">#9564</a>.</p>
+
+<p><code class="highlighter-rouge">Channel#close</code> now returns <code class="highlighter-rouge">true</code> unless the channel was already closed. This is handy in multi-thread, because you might need to know if the current fiber is the one that actually closed the channel. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9443">#9443</a>.</p>
+
+<h3 id="system">System</h3>
+
+<p><code class="highlighter-rouge">Process.parse_arguments</code> will allow you to parse a <code class="highlighter-rouge">String</code> in the same way a POSIX shell does. This is internally used to improve <code class="highlighter-rouge">CRYSTAL_OPTS</code> parsing. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9518">#9518</a>.</p>
+
+<h3 id="spec">Spec</h3>
+
+<p>The <code class="highlighter-rouge">#should</code> and <code class="highlighter-rouge">#should_not</code> methods can now take an additional argument for custom failure messages. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10127">#10127</a>.</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">describe</span> <span class="s2">"something"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"something"</span> <span class="k">do</span>
+    <span class="kp">true</span><span class="p">.</span><span class="nf">should</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">),</span> <span class="s2">"Oh no!"</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+</div>
+
+<h2 id="others">Others</h2>
+
+<p>The CI infrastructure for AArch64 hosted by <a href="https://www.worksonarm.com/">works on arm</a> is making progress. We are still not releasing official packages. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9508">#9508</a>.</p>
+
+<p>The doc generator got many improvements. In case you weren’t aware, besides generating HTML, it can also export the documentation information as JSON. This allows for the use of other documentation generation tools. With some of the recent additions listed in the changelog you can use <a href="https://forum.crystal-lang.org/t/new-documentation-site-generator-mkdocstrings-crystal/2848">mkdocs via some community development</a>.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Please update your Crystal and report any issues. We will keep moving forward and focusing on releasing 1.0.0-pre1 which should be a more stabilized version of 0.36 without many new additions.</p>
+
+<p>We have been able to do all of this thanks to the continued support of <a href="https://www.84codes.com/">84codes</a>, <a href="https://nikolamotor.com/">Nikola Motor Company</a> and every other <a href="/sponsors">sponsor</a>. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. <a href="https://opencollective.com/crystal-lang">OpenCollective</a> is available for that. Reach out to <a href="mailto:crystal@manas.tech">crystal@manas.tech</a> if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

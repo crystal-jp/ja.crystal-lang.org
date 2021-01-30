@@ -131,34 +131,59 @@
   <h1 class="distro-title">Red Hat への</h1>
   <h1 class="center"><a href="/install">インストール</a></h1>
   <div class="row">
-    <div class="col offset-m1 m10 s12"><p>Red Hat 系のディストリビューションでは、公式の Crystal リピジトリを利用してインストールできます。
+    <div class="col offset-m1 m10 s12"><p>Red Hat 系のディストリビューションでは、<a href="#official-crystal-rpm-repository">Crystal 公式の rpm リポジトリ</a>を利用してインストールできます。
 <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
 
-<h2 id="リポジトリの設定">リポジトリの設定</h2>
+<h2 id="crystal-公式の-rpm-リポジトリ">Crystal 公式の rpm リポジトリ</h2>
 
-<p>まずは、公式の Crystal リポジトリを追加するために Yum を構成します。簡単にその設定を行うためのスクリプトを用意していますので、以下のコマンドをそのまま実行してください。</p>
-
-<div class="code_section">
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl https://dist.crystal-lang.org/rpm/setup.sh | <span class="nb">sudo </span>bash</code></pre></figure>
-
-</div>
-
-<p>これで、署名用のキーとリポジトリの設定が追加されます。もし手動で構成したいのであれば、以下の操作を実行してください。</p>
+<p><a href="https://bintray.com/beta/#/crystal/rpm?tab=packages">Bintray</a> でホストされている Crystal 公式のリポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。</p>
 
 <div class="code_section">
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rpm <span class="nt">--import</span> https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
-
-<span class="nb">cat</span> <span class="o">&gt;</span> /etc/yum.repos.d/crystal.repo <span class="o">&lt;&lt;</span><span class="no">END</span><span class="sh">
-[crystal]
-name = Crystal
-baseurl = https://dist.crystal-lang.org/rpm/
-END</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash</code></pre></figure>
 
 </div>
 
-<h2 id="インストール">インストール</h2>
+<p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--crystal</code> 引数に <code class="highlighter-rouge">major.minor.patch</code>、<code class="highlighter-rouge">major.minor</code> もしくは <code class="highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
+  <li><code class="highlighter-rouge">--channel</code> 引数では、<code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは<code class="highlighter-rouge">nightly</code> の値を指定できます、</li>
+</ul>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">--channel</span><span class="o">=</span>nightly</code></pre></figure>
+
+</div>
+
+<p>より詳細な情報はこの<a href="/2020/08/24/announcing-new-apt-and-rpm-repositories.html">告知記事</a>を参照してください。</p>
+
+<h3 id="マニュアルセットアップ">マニュアルセットアップ</h3>
+
+<p>リポジトリの URL は <code class="highlighter-rouge">https://dl.bintray.com/crystal/rpm/{DISTRO}/{ARCH}/{CHANNEL}</code> です。</p>
+
+<ul>
+  <li>有効な <code class="highlighter-rouge">{DISTRO}</code> の値は <code class="highlighter-rouge">el6</code> と <code class="highlighter-rouge">all</code> となります。</li>
+  <li>この rpm では <code class="highlighter-rouge">{ARCH}</code> としては <code class="highlighter-rouge">x86_64</code> のみをサポートしています。</li>
+  <li>有効な <code class="highlighter-rouge">{CHANNEL}</code> の値は <code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは <code class="highlighter-rouge">nightly</code> です。</li>
+</ul>
+
+<p>希望の値で次のスクリプトの <code class="highlighter-rouge">{DISTRO}</code> と <code class="highlighter-rouge">{CHANNEL}</code> を置き換えることで、設定できます。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cat</span> <span class="o">&gt;</span> /etc/yum.repos.d/crystal.repo &amp;lt<span class="p">;</span>&amp;lt<span class="p">;</span>END
+<span class="o">[</span>crystal]
+<span class="nv">name</span><span class="o">=</span>Crystal
+<span class="nv">baseurl</span><span class="o">=</span>https://dl.bintray.com/crystal/rpm/<span class="o">{</span>DISTRO<span class="o">}</span>/x86_64/<span class="o">{</span>CHANNEL<span class="o">}</span>
+<span class="nv">gpgcheck</span><span class="o">=</span>0
+<span class="nv">repo_gpgcheck</span><span class="o">=</span>1
+<span class="nv">gpgkey</span><span class="o">=</span>http://bintray.com/user/downloadSubjectPublicKey?username<span class="o">=</span>bintray
+END</code></pre></figure>
+
+</div>
+
 <p>リポジトリの設定が完了すれば、Crystal がインストールできます。</p>
 
 <div class="code_section">
@@ -166,8 +191,6 @@ END</span></code></pre></figure>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>yum <span class="nb">install </span>crystal</code></pre></figure>
 
 </div>
-
-<h2 id="アップグレード">アップグレード</h2>
 
 <p>新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。</p>
 

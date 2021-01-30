@@ -131,25 +131,52 @@
   <h1 class="distro-title">Kubuntu への</h1>
   <h1 class="center"><a href="/install">インストール</a></h1>
   <div class="row">
-    <div class="col offset-m1 m10 s12"><p>Ubuntu 系のディストリビューションでは、公式の Crystal リポジトリを利用してインストールできます。<a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
+    <div class="col offset-m1 m10 s12"><p>Ubuntu 系のディストリビューションでは、<a href="#official-crystal-deb-repository">Crystal 公式の deb リポジトリ</a>.を利用してインストールできます。<a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
 
-<h2 id="リポジトリの設定">リポジトリの設定</h2>
+<h2 id="crystal-公式の-deb-リポジトリ">Crystal 公式の deb リポジトリ</h2>
 
-<p>まずは、公式の Crystal リポジトリを追加するために Apt を設定します。簡単にその設定を行うためのスクリプトを用意していますので、以下のコマンドをそのまま実行してください。</p>
-
-<div class="code_section">
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-sSL</span> https://dist.crystal-lang.org/apt/setup.sh | <span class="nb">sudo </span>bash</code></pre></figure>
-</div>
-
-<p>これで、署名用のキーとリポジトリの設定が追加されます。もし手動で設定したいのであれば、以下のコマンドを実行してください。</p>
+<p><a href="https://bintray.com/beta/#/crystal/deb?tab=packages">Bintray</a> でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。</p>
 
 <div class="code_section">
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-sL</span> <span class="s2">"https://keybase.io/crystal/pgp_keys.asc"</span> | <span class="nb">sudo </span>apt-key add -
-<span class="nb">echo</span> <span class="s2">"deb https://dist.crystal-lang.org/apt crystal main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/crystal.list
-<span class="nb">sudo </span>apt-get update</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash</code></pre></figure>
+
 </div>
 
-<h2 id="インストール">インストール</h2>
+<p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--crystal</code> 引数に <code class="highlighter-rouge">major.minor.patch</code>、<code class="highlighter-rouge">major.minor</code> もしくは <code class="highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
+  <li><code class="highlighter-rouge">--channel</code> 引数では、<code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは<code class="highlighter-rouge">nightly</code> の値を指定できます、</li>
+</ul>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">--channel</span><span class="o">=</span>nightly</code></pre></figure>
+
+</div>
+
+<p>より詳細な情報はこの<a href="/2020/08/24/announcing-new-apt-and-rpm-repositories.html">告知記事</a>を参照してください。</p>
+
+<h3 id="マニュアルセットアップ">マニュアルセットアップ</h3>
+
+<p><code class="highlighter-rouge">deb_distribution=all</code> と <code class="highlighter-rouge">deb_component</code> と共に選言された deb リポジトリがチャンネルに利用されます。</p>
+
+<ul>
+  <li>有効なチャンネル名は <code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは <code class="highlighter-rouge">nightly</code> です。</li>
+</ul>
+
+<p>利用したいチャンネル名で次のスクリプトの <code class="highlighter-rouge">{CHANNEL}</code> の置き換えることで、設定できます。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"deb https://dl.bintray.com/crystal/deb all {CHANNEL}"</span> | <span class="nb">tee</span> /etc/apt/sources.list.d/crystal.list
+
+<span class="c"># リポジトリのメタデータの署名鍵 (bintray 共有の署名鍵) を追加します。</span>
+apt-key adv <span class="nt">--keyserver</span> hkp://keyserver.ubuntu.com:80 <span class="nt">--recv-keys</span> 379CE192D401AB61
+apt-get update</code></pre></figure>
+
+</div>
 
 <p>リポジトリの設定が完了すれば、Crystal がインストールできます。</p>
 
@@ -167,13 +194,13 @@
 <span class="nb">sudo </span>apt <span class="nb">install </span>libz-dev        <span class="c"># for using crystal play</span></code></pre></figure>
 </div>
 
-<h2 id="アップグレード">アップグレード</h2>
-
 <p>新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。</p>
 
 <div class="code_section">
+
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt update
 <span class="nb">sudo </span>apt <span class="nb">install </span>crystal</code></pre></figure>
+
 </div>
 
 <h2 id="snapcraft-を使う">Snapcraft を使う</h2>
