@@ -2,7 +2,7 @@
 
 正規表現は [Regex](http://crystal-lang.org/api/Regex.html) クラスで表わされます。
 
-正規表現には [PCRE](http://pcre.org/pcre.txt) の構文を使います。リテラルとしては、UTF-8の文字列をスラッシュ (`/`) で囲んで記述します。
+正規表現には [PCRE](http://pcre.org/pcre.txt) の構文を使います。It consists of a string of UTF-8 characters enclosed in forward slashes (`/`):
 
 ```crystal
 /foo|bar/

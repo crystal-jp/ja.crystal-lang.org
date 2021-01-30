@@ -11,7 +11,7 @@ OpenSUSE では、Zypper を使って公式の rpm パッケージからイン�
 
 <div class="code_section">
 {% highlight bash %}
-rpm --import https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
+rpm --import http://bintray.com/user/downloadSubjectPublicKey?username=bintray
 {% endhighlight bash %}
 </div>
 
@@ -19,7 +19,7 @@ rpm --import https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
 
 <div class="code_section">
 {% highlight bash %}
-sudo zypper ar -e -f -t rpm-md https://dist.crystal-lang.org/rpm/ Crystal
+sudo zypper ar -e -f -t rpm-md https://dl.bintray.com/crystal/rpm/all/x86_64/stable Crystal
 {% endhighlight bash %}
 </div>
 

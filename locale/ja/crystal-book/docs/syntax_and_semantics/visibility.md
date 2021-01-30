@@ -18,7 +18,7 @@ class Person
     say "hello"      # レシーバが無いため OK
     self.say "hello" # self がレシーバのため OK
 
-    other = Person.new "Other"
+    other = Person.new
     other.say "hello" # other がレシーバのためエラー
   end
 end

@@ -14,20 +14,20 @@
 
 次のエスケープシーケンスが有効です。
 ```crystal
-"\""                  # ダブルクォート
-"\\"                  # バックスラッシュ
-"\a"                  # アラート
-"\b"                  # バックスペース
-"\e"                  # エスケープ
-"\f"                  # フォームフィード (改ページ)
-"\n"                  # 改行
-"\r"                  # キャリッジリターン (復帰)
-"\t"                  # タブ文字
-"\v"                  # 垂直タブ
-"\888"                # 8進数による ASCII 文字
-"\xFF"                # 16進数による ASCII 文字
-"\uFFFF"              # 16進数によるユニコード文字
-"\u{0}".."\u{10FFFF}" # 16進数によるユニコード文字
+"\""                  # double quote
+"\\"                  # backslash
+"\a"                  # alert
+"\b"                  # backspace
+"\e"                  # escape
+"\f"                  # form feed
+"\n"                  # newline
+"\r"                  # carriage return
+"\t"                  # tab
+"\v"                  # vertical tab
+"\377"                # octal ASCII character
+"\xFF"                # hexadecimal ASCII character
+"\uFFFF"              # hexadecimal unicode character
+"\u{0}".."\u{10FFFF}" # hexadecimal unicode character
 ```
 
 その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。
@@ -121,7 +121,7 @@ name = "world"
 %w(foo(bar) baz) # => ["foo(bar)", "baz"]
 ```
 
-`%w`で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。もちろん、エスケープされた1つのスペース (` `) では文字列は区切られません。
+Note that literal denoted by `%w` does not apply interpolation nor escapes except spaces. もちろん、エスケープされた1つのスペース (` `) では文字列は区切られません。
 
 ```crystal
 %w(foo\ bar baz) # => ["foo bar", "baz"]
@@ -157,7 +157,7 @@ name = "world"
 ## ヒアドキュメント
 
 *ヒアドキュメント*ないし*heredoc*は複数行にまたがる文字列の便利な書き方です。
-ヒアドキュメントは`<<-`とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。ヒアドキュメントは続く行から開始して、最初に指定した識別子のみを含む行 (先頭の空白は無視されます) で終了します。また、ヒアドキュメントのあとには改行の他にアルファベットと数字の文字以外の文字が続く場合があります。
+ヒアドキュメントは`<<-`とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。The heredoc starts in the following line and ends with the next line that contains *only* the heredoc identifier, optionally preceeded by whitespace.
 
 ```crystal
 <<-XML
@@ -181,20 +181,30 @@ XML
   STRING
 ```
 
-ヒアドキュメントの直後にそれに対するメソッド呼び出しを続けたり、括弧の中でヒアドキュメントを使うことも可能です。
+After the heredoc identifier, and in that same line, anything that follows continues the original expression that came before the heredoc. It's as if the end of the starting heredoc identifier is the end of the string. However, the string contents come in subsequent lines until the ending heredoc idenfitier which must be on its own line.
 
 ```crystal
-<<-SOME.upcase # => "HELLO"
+<<-STRING.upcase # => "HELLO"
 hello
-SOME
+STRING
 
 def upcase(string)
   string.upcase
 end
 
-upcase(<<-SOME) # => "HELLO"
-  hello
-  SOME
+upcase(<<-STRING) # => "HELLO WORLD"
+  Hello World
+  STRING
+```
+
+If multiple heredocs start in the same line, their bodies are read sequentially:
+
+```cr
+print(<<-FIRST, <<-SECOND) # prints "HelloWorld"
+  Hello
+  FIRST
+  World
+  SECOND
 ```
 
 ヒアドキュメントの中では一般的に補間とエスケープが有効になっています。
