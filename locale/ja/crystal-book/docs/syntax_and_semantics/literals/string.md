@@ -14,20 +14,20 @@
 
 次のエスケープシーケンスが有効です。
 ```crystal
-"\""                  # double quote
-"\\"                  # backslash
-"\a"                  # alert
-"\b"                  # backspace
-"\e"                  # escape
-"\f"                  # form feed
-"\n"                  # newline
-"\r"                  # carriage return
-"\t"                  # tab
-"\v"                  # vertical tab
-"\377"                # octal ASCII character
-"\xFF"                # hexadecimal ASCII character
-"\uFFFF"              # hexadecimal unicode character
-"\u{0}".."\u{10FFFF}" # hexadecimal unicode character
+"\""                  # ダブルクオート
+"\\"                  # バックスラッシュ
+"\a"                  # アラート
+"\b"                  # バックスペース
+"\e"                  # エスケープ
+"\f"                  # フォームフィード (改ページ)
+"\n"                  # 改行
+"\r"                  # キャリッジリターン (復帰)
+"\t"                  # タブ
+"\v"                  # 垂直タブ
+"\377"                # 8進数による ASCII 文字
+"\xFF"                # 16進数による ASCII 文字
+"\uFFFF"              # 16進数によるユニコード文字
+"\u{0}".."\u{10FFFF}" # 16進数によるユニコード文字
 ```
 
 その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。
@@ -157,7 +157,7 @@ Note that literal denoted by `%w` does not apply interpolation nor escapes excep
 ## ヒアドキュメント
 
 *ヒアドキュメント*ないし*heredoc*は複数行にまたがる文字列の便利な書き方です。
-ヒアドキュメントは`<<-`とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。The heredoc starts in the following line and ends with the next line that contains *only* the heredoc identifier, optionally preceeded by whitespace.
+ヒアドキュメントは`<<-`とそれに続くアルファベットと数字 (アンダースコアも含めることができる) の並びの識別子によって記述されます。ヒアドメントは続く行から開始して、次の行に最初に指定した識別子*のみ*を含む行で終了します。オプションで先頭に空白文字を入れることもできます。
 
 ```crystal
 <<-XML
@@ -181,7 +181,7 @@ XML
   STRING
 ```
 
-After the heredoc identifier, and in that same line, anything that follows continues the original expression that came before the heredoc. It's as if the end of the starting heredoc identifier is the end of the string. However, the string contents come in subsequent lines until the ending heredoc idenfitier which must be on its own line.
+ヒアドキュメントの識別子のあとで同じ行の場合、ヒアドキュメントの内容の前に任意の式を続けることができます。このとき、ヒアドキュメントの識別子は文字列リテラルの終端のように機能します。ですが、その文字列の内容は終端のヒアドキュメントの識別子までの後続の行のものとなります。
 
 ```crystal
 <<-STRING.upcase # => "HELLO"
@@ -197,7 +197,7 @@ upcase(<<-STRING) # => "HELLO WORLD"
   STRING
 ```
 
-If multiple heredocs start in the same line, their bodies are read sequentially:
+もし複数のヒアドキュメントが同じ行で開始した場合、それらの内容は逐次的に読み込まれます。
 
 ```cr
 print(<<-FIRST, <<-SECOND) # prints "HelloWorld"

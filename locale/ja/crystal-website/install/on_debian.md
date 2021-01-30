@@ -2,7 +2,7 @@
 subtitle: Debian への
 ---
 
-In Debian derived distributions, you can use the [Official Crystal deb repository](#official-crystal-deb-repository). [Snapcraft](#snapcraft) and [Linuxbrew](#linuxbrew) are also available.
+Debian 系のディストリビューションでは、[Crystal 公式の deb リポジトリ](#official-crystal-deb-repository)を利用してインストールできます。[Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。
 
 {% include install_from_bintray_deb.md %}
 {% include install_from_snapcraft.md distro="debian" %}
