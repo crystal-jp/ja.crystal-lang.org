@@ -7,6 +7,208 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Crystal Core Team Announcements</title>
+        <description>&lt;p&gt;A lot has been going on in the Crystal Core Team, and the community has voiced its need for more (and more frequent) communication. This post is an attempt to catch up with that. I’m taking the license of using “we” for both Crystal and Manas.Tech in this short update.&lt;/p&gt;
+
+&lt;p&gt;The team has been moving forward and focusing on &lt;a href=&quot;/2021/03/22/crystal-1.0-what-to-expect.html&quot;&gt;releasing 1.0&lt;/a&gt;, which is intended to be a more stabilized version of 0.36 with few new additions. We know that we could always add, fix or improve one more little thing before releasing. Still, we believe this is long overdue and that the lack of a v1.0 is an obstacle to adoption.&lt;/p&gt;
+
+&lt;p&gt;We wanted to share the news that Johannes Müller (@straightshoota) has joined Manas as a full-time employee. Johannes is a years-long member and contributor of the Core Team, and we are thrilled to have him join us to continue to work on the language’s evolution.&lt;/p&gt;
+
+&lt;p&gt;Coincidentally, Brian (@bcardiff) and Juan (@waj) will be moving onto new challenges outside Manas, though Juan will remain in an advisory role. This does not affect their commitment to the development of Crystal. They will remain part of the Crystal Core Team and continue to be involved as voluntary contributors.&lt;/p&gt;
+
+&lt;p&gt;But we have excellent news in terms of Crystal leadership coming from Manas. We are incredibly excited to announce that &lt;a href=&quot;https://people.mpi-sws.org/~beta/&quot;&gt;Beta Ziliani&lt;/a&gt; will join the Crystal team at Manas to pick-up the baton. Beta is a programming language researcher with a Ph.D. from the Max Planck Institute for Software Systems and holds a professorship on Advanced Concepts of Programming Languages and Paradigms of Programming. He has been involved with Crystal for a while. Beta was one of the first Manas employees, and he left to pursue his academic research more than ten years ago. We are proud and happy to have him join back.&lt;/p&gt;
+
+&lt;p&gt;We also wanted to announce that Manas will be hiring a Community Manager for Crystal. We know that’s a long overdue need, and we are excited to find the right person to steward this fantastic community. Please help us &lt;a href=&quot;https://manas.tech/join/&quot;&gt;spread the word&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;To make all this sustainable in the long term, we need to significantly increase our sponsorships and donations. We believe the 1.0 release and the new roles described will help us move towards that. All small personal donations at &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; help, and if you work at a company that could become a corporate sponsor, please reach out at &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; so we can work with you.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/03/22/crystal-core-team-announcements.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/03/22/crystal-core-team-announcements.html</guid>
+      </item>
+    
+      <item>
+        <title>Crystal 1.0 - What to expect</title>
+        <description>&lt;p&gt;The release of the first major release of Crystal arrives after many years of hard work. With thousands of contributions from people worldwide, it was finally possible to find consensus for what truly mattered for 1.0 and what could wait for future releases. Getting here wasn’t an easy journey, filled with enriching, controversial, delightful, and endless conversations that, in the end, made it possible to build a language more useful for more users.&lt;/p&gt;
+
+&lt;p&gt;But what does it mean to have a 1.0 version? After all, the process of receiving valuable contributions and evolving the language will not stop after this milestone. Let’s dig deeper to understand the true meaning of this release for the community, especially those already using Crystal in production environments.&lt;/p&gt;
+
+&lt;h2 id=&quot;language-stability&quot;&gt;Language Stability&lt;/h2&gt;
+
+&lt;p&gt;Language stability is probably one of the most prominent and expected reasons to have Crystal 1.0 finally. We received numerous comments from people willing to use the language in production during all these years, but only after we could make a promise of not breaking it from one day to the next.&lt;/p&gt;
+
+&lt;p&gt;After this release, everyone can expect that, at least for any future 1.x version, your code can still compile and work without any significant incompatibility. Language and standard library features won’t be removed or changed in any way that could prevent existing code from compiling and working. The built-in standard library will continue to be enriched but always with backward compatibility in mind.&lt;/p&gt;
+
+&lt;p&gt;Nobody can stop this outstanding community from having groundbreaking ideas every day. But those contributions now belong to a separate branch where the vision for Crystal 2.0 will start to sprout and grow every day.&lt;/p&gt;
+
+&lt;h2 id=&quot;release-plan&quot;&gt;Release Plan&lt;/h2&gt;
+
+&lt;p&gt;To increase the project’s predictability, we plan to release maintenance releases (aka bug fixes) as patch versions. For example, the first maintenance release will be 1.0.1, and it will only include fixes of existing features.&lt;/p&gt;
+
+&lt;p&gt;New features will be reserved for the subsequent minor releases: 1.x. Again, always maintaining backward compatibility with previous versions.&lt;/p&gt;
+
+&lt;p&gt;How many 1.x versions are going to be maintained in parallel? We don’t know for sure yet. That will depend on several factors, including the availability of core team members. For now, we envision maintaining at least two minor versions. That means a 1.0.x might be released even if 1.1.0 is published.&lt;/p&gt;
+
+&lt;p&gt;Because of the “no breaking changes” rule between 1.x → 1.x+1, migration to new minor releases should be relatively easy, with migration plans to be eventually released along with new versions.&lt;/p&gt;
+
+&lt;h2 id=&quot;preliminary-features&quot;&gt;Preliminary Features&lt;/h2&gt;
+
+&lt;p&gt;There are some features currently available in Crystal that didn’t receive official support yet. We plan to keep improving them until we’re confident about their stability. These features will continue to be available on every version, and you can expect an official blessing in a future 1.x release.&lt;/p&gt;
+
+&lt;h3 id=&quot;windows-support&quot;&gt;Windows Support&lt;/h3&gt;
+
+&lt;p&gt;Tremendous progress has been made to make Crystal available on Windows platforms. But there is still tons of work to be done. However, none of that work should impact the semantics or libraries available for *NIX platforms. So we decided not to delay 1.0 because of incompleteness in this area.&lt;/p&gt;
+
+&lt;p&gt;We keep encouraging the Windows community to continue participating in the support for Crystal in this environment.&lt;/p&gt;
+
+&lt;h3 id=&quot;multithreading&quot;&gt;Multithreading&lt;/h3&gt;
+
+&lt;p&gt;Support to run the Crystal runtime on multiple cores is still a preliminary feature available through the use of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Dpreview_mt&lt;/code&gt; flag. But there are still many improvements yet to be made to guarantee the language’s expected performance and quality in a multi-core environment.&lt;/p&gt;
+
+&lt;p&gt;And it’s not only a flag to be enabled to let existing code run in parallel. Idioms and guidelines must be written to ensure a sane migration into a multi-core environment. More of this can be expected in future 1.x releases.&lt;/p&gt;
+
+&lt;h3 id=&quot;arm&quot;&gt;ARM&lt;/h3&gt;
+
+&lt;p&gt;Porting Crystal into ARM platforms was always important, mainly for embedded and mobile devices. Who didn’t dream about writing applications for iOS and Android one day in this beautiful language? However, recent announcements from Apple to use ARM in computers made this platform even more relevant for the language.&lt;/p&gt;
+
+&lt;p&gt;Significant steps have been taken to improve Crystal code’s cross-compilation, and even our CI runs most of the Crystal specs for every commit on ARM servers! However, some work is still pending to improve the experience for cross-compilation, and even some core libraries need work before we can be confident to give the “production-ready” mark on ARM machines.&lt;/p&gt;
+
+&lt;h1 id=&quot;changes-this-release&quot;&gt;Changes this release&lt;/h1&gt;
+
+&lt;p&gt;The changes that landed in 1.0.0 since 0.36.1 were focused on polishing, but it is worth mentioning some of them here as a migration process. Don’t miss out on the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.0.0&quot;&gt;release changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There were &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.36.1...1.0.0&quot;&gt;82 commits since 0.36.1&lt;/a&gt; by 25 contributors.&lt;/p&gt;
+
+&lt;p&gt;If we count them since the project inception, there were +13000 commits by +450 contributors, +9000 issues/PRs, and, more importantly, a great community that is sharing experiences, ideas and dreams.&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;p&gt;Tuples allow type-safe accessors with literal indices since the compiler knows which type each component is. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10379&quot;&gt;#10379&lt;/a&gt; this knowledge is also available for literal ranges.&lt;/p&gt;
+
+&lt;div class=&quot;code_section&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;tuple&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'x'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tuple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; {1, &quot;hello&quot;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Tuple(Int32, String)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;String and character literals are no longer allowed to have unicode surrogate halves in escape sequences. You can express arbitrary values using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\x&lt;/code&gt; still, so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;\uD800&quot;&lt;/code&gt; should be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;\xED\xA0\x80&quot;&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10443&quot;&gt;#10443&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
+
+&lt;p&gt;The std-lib got rid of most of the deprecated definitions present until 0.36.1 in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10386&quot;&gt;#10386&lt;/a&gt;. This includes dropping:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Spec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;should&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;should_not&lt;/code&gt; overload&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Int&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Time&lt;/code&gt; overloads with trailing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO&lt;/code&gt; parameter&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Set&lt;/code&gt; methods&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YAML.new&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dir.rmdir&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File::Info#owner&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File::Info#group&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::Request&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::WebSocket&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::LogHandler&lt;/code&gt; methods&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URI#full_path&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Time::Span#duration&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StaticArray#[]=&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#delete_if&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Process#kill&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OptionParser.parse!&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; overload&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_attribute?&lt;/code&gt; macro&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;macros&quot;&gt;Macros&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getter&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;property&lt;/code&gt; macros will add the return type annotation when possible. While adding this lazy initialized property no longer accepts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nil&lt;/code&gt; as a valid value. It’s confusing and you probably were not relying on that. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10405&quot;&gt;#10405&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
+
+&lt;p&gt;There were some iterations to add more rounding options to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number&lt;/code&gt; and match the functionality available in other languages. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number#round&lt;/code&gt; accepts a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RoundingMode&lt;/code&gt; parameter to choose the exact criteria to use. There are new methods like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number#round_even&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Number#round_away&lt;/code&gt; if you prefer them. The default rounding was changed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;round_even&lt;/code&gt; (a.k.a.: round nearest ties even) matching what other libc, Java, Julia and &lt;a href=&quot;https://web.archive.org/web/20160806053349/http://www.csee.umbc.edu/~tsimo1/CMSC455/IEEE-754-2008.pdf&quot;&gt;IEEE-754&lt;/a&gt; recommendation.&lt;/p&gt;
+
+&lt;p&gt;The new available rounding modes are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIES_EVEN&lt;/code&gt;: Rounds towards the nearest integer. If both neighboring integers are equidistant, rounds towards the even neighbor (Banker’s rounding).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIES_AWAY&lt;/code&gt;: Rounds towards the nearest integer. If both neighboring integers are equidistant, rounds away from zero.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TO_ZERO&lt;/code&gt;: Rounds towards zero (truncate).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TO_POSITIVE&lt;/code&gt;: Rounds towards positive infinity (ceil).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TO_NEGATIVE&lt;/code&gt;: Rounds towards negative infinity (floor).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10413&quot;&gt;#10413&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10508&quot;&gt;#10508&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Downcasting a float with infinity, or converting an out-of-range float has a more accurate behavior. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10420&quot;&gt;#10420&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enumerable#flat_map&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Iterator#flat_map&lt;/code&gt; works now with mixed element types. As a general guideline, when dealing with multiple types of elements, check your design. You might be translating code from other languages where that is common, but in Crystal, it might not be the tidiest thing to do. Either way, in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10329&quot;&gt;#10329&lt;/a&gt; there is room for improvement on how things are done in the std-lib to allow more and more use cases while using the existing language features.&lt;/p&gt;
+
+&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enum&lt;/code&gt; serialization is now done as underscored string representation. If you want the old behavior, use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enum::ValueConverter&lt;/code&gt;. Using the underscore string representation is more stable if enum members are added, so we encourage it as a good default. Read more at  &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10431&quot;&gt;#10431&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The types defined in the XML module were changed from struct to classes to allow future improvements on how the GC interacts with libxml. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10436&quot;&gt;#10436&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
+
+&lt;p&gt;There are a couple of changes regarding how cookies are handled. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10486&quot;&gt;#10486&lt;/a&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::Cookies.from_headers&lt;/code&gt; method is split into separate server and client alternatives. And the cookie name and values are no longer encoded/decoded due to security reasons. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10442&quot;&gt;#10442&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10485&quot;&gt;#10485&lt;/a&gt;. It is left to the framework and application to choose if there is a default encoding for cookies.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;This release is available in &lt;a href=&quot;/2020/08/24/announcing-new-apt-and-rpm-repositories.html&quot;&gt;Bintray’s apt and rpm repositories post&lt;/a&gt;, as well as GitHub release artifacts. The &lt;a href=&quot;https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/&quot;&gt;sunsetting of Bintray&lt;/a&gt; took us by surprise. We will need to make another move to change the repository location. Luckily we learned enough from the previous process, and not everything is lost. We will attempt to keep the installation script API stable.&lt;/p&gt;
+
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/03/22/crystal-1.0-what-to-expect.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/03/22/crystal-1.0-what-to-expect.html</guid>
+      </item>
+    
+      <item>
+        <title>Crystal 0.36.1 released!</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.36.1&quot;&gt;Crystal 0.36.1&lt;/a&gt; has been released!&lt;/p&gt;
+
+&lt;p&gt;This release comes with all the goodies of 0.36.0 together with some fixes and changes that improve compile-time and runtime performance. So, don’t miss the &lt;a href=&quot;/2021/01/26/crystal-0.36.0-released.html&quot;&gt;0.36.0 release announcement&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note that this release will be available in &lt;a href=&quot;/2020/08/24/announcing-new-apt-and-rpm-repositories.html&quot;&gt;the new apt and rpm repositories post&lt;/a&gt;, as well as GitHub release artifacts. You might need to update your package repositories.&lt;/p&gt;
+
+&lt;p&gt;This patch release is needed to iterate on some recent additions and fix a couple of regressions. We are thankful for all the early adopters that helped to identify unwanted regressions and performance issues in 0.36.0.&lt;/p&gt;
+
+&lt;p&gt;There were &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.36.0...0.36.1&quot;&gt;14 commits since 0.36.0&lt;/a&gt; by 5 contributors.&lt;/p&gt;
+
+&lt;p&gt;Let’s get right into some highlights in this release. Don’t miss out on the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.36.1&quot;&gt;release changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
+
+&lt;p&gt;We reverted the changes introduced in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9871&quot;&gt;#9871&lt;/a&gt;. Now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#dup&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#clone&lt;/code&gt; will always return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;. Even if you are calling them on a subclass of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;. We don’t encourage inheriting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;, and with 0.36.0 we notice that some subclasses in the wild were not dup-clone-friendly. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10331&quot;&gt;#10331&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;runtime&quot;&gt;Runtime&lt;/h3&gt;
+
+&lt;p&gt;The eager load of DWARF information was too slow on some use cases. Therefore, we changed it to be opt-in rather than opt-out (See &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10326&quot;&gt;#10326&lt;/a&gt;). Depending on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRYSTAL_LOAD_DWARF&lt;/code&gt; environment variable the DWARF information will be loaded on startup (leading to better backtraces on some crashes), or it will be loaded only on demand when building backtraces, or it will not be loaded at all.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRYSTAL_LOAD_DWARF=0&lt;/code&gt; will never use dwarf information&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRYSTAL_LOAD_DWARF=1&lt;/code&gt; will load dwarf on startup&lt;/li&gt;
+  &lt;li&gt;Other values or unset will load dwarf on demand&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
+
+&lt;p&gt;Codegen bugs can sometimes go unnoticed, LLVM 11 helped us find one. There were some invalid pointer operations that were fixed in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10333&quot;&gt;#10333&lt;/a&gt;. With this change Crystal is now compatible with LLVM 11. This in turn helps Apple Silicon M1 support (See &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10348&quot;&gt;#10348&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Constants initialization has been tweaked again to avoid generating code that was a bit too hard to optimize in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10334&quot;&gt;#10334&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We allow macros named as operators or setters-like. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10338&quot;&gt;#10338&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and focusing on releasing 1.0.0-pre1 which should be a more stabilized version of 0.36 without many new additions.&lt;/p&gt;
+
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/02/02/crystal-0.36.1-released.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/02/02/crystal-0.36.1-released.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal 0.36.0 released!</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.36.0&quot;&gt;Crystal 0.36.0&lt;/a&gt; has been released!&lt;/p&gt;
 
@@ -22,9 +224,9 @@
 
 &lt;p&gt;Although instance variables can have annotations, we must apply them in the base class that declares them. So we reject annotations on instance variables redefined in a child class. We might lift this restriction in the future, but we are going to play it safe first. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9502&quot;&gt;#9502&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;**&lt;/code&gt; operator is right-associative from now on. This matches Ruby and a couple of other programming languages. So &lt;code class=&quot;highlighter-rouge&quot;&gt;2 ** 2 ** 3 == 2 ** (2 ** 3) == 256&lt;/code&gt;. But note that the negation is done before the exponentiation because of how we parse negative number literals. So &lt;code class=&quot;highlighter-rouge&quot;&gt;-2 ** 2 == (-2) ** 2 == 4&lt;/code&gt;, which is different to Ruby. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9684&quot;&gt;#9684&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;**&lt;/code&gt; operator is right-associative from now on. This matches Ruby and a couple of other programming languages. So &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2 ** 2 ** 3 == 2 ** (2 ** 3) == 256&lt;/code&gt;. But note that the negation is done before the exponentiation because of how we parse negative number literals. So &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-2 ** 2 == (-2) ** 2 == 4&lt;/code&gt;, which is different to Ruby. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9684&quot;&gt;#9684&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Some releases ago &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeNode#annotation&lt;/code&gt; was added. The former less powerful &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeNode#has_attribute?&lt;/code&gt; is deprecated now. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9950&quot;&gt;#9950&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some releases ago &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TypeNode#annotation&lt;/code&gt; was added. The former less powerful &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TypeNode#has_attribute?&lt;/code&gt; is deprecated now. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9950&quot;&gt;#9950&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
 
@@ -32,15 +234,15 @@
 
 &lt;ul&gt;
   &lt;li&gt;You can’t use keywords as block arguments names. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9704&quot;&gt;#9704&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;a-b -c&lt;/code&gt; expression is now correctly parsed as &lt;code class=&quot;highlighter-rouge&quot;&gt;(a - b) - c&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9652&quot;&gt;#9652&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9884&quot;&gt;#9884&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a-b -c&lt;/code&gt; expression is now correctly parsed as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(a - b) - c&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9652&quot;&gt;#9652&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9884&quot;&gt;#9884&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;When using abstract &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt;s, the compiler will enforce a couple of additional rules that should improve the maintenance of the code base.&lt;/p&gt;
+&lt;p&gt;When using abstract &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;def&lt;/code&gt;s, the compiler will enforce a couple of additional rules that should improve the maintenance of the code base.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Abstract &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt; implementations must honor abstract declaration regarding type restrictions, splats, default values, and keyword arguments.
+  &lt;li&gt;Abstract &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;def&lt;/code&gt; implementations must honor abstract declaration regarding type restrictions, splats, default values, and keyword arguments.
 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9585&quot;&gt;#9585&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9634&quot;&gt;#9634&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9633&quot;&gt;#9633&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Abstract &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt; implementations must honor return type abstract declaration. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9810&quot;&gt;#9810&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Abstract &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;def&lt;/code&gt; implementations must honor return type abstract declaration. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9810&quot;&gt;#9810&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;A simple example of what this enforce would be:&lt;/p&gt;
@@ -95,9 +297,9 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;You can also declare &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt;s overloads with different named tuple types. Really handy if you are into using tuples a lot. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10245&quot;&gt;#10245&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can also declare &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;def&lt;/code&gt;s overloads with different named tuple types. Really handy if you are into using tuples a lot. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10245&quot;&gt;#10245&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;A breaking-change that affects C bindings is introduced in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10254&quot;&gt;#10254&lt;/a&gt;. Callbacks within &lt;code class=&quot;highlighter-rouge&quot;&gt;lib&lt;/code&gt; should be declared now as &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;. One less quirk in the compiler.&lt;/p&gt;
+&lt;p&gt;A breaking-change that affects C bindings is introduced in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10254&quot;&gt;#10254&lt;/a&gt;. Callbacks within &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt; should be declared now as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alias&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt;. One less quirk in the compiler.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-diff&quot; data-lang=&quot;diff&quot;&gt;lib YourLib
@@ -109,67 +311,67 @@
 &lt;p&gt;A second breaking-change that affects C bindings is that a Crystal nil value is no longer translated to a null pointer value. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9872&quot;&gt;#9872&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
 
-&lt;p&gt;The following top-level deprecated definitions are dropped: &lt;code class=&quot;highlighter-rouge&quot;&gt;CRC32&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Adler32&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Zlib&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;with_color&lt;/code&gt;. You will need to migrate to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; namespace. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9530&quot;&gt;#9530&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9529&quot;&gt;#9529&lt;/a&gt;, and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9531&quot;&gt;#9531&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following top-level deprecated definitions are dropped: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRC32&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Adler32&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flate&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zlib&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;with_color&lt;/code&gt;. You will need to migrate to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Compress&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest&lt;/code&gt; namespace. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9530&quot;&gt;#9530&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9529&quot;&gt;#9529&lt;/a&gt;, and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9531&quot;&gt;#9531&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;SemanticVersion&lt;/code&gt; obeys the standard (as it should). This causes some breaking-changes if you rely on invalid version names, but otherwise you are safe. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9868&quot;&gt;#9868&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SemanticVersion&lt;/code&gt; obeys the standard (as it should). This causes some breaking-changes if you rely on invalid version names, but otherwise you are safe. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9868&quot;&gt;#9868&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Unfortunately some breaking-changes are silent. There is no simple way to show a warning. Such a case is when the return type of a method is changed. This is what happens to &lt;code class=&quot;highlighter-rouge&quot;&gt;File.size&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;FileInfo#size&lt;/code&gt; since they now return Int64 instead of UInt64. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10015&quot;&gt;#10015&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately some breaking-changes are silent. There is no simple way to show a warning. Such a case is when the return type of a method is changed. This is what happens to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File.size&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FileInfo#size&lt;/code&gt; since they now return Int64 instead of UInt64. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10015&quot;&gt;#10015&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
 
-&lt;p&gt;If you use &lt;code class=&quot;highlighter-rouge&quot;&gt;Complex&lt;/code&gt;, you will need to rewrite some operations like &lt;code class=&quot;highlighter-rouge&quot;&gt;Complex#exp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Complex#log&lt;/code&gt;, etc. to &lt;code class=&quot;highlighter-rouge&quot;&gt;Math.exp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Math.log&lt;/code&gt;. This is the same API as for other numerical types. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9739&quot;&gt;#9739&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Complex&lt;/code&gt;, you will need to rewrite some operations like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Complex#exp&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Complex#log&lt;/code&gt;, etc. to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.exp&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.log&lt;/code&gt;. This is the same API as for other numerical types. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9739&quot;&gt;#9739&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;text&quot;&gt;Text&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; can hold arbitrary byte sequences. When these turned out to be invalid UTF-8 sequences, operations like &lt;code class=&quot;highlighter-rouge&quot;&gt;String#index&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;String#includes?&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Char::Reader&lt;/code&gt; were misbehaving. In the presence of an invalid UTF-8 sequence, the data is now iterated a bit more slowly, like 1 byte at a time, until a valid sequence is found. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9713&quot;&gt;#9713&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt; can hold arbitrary byte sequences. When these turned out to be invalid UTF-8 sequences, operations like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String#index&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String#includes?&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Char::Reader&lt;/code&gt; were misbehaving. In the presence of an invalid UTF-8 sequence, the data is now iterated a bit more slowly, like 1 byte at a time, until a valid sequence is found. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9713&quot;&gt;#9713&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
 
 &lt;p&gt;There is a set of changes seeking consistency over the collection types. Unfortunately some are silent breaking changes.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#reject!&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#select!&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#compact!&lt;/code&gt; return &lt;code class=&quot;highlighter-rouge&quot;&gt;self&lt;/code&gt; always, as &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt;. Bonus point: you can method chain. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9904&quot;&gt;#9904&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Set#delete&lt;/code&gt; returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Bool&lt;/code&gt; to indicate if the element was present. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9590&quot;&gt;#9590&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#reject!&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#delete_if&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9878&quot;&gt;#9878&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;Enumerable#select&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Enumerable#grep&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9711&quot;&gt;#9711&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Hash#key_index&lt;/code&gt; was removed. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10016&quot;&gt;#10016&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#reject!&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#select!&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#compact!&lt;/code&gt; return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;self&lt;/code&gt; always, as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array&lt;/code&gt;. Bonus point: you can method chain. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9904&quot;&gt;#9904&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Set#delete&lt;/code&gt; returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bool&lt;/code&gt; to indicate if the element was present. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9590&quot;&gt;#9590&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#reject!&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#delete_if&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9878&quot;&gt;#9878&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enumerable#select&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Enumerable#grep&lt;/code&gt;. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9711&quot;&gt;#9711&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash#key_index&lt;/code&gt; was removed. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10016&quot;&gt;#10016&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;But not every change is a removal, the following additions are also part of the release!&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Allow &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator#zip&lt;/code&gt; to take multiple &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator&lt;/code&gt; arguments. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9944&quot;&gt;#9944&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Array#shift&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Array#unshift&lt;/code&gt; got faster. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10081&quot;&gt;#10081&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Allow &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Iterator#zip&lt;/code&gt; to take multiple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Iterator&lt;/code&gt; arguments. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9944&quot;&gt;#9944&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array#shift&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array#unshift&lt;/code&gt; got faster. &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10081&quot;&gt;#10081&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
 
-&lt;p&gt;We try to have one way to do things. This comes at the expense of needing to migrate old solutions that served us well. &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; are no longer part of the std-lib since there is a more flexible alternative: &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt;. You can either migrate or, if you still want them, you can use &lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9527&quot;&gt;#9527&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9526&quot;&gt;#9526&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We try to have one way to do things. This comes at the expense of needing to migrate old solutions that served us well. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; are no longer part of the std-lib since there is a more flexible alternative: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt;. You can either migrate or, if you still want them, you can use &lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9527&quot;&gt;#9527&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9526&quot;&gt;#9526&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;You can now declare properties that will be used only on serialization or deserialization. If your model has a field that should be hashed for serialization this comes in really handy. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9567&quot;&gt;#9567&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Another addition is that you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;use_json_discriminator&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;use_yaml_discriminator&lt;/code&gt; with other types than &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;. For example, you can use numbers or enums to map the corresponding type. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9222&quot;&gt;#9222&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10149&quot;&gt;#10149&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Another addition is that you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;use_json_discriminator&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;use_yaml_discriminator&lt;/code&gt; with other types than &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;. For example, you can use numbers or enums to map the corresponding type. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9222&quot;&gt;#9222&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10149&quot;&gt;#10149&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
 
 &lt;p&gt;It’s time to mention some small breaking-changes:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Time::Span.new&lt;/code&gt; deprecated variants are no longer available. (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10051&quot;&gt;#10051&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Time::Span#duration&lt;/code&gt; is deprecated in favor of &lt;code class=&quot;highlighter-rouge&quot;&gt;#abs&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;Time::Span&lt;/code&gt; is already a duration, right? &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10144&quot;&gt;#10144&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Time::Span.new&lt;/code&gt; deprecated variants are no longer available. (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10051&quot;&gt;#10051&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Time::Span#duration&lt;/code&gt; is deprecated in favor of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#abs&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Time::Span&lt;/code&gt; is already a duration, right? &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10144&quot;&gt;#10144&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
 
-&lt;p&gt;Some breaking-changes are almost bug-fixes, but since they mean changing a known behavior, it is worth mentioning them as such. After &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10180&quot;&gt;#10180&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FileUtils.cp_r&lt;/code&gt; will behave as expected when destination is a directory: the destination is calculated with &lt;code class=&quot;highlighter-rouge&quot;&gt;File.join(dest_path, File.basename(src_path))&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Some breaking-changes are almost bug-fixes, but since they mean changing a known behavior, it is worth mentioning them as such. After &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10180&quot;&gt;#10180&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FileUtils.cp_r&lt;/code&gt; will behave as expected when destination is a directory: the destination is calculated with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File.join(dest_path, File.basename(src_path))&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Params&lt;/code&gt; is renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;URI::Params&lt;/code&gt;. In this release there is a deprecated alias that will allow you to deal with this migration more gradually. But I would not count on this alias to remain for long. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10098&quot;&gt;#10098&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::Params&lt;/code&gt; is renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URI::Params&lt;/code&gt;. In this release there is a deprecated alias that will allow you to deal with this migration more gradually. But I would not count on this alias to remain for long. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10098&quot;&gt;#10098&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Another breaking-change is the renaming of &lt;code class=&quot;highlighter-rouge&quot;&gt;URI#full_path&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;URI#request_target&lt;/code&gt;. Some edge-case behaviors also change to match the expected definition. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10099&quot;&gt;#10099&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Another breaking-change is the renaming of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URI#full_path&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URI#request_target&lt;/code&gt;. Some edge-case behaviors also change to match the expected definition. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10099&quot;&gt;#10099&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URI::Params&lt;/code&gt; (former &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Params&lt;/code&gt;), as you know, is used to represent query strings that can hold multiple values for a key. When assigning a new value to a key you will override all values of that key. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9605&quot;&gt;#9605&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URI::Params&lt;/code&gt; (former &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::Params&lt;/code&gt;), as you know, is used to represent query strings that can hold multiple values for a key. When assigning a new value to a key you will override all values of that key. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9605&quot;&gt;#9605&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;color=red&amp;amp;color=blue&amp;amp;console=gameboy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -177,7 +379,7 @@
 &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; =&amp;gt; &quot;color=green&amp;amp;console=gameboy&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Client&lt;/code&gt; can now be used with any &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;TCPSocket&lt;/code&gt;. If you happen to have an application that uses HTTP as protocol over UNIX Sockets, like Docker, you can now talk to it. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9543&quot;&gt;#9543&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HTTP::Client&lt;/code&gt; can now be used with any &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TCPSocket&lt;/code&gt;. If you happen to have an application that uses HTTP as protocol over UNIX Sockets, like Docker, you can now talk to it. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9543&quot;&gt;#9543&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;http&quot;&lt;/span&gt;
@@ -189,29 +391,29 @@
 
 &lt;h3 id=&quot;logging&quot;&gt;Logging&lt;/h3&gt;
 
-&lt;p&gt;To have only one module to log them all, the former &lt;code class=&quot;highlighter-rouge&quot;&gt;Logger&lt;/code&gt; is no longer in the std-lib. Migrate to &lt;code class=&quot;highlighter-rouge&quot;&gt;Log&lt;/code&gt; or, for just a little longer, you can keep using &lt;a href=&quot;https://github.com/crystal-lang/logger.cr&quot;&gt;github:crystal-lang/logger.cr&lt;/a&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9525&quot;&gt;#9525&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To have only one module to log them all, the former &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Logger&lt;/code&gt; is no longer in the std-lib. Migrate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Log&lt;/code&gt; or, for just a little longer, you can keep using &lt;a href=&quot;https://github.com/crystal-lang/logger.cr&quot;&gt;github:crystal-lang/logger.cr&lt;/a&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9525&quot;&gt;#9525&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you need more excuses to migrate to &lt;code class=&quot;highlighter-rouge&quot;&gt;Log&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Backend&lt;/code&gt; can now emit their entries with different strategies that should help keeping the throughput of the app in the presence of logging. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9432&quot;&gt;#9432&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you need more excuses to migrate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Log&lt;/code&gt;, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Log::Backend&lt;/code&gt; can now emit their entries with different strategies that should help keeping the throughput of the app in the presence of logging. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9432&quot;&gt;#9432&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;crypto&quot;&gt;Crypto&lt;/h3&gt;
 
-&lt;p&gt;Time for some security alerts. The std-lib prevents by default the Secure Client-Initiated Renegotiation vulnerability attack. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9815&quot;&gt;#9815&lt;/a&gt; you can find more info and a small patch if you need to secure existing apps. Also, if you use &lt;code class=&quot;highlighter-rouge&quot;&gt;verify_mode=force-peer&lt;/code&gt;, it is now correctly set up. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9668&quot;&gt;#9668&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Time for some security alerts. The std-lib prevents by default the Secure Client-Initiated Renegotiation vulnerability attack. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9815&quot;&gt;#9815&lt;/a&gt; you can find more info and a small patch if you need to secure existing apps. Also, if you use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verify_mode=force-peer&lt;/code&gt;, it is now correctly set up. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9668&quot;&gt;#9668&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; module is now backed by &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenSSL&lt;/code&gt;. Most used algorithms have their own class that is easy to use: &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest::MD5&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest::SHA1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest::SHA256&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest::SHA512&lt;/code&gt;. Bonus: &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest#file&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest#update(IO)&lt;/code&gt; are available to compute digest from file and &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; content. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9864&quot;&gt;#9864&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest&lt;/code&gt; module is now backed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenSSL&lt;/code&gt;. Most used algorithms have their own class that is easy to use: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest::MD5&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest::SHA1&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest::SHA256&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest::SHA512&lt;/code&gt;. Bonus: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest#file&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Digest#update(IO)&lt;/code&gt; are available to compute digest from file and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO&lt;/code&gt; content. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9864&quot;&gt;#9864&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;concurrency&quot;&gt;Concurrency&lt;/h3&gt;
 
-&lt;p&gt;We hid some &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel&lt;/code&gt; API that should have been internal since the beginning. I doubt this will cause any issues. Read more &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9564&quot;&gt;#9564&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We hid some &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Channel&lt;/code&gt; API that should have been internal since the beginning. I doubt this will cause any issues. Read more &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9564&quot;&gt;#9564&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Channel#close&lt;/code&gt; now returns &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; unless the channel was already closed. This is handy in multi-thread, because you might need to know if the current fiber is the one that actually closed the channel. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9443&quot;&gt;#9443&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Channel#close&lt;/code&gt; now returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; unless the channel was already closed. This is handy in multi-thread, because you might need to know if the current fiber is the one that actually closed the channel. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9443&quot;&gt;#9443&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;system&quot;&gt;System&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process.parse_arguments&lt;/code&gt; will allow you to parse a &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; in the same way a POSIX shell does. This is internally used to improve &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_OPTS&lt;/code&gt; parsing. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9518&quot;&gt;#9518&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Process.parse_arguments&lt;/code&gt; will allow you to parse a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt; in the same way a POSIX shell does. This is internally used to improve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CRYSTAL_OPTS&lt;/code&gt; parsing. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9518&quot;&gt;#9518&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;spec&quot;&gt;Spec&lt;/h3&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;#should&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#should_not&lt;/code&gt; methods can now take an additional argument for custom failure messages. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10127&quot;&gt;#10127&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#should&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#should_not&lt;/code&gt; methods can now take an additional argument for custom failure messages. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10127&quot;&gt;#10127&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;something&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
@@ -455,7 +657,7 @@ Around 50% of the registrations come from Europe; 30% of the registrations come 
 &lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; - https://crystal-lang.org/install.sh&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nightly&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Install a specific version as &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor.patch&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor.patch-iteration&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Install a specific version as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor.patch&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor.patch-iteration&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./install.sh &lt;span class=&quot;nt&quot;&gt;--crystal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.35
@@ -470,17 +672,17 @@ Around 50% of the registrations come from Europe; 30% of the registrations come 
 &lt;p&gt;In general, the install script accepts optional arguments&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--crystal&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor.patch&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor.patch-iteration&lt;/code&gt; values&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--channel&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;stable&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;unstable&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;nightly&lt;/code&gt; value&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--crystal&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor.patch&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;major.minor.patch-iteration&lt;/code&gt; values&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--channel&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stable&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unstable&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nightly&lt;/code&gt; value&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;It will identify the Linux distribution and use &lt;code class=&quot;highlighter-rouge&quot;&gt;yum&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It will identify the Linux distribution and use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The installation script requires &lt;code class=&quot;highlighter-rouge&quot;&gt;gnupg&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ca-certificates&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-transport-https&lt;/code&gt; packages that might be already available on your setup. It also needs to be run as root.&lt;/p&gt;
+&lt;p&gt;The installation script requires &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gnupg&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ca-certificates&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-transport-https&lt;/code&gt; packages that might be already available on your setup. It also needs to be run as root.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-if-i-already-have-crystal-installed-via-aptrpm&quot;&gt;What if I already have crystal installed via apt/rpm?&lt;/h2&gt;
 
-&lt;p&gt;The installation script will overwrite &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/apt/sources.list.d/crystal.list&lt;/code&gt; and  &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/yum.repos.d/crystal.repo&lt;/code&gt; on every execution. These are the same files used in the former official apt and rpm repositories.&lt;/p&gt;
+&lt;p&gt;The installation script will overwrite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/apt/sources.list.d/crystal.list&lt;/code&gt; and  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/crystal.repo&lt;/code&gt; on every execution. These are the same files used in the former official apt and rpm repositories.&lt;/p&gt;
 
 &lt;p&gt;If you already have the latest version of Crystal (0.35.1) and run the installation scripts you will see&lt;/p&gt;
 
@@ -498,7 +700,7 @@ Nothing to do&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This happens when there is no newer version in the new repository. If you switch to the nightly channel you will get 1.0.0-dev.&lt;/p&gt;
 
-&lt;p&gt;You can run &lt;code class=&quot;highlighter-rouge&quot;&gt;apt -y remove crystal&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;rpm -e crystal&lt;/code&gt; to remove the current installed Crystal and then execute the installation script.&lt;/p&gt;
+&lt;p&gt;You can run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt -y remove crystal&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rpm -e crystal&lt;/code&gt; to remove the current installed Crystal and then execute the installation script.&lt;/p&gt;
 
 &lt;h2 id=&quot;caveats&quot;&gt;Caveats&lt;/h2&gt;
 
@@ -551,7 +753,7 @@ Nothing to do&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;deb-repository&quot;&gt;deb repository&lt;/h2&gt;
 
-&lt;p&gt;The deb repository declared with &lt;code class=&quot;highlighter-rouge&quot;&gt;deb_distribution=all&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;deb_component&lt;/code&gt; is used for the channel.&lt;/p&gt;
+&lt;p&gt;The deb repository declared with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deb_distribution=all&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deb_component&lt;/code&gt; is used for the channel.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;deb https://dl.bintray.com/crystal/deb all stable
@@ -573,7 +775,7 @@ deb https://dl.bintray.com/crystal/deb all nightly&lt;/code&gt;&lt;/pre&gt;&lt;/
 
 &lt;p&gt;The deb packages in the nightly channel are not signed.&lt;/p&gt;
 
-&lt;p&gt;When installing via &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt; only the repository metadata signature is checked, so there is no need to add our own key in general.&lt;/p&gt;
+&lt;p&gt;When installing via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt; only the repository metadata signature is checked, so there is no need to add our own key in general.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://keybase.io/crystal/pgp_keys.asc&quot;&lt;/span&gt; | apt-key add -&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -581,17 +783,17 @@ deb https://dl.bintray.com/crystal/deb all nightly&lt;/code&gt;&lt;/pre&gt;&lt;/
 
 &lt;h2 id=&quot;rpm-repository&quot;&gt;rpm repository&lt;/h2&gt;
 
-&lt;p&gt;The rpm repository required a bit more fine tuning. The url of the repo is &lt;code class=&quot;highlighter-rouge&quot;&gt;https://dl.bintray.com/crystal/rpm/{DISTRO}/{ARCH}/{CHANNEL}&lt;/code&gt;. In terms of Bintray configuration we use &lt;code class=&quot;highlighter-rouge&quot;&gt;yum_metadata_depth=3&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;The rpm repository required a bit more fine tuning. The url of the repo is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://dl.bintray.com/crystal/rpm/{DISTRO}/{ARCH}/{CHANNEL}&lt;/code&gt;. In terms of Bintray configuration we use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum_metadata_depth=3&lt;/code&gt; .&lt;/p&gt;
 
-&lt;p&gt;We will be using two &lt;code class=&quot;highlighter-rouge&quot;&gt;{DISTRO}&lt;/code&gt; values: &lt;code class=&quot;highlighter-rouge&quot;&gt;el6&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;all&lt;/code&gt;. This is enough, for now, to support CentOS 6/7/8, Fedora. (Note: if CentOS 6/7 shipped with rpm &amp;gt;= 4.13 then a single package would have been enough with &lt;code class=&quot;highlighter-rouge&quot;&gt;libevent-devel &amp;gt;= 2.0 or libevent2-devel&lt;/code&gt; as a dependency).&lt;/p&gt;
+&lt;p&gt;We will be using two &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{DISTRO}&lt;/code&gt; values: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;el6&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all&lt;/code&gt;. This is enough, for now, to support CentOS 6/7/8, Fedora. (Note: if CentOS 6/7 shipped with rpm &amp;gt;= 4.13 then a single package would have been enough with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libevent-devel &amp;gt;= 2.0 or libevent2-devel&lt;/code&gt; as a dependency).&lt;/p&gt;
 
-&lt;p&gt;The only supported &lt;code class=&quot;highlighter-rouge&quot;&gt;{ARCH}&lt;/code&gt; for rpm is &lt;code class=&quot;highlighter-rouge&quot;&gt;x86_64&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The only supported &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{ARCH}&lt;/code&gt; for rpm is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x86_64&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;And &lt;code class=&quot;highlighter-rouge&quot;&gt;{CHANNEL}&lt;/code&gt; is either &lt;code class=&quot;highlighter-rouge&quot;&gt;stable&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;unstable&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;nightly&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;And &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{CHANNEL}&lt;/code&gt; is either &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stable&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unstable&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nightly&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;As before, the repository metadata is signed with the Bintray shared GPG key and the packages are signed with our own key, except for the nightly channel.&lt;/p&gt;
 
-&lt;p&gt;Replace the &lt;code class=&quot;highlighter-rouge&quot;&gt;{DISTRO}&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;{CHANNEL}&lt;/code&gt; and you are all set.&lt;/p&gt;
+&lt;p&gt;Replace the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{DISTRO}&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{CHANNEL}&lt;/code&gt; and you are all set.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[crystal]
@@ -633,40 +835,40 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
 
 &lt;p&gt;As dependencies evolve, it is up to you to decide whether to support just the latest release and force everybody to be on edge, or to support some older versions.&lt;/p&gt;
 
-&lt;p&gt;Thanks to the built-in reflection macros and methods as &lt;code class=&quot;highlighter-rouge&quot;&gt;has_constant?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;has_method?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;responds_to?&lt;/code&gt;, etc., we can have code that compiles and works on multiple versions of a dependency.&lt;/p&gt;
+&lt;p&gt;Thanks to the built-in reflection macros and methods as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_constant?&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_method?&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;responds_to?&lt;/code&gt;, etc., we can have code that compiles and works on multiple versions of a dependency.&lt;/p&gt;
 
-&lt;p&gt;One other mechanism that is not as fancy, but simple, is the &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; macro. If &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency&lt;/code&gt; defines a &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; (as it is encouraged by the init template), then &lt;code class=&quot;highlighter-rouge&quot;&gt;{% if compare_versions(AwesomeDependency::VERSION, &quot;2.0.0&quot;) &amp;gt;= 0 %}&lt;/code&gt; is available to use features only on 2.0.0 or later releases.&lt;/p&gt;
+&lt;p&gt;One other mechanism that is not as fancy, but simple, is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; macro. If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency&lt;/code&gt; defines a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; (as it is encouraged by the init template), then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{% if compare_versions(AwesomeDependency::VERSION, &quot;2.0.0&quot;) &amp;gt;= 0 %}&lt;/code&gt; is available to use features only on 2.0.0 or later releases.&lt;/p&gt;
 
 &lt;h2 id=&quot;advertised-version&quot;&gt;Advertised version&lt;/h2&gt;
 
-&lt;p&gt;If the 3.x version of AwesomeDependency is being developed, we encourage you to set &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;3.0.0-dev&quot;&lt;/code&gt; or something alike. &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;3.0.0&quot;&lt;/code&gt; may be good enough, but some prefer to keep that value for the tagged release only.&lt;/p&gt;
+&lt;p&gt;If the 3.x version of AwesomeDependency is being developed, we encourage you to set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;3.0.0-dev&quot;&lt;/code&gt; or something alike. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;3.0.0&quot;&lt;/code&gt; may be good enough, but some prefer to keep that value for the tagged release only.&lt;/p&gt;
 
-&lt;p&gt;If the &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; is not increased &lt;em&gt;during&lt;/em&gt; the development of 3.x and is kept as the latest 2.x release, then it will be impossible to use &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; to check for 3.x.&lt;/p&gt;
+&lt;p&gt;If the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency::VERSION&lt;/code&gt; is not increased &lt;em&gt;during&lt;/em&gt; the development of 3.x and is kept as the latest 2.x release, then it will be impossible to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; to check for 3.x.&lt;/p&gt;
 
-&lt;p&gt;If &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency::VERSION = &quot;3.0.0-dev&quot;&lt;/code&gt; and we want to start supporting that version in our development branch, we will need to use something like &lt;code class=&quot;highlighter-rouge&quot;&gt;{% if compare_versions(AwesomeDependency::VERSION, &quot;3.0.0-0&quot;) &amp;gt;= 0 %}&lt;/code&gt;, with a trailing &lt;code class=&quot;highlighter-rouge&quot;&gt;-0&lt;/code&gt;. This is because &lt;code class=&quot;highlighter-rouge&quot;&gt;3.0.0-0 &amp;lt; 3.0.0-a &amp;lt; 3.0.0-dev &amp;lt; 3.0.0-z &amp;lt; 3.0.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency::VERSION = &quot;3.0.0-dev&quot;&lt;/code&gt; and we want to start supporting that version in our development branch, we will need to use something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{% if compare_versions(AwesomeDependency::VERSION, &quot;3.0.0-0&quot;) &amp;gt;= 0 %}&lt;/code&gt;, with a trailing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-0&lt;/code&gt;. This is because &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3.0.0-0 &amp;lt; 3.0.0-a &amp;lt; 3.0.0-dev &amp;lt; 3.0.0-z &amp;lt; 3.0.0&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;declaring-dependencies&quot;&gt;Declaring dependencies&lt;/h1&gt;
 
-&lt;p&gt;At this point, we need to mention how dependencies can be declared. As mentioned before, on a tagged release, the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; acts as a contract. This contract states what are the supported versions of each dependency. Shards allows us to declare dependencies, not only as version ranges, but also on a branch, or with no version. Still, I would recommend using version ranges, with lower and upper bound versions, on every formal release of a shard. The other variations should be limited to applications with a &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; or work in progress.&lt;/p&gt;
+&lt;p&gt;At this point, we need to mention how dependencies can be declared. As mentioned before, on a tagged release, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; acts as a contract. This contract states what are the supported versions of each dependency. Shards allows us to declare dependencies, not only as version ranges, but also on a branch, or with no version. Still, I would recommend using version ranges, with lower and upper bound versions, on every formal release of a shard. The other variations should be limited to applications with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; or work in progress.&lt;/p&gt;
 
 &lt;p&gt;My recommendation is that dependencies are declared as:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; 0.9.2&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 0.9.2, &amp;lt; 0.10&lt;/code&gt;) for 0.x versions dependencies, since the next minor release can have breaking changes.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; 2.2&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 2.2, &amp;lt; 3.0&lt;/code&gt;) for non 0.x dependencies where any patch level would work.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; 2.2, &amp;gt;= 2.2.3&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 2.2.3, &amp;lt; 3.0&lt;/code&gt;) for non 0.x dependencies where at least certain patch is required. Potentially, this could be the current patch version if you want.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 2.2.3, &amp;lt; 5.0.0&lt;/code&gt; for cases where you want to support a wide range of versions.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&amp;gt; 0.9.2&lt;/code&gt; (ie: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 0.9.2, &amp;lt; 0.10&lt;/code&gt;) for 0.x versions dependencies, since the next minor release can have breaking changes.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&amp;gt; 2.2&lt;/code&gt; (ie: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 2.2, &amp;lt; 3.0&lt;/code&gt;) for non 0.x dependencies where any patch level would work.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&amp;gt; 2.2, &amp;gt;= 2.2.3&lt;/code&gt; (ie: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 2.2.3, &amp;lt; 3.0&lt;/code&gt;) for non 0.x dependencies where at least certain patch is required. Potentially, this could be the current patch version if you want.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 2.2.3, &amp;lt; 5.0.0&lt;/code&gt; for cases where you want to support a wide range of versions.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Note that &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; 0.9&lt;/code&gt;, without a patch number, is &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 0.9, &amp;lt; 1.0&lt;/code&gt;. This might be too optimistic for a 0.x dependency, so I would discourage it.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&amp;gt; 0.9&lt;/code&gt;, without a patch number, is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 0.9, &amp;lt; 1.0&lt;/code&gt;. This might be too optimistic for a 0.x dependency, so I would discourage it.&lt;/p&gt;
 
 &lt;p&gt;You might be tempted to say &lt;em&gt;any version is fine&lt;/em&gt; but: Did you check older versions to honor that contract? Are you sure that future versions will be supported? Each dependency might be different: in some cases you might be able to feel more secure about this, depending on the author, maintainer and scope of the shard.&lt;/p&gt;
 
 &lt;p&gt;Assuming we are on board with having the above recommendations on the tagged releases of our shard, we can move on to the next topic: How can we check our shard against upcoming or recently released versions of our dependencies.&lt;/p&gt;
 
-&lt;p&gt;My pick is to have the supported versions of the dependencies in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; of the development branch. That is, exactly as they will be published upon release.&lt;/p&gt;
+&lt;p&gt;My pick is to have the supported versions of the dependencies in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; of the development branch. That is, exactly as they will be published upon release.&lt;/p&gt;
 
-&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/422&quot;&gt;shards override feature&lt;/a&gt; in &lt;a href=&quot;https://crystal-lang.org/2020/08/06/shards-0.12.0-released.html&quot;&gt;Shards v0.12&lt;/a&gt; we can have a &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.edge.yml&lt;/code&gt; file were we can force the usage of the development branch of &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeDependency&lt;/code&gt;, locally or on a CI, and use the &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; or other mechanism to check against unreleased changes of that dependency.&lt;/p&gt;
+&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/422&quot;&gt;shards override feature&lt;/a&gt; in &lt;a href=&quot;https://crystal-lang.org/2020/08/06/shards-0.12.0-released.html&quot;&gt;Shards v0.12&lt;/a&gt; we can have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.edge.yml&lt;/code&gt; file were we can force the usage of the development branch of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeDependency&lt;/code&gt;, locally or on a CI, and use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; or other mechanism to check against unreleased changes of that dependency.&lt;/p&gt;
 
 &lt;p&gt;We can also have multiple overrides files if we want to check individual dependencies.&lt;/p&gt;
 
@@ -678,21 +880,21 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
 
 &lt;p&gt;So far we haven’t mentioned Crystal 1.0. What’s the deal with this release or any other major releases? The shards out in the wild declare which std-lib and language version they work with.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; declares this. Out in the wild, almost every shard has an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; 1.0&lt;/code&gt; right now. When using &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: x.y[.z]&lt;/code&gt;, it is interpreted that the shard will work with &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; (ie: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) of the std-lib and language version. This is the same as one of the previously suggested version restriction patterns.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; declares this. Out in the wild, almost every shard has an implicit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt; 1.0&lt;/code&gt; right now. When using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal: x.y[.z]&lt;/code&gt;, it is interpreted that the shard will work with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; (ie: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) of the std-lib and language version. This is the same as one of the previously suggested version restriction patterns.&lt;/p&gt;
 
-&lt;p&gt;As with any dependency, we are free to state that any crystal version will work with our release &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: *&lt;/code&gt;, or remove the upper bound &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: &amp;gt; 0.35&lt;/code&gt;. But again, how can you be sure of that claim?&lt;/p&gt;
+&lt;p&gt;As with any dependency, we are free to state that any crystal version will work with our release &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal: *&lt;/code&gt;, or remove the upper bound &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal: &amp;gt; 0.35&lt;/code&gt;. But again, how can you be sure of that claim?&lt;/p&gt;
 
-&lt;p&gt;Up until now, checking if a shard can work with the upcoming Crystal release required us to use a Crystal nightly build. We still need to do this, but the Crystal nightlies release has a &lt;code class=&quot;highlighter-rouge&quot;&gt;1.0.0-dev&lt;/code&gt; version currently.&lt;/p&gt;
+&lt;p&gt;Up until now, checking if a shard can work with the upcoming Crystal release required us to use a Crystal nightly build. We still need to do this, but the Crystal nightlies release has a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0.0-dev&lt;/code&gt; version currently.&lt;/p&gt;
 
-&lt;p&gt;Since the Crystal version we are using is &lt;code class=&quot;highlighter-rouge&quot;&gt;1.0.0-dev&lt;/code&gt;, shards out in the wild are not candidates. And it is possible that they won’t be available until a 1.x tag is released. How could that be?&lt;/p&gt;
+&lt;p&gt;Since the Crystal version we are using is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0.0-dev&lt;/code&gt;, shards out in the wild are not candidates. And it is possible that they won’t be available until a 1.x tag is released. How could that be?&lt;/p&gt;
 
-&lt;p&gt;To avoid locking us in this, or other major Crystal release, the &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; Shards option can be used. It will not be needed when migrating from Crystal 1.0 to 1.1, but it will come handy again when Crystal 2.0 is developed.&lt;/p&gt;
+&lt;p&gt;To avoid locking us in this, or other major Crystal release, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; Shards option can be used. It will not be needed when migrating from Crystal 1.0 to 1.1, but it will come handy again when Crystal 2.0 is developed.&lt;/p&gt;
 
-&lt;p&gt;You can set the &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; environment variable to &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; in your CI if the &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; command is performed implicitly along the way.&lt;/p&gt;
+&lt;p&gt;You can set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; environment variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; in your CI if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shards install&lt;/code&gt; command is performed implicitly along the way.&lt;/p&gt;
 
 &lt;h1 id=&quot;preparing-all-the-ecosystem-for-crystal-10&quot;&gt;Preparing all the ecosystem for Crystal 1.0&lt;/h1&gt;
 
-&lt;p&gt;Let’s revisit the whole state with a more concrete hypothetical (and pessimistic) example. We are the authors of &lt;code class=&quot;highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt; that depends on &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt;. So far everything is working on Crystal 0.35. &lt;code class=&quot;highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt; is in &lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.0&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt; is in &lt;code class=&quot;highlighter-rouge&quot;&gt;2.2.3&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s revisit the whole state with a more concrete hypothetical (and pessimistic) example. We are the authors of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt; that depends on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt;. So far everything is working on Crystal 0.35. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt; is in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.5.0&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt; is in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.2.3&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;code_section&quot;&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# BelovedShard's shard.yml file&lt;/span&gt;
@@ -714,15 +916,15 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
 &lt;span class=&quot;na&quot;&gt;crystal&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;0.35&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;When trying to use Crystal 1.0.0-dev on &lt;code class=&quot;highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt;, we might stumble onto some issues with &lt;code class=&quot;highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt; and we might not be a maintainer of it. Thanks to Shards override you can fork and change the source of the awesome shard to it.&lt;/p&gt;
+&lt;p&gt;When trying to use Crystal 1.0.0-dev on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BelovedShard&lt;/code&gt;, we might stumble onto some issues with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AwesomeShard&lt;/code&gt; and we might not be a maintainer of it. Thanks to Shards override you can fork and change the source of the awesome shard to it.&lt;/p&gt;
 
-&lt;p&gt;Whether the Awesome fix is done in the main repo, or in a fork, or in the development branch, or in a &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal/1.0&lt;/code&gt; branch, it does not make too much of a difference. All this information will be stated in the shard override file.&lt;/p&gt;
+&lt;p&gt;Whether the Awesome fix is done in the main repo, or in a fork, or in the development branch, or in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal/1.0&lt;/code&gt; branch, it does not make too much of a difference. All this information will be stated in the shard override file.&lt;/p&gt;
 
-&lt;p&gt;The important question is: Which Crystal versions will the next version of Awesome support: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 1.0, &amp;lt; 2.0&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 0.35, &amp;lt; 2.0&lt;/code&gt;? This should guide us when changing the &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt;, and also tell us if we need to use &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions(Crystal::VERSION, &quot;1.0.0-0&quot;)&lt;/code&gt; or not.&lt;/p&gt;
+&lt;p&gt;The important question is: Which Crystal versions will the next version of Awesome support: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 1.0, &amp;lt; 2.0&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 0.35, &amp;lt; 2.0&lt;/code&gt;? This should guide us when changing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; property in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt;, and also tell us if we need to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions(Crystal::VERSION, &quot;1.0.0-0&quot;)&lt;/code&gt; or not.&lt;/p&gt;
 
-&lt;p&gt;Changing the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; is not required right from the start. This can be delayed thanks to &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt;, but it is a good practice to have a clear idea of what the goal is for that property, since it affects the code to be written.&lt;/p&gt;
+&lt;p&gt;Changing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; is not required right from the start. This can be delayed thanks to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt;, but it is a good practice to have a clear idea of what the goal is for that property, since it affects the code to be written.&lt;/p&gt;
 
-&lt;p&gt;Let’s suppose that AwesomeShard was fixed for Crystal 1.0.0-dev in it’s development branch. It will support 1.0 only upon release, but for now &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: 0.35&lt;/code&gt; is still there, since it might want to release a &lt;code class=&quot;highlighter-rouge&quot;&gt;2.2.4&lt;/code&gt; patch before Crystal 1.0 is released. This means that changes to Awesome use &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; and sometime, after Crystal 1.0 is released, those checks will go away and drop support for 0.35.&lt;/p&gt;
+&lt;p&gt;Let’s suppose that AwesomeShard was fixed for Crystal 1.0.0-dev in it’s development branch. It will support 1.0 only upon release, but for now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crystal: 0.35&lt;/code&gt; is still there, since it might want to release a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.2.4&lt;/code&gt; patch before Crystal 1.0 is released. This means that changes to Awesome use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions&lt;/code&gt; and sometime, after Crystal 1.0 is released, those checks will go away and drop support for 0.35.&lt;/p&gt;
 
 &lt;p&gt;More importantly, this means that the development branch of Awesome &lt;em&gt;should&lt;/em&gt; work with Crystal 1.0.0-dev.&lt;/p&gt;
 
@@ -738,15 +940,15 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
     &lt;span class=&quot;na&quot;&gt;branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;develop&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Set &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OVERRIDE=shard.edge.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OVERRIDE=shard.edge.yml&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;This will make the &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; command use the development branch of Awesome, and it will not complain about the Crystal version mismatch (we are running a Crystal 1.x, but shard.yml in awesome states &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= 0.35, &amp;lt; 1.0&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;This will make the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shards install&lt;/code&gt; command use the development branch of Awesome, and it will not complain about the Crystal version mismatch (we are running a Crystal 1.x, but shard.yml in awesome states &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;= 0.35, &amp;lt; 1.0&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;While changing BelovedShard we might need to &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions(Crystal::VERSION, &quot;1.0.0-0&quot;)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;compare_versions(Awesome::VERSION, &quot;2.3.0-0&quot;)&lt;/code&gt;. But our development branch is able to move forward and stay up to date with Crystal and Awesome. Awesome!&lt;/p&gt;
+&lt;p&gt;While changing BelovedShard we might need to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions(Crystal::VERSION, &quot;1.0.0-0&quot;)&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compare_versions(Awesome::VERSION, &quot;2.3.0-0&quot;)&lt;/code&gt;. But our development branch is able to move forward and stay up to date with Crystal and Awesome. Awesome!&lt;/p&gt;
 
 &lt;p&gt;While Crystal 1.0.0-dev keeps evolving, we can iterate on both shards.&lt;/p&gt;
 
-&lt;p&gt;Once Crystal 1.0 is released, each shard will make the explicit decision about which version of the std-lib and language is supported. This will trigger changes in the &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; and maybe some code clean-ups.&lt;/p&gt;
+&lt;p&gt;Once Crystal 1.0 is released, each shard will make the explicit decision about which version of the std-lib and language is supported. This will trigger changes in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; and maybe some code clean-ups.&lt;/p&gt;
 
 &lt;h1 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h1&gt;
 
@@ -770,21 +972,21 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
   &lt;p&gt;注意: この新しいリリースを使うには、Shards をソースコードからビルドするか、1.0.0-pre1 の Crystal がリリースされるまではナイトリー版の Crystal を使う必要があります。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;依存関係の &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; ファイルがエラーを起こしたときに、より適切なエラーメッセージが表示されるようになりました。この改善は &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/408&quot;&gt;#408&lt;/a&gt; によるものです。&lt;/p&gt;
+&lt;p&gt;依存関係の &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; ファイルがエラーを起こしたときに、より適切なエラーメッセージが表示されるようになりました。この改善は &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/408&quot;&gt;#408&lt;/a&gt; によるものです。&lt;/p&gt;
 
 &lt;p&gt;開発の際、依存関係をフォークしたものに切り替えることがあります。このシナリオは複数のコマンドで適切に処理されていませんでしたが、今回のリリースで修正されています。可能なら、Shards は元の依存関係の変更に関わらずバージョン選択を尊重するようにします。もしフォーク元の依存関係が曖昧であれば、エラーが表示されます。&lt;/p&gt;
 
-&lt;p&gt;フォーク元の依存関係が曖昧であるというのは、例えば、もしアプリケーションがパッケージ &lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; を要求していて、2つが &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; を要求しているにも関わらず、どちらも異なるフォークを参照している場合などがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/419&quot;&gt;#419&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/429&quot;&gt;#429&lt;/a&gt;を確認してください。&lt;/p&gt;
+&lt;p&gt;フォーク元の依存関係が曖昧であるというのは、例えば、もしアプリケーションがパッケージ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; と &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; を要求していて、2つが &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; を要求しているにも関わらず、どちらも異なるフォークを参照している場合などがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/419&quot;&gt;#419&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/429&quot;&gt;#429&lt;/a&gt;を確認してください。&lt;/p&gt;
 
-&lt;p&gt;前回のリリースで crystal プロパティが必須になり、そのパッケージが期待するコンパイラと標準ライブラリのバージョンを指定できるようになりました。同時に、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; が追加され、このチェックを無視できるようにもなっています。しばしば Shards を指定したものとは異なるバージョンの Crystal と共に動作させたい場合があります。ライブラリのメンテナが、サポートする Crystal のバージョンを選択するときやテストやリリースの際などに、そのような状況になります。&lt;/p&gt;
+&lt;p&gt;前回のリリースで crystal プロパティが必須になり、そのパッケージが期待するコンパイラと標準ライブラリのバージョンを指定できるようになりました。同時に、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; が追加され、このチェックを無視できるようにもなっています。しばしば Shards を指定したものとは異なるバージョンの Crystal と共に動作させたい場合があります。ライブラリのメンテナが、サポートする Crystal のバージョンを選択するときやテストやリリースの際などに、そのような状況になります。&lt;/p&gt;
 
-&lt;p&gt;破壊的変更の起こりうる Crystal のバージョン (0.x から 1.x や 1.x から 2.x など) が開発されている間は、プロジェクトの CI でナイトリー版を使い &lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を指定するのは合理的でしょう。ですが、一度安定版がリリースされてエコシステムがそれに並べば、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; は必要なくなります。なお、crystal プロパティは依存関係解決の探索空間を枝刈りするのにも役立っています。&lt;/p&gt;
+&lt;p&gt;破壊的変更の起こりうる Crystal のバージョン (0.x から 1.x や 1.x から 2.x など) が開発されている間は、プロジェクトの CI でナイトリー版を使い &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を指定するのは合理的でしょう。ですが、一度安定版がリリースされてエコシステムがそれに並べば、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; は必要なくなります。なお、crystal プロパティは依存関係解決の探索空間を枝刈りするのにも役立っています。&lt;/p&gt;
 
-&lt;p&gt;このリリースでは、Shards は &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; 環境変数を読み取って、追加の CLI オプションとして認識するようになりました。なので、CI のどこかで &lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; が実行されている場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; が利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/417&quot;&gt;#417&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/420&quot;&gt;#420&lt;/a&gt;を確認してください。&lt;/p&gt;
+&lt;p&gt;このリリースでは、Shards は &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; 環境変数を読み取って、追加の CLI オプションとして認識するようになりました。なので、CI のどこかで &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shards install&lt;/code&gt; が実行されている場合は、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; が利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/417&quot;&gt;#417&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/420&quot;&gt;#420&lt;/a&gt;を確認してください。&lt;/p&gt;
 
 &lt;p&gt;このリリースの特筆すべき機能は shards のオーバライドです。この機能はまだ初期段階なので、フィードバックをお待ちしています。この機能をリリースすることで可能になるワークフローや単純化されるものがあり、今後の Crystal のメジャーリリースを補助するものになることを期待しています。この機能は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/422&quot;&gt;#422&lt;/a&gt;で実装され、動機は&lt;a href=&quot;https://github.com/crystal-lang/shards/issues/412&quot;&gt;#412&lt;/a&gt;で説明されています。&lt;/p&gt;
 
-&lt;p&gt;ローカルでのオーバーライド機能は &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.override.yml&lt;/code&gt; ファイルを用意するか、&lt;code class=&quot;highlighter-rouge&quot;&gt;SHARDS_OVERRIDE&lt;/code&gt; 環境変数で指定したファイルを用意することで有効になります。もし依存関係がオーバーライドファイルに載っていた場合、その他の依存関係のグラフの状態に関わらず、そのバージョンが使われることになります。&lt;/p&gt;
+&lt;p&gt;ローカルでのオーバーライド機能は &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.override.yml&lt;/code&gt; ファイルを用意するか、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OVERRIDE&lt;/code&gt; 環境変数で指定したファイルを用意することで有効になります。もし依存関係がオーバーライドファイルに載っていた場合、その他の依存関係のグラフの状態に関わらず、そのバージョンが使われることになります。&lt;/p&gt;
 
 &lt;p&gt;上記のロジックによって、次の場合のワークフローが単純化されるでしょう。&lt;/p&gt;
 
@@ -816,7 +1018,7 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
 
 &lt;h2 id=&quot;標準ライブラリ&quot;&gt;標準ライブラリ&lt;/h2&gt;
 
-&lt;p&gt;0.35.0で導入された&lt;code class=&quot;highlighter-rouge&quot;&gt;IO#write&lt;/code&gt;の変更が取り消されることになりました。以前のように&lt;code class=&quot;highlighter-rouge&quot;&gt;Nil&lt;/code&gt;を返すことになります。この意図的な変更は想定以上に破壊的でした。振り回してしまったことをお詫びします。&lt;/p&gt;
+&lt;p&gt;0.35.0で導入された&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO#write&lt;/code&gt;の変更が取り消されることになりました。以前のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nil&lt;/code&gt;を返すことになります。この意図的な変更は想定以上に破壊的でした。振り回してしまったことをお詫びします。&lt;/p&gt;
 
 &lt;p&gt;このため、0.35.0向けにアップデートした shard については、0.35.0と十分に比較する必要があります。0.35.0 向けにアップデートしていない shard はとくに追加で何かすることはありません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9469&quot;&gt;#9469&lt;/a&gt;を確認してください。&lt;/p&gt;
 
@@ -833,499 +1035,6 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
         <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Crystal 0.35.0がリリースされました！</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;Crystal 0.35.0&lt;/a&gt; がリリースされました。&lt;/p&gt;
-
-&lt;p&gt;今回のリリースはみなさんの待ち望んでいた、1.0直前の標準ライブラリに磨きをかけるものです。この中には最近のいくつかの追加やより洗練された実装の繰り返しといった、多くの活動があります。他には、デバッグの改善や Windows のサポート、その他のプラットフォームでのランタイムの安定化などを含みます。&lt;/p&gt;
-
-&lt;p&gt;このリリースが最後のバージョン 0.x のリリースになるでしょう。1.0.0-preX のリリースに向けて準備をしていてください。&lt;/p&gt;
-
-&lt;p&gt;38人のコントリビューターによって&lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.34.0...0.35.0&quot;&gt;0.34.0から242のコミット&lt;/a&gt;がありました。&lt;/p&gt;
-
-&lt;p&gt;それでは今回のリリースのハイライトを紹介していきます。たくさんの紹介するものがあります。ですが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.0&quot;&gt;リリースのチェンジログ&lt;/a&gt;にもたくさんの価値ある情報があることを忘れないでください。&lt;/p&gt;
-
-&lt;h2 id=&quot;言語の変更&quot;&gt;言語の変更&lt;/h2&gt;
-
-&lt;h3 id=&quot;網羅性チェック-テイク2&quot;&gt;網羅性チェック (テイク2)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html#exhaustive-case&quot;&gt;前回のリリース&lt;/a&gt;で、コンパイラは case 文の条件節の網羅性チェックをするようになりました。ですが、フィーバックを受けて、次のことを決定しました。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;case ... when&lt;/code&gt; を前のように戻す。暗黙の &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; があって、条件節は網羅的でなくてもよい。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;case ... in&lt;/code&gt; 文を実験的に導入する。こちらは暗黙の &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt; を持たず、条件の網羅性が確認できなければコンパイルが通らない。実験的というのはフォードバックを元に変更される可能性がある、ということです。たとえマイナーリリースの間でも、その変更は行なわれる可能性があります。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;この決定によって &lt;code class=&quot;highlighter-rouge&quot;&gt;case ...  when&lt;/code&gt; の意味は身近なままとなり、既存のコードに影響することなく網羅性チェックをする case 文を洗練させていくことが可能になります。より詳細な議論は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9258&quot;&gt;#9258&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9045&quot;&gt;#9045&lt;/a&gt;を参照してください。&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Compiles! Totally fine&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Error: missing case String&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;この変更によって &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; が正式なキーワードとなりました。これは破壊的な変更ですが、&lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; はこれまでもマクロ中ではキーワードとして扱われていました。&lt;/p&gt;
-
-&lt;h2 id=&quot;コンパイラ&quot;&gt;コンパイラ&lt;/h2&gt;
-
-&lt;p&gt;コンパイラに破壊的な変更があり、コンパイラの CLI がシバン &lt;code class=&quot;highlighter-rouge&quot;&gt;#!&lt;/code&gt; によるスクリプトをより安心して動作させられるようになりました。これからは、コマンドの代わりにファイルを引数にしてコンパイラを実行すると (&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal path/to/file.cr arg1 arg2&lt;/code&gt; のように)、ファイルがコンパイルされて、そしてそれを実行する、という動作をします。このとき、引数はプログラムにだけ影響して、コンパイラに影響しない、ということです。&lt;/p&gt;
-
-&lt;p&gt;コンパイラフラグを使いたい場合や引数と共にプログラムを実行したい場合は、次のように run コマンドが使えます。&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal run path/to/file.cr -Dcompiler_flag --release -- arg1 arg2&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt; はコンパイラのオプションとプログラムのオプションを切り分けます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9171&quot;&gt;#9171&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;他の破壊的な変更としては、&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env&lt;/code&gt; がシェル向けにクオートをするようになりました。つまり、&lt;code class=&quot;highlighter-rouge&quot;&gt;eval &quot;$(crystal env)&quot;&lt;/code&gt; が安全にできるようになったということです。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal env VARIABLE&lt;/code&gt; はこれまでの通りです。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9428&quot;&gt;#9428&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;パーサーはたくさんの愛を受けました。エッジケースの修正や、そこそこのリファクタリングが&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9208&quot;&gt;#9208&lt;/a&gt;でされています。&lt;/p&gt;
-
-&lt;p&gt;言語のいくつかの機能はより良い動作のために反芻が必要でした。このリリースではオートキャストが多重ディスパッチやユニオンのデフォルト値に対して動作するようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9004&quot;&gt;#9004&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9366&quot;&gt;#9366&lt;/a&gt;を確認してください。これはいくつかの場合の予期しない残念な挙動を解決するでしょう。&lt;/p&gt;
-
-&lt;p&gt;既存の機能の改善の背景には、Crystal のデバッグ機能の改善を待ち望まれていたことがあります。この改善はまだ完了してはいませんが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8538&quot;&gt;#8538&lt;/a&gt;で大きな一歩を踏み出すことができました。この &lt;a href=&quot;https://dev.to/bcardiff/debug-crystal-in-vscode-via-codelldb-3lf&quot;&gt;VSCode で Crystal のプログラムをどうやってデバッグするかを説明した記事&lt;/a&gt;で、どう設定すれば良いかや、スクリーンショットを確認できます。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Link]&lt;/code&gt; アノテーションは少しだけ再デザインされました。pkg-config とより統合されて、&lt;code class=&quot;highlighter-rouge&quot;&gt;static:&lt;/code&gt; オプションのサポートが無くなりました。これによって将来、デフォルト値をいい感じに提供しつつ、リンクを詳細に設定できるようにすることを見据えています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8972&quot;&gt;#8972&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Crystal パッケージのメンテナにとって&lt;/strong&gt;、コンパイラをビルドする際に&lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_CONFIG_PATH&lt;/code&gt; が標準ライブラリのパスのみを必要とするようになったという知らせは価値があるでしょう。&lt;code class=&quot;highlighter-rouge&quot;&gt;lib&lt;/code&gt; ディレクトリはコンパイラによって常に含まれるようになりました。将来的には shaeds のインストールパスを細かく設定できるようにしたいと考えています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9315&quot;&gt;#9315&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;その他の変更として、&lt;code class=&quot;highlighter-rouge&quot;&gt;SOURCE_DATE_EPOCH&lt;/code&gt; という環境変数を使うことでコンパイラをビルドする際にソースコードの時刻を伝えることができるようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9088&quot;&gt;#9088&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h2 id=&quot;shards&quot;&gt;Shards&lt;/h2&gt;
-
-&lt;p&gt;Shards v0.11.1 が今回のリリースではバンドルされます。&lt;/p&gt;
-
-&lt;p&gt;今回の把握すべき主要な変更は &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティが&lt;strong&gt;効果的に機能する&lt;/strong&gt;ようになった点です。このプロパティは、有効な shard のバージョンを Crystal 環境に基いて決定するのに使われます。詳細は動作は &lt;a href=&quot;https://github.com/crystal-lang/shards/blob/v0.11.1/SPEC.md#crystal&quot;&gt;shards/SPEC.md&lt;/a&gt; を確認してください。&lt;/p&gt;
-
-&lt;p&gt;後方互換性のために &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティが &lt;code class=&quot;highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; に無かった場合、&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; 1.0.0&lt;/code&gt;として解釈されます。よって、Crystal 1.0.0 まではそのままでも動作し続けるでしょう。また、この挙動が不便な場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を渡すことでこのチェックを無視できます。&lt;/p&gt;
-
-&lt;p&gt;利用者の期待を高めるには、依存するバージョンを明示する必要があると考えられます。そして、標準ライブラリや言語のバージョンもまた依存関係なのです。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal:&lt;/code&gt; プロパティの動作は依存関係のバージョン指定とほとんど同じように動作します。違いは、利便性のため &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal: x.y.z&lt;/code&gt; が &lt;code class=&quot;highlighter-rouge&quot;&gt;~&amp;gt; x.y, &amp;gt;= x.y.z&lt;/code&gt; のように (つまり、 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;= x.y.z, &amp;lt; (x+1).0.0&lt;/code&gt;) 解釈されることです。この結果、任意の&lt;strong&gt;メジャー&lt;/strong&gt;リリースで何らかの対応が必要になります。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shards install&lt;/code&gt; を現在のプロジェクトで実行することを推奨します。これによって、&lt;code class=&quot;highlighter-rouge&quot;&gt;shard.lock&lt;/code&gt; がいくつかの追加の新しいバージョンのフォーマットを持つことに気付くかもしれません。そして、&lt;code class=&quot;highlighter-rouge&quot;&gt;lib/.shards.info&lt;/code&gt; ファイルがインストールした依存関係を説明するものとして追加されています。この新しいファイルはバージョン管理システムでトラックする必要はありません。&lt;/p&gt;
-
-&lt;p&gt;最後に、依存関係のバージョン指定で &lt;code class=&quot;highlighter-rouge&quot;&gt;version: &amp;gt;= 1.0.0, &amp;lt; 2.0&lt;/code&gt; のように複数の指定を交差させられるようになったことを紹介します。&lt;/p&gt;
-
-&lt;p&gt;このバージョンでの shards の完全な変更のリストは&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.11.0&quot;&gt;チェンジログ&lt;/a&gt;を参照してください。&lt;/p&gt;
-
-&lt;h2 id=&quot;標準ライブラリ&quot;&gt;標準ライブラリ&lt;/h2&gt;
-
-&lt;p&gt;このリリースにはいくつもの破壊的変更が含まれます。それらの大半は普通、非推奨の警告が出るようになっています。標準ライブラリの整理なしに1.0へと進むことはないつもりです。このような整理は以前にもあったはずです。これに優先順位を付けることは簡単ではなく、地道に進めています。&lt;/p&gt;
-
-&lt;p&gt;計算結果の出力や入力に &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; を引数に取る多くのメソッドがあります。&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5916&quot;&gt;#5916&lt;/a&gt; で、このような引数を最初の引数にすることを標準化する提案がありました。これは &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9134&quot;&gt;#9134&lt;/a&gt; といくつかのそれに続く PR で実現されました。&lt;/p&gt;
-
-&lt;p&gt;これらのすべての &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; メソッドに関係して、&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; クラスのメソッドで、&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; の値を返すものについて、値を返すのではなく結果を &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; に書き込むようなオーバロードが追加されました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9236&quot;&gt;#9236&lt;/a&gt;を確認してください。この影響を受けるのは &lt;code class=&quot;highlighter-rouge&quot;&gt;#underscore&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#titleize&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#capitalize&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#upcase&lt;/code&gt;、そして&lt;code class=&quot;highlighter-rouge&quot;&gt;#downcase&lt;/code&gt; といったメソッドです。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;文字列のインターポレーションの際に生成された文字列が直接 &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; に渡されるようにするための改善の提案として、&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/9291&quot;&gt;#9291&lt;/a&gt;に目を通しておくといいでしょう。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;その他の &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; の破壊的な変更としては、&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_utf8&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_byte&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;#write_bytes&lt;/code&gt;、や&lt;code class=&quot;highlighter-rouge&quot;&gt;#skip_to_end&lt;/code&gt; がスキップした/書き込んだバイト数の数値を返すようになったことがあります。これは他の言語でもそのようになっており、書き込み中に追加の呼び出しなく現在のストリームを位置を把握できるようになります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9233&quot;&gt;#9233&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9363&quot;&gt;#9363&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@[Experimental]&lt;/code&gt; アノテーションという、ライブラリや言語、shardの部分に細心の注意と共に使う必要のあるという指定をするためのものが導入されました。実験的な (experimental) 機能は変更や破壊、もしくは削除を Semver の規約に関わらず行なっても良いものとします。今のところ、アノテーションはドキュメントジェネレータで利用されています。ですが、他にも追加の機能のアイディアがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9244&quot;&gt;#9244&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; 型がリファクタリングされて、いくつかのメソッドの名前が変更されたことに注意する必要があるかもしれません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8426&quot;&gt;#8426&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;さて、&lt;code class=&quot;highlighter-rouge&quot;&gt;OptionParser&lt;/code&gt; がサブコマンドを定義できるようになりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9009&quot;&gt;#9009&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;その他に整理したものとしては&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8886&quot;&gt;#8886&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Gzip&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;、そして&lt;code class=&quot;highlighter-rouge&quot;&gt;Zlib&lt;/code&gt; が &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress&lt;/code&gt; モジュールに移動されました。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;Flate&lt;/code&gt; は &lt;code class=&quot;highlighter-rouge&quot;&gt;Compress::Deflate&lt;/code&gt; に名前が変更されています。&lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;compress/gzip&quot;&lt;/code&gt; として、これらの定数を変更する必要があります。&lt;code class=&quot;highlighter-rouge&quot;&gt;require &quot;gzip&quot;&lt;/code&gt; は依然として有効ですが、警告メッセージが表示されることになります。&lt;/p&gt;
-
-&lt;p&gt;いくつかの変更が &lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;FileUtils&lt;/code&gt; にあります。これらは整理されて、強制する操作が両方の API で有効になりました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9175&quot;&gt;#9175&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;マクロ&quot;&gt;マクロ&lt;/h3&gt;
-
-&lt;p&gt;クロスコンパイルの際、&lt;code class=&quot;highlighter-rouge&quot;&gt;host_flag?&lt;/code&gt; というマクロが追加されたことを知っておくと便利でしょう。これは &lt;code class=&quot;highlighter-rouge&quot;&gt;flag?&lt;/code&gt; のようなものですが、ホストのマシンで解決されます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9049&quot;&gt;#9049&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;数値計算&quot;&gt;数値計算&lt;/h3&gt;
-
-&lt;p&gt;符号付きと符号無しの数値の混ざった演算のオーバーフローの検出が修正されました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9403&quot;&gt;#9403&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Int#digits&lt;/code&gt; というメソッドが追加されて、一貫性のため &lt;code class=&quot;highlighter-rouge&quot;&gt;BigInt#digits&lt;/code&gt; の出力が反転されました。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9383&quot;&gt;#9383&lt;/a&gt; を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;シリアライズ&quot;&gt;シリアライズ&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.mapping&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML.mapping&lt;/code&gt; を使っている場合は、&lt;a href=&quot;https://github.com/crystal-lang/json_mapping.cr&quot;&gt;github:crystal-lang/json_mapping.cr&lt;/a&gt; と &lt;a href=&quot;https://github.com/crystal-lang/yaml_mapping.cr&quot;&gt;github:crystal-lang/yaml_mapping.cr&lt;/a&gt; に移行してください。これらの機能は十分なものでしたが、現在は &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON::Serializable&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Serializable&lt;/code&gt; がより良いものとしてあるため、標準ライブラリから削除されました。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9272&quot;&gt;#9272&lt;/a&gt; を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;時刻&quot;&gt;時刻&lt;/h3&gt;
-
-&lt;p&gt;これからは &lt;code class=&quot;highlighter-rouge&quot;&gt;Time#to_rfc3339&lt;/code&gt; のデフォルトの精度は秒となり、それ以上の精度は出力されません。より細かな精度が必要な場合は &lt;code class=&quot;highlighter-rouge&quot;&gt;fraction_digits&lt;/code&gt; という名前付き引数に 0. 3, 6, 9 という精度の桁数を指定してください。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9283&quot;&gt;#9283&lt;/a&gt; で、時刻に応じて小数点以下の秒を表示する機能を削除しています。&lt;/p&gt;
-
-&lt;h3 id=&quot;ネットワーク&quot;&gt;ネットワーク&lt;/h3&gt;
-
-&lt;p&gt;SSL サーバーのデフォルト値を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9026&quot;&gt;#9026&lt;/a&gt;で更新しました。また、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt; が SSL ハンドシェイク中に時折失敗する問題を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9177&quot;&gt;#9177&lt;/a&gt;で修正しました。&lt;/p&gt;
-
-&lt;p&gt;そして、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Server&lt;/code&gt;に2つの破壊的な変更があります。エラーハンドリングとログまわりの処理を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9115&quot;&gt;#9115&lt;/a&gt;で改善し、新しいログモジュールと統合しました。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9210&quot;&gt;#9210&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP::Request#remote_address&lt;/code&gt; の型を &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Address?&lt;/code&gt; に変更しました。&lt;/p&gt;
-
-&lt;h3 id=&quot;ログ&quot;&gt;ログ&lt;/h3&gt;
-
-&lt;p&gt;まず初めに、&lt;a href=&quot;/2020/04/06/crystal-0.34.0-released.html&quot;&gt;0.34.0&lt;/a&gt;で導入した新しいログモジールを早期に試してフィードバックを送ってくださった皆様に感謝いたします。破壊的な変更を含むいくつかの変更点がありますが、それらは主要な API には影響しません。これらを組み合わせることで、追加の機能といくつかのユースケースでのパーフォマンスの改善を達成しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9293&quot;&gt;#9293&lt;/a&gt;で &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Severity::Warning&lt;/code&gt; を &lt;code class=&quot;highlighter-rouge&quot;&gt;Warn&lt;/code&gt; へと名前を変更しました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.warn { ... }&lt;/code&gt; がありましたが、これはそのままで、警告を表します。。この変更は &lt;code class=&quot;highlighter-rouge&quot;&gt;:warning&lt;/code&gt; やほとんどの環境変数経由での設定に影響します。同様に &lt;code class=&quot;highlighter-rouge&quot;&gt;Verbose&lt;/code&gt; を削除して、&lt;code class=&quot;highlighter-rouge&quot;&gt;Trace&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;Notice&lt;/code&gt; を &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9107&quot;&gt;#9107&lt;/a&gt;で追加しました。&lt;/p&gt;
-
-&lt;p&gt;ログのセットアップがよりシンプルになりました。&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup*&lt;/code&gt; 系の2つのメソッドがあります。これらのメソッドは常にソースとバックエンドの間のバインディングを完全に設定するでしょう。&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:debug&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show debug or above in the stdout for all source&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;db.*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:trace&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will show trace or above in the stdout for db.* sources and nothing else&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup_from_env&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# will grab the value of LOG_LEVEL env variable&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; が1つの環境変数を受け取って動作するようになったことにも注意してください。より柔軟なものが今後追加されるかもしれませんが、名前付き引数はより良い体験を提供するはずです。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9145&quot;&gt;#9145&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;各エントリはこれまでより、現在実行しているファイバーから取得したコンテキストの情報を持っていました。その &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Context&lt;/code&gt; の責務を &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata&lt;/code&gt; と &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; に分割することにしました。前者は&lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; から &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; へのハッシュのようなデータ構造ですが、アロケーションやアルゴリズム的な最適化がされています。これらは主に&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9227&quot;&gt;#9227&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9295&quot;&gt;#9295&lt;/a&gt;で実装されました。これらのリファクタリングによって、クローンによって獲得していた &lt;code class=&quot;highlighter-rouge&quot;&gt;Log::Metadata::Value&lt;/code&gt; の不変性 (immutability) が無くなりました。&lt;/p&gt;
-
-&lt;p&gt;ログエントリにローカルのメタデータや構造化された情報を追加したいという機能が望まれていました。もちろん、現在のファイバのコンテキストに対する変更や復旧が最小であるものが望ましいです。エントリが出力されていない場合は値の生成を省略するという当初の設計を保って、これを達成しました。&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Program started&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Program started&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# same as previous&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;User logged in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# local data&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;User logged in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expr_that_computes_hash_named_tuple_or_metadata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# with exception&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# with exception, no local data&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;exception: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Oh no!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# same as previous&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;action: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;log_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# empty message&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;カスタムのログフォーマッタを作る方法は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9211&quot;&gt;#9211&lt;/a&gt;で再検討されました。ブロックや Proc からフォーマッタを作る方法はまだ利用できますが、文字列から直接フォーマッタを定義するシンプルな方法を確認してみてください。&lt;/p&gt;
-
-&lt;p&gt;出力するログのエントリーをテストしたい場合、新しく追加された &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.capture&lt;/code&gt; というヘルパーが利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9201&quot;&gt;#9201&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;並行処理&quot;&gt;並行処理&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Concurrent::Future&lt;/code&gt; とトップレベルの &lt;code class=&quot;highlighter-rouge&quot;&gt;delay&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;future&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;lazy&lt;/code&gt; を削除しました。これらを使い続けたい場合 &lt;a href=&quot;https://github.com/crystal-community/future.cr&quot;&gt;github:crystal-community/future.cr&lt;/a&gt; shard を利用してください。詳細は &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9093&quot;&gt;#9093&lt;/a&gt; を確認してください。&lt;/p&gt;
-
-&lt;p&gt;その他に&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9097&quot;&gt;#9097&lt;/a&gt;で &lt;code class=&quot;highlighter-rouge&quot;&gt;parallel&lt;/code&gt; マクロが削除されました。&lt;/p&gt;
-
-&lt;p&gt;1.0 以降に向けて、より堅牢で様々な利用に耐えうるもの開発したいと考えています。&lt;/p&gt;
-
-&lt;h3 id=&quot;ランタイム&quot;&gt;ランタイム&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process#signal&lt;/code&gt; があるので &lt;code class=&quot;highlighter-rouge&quot;&gt;Process#kill&lt;/code&gt; を非推奨としました。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9006&quot;&gt;#9006&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;また &lt;code class=&quot;highlighter-rouge&quot;&gt;fork&lt;/code&gt; も非推奨となりました。これはマルチスレッド環境では有効ではありません。この変更が問題である場合は、&lt;code class=&quot;highlighter-rouge&quot;&gt;Process.fork&lt;/code&gt; はまだ利用できるのでそちらを使ってください。しかし、このメソッドはもはや公開された API ではありません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9136&quot;&gt;#9136&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;プラットフォーム&quot;&gt;プラットフォーム&lt;/h3&gt;
-
-&lt;p&gt;macOS ユーザーへ、10.15 (Catalina) で起こるいくつかの互換性の問題を&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9296&quot;&gt;#9296&lt;/a&gt;で修正しました。&lt;/p&gt;
-
-&lt;p&gt;BSD のユーザーヘ、DragonFly(BSD) のサポートを&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9178&quot;&gt;#9178&lt;/a&gt;で追加しました。&lt;/p&gt;
-
-&lt;p&gt;musl ユーザーへ、奇妙な segfaults が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9238&quot;&gt;#9238&lt;/a&gt;で、バックトレースが空になる問題が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9267&quot;&gt;#9267&lt;/a&gt;で修正されました。&lt;/p&gt;
-
-&lt;p&gt;Windows ユーザーへはたくさんのお知らせがあります。現在進行中の取り組みを見るには &lt;a href=&quot;https://github.com/crystal-lang/crystal/wiki/Porting-to-Windows&quot;&gt;Wiki ページ&lt;/a&gt;や&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/5430&quot;&gt;#5430&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;今回のリリースでの Windows 向けの変更としては次のようなものがあります。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; の改善が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9015&quot;&gt;#9015&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9038&quot;&gt;#9038&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9037&quot;&gt;#9037&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9257&quot;&gt;#9257&lt;/a&gt;で行なわれました。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; の振舞いが&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9207&quot;&gt;#9207&lt;/a&gt;でアラインメントされました。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Process&lt;/code&gt; が&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9047&quot;&gt;#9047&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9021&quot;&gt;#9021&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9122&quot;&gt;#9122&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9112&quot;&gt;#9112&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9149&quot;&gt;#9149&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9310&quot;&gt;#9310&lt;/a&gt;で実装されました。&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crystal spec&lt;/code&gt; コマンドが Windows のパスで動作するように&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9234&quot;&gt;#9234&lt;/a&gt;で修正されました。&lt;/li&gt;
-  &lt;li&gt;そして、コンパイラ自身を Windows 上でブートストラップできるようになりました。&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9054&quot;&gt;#9054&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9062&quot;&gt;#9062&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9095&quot;&gt;#9095&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9106&quot;&gt;#9106&lt;/a&gt;、 &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9307&quot;&gt;#9307&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ですが、まだ標準ライブラリのすべての部分が Windows で利用できるというというわけではないことには注意してください。&lt;/p&gt;
-
-&lt;h3 id=&quot;ツール&quot;&gt;ツール&lt;/h3&gt;
-
-&lt;p&gt;主要な変更はドキュメントジェネレータで、バージョンピッカーをサポートするようになりました。外部に &lt;code class=&quot;highlighter-rouge&quot;&gt;.json&lt;/code&gt; ファイルを用意して、現在と過去のリリースを指定することでバージョンピッカーに反映できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8792&quot;&gt;#8792&lt;/a&gt;、&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9074&quot;&gt;#9074&lt;/a&gt;、それと&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9254&quot;&gt;#9254&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h2 id=&quot;次のステップ&quot;&gt;次のステップ&lt;/h2&gt;
-
-&lt;p&gt;Crystal をアップデートしてください。そして、問題の報告を心待ちにしています。私たちは1.0.0に向けての開発を始めています。1.0.0-preX のようなリリースをして、最終的な調整を重ねていくでしょう。&lt;/p&gt;
-
-&lt;p&gt;ここ数回のリリースで修正が多かったことは認めます。ですが、不快感は最小になるように心掛けたつもりです。&lt;/p&gt;
-
-&lt;p&gt;すべての非推奨にした定義は1.0では削除される予定です。1.0をクリーンなバージョンにしたいと思っています。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; と &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; の2箇所で受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を探している場合は &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/06/09/crystal-0.35.0-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/06/09/crystal-0.35.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Crystal 0.34.0 released!</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.34.0&quot;&gt;Crystal 0.34.0&lt;/a&gt; has been released!&lt;/p&gt;
-
-&lt;p&gt;Get excited because this release comes with some of the final touches to the language before 1.0: a better exception hierarchy to replace Errno, a new logging module, cleanups and fixes aiming for a better, more stable release, one that should make us all proud.&lt;/p&gt;
-
-&lt;p&gt;There are &lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.33.0...0.34.0&quot;&gt;183 commits since 0.33.0&lt;/a&gt; by 26 contributors.&lt;/p&gt;
-
-&lt;p&gt;Let’s get right into some of the highlights in this release. But don’t miss out on the rest of the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.34.0&quot;&gt;release changelog&lt;/a&gt; which has a lot of valuable information.&lt;/p&gt;
-
-&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
-
-&lt;h3 id=&quot;exhaustive-case&quot;&gt;Exhaustive Case&lt;/h3&gt;
-
-&lt;p&gt;From now on a &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt; expression will no longer have an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt;. This is useful to enable an exhaustive check across the &lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt; branches within the &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt;. If you are doing &lt;code class=&quot;highlighter-rouge&quot;&gt;case exp&lt;/code&gt; over a union or an enum value, and you are missing a &lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt; to cover some type or value, the compiler will let you know. Unless you have an &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt; at the end of the &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Note: In this version, when the &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt; does not cover all the possibilities, a warning is generated, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; is implicitly added. In the next version it will produce a compile-time error and the implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; will be gone.&lt;/p&gt;
-
-&lt;p&gt;The following snippet complains about the missing &lt;code class=&quot;highlighter-rouge&quot;&gt;when Char&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'x'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;And the following snippet complains about the missing &lt;code class=&quot;highlighter-rouge&quot;&gt;when West&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Direction&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;North&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;South&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;East&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;West&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Direction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;North&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;north?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;south?&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;east?&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The only case that will still have an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; is when there is no expression and only a list of &lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt; statements. This construction is equivalent to multiple &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;elseif&lt;/code&gt; where there is an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;else nil&lt;/code&gt; also.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;even?&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# if x.even?&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# elsif y &amp;gt;= 0&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;# end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8424&quot;&gt;#8424&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;procs-subtyping&quot;&gt;Procs subtyping&lt;/h3&gt;
-
-&lt;p&gt;While dealing with &lt;code class=&quot;highlighter-rouge&quot;&gt;Procs&lt;/code&gt; and callbacks it is common to not use the return value. In Crystal, that usually means returning &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;. In regular methods you can specify the return type &lt;code class=&quot;highlighter-rouge&quot;&gt;: Nil&lt;/code&gt; to ignore the value of the last expression.&lt;/p&gt;
-
-&lt;p&gt;The counterpart in &lt;code class=&quot;highlighter-rouge&quot;&gt;Procs&lt;/code&gt; is harder because there usually is no type annotation for the return type.&lt;/p&gt;
-
-&lt;p&gt;For ease of use, we make it that any &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc(T)&lt;/code&gt; should be able to be used as a &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc(Nil)&lt;/code&gt;. That is, ignoring the return value in runtime. So, for those that like formality, &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc(T) &amp;lt; Proc(Nil)&lt;/code&gt; is a valid subtyping rule now.&lt;/p&gt;
-
-&lt;p&gt;There was a previous attempt to achieve something similar, but in this version, a better handling of that affair was implemented. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8970&quot;&gt;#8970&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;compiler&quot;&gt;Compiler&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;disable_overflow&lt;/code&gt; compiler flag is dropped. This means that the usual arithmetic operators will always have the overflow check. Use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;+&lt;/code&gt; and others to skip overflow checks. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8772&quot;&gt;#8772&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_OPTS&lt;/code&gt; environment variable can now be used to inject compiler options and flags implicitly. This is useful, for example, when the compiler is used in &lt;code class=&quot;highlighter-rouge&quot;&gt;post_install&lt;/code&gt; steps of shards and you want to enforce &lt;code class=&quot;highlighter-rouge&quot;&gt;--error-on-warnings&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8900&quot;&gt;#8900&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;LLVM 10 has just been released and we added support for it. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8940&quot;&gt;#8940&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The codegen for Windows has been improved to work without &lt;code class=&quot;highlighter-rouge&quot;&gt;--single-module&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8978&quot;&gt;#8978&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;shards&quot;&gt;Shards&lt;/h2&gt;
-
-&lt;p&gt;A new version of Shards (0.10.0) has been released. Until now you probably have been using Shards 0.8.1 which lacks some features. Shards 0.9.0 polished many use cases, but it uses a SAT solver, which doesn’t scale. For Shards 0.10.0 we created &lt;a href=&quot;https://github.com/crystal-lang/crystal-molinillo&quot;&gt;crystal-molinillo&lt;/a&gt; a port of the dependency resolution algorithm used by &lt;a href=&quot;https://bundler.io/&quot;&gt;Bundler&lt;/a&gt; and &lt;a href=&quot;https://cocoapods.org/&quot;&gt;CocoaPods&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You can read the rest of the updates in the &lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.10.0&quot;&gt;release changelog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We will be eagerly waiting for feedback from you on Shards to polish it before 1.0.&lt;/p&gt;
-
-&lt;h2 id=&quot;standard-library&quot;&gt;Standard library&lt;/h2&gt;
-
-&lt;h3 id=&quot;errno-no-more&quot;&gt;Errno no more&lt;/h3&gt;
-
-&lt;p&gt;Having as much as possible portable code is part of the goal of the std-lib. One of the areas that were in need of polishing was how &lt;code class=&quot;highlighter-rouge&quot;&gt;Errno&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;WinError&lt;/code&gt; were handled. The &lt;code class=&quot;highlighter-rouge&quot;&gt;Errno&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;WinError&lt;/code&gt; exceptions are now gone, and were replaced by a new hierarchy of exceptions. Unfortunately, there is no easy way to make a smooth transition here with deprecation warnings. The &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Timeout&lt;/code&gt; exception was renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::TimeoutError&lt;/code&gt; to match the new hierarchy:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Exception&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RuntimeError&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Error&lt;/code&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IO::TimeoutError&lt;/code&gt; (inherits &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Error&lt;/code&gt;)&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File::Error&lt;/code&gt; (inherits &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Error&lt;/code&gt;)
-            &lt;ul&gt;
-              &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File::NotFoundError&lt;/code&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File::AccessDeniedError&lt;/code&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File::AlreadyExistsError&lt;/code&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Error&lt;/code&gt; (inherits &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Error&lt;/code&gt;)
-            &lt;ul&gt;
-              &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::ConnectError&lt;/code&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::BindError&lt;/code&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So, you can now use these new types to catch specific errors instead of checking &lt;code class=&quot;highlighter-rouge&quot;&gt;Errno&lt;/code&gt; values. We included the most used errors as classes. If there is no specific class, the base &lt;code class=&quot;highlighter-rouge&quot;&gt;File::Error&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket::Error&lt;/code&gt; will be raised with a meaningful description.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Errno&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;WinError&lt;/code&gt; underlying value is still present if you need it, via the &lt;code class=&quot;highlighter-rouge&quot;&gt;SystemError&lt;/code&gt; module included in this new hierarchy. But it is better if you avoid using it.&lt;/p&gt;
-
-&lt;p&gt;Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8885&quot;&gt;#8885&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;log&quot;&gt;Log&lt;/h3&gt;
-
-&lt;p&gt;The former &lt;code class=&quot;highlighter-rouge&quot;&gt;Logger&lt;/code&gt; module is deprecated and will be removed soon. Its replacement is the &lt;code class=&quot;highlighter-rouge&quot;&gt;Log&lt;/code&gt; module: it’s shorter, more flexible and convenient.&lt;/p&gt;
-
-&lt;p&gt;You can use the top-level &lt;code class=&quot;highlighter-rouge&quot;&gt;Log&lt;/code&gt; constant to emit log entries, or you can declare one inside your module or class. This allows the entries to be emitted from a &lt;em&gt;source&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Each source will be configured to send the entries to different &lt;em&gt;backends&lt;/em&gt; depending on the severity level. If you initialize the logging with &lt;code class=&quot;highlighter-rouge&quot;&gt;Log.setup_from_env&lt;/code&gt; you will be able to filter the level and the sources using the &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_LOG_LEVEL&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_LOG_SOURCES&lt;/code&gt; environment variables.&lt;/p&gt;
-
-&lt;div class=&quot;code_section&quot;&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crystal&quot; data-lang=&quot;crystal&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# file app.cr&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;log&quot;&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;setup_from_env&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyApp&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
-	&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;the app is running&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# log from myapp source&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;MyApp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;finished&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# log from the top-level source&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-&lt;p&gt;If you want to log see all the log entries of the app above, you will need to set both environment variables, since their default values are &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_LOG_LEVEL=INFO&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;CRYSTAL_LOG_SOURCES=&quot;&quot;&lt;/code&gt; (only top-level).&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ CRYSTAL_LOG_LEVEL=DEBUG CRYSTAL_LOG_SOURCES=&quot;*&quot; ./app
-D, [2020-03-30T21:54:50.079554000Z #26206]   DEBUG -- app:my_app: the app is running
-I, [2020-03-30T21:54:50.079624000Z #26206]    INFO -- app:: finished
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8847&quot;&gt;#8847&lt;/a&gt; and check &lt;a href=&quot;https://crystal-lang.org/api/0.34.0/Log.html&quot;&gt;the docs&lt;/a&gt; for how you can define your own backends and use more advanced features of this module.&lt;/p&gt;
-
-&lt;h3 id=&quot;top-level-cleanup&quot;&gt;Top level cleanup&lt;/h3&gt;
-
-&lt;p&gt;As we prepare for 1.0, we wanted to iterate and clean up some of the top-level of the std-lib and prelude. That is the reason behind many deprecations that involved part of &lt;code class=&quot;highlighter-rouge&quot;&gt;Colorize&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8892&quot;&gt;#8892&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Iconv&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8890&quot;&gt;#8890&lt;/a&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;DL&lt;/code&gt; &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8882&quot;&gt;#8882&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some modules were moved out of the top-level: &lt;code class=&quot;highlighter-rouge&quot;&gt;Adler32&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;CRC32&lt;/code&gt; are inside &lt;code class=&quot;highlighter-rouge&quot;&gt;Digest&lt;/code&gt; &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8881&quot;&gt;#8881&lt;/a&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;AtExitHandlers&lt;/code&gt; inside &lt;code class=&quot;highlighter-rouge&quot;&gt;Crystal&lt;/code&gt; &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8883&quot;&gt;#8883&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;There might be some more cleanups/renames before 1.0 to avoid wanting some trivial early breaking-changes.&lt;/p&gt;
-
-&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
-
-&lt;p&gt;On the performance corner of this release, when using &lt;code class=&quot;highlighter-rouge&quot;&gt;Array#fill&lt;/code&gt; for writing all zero values, it will now use &lt;code class=&quot;highlighter-rouge&quot;&gt;memset&lt;/code&gt; for the entire underlying buffer, instead of iterating every position. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8903&quot;&gt;#8903&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
-
-&lt;p&gt;There is a small breaking change in &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML&lt;/code&gt; in order to align the API of all builders. &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Builder.new&lt;/code&gt; with block was renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML::Builder.build&lt;/code&gt; in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8896&quot;&gt;#8896&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;When using the different format builders, &lt;code class=&quot;highlighter-rouge&quot;&gt;IO#flush&lt;/code&gt; will be called to ensure all the content will get through in case you are not closing properly the destination file. This applies to &lt;code class=&quot;highlighter-rouge&quot;&gt;CSV&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;INI&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML&lt;/code&gt; builders. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8876&quot;&gt;#8876&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
-
-&lt;p&gt;It’s time for more breaking-changes in favor of less error-prone code. The &lt;code class=&quot;highlighter-rouge&quot;&gt;Time::Span&lt;/code&gt; initialization API will use mandatory named arguments, like &lt;code class=&quot;highlighter-rouge&quot;&gt;Time::Span.new minutes: 2, seconds: 3&lt;/code&gt;. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8257&quot;&gt;#8257&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
-
-&lt;p&gt;When closing a &lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Socket&lt;/code&gt; the internal &lt;code class=&quot;highlighter-rouge&quot;&gt;fd&lt;/code&gt; is set to &lt;code class=&quot;highlighter-rouge&quot;&gt;-1&lt;/code&gt; to force an invalid file descriptor and avoid mixing &lt;code class=&quot;highlighter-rouge&quot;&gt;fd&lt;/code&gt; from different &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt;s. In single-thread, this was never an issue, but on multi-thread, as usual, issues like this one can cause big headaches. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8873&quot;&gt;#8873&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;IO::Buffered#flush_on_newline&lt;/code&gt; is back. And its default value will be helpful for building CLI tools and pipe them into other commands. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8935&quot;&gt;#8935&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;http&quot;&gt;HTTP&lt;/h3&gt;
-
-&lt;p&gt;The WebSocket support was lacking the proper handling of close code. In order to implement them, a breaking-change on the server-side and in client-side parts was needed. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8975&quot;&gt;#8975&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8981&quot;&gt;#8981&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;windows&quot;&gt;Windows&lt;/h3&gt;
-
-&lt;p&gt;The windows support is moving forward while enabling more specs, and more contributors are jumping into the adventure. Check out &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8683&quot;&gt;#8683&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8822&quot;&gt;#8822&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8885&quot;&gt;#8885&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8958&quot;&gt;#8958&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal init&lt;/code&gt; tool got some polishing. The name of the shard is validated with respect &lt;a href=&quot;https://github.com/crystal-lang/shards/blob/master/SPEC.md#name&quot;&gt;shards spec&lt;/a&gt; and it can be inferred from the directory. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8737&quot;&gt;#8737&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;crystal docs&lt;/code&gt; tool will now show warnings. In previous releases we switched to &lt;code class=&quot;highlighter-rouge&quot;&gt;:ditto:&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;:nodoc:&lt;/code&gt; as magic comments. But we missed showing you the warnings in case you forget to add the colons. Read more at &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8880&quot;&gt;#8880&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-
-&lt;p&gt;Please update your Crystal and report any issues. We will keep moving forward and start the development focusing on 0.35. There won’t be many more 0.x releases. We are getting super close to 1.0!.&lt;/p&gt;
-
-&lt;p&gt;Again, we will be eagerly waiting for feedback from you on Shards to polish it before 1.0.&lt;/p&gt;
-
-&lt;p&gt;All deprecation warnings will soon be gone, and there will be errors in the next release. We want a clean 1.0.&lt;/p&gt;
-
-&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. It is extremely important for us to sustain the support through donations, so that we can maintain this development pace. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; and &lt;a href=&quot;https://salt.bountysource.com/teams/crystal-lang&quot;&gt;Bountysource&lt;/a&gt; are two available channels for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
-</description>
-        <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/04/06/crystal-0.34.0-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/04/06/crystal-0.34.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Towards Crystal 1.0</title>
-        <description>&lt;p&gt;Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases.&lt;/p&gt;
-
-&lt;p&gt;There are three main aspects of the Crystal ecosystem that in a way compete for resources and design decisions (when we say “Crystal ecosystem”, we mean: the compiler, the std-lib, official-ish and community shards, apps that depend on Crystal, and the community itself):&lt;/p&gt;
-
-&lt;p&gt;The language is already widely used, so we want to minimize the number of breaking changes, and when we can’t avoid them, at least minimize their impact on existing codebases.
-We want 1.0 to be a stable version of the language.
-We want the language to keep evolving (said another way, we don’t want the fact that we reached 1.0 to mean that we’re left with an ossified language).&lt;/p&gt;
-
-&lt;p&gt;The challenge at hand is to get as quickly as possible to a 1.0 version of Crystal that is at the same time as faithful as possible to the current state of the language, stable enough for individuals and organizations to feel comfortable adopting it for even their highest impact projects, and a solid foundation for future major versions.&lt;/p&gt;
-
-&lt;p&gt;Considering this context, the most important question to answer almost continuously is: what should happen before 1.0 and what can wait? Let’s delve into that!&lt;/p&gt;
-
-&lt;h2 id=&quot;what-can-wait---after-10&quot;&gt;What &lt;strong&gt;can&lt;/strong&gt; wait? - after 1.0&lt;/h2&gt;
-
-&lt;p&gt;Since we created Crystal, the language kept evolving through a very free process of exploration of new ideas, sometimes experimental ones, that we hoped would bring joy and productivity to the programmer at the end of the day. Sometimes these ideas end up requiring changes in the language. We want to continue receiving and exploring these new ideas, because these organic processes are what made Crystal what it is.&lt;/p&gt;
-
-&lt;p&gt;However, paying excessive attention to these kinds of novel ideas takes away precious resources and focus from the main goal of releasing 1.0. While approaching that, there will be less focus on new and enhanced features that require changes to the language.&lt;/p&gt;
-
-&lt;p&gt;There are also important features that are strongly wanted, but they do not require changes in the language itself. These will likely keep receiving lots of attention from the community and we will do our best to review and give feedback to help them move forward. But we will mainly be focused on the features that are holding back 1.0.&lt;/p&gt;
-
-&lt;p&gt;Let us go over some of those features, which might well make it into eventual 1.x versions of the language:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Windows&lt;/strong&gt;: We aim for most of the shards and apps built on Crystal to be portable. The std-lib should hide platform specific aspects as well as possible. With that in mind adding more platforms to the supported list should not impact neither the language nor the public API. Again, recently we integrated a CI for Windows to ensure we continue moving steadily forward.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Debugger&lt;/strong&gt;: Improving the debugging capabilities requires changes to the compiler and tool ecosystem but not to the language. There is ongoing effort from the community and further collaboration is expected and welcome. The current efforts are looking amazing. These may or may not land in 1.0, it depends a lot on timing of testing and feedback.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Multi-threading&lt;/strong&gt;: There are pending stories to make multi-thread mode a non preview feature. To mention a few: which the desired guarantees for some parts of the std-lib are, or how the scheduler and runtime could be improved. We already polished &lt;code class=&quot;highlighter-rouge&quot;&gt;GC&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Channel&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;IO&lt;/code&gt; to behave correctly with multi-threading on. Future potential enhancements may allow you to use multiple threads more freely, but the core aspects of the language and runtime are set and done.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;X or Y compiler bug&lt;/strong&gt;: We will keep fixing them, before and after 1.0. Their existence didn’t prevent the existing community from building awesome stuff.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-cant-wait---before-10&quot;&gt;What &lt;strong&gt;can’t&lt;/strong&gt; wait? - before 1.0&lt;/h2&gt;
-
-&lt;p&gt;So, what is missing to reach 1.0?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;tooling&lt;/strong&gt;: There are a couple of stories regarding tooling that are missing and need improvements. Shards needs to be more solid for 1.0 (you might have noticed some work in the last couple of weeks on that).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;multi-thread stability &amp;amp; documentation&lt;/strong&gt;: With 0.33.0 we added some new features for multi-thread and improved IO handling. We want and need thread-safe IO, Channel and runtime.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;std-lib polishing&lt;/strong&gt;: Although the std-lib will keep evolving we know there are a couple of modules that do need at least a couple of iterations. We want to improve the current API before 1.0 so we allow more solid solutions to be built upon these features. Some examples of these modules include logging, Errno and general exceptions type hierarchy, as well as removing clutter from the top-level namespace.&lt;/p&gt;
-
-&lt;p&gt;These areas are the ones Manas &amp;amp; the rest of the core-team will invest most of their effort until 1.0 is reached.&lt;/p&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;With this post, we want to provide some clarity on what to expect and what not to expect from the Crystal core team for the next few months.&lt;/p&gt;
-
-&lt;p&gt;Of course, other areas that are not mentioned can still receive contributions. But we want to be transparent on the need to aim for fewer, smaller and self-contained changes in the API to include them in 1.0. Said another way, we’ll be much more conservative as regards our merge policy until we get to 1.0.&lt;/p&gt;
-
-&lt;p&gt;We already have many plans for after 1.0 that we’ll be excited to start sharing and investing efforts on after celebrating Crystal 1.0. Let’s get there first!&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html</guid>
       </item>
     
   </channel>

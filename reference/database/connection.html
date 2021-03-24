@@ -2282,8 +2282,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2295,7 +2307,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2305,8 +2317,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2389,7 +2425,7 @@ Archimedes</p>
 <p>The DB module, is our place to stand when working with databases in Crystal. As written in the documentation: <em>is a unified interface for database access</em>.</p>
 <p>One of the methods implemented in this module is <code>DB#connect</code>. Using this method is the <strong>first way</strong> for creating a connection. Let's see how to use it.</p>
 <h2 id="dbconnect">DB#connect</h2>
-<p>When using <code>DB#connect</code> we are indeed opening a connection to the database. The <code>uri</code> passed as the parameter is used by the module to determine which driver to use (for example: <code>mysql://</code>, <code>postgres://</code>, <code>sqlite://</code>, etc.) i.e. we do not need to specify which database we are using.</p>
+<p>When using <code>DB#connect</code> we are indeed opening a connection to the database. The <code>uri</code> passed as the argument is used by the module to determine which driver to use (for example: <code>mysql://</code>, <code>postgres://</code>, <code>sqlite://</code>, etc.) i.e. we do not need to specify which database we are using.</p>
 <p>The <code>uri</code> for this example is <code>mysql://root:root@localhost/test</code>, and so the module will use the <code>mysql driver</code> to connect to the MySQL database.</p>
 <p>Here is the example:</p>
 <div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;mysql&quot;</span>

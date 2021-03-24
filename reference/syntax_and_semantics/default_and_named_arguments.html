@@ -1029,12 +1029,48 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="default_and_named_arguments.html" class="md-nav__link--active" style="display: block">
+        
+          デフォルト引数と名前付き引数
+        </a>
+      </label>
     
     <a href="default_and_named_arguments.html" class="md-nav__link md-nav__link--active">
       デフォルト引数と名前付き引数
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    デフォルト引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    名前付き引数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2232,8 +2268,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2245,7 +2293,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2255,8 +2303,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2274,8 +2346,28 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    デフォルト引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    名前付き引数
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2292,8 +2384,10 @@
                   </a>
                 
                 
-                <h1 id="_1">デフォルト引数</h1>
-<p>メソッドの引数にはデフォルト値を設定することができます。デフォルト値のある引数を複数指定することもできますが、「1. デフォルト値のない引数」そして「2. デフォルト値のある引数」の順序でのみ指定可能です。</p>
+                  <h1>デフォルト引数と名前付き引数</h1>
+                
+                <h2 id="_1">デフォルト引数</h2>
+<p>メソッドの仮引数にはデフォルト値が設定できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">become_older</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
     <span class="vi">@age</span> <span class="o">+=</span> <span class="n">by</span>
@@ -2309,7 +2403,7 @@
 <span class="n">john</span><span class="o">.</span><span class="n">become_older</span> <span class="mi">2</span>
 <span class="n">john</span><span class="o">.</span><span class="n">age</span> <span class="c1"># =&gt; 3</span>
 </code></pre></div>
-<h1 id="_2">名前付き引数</h1>
+<h2 id="_2">名前付き引数</h2>
 <p>引数は順番に指定していく他に、引数の名前によって指定することもできます。例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">john</span><span class="o">.</span><span class="n">become_older</span> <span class="ss">by</span><span class="p">:</span> <span class="mi">5</span>
 </code></pre></div>
@@ -2325,7 +2419,7 @@
 
 <span class="n">some_method</span> <span class="ss">y</span><span class="p">:</span> <span class="mi">10</span> <span class="c1"># Error, missing argument: x</span>
 </code></pre></div>
-<p>メソッドにスプラット展開 (これについては次の章で説明します) が指定されている場合、名前付き引数を使うことはできません。これはスプラット展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</p>
+<p>メソッドにスプラット展開指定 (これについてはの次の章で説明します) が指定されている場合、名前付き引数は使えません。これはスプラット展開がどのような引数にマッチしたかどうかを把握するのが困難なためです。引数を順番に渡した場合は簡単なので、動作します。</p>
                 
               
               

@@ -474,9 +474,49 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="hash.html" class="md-nav__link--active" style="display: block">
+        
+          ハッシュ (Hash)
+        </a>
+      </label>
+    
     <a href="hash.html" class="md-nav__link md-nav__link--active">
       ハッシュ (Hash)
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ジェネリック型引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ハッシュライクな型のリテラル
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2230,8 +2270,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2243,7 +2295,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2253,8 +2305,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2275,6 +2351,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ジェネリック型引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ハッシュライクな型のリテラル
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2291,19 +2389,19 @@
                 
                 
                 <h1 id="hash">ハッシュ (Hash)</h1>
-<p><a href="http://crystal-lang.org/api/Hash.html">Hash</a> は <code>K</code> 型のキーと <code>V</code> 型の値のペアの対応付けからなるジェネリックなコレクションです。</p>
+<p><a href="https://crystal-lang.org/api/latest/Hash.html">Hash</a> は <code>K</code> 型のキーと <code>V</code> 型の当たい のペアの対応付けからなるジェネリックなコレクションです。</p>
 <p>ハッシュは通常、ひげ括弧 (<code>{ }</code>) に囲われた中に、キーと値を <code>=&gt;</code> で組にしてコンマ <code>,</code> で区切って並べたものである、ハッシュリテラルによって生成されます。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
 </code></pre></div>
-<h1 id="_1">ジェネリック型引数</h1>
+<h2 id="_1">ジェネリック型引数</h2>
 <p>キーの型の <code>K</code> と値の型の <code>V</code> というジェネリック型引数は、それぞれリテラル中のキーと値の型から推論されます。すべて同じ型であれば、<code>K</code>および<code>V</code>はそれに等しくなります。そうでなければ、すべてのキーの型のユニオン型ないし値の型のユニオン型となります。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1"># Hash(Int32, Int32)</span>
 <span class="p">{</span><span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># Hash(Int32 | Char, Int32)</span>
 </code></pre></div>
 <p>閉じひげ括弧のあとに続けて<code>of</code>とキーの型 (<code>K</code>)、さらに <code>=&gt;</code> に続けて値の型 (<code>V</code>) を置くことで、明示的に型を指定することもできます。これは推論された型を置き換えるので、初期化時には同じ型のみを持っているが、他の型も受け入れる必要があるようなハッシュを生成したい場合に対応できます。</p>
-<p>空のハッシュリテラルは常に型を指定する必要があります。
+<p>空のハッシュリテラルは常に型を指定する必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{}</span> <span class="k">of</span> <span class="nb">Int32</span> <span class="o">=&gt;</span> <span class="nb">Int32</span> <span class="c1"># =&gt; Hash(Int32, Int32).new</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="_2">ハッシュライクな型のリテラル</h2>
 <p>Crystal はさらにハッシュライクな型のためのリテラルをサポートしています。型の名前のあとに続けたひげ括弧 (<code>{}</code>) の中に、コンマ区切りのキーと値の組を並べることで利用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">Hash</span><span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>

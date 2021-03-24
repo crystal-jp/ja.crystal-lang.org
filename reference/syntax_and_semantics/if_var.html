@@ -2272,8 +2272,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2285,7 +2297,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2295,8 +2307,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2399,7 +2435,7 @@
   <span class="c1"># ここで `a` は nil にはならない</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>他の手法として、標準ライブラリの <a href="https://crystal-lang.org/api/Object.html#try%28%26block%29-instance-method"><code>Object#try</code></a> を使うこともできます。これは <code>nil</code> ではない場合にのみブロックを実行する、というメソッドです。</p>
+<p>他の手法として、標準ライブラリの <a href="https://crystal-lang.org/api/latest/Object.html#try%28%26block%29-instance-method"><code>Object#try</code></a> も使えます。これは <code>nil</code> ではない場合にのみブロックを実行する、というメソッドです。</p>
 <div class="highlight"><pre><span></span><code><span class="vi">@a</span><span class="o">.</span><span class="n">try</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span>
   <span class="c1"># ここで `a` は nil にはならない</span>
 <span class="k">end</span>

@@ -2310,8 +2310,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2323,7 +2335,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2333,8 +2345,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2441,10 +2477,10 @@
 <div class="highlight"><pre><span></span><code><span class="nb">raise</span> <span class="s2">&quot;OH NO!&quot;</span>
 <span class="nb">raise</span> <span class="nb">Exception</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Some error&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>文字列の場合は、単純にそのメッセージを含んだ <a href="http://crystal-lang.org/api/Exception.html">Exception</a> のインスタンスを生成します。</p>
+<p>文字列の場合は、単純にそのメッセージを含んだ <a href="https://crystal-lang.org/api/latest/Exception.html">Exception</a> のインスタンスを生成します。</p>
 <p>そして、raise の対象に指定することができるのは <code>Exception</code> のインスタンス、もしくはそのサブクラスのみに限られます。</p>
 <h2 id="_3">独自の例外を定義する</h2>
-<p>独自の例外を定義したい場合には、<a href="http://crystal-lang.org/api/Exception.html">Exception</a> からサブクラスを作成します。</p>
+<p>独自の例外を定義したい場合には、<a href="https://crystal-lang.org/api/latest/Exception.html">Exception</a> からサブクラスを作成します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyException</span> <span class="o">&lt;</span> <span class="nb">Exception</span>
 <span class="k">end</span>
 

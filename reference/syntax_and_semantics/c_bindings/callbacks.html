@@ -2270,8 +2270,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2283,7 +2295,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2293,8 +2305,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2361,11 +2397,11 @@
   <span class="k">fun</span> <span class="nf">callback</span><span class="p">(</span><span class="n">f</span> <span class="p">:</span> <span class="nb">Int32</span> <span class="o">-&gt;</span> <span class="nb">Int32</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>それから、以下のように関数 (<a href="http://crystal-lang.org/api/Proc.html">Proc</a>) を渡すことができます。</p>
+<p>それから、以下のように関数 (<a href="https://crystal-lang.org/api/latest/Proc.html">Proc</a>) を渡せます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
 <span class="n">X</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
-<p>呼び出しと同時にインラインで関数を定義する場合は、引数の型を省略することが可能です。このとき、コンパイラが <code>fun</code> のシグネチャに基づいて型を追加します。</p>
+<p>呼び出しと同時にインラインで関数を定義する場合は、引数の型を省略できます。このとき、コンパイラが <code>fun</code> のシグネチャに基づいて型を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="o">.</span><span class="n">callback</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
 </code></pre></div>
 <p>ただ、C に渡される関数はクロージャにはなれません。もし、クロージャが渡されていることがコンパイル時に検出されるとエラーが発生します。</p>
@@ -2378,7 +2414,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># C での callback(NULL) と同じ</span>
 <span class="n">X</span><span class="o">.</span><span class="n">callback</span> <span class="kc">nil</span>
 </code></pre></div>
-<h3 id="c">C の関数にクロージャを渡す</h3>
+<h2 id="c">C の関数にクロージャを渡す</h2>
 <p>ほとんどの C 関数はコールバックに独自のデータのための引数が用意されています。その独自のデータは引数としてコールバックに渡されます。例として、一定の周期でコールバックを呼び出すような C の関数を考えてみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="k">lib</span> <span class="nn">LibTicker</span>
   <span class="k">fun</span> <span class="nf">on_tick</span><span class="p">(</span><span class="n">callback</span> <span class="p">:</span> <span class="p">(</span><span class="nb">Int32</span><span class="p">,</span> <span class="nb">Void</span><span class="o">*</span> <span class="o">-&gt;</span><span class="p">),</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">Void</span><span class="o">*</span><span class="p">)</span>
@@ -2414,8 +2450,8 @@
 </code></pre></div>
 <p>ボックス化したコールバックを <code>@@box</code> に保持したことに注意してください。この理由は、そうしなければどこからも参照していると見なされず、GC がそれを回収してしまうからです。C のライブラリも当然コールバックを保存しているでしょう。しかし Crystal の GC がそれを知る術はないのです。</p>
 <h2 id="raises">Raises アノテーション</h2>
-<p>例外を発生させる可能性のあるコールバックを C の関数が実行するときには、<code>@[Raises]</code> アノテーションを指定しておく必要があります。</p>
-<p>コンパイラは、<code>@[Raises]</code> が指定されたメソッドを実行するメソッドや、例外を発生させるメソッドに対しても (再帰的に) このアノテーションが指定されているものと推論します。</p>
+<p>例外を発生させる可能性のあるコールバックを C の関数が実行するときには <code>@[Raises]</code> アノテーションを指定しておく必要があります。</p>
+<p>コンパイラは <code>@[Raises]</code> が指定されたメソッドを実行するメソッドや、例外を発生させるメソッドに対しても (再帰的に) このアノテーションが指定されているものとして扱います。</p>
 <p>しかし、C の関数には、他の C 関数によって実行されるコールバックを受け取るものがあります。例えば、以下のようなライブラリを考えてください。</p>
 <div class="highlight"><pre><span></span><code><span class="k">lib</span> <span class="nn">LibFoo</span>
   <span class="k">fun</span> <span class="nf">store_callback</span><span class="p">(</span><span class="n">callback</span> <span class="p">:</span> <span class="o">-&gt;</span><span class="p">)</span>

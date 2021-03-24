@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal Automated Release | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal Automated Release" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-03-09T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal Automated Release" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/03/09/crystal-automated-release.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2018/03/09/crystal-automated-release.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"How the build process was updated and what else can be done","headline":"Crystal Automated Release","dateModified":"2018-03-09T00:00:00+00:00","datePublished":"2018-03-09T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/03/09/crystal-automated-release.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2018/03/09/crystal-automated-release.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Crystal Automated Release","description":"How the build process was updated and what else can be done","dateModified":"2018-03-09T00:00:00+00:00","datePublished":"2018-03-09T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -183,7 +185,7 @@
 
 <p>This process used to be enough for our needs, when only one or two people (Ary and Waj) would be in charge of releasing versions of the language. But as the project and the core team grew, we were afraid that some parts of the process were not properly documented, depending on information sitting in their heads or work-of-art environments in their machines.</p>
 
-<p>Another important part of the release process is publishing the docs in the website. Up to now, we’ve been doing this with Travis. Whenever we tagged a build,  we would have Travis sync the output of the <code class="highlighter-rouge">docs</code> command to S3. Then with some route redirect logic we would ensure that links to the latest release docs such as <code class="highlighter-rouge">/api/Array.html</code> would redirect to <code class="highlighter-rouge">/api/0.24.1/Array.html</code>, so we could use the former in articles or the Crystal book.</p>
+<p>Another important part of the release process is publishing the docs in the website. Up to now, we’ve been doing this with Travis. Whenever we tagged a build,  we would have Travis sync the output of the <code class="language-plaintext highlighter-rouge">docs</code> command to S3. Then with some route redirect logic we would ensure that links to the latest release docs such as <code class="language-plaintext highlighter-rouge">/api/Array.html</code> would redirect to <code class="language-plaintext highlighter-rouge">/api/0.24.1/Array.html</code>, so we could use the former in articles or the Crystal book.</p>
 
 <p>Then there’s Docker. Nowadays a release that doesn’t include an official Docker image seems off. So after building and publishing the packages for each platform a Docker image is built, tagged, and published to <a href="https://hub.docker.com/r/crystallang/crystal/">https://hub.docker.com/r/crystallang/crystal/</a>. Yet again this was not automated, and we sometimes would even forget to do it for a couple of days.</p>
 
@@ -225,13 +227,13 @@
 
 <h2 id="nightly-for-osx">Nightly for OSX</h2>
 
-<p>To build the osx compiler we migrated the <a href="https://github.com/crystal-lang/omnibus-crystal">omnibus-crystal</a> repo to <a href="https://github.com/crystal-lang/distribution-scripts">distribution-scripts</a>. Having a single repo will simplify things eventually. We needed to tweak a bit how things used to be in order to avoid spending too much time of CircleCI <sup id="fnref:update-ruby"><a href="#fn:update-ruby" class="footnote">1</a></sup>.</p>
+<p>To build the osx compiler we migrated the <a href="https://github.com/crystal-lang/omnibus-crystal">omnibus-crystal</a> repo to <a href="https://github.com/crystal-lang/distribution-scripts">distribution-scripts</a>. Having a single repo will simplify things eventually. We needed to tweak a bit how things used to be in order to avoid spending too much time of CircleCI <sup id="fnref:update-ruby" role="doc-noteref"><a href="#fn:update-ruby" class="footnote" rel="footnote">1</a></sup>.</p>
 
 <p>Eventually, we could get completely rid of omnibus, but the main goal was to automate the process rather than changing the packaging.</p>
 
 <h2 id="nightly-for-linux-32-bits">Nightly for Linux 32 bits</h2>
 
-<p>The <code class="highlighter-rouge">distribution-scripts</code> build system produces <code class="highlighter-rouge">x86_64</code> Linux packages. To get 32 bits there were a couple of alternatives.</p>
+<p>The <code class="language-plaintext highlighter-rouge">distribution-scripts</code> build system produces <code class="language-plaintext highlighter-rouge">x86_64</code> Linux packages. To get 32 bits there were a couple of alternatives.</p>
 
 <ol>
   <li>Use omnibus scripts as we used to, but run them in <a href="https://github.com/docker-library/official-images#architectures-other-than-amd64">somewhat official Docker i386 images</a> instead of 32bits VMs since CircleCI does not provide 32 bits machine executors. Given that we are keeping the omnibus script for a little longer this seems like an easy path.</li>
@@ -243,7 +245,7 @@
 
 <p>So we tried option 1. The result was - we hit <a href="https://github.com/ivmai/bdwgc/issues/133">a bug in Boehm’s GC</a> specific to 32-bit Docker containers, that was fixed in a release newer than the one our Omnibus setup was using.</p>
 
-<p>So we couldn’t use Crystal 0.24.1 (with the buggy GC version) inside the Docker containers.  As a consequence, we built Crystal 0.24.2 for 32 bits manually, with a newer GC version. That will allow us to release 0.25.0 using the <code class="highlighter-rouge">distribution-scripts</code> in the future. Probably still sticking to option 1.</p>
+<p>So we couldn’t use Crystal 0.24.1 (with the buggy GC version) inside the Docker containers.  As a consequence, we built Crystal 0.24.2 for 32 bits manually, with a newer GC version. That will allow us to release 0.25.0 using the <code class="language-plaintext highlighter-rouge">distribution-scripts</code> in the future. Probably still sticking to option 1.</p>
 
 <p>The bottom line: there are no 32-bit nightly packages for  0.24.2, but we should be able to introduce them in the future.</p>
 
@@ -255,7 +257,7 @@
 
 <p>We wanted to go an additional step further and simplify how users could check if the nightly builds are working on their projects. So we put some work to publish Docker images tagged as nightly. With the fresh Linux packages made during the build we could install it and push a Docker image directly from CircleCI even if the package was not yet published in an APT repository. Note that these images have a compiler with release optimization, so the only difference with the official release will be the version description (of course, as long as the nightly built is performed on the same commit).</p>
 
-<p>We are going to publish <code class="highlighter-rouge">crystallang/crystal:nightly</code> and <code class="highlighter-rouge">crystallang/crystal:nightly-build</code> Docker images. The former should be able to compile apps that use the stdlib, the latter includes LLVM and dependencies needed to build the compiler.</p>
+<p>We are going to publish <code class="language-plaintext highlighter-rouge">crystallang/crystal:nightly</code> and <code class="language-plaintext highlighter-rouge">crystallang/crystal:nightly-build</code> Docker images. The former should be able to compile apps that use the stdlib, the latter includes LLVM and dependencies needed to build the compiler.</p>
 
 <h2 id="keep-the-lineage-in-the-compiler-repo">Keep the lineage in the compiler repo</h2>
 
@@ -277,7 +279,7 @@
   <li>Build a docker image with the signed package and uploaded it.</li>
 </ol>
 
-<p>These steps are performed manually using <a href="https://github.com/crystal-lang/crystal-dist">crystal-lang/crystal-dist</a> so the signing keys are kept safe. Eventually this repo might be join with <code class="highlighter-rouge">distribution-scripts</code> so all the pieces are kept in a single place.</p>
+<p>These steps are performed manually using <a href="https://github.com/crystal-lang/crystal-dist">crystal-lang/crystal-dist</a> so the signing keys are kept safe. Eventually this repo might be join with <code class="language-plaintext highlighter-rouge">distribution-scripts</code> so all the pieces are kept in a single place.</p>
 
 <h2 id="ecosystem-tests">Ecosystem tests</h2>
 
@@ -304,11 +306,11 @@
   <li>Leave a copy of artifacts to be downloaded</li>
 </ol>
 
-<p>Before tagging a commit with the next version, e.g.: <code class="highlighter-rouge">0.25.0</code> we want to ensure that the commit to be tagged is in good shape. If the nightly was performed in that commit we are ok, but a fail safe approach is to tag <code class="highlighter-rouge">0.25.0-pre1</code> and wait for the above mentioned steps.</p>
+<p>Before tagging a commit with the next version, e.g.: <code class="language-plaintext highlighter-rouge">0.25.0</code> we want to ensure that the commit to be tagged is in good shape. If the nightly was performed in that commit we are ok, but a fail safe approach is to tag <code class="language-plaintext highlighter-rouge">0.25.0-pre1</code> and wait for the above mentioned steps.</p>
 
-<p>Once the smoke test success the artifacts of <code class="highlighter-rouge">0.25.0-pre1</code> (or <code class="highlighter-rouge">-pre{N}</code>) we are good to tag <code class="highlighter-rouge">0.25.0</code>.</p>
+<p>Once the smoke test success the artifacts of <code class="language-plaintext highlighter-rouge">0.25.0-pre1</code> (or <code class="language-plaintext highlighter-rouge">-pre{N}</code>) we are good to tag <code class="language-plaintext highlighter-rouge">0.25.0</code>.</p>
 
-<p>We proceed to sign the packages and publish them together with docs and tagged docker images with a single command. For the docker images a new <code class="highlighter-rouge">crystal:{version}-build</code> image will also be published to mimic the nightly -build ones.</p>
+<p>We proceed to sign the packages and publish them together with docs and tagged docker images with a single command. For the docker images a new <code class="language-plaintext highlighter-rouge">crystal:{version}-build</code> image will also be published to mimic the nightly -build ones.</p>
 
 <p>There are two pending manual steps:</p>
 
@@ -326,10 +328,10 @@
   <li>We should be able to use the new Docker {version}-build images in the CI. That will remove the extra dependency of <a href="https://github.com/jhass/crystal-build-docker">jhass’ crystal build images</a> that ran the CI until now.</li>
   <li>Move the manual build steps for publishing docker image with the signed packages and the publishing of the docs into jobs in circleci. These jobs will remain on hold waiting for a <a href="https://circleci.com/blog/manual-job-approval-and-scheduled-workflow-runs/">manual approval</a> signaling that the packages were signed and published.</li>
   <li>There is some cleanup to do regarding dockerfiles and vagrantfile in the compiler repo. These are most probably outdated and some former use cases have changed.</li>
-  <li>A proper nightly repo for Linux distributions would be great. There is one that is mainly used by Travis to allow <code class="highlighter-rouge">crystal: stable</code> and <code class="highlighter-rouge">crystal: nightly</code> options. In the future it would be great to automate updates on a nightly repo directly from the CI.</li>
+  <li>A proper nightly repo for Linux distributions would be great. There is one that is mainly used by Travis to allow <code class="language-plaintext highlighter-rouge">crystal: stable</code> and <code class="language-plaintext highlighter-rouge">crystal: nightly</code> options. In the future it would be great to automate updates on a nightly repo directly from the CI.</li>
   <li>We still haven’t updated the LLVM version used in the release process for OSX. Currently a custom LLVM 3.9.1 is embedded so the shipped binaries are a bit smaller. But for historical reasons before LLVM 3.8 we were forced to custom build to use some edge features. Maybe we could switch to official LLVM releases now. We are now using LLVM precompiled by 3rd parties for Linux since we started drifting from omnibus. If you use OSX you might notice that your LLVM uses 4.0 or 5.0 because probably you installed Crystal from Homebrew. That compiler is built by Homebrew and they use the latest stable release.</li>
   <li>The creation of a patch of Homebrew formula could be automated so submitting a PR for the new release could be really fancy and, more importantly, unforgettable.</li>
-  <li>Shipping the compiler for more platforms is something that can be done, but as long as it can be automated. Eventually something that would make sense is to ship one version of the compiler that could be used to create packages for the different distros and use when possible native packages. That way the Crystal compiler package of each distro could be smaller and would play well regarding how dependencies need to be declared <sup id="fnref:distro-deps"><a href="#fn:distro-deps" class="footnote">2</a></sup></li>
+  <li>Shipping the compiler for more platforms is something that can be done, but as long as it can be automated. Eventually something that would make sense is to ship one version of the compiler that could be used to create packages for the different distros and use when possible native packages. That way the Crystal compiler package of each distro could be smaller and would play well regarding how dependencies need to be declared <sup id="fnref:distro-deps" role="doc-noteref"><a href="#fn:distro-deps" class="footnote" rel="footnote">2</a></sup></li>
 </ul>
 
 <h1 id="next-steps">Next steps</h1>
@@ -337,13 +339,13 @@
 <p>Our next goal is to research on improving the compiler’s performance. For that, we will be making a pass on language semantics to round off some of the known problems we know are there. That will allows us to solidify the language so that we can guarantee no breaking-changes post 1.0.
 We have 41 hours left from January and 64 hours from donations received during February that we’ll invest during March on this. Please continue to <a href="https://salt.bountysource.com/teams/crystal-lang">support our work</a>, it makes a huge difference!</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:update-ruby">
-      <p>the Ruby versions available in OSX CircleCI VMs are limited. Installing &amp; building a specific Ruby version takes some time <a href="https://discuss.circleci.com/t/cache-of-installed-ruby/19606">https://discuss.circleci.com/t/cache-of-installed-ruby/19606</a> <a href="#fnref:update-ruby" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:update-ruby" role="doc-endnote">
+      <p>the Ruby versions available in OSX CircleCI VMs are limited. Installing &amp; building a specific Ruby version takes some time <a href="https://discuss.circleci.com/t/cache-of-installed-ruby/19606">https://discuss.circleci.com/t/cache-of-installed-ruby/19606</a> <a href="#fnref:update-ruby" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:distro-deps">
-      <p><a href="https://github.com/crystal-lang/crystal/issues/5650">https://github.com/crystal-lang/crystal/issues/5650</a> <a href="#fnref:distro-deps" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:distro-deps" role="doc-endnote">
+      <p><a href="https://github.com/crystal-lang/crystal/issues/5650">https://github.com/crystal-lang/crystal/issues/5650</a> <a href="#fnref:distro-deps" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>

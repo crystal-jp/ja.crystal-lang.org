@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Watch: Run, change, build, repeat | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Watch: Run, change, build, repeat" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-04-30T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Watch: Run, change, build, repeat" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server.","headline":"Watch: Run, change, build, repeat","dateModified":"2019-04-30T00:00:00+00:00","datePublished":"2019-04-30T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2019/04/30/watch-run-change-build-repeat.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Watch: Run, change, build, repeat","description":"In this post, we’ll cover how to automatically recompile and execute your code when you modify your source files. This technique can be applied easily on apps ranging from a CLI app, to a full web server.","dateModified":"2019-04-30T00:00:00+00:00","datePublished":"2019-04-30T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -180,13 +182,13 @@
 <h2 id="requirements">Requirements</h2>
 
 <ul>
-  <li>Have <code class="highlighter-rouge">watchexec</code> installed (check <a href="https://github.com/watchexec/watchexec">github</a> for installation instructions)</li>
-  <li>Use shards’ <code class="highlighter-rouge">targets</code></li>
+  <li>Have <code class="language-plaintext highlighter-rouge">watchexec</code> installed (check <a href="https://github.com/watchexec/watchexec">github</a> for installation instructions)</li>
+  <li>Use shards’ <code class="language-plaintext highlighter-rouge">targets</code></li>
 </ul>
 
 <h2 id="setup">Setup</h2>
 
-<p>Create a <code class="highlighter-rouge">./dev/build-exec.sh</code> file with the following content. This is the script that will recompile and execute your code.</p>
+<p>Create a <code class="language-plaintext highlighter-rouge">./dev/build-exec.sh</code> file with the following content. This is the script that will recompile and execute your code.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#!/bin/bash</span>
@@ -194,7 +196,7 @@
 shards build <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> ./bin/<span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="p">@</span>:2<span class="k">}</span><span class="s2">"</span></code></pre></figure>
 </div>
 
-<p>Create a <code class="highlighter-rouge">./dev/watch.sh</code> file with the following content. This script will watch for changes to your source files and execute the build when there are any.</p>
+<p>Create a <code class="language-plaintext highlighter-rouge">./dev/watch.sh</code> file with the following content. This script will watch for changes to your source files and execute the build when there are any.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#!/bin/bash</span>
@@ -210,9 +212,9 @@ watchexec <span class="nt">-r</span> <span class="nt">-w</span> src <span class=
 
 <h2 id="enjoy">Enjoy</h2>
 
-<p>If you created your app with <code class="highlighter-rouge">$ crystal init app awesome_app</code></p>
+<p>If you created your app with <code class="language-plaintext highlighter-rouge">$ crystal init app awesome_app</code></p>
 
-<p>There should be a target named <code class="highlighter-rouge">awesome_app</code></p>
+<p>There should be a target named <code class="language-plaintext highlighter-rouge">awesome_app</code></p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">cat </span>shard.yml
@@ -239,21 +241,21 @@ targets:
 
 <h2 id="how-does-it-work">How does it work</h2>
 
-<p>The <code class="highlighter-rouge">build-exec.sh</code> file is taking advantage of the output location of a target to be able to build it and run it. But we want to run it in a special way: via <code class="highlighter-rouge">exec</code> we are replacing the current process with the new version of the program.</p>
+<p>The <code class="language-plaintext highlighter-rouge">build-exec.sh</code> file is taking advantage of the output location of a target to be able to build it and run it. But we want to run it in a special way: via <code class="language-plaintext highlighter-rouge">exec</code> we are replacing the current process with the new version of the program.</p>
 
-<p>The <code class="highlighter-rouge">build-exec.sh</code> will be called with the target as a first argument and from the rest of the arguments will be the one we expect the application to receive. That is the role of <code class="highlighter-rouge">${@:2}</code>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">build-exec.sh</code> will be called with the target as a first argument and from the rest of the arguments will be the one we expect the application to receive. That is the role of <code class="language-plaintext highlighter-rouge">${@:2}</code>.</p>
 
-<p>The <code class="highlighter-rouge">watch.sh</code> will keep an eye on the <code class="highlighter-rouge">./src</code> directory and if anything changes the <code class="highlighter-rouge">build-exec.sh</code> will be run while keeping the arguments.</p>
+<p>The <code class="language-plaintext highlighter-rouge">watch.sh</code> will keep an eye on the <code class="language-plaintext highlighter-rouge">./src</code> directory and if anything changes the <code class="language-plaintext highlighter-rouge">build-exec.sh</code> will be run while keeping the arguments.</p>
 
-<p>A bonus point of the proposed <code class="highlighter-rouge">watch.sh</code> is that it politely requests the app to terminate via a <code class="highlighter-rouge">SIGTERM</code>.</p>
+<p>A bonus point of the proposed <code class="language-plaintext highlighter-rouge">watch.sh</code> is that it politely requests the app to terminate via a <code class="language-plaintext highlighter-rouge">SIGTERM</code>.</p>
 
 <h2 id="take-it-to-the-next-level">Take it to the next level</h2>
 
-<p>This solution can be adapted to be used in a docker container since <code class="highlighter-rouge">watchexec</code> works flawlessly with Docker’s bind mounted volumes.</p>
+<p>This solution can be adapted to be used in a docker container since <code class="language-plaintext highlighter-rouge">watchexec</code> works flawlessly with Docker’s bind mounted volumes.</p>
 
-<p>You can make your specs run continuously, as long as you also watch <code class="highlighter-rouge">./spec</code> files.</p>
+<p>You can make your specs run continuously, as long as you also watch <code class="language-plaintext highlighter-rouge">./spec</code> files.</p>
 
-<p>You can also watch <code class="highlighter-rouge">./lib</code> files in case you want to restart the app when updating dependencies, that’s up to your preferred workflow.</p>
+<p>You can also watch <code class="language-plaintext highlighter-rouge">./lib</code> files in case you want to restart the app when updating dependencies, that’s up to your preferred workflow.</p>
 
 <p>And you can even keep an eye on other paths to perform other specific actions.</p>
 

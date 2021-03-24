@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.25.1 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.25.1 released!" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-06-28T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.25.1 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/06/28/crystal-0.25.1-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2018/06/28/crystal-0.25.1-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.25.1 has been released!","headline":"Crystal 0.25.1 released!","dateModified":"2018-06-28T00:00:00+00:00","datePublished":"2018-06-28T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/06/28/crystal-0.25.1-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2018/06/28/crystal-0.25.1-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Crystal 0.25.1 released!","description":"Crystal 0.25.1 has been released!","dateModified":"2018-06-28T00:00:00+00:00","datePublished":"2018-06-28T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -194,9 +196,9 @@ Did you know that shards can be checked out, hacked around, compiled and used li
 
 <p>There were a couple of edge cases fixed, documentation improvements and some features added.</p>
 
-<h2 id="for-the-record">For the <code class="highlighter-rouge">record</code></h2>
+<h2 id="for-the-record">For the <code class="language-plaintext highlighter-rouge">record</code></h2>
 
-<p>The <code class="highlighter-rouge">record</code> macro now generates a <code class="highlighter-rouge">#copy_with</code> method that would simplify creating a copy of the struct with some changed values.</p>
+<p>The <code class="language-plaintext highlighter-rouge">record</code> macro now generates a <code class="language-plaintext highlighter-rouge">#copy_with</code> method that would simplify creating a copy of the struct with some changed values.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">record</span> <span class="no">Point</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
@@ -208,17 +210,17 @@ Did you know that shards can be checked out, hacked around, compiled and used li
 
 <p>Read more <a href="https://github.com/crystal-lang/crystal/pull/5736">here</a>.</p>
 
-<h2 id="refinements-in-jsonany-and-yamlany">Refinements in <code class="highlighter-rouge">JSON::Any</code> and <code class="highlighter-rouge">YAML::Any</code></h2>
+<h2 id="refinements-in-jsonany-and-yamlany">Refinements in <code class="language-plaintext highlighter-rouge">JSON::Any</code> and <code class="language-plaintext highlighter-rouge">YAML::Any</code></h2>
 
 <p>These wrapper structures are very handy but sometimes they cause a bit of confusion.</p>
 
-<p>For example, with the inherited default <code class="highlighter-rouge">#dup</code>, the result and the receiver would share a reference to the same inner value. Wrapper’s identity is rarely more important than the inner value’s identity. So having <code class="highlighter-rouge">#dup</code> (and <code class="highlighter-rouge">#clone</code>) on the wrapper to actually perform the operation on the inner value makes a bit more sense.</p>
+<p>For example, with the inherited default <code class="language-plaintext highlighter-rouge">#dup</code>, the result and the receiver would share a reference to the same inner value. Wrapper’s identity is rarely more important than the inner value’s identity. So having <code class="language-plaintext highlighter-rouge">#dup</code> (and <code class="language-plaintext highlighter-rouge">#clone</code>) on the wrapper to actually perform the operation on the inner value makes a bit more sense.</p>
 
 <p>Read more <a href="https://github.com/crystal-lang/crystal/pull/6266">here</a>.</p>
 
-<h2 id="improve-httpstaticfilehandler-with-etag">Improve <code class="highlighter-rouge">HTTP::StaticFileHandler</code> with ETag</h2>
+<h2 id="improve-httpstaticfilehandler-with-etag">Improve <code class="language-plaintext highlighter-rouge">HTTP::StaticFileHandler</code> with ETag</h2>
 
-<p>In case you didn’t know, there are headers that help <code class="highlighter-rouge">HTTP</code> communications to avoid sending too much data if the client already has it. The <code class="highlighter-rouge">HTTP::StaticFileHandler</code> keeps and will keep learning about them.</p>
+<p>In case you didn’t know, there are headers that help <code class="language-plaintext highlighter-rouge">HTTP</code> communications to avoid sending too much data if the client already has it. The <code class="language-plaintext highlighter-rouge">HTTP::StaticFileHandler</code> keeps and will keep learning about them.</p>
 
 <p>Read more <a href="https://github.com/crystal-lang/crystal/pull/6145">here</a>.</p>
 

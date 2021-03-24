@@ -2230,8 +2230,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2243,7 +2255,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2253,8 +2265,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2302,7 +2338,8 @@
 <div class="highlight"><pre><span></span><code><span class="n">hash</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">of</span> <span class="nb">Int32</span> <span class="o">=&gt;</span> <span class="nb">String</span>
 <span class="n">another_hash</span> <span class="o">=</span> <span class="k">typeof</span><span class="p">(</span><span class="n">hash</span><span class="p">)</span><span class="o">.</span><span class="n">new</span> <span class="c1"># :: Hash(Int32, String)</span>
 </code></pre></div>
-<p><code>typeof</code> は実際には式を評価せず、利用されるのはコンパイルのときです。例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。</p>
+<p><code>typeof</code> は実際には式を評価せず、利用されるのはコンパイルのときのみです。
+例えば以下の例では、ネストされた型から、再帰的に型の組み合わせ (ユニオン型) を構築しています。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Array</span>
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">elem_type</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">typ</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="nb">Array</span><span class="p">)</span>

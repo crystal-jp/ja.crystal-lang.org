@@ -16,7 +16,7 @@
     
     
       
-        <title>Travis CI の利用 - Crystal</title>
+        <title>Travis CI - Crystal</title>
       
     
     
@@ -93,7 +93,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Travis CI の利用
+              Travis CI
             
           </span>
         </div>
@@ -2219,6 +2219,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -2234,12 +2246,12 @@
         
           <a href="travis.html" class="md-nav__link--active" style="display: block">
         
-          Travis CI の利用
+          Travis CI
         </a>
       </label>
     
     <a href="travis.html" class="md-nav__link md-nav__link--active">
-      Travis CI の利用
+      Travis CI
     </a>
     
       
@@ -2270,69 +2282,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#using-a-specific-crystal-release" class="md-nav__link">
-    Using a specific Crystal release
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-latest-nightly-and-a-specific-crystal-release-all-together" class="md-nav__link">
-    Using latest, nightly and a specific Crystal release all together!
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-shards-packages" class="md-nav__link">
-    Installing shards packages
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing shards packages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-docker" class="md-nav__link">
-    Using Docker
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-binary-dependencies" class="md-nav__link">
-    Installing binary dependencies
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing binary dependencies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-docker_1" class="md-nav__link">
-    Using Docker
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-services" class="md-nav__link">
-    Using services
-  </a>
   
 </li>
       
@@ -2357,7 +2308,7 @@
 
   <li class="md-nav__item">
     <a href="circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2367,8 +2318,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2410,69 +2385,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#using-a-specific-crystal-release" class="md-nav__link">
-    Using a specific Crystal release
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-latest-nightly-and-a-specific-crystal-release-all-together" class="md-nav__link">
-    Using latest, nightly and a specific Crystal release all together!
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-shards-packages" class="md-nav__link">
-    Installing shards packages
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing shards packages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-docker" class="md-nav__link">
-    Using Docker
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-binary-dependencies" class="md-nav__link">
-    Installing binary dependencies
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing binary dependencies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-docker_1" class="md-nav__link">
-    Using Docker
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-services" class="md-nav__link">
-    Using services
-  </a>
   
 </li>
       
@@ -2510,186 +2424,230 @@
 <h2 id="build-and-run-specs">Build and run specs</h2>
 <h3 id="using-latest-and-nightly">Using <code>latest</code> and <code>nightly</code></h3>
 <p>A first (and very basic) Travis CI config file could be:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
-<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
+<div class="admonition example">
+<p class="admonition-title">.travis.yml</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
 </code></pre></div>
 <p>That's it! With this config file, Travis CI by default will run <code>crystal spec</code>.
 Now, we just need to go to Travis CI dashboard to <a href="https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci">add the GitHub repository</a>.</p>
 <p>Let's see another example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
-<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
-
-<span class="nt">crystal</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nightly</span>
-
-<span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal tool format --check</span>
-</code></pre></div>
-<p>With this configuration, Travis CI will run the tests using both Crystal <code>latest</code> and <code>nightly</code> releases on every push to a branch on your Github repository.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition example">
+<p class="admonition-title">.travis.yml</p>
 </div>
-<p>When <a href="../../using_the_compiler/#creating-a-crystal-project">creating a Crystal project</a> using <code>crystal init</code>, Crystal creates a <code>.travis.yml</code> file for us.</p>
-<h3 id="using-a-specific-crystal-release">Using a specific Crystal release</h3>
-<p>Let's suppose we want to pin a specific Crystal release (maybe we want to make sure the shard compiles and works with that version) for example <a href="https://github.com/crystal-lang/crystal/releases/tag/0.31.1">Crystal 0.31.1</a>.</p>
-<p>Travis CI only provides <em>runners</em> to <code>latest</code> and <code>nightly</code> releases directly and so, we need to install the requested Crystal release manually. For this we are going to use <a href="https://www.docker.com/">Docker</a>.</p>
-<p>First we need to add Docker as a service in <code>.travis.yml</code>, and then we can use <code>docker</code> commands in our build steps, like this:</p>
-<div class="highlight"><pre><span></span><code># .travis.yml
-language: minimal
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
 
-services:
-  - docker
+    <span class="l l-Scalar l-Scalar-Plain">crystal</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nightly</span>
 
-script:
-  - docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>We may read about different (languages)[<a href="https://docs.travis-ci.com/user/languages/">https://docs.travis-ci.com/user/languages/</a>] supported by Travis CI, included <a href="https://docs.travis-ci.com/user/languages/minimal-and-generic/">minimal</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>A list with the different official <a href="https://hub.docker.com/r/crystallang/crystal/tags">Crystal docker images</a> is available at <a href="https://hub.docker.com/r/crystallang/crystal">DockerHub</a>.</p>
-<h3 id="using-latest-nightly-and-a-specific-crystal-release-all-together">Using <code>latest</code>, <code>nightly</code> and a specific Crystal release all together!</h3>
-<p>Supported <em>runners</em> can be combined with Docker-based <em>runners</em> using a <a href="https://docs.travis-ci.com/user/customizing-the-build#build-matrix">Build Matrix</a>. This will allow us to run tests against <code>latest</code> and <code>nightly</code> and pinned releases.</p>
-<p>Here is the example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
+<span class=" -Error">    </span><span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal tool format --check</span>
+    <span class="err">```</span>
+
+<span class="l l-Scalar l-Scalar-Plain">With this configuration, Travis CI will run the tests using both Crystal `latest` and `nightly` releases on every push to a branch on your Github repository.</span>
+
+<span class="kt">!!!note</span>
+<span class="l l-Scalar l-Scalar-Plain">When [creating a Crystal project](../../using_the_compiler/#creating-a-crystal-project) using `crystal init`, Crystal creates a `.travis.yml` file for us.</span>
+
+<span class="c1">### Using a specific Crystal release</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Let&#39;s suppose we want to pin a specific Crystal release (maybe we want to make sure the shard compiles and works with that version) for example [Crystal 0.31.1](https://github.com/crystal-lang/crystal/releases/tag/0.31.1).</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Travis CI only provides _runners_ to `latest` and `nightly` releases directly and so, we need to install the requested Crystal release manually. For this we are going to use [Docker](https://www.docker.com/).</span>
+
+<span class="l l-Scalar l-Scalar-Plain">First we need to add Docker as a service in `.travis.yml`, and then we can use `docker` commands in our build steps, like this</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
+<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">minimal</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
+
+<span class=" -Error">    </span><span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec</span>
+    <span class="err">```</span>
+
+<span class="kt">!!!note</span>
+<span class="l l-Scalar l-Scalar-Plain">We may read about different [languages](https://docs.travis-ci.com/user/languages/) supported by Travis CI, included [minimal](https://docs.travis-ci.com/user/languages/minimal-and-generic/).</span>
+
+<span class="kt">!!!note</span>
+<span class="l l-Scalar l-Scalar-Plain">A list with the different official [Crystal docker images](https://hub.docker.com/r/crystallang/crystal/tags) is available at [DockerHub](https://hub.docker.com/r/crystallang/crystal).</span>
+
+<span class="c1">### Using `latest`, `nightly` and a specific Crystal release all together!</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Supported _runners_ can be combined with Docker-based _runners_ using a [Build Matrix](https://docs.travis-ci.com/user/customizing-the-build#build-matrix). This will allow us to run tests against `latest` and `nightly` and pinned releases.</span>
+
+<span class="nt">Here is the example</span><span class="p">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
 <span class="nt">matrix</span><span class="p">:</span>
- <span class="nt">include</span><span class="p">:</span>
-   <span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
-     <span class="nt">crystal</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
-     <span class="nt">script</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+<span class="nt">include</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
+<span class="nt">crystal</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="nt">script</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
 
-   <span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
-     <span class="nt">crystal</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nightly</span>
-     <span class="nt">script</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+      <span class="l l-Scalar l-Scalar-Plain">- language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
+        <span class="l l-Scalar l-Scalar-Plain">crystal</span><span class="p p-Indicator">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nightly</span>
+  <span class=" -Error">      </span><span class="nt">script</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
 
-   <span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
-     <span class="nt">services</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
-     <span class="nt">script</span><span class="p">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec</span>
-</code></pre></div>
-<h2 id="installing-shards-packages">Installing shards packages</h2>
-<p>In native <em>runners</em> (<code>language: crystal</code>), Travis CI already automatically installs shards dependencies using <code>shards install</code>. To improve build performance we may add <a href="#caching">caching</a> on top of that.</p>
-<h4 id="using-docker">Using Docker</h4>
-<p>In a Docker-based <em>runner</em> we need to run <code>shards install</code> explicitly, like this:</p>
-<div class="highlight"><pre><span></span><code># .travis.yml
-language: bash
+  <span class=" -Error">    </span><span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+        <span class="nt">services</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
+        <span class="nt">script</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec</span>
+  <span class=" -Error">  </span><span class="err">```</span>
 
-services:
-  - docker
+<span class="c1">## Installing shards packages</span>
 
-script:
-  - docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 shards install
-  - docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>Since the shards will be installed in <code>./lib/</code> folder, it will be preserved for the second docker run command.</p>
-<h2 id="installing-binary-dependencies">Installing binary dependencies</h2>
-<p>Our application or maybe some shards may required libraries and packages. This binary dependencies may be installed using different methods. Here we are going to show an example using the <a href="https://help.ubuntu.com/lts/serverguide/apt.html">Apt</a> command (since the Docker image we are using is based on Ubuntu)</p>
-<p>Here is a first example installing the <code>libsqlite3</code> development package using the <a href="https://docs.travis-ci.com/user/installing-dependencies/#installing-packages-with-the-apt-addon">APT addon</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
+<span class="nt">In native _runners_ (`language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal`), Travis CI already automatically installs shards dependencies using `shards install`. To improve build performance we may add [caching](#caching) on top of that.</span>
+
+<span class="c1">### Using Docker</span>
+
+<span class="l l-Scalar l-Scalar-Plain">In a Docker-based _runner_ we need to run `shards install` explicitly, like this</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
+<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
+
+<span class=" -Error">    </span><span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 shards install</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src crystallang/crystal:0.31.1 crystal spec</span>
+    <span class="err">```</span>
+
+<span class="kt">!!!note</span>
+<span class="l l-Scalar l-Scalar-Plain">Since the shards will be installed in `./lib/` folder, it will be preserved for the second docker run command.</span>
+
+<span class="c1">## Installing binary dependencies</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Our application or maybe some shards may required libraries and packages. This binary dependencies may be installed using different methods. Here we are going to show an example using the [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) command (since the Docker image we are using is based on Ubuntu)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Here is a first example installing the `libsqlite3` development package using the [APT addon](https://docs.travis-ci.com/user/installing-dependencies/#installing-packages-with-the-apt-addon)</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
 <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
 <span class="nt">crystal</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
 
-<span class="nt">before_install</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get -y install libsqlite3-dev</span>
+    <span class="l l-Scalar l-Scalar-Plain">before_install</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sudo apt-get -y install libsqlite3-dev</span>
 
-<span class="nt">addons</span><span class="p">:</span>
-  <span class="nt">apt</span><span class="p">:</span>
-    <span class="nt">update</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class=" -Error">  </span><span class="nt">addons</span><span class="p">:</span>
+      <span class="nt">apt</span><span class="p">:</span>
+        <span class="nt">update</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-</code></pre></div>
-<h4 id="using-docker_1">Using Docker</h4>
-<p>We are going to build a new docker image based on <a href="https://hub.docker.com/r/crystallang/crystal/">crystallang/crystal</a>, and in this new image we will be installing the binary dependencies.</p>
-<p>To accomplish this we are going to use a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="c"># Dockerfile</span>
-<span class="k">FROM</span> <span class="s">crystallang/crystal:latest</span>
+    <span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+    <span class="err">```</span>
 
-<span class="c"># install binary dependencies:</span>
-<span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y libsqlite3-dev
-</code></pre></div>
-<p>And here is the Travis CI configuration file:</p>
-<div class="highlight"><pre><span></span><code># .travis.yml
-language: bash
+<span class="c1">### Using Docker</span>
 
-services:
-  - docker
+<span class="l l-Scalar l-Scalar-Plain">We are going to build a new docker image based on [crystallang/crystal](https://hub.docker.com/r/crystallang/crystal/), and in this new image we will be installing the binary dependencies.</span>
 
-before_install:
-  # build image using Dockerfile:
-  - docker build -t testing .
+<span class="l l-Scalar l-Scalar-Plain">To accomplish this we are going to use a [Dockerfile](https://docs.docker.com/engine/reference/builder/)</span><span class="p p-Indicator">:</span>
 
-script:
-  # run specs in the container
-  - docker run -v $PWD:/src -w /src testing crystal spec
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>Dockerfile arguments can be used to use the same Dockerfile for latest, nightly or a specific version.</p>
-<h2 id="using-services">Using services</h2>
-<p>Travis CI may start <a href="https://docs.travis-ci.com/user/database-setup/">services</a> as requested.</p>
-<p>For example, we can start a <a href="https://docs.travis-ci.com/user/database-setup/#mysql">MySQL</a> database service by adding a <code>services:</code> section to our <code>.travis.yml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
+<span class="kt">!!!example</span> <span class="s">&quot;Dockerfile&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">dockerfile</span>
+<span class="l l-Scalar l-Scalar-Plain">FROM crystallang/crystal:latest</span>
+
+    <span class="l l-Scalar l-Scalar-Plain"># install binary dependencies</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">RUN apt-get update &amp;&amp; apt-get install -y libsqlite3-dev</span>
+    <span class="l l-Scalar l-Scalar-Plain">```</span>
+
+<span class="nt">And here is the Travis CI configuration file</span><span class="p">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
+<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
+
+<span class=" -Error">    </span><span class="nt">before_install</span><span class="p">:</span>
+      <span class="c1"># build image using Dockerfile:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker build -t testing .</span>
+
+    <span class="nt">script</span><span class="p">:</span>
+      <span class="c1"># run specs in the container</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docker run -v $PWD:/src -w /src testing crystal spec</span>
+    <span class="err">```</span>
+
+<span class="kt">!!!note</span>
+<span class="l l-Scalar l-Scalar-Plain">Dockerfile arguments can be used to use the same Dockerfile for latest, nightly or a specific version.</span>
+
+<span class="c1">## Using services</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Travis CI may start [services](https://docs.travis-ci.com/user/database-setup/) as requested.</span>
+
+<span class="l l-Scalar l-Scalar-Plain">For example, we can start a [MySQL](https://docs.travis-ci.com/user/database-setup/#mysql) database service by adding a `services:` section to our `.travis.yml`</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
 <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
 <span class="nt">crystal</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
 
-<span class="nt">services</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+    <span class="l l-Scalar l-Scalar-Plain">services</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
 
-<span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-</code></pre></div>
-<p>Here is the new test file for testing against the database:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># spec/simple_db_spec.cr</span>
-<span class="k">require</span> <span class="s2">&quot;./spec_helper&quot;</span>
-<span class="k">require</span> <span class="s2">&quot;mysql&quot;</span>
+  <span class=" -Error">  </span><span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+    <span class="err">```</span>
 
-<span class="n">it</span> <span class="s2">&quot;connects to the database&quot;</span> <span class="k">do</span>
-  <span class="no">DB</span><span class="o">.</span><span class="n">connect</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="o">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">cnn</span><span class="o">|</span>
-    <span class="n">cnn</span><span class="o">.</span><span class="n">query_one</span><span class="p">(</span><span class="s2">&quot;SELECT &#39;foo&#39;&quot;</span><span class="p">,</span> <span class="k">as</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span><span class="o">.</span><span class="n">should</span> <span class="n">eq</span> <span class="s2">&quot;foo&quot;</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>When pushing this changes Travis CI will report the following error: <code>Unknown database 'test' (Exception)</code>, showing that we need to configure the MySQL service <strong>and also setup the database</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># .travis.yml</span>
+<span class="nt">Here is the new test file for testing against the database</span><span class="p">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;spec/simple_db_spec.cr&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">crystal</span>
+<span class="l l-Scalar l-Scalar-Plain">require &quot;./spec_helper&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">require &quot;mysql&quot;</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">it &quot;connects to the database&quot; do</span>
+      <span class="l l-Scalar l-Scalar-Plain">DB.connect ENV[&quot;DATABASE_URL&quot;] do |cnn|</span>
+        <span class="l l-Scalar l-Scalar-Plain">cnn.query_one(&quot;SELECT &#39;foo&#39;&quot;, as</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">String).should eq &quot;foo&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">end</span>
+    <span class="l l-Scalar l-Scalar-Plain">end</span>
+    <span class="l l-Scalar l-Scalar-Plain">```</span>
+
+<span class="nt">When pushing this changes Travis CI will report the following error</span><span class="p">:</span> <span class="err">`</span><span class="l l-Scalar l-Scalar-Plain">Unknown database &#39;test&#39; (Exception)`, showing that we need to configure the MySQL service **and also setup the database**</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;.travis.yml&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">yaml</span>
 <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
 <span class="nt">crystal</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
 
-<span class="nt">env</span><span class="p">:</span>
-  <span class="nt">global</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DATABASE_NAME=test</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DATABASE_URL=mysql://root@localhost/$DATABASE_NAME</span>
+    <span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>
+      <span class="nt">global</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DATABASE_NAME=test</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DATABASE_URL=mysql://root@localhost/$DATABASE_NAME</span>
 
-<span class="nt">services</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+  <span class=" -Error">  </span><span class="nt">services</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
 
-<span class="nt">before_install</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql -e &quot;CREATE DATABASE IF NOT EXISTS $DATABASE_NAME;&quot;</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql -u root --password=&quot;&quot; $DATABASE_NAME &lt; db/schema.sql</span>
+    <span class="nt">before_install</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql -e &quot;CREATE DATABASE IF NOT EXISTS $DATABASE_NAME;&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mysql -u root --password=&quot;&quot; $DATABASE_NAME &lt; db/schema.sql</span>
 
-<span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-</code></pre></div>
-<p>We are <a href="https://andidittrich.de/2017/06/travisci-setup-mysql-tablesdata-before-running-tests.html">using a <code>schema.sql</code> script</a> to create a more readable <code>.travis.yml</code>. The file <code>./db/schema.sql</code> looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- schema.sql</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">...</span> <span class="n">etc</span> <span class="p">...</span>
+    <span class="nt">script</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
+    <span class="err">```</span>
+
+<span class="l l-Scalar l-Scalar-Plain">We are [using a `schema.sql` script](https://andidittrich.de/2017/06/travisci-setup-mysql-tablesdata-before-running-tests.html) to create a more readable `.travis.yml`. The file `./db/schema.sql` looks like this</span><span class="p p-Indicator">:</span>
+
+<span class="kt">!!!example</span> <span class="s">&quot;schema.sql&quot;</span>
+<span class="err">```</span><span class="l l-Scalar l-Scalar-Plain">sql</span>
+<span class="l l-Scalar l-Scalar-Plain">CREATE TABLE ... etc ...</span>
 </code></pre></div>
 <p>Pushing these changes will trigger Travis CI and the build should be successful!</p>
 <h2 id="caching">Caching</h2>
@@ -2699,15 +2657,18 @@ Fetching https://github.com/crystal-lang/crystal-db.git
 </code></pre></div>
 <p>This takes time and, on the other hand, these libraries might not change as often as our application, so it looks like we may cache them and save time.</p>
 <p>Travis CI <a href="https://docs.travis-ci.com/user/caching/">uses caching</a> to improve some parts of the building path. Here is the new configuration file <strong>with cache enabled</strong>:</p>
-<div class="highlight"><pre><span></span><code># .travis.yml
+<div class="admonition example">
+<p class="admonition-title">.travis.yml</p>
+</div>
+<p>```yaml
 language: crystal
 crystal:
-  - latest
-
-cache: shards
+- latest</p>
+<div class="highlight"><pre><span></span><code>cache: shards
 
 script:
   - crystal spec
+```
 </code></pre></div>
 <p>Let's push these changes. Travis CI will run, and it will install dependencies, but then it will cache the shards cache folder which, usually, is <code>~/.cache/shards</code>. The following runs will use the cached dependencies.</p>
                 
@@ -2728,7 +2689,7 @@ script:
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="index.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="gh-actions.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2737,7 +2698,7 @@ script:
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                継続的インテグレーション (CI)
+                GitHub Actions
               </div>
             </div>
           </a>
@@ -2749,7 +2710,7 @@ script:
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                CircleCI の利用
+                CircleCI
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

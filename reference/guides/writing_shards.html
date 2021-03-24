@@ -2221,8 +2221,20 @@
 
 
   <li class="md-nav__item">
+    <a href="ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2234,7 +2246,7 @@
 
   <li class="md-nav__item">
     <a href="ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2244,8 +2256,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2431,7 +2467,7 @@
 <h3 id="_3">プロジェクトの作成</h3>
 <p><a href="../using_the_compiler/index.html">Crystal のコンパイラ</a> の <code>init lib</code> コマンドを使って、標準的なディレクトリ構造を持った Cryatal ライブラリのディレクトリを作成してください。</p>
 <p>ターミナルで、次のように実行します: <code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal init lib palindrome-example
 <span class="go">    create  palindrome-example/.gitignore</span>
 <span class="go">    create  palindrome-example/.editorconfig</span>
@@ -2444,11 +2480,11 @@
 <span class="go">    create  palindrome-example/spec/spec_helper.cr</span>
 <span class="go">    create  palindrome-example/spec/palindrome-example_spec.cr</span>
 <span class="go">Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-example/.git/</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>こうしたら、<code>cd</code> で作ったディレクトリに移動してください。</p>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> palindrome-example
-</code></pre></div></p>
+</code></pre></div>
 <p>そして、<code>add</code> と <code>commit</code> をして、ファイルを Git にトラッキングされるようにしましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> git add -A
 <span class="gp">$</span> git commit -am <span class="s2">&quot;First Commit&quot;</span>
@@ -2470,7 +2506,7 @@
 <h4 id="_5">コードのテスト</h4>
 <ul>
 <li>コードのテストを書きましょう。それがすべてです。人々 (あなたを含む) にとって、テストだけがどのように機能するものなのかを示すものになります。</li>
-<li>Crystal は<a href="https://crystal-lang.org/api/Spec.html">ビルトインのテスト用ライブラリ</a>を持っています。それを使ってください。</li>
+<li>Crystal は<a href="https://crystal-lang.org/api/latest/Spec.html">ビルトインのテストライブラリ</a>を持っています。それを使ってください。</li>
 </ul>
 <h4 id="_6">ドキュメント化</h4>
 <ul>
@@ -2486,53 +2522,57 @@
 <h3 id="readme">README を書く</h3>
 <p>良い README があるかどうかはプロジェクトの成功を左右します。
 <a href="https://github.com/matiassingers/awesome-readme">Awesome README</a> はこの話題の素晴らしい例やリソースのキュレーテッドリストになっています。</p>
-<p>最も重要なことですが、README では次のことが説明されているべきでしょう。
-1. このライブラリが何なのか
-2. 何をするものなのか
-3. どのようにして使うのか</p>
+<p>最も重要なことですが、README では次のことが説明されているべきでしょう。</p>
+<ol>
+<li>このライブラリが何なのか</li>
+<li>何をするものなのか</li>
+<li>どのようにして使うのか</li>
+</ol>
 <p>この説明にはいくつかの例を適切に章立てして含めるべきです。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>Be sure to replace all instances of <code>[your-github-name]</code> in the Crystal-generated README template with your GitHub/GitLab username. また GitLab を使っている場合は、<code>github</code> を <code>gitlab</code> に変更してください。</p>
+<p>Crystal の生成した README のテンプレート中の <code>[your-github-name]</code> という部分を実際の GitHub もしくはl GitLab のユーザ名で置換するのを忘れないでください。また GitLab を使っている場合は、<code>github</code> を <code>gitlab</code> に変更してください。</p>
 <h4 id="_7">コーディングスタイル</h4>
 <ul>
 <li>自身のスタイルを持つことは良いことですが、<a href="../conventions/coding_style.html">Crystal チームの慣習的なスタイル</a>に従うことで、コードの一貫性や可読性を保ち、他の開発者の理解しやすいものにできます。</li>
 <li>Crystal <a href="../conventions/documenting_code.html">組み込みのフォーマッタ</a>を活用して、すべての <code>.cr</code> ファイルをフォーマットしましょう。</li>
 </ul>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code>crystal tool format
-</code></pre></div></p>
+</code></pre></div>
 <p><code>--check</code> をコマンドの末尾につけることで、コードが正しくフォーマットされているかを確かめる、要するにフォーマッタがコードを変更しないことを確かめられます。</p>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code>crystal tool format --check
-</code></pre></div></p>
-<p>以降の Travis CI の章で、ビルド時にこのチェックを追加する方法が説明されています。</p>
+</code></pre></div>
+<p>この確認を<a href="ci/index.html">継続的インテグレーション</a>の1ステップとして追加すると良いでしょう。</p>
 <h3 id="shardyml"><code>shard.yml</code> を書く</h3>
-<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md">仕様書</a>を見てください。これに従いましょう。</p>
+<p><a href="https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc">仕様書</a>を確認してください。これに従いましょう。</p>
 <h4 id="_8">名前</h4>
 <p><code>shard.yml</code>ので <code>name</code> プロパティは簡潔かつ説明的なものにすべきです。</p>
 <ul>
 <li><a href="https://crystalshards.xyz/">crystalshards.xyz</a> で検索して、既に使われている名前でないか確認しておきましょう。</li>
 </ul>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">palindrome-example</span>
-</code></pre></div></p>
+</code></pre></div>
 <h4 id="_9">説明</h4>
 <p><code>description</code> を <code>shard.yml</code> に追加しましょう。</p>
 <p><code>description</code> は1行の説明文で、検索の際に使われます。</p>
-<p>description は次のようにすべきです。
-1. 有益な情報を含む
-2. 発見可能なものにする</p>
+<p>description は次のようにすべきです。</p>
+<ol>
+<li>有益な情報を含む</li>
+<li>発見可能なものにする</li>
+</ol>
 <h4 id="_10">最適化</h4>
 <p>見つけられるものでなければ、誰もあなたのプロジェクトを利用しないでしょう。
 今のところ、<a href="https://crystalshards.xyz/">crystalshards.xyz</a> に Crystal のライブラリは集約されています。なので、ここに向けて最適化します。</p>
 <p>_精確な_機能からライブラリを探す人と、_一般的な_機能からライブラリを探す人がいます。
 例えば Bob は回文を扱うライブラリを必要としていて、一方で Felipe が探しているのはテキストを扱うライブラリで、Susan が探しているのはスペルについてのライブラリ、といったように、です。</p>
-<p>この場合、<code>name</code> にはすでに Bob の探している "palindrome" という単語が含まれています。なので <em>palindrome</em> と繰り返す必要はないでしょう。代わりに、Susan の探している "spelling" や Felipe の探している "text" といった単語を含めるようにするといいでしょう。
+<p>この場合、<code>name</code> にはすでに Bob の探している "palindrome" という単語が含まれています。なので <em>palindrome</em> と繰り返す必要はないでしょう。代わりに、Susan の探している "spelling" や Felipe の探している "text" といった単語を含めるようにするといいでしょう。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
   <span class="no">A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.</span>
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="_11">ホスティング</h3>
 <p>ここからのガイドは GitHub で公開するか GitLab で公開するかによって変わってきます。それ以外の場所で公開しているのであれば、ぜひガイドを書いて、このリファレンスに追加するよう言ってください。</p>
 <ul>

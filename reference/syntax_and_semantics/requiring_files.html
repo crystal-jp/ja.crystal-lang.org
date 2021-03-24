@@ -2275,8 +2275,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2288,7 +2300,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2298,8 +2310,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2422,9 +2458,10 @@
 <li>"filename" という名前のディレクトリの中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。</li>
 <li>それ以外の場合はコンパイルエラーとなります。</li>
 </ul>
-<p>この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、<a href="../guides/testing.html">specs</a> からコードを参照する場合にも利用されます。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># spec/project_spec.cr</span>
-<span class="k">require</span> <span class="s2">&quot;../src/project&quot;</span>
+<div class="admonition example">
+<p class="admonition-title">spec/spec_helper.cr</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;../src/project&quot;</span>
 </code></pre></div>
 <h2 id="_1">その他の形式</h2>
 <p>上記したどちらのケースでも、ネストされた形式で名前を指定することが可能で、その場合にはネストされたデイレクトリを探索します。</p>

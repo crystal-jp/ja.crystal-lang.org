@@ -2268,8 +2268,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2281,7 +2293,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2291,8 +2303,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2417,27 +2453,31 @@
 <p>If a connection is lost or can't be established retry at most <code>retry_attempts</code> times waiting <code>retry_delay</code> seconds between each try.</p>
 <h2 id="sample">Sample</h2>
 <p>The following program will print the current time from MySQL but if the connection is lost or the whole server is down for a few seconds the program will still run without raising exceptions.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># file: sample.cr</span>
-<span class="k">require</span> <span class="s2">&quot;mysql&quot;</span>
+<div class="admonition example">
+<p class="admonition-title">sample.cr</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;mysql&quot;</span>
 
-<span class="no">DB</span><span class="o">.</span><span class="n">open</span> <span class="s2">&quot;mysql://root@localhost?retry_attempts=8&amp;retry_delay=3&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db</span><span class="o">|</span>
-  <span class="nb">loop</span> <span class="k">do</span>
-    <span class="bp">pp</span> <span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span>
-    <span class="nb">sleep</span> <span class="mf">0.5</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>$ crystal sample.cr
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:57
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:57
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:58
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:58
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:59
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:36:59
-# stop mysql server for some seconds
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:37:06
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:37:06
-db.scalar(&quot;SELECT NOW()&quot;) # =&gt; 2016-12-16 16:37:07
+    <span class="no">DB</span><span class="o">.</span><span class="n">open</span> <span class="s2">&quot;mysql://root@localhost?retry_attempts=8&amp;retry_delay=3&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db</span><span class="o">|</span>
+      <span class="nb">loop</span> <span class="k">do</span>
+        <span class="bp">pp</span> <span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span>
+        <span class="nb">sleep</span> <span class="mf">0.5</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+    <span class="sb">```</span>
+
+<span class="sb">```</span><span class="n">console</span>
+<span class="err">$</span> <span class="n">crystal</span> <span class="n">sample</span><span class="o">.</span><span class="n">cr</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:57</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:57</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:58</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:58</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:59</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:36:59</span>
+<span class="c1"># stop mysql server for some seconds</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:37:06</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:37:06</span>
+<span class="n">db</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s2">&quot;SELECT NOW()&quot;</span><span class="p">)</span> <span class="c1"># =&gt; 2016-12-16 16:37:07</span>
 </code></pre></div>
                 
               

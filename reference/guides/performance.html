@@ -2316,8 +2316,20 @@
 
 
   <li class="md-nav__item">
+    <a href="ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2329,7 +2341,7 @@
 
   <li class="md-nav__item">
     <a href="ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2339,8 +2351,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2492,36 +2528,41 @@
 </code></pre></div>
 <p>「中間文字列を返すのではなくIOに追加する」というこの哲学は、中間的な文字列を扱うよりも結果的に良いパフォーマンスを実現します。こうした戦略をあなた自身のAPI定義でも使用してください。</p>
 <p>実行時間を比較してみましょう。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># io_benchmark.cr</span>
-<span class="k">require</span> <span class="s2">&quot;benchmark&quot;</span>
+<div class="admonition example">
+<p class="admonition-title">io_benchmark.cr</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;benchmark&quot;</span>
 
-<span class="n">io</span> <span class="o">=</span> <span class="no">IO</span><span class="o">::</span><span class="n">Memory</span><span class="o">.</span><span class="n">new</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="no">IO</span><span class="o">::</span><span class="n">Memory</span><span class="o">.</span><span class="n">new</span>
 
-<span class="n">Benchmark</span><span class="o">.</span><span class="n">ips</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;without to_s&quot;</span><span class="p">)</span> <span class="k">do</span>
-    <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="mi">123</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">clear</span>
-  <span class="k">end</span>
+    <span class="n">Benchmark</span><span class="o">.</span><span class="n">ips</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+      <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;without to_s&quot;</span><span class="p">)</span> <span class="k">do</span>
+        <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="mi">123</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">clear</span>
+      <span class="k">end</span>
 
-  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;with to_s&quot;</span><span class="p">)</span> <span class="k">do</span>
-    <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="mi">123</span><span class="o">.</span><span class="n">to_s</span>
-    <span class="n">io</span><span class="o">.</span><span class="n">clear</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>出力はこうなります。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run --release io_benchmark.cr
-<span class="go">without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest</span>
-<span class="go">   with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower</span>
+      <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;with to_s&quot;</span><span class="p">)</span> <span class="k">do</span>
+        <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="mi">123</span><span class="o">.</span><span class="n">to_s</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">clear</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+    <span class="sb">```</span>
+
+<span class="sb">出力はこうなります。</span>
+
+<span class="sb">```</span><span class="n">console</span>
+<span class="err">$</span> <span class="n">crystal</span> <span class="n">run</span> <span class="o">--</span><span class="n">release</span> <span class="n">io_benchmark</span><span class="o">.</span><span class="n">cr</span>
+<span class="n">without</span> <span class="n">to_s</span>  <span class="mf">77.11</span><span class="n">M</span> <span class="p">(</span> <span class="mf">12.97</span><span class="n">ns</span><span class="p">)</span> <span class="p">(</span><span class="err">±</span> <span class="mf">1.05</span><span class="o">%</span><span class="p">)</span>       <span class="n">fastest</span>
+   <span class="k">with</span> <span class="n">to_s</span>  <span class="mf">18.15</span><span class="n">M</span> <span class="p">(</span> <span class="mf">55.09</span><span class="n">ns</span><span class="p">)</span> <span class="p">(</span><span class="err">±</span> <span class="mf">7.99</span><span class="o">%</span><span class="p">)</span>  <span class="mf">4.25</span><span class="err">×</span> <span class="n">slower</span>
 </code></pre></div>
 <p>常に忘れてならないのは、これが単に実行時間が短縮したというだけでなく、メモリ使用量の削減という面でも効果があると言うことです。</p>
 <h3 id="_4">文字列の結合ではなく式展開を使う</h3>
 <p>しばしば、文字列リテラルと他の値とを組み合わせて文字列を直接構築しなければならいことがあります。このような文字列の構築では、<code>String#+(String)</code>メソッドによって文字列を結合するのではなく、文字列リテラルの中に式を埋め込める<a href="../syntax_and_semantics/literals/string.html#interpolation">文字列の式展開</a>を使用しましょう。 <code>"Hello, #{name}"</code> の方が、<code>"Hello, " +  name.to_s</code>よりも良い結果になります。</p>
-<p>式展開を含む文字列は、コンパイラによってIOへ追加する形に変換され、中間文字列の生成を自動的に回避します。上の例はこのように変換されます。
+<p>式展開を含む文字列は、コンパイラによってIOへ追加する形に変換され、中間文字列の生成を自動的に回避します。上の例はこのように変換されます。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">String</span><span class="o">.</span><span class="n">build</span> <span class="k">do</span> <span class="o">|</span><span class="n">io</span><span class="o">|</span>
   <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span>
 <span class="k">end</span>
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="io_1">文字列の構築にIOの割り当てを避ける</h3>
 <p>文字列の構築には、中間的な<code>IO::Memory</code>を使用するのではなく、文字列構築に最適化された<code>String.build</code>を使用するようにしましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;benchmark&quot;</span>
@@ -2562,8 +2603,8 @@
 <p>上記のプログラムはちゃんと動作しますが、繰り返しのたびに<code>["crystal", "ruby", "java"]</code>を新しい配列として生成するという大きなパフォーマンス上の問題を抱えています。配列リテラルは新しい配列を作成してそこに値をいくつか追加するという処理のシンタックスシュガーでしかないことを忘れないでください。そのため、ここでは何度も何度もメモリの割り当てが行われています。</p>
 <p>これを解決するには2つの方法があります。</p>
 <ol>
-<li>タプルを使う。上記プログラムで <code>{"crystal", "ruby", "java"}</code>を使用すると、同じようにちゃんと動作しますが、タプルはヒープメモリをつかわないため、より高速でメモリ消費が少なく、コンパイラに対してプログラムを最適化するより多くの機会を提供できます。</li>
-</ol>
+<li>
+<p>タプルを使う。上記プログラムで <code>{"crystal", "ruby", "java"}</code>を使用すると、同じようにちゃんと動作しますが、タプルはヒープメモリをつかわないため、より高速でメモリ消費が少なく、コンパイラに対してプログラムを最適化するより多くの機会を提供できます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">lines_with_language_reference</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">line</span> <span class="o">=</span> <span class="nb">gets</span>
   <span class="k">if</span> <span class="p">{</span><span class="s2">&quot;crystal&quot;</span><span class="p">,</span> <span class="s2">&quot;ruby&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">any?</span><span class="p">{</span> <span class="o">|</span><span class="n">string</span><span class="o">|</span> <span class="n">line</span><span class="o">.</span><span class="n">includes?</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="p">}</span>
@@ -2572,9 +2613,9 @@
 <span class="k">end</span>
 <span class="nb">puts</span> <span class="s2">&quot;Lines that mention crystal, ruby or java: </span><span class="si">#{</span><span class="n">lines_with_language_reference</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
-<ol>
-<li>配列を定数にする</li>
-</ol>
+</li>
+<li>
+<p>配列を定数にする</p>
 <div class="highlight"><pre><span></span><code><span class="no">LANGS</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;crystal&quot;</span><span class="p">,</span> <span class="s2">&quot;ruby&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="o">]</span>
 
 <span class="n">lines_with_language_reference</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2585,41 +2626,46 @@
 <span class="k">end</span>
 <span class="nb">puts</span> <span class="s2">&quot;Lines that mention crystal, ruby or java: </span><span class="si">#{</span><span class="n">lines_with_language_reference</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
+</li>
+</ol>
 <p>タプルを使用する方が推奨される方法です。</p>
 <p>ループ内での明示的に配列リテラルを使うことは、一時的なオブジェクトが生成される状況の1つのですが、一時的なオブジェクトはメソッド呼び出しによっても生成される場合があります。例えば、<code>Hash#keys</code> は実行されるたびにキーを含む新しい配列を返します。代わりに<code>Hash#each_key</code>や<code>Hash#has_key?</code>といった他のメソッドを使用しましょう。</p>
 <h3 id="_6">可能な場合には構造体を使用する</h3>
 <p>独自の型を  <strong>クラス</strong> ではなく <strong>構造体</strong> として定義すると、ヒープメモリよりも低負荷でGCに負担もかけないスタックメモリ上にインスタンスを生成します。</p>
 <p>しかし、いつでも構造体を使えば良いわけではありません。struct は値渡しされるので、メソッドに渡した構造体がそのメソッド内で変更された場合に、メソッドを呼び出した側がその変更を感知できず、バグの温床となりえます。構造体は不変なオブジェクトで、特にそれが小さい場合にのみ使用するのが最適な方法です。</p>
 <p>例をあげます。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># class_vs_struct.cr</span>
-<span class="k">require</span> <span class="s2">&quot;benchmark&quot;</span>
+<p>!!!example "class_vs_struct.cr'
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;benchmark&quot;</span>
 
-<span class="k">class</span> <span class="nc">PointClass</span>
-  <span class="bp">getter</span> <span class="n">x</span>
-  <span class="bp">getter</span> <span class="n">y</span>
+    <span class="k">class</span> <span class="nc">PointClass</span>
+      <span class="bp">getter</span> <span class="n">x</span>
+      <span class="bp">getter</span> <span class="n">y</span>
 
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">,</span> <span class="vi">@y</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+      <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">,</span> <span class="vi">@y</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
 
-<span class="k">struct</span> <span class="nc">PointStruct</span>
-  <span class="bp">getter</span> <span class="n">x</span>
-  <span class="bp">getter</span> <span class="n">y</span>
+    <span class="k">struct</span> <span class="nc">PointStruct</span>
+      <span class="bp">getter</span> <span class="n">x</span>
+      <span class="bp">getter</span> <span class="n">y</span>
 
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">,</span> <span class="vi">@y</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+      <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">,</span> <span class="vi">@y</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
 
-<span class="n">Benchmark</span><span class="o">.</span><span class="n">ips</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">PointClass</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;struct&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">PointStruct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>出力はこうなります。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run --release class_vs_struct.cr
-<span class="go"> class  28.17M (± 2.86%) 15.29× slower</span>
-<span class="go">struct 430.82M (± 6.58%)       fastest</span>
-</code></pre></div>
+    <span class="n">Benchmark</span><span class="o">.</span><span class="n">ips</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+      <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">PointClass</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
+      <span class="n">x</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;struct&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="n">PointStruct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">end</span>
+    <span class="sb">```</span>
+
+<span class="sb">出力はこうなります。</span>
+
+<span class="sb">```</span><span class="n">console</span>
+<span class="err">$</span> <span class="n">crystal</span> <span class="n">run</span> <span class="o">--</span><span class="n">release</span> <span class="n">class_vs_struct</span><span class="o">.</span><span class="n">cr</span>
+ <span class="k">class</span>  <span class="mf">28.17</span><span class="n">M</span> <span class="p">(</span><span class="err">±</span> <span class="mf">2.86</span><span class="o">%</span><span class="p">)</span> <span class="mf">15.29</span><span class="err">×</span> <span class="n">slower</span>
+<span class="k">struct</span> <span class="mf">430.82</span><span class="n">M</span> <span class="p">(</span><span class="err">±</span> <span class="mf">6.58</span><span class="o">%</span><span class="p">)</span>       <span class="n">fastest</span>
+</code></pre></div></p>
 <h2 id="_7">文字列に対する繰り返し処理</h2>
 <p>Crystalの文字列はUTF-8のコードポイントから構成されています。UTF-8は可変長のエンコーディングで、アスキー文字の範囲では1文字を1バイトで表現しますが、そうでなければ1文字を複数バイトで表現します。そのため、<code>String#[]</code>は、インデックスが示す場所の文字を見つけるために毎回バイトデータをデコードする必要があり、この処理は<code>O(1)</code> オーダーではありません。こうした場合にCrystalの <code>String</code>は最適化を行っていて、文字列にASCII文字しか含まれていなければ、<code>String#[]</code>を<code>O(1)</code>オーダーで処理できるよう実装されています。しかし、一般的にそういった状況は稀です。</p>
 <p>こうした理由から、文字列に対する繰り返し処理は効率的とはいえず、実際 <code>O(n^2)</code>オーダーの複雑性を有しています。</p>

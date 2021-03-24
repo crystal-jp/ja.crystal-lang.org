@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity" />
 <meta name="author" content="paulcsmith" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-02-06T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@paulcsmith" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"paulcsmith"},"url":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"paulcsmith"},"description":"Lucky is a new Crystal web framework built to catch bugs at compile time, return responses incredibly quickly, and help you write maintainable code.","headline":"Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity","dateModified":"2018-02-06T00:00:00+00:00","datePublished":"2018-02-06T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2018/02/06/lucky-with-crystal.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"paulcsmith"},"author":{"@type":"Person","name":"paulcsmith"},"headline":"Lucky with Crystal - Fewer Bugs, Better Performance, Incredible Productivity","description":"Lucky is a new Crystal web framework built to catch bugs at compile time, return responses incredibly quickly, and help you write maintainable code.","dateModified":"2018-02-06T00:00:00+00:00","datePublished":"2018-02-06T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -212,9 +214,9 @@
 
 </div>
 
-<p>In Lucky you’ll get methods specific to the type of the column. This means that methods like  <code class="highlighter-rouge">lower</code> and <code class="highlighter-rouge">ilike</code> are only available for String columns. If you tried to call <code class="highlighter-rouge">lower</code> on an integer column by accident, Lucky will let you know at compile time. If you rename the <code class="highlighter-rouge">name</code> column to <code class="highlighter-rouge">full_name</code>, Lucky will show you all the places where you also need to make that change at compile-time.</p>
+<p>In Lucky you’ll get methods specific to the type of the column. This means that methods like  <code class="language-plaintext highlighter-rouge">lower</code> and <code class="language-plaintext highlighter-rouge">ilike</code> are only available for String columns. If you tried to call <code class="language-plaintext highlighter-rouge">lower</code> on an integer column by accident, Lucky will let you know at compile time. If you rename the <code class="language-plaintext highlighter-rouge">name</code> column to <code class="language-plaintext highlighter-rouge">full_name</code>, Lucky will show you all the places where you also need to make that change at compile-time.</p>
 
-<p>If you try to pass <code class="highlighter-rouge">nil</code> to a column that doesn’t allow <code class="highlighter-rouge">nil</code>, Lucky will let you know at compile time so you can avoid dreaded logical errors and <code class="highlighter-rouge">nil</code> errors.</p>
+<p>If you try to pass <code class="language-plaintext highlighter-rouge">nil</code> to a column that doesn’t allow <code class="language-plaintext highlighter-rouge">nil</code>, Lucky will let you know at compile time so you can avoid dreaded logical errors and <code class="language-plaintext highlighter-rouge">nil</code> errors.</p>
 
 <h3 id="never-worry-about-the-http-verb-again">Never worry about the HTTP verb again</h3>
 
@@ -272,7 +274,7 @@
 
 </div>
 
-<p>In this case, we forgot to add an <code class="highlighter-rouge">else</code> condition that lets the user know that we couldn’t find a user account for them. Lucky is helpful enough to help guide us toward this solution.</p>
+<p>In this case, we forgot to add an <code class="language-plaintext highlighter-rouge">else</code> condition that lets the user know that we couldn’t find a user account for them. Lucky is helpful enough to help guide us toward this solution.</p>
 
 <blockquote>
   <p>This is just a taste of what Lucky can do to help you focus on building the best app possible. Check out “<a href="https://luckyframework.org/why-lucky">Why Lucky?</a>” and “<a href="https://robots.thoughtbot.com/designing-lucky-actions-routing">Designing Lucky: Rock Solid Actions &amp; Routing</a>” to learn more.</p>

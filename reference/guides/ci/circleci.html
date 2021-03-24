@@ -16,7 +16,7 @@
     
     
       
-        <title>CircleCI の利用 - Crystal</title>
+        <title>CircleCI - Crystal</title>
       
     
     
@@ -93,7 +93,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              CircleCI の利用
+              CircleCI
             
           </span>
         </div>
@@ -2221,8 +2221,20 @@
 
 
   <li class="md-nav__item">
+    <a href="gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2246,12 +2258,12 @@
         
           <a href="circleci.html" class="md-nav__link--active" style="display: block">
         
-          CircleCI の利用
+          CircleCI
         </a>
       </label>
     
     <a href="circleci.html" class="md-nav__link md-nav__link--active">
-      CircleCI の利用
+      CircleCI
     </a>
     
       
@@ -2348,8 +2360,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2474,85 +2510,99 @@
 <h2 id="build-and-run-specs">Build and run specs</h2>
 <h3 id="simple-example-using-latest">Simple example using <code>latest</code></h3>
 <p>Let’s start with a simple example. We are going to run the tests <strong>using latest</strong> Crystal release:</p>
-<div class="highlight"><pre><span></span><code># .circleci/config.yml
+<div class="admonition example">
+<p class="admonition-title">.circleci/config.yml</p>
+</div>
+<p>```yaml
 workflows:
-  version: 2
-  build:
-    jobs:
-      - crystal/test
-
-orbs:
+version: 2
+build:
+jobs:
+- crystal/test</p>
+<div class="highlight"><pre><span></span><code>orbs:
   crystal: manastech/crystal@1.0
 version: 2.1
+```
 </code></pre></div>
 <p>Yeah! That was simple! With Orbs an abstraction layer is built so that the configuration file is more readable and intuitive.</p>
 <p>In case we are wondering what the job <a href="https://circleci.com/orbs/registry/orb/manastech/crystal#jobs-test">crystal/test</a> does, we always may see the source code.</p>
 <h3 id="using-nightly">Using <code>nightly</code></h3>
 <p>Using nightly Crystal release is as easy as:</p>
-<div class="highlight"><pre><span></span><code># .circleci/config.yml
+<div class="admonition example">
+<p class="admonition-title">.circleci/config.yml</p>
+</div>
+<p>```yaml
 workflows:
-  version: 2
-  build:
-    jobs:
-      - crystal/test:
-          name: test-on-nightly
-          executor:
-            name: crystal/default
-            tag: nightly
-
-orbs:
+version: 2
+build:
+jobs:
+- crystal/test:
+name: test-on-nightly
+executor:
+name: crystal/default
+tag: nightly</p>
+<div class="highlight"><pre><span></span><code>orbs:
   crystal: manastech/crystal@1.0
 version: 2.1
+```
 </code></pre></div>
 <h3 id="using-a-specific-crystal-release">Using a specific Crystal release</h3>
-<div class="highlight"><pre><span></span><code># .circleci/config.yml
+<div class="admonition example">
+<p class="admonition-title">.circleci/config.yml</p>
+</div>
+<p>```yaml
 workflows:
-  version: 2
-  build:
-    jobs:
-      - crystal/test:
-          name: test-on-0.30
-          executor:
-            name: crystal/default
-            tag: 0.30.0
-
-orbs:
+version: 2
+build:
+jobs:
+- crystal/test:
+name: test-on-0.30
+executor:
+name: crystal/default
+tag: 0.30.0</p>
+<div class="highlight"><pre><span></span><code>orbs:
   crystal: manastech/crystal@1.0
 version: 2.1
+```
 </code></pre></div>
 <h2 id="installing-shards-packages">Installing shards packages</h2>
 <p>You need not worry about it since the <code>crystal/test</code> job runs the <code>crystal/shard-install</code> orb command.</p>
 <h2 id="installing-binary-dependencies">Installing binary dependencies</h2>
 <p>Our application or maybe some shards may require libraries and packages. This binary dependencies may be installed using the <a href="https://help.ubuntu.com/lts/serverguide/apt.html">Apt</a> command.</p>
 <p>Here is an example installing the <code>libsqlite3</code> development package:</p>
-<div class="highlight"><pre><span></span><code># .circleci/config.yml
+<div class="admonition example">
+<p class="admonition-title">.circleci/config.yml</p>
+</div>
+<p>```yaml
 workflows:
-  version: 2
-  build:
-    jobs:
-      - crystal/test:
-          pre-steps:
-            - run: apt-get update &amp;&amp; apt-get install -y libsqlite3-dev
-
-orbs:
+version: 2
+build:
+jobs:
+- crystal/test:
+pre-steps:
+- run: apt-get update &amp;&amp; apt-get install -y libsqlite3-dev</p>
+<div class="highlight"><pre><span></span><code>orbs:
   crystal: manastech/crystal@1.0
 version: 2.1
+```
 </code></pre></div>
 <h2 id="using-services">Using services</h2>
 <p>Now, let’s run specs using an external service (for example MySQL):</p>
-<div class="highlight"><pre><span></span><code># .circleci/config.yml
+<div class="admonition example">
+<p class="admonition-title">.circleci/config.yml</p>
+</div>
+<p>```yaml
 executors:
-  crystal_mysql:
-    docker:
-      - image: &#39;crystallang/crystal:latest&#39;
-        environment:
-          DATABASE_URL: &#39;mysql://root@localhost/db&#39;
-      - image: &#39;mysql:5.7&#39;
-        environment:
-          MYSQL_DATABASE: db
-          MYSQL_ALLOW_EMPTY_PASSWORD: &#39;yes&#39;
-
-workflows:
+crystal_mysql:
+docker:
+- image: 'crystallang/crystal:latest'
+environment:
+DATABASE_URL: 'mysql://root@localhost/db'
+- image: 'mysql:5.7'
+environment:
+MYSQL_DATABASE: db
+MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'</p>
+<div class="highlight"><pre><span></span><code>workflows:
   version: 2
   build:
     jobs:
@@ -2572,6 +2622,7 @@ workflows:
 orbs:
   crystal: manastech/crystal@1.0
 version: 2.1
+```
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2606,11 +2657,25 @@ version: 2.1
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Travis CI の利用
+                Travis CI
               </div>
             </div>
           </a>
         
+        
+          <a href="../static_linking.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                静的リンク
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>

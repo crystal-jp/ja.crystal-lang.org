@@ -2232,8 +2232,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2245,7 +2257,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2255,8 +2267,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2310,8 +2346,8 @@
 <p>上記は <code>out</code> パラメータを使うことでよりシンプルに書くことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">C</span><span class="o">.</span><span class="n">waitpid</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span> <span class="kp">out</span> <span class="n">status_ptr</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<p>このとき、引数が <code>Int32*</code> であるため、コンパイラは自動的に <code>Int32</code> 方の <code>status_ptr</code> 変数を宣言します。</p>
-<p>これは、引数がその型のポインタである場合には、どのような型に対しても有効です (もちろん、ポインタが指す値が関数によって設定されることが前提です) 。</p>
+<p>このとき、引数の型が <code>Int32*</code> であるため、<code>Int32</code> 型の変数 <code>status_ptr</code> を自動的に宣言します。</p>
+<p>これは、<code>fun</code> の引数がその型のポインタである場合には、どのような型に対しても有効です (もちろん、ポインタが差す値が関数によって設定されることが前提です)。</p>
                 
               
               

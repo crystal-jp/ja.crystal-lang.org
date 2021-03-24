@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>プログラミング言語 Crystal | Ruby のような構文で型推論のあるコンパイル言語</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="プログラミング言語 Crystal" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby のような構文で型推論のあるコンパイル言語" />
@@ -18,9 +18,11 @@
 <meta property="og:site_name" content="プログラミング言語 Crystal" />
 <meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="プログラミング言語 Crystal" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"url":"https://ja.crystal-lang.org/install/on_freebsd/","image":"https://ja.crystal-lang.org/images/icon.png","description":"Ruby のような構文で型推論のあるコンパイル言語","headline":"プログラミング言語 Crystal","@type":"WebPage","@context":"http://schema.org"}</script>
+{"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/install/on_freebsd/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"headline":"プログラミング言語 Crystal","description":"Ruby のような構文で型推論のあるコンパイル言語","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -133,9 +135,9 @@
   <div class="row">
     <div class="col offset-m1 m10 s12"><p>FreeBSD では、バージョン 11.0 から Crystal のコンパイラが ports ツリーに含まれています。</p>
 
-<p>今のところは、<code class="highlighter-rouge">aarch64</code> と <code class="highlighter-rouge">amd64</code> のプラットフォームでのみ有効です。</p>
+<p>今のところは、<code class="language-plaintext highlighter-rouge">aarch64</code> と <code class="language-plaintext highlighter-rouge">amd64</code> のプラットフォームでのみ有効です。</p>
 
-<p>FreeBSD 上で <code class="highlighter-rouge">--release</code> フラグをつけて Crystal のコードをビルドする際は、<code class="highlighter-rouge">--no-debug</code> フラグをつけて LLVM の警告が出ないようにする必要があります。</p>
+<p>FreeBSD 上で <code class="language-plaintext highlighter-rouge">--release</code> フラグをつけて Crystal のコードをビルドする際は、<code class="language-plaintext highlighter-rouge">--no-debug</code> フラグをつけて LLVM の警告が出ないようにする必要があります。</p>
 
 <h2 id="パッケージのインストール">パッケージのインストール</h2>
 
@@ -147,9 +149,9 @@
 
 </div>
 
-<p><code class="highlighter-rouge">-RELEASE</code> バージョンの FreeBSD であれば、デフォルトで <code class="highlighter-rouge">pkg</code> は <code class="highlighter-rouge">quarterly</code> パッケージセットに設定されています。これは各クオーター毎に更新されます (セキュリティパッケージを除いて)。</p>
+<p><code class="language-plaintext highlighter-rouge">-RELEASE</code> バージョンの FreeBSD であれば、デフォルトで <code class="language-plaintext highlighter-rouge">pkg</code> は <code class="language-plaintext highlighter-rouge">quarterly</code> パッケージセットに設定されています。これは各クオーター毎に更新されます (セキュリティパッケージを除いて)。</p>
 
-<p>クオーター毎の更新を <code class="highlighter-rouge">latest</code> に切り替えるには、<code class="highlighter-rouge">/usr/local/etc/pkg/repos/FreeBSD.conf</code> を次の内容で作成します。</p>
+<p>クオーター毎の更新を <code class="language-plaintext highlighter-rouge">latest</code> に切り替えるには、<code class="language-plaintext highlighter-rouge">/usr/local/etc/pkg/repos/FreeBSD.conf</code> を次の内容で作成します。</p>
 
 <div class="code_section">
 
@@ -163,7 +165,7 @@
 
 <p>Crystal を自身でビルドする場合は、ports ツリーによるインストールが有効です。</p>
 
-<p>ports コレクションをインストールしていない場合は、<code class="highlighter-rouge">portsnap fetch</code> か <code class="highlighter-rouge">git clone https://github.com/freebsd/freebsd-ports</code> でダウンロードしてください。</p>
+<p>ports コレクションをインストールしていない場合は、<code class="language-plaintext highlighter-rouge">portsnap fetch</code> か <code class="language-plaintext highlighter-rouge">git clone https://github.com/freebsd/freebsd-ports</code> でダウンロードしてください。</p>
 
 <div class="code_section">
 

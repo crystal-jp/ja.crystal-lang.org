@@ -2279,8 +2279,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2292,7 +2304,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2302,8 +2314,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2369,7 +2405,7 @@
                 
                 
                 <h1 id="_1">スプラット展開とタプル</h1>
-<p>メソッドは <em>スプラット展開</em> (<code>*</code>) を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずにどの場所にでも指定可能です。</p>
+<p>メソッドは<em>スプラット展開</em> (<code>*</code>) を使うことで複数の引数を一度に受け取ることができます。これは仮引数の中で1回だけしか指定できませんが、順序を問わずにどの場所にでも指定可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="o">*</span><span class="n">elements</span><span class="p">)</span>
   <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">elements</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
@@ -2381,7 +2417,7 @@
 <span class="n">sum</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>      <span class="c1"># =&gt; 6</span>
 <span class="n">sum</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.5</span> <span class="c1"># =&gt; 10.5</span>
 </code></pre></div>
-<p>渡された引数はメソッドの中で <a href="http://crystal-lang.org/api/Tuple.html">Tuple</a> として扱えます。</p>
+<p>渡された引数はメソッドの中で <a href="https://crystal-lang.org/api/latest/Tuple.html">Tuple</a> として扱えます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># elements は Tuple(Int32, Int32, Int32) になる</span>
 <span class="n">sum</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
 
@@ -2424,7 +2460,7 @@
 <span class="n">foo</span> <span class="ss">x</span><span class="p">:</span> <span class="s2">&quot;something&quot;</span> <span class="c1"># =&gt; 1</span>
 <span class="n">foo</span> <span class="ss">y</span><span class="p">:</span> <span class="s2">&quot;something&quot;</span> <span class="c1"># =&gt; 2</span>
 </code></pre></div>
-<p>スプラット指定された引数は名前をつけないこともできて、その場合、以降の引数は「名前付き引数として渡さなければいけない」ということになります。</p>
+<p>スプラット指定された引数は名前をつけないこともできて、その場合はそれ以降の引数は「名前付き引数として渡さなければいけない」ということになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="k">end</span>
 

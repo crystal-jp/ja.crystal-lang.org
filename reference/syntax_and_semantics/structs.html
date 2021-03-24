@@ -2270,8 +2270,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2283,7 +2295,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2293,8 +2305,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2361,7 +2397,7 @@
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>構造体は <a href="https://crystal-lang.org/api/Value.html">Value</a> を継承しているので、インスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 <a href="https://crystal-lang.org/api/Reference.html">Reference</a> を継承しているクラスのインスタンスの場合は、値はヒープに確保され、参照渡しされます)。</p>
+<p>構造体は <a href="https://crystal-lang.org/api/latest/Value.html">Value</a> を継承しているので、インスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 <a href="https://crystal-lang.org/api/latest/Reference.html">Reference</a> を継承しているクラスのインスタンスの場合は、値はヒープに確保され、参照渡しされます)。</p>
 <p>そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には<a href="https://ja.crystal-lang.org/docs/guides/performance.html#use-structs-when-possible">パフォーマンスガイド</a>を参照してください)。</p>
 <p>変更される (mutable) 構造体も利用できますが、値を変更するようなコードを書いたときに、下で説明するようなことで予想外の挙動をすることに十分に注意する必要があります。</p>
 <h2 id="_1">値渡し</h2>
@@ -2377,8 +2413,8 @@
 <span class="k">end</span>
 
 <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">counter</span><span class="o">.</span><span class="n">plus</span><span class="o">.</span><span class="n">plus</span> <span class="c1"># =&gt; Counter(@x=2)</span>
-<span class="nb">puts</span> <span class="n">counter</span>      <span class="c1"># =&gt; Counter(@x=1)</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">plus</span><span class="o">.</span><span class="n">plus</span> <span class="c1"># =&gt; Counter(@count=2)</span>
+<span class="nb">puts</span> <span class="n">counter</span>      <span class="c1"># =&gt; Counter(@count=1)</span>
 </code></pre></div>
 <p>連続する <code>plus</code> の呼び出しの戻り値は予想通りの結果になっていますが、最初の呼び出しだけが <code>counter</code> を変更している、ということに注意してください。2番目の呼び出しは最初の呼び出しで返った構造体の_コピー_になっていて、このコピーは呼び出し後に破棄されます。</p>
 <p>構造体の中に変更される (mutable) 型を使った場合の挙動についても注意の必要があります。</p>
@@ -2418,7 +2454,7 @@
 <p><code>Klass</code> はクラスのため <code>modify</code> に参照渡しされ、<code>object.array = ["new"]</code> の行で、元の <code>klass</code> オブジェクトに新しい配列が保存されます。この点で、コピーしたものに格納していた、<code>strukt</code> とは異なります。</p>
 <h2 id="_2">継承</h2>
 <ul>
-<li>構造体は暗黙に <a href="http://crystal-lang.org/api/Struct.html">Struct</a> を継承しており、これは <a href="http://crystal-lang.org/api/Value.html">Value</a> を継承しています。一方クラスは <a href="http://crystal-lang.org/api/Reference.html">Reference</a> を継承しています。</li>
+<li>構造体は暗黙に <a href="http://crystal-lang.org/api/latest/Struct.html">Struct</a> を継承しており、これは <a href="http://crystal-lang.org/api/latest/Value.html">Value</a> を継承しています。一方クラスは <a href="http://crystal-lang.org/api/latest/Reference.html">Reference</a> を継承しています。</li>
 <li>構造体は abstract でない構造体を継承することはできません。</li>
 </ul>
 <p>2番目のものには、構造体はメモリレイアウトが厳密に定まっていないといけない、という事情があります。例えば、次の <code>Point</code> という構造体は8バイトの大きさがあるとします。そして、配列のバッファに各点の情報が埋め込まれると考えてください。</p>

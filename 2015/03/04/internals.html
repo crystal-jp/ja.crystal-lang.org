@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Internals | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Internals" />
 <meta name="author" content="asterite" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-03-04T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Internals" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@asterite" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/03/04/internals.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2015/03/04/internals.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Let’s talk about what Crystal does with your code: how it represents types in memory, how it does method lookup at runtime, how it does method dispatch, etc. When using a programming language it’s always useful to know this in order to structure our code in the most efficient way, and to precisely understand what our code will be transformed to.","headline":"Internals","dateModified":"2015-03-04T00:00:00+00:00","datePublished":"2015-03-04T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/03/04/internals.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2015/03/04/internals.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"author":{"@type":"Person","name":"asterite"},"headline":"Internals","description":"Let’s talk about what Crystal does with your code: how it represents types in memory, how it does method lookup at runtime, how it does method dispatch, etc. When using a programming language it’s always useful to know this in order to structure our code in the most efficient way, and to precisely understand what our code will be transformed to.","dateModified":"2015-03-04T00:00:00+00:00","datePublished":"2015-03-04T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -203,8 +205,8 @@ will be transformed to.</p>
 crystal build test.cr --emit llvm-ir --prelude=empty
 </pre>
 
-<p>The <code class="highlighter-rouge">--emit llvm-ir</code> flag tells the compiler to dump the resulting LLVM IR code to a test.ll file.
-The <code class="highlighter-rouge">--prelude=empty</code> tells the compiler to not use
+<p>The <code class="language-plaintext highlighter-rouge">--emit llvm-ir</code> flag tells the compiler to dump the resulting LLVM IR code to a test.ll file.
+The <code class="language-plaintext highlighter-rouge">--prelude=empty</code> tells the compiler to not use
 the <a href="https://github.com/crystal-lang/crystal/blob/master/src/prelude.cr">default prelude file</a>, which, for example,
 <a href="https://github.com/crystal-lang/crystal/blob/965d6959163717d72cd3703159d60004ebf7f266/src/main.cr#L42">initializes the GC</a>.</p>
 
@@ -236,7 +238,7 @@ the <a href="https://github.com/crystal-lang/crystal/blob/master/src/prelude.cr"
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>The gist is in <code class="highlighter-rouge">__crystal_main</code>: we can see the compiler allocates an <code class="highlighter-rouge">i1</code> in the stack for <code class="highlighter-rouge">x</code> and then stores <code class="highlighter-rouge">true</code> in it.
+<p>The gist is in <code class="language-plaintext highlighter-rouge">__crystal_main</code>: we can see the compiler allocates an <code class="language-plaintext highlighter-rouge">i1</code> in the stack for <code class="language-plaintext highlighter-rouge">x</code> and then stores <code class="language-plaintext highlighter-rouge">true</code> in it.
 That is, the compiler represents a Bool as a single bit, which is pretty efficient.</p>
 
 <p>Let’s do the same for an int:</p>
@@ -245,14 +247,14 @@ That is, the compiler represents a Bool as a single bit, which is pretty efficie
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span></code></pre></figure>
 </div>
 
-<p>For <code class="highlighter-rouge">x</code> this time we will get:</p>
+<p>For <code class="language-plaintext highlighter-rouge">x</code> this time we will get:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-llvm" data-lang="llvm"><span class="nv">%x</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span></code></pre></figure>
 </div>
 
 <p>In LLVM, and i32 is an int represented with 32 bits, which, again, is pretty efficient and what we would expect the representation
-of <code class="highlighter-rouge">Int32</code> to be.</p>
+of <code class="language-plaintext highlighter-rouge">Int32</code> to be.</p>
 
 <p>That is, even though Crystal is object-oriented and an Int32 behaves like an object (it has methods), its internal representation
 is as efficient as possible.</p>
@@ -300,14 +302,14 @@ is as efficient as possible.</p>
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>Three things are important here. First, we can see that a Symbol is represented as <code class="highlighter-rouge">i32</code>, that is, with four bytes. Second,
-we can see <code class="highlighter-rouge">x</code> is assigned a value of 0 and <code class="highlighter-rouge">y</code> is assigned a value of 1. Third, we can see some constants at the top:
-<code class="highlighter-rouge">hello</code>, <code class="highlighter-rouge">bye</code> and <code class="highlighter-rouge">symbol_table</code>.</p>
+<p>Three things are important here. First, we can see that a Symbol is represented as <code class="language-plaintext highlighter-rouge">i32</code>, that is, with four bytes. Second,
+we can see <code class="language-plaintext highlighter-rouge">x</code> is assigned a value of 0 and <code class="language-plaintext highlighter-rouge">y</code> is assigned a value of 1. Third, we can see some constants at the top:
+<code class="language-plaintext highlighter-rouge">hello</code>, <code class="language-plaintext highlighter-rouge">bye</code> and <code class="language-plaintext highlighter-rouge">symbol_table</code>.</p>
 
 <p>Basically, a Symbol in Crystal is just a name assigned to a unique number. A Symbol can’t be created dynamically
-(there’s no <code class="highlighter-rouge">String#to_sym</code>) and the only way to create them is with their literal value, so the compiler can know
+(there’s no <code class="language-plaintext highlighter-rouge">String#to_sym</code>) and the only way to create them is with their literal value, so the compiler can know
 all the symbols used across the program. The compiler assigns a number to each of them, starting from zero, and it also
-builds a table that map their number to a string, to be able to implement <code class="highlighter-rouge">Symbol#to_s</code> in a very efficient way.
+builds a table that map their number to a string, to be able to implement <code class="language-plaintext highlighter-rouge">Symbol#to_s</code> in a very efficient way.
 This makes symbols very attractive to use for small groups of constants, because it’s like using magic numbers but with names instead.</p>
 
 <h3 id="pointer">Pointer</h3>
@@ -320,14 +322,14 @@ This makes symbols very attractive to use for small groups of constants, because
 <span class="n">x</span><span class="p">.</span><span class="nf">value</span> <span class="c1">#=&gt; 1</span></code></pre></figure>
 </div>
 
-<p>If you look at the generated LLVM IR code you will see a bunch of code. First, <code class="highlighter-rouge">x</code> is represented like this:</p>
+<p>If you look at the generated LLVM IR code you will see a bunch of code. First, <code class="language-plaintext highlighter-rouge">x</code> is represented like this:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-llvm" data-lang="llvm"><span class="nv">%x</span> <span class="p">=</span> <span class="k">alloca</span> <span class="kt">i32</span><span class="p">*</span></code></pre></figure>
 </div>
 
-<p>Again, this is just a pointer to an int32, as it should be. Next you will see a call to <code class="highlighter-rouge">malloc</code> (will ask memory from the GC
-using the regular prelude) and <code class="highlighter-rouge">memset</code> to clear the memory, and then some instructions to assign 1 in that memory address.
+<p>Again, this is just a pointer to an int32, as it should be. Next you will see a call to <code class="language-plaintext highlighter-rouge">malloc</code> (will ask memory from the GC
+using the regular prelude) and <code class="language-plaintext highlighter-rouge">memset</code> to clear the memory, and then some instructions to assign 1 in that memory address.
 This is not very important for the subject of this blog post, so we skip it, but it’s important to know that generated code
 is very similar to what would be generated in C.</p>
 
@@ -409,7 +411,7 @@ in its declaration:</p>
 </div>
 
 <p>This is done in a different way than with Symbol, <a href="https://github.com/crystal-lang/crystal/blob/965d6959163717d72cd3703159d60004ebf7f266/src/enum.cr#L4">using compile-time reflection and macros</a>.
-But, basically, an enum’s <code class="highlighter-rouge">to_s</code> method is generated only when needed. But it’s nice that an enum is memory and speed efficient
+But, basically, an enum’s <code class="language-plaintext highlighter-rouge">to_s</code> method is generated only when needed. But it’s nice that an enum is memory and speed efficient
 and also comfortable to use and to debug with (like, you get names instead of numbers when printing them).</p>
 
 <h3 id="proc">Proc</h3>
@@ -471,8 +473,8 @@ closured data.</p>
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>A bit harder to digest than the above examples, but it’s basically assining a pointer to <code class="highlighter-rouge">~fun_literal_1</code> in the first
-position and <code class="highlighter-rouge">null</code> in the second. If our Proc captures a local variable:</p>
+<p>A bit harder to digest than the above examples, but it’s basically assining a pointer to <code class="language-plaintext highlighter-rouge">~fun_literal_1</code> in the first
+position and <code class="language-plaintext highlighter-rouge">null</code> in the second. If our Proc captures a local variable:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -532,8 +534,8 @@ position and <code class="highlighter-rouge">null</code> in the second. If our P
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>This is even harder to digest, but basically some memory is asked that will contain the value of the variable <code class="highlighter-rouge">a</code>, and
-the Proc receives it and uses it. In this case the memory is asked with <code class="highlighter-rouge">malloc</code>, but with the regular prelude the memory
+<p>This is even harder to digest, but basically some memory is asked that will contain the value of the variable <code class="language-plaintext highlighter-rouge">a</code>, and
+the Proc receives it and uses it. In this case the memory is asked with <code class="language-plaintext highlighter-rouge">malloc</code>, but with the regular prelude the memory
 will be allocated by the GC and released when no longer needed.</p>
 
 <h3 id="class">Class</h3>
@@ -580,7 +582,7 @@ struct’s value is passed, copied, across variables and methods.</p>
 <span class="nv">%x</span> <span class="p">=</span> <span class="k">alloca</span> <span class="nv">%Point</span><span class="p">*</span></code></pre></figure>
 </div>
 
-<p>Mmm… wait! A Point has just two instance variables, <code class="highlighter-rouge">@x</code> and <code class="highlighter-rouge">@y</code>, both of type Int32, so why there’s another <code class="highlighter-rouge">i32</code>
+<p>Mmm… wait! A Point has just two instance variables, <code class="language-plaintext highlighter-rouge">@x</code> and <code class="language-plaintext highlighter-rouge">@y</code>, both of type Int32, so why there’s another <code class="language-plaintext highlighter-rouge">i32</code>
 there? Well, it turns out Crystal adds an Int32 to store a type id associated with the class. This doesn’t make much sense
 right now, but when we’ll talk about how unions are represented it will make more sense.</p>
 
@@ -619,8 +621,8 @@ right now, but when we’ll talk about how unions are represented it will make m
 <span class="k">end</span></code></pre></figure>
 </div>
 
-<p>At the end of the <code class="highlighter-rouge">if</code> the variable <code class="highlighter-rouge">x</code> will either be <code class="highlighter-rouge">3</code> or <code class="highlighter-rouge">false</code>, which makes it type an Int32 or a Bool.
-The Crystal way to talk about a union is using a pipe, like this: <code class="highlighter-rouge">Int32 | Bool</code>. In the LLVM IR code we can find:</p>
+<p>At the end of the <code class="language-plaintext highlighter-rouge">if</code> the variable <code class="language-plaintext highlighter-rouge">x</code> will either be <code class="language-plaintext highlighter-rouge">3</code> or <code class="language-plaintext highlighter-rouge">false</code>, which makes it type an Int32 or a Bool.
+The Crystal way to talk about a union is using a pipe, like this: <code class="language-plaintext highlighter-rouge">Int32 | Bool</code>. In the LLVM IR code we can find:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-llvm" data-lang="llvm"><span class="nv">%"(Int32 | Bool)"</span> <span class="p">=</span> <span class="k">type</span> <span class="p">{</span> <span class="kt">i32</span><span class="p">,</span> <span class="p">[</span><span class="m">1</span> <span class="p">x</span> <span class="kt">i64</span><span class="p">]</span> <span class="p">}</span>
@@ -643,12 +645,12 @@ architectures). In C it would be:</p>
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>The first field, the type id, will be used by the compiler when you invoke a method on <code class="highlighter-rouge">x</code>.</p>
+<p>The first field, the type id, will be used by the compiler when you invoke a method on <code class="language-plaintext highlighter-rouge">x</code>.</p>
 
 <p>So, it would seem that here ends the story about how union types are represented. However, there are some unions
 that are very common: nilable types.</p>
 
-<p>We didn’t talk about Nil previously, but since it can only contain a single value, and you can’t use <code class="highlighter-rouge">void</code> for a value,
+<p>We didn’t talk about Nil previously, but since it can only contain a single value, and you can’t use <code class="language-plaintext highlighter-rouge">void</code> for a value,
 its represented as i1:</p>
 
 <div class="code_section">
@@ -671,7 +673,7 @@ its represented as i1:</p>
 <figure class="highlight"><pre><code class="language-llvm" data-lang="llvm"><span class="nv">%x</span> <span class="p">=</span> <span class="k">alloca</span> <span class="nv">%Point</span><span class="p">*</span></code></pre></figure>
 </div>
 
-<p>So a union of <code class="highlighter-rouge">Point | Nil</code>, where Point is a class, is represented in the same was as the Point class. How can
+<p>So a union of <code class="language-plaintext highlighter-rouge">Point | Nil</code>, where Point is a class, is represented in the same was as the Point class. How can
 we tell if x is Nil or Point? Easy: a null pointer means it’s Nil, a non-null pointer means it’s a Point.</p>
 
 <p>In fact, all unions that only involve classes and/or nil are always represented as a single pointer. If it’s
@@ -679,7 +681,7 @@ a null pointer, it’s Nil. Otherwise, if the union contains many possible class
 first member of the value, an Int32, remember? Having all of these unions be represented as pointers makes the
 code much more efficient, as pointers fit in registers and occupy very little memory.</p>
 
-<p>However, a union of Nil and a struct will always be represented as a tagged union, like the <code class="highlighter-rouge">Int32 | Bool</code> case.
+<p>However, a union of Nil and a struct will always be represented as a tagged union, like the <code class="language-plaintext highlighter-rouge">Int32 | Bool</code> case.
 But these unions are much less common.</p>
 
 <p>Now that we understand how types are represented and how, at runtime, we can know what type is contained in a
@@ -716,12 +718,12 @@ consider this class hierarchy:</p>
 <span class="no">Baz</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">foo</span> <span class="c1">#=&gt; 1</span></code></pre></figure>
 </div>
 
-<p>Wow, a big class hierarchy and even an included module, and two definitions for <code class="highlighter-rouge">foo</code>. By looking at the code,
-can you know which <code class="highlighter-rouge">foo</code> method will get invoked in this case?</p>
+<p>Wow, a big class hierarchy and even an included module, and two definitions for <code class="language-plaintext highlighter-rouge">foo</code>. By looking at the code,
+can you know which <code class="language-plaintext highlighter-rouge">foo</code> method will get invoked in this case?</p>
 
 <p>…</p>
 
-<p>Well, it’s <code class="highlighter-rouge">Moo#foo</code>, right? Yes, indeed. Well, it turns out the compiler knows this too, and if you take a look
+<p>Well, it’s <code class="language-plaintext highlighter-rouge">Moo#foo</code>, right? Yes, indeed. Well, it turns out the compiler knows this too, and if you take a look
 at the generated code you will see something like this:</p>
 
 <div class="code_section">
@@ -738,7 +740,7 @@ at the generated code you will see something like this:</p>
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>What happens if we create an instance of Bar and we invoke <code class="highlighter-rouge">foo</code> on it too:</p>
+<p>What happens if we create an instance of Bar and we invoke <code class="language-plaintext highlighter-rouge">foo</code> on it too:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Bar</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">foo</span>
@@ -764,19 +766,19 @@ at the generated code you will see something like this:</p>
 <span class="p">}</span></code></pre></figure>
 </div>
 
-<p>Oops, isn’t there a duplicated definition of <code class="highlighter-rouge">foo</code> there? Well, yes. You can think as if the compiler
+<p>Oops, isn’t there a duplicated definition of <code class="language-plaintext highlighter-rouge">foo</code> there? Well, yes. You can think as if the compiler
 copied foo’s definition into each class, and so there will be, indeed, many copies of the same method.
 But this doesn’t matter much: most methods are not big, and method call speed is much more important. Furthermore,
 small methods get inlined anyway in an optimized build, and there’s even an LLVM transformation pass to
 detect duplicated functions and merge them.</p>
 
-<p>Of course, the story changes a bit if <code class="highlighter-rouge">Moo#foo</code> invokes an instance method or uses an instance variable. In this
+<p>Of course, the story changes a bit if <code class="language-plaintext highlighter-rouge">Moo#foo</code> invokes an instance method or uses an instance variable. In this
 case the “duplicated” methods will actually be different, again, as if we copied each method definition
 into each type that finally contains it. This makes method call as efficient as possible, at the cost
 of (possibly) increasing executable size. But end users are usually more concerned about speed than
 executable size.</p>
 
-<p>All of the above is possible because the compiler knows the exact type of <code class="highlighter-rouge">Bar.new</code>. What happens
+<p>All of the above is possible because the compiler knows the exact type of <code class="language-plaintext highlighter-rouge">Bar.new</code>. What happens
 if the compiler doesn’t know this? Let’s start with a simple union where types are not classes
 in the same hierarchy:</p>
 
@@ -801,8 +803,8 @@ in the same hierarchy:</p>
 <span class="n">obj</span><span class="p">.</span><span class="nf">foo</span></code></pre></figure>
 </div>
 
-<p>This time the compiler will generate code that more or less does this: before invoking <code class="highlighter-rouge">foo</code> on <code class="highlighter-rouge">obj</code>,
-check what type is <code class="highlighter-rouge">obj</code>. This can be known by loading the first field (the type id) of the pointer
+<p>This time the compiler will generate code that more or less does this: before invoking <code class="language-plaintext highlighter-rouge">foo</code> on <code class="language-plaintext highlighter-rouge">obj</code>,
+check what type is <code class="language-plaintext highlighter-rouge">obj</code>. This can be known by loading the first field (the type id) of the pointer
 that represents the object. Then based on this we invoke one method or another. The decision for this
 is just one memory load and a comparison: very efficient. For a bigger union it would still be one memory
 load or just reading the type id field of a union, and then many comparisons. But… wouldn’t a lookup
@@ -814,7 +816,7 @@ other (imagine a lookup table for the values 1 and 1000000, it would take a lot 
 decide to do comparisons in that case). Luckily, we assign type ids in a way that helps LLVM
 achieve this.</p>
 
-<p>When we say <code class="highlighter-rouge">big unions</code> chances are that that union contains classes of the same hierarchy: you usually
+<p>When we say <code class="language-plaintext highlighter-rouge">big unions</code> chances are that that union contains classes of the same hierarchy: you usually
 build a class hierarchy to make all types follow a certain rule, respond to a similar set of methods.
 Although you can do this without a class hierarchy, they are a very common way of structuring code.</p>
 
@@ -854,14 +856,14 @@ range 1-3, and for Foo it assigns the range 1-4.</p>
 <span class="n">obj</span><span class="p">.</span><span class="nf">foo</span></code></pre></figure>
 </div>
 
-<p>First, the compiler will type <code class="highlighter-rouge">obj</code> as <code class="highlighter-rouge">Foo+</code>, meaning it can be Foo or one of its sublcasses (read
+<p>First, the compiler will type <code class="language-plaintext highlighter-rouge">obj</code> as <code class="language-plaintext highlighter-rouge">Foo+</code>, meaning it can be Foo or one of its sublcasses (read
 more about this <a href="http://crystal-lang.org/docs/syntax_and_semantics/virtual_and_abstract_types.html">here</a>).
-In this case, there will be only two different method instantiations: one for <code class="highlighter-rouge">Foo+</code> and one for <code class="highlighter-rouge">Bar+</code>, since
+In this case, there will be only two different method instantiations: one for <code class="language-plaintext highlighter-rouge">Foo+</code> and one for <code class="language-plaintext highlighter-rouge">Bar+</code>, since
 Baz and Qux don’t redefine that method. To know which one we need to call, we load the type id. Then, instead
 of having to say “if the type id is that of Bar, or Baz or Qux, call Bar#foo, otherwise call Foo#foo`, we
 can simply check if the type id is in the range previously assigned to Bar (1-3): just two comparisons.</p>
 
-<p>This range check also works with <code class="highlighter-rouge">is_a?</code>. When you do <code class="highlighter-rouge">obj.is_a?(Foo)</code>, and maybe <code class="highlighter-rouge">obj</code> is an Int32 or, Foo,
+<p>This range check also works with <code class="language-plaintext highlighter-rouge">is_a?</code>. When you do <code class="language-plaintext highlighter-rouge">obj.is_a?(Foo)</code>, and maybe <code class="language-plaintext highlighter-rouge">obj</code> is an Int32 or, Foo,
 or one of its subclasses, we can solve this with at most two comparisons.</p>
 
 <p>Finally, an interesting aspect of Crystal is that method dispatch happens based on possibly many types:</p>

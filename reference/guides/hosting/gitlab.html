@@ -2215,12 +2215,18 @@
     Pipelines
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#some-badges" class="md-nav__link">
     Some Badges
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2297,8 +2303,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2310,7 +2328,7 @@
 
   <li class="md-nav__item">
     <a href="../ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2320,8 +2338,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2353,12 +2395,18 @@
     Pipelines
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#some-badges" class="md-nav__link">
     Some Badges
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2437,7 +2485,7 @@
 </code></pre></div>
 </li>
 </ul>
-<h3 id="pipelines">Pipelines</h3>
+<h2 id="pipelines">Pipelines</h2>
 <p>Next, let's setup a <a href="https://docs.gitlab.com/ee/ci/pipelines.html">GitLab Pipeline</a> that can run our tests and build/deploy the docs when we push code to the repo.</p>
 <p>Simply, you can just add the following file to the root of the repo and name it <code>.gitlab-ci.yml</code></p>
 <div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="s">&quot;crystallang/crystal:latest&quot;</span>

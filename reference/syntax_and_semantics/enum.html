@@ -2284,8 +2284,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2297,7 +2309,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2307,8 +2319,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2412,9 +2448,9 @@
 <span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="o">.</span><span class="n">value</span> <span class="c1"># :: UInt8</span>
 </code></pre></div>
 <p>ただし、整数型しか指定することはできません。</p>
-<p>すべての列挙型は <a href="http://crystal-lang.org/api/Enum.html">Enum</a> を継承しています。</p>
+<p>すべての列挙型は <a href="https://crystal-lang.org/api/latest/Enum.html">Enum</a> を継承しています。</p>
 <h2 id="_1">フラグ列挙型</h2>
-<p>列挙型に <code>@[Flags]</code> という属性を指定することができます。これを指定するとデフォルトの値が変わります。</p>
+<p>列挙型に <code>@[Flags]</code> を指定できます。これを指定するとデフォルトの値が変わります。</p>
 <div class="highlight"><pre><span></span><code><span class="o">@[</span><span class="nd">Flags</span><span class="o">]</span>
 <span class="k">enum</span> <span class="nc">IOMode</span>
   <span class="n">Read</span>  <span class="c1"># 1</span>
@@ -2422,12 +2458,12 @@
   <span class="n">Async</span> <span class="c1"># 4</span>
 <span class="k">end</span>
 </code></pre></div>
-<p><code>@[Flags]</code> 属性を指定することで、最初の定数の値は <code>1</code> になり、以降は前の値を <code>2</code> 倍したものになります。</p>
+<p><code>@[Flags]</code> アノテーションを指定することで、最初の定数の値は <code>1</code> になり、以降は前の値を <code>2</code> 倍したものになります。</p>
 <p>また、暗黙の定数として <code>None</code> と <code>All</code> が自動的に列挙型に追加されます。ここで <code>None</code> の値は <code>0</code> で、<code>All</code> はすべての定数のビット ORを取ったものになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">IOMode</span><span class="o">::</span><span class="n">None</span><span class="o">.</span><span class="n">value</span> <span class="c1"># =&gt; 0</span>
 <span class="n">IOMode</span><span class="o">::</span><span class="n">All</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># =&gt; 7</span>
 </code></pre></div>
-<p>さらに、<code>Enum</code> のメソッドには <code>@[Flags]</code> 属性によって振る舞いを換えるものがいくつかあります。例をあげます。</p>
+<p>さらに、<code>Enum</code> のメソッドには <code>@[Flags]</code> アノテーションを指定することで振る舞いを変えるものがいくつかあります。例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">puts</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">)</span>                    <span class="c1"># prints &quot;Red&quot;</span>
 <span class="nb">puts</span><span class="p">(</span><span class="n">IOMode</span><span class="o">::</span><span class="n">Write</span> <span class="o">|</span> <span class="n">IOMode</span><span class="o">::</span><span class="n">Async</span><span class="p">)</span> <span class="c1"># prints &quot;Write, Async&quot;</span>
 </code></pre></div>
@@ -2456,7 +2492,7 @@
 </code></pre></div>
 <p>クラス変数を使うこともできますが、インスタンス変数を使うことはできません。</p>
 <h2 id="_4">使い方</h2>
-<p>列挙型は <a href="http://crystal-lang.org/api/Symbol.html">Symbol</a> の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの<a href="type_restrictions.html">型制約</a>に指定することができます。</p>
+<p>列挙型は <a href="https://crystal-lang.org/api/latest/Symbol.html">Symbol</a> の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの<a href="type_restrictions.html">型制約</a>に指定することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">paint</span><span class="p">(</span><span class="n">color</span> <span class="p">:</span> <span class="n">Color</span><span class="p">)</span>
   <span class="k">case</span> <span class="n">color</span>
   <span class="k">when</span> <span class="n">Color</span><span class="o">::</span><span class="n">Red</span>

@@ -2230,8 +2230,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2243,7 +2255,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2253,8 +2265,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2291,7 +2327,7 @@
                 
                 
                 <h1 id="char">文字 (Char)</h1>
-<p><a href="http://crystal-lang.org/api/Char.html">Char</a> は 32bit の <a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a> <a href="http://en.wikipedia.org/wiki/Code_point">コードポイント</a>を表現します。</p>
+<p><a href="https://crystal-lang.org/api/latest/Char.html">Char</a> は 32bit の <a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a> <a href="http://en.wikipedia.org/wiki/Code_point">コードポイント</a> を表します。</p>
 <p>通常、シングルクォートでUTF-8でエンコードされた文字を囲って文字リテラルを記述します。</p>
 <div class="highlight"><pre><span></span><code><span class="sc">&#39;a&#39;</span>
 <span class="sc">&#39;z&#39;</span>
@@ -2300,7 +2336,7 @@
 <span class="sc">&#39;あ&#39;</span>
 </code></pre></div>
 <p>バックスラッシュによる名前つきのエスケープスーケンスかコードポイントの数値表現で、特別な文字を記述できます。</p>
-<p>次のエスケープシーケンスが有効です。
+<p>次のエスケープシーケンスが有効です。</p>
 <div class="highlight"><pre><span></span><code><span class="sc">&#39;\&#39;&#39;</span>         <span class="c1"># シングルクォート</span>
 <span class="sc">&#39;\\&#39;</span>         <span class="c1"># バックスラッシュ</span>
 <span class="sc">&#39;\a&#39;</span>         <span class="c1"># アラート</span>
@@ -2313,7 +2349,7 @@
 <span class="sc">&#39;\v&#39;</span>         <span class="c1"># 垂直タブ</span>
 <span class="sc">&#39;\uFFFF&#39;</span>     <span class="c1"># 16進数によるユニコード文字</span>
 <span class="sc">&#39;\u{10FFFF}&#39;</span> <span class="c1"># 16進数によるユニコード文字</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>バックスラッシュに<code>u</code>を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (<code>\u0000</code> to <code>\uFFFF</code>) かひげ括弧で囲った6つまでの16進数の数値が利用できます (<code>\u{0}</code> to <code>\u{10FFFF}</code></p>
 <div class="highlight"><pre><span></span><code><span class="sc">&#39;\u0041&#39;</span>    <span class="c1"># =&gt; &#39;A&#39;</span>
 <span class="sc">&#39;\u{41}&#39;</span>    <span class="c1"># =&gt; &#39;A&#39;</span>

@@ -2363,8 +2363,20 @@
 
 
   <li class="md-nav__item">
+    <a href="ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2376,7 +2388,7 @@
 
   <li class="md-nav__item">
     <a href="ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2386,8 +2398,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2658,7 +2694,7 @@
 
 <span class="n">Fiber</span><span class="o">.</span><span class="n">yield</span>
 </code></pre></div>
-<p>今度は正しく動作しました。なぜかと言うと <a href="http://crystal-lang.org/api/Proc.html">Proc</a> を生成してそれに <code>i</code> を渡しているからです。こうすることで、<code>i</code> の値がコピーされ、生成されたファイバが仕様するのはそのコピーになります。</p>
+<p>今度は正しく動作しました。なぜかというと <a href="https://crystal-lang.org/api/latest/Proc.html">Proc</a> を生成して、それに <code>i</code> を渡しているからです。こうすることで <code>i</code> の値がコピーされ、生成したファイバが使用するのはそのコピーになります。</p>
 <p>上記のようなボイラープレートコードを回避するために、標準ライブラリは式の呼び出しを受け取って上記コードに展開する<code>spawn</code> マクロを用意しています。それを使い、最終的にはこうなりました。</p>
 <div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span>

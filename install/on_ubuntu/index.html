@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>プログラミング言語 Crystal | Ruby のような構文で型推論のあるコンパイル言語</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="プログラミング言語 Crystal" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby のような構文で型推論のあるコンパイル言語" />
@@ -18,9 +18,11 @@
 <meta property="og:site_name" content="プログラミング言語 Crystal" />
 <meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="プログラミング言語 Crystal" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"url":"https://ja.crystal-lang.org/install/on_ubuntu/","image":"https://ja.crystal-lang.org/images/icon.png","description":"Ruby のような構文で型推論のあるコンパイル言語","headline":"プログラミング言語 Crystal","@type":"WebPage","@context":"http://schema.org"}</script>
+{"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/install/on_ubuntu/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"headline":"プログラミング言語 Crystal","description":"Ruby のような構文で型推論のあるコンパイル言語","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -146,8 +148,8 @@
 <p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
 
 <ul>
-  <li><code class="highlighter-rouge">--crystal</code> 引数に <code class="highlighter-rouge">major.minor.patch</code>、<code class="highlighter-rouge">major.minor</code> もしくは <code class="highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
-  <li><code class="highlighter-rouge">--channel</code> 引数では、<code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは<code class="highlighter-rouge">nightly</code> の値を指定できます、</li>
+  <li><code class="language-plaintext highlighter-rouge">--crystal</code> 引数に <code class="language-plaintext highlighter-rouge">major.minor.patch</code>、<code class="language-plaintext highlighter-rouge">major.minor</code> もしくは <code class="language-plaintext highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
+  <li><code class="language-plaintext highlighter-rouge">--channel</code> 引数では、<code class="language-plaintext highlighter-rouge">stable</code>、<code class="language-plaintext highlighter-rouge">unstable</code>、もしくは<code class="language-plaintext highlighter-rouge">nightly</code> の値を指定できます、</li>
 </ul>
 
 <div class="code_section">
@@ -160,13 +162,13 @@
 
 <h3 id="マニュアルセットアップ">マニュアルセットアップ</h3>
 
-<p><code class="highlighter-rouge">deb_distribution=all</code> と <code class="highlighter-rouge">deb_component</code> と共に選言された deb リポジトリがチャンネルに利用されます。</p>
+<p><code class="language-plaintext highlighter-rouge">deb_distribution=all</code> と <code class="language-plaintext highlighter-rouge">deb_component</code> と共に選言された deb リポジトリがチャンネルに利用されます。</p>
 
 <ul>
-  <li>有効なチャンネル名は <code class="highlighter-rouge">stable</code>、<code class="highlighter-rouge">unstable</code>、もしくは <code class="highlighter-rouge">nightly</code> です。</li>
+  <li>有効なチャンネル名は <code class="language-plaintext highlighter-rouge">stable</code>、<code class="language-plaintext highlighter-rouge">unstable</code>、もしくは <code class="language-plaintext highlighter-rouge">nightly</code> です。</li>
 </ul>
 
-<p>利用したいチャンネル名で次のスクリプトの <code class="highlighter-rouge">{CHANNEL}</code> の置き換えることで、設定できます。</p>
+<p>利用したいチャンネル名で次のスクリプトの <code class="language-plaintext highlighter-rouge">{CHANNEL}</code> の置き換えることで、設定できます。</p>
 
 <div class="code_section">
 
@@ -205,13 +207,13 @@ apt-get update</code></pre></figure>
 
 <h2 id="snapcraft-を使う">Snapcraft を使う</h2>
 
-<p>Crystal の snap は classic な制限環境下を要求します。<code class="highlighter-rouge">snapd</code> がインストールしてあれば、Crystal をインストールする準備は万端です。</p>
+<p>Crystal の snap は classic な制限環境下を要求します。<code class="language-plaintext highlighter-rouge">snapd</code> がインストールしてあれば、Crystal をインストールする準備は万端です。</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--classic</span></code></pre></figure>
 </div>
 
-<p>最新のバージョンを <code class="highlighter-rouge">edge</code> チャンネルを使ってインストールすることもできます。</p>
+<p>最新のバージョンを <code class="language-plaintext highlighter-rouge">edge</code> チャンネルを使ってインストールすることもできます。</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>snap <span class="nb">install </span>crystal <span class="nt">--classic</span> <span class="nt">--edge</span></code></pre></figure>

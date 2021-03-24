@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>The Charly programming language | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="The Charly programming language" />
 <meta name="author" content="lschutz" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-01-06T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="The Charly programming language" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@lschutz" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"lschutz"},"url":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"lschutz"},"description":"This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, let us know!","headline":"The Charly programming language","dateModified":"2017-01-06T00:00:00+00:00","datePublished":"2017-01-06T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2017/01/06/the-charly-programming-language.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"lschutz"},"author":{"@type":"Person","name":"lschutz"},"headline":"The Charly programming language","description":"This post is the first from our guest writers series. If you have built something awesome using Crystal and want to share your experience here on the blog, let us know!","dateModified":"2017-01-06T00:00:00+00:00","datePublished":"2017-01-06T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -265,7 +267,7 @@ $ charly test/debug.ch -f lint -f tokens
 
 <p>This part of the program is called the lexer (Lexical Analysis). It turns the source-code into logical groups of characters. For example, the print identifier is now a token of the type Identifier, containing the string print. Same goes for the text which is being printed. It is now a token of the type String, containing the string Hello World.</p>
 
-<p>After the whole program was turned into a list of tokens, the parser turns them into an AST (Abstract Syntax Tree). The AST is a way of representing a program as a tree structure. Each node has a type and 0 or more children. The expression <code class="highlighter-rouge">1 + 2 * 3</code> would produce an AST which looks like this:</p>
+<p>After the whole program was turned into a list of tokens, the parser turns them into an AST (Abstract Syntax Tree). The AST is a way of representing a program as a tree structure. Each node has a type and 0 or more children. The expression <code class="language-plaintext highlighter-rouge">1 + 2 * 3</code> would produce an AST which looks like this:</p>
 
 <p><img src="/assets/blog/charly-ast_1.png" class="center" /></p>
 
@@ -276,13 +278,13 @@ $ charly test/debug.ch -f lint -f tokens
 <p>Once the whole program has been turned into the AST, the interpreter starts to recursively traverse this structure.
 This procedure follows the <a href="https://en.wikipedia.org/wiki/Visitor_pattern">Visitor pattern</a> to separate the AST and language logic.</p>
 
-<p>Take a <code class="highlighter-rouge">BinaryExpression</code> as an example. It has three properties. The two values of the expression and an operator.
+<p>Take a <code class="language-plaintext highlighter-rouge">BinaryExpression</code> as an example. It has three properties. The two values of the expression and an operator.
 This operator could be a plus, minus or any other operator the language supports.
 It first resolves the two values, checks what operator is being used and applies it to the two values.
 Depending on which value is on which side, this procedure might produce completly different results.
-<code class="highlighter-rouge">3 + [1, 2]</code> is not the same as <code class="highlighter-rouge">[1, 2] + 3</code> (<code class="highlighter-rouge">NAN</code> and <code class="highlighter-rouge">[1, 2, 3]</code>).</p>
+<code class="language-plaintext highlighter-rouge">3 + [1, 2]</code> is not the same as <code class="language-plaintext highlighter-rouge">[1, 2] + 3</code> (<code class="language-plaintext highlighter-rouge">NAN</code> and <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>).</p>
 
-<p>A <code class="highlighter-rouge">IdentifierLiteral</code> would load a value from the current scope, a <code class="highlighter-rouge">CallExpression</code> would invoke a pre-defined function and so on.</p>
+<p>A <code class="language-plaintext highlighter-rouge">IdentifierLiteral</code> would load a value from the current scope, a <code class="language-plaintext highlighter-rouge">CallExpression</code> would invoke a pre-defined function and so on.</p>
 
 <h1 id="why-crystal">Why Crystal?</h1>
 
@@ -292,7 +294,7 @@ Depending on which value is on which side, this procedure might produce completl
 
 <p>Another great thing about Crystal is that you don’t have to deal with a lot of low-level stuff. Crystal’s standard library takes care of most things you’d consider low-level, even memory management. If you really need to do low-level stuff, you have access to <a href="https://crystal-lang.org/api/master/Pointer.html">raw pointers</a> and <a href="https://crystal-lang.org/reference/syntax_and_semantics/c_bindings/">bindings to C</a>. This is also how the regex literal is implemented in Crystal. Internally it binds to the <a href="http://www.pcre.org/">PCRE Library</a> and places an easy-to-use abstraction over it. Instead of reinventing the wheel, Crystal just binds to already existing C libraries. Crystal also binds to the C standard library, <a href="https://www.openssl.org/">OpenSSL</a>, <a href="https://gmplib.org/">LibGMP</a>, <a href="http://xmlsoft.org/">LibXML2</a>, <a href="http://pyyaml.org/wiki/LibYAML">LibYAML</a> and many others.</p>
 
-<p>Another big reason for switching to Crystal was speed. Crystal is <a href="https://github.com/kostya/benchmarks">blazingly</a> fast. The old Charly implementation, which used Ruby 2.3, took over 300 milliseconds just to parse a single file. On top of that, it took about 1.8 seconds to run the test suite. The program written in Crystal and compiled with the <code class="highlighter-rouge">--release</code> option, took about 1-2 milliseconds to do all of that! Pretty impressive.</p>
+<p>Another big reason for switching to Crystal was speed. Crystal is <a href="https://github.com/kostya/benchmarks">blazingly</a> fast. The old Charly implementation, which used Ruby 2.3, took over 300 milliseconds just to parse a single file. On top of that, it took about 1.8 seconds to run the test suite. The program written in Crystal and compiled with the <code class="language-plaintext highlighter-rouge">--release</code> option, took about 1-2 milliseconds to do all of that! Pretty impressive.</p>
 
 <p>Since Crystal uses LLVM, your program runs through all of their optimization passes. These include, but are not limited to: constant-folding, dead-code-elimination, function-inlining and even the evaluation of complete code branches at compile-time. You won’t get that with Ruby ;)</p>
 

@@ -478,6 +478,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    パーセント文字列リテラル
+  </a>
+  
+    <nav class="md-nav" aria-label="パーセント文字列リテラル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    パーセント文字列配列リテラル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    複数行の文字列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ヒアドキュメント
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2270,8 +2304,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2283,7 +2329,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2293,8 +2339,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2335,6 +2405,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    パーセント文字列リテラル
+  </a>
+  
+    <nav class="md-nav" aria-label="パーセント文字列リテラル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    パーセント文字列配列リテラル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    複数行の文字列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ヒアドキュメント
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2353,13 +2457,13 @@
                 
                 
                 <h1 id="string">文字列 (String)</h1>
-<p><a href="http://crystal-lang.org/api/String.html">String</a> は UTF-8 文字の不変な列を表します。</p>
+<p><a href="https://crystal-lang.org/api/latest/String.html">String</a> は UTF-8 文字の不変な列を表します。</p>
 <p>通常、ダブルクォート (<code>"</code>) で囲まれたUTF-8でエンコードされた文字の並びで文字列リテラルを記述します。</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;hello world&quot;</span>
 </code></pre></div>
 <h2 id="_1">エスケープ文字</h2>
 <p>文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。</p>
-<p>次のエスケープシーケンスが有効です。
+<p>次のエスケープシーケンスが有効です。</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>                  <span class="c1"># ダブルクオート</span>
 <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>                  <span class="c1"># バックスラッシュ</span>
 <span class="s2">&quot;\a&quot;</span>                  <span class="c1"># アラート</span>
@@ -2374,7 +2478,7 @@
 <span class="s2">&quot;</span><span class="se">\xFF</span><span class="s2">&quot;</span>                <span class="c1"># 16進数による ASCII 文字</span>
 <span class="s2">&quot;\uFFFF&quot;</span>              <span class="c1"># 16進数によるユニコード文字</span>
 <span class="s2">&quot;\u{0}&quot;</span><span class="o">..</span><span class="s2">&quot;\u{10FFFF}&quot;</span> <span class="c1"># 16進数によるユニコード文字</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。</p>
 <p>バックスラッシュに続く最大3つの0から7までの数値は、8進数によるコードポイントの記述となります。</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\101</span><span class="s2">&quot;</span> <span class="c1"># =&gt; &quot;A&quot;</span>
@@ -2396,13 +2500,13 @@
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="s2">&quot;sum: </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">#{</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># =&gt; &quot;sum: 1 + 2 = 3&quot;</span>
 </code></pre></div>
-<p>文字列の補間は <a href="https://crystal-lang.org/api/String.html#%25%28other%29-instance-method">String#%</a> でも可能です。</p>
+<p>文字列の補間は <a href="https://crystal-lang.org/api/latest/String.html#%25%28other%29-instance-method">String#%</a> でも可能です。</p>
 <p>任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。</p>
 <p><code>#</code>をバックスラッシュでエスケープするか、<code>%q()</code>のような補間を許可しないような文字列リテラルを使うことで、補間を無効にできます。</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\#</span><span class="s2">{a + b}&quot;</span>  <span class="c1"># =&gt; &quot;#{a + b}&quot;</span>
 <span class="o">%</span><span class="n">q</span><span class="p">(</span><span class="c1">#{a + b}) # =&gt; &quot;#{a + b}&quot;</span>
 </code></pre></div>
-<p>文字列の補間は <a href="http://crystal-lang.org/api/String/Builder.html">String::Builder</a> を使い、 <code>#{...}</code> の中の式に対して <code>Object#to_s(IO)</code> を呼び出すことで実装されています。式<code>"sum: #{a} + #{b} = #{a + b}"</code>は次に等しいです。</p>
+<p>文字列の補間は <a href="https://crystal-lang.org/api/latest/String/Builder.html">String::Builder</a> を使い、<code>#{...}</code> の中の式に対して <code>Object#to_s(IO)</code> を呼び出すことで実装されています。式<code>"sum: #{a} + #{b} = #{a + b}"</code>は次に等しいです。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">String</span><span class="o">.</span><span class="n">build</span> <span class="k">do</span> <span class="o">|</span><span class="n">io</span><span class="o">|</span>
   <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;sum: &quot;</span>
   <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="n">a</span>
@@ -2412,7 +2516,7 @@
   <span class="n">io</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="k">end</span>
 </code></pre></div>
-<h1 id="_3">パーセント文字列リテラル</h1>
+<h2 id="_3">パーセント文字列リテラル</h2>
 <p>ダブルクォートによる文字列リテラルの他に、Crystalはパーセント記号 (<code>%</code>) と区切り文字の組による文字列リテラルもサポートしています。有効な区切り文字は、括弧<code>()</code>、角括弧<code>[]</code>、ひげ括弧<code>{}</code>、三角括弧<code>&lt;&gt;</code>そしてパイプ文字<code>||</code>です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</p>
 <p>ダブルクォートを含むような文字列を書くのにこれらのリテラルはお手軽です。</p>
 <div class="highlight"><pre><span></span><code><span class="sx">%(hello (&quot;world&quot;))</span> <span class="c1"># =&gt; &quot;hello (\&quot;world\&quot;)&quot;</span>
@@ -2426,13 +2530,13 @@
 <span class="o">%</span><span class="n">q</span><span class="p">(</span><span class="n">hello</span> <span class="p">\</span><span class="n">n</span> <span class="c1">#{name}) # =&gt; &quot;hello \\n \#{name}&quot;</span>
 <span class="o">%</span><span class="n">Q</span><span class="p">(</span><span class="n">hello</span> <span class="p">\</span><span class="n">n</span> <span class="c1">#{name}) # =&gt; &quot;hello \n world&quot;</span>
 </code></pre></div>
-<h2 id="_4">パーセント文字列配列リテラル</h2>
-<p>1つの文字列を表すリテラルの他に、文字列の<a href="https://crystal-lang.org/api/Array.html">配列</a>を表すパーセントリテラルがあります。それは<code>%w</code>と区切り文字の組によって記述します。有効な区切り文字は<a href="#percent-string-literals">パーセント文字列リテラル</a>のときと同じです。</p>
+<h3 id="_4">パーセント文字列配列リテラル</h3>
+<p>1つの文字列を表すリテラルの他に、文字列の<a href="https://crystal-lang.org/api/latest/Array.html">配列</a>を表すパーセントリテラルがあります。それは<code>%w</code>と区切り文字の組によって記述します。有効な区切り文字は<a href="#percent-string-literals">パーセント文字列リテラル</a>のときと同じです。</p>
 <div class="highlight"><pre><span></span><code><span class="sx">%w(foo bar baz)</span>  <span class="c1"># =&gt; [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]</span>
 <span class="sx">%w(foo\nbar baz)</span> <span class="c1"># =&gt; [&quot;foo\\nbar&quot;, &quot;baz&quot;]</span>
 <span class="sx">%w(foo(bar) baz)</span> <span class="c1"># =&gt; [&quot;foo(bar)&quot;, &quot;baz&quot;]</span>
 </code></pre></div>
-<p>Note that literal denoted by <code>%w</code> does not apply interpolation nor escapes except spaces. もちろん、エスケープされた1つのスペース (<code></code>) では文字列は区切られません。</p>
+<p><code>%w</code> で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。もちろん、エスケープされた1つのスペース (<code></code>) では文字列は区切られません。</p>
 <div class="highlight"><pre><span></span><code><span class="sx">%w(foo\ bar baz)</span> <span class="c1"># =&gt; [&quot;foo bar&quot;, &quot;baz&quot;]</span>
 </code></pre></div>
 <h2 id="_5">複数行の文字列</h2>

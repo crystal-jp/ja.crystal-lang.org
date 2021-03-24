@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.1.0 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.1.0 released!" />
 <meta name="author" content="asterite" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2014-06-19T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.1.0 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@asterite" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Yesterday we released the first official version of Crystal: 0.1.0. Yay!","headline":"Crystal 0.1.0 released!","dateModified":"2014-06-19T00:00:00+00:00","datePublished":"2014-06-19T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2014/06/19/crystal-0.1.0-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"author":{"@type":"Person","name":"asterite"},"headline":"Crystal 0.1.0 released!","description":"Yesterday we released the first official version of Crystal: 0.1.0. Yay!","dateModified":"2014-06-19T00:00:00+00:00","datePublished":"2014-06-19T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -207,7 +209,7 @@
   <li>Linux 64 bits: <a href="http://crystal-lang.s3.amazonaws.com/crystal-linux64-0.1.0-p0.tar.gz">crystal-linux64-0.1.0-p0.tar.gz</a></li>
 </ul>
 
-<p>Then uncompress it and inside it you will have a <code class="highlighter-rouge">bin/crystal</code> executable. You can create a symbolic link to that executable, and that’s it!</p>
+<p>Then uncompress it and inside it you will have a <code class="language-plaintext highlighter-rouge">bin/crystal</code> executable. You can create a symbolic link to that executable, and that’s it!</p>
 
 <h2 id="install-crystal-on-mac-osx-using-homebrew">Install Crystal on Mac OSX using Homebrew</h2>
 
@@ -217,7 +219,7 @@
 brew install crystal-lang
 </pre>
 
-<p>That’s it! You should have a <code class="highlighter-rouge">crystal</code> executable in your PATH.</p>
+<p>That’s it! You should have a <code class="language-plaintext highlighter-rouge">crystal</code> executable in your PATH.</p>
 
 <h2 id="the-language-features">The language features</h2>
 
@@ -265,7 +267,7 @@ brew install crystal-lang
 <p>The compiler figures out which variables are accessed inside the function literal and only allocates
 memory for the closure if it’s needed, in order to get maximum memory and speed efficiency.</p>
 
-<p>A closure has also access to the <code class="highlighter-rouge">self</code> of the class where it is declared:</p>
+<p>A closure has also access to the <code class="language-plaintext highlighter-rouge">self</code> of the class where it is declared:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Foo</span>
@@ -287,7 +289,7 @@ memory for the closure if it’s needed, in order to get maximum memory and spee
 <span class="nb">puts</span> <span class="n">proxy</span><span class="p">.</span><span class="nf">call</span> <span class="c1">#=&gt; 10</span></code></pre></figure>
 </div>
 
-<p>A function literal can be passed as a block to a method using an ampersand (<code class="highlighter-rouge">&amp;</code>):</p>
+<p>A function literal can be passed as a block to a method using an ampersand (<code class="language-plaintext highlighter-rouge">&amp;</code>):</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span>
@@ -342,7 +344,7 @@ but for this you must specify the arguments’ types in the block argument:</p>
 </div>
 
 <p>Note that in this last form a closure is automatically created if needed: in the last
-example <code class="highlighter-rouge">a</code> was captured by the block/function literal.</p>
+example <code class="language-plaintext highlighter-rouge">a</code> was captured by the block/function literal.</p>
 
 <p>This last form makes it easier to write function literals without having to specify their
 arguments types everywhere: you only need to specify these in a def’s block argument.</p>
@@ -368,8 +370,8 @@ type of the block:</p>
 <span class="nb">p</span> <span class="n">h</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; "2"</span></code></pre></figure>
 </div>
 
-<p>(A small note on free variables: right now the compiler figures out that <code class="highlighter-rouge">U</code> is a free variable because there’s
-no type named <code class="highlighter-rouge">U</code>. In a future version we’ll fix this by letting the compiler know that <code class="highlighter-rouge">U</code> is free right in the
+<p>(A small note on free variables: right now the compiler figures out that <code class="language-plaintext highlighter-rouge">U</code> is a free variable because there’s
+no type named <code class="language-plaintext highlighter-rouge">U</code>. In a future version we’ll fix this by letting the compiler know that <code class="language-plaintext highlighter-rouge">U</code> is free right in the
 method’s signature, like it is done in other languages like Java, C#, Rust, D, etc.)</p>
 
 <p>If you don’t care about the return value of a passed block, you can ommit the block’s return type:</p>
@@ -470,9 +472,9 @@ class Foo
 end
 </pre>
 
-<p>Inside a macro you can use <code class="highlighter-rouge">&amp;#123;{name}}</code> to interpolate <code class="highlighter-rouge">name</code>.</p>
+<p>Inside a macro you can use <code class="language-plaintext highlighter-rouge">&amp;#123;{name}}</code> to interpolate <code class="language-plaintext highlighter-rouge">name</code>.</p>
 
-<p>You can also use <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">for</code> inside a macro:</p>
+<p>You can also use <code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">for</code> inside a macro:</p>
 
 <pre class="code">
 macro generate_methods(names)
@@ -520,8 +522,8 @@ build_date = compile_time_date
 puts build_date
 </pre>
 
-<p>The <code class="highlighter-rouge">stringify</code> is needed in order to convert the <code class="highlighter-rouge">date</code> output to a string literal, otherwise the generated
-code would be an invalid program (<code class="highlighter-rouge">Thu Jun 19 14:15:57 ART 2014</code> is an invalid program, but <code class="highlighter-rouge">"Thu Jun 19 14:15:57 ART 2014"</code> is not.)</p>
+<p>The <code class="language-plaintext highlighter-rouge">stringify</code> is needed in order to convert the <code class="language-plaintext highlighter-rouge">date</code> output to a string literal, otherwise the generated
+code would be an invalid program (<code class="language-plaintext highlighter-rouge">Thu Jun 19 14:15:57 ART 2014</code> is an invalid program, but <code class="language-plaintext highlighter-rouge">"Thu Jun 19 14:15:57 ART 2014"</code> is not.)</p>
 
 <p>Our idea is to extend this to allow execution of other Crystal programs that would receive AST nodes as argument and
 will generate code that would be embedded in the program currently being compiled. In this way you could generate
@@ -548,9 +550,9 @@ foo = Foo.new(1, 2)
 puts foo.instance_vars #=&gt; ["@x", "@y"]
 </pre>
 
-<p>In this last form, the <code class="highlighter-rouge">instance_vars</code> method is expanded after the type inference phase finishes. Because
-this is done at that stage, any invocation of <code class="highlighter-rouge">Foo#instance_vars</code> must know what type it returns, so that’s
-why we need to specify the type (<code class="highlighter-rouge">Array(String)</code> in this case.) Again, all of this is very experimental so
+<p>In this last form, the <code class="language-plaintext highlighter-rouge">instance_vars</code> method is expanded after the type inference phase finishes. Because
+this is done at that stage, any invocation of <code class="language-plaintext highlighter-rouge">Foo#instance_vars</code> must know what type it returns, so that’s
+why we need to specify the type (<code class="language-plaintext highlighter-rouge">Array(String)</code> in this case.) Again, all of this is very experimental so
 we won’t explain all of the details here.</p>
 
 <h3 id="tuples">Tuples</h3>
@@ -597,7 +599,7 @@ we won’t explain all of the details here.</p>
 </div>
 
 <p>Tuples are objects, like everything else in the language, so they have methods. They also include
-the <code class="highlighter-rouge">Enumerable</code> module:</p>
+the <code class="language-plaintext highlighter-rouge">Enumerable</code> module:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">}</span>
@@ -612,7 +614,7 @@ the <code class="highlighter-rouge">Enumerable</code> module:</p>
 <h3 id="structs">Structs</h3>
 
 <p>A struct is similar to a class, except that it is passed by value and it doesn’t have an object_id.
-It also inherits from <code class="highlighter-rouge">Struct</code>, which inherits from <code class="highlighter-rouge">Value</code>, while a class inherits from <code class="highlighter-rouge">Reference</code>.</p>
+It also inherits from <code class="language-plaintext highlighter-rouge">Struct</code>, which inherits from <code class="language-plaintext highlighter-rouge">Value</code>, while a class inherits from <code class="language-plaintext highlighter-rouge">Reference</code>.</p>
 
 <p>Structs are very useful for wrapping other values without indirection costs. And they are specially
 useful for implementing immutable data structures.</p>
@@ -621,7 +623,7 @@ useful for implementing immutable data structures.</p>
 fast. With classes, not that fast.</p>
 
 <p>Structs can inherit other structs, they can be generic and they can include modules. That means that
-most of the time you can just change a class to a struct by just changing the word <code class="highlighter-rouge">class</code> to <code class="highlighter-rouge">struct</code>
+most of the time you can just change a class to a struct by just changing the word <code class="language-plaintext highlighter-rouge">class</code> to <code class="language-plaintext highlighter-rouge">struct</code>
 and get a more efficient program if it turns out to be more efficient in that particular program.</p>
 
 <h2 id="roadmap">Roadmap</h2>

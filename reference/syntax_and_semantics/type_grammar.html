@@ -2338,8 +2338,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2351,7 +2363,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2361,8 +2373,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2598,7 +2634,7 @@
 </code></pre></div>
 <h2 id="_5">アンダースコア</h2>
 <p>型制約でアンダースコアを使うことが可能です。それはすべてにマッチすることを示します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 型制約を指定しないことと同じです。あまり便利な例ではありません。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 型制約を指定しないことと同じです。あまり便利な例ではありませんが。</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">_</span><span class="p">)</span>
 <span class="k">end</span>
 
@@ -2606,6 +2642,7 @@
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">-&gt;</span> <span class="nb">Int32</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
+<p>通常のコードにおいては、 <code>_</code> は<a href="assignment.html#underscore">アンダースコア</a>そのものの名前の変数を表します。</p>
 <h2 id="typeof">typeof</h2>
 <p><code>typeof</code> を型の文法で使うこともできます。渡された式の型の組み合わせ (ユニオン型) を返します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">typeof</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># =&gt; Int32</span>

@@ -1233,6 +1233,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    モジュールの型検査
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2263,8 +2270,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2276,7 +2295,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2286,8 +2305,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2317,6 +2360,13 @@
         <li class="md-nav__item">
   <a href="#extend-self" class="md-nav__link">
     extend self
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    モジュールの型検査
   </a>
   
 </li>
@@ -2432,7 +2482,7 @@
 
 <span class="n">Moo</span><span class="o">.</span><span class="n">new</span> <span class="c1"># undefined method &#39;new&#39; for Moo:Module</span>
 </code></pre></div>
-<h1 id="_2">モジュールの型検査</h1>
+<h2 id="_2">モジュールの型検査</h2>
 <p>モジュールは型を検査するのにも使えます。</p>
 <p>2つのモジュールが <code>A</code> と <code>B</code> を考えてください。</p>
 <div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">A</span><span class="p">;</span> <span class="k">end</span>
@@ -2463,7 +2513,7 @@
 <span class="n">three</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
 <span class="n">three</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="c1"># =&gt; true</span>
 </code></pre></div>
-<p>これによって、クラスの代わりにモジュールに基づく配列を作ったりすることができます。
+<p>これによって、クラスの代わりにモジュールに基づく配列を作ったりすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">one</span> <span class="o">=</span> <span class="n">One</span><span class="o">.</span><span class="n">new</span>
 <span class="n">two</span> <span class="o">=</span> <span class="n">Two</span><span class="o">.</span><span class="n">new</span>
 <span class="n">three</span> <span class="o">=</span> <span class="n">Three</span><span class="o">.</span><span class="n">new</span>
@@ -2473,7 +2523,7 @@
 <span class="n">new_array</span> <span class="o">&lt;&lt;</span> <span class="n">three</span> <span class="c1"># Three は A をインクルードしているのでOK</span>
 
 <span class="n">new_array</span> <span class="o">&lt;&lt;</span> <span class="n">two</span> <span class="c1"># Two は A をインクルードしていないのでエラー</span>
-</code></pre></div></p>
+</code></pre></div>
                 
               
               

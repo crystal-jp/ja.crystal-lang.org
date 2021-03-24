@@ -2322,8 +2322,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2335,7 +2347,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2345,8 +2357,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2464,13 +2500,13 @@
 <h2 id="link">Link</h2>
 <p>C ライブラリのリンクをコンパイラに指示します。詳細は <a href="../c_bindings/lib.html">lib</a> のセクションを参照してください。</p>
 <h2 id="extern">Extern</h2>
-<p>このアノテーションをつけた Crystal の構造体はlibの宣言の中でも使えるようになります。</p>
+<p>このアノテーションをつけた Crystal の構造体は lib 宣言の中でも使えるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="o">@[</span><span class="nd">Extern</span><span class="o">]</span>
 <span class="k">struct</span> <span class="nc">MyStruct</span>
 <span class="k">end</span>
 
 <span class="k">lib</span> <span class="nn">MyLib</span>
-  <span class="k">fun</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span> <span class="n">MyStruct</span><span class="p">)</span> <span class="c1"># OK (Extern がない場合はエラー)</span>
+  <span class="k">fun</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span> <span class="n">MyStruct</span><span class="p">)</span> <span class="c1"># OK (gives an error without the Extern annotation)</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>構造体をCの共用体のようにするためにも使えます (これはかなり安全ではありません)。</p>
@@ -2489,7 +2525,7 @@
 <span class="n">s</span><span class="o">.</span><span class="n">char</span> <span class="c1"># =&gt; &#39;B&#39;</span>
 </code></pre></div>
 <h2 id="threadlocal">ThreadLocal</h2>
-<p><code>@[ThreadLocal]</code> アノテーションはクラス変数とCの外部変数に対して適用できます。これによって、それらの変数がスレッドローカルになります。</p>
+<p><code>@[ThreadLocal]</code> アノテーションはクラス変数と C の外部変数に対して適用できます。これによって、それらの変数がスレッドローカルになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">DontUseThis</span>
   <span class="c1"># スレッドごとに1つずつ</span>
   <span class="o">@[</span><span class="nd">ThreadLocal</span><span class="o">]</span>

@@ -2221,8 +2221,20 @@
 
 
   <li class="md-nav__item">
+    <a href="gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2234,7 +2246,7 @@
 
   <li class="md-nav__item">
     <a href="circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2244,8 +2256,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2307,64 +2343,70 @@
 <p>The ability of having immediate feedback on what we are working should be one of the most important characteristics in software development. Imagine making one change to our source code and having to wait 2 weeks to see if it broke something? oh! That would be a nightmare! For this, Continuous Integration will help a team to have immediate and frequent feedback about the status of what they are building.</p>
 <p>Martin Fowler <a href="https://www.martinfowler.com/articles/continuousIntegration.html">defines Continuous Integration</a> as
 <em>a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.</em></p>
-<p>In the next subsections, we are going to present 2 continuous integration tools: <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://circleci.com/">Circle CI</a> and use them with a Crystal example application.</p>
+<p>In the next subsections, we are going to present a few continuous integration tools: <a href="https://docs.github.com/actions">GitHub Actions</a>, <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://circleci.com/">Circle CI</a> and use them with a Crystal example application.</p>
 <p>These tools not only will let us build and test our code each time the source has changed but also deploy the result (if the build was successful) or use automatic builds, and maybe test against different platforms, to mention a few.</p>
 <h2 id="the-example-application">The example application</h2>
 <p>We are going to use Conway's Game of Life as the example application. More precisely, we are going to use only the first iterations in <a href="http://codingdojo.org/kata/GameOfLife/">Conway's Game of Life Kata</a> solution using <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">TDD</a>.</p>
 <p>Note that we won't be using TDD in the example itself, but we will mimic as if the example code is the result of the first iterations.</p>
 <p>Another important thing to mention is that we are using <code>crystal init</code> to <a href="../using_the_compiler/#creating-a-crystal-project">create the application</a>.</p>
 <p>And here's the implementation:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># src/game_of_life.cr</span>
-<span class="k">class</span> <span class="nc">Location</span>
-  <span class="bp">getter</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">Int32</span>
-  <span class="bp">getter</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">Int32</span>
+<div class="admonition example">
+<p class="admonition-title">src/game_of_life.cr</p>
+</div>
+<p>```crystal
+class Location
+getter x : Int32
+getter y : Int32</p>
+<div class="highlight"><pre><span></span><code>  def self.random
+    Location.new(Random.rand(10), Random.rand(10))
+  end
 
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">random</span>
-    <span class="n">Location</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-  <span class="k">end</span>
+  def initialize(@x, @y)
+  end
+end
 
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@x</span><span class="p">,</span> <span class="vi">@y</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+class World
+  @living_cells : Array(Location)
 
-<span class="k">class</span> <span class="nc">World</span>
-  <span class="vi">@living_cells</span> <span class="p">:</span> <span class="nb">Array</span><span class="p">(</span><span class="n">Location</span><span class="p">)</span>
+  def self.empty
+    new
+  end
 
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">empty</span>
-    <span class="n">new</span>
-  <span class="k">end</span>
+  def initialize(living_cells = [] of Location)
+    @living_cells = living_cells
+  end
 
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">living_cells</span> <span class="o">=</span> <span class="o">[]</span> <span class="k">of</span> <span class="n">Location</span><span class="p">)</span>
-    <span class="vi">@living_cells</span> <span class="o">=</span> <span class="n">living_cells</span>
-  <span class="k">end</span>
+  def set_living_at(a_location)
+    @living_cells &lt;&lt; a_location
+  end
 
-  <span class="k">def</span> <span class="nf">set_living_at</span><span class="p">(</span><span class="n">a_location</span><span class="p">)</span>
-    <span class="vi">@living_cells</span> <span class="o">&lt;&lt;</span> <span class="n">a_location</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">is_empty?</span>
-    <span class="vi">@living_cells</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+  def is_empty?
+    @living_cells.size == 0
+  end
+end
+```
 </code></pre></div>
 <p>And the specs:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># spec/game_of_life_spec.cr</span>
-<span class="k">require</span> <span class="s2">&quot;./spec_helper&quot;</span>
+<div class="admonition example">
+<p class="admonition-title">spec/game_of_life_spec.cr</p>
+</div>
+<p>```crystal
+require "./spec_helper"</p>
+<div class="highlight"><pre><span></span><code>describe &quot;a new world&quot; do
+  it &quot;should be empty&quot; do
+    world = World.new
+    world.is_empty?.should be_true
+  end
+end
 
-<span class="n">describe</span> <span class="s2">&quot;a new world&quot;</span> <span class="k">do</span>
-  <span class="n">it</span> <span class="s2">&quot;should be empty&quot;</span> <span class="k">do</span>
-    <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="o">.</span><span class="n">new</span>
-    <span class="n">world</span><span class="o">.</span><span class="n">is_empty?</span><span class="o">.</span><span class="n">should</span> <span class="n">be_true</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="n">describe</span> <span class="s2">&quot;an empty world&quot;</span> <span class="k">do</span>
-  <span class="n">it</span> <span class="s2">&quot;should not be empty after adding a cell&quot;</span> <span class="k">do</span>
-    <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="o">.</span><span class="n">empty</span>
-    <span class="n">world</span><span class="o">.</span><span class="n">set_living_at</span><span class="p">(</span><span class="n">Location</span><span class="o">.</span><span class="n">random</span><span class="p">)</span>
-    <span class="n">world</span><span class="o">.</span><span class="n">is_empty?</span><span class="o">.</span><span class="n">should</span> <span class="n">be_false</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+describe &quot;an empty world&quot; do
+  it &quot;should not be empty after adding a cell&quot; do
+    world = World.empty
+    world.set_living_at(Location.random)
+    world.is_empty?.should be_false
+  end
+end
+```
 </code></pre></div>
 <p>And this is all we need for our continuous integration examples! Let's start!</p>
 <h2 id="continuous-integration-step-by-step">Continuous Integration step by step</h2>
@@ -2383,6 +2425,7 @@
 </ol>
 <p>From here choose your next steps:</p>
 <ul>
+<li>I want to use <a href="gh-actions.html">GitHub Actions</a></li>
 <li>I want to use <a href="travis.html">Travis CI</a></li>
 <li>I want to use <a href="circleci.html">CircleCI</a></li>
 </ul>
@@ -2419,13 +2462,13 @@
           </a>
         
         
-          <a href="travis.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="gh-actions.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Travis CI の利用
+                GitHub Actions
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -1122,7 +1122,7 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    どのように渡された引数がメソッドの引数にマッチするのか
+    どのように渡された引数がメソッドの仮引数にマッチするのか
   </a>
   
 </li>
@@ -2286,8 +2286,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2299,7 +2311,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2309,8 +2321,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2353,7 +2389,7 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    どのように渡された引数がメソッドの引数にマッチするのか
+    どのように渡された引数がメソッドの仮引数にマッチするのか
   </a>
   
 </li>
@@ -2388,19 +2424,19 @@
 <p>メソッド定義は次のものから構成されます。</p>
 <ul>
 <li>必須もしくはオプションの位置指定の引数がいくつか</li>
-<li>任意でスプラット展開指定された引数 (名前が空の場合もある)</li>
-<li>必須もしくはオプションの名前付き引数がいくつか</li>
+<li>任意でスプラット展開指定された引数</li>
+<li>必須もしくはオプションの位置指定の引数がいくつか</li>
 <li>任意で二重スプラット展開指定された引数</li>
 </ul>
 <p>例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span>
-  <span class="c1"># 位置指定の引数:</span>
+  <span class="c1"># 位置指定の引数</span>
   <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
   <span class="c1"># スプラット展開指定された引数:</span>
   <span class="o">*</span><span class="n">args</span><span class="p">,</span>
   <span class="c1"># 名前付き引数:</span>
   <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="c1"># 二重スプラット展開指定された引数</span>
+  <span class="c1"># 二重スプラット展開指定された引数:</span>
   <span class="o">**</span><span class="n">options</span>
 <span class="p">)</span>
 <span class="k">end</span>
@@ -2416,14 +2452,14 @@
 <span class="p">)</span>
 </code></pre></div>
 <p>くわえてメソッドはスプラット展開 (<code>*</code>) と二重スプラット展開 (<code>**</code>) を持つことができます。スプラット展開は <a href="literals/tuple.html">Tuple</a> を位置指定の引数に展開して、二重スプラット展開は <a href="literals/named_tuple.html">NamedTuple</a> を名前付き引数に展開します。複数のスプラット展開と二重スプラット展開をすることができます。</p>
-<h2 id="_4">どのように渡された引数がメソッドの引数にマッチするのか</h2>
-<p>メソッドを呼び出す際、次のアルゴリズムが渡された引数をメソッドの引数にマッチさせるのに使われます。</p>
+<h2 id="_4">どのように渡された引数がメソッドの仮引数にマッチするのか</h2>
+<p>メソッドを呼び出す際、次のアルゴリズムが渡された引数をメソッドの仮引数にマッチさせるのに使われます。</p>
 <ul>
-<li>まず、位置指定の引数が対応する位置指定の引数にマッチします。このようにマッチした引数の数は、少なくともデフォルト値のない位置指定の引数の数である必要があります。もしスプラット指定された引数に名前があれば、(名前がない場合についてはあとで説明します)、よりたくさんの位置指定の引数を渡すことができて、それらはタプルとしてその引数にキャプチャされます。位置指定の引数はスプラット指定されたメソッドの引数のあとではマッチしません。</li>
-<li>続けて、名前付き引数がその名前によって、対応する引数にマッチします。このマッチする引数はスプラット指定された引数の前でも後でも構いません。もしその引数が位置指定の引数として既にマッチしていた場合、エラーが起こります。</li>
-<li>その他の名前付き引数は二重スプラット指定の引数があればそちらに <a href="literals/named_tuple.html">NamedTuple</a> として配置されます。二重スプラット指定の引数がなければエラーが起こります。</li>
+<li>まず、位置指定の引数が対応する位置指定の仮引数にマッチします。このようにマッチした引数の数は、少なくともデフォルト値のない位置指定の引数の数である必要があります。もしスプラット展開指定された引数に名前があれば(名前がない場合については後に説明します)、よりたくさんの位置指定の引数を渡すことができて、それらはタプルとしてその引数にキャプチャされます。位置指定の引数はスプラット展開指定されたメソッドの仮引数のあとではマッチしません。</li>
+<li>続けて、名前付き引数がその名前によって、対応する仮引数にマッチします。このマッチする引数はスプラット展開指定された引数の前でも後でも構いません。もしその引数が位置指定の引数として既にマッチしていた場合、エラーとなります。</li>
+<li>その他の名前付き引数は二重スプラット指定の引数があればそちらに <a href="literals/named_tuple.html">NamedTuple</a> として配置されます。二重スプラット指定の引数がなければエラーとなります。</li>
 </ul>
-<p>スプラット指定された引数に名前がついていないときは、位置指定の引数をさらに渡すことはできませんが、以降の引数は名前付き引数として渡さなければいけないことを意味します。例をあげます。</p>
+<p>スプラット展開指定された引数に名前がついていないときは、位置指定の引数をさらに渡すことはできませんが、以降の引数は名前付き引数として渡さなければいけないことを意味します。例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ちょうど1つの位置指定の引数と、y という名前の名前付き引数を渡さなければいけないメソッド</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="k">end</span>
@@ -2432,7 +2468,7 @@
 <span class="n">foo</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>     <span class="c1"># Error: wrong number of arguments (given 2, expected 1)</span>
 <span class="n">foo</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">y</span><span class="p">:</span> <span class="mi">10</span> <span class="c1"># OK</span>
 </code></pre></div>
-<p>しかし、スプラット指定された引数が名前を持っていた場合でも、以降の引数は名前付き引数として渡さなければいけないことは変わりません。</p>
+<p>しかし、スプラット展開指定された引数が名前を持っていた場合でも、以降の引数は名前付き引数として渡さなければいけないことは変わりません。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 1つ以上の位置指定の引数と、y という名前の名前付き引数を渡さなければいけないメソッド</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="k">end</span>
@@ -2452,8 +2488,8 @@
 <span class="n">foo</span> <span class="ss">x</span><span class="p">:</span> <span class="mi">1</span>       <span class="c1"># Error: missing argument: y</span>
 <span class="n">foo</span> <span class="ss">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">y</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># OK</span>
 </code></pre></div>
-<p>アスタリスク以降の引数はデフォルト値を持つこともできます。つまり、その引数は名前付き引数として渡さなければいけないけれど、それは必須ではないという、オプショナルな名前付き引数になる、ということです。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># どちらも名前付き引数として渡さなければいけないが、x は必須で y は必須ではないメソッド</span>
+<p>アスタリスク以降の引数はデフォルト値を持つこともできます。つまり、その引数は名前付き引数として渡さなければいけないが必須ではない、オプショナルな名前付き引数になる、ということです。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># どちらも名前付き引数として渡す必要があるが、x は必須で y は必須ではないメソッド</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">end</span>
 
@@ -2461,7 +2497,7 @@
 <span class="n">foo</span> <span class="ss">x</span><span class="p">:</span> <span class="mi">1</span>       <span class="c1"># OK, y is 2</span>
 <span class="n">foo</span> <span class="ss">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">y</span><span class="p">:</span> <span class="mi">3</span> <span class="c1"># OK, y is 3</span>
 </code></pre></div>
-<p>スプラット指定された引数のあとの引数は必ず名前付き引数として渡されるため、その名前によってメソッドのオーバロードをすることができます。</p>
+<p>スプラット展開指定された引数のあとの引数は必ず名前付き引数として渡されるため、その名前によるメソッドのオーバーロードが可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">&quot;x と共に渡された: </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">end</span>
@@ -2481,7 +2517,7 @@
 <span class="n">foo</span> <span class="ss">y</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">x</span><span class="p">:</span> <span class="mi">3</span> <span class="c1"># OK</span>
 </code></pre></div>
 <h2 id="_5">外部名</h2>
-<p>メソッドの引数には外部名を指定できます。外部名は名前付き引数として渡す際に使う名前で、内部名はメソッド定義の本体で使う名前となります。</p>
+<p>メソッドの仮引数には外部名を指定できます。外部名は名前付き引数として渡す際に使う名前で、内部名はメソッド定義の本体で使う名前となります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">external_name</span> <span class="n">internal_name</span><span class="p">)</span>
   <span class="c1"># ここで internal_name を使えます</span>
 <span class="k">end</span>
@@ -2496,7 +2532,7 @@
 
 <span class="n">plan</span> <span class="k">begin</span><span class="p">:</span> <span class="nb">Time</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="k">end</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">days</span><span class="o">.</span><span class="n">from_now</span>
 </code></pre></div>
-<p>2つ目のユースケースは、メソッド本体での可読性を向上させるため、です。</p>
+<p>2つ目のユースケースはメソッド本体での可読性を向上させるため、です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">by</span><span class="p">)</span>
   <span class="c1"># OK、ですが読んでいて違和感があります</span>
   <span class="n">value</span> <span class="o">+</span> <span class="n">by</span>

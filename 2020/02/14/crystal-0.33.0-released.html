@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.33.0 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.33.0 released!" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-14T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.33.0 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/02/14/crystal-0.33.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2020/02/14/crystal-0.33.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.33.0 has been released!","headline":"Crystal 0.33.0 released!","dateModified":"2020-02-14T00:00:00+00:00","datePublished":"2020-02-14T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/02/14/crystal-0.33.0-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2020/02/14/crystal-0.33.0-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Crystal 0.33.0 released!","description":"Crystal 0.33.0 has been released!","dateModified":"2020-02-14T00:00:00+00:00","datePublished":"2020-02-14T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -185,7 +187,7 @@
 
 <h2 id="language-changes">Language changes</h2>
 
-<p>The new <code class="highlighter-rouge">select/timeout</code> language construct allows you to perform a blocking channel operation but timeout after a specific amount of time. It was previously possible to do manually, but it required some boilerplate and a dedicated fiber. This is now possible while taking advantage of libevent directly.</p>
+<p>The new <code class="language-plaintext highlighter-rouge">select/timeout</code> language construct allows you to perform a blocking channel operation but timeout after a specific amount of time. It was previously possible to do manually, but it required some boilerplate and a dedicated fiber. This is now possible while taking advantage of libevent directly.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="nb">select</span>
@@ -196,11 +198,11 @@
 <span class="k">end</span></code></pre></figure>
 </div>
 
-<p><code class="highlighter-rouge">timeout</code> is not a top-level method and is expected to be used only in a blocking <code class="highlighter-rouge">select</code> <code class="highlighter-rouge">when</code> condition (ie: without an <code class="highlighter-rouge">else</code>). Read more about <code class="highlighter-rouge">timeout</code> in select statements in <a href="https://github.com/crystal-lang/crystal/pull/8506">#8506</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">timeout</code> is not a top-level method and is expected to be used only in a blocking <code class="language-plaintext highlighter-rouge">select</code> <code class="language-plaintext highlighter-rouge">when</code> condition (ie: without an <code class="language-plaintext highlighter-rouge">else</code>). Read more about <code class="language-plaintext highlighter-rouge">timeout</code> in select statements in <a href="https://github.com/crystal-lang/crystal/pull/8506">#8506</a>.</p>
 
 <h3 id="macros">Macros</h3>
 
-<p>In the built-in macros the <code class="highlighter-rouge">TypeNode#name</code> got extended with a new overload that allows you to pick whether you want (or not) the generic arguments when getting the type’s name (default is to include them). Read more at <a href="https://github.com/crystal-lang/crystal/pull/8483">#8483</a>.</p>
+<p>In the built-in macros the <code class="language-plaintext highlighter-rouge">TypeNode#name</code> got extended with a new overload that allows you to pick whether you want (or not) the generic arguments when getting the type’s name (default is to include them). Read more at <a href="https://github.com/crystal-lang/crystal/pull/8483">#8483</a>.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="no">T</span><span class="p">);</span> <span class="k">end</span>
@@ -214,17 +216,17 @@
 
 <h2 id="compiler">Compiler</h2>
 
-<p>There were some memory corruption bugs because we used <code class="highlighter-rouge">memset</code> and <code class="highlighter-rouge">memcpy</code> 32-bits primitives in 64-bits machines. They are now fixed in <a href="https://github.com/crystal-lang/crystal/pull/8746">#8746</a>.</p>
+<p>There were some memory corruption bugs because we used <code class="language-plaintext highlighter-rouge">memset</code> and <code class="language-plaintext highlighter-rouge">memcpy</code> 32-bits primitives in 64-bits machines. They are now fixed in <a href="https://github.com/crystal-lang/crystal/pull/8746">#8746</a>.</p>
 
-<p>Now, the default <code class="highlighter-rouge">CRYSTAL_PATH</code> gives precedence to <code class="highlighter-rouge">./lib</code> over embedded std-lib so your shards can override some std-lib modules if needed. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8752">#8752</a>.</p>
+<p>Now, the default <code class="language-plaintext highlighter-rouge">CRYSTAL_PATH</code> gives precedence to <code class="language-plaintext highlighter-rouge">./lib</code> over embedded std-lib so your shards can override some std-lib modules if needed. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8752">#8752</a>.</p>
 
 <p>We did some clean-ups and completely dropped the support for previously deprecated comma separators in enums. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8657">#8657</a>.</p>
 
 <h2 id="standard-library">Standard library</h2>
 
-<p>We took the time to do some clean-ups regarding various previously deprecated methods and modules. Some of them deprecated almost over a year ago. <code class="highlighter-rouge">PartialComparable</code>, <code class="highlighter-rouge">Crypto::Bcrypt::Password#==</code>, <code class="highlighter-rouge">HTTP::Server::Response#respond_with_error</code>, <code class="highlighter-rouge">JSON::PullParser::Kind#==</code>, <code class="highlighter-rouge">Symbol#==(JSON::PullParser::Kind)</code>, <code class="highlighter-rouge">JSON::Token#type</code>, <code class="highlighter-rouge">String#at</code>, <code class="highlighter-rouge">Time.new</code>, <code class="highlighter-rouge">Time.now</code>, <code class="highlighter-rouge">Time.utc_now</code>, <code class="highlighter-rouge">URI.escape</code>, <code class="highlighter-rouge">URI.unescape</code> are really no longer available. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8646">#8646</a>, <a href="https://github.com/crystal-lang/crystal/pull/8596">#8596</a>.</p>
+<p>We took the time to do some clean-ups regarding various previously deprecated methods and modules. Some of them deprecated almost over a year ago. <code class="language-plaintext highlighter-rouge">PartialComparable</code>, <code class="language-plaintext highlighter-rouge">Crypto::Bcrypt::Password#==</code>, <code class="language-plaintext highlighter-rouge">HTTP::Server::Response#respond_with_error</code>, <code class="language-plaintext highlighter-rouge">JSON::PullParser::Kind#==</code>, <code class="language-plaintext highlighter-rouge">Symbol#==(JSON::PullParser::Kind)</code>, <code class="language-plaintext highlighter-rouge">JSON::Token#type</code>, <code class="language-plaintext highlighter-rouge">String#at</code>, <code class="language-plaintext highlighter-rouge">Time.new</code>, <code class="language-plaintext highlighter-rouge">Time.now</code>, <code class="language-plaintext highlighter-rouge">Time.utc_now</code>, <code class="language-plaintext highlighter-rouge">URI.escape</code>, <code class="language-plaintext highlighter-rouge">URI.unescape</code> are really no longer available. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8646">#8646</a>, <a href="https://github.com/crystal-lang/crystal/pull/8596">#8596</a>.</p>
 
-<p>There are also some additions. <code class="highlighter-rouge">Object#in?(collection)</code> is analogous to <code class="highlighter-rouge">Enumerable#includes?(obj)</code> but with the receiver and argument swapped.</p>
+<p>There are also some additions. <code class="language-plaintext highlighter-rouge">Object#in?(collection)</code> is analogous to <code class="language-plaintext highlighter-rouge">Enumerable#includes?(obj)</code> but with the receiver and argument swapped.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="mi">42</span><span class="p">.</span><span class="nf">in?</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">100</span><span class="p">)</span>         <span class="c1"># =&gt; true</span>
@@ -238,54 +240,54 @@
 
 <h3 id="serialization">Serialization</h3>
 
-<p>The JSON deserialization improved to work better with some union types in <a href="https://github.com/crystal-lang/crystal/pull/8689">#8689</a> and the <code class="highlighter-rouge">JSON::PullParser</code> deals properly with overflows in <a href="https://github.com/crystal-lang/crystal/pull/8698">#8698</a>.</p>
+<p>The JSON deserialization improved to work better with some union types in <a href="https://github.com/crystal-lang/crystal/pull/8689">#8689</a> and the <code class="language-plaintext highlighter-rouge">JSON::PullParser</code> deals properly with overflows in <a href="https://github.com/crystal-lang/crystal/pull/8698">#8698</a>.</p>
 
-<p>The <code class="highlighter-rouge">dig?</code> methods for <code class="highlighter-rouge">JSON::Any</code> and <code class="highlighter-rouge">YAML::Any</code> got fixed to avoid raising on non-structure values. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8745">#8745</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">dig?</code> methods for <code class="language-plaintext highlighter-rouge">JSON::Any</code> and <code class="language-plaintext highlighter-rouge">YAML::Any</code> got fixed to avoid raising on non-structure values. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8745">#8745</a>.</p>
 
 <h3 id="files">Files</h3>
 
-<p>How File, User and Group interact with each other keeps evolving to find a sweet spot. <code class="highlighter-rouge">File::Info#owner</code>, and <code class="highlighter-rouge">File::Info#group</code> are deprecated in favor of <code class="highlighter-rouge">#owner_id</code>, and <code class="highlighter-rouge">#group_id</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8007">#8007</a>.</p>
+<p>How File, User and Group interact with each other keeps evolving to find a sweet spot. <code class="language-plaintext highlighter-rouge">File::Info#owner</code>, and <code class="language-plaintext highlighter-rouge">File::Info#group</code> are deprecated in favor of <code class="language-plaintext highlighter-rouge">#owner_id</code>, and <code class="language-plaintext highlighter-rouge">#group_id</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8007">#8007</a>.</p>
 
 <h3 id="networking">Networking</h3>
 
-<p>The handling of <code class="highlighter-rouge">IO</code> got more robust to deal with some race conditions in multi-thread and avoid using invalid file descriptors in libevent after fork. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8707">#8707</a> and <a href="https://github.com/crystal-lang/crystal/pull/8733">#8733</a>.</p>
+<p>The handling of <code class="language-plaintext highlighter-rouge">IO</code> got more robust to deal with some race conditions in multi-thread and avoid using invalid file descriptors in libevent after fork. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8707">#8707</a> and <a href="https://github.com/crystal-lang/crystal/pull/8733">#8733</a>.</p>
 
-<p><code class="highlighter-rouge">OpenSSL::SSL::Socket</code> was improved to deal with some misbehaving parties out in the wild.  Read more at <a href="https://github.com/crystal-lang/crystal/pull/8540">#8540</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">OpenSSL::SSL::Socket</code> was improved to deal with some misbehaving parties out in the wild.  Read more at <a href="https://github.com/crystal-lang/crystal/pull/8540">#8540</a>.</p>
 
 <h3 id="concurrency">Concurrency</h3>
 
-<p>Sometimes in generic types, using <code class="highlighter-rouge">Nil</code> might cause some glitches. Like in <code class="highlighter-rouge">Array(Nil)</code>, how would you distinguish if <code class="highlighter-rouge">#[]?</code> returns the stored <code class="highlighter-rouge">nil</code> or the out-of-bounds value. Even though sometimes it is still useful to use <code class="highlighter-rouge">Nil</code> as a type argument like in <code class="highlighter-rouge">Channel(Nil)</code>. <code class="highlighter-rouge">Future(Nil)</code> should now be working without surprises. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8650">#8650</a>.</p>
+<p>Sometimes in generic types, using <code class="language-plaintext highlighter-rouge">Nil</code> might cause some glitches. Like in <code class="language-plaintext highlighter-rouge">Array(Nil)</code>, how would you distinguish if <code class="language-plaintext highlighter-rouge">#[]?</code> returns the stored <code class="language-plaintext highlighter-rouge">nil</code> or the out-of-bounds value. Even though sometimes it is still useful to use <code class="language-plaintext highlighter-rouge">Nil</code> as a type argument like in <code class="language-plaintext highlighter-rouge">Channel(Nil)</code>. <code class="language-plaintext highlighter-rouge">Future(Nil)</code> should now be working without surprises. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8650">#8650</a>.</p>
 
 <p>We’ve been paying attention to sporadic failures on the CI multi-thread jobs. Sometimes the specs need to be iterated since they were written with a different single-thread mindset. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8592">#8592</a>, <a href="https://github.com/crystal-lang/crystal/pull/8643">#8643</a>, and <a href="https://github.com/crystal-lang/crystal/pull/8724">#8724</a>.</p>
 
 <h3 id="runtime">Runtime</h3>
 
-<p><code class="highlighter-rouge">IO::FileDescriptor.from_stdio</code> now returns an <code class="highlighter-rouge">IO</code> with blocking mode depending on the type of the file descriptor used for STDIN, STDOUT and STDERR. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8787">#8787</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">IO::FileDescriptor.from_stdio</code> now returns an <code class="language-plaintext highlighter-rouge">IO</code> with blocking mode depending on the type of the file descriptor used for STDIN, STDOUT and STDERR. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8787">#8787</a>.</p>
 
 <p>Some changes in the runtime should improve the error reporting and exception handling.
 Read more at <a href="https://github.com/crystal-lang/crystal/pull/8728">#8728</a>, <a href="https://github.com/crystal-lang/crystal/pull/8499">#8499</a>, <a href="https://github.com/crystal-lang/crystal/pull/8743">#8743</a>.</p>
 
 <p>Another addition that will reduce some paper cuts is a new top-level exception handler reporting. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8735">#8735</a>, <a href="https://github.com/crystal-lang/crystal/pull/8791">#8791</a>.</p>
 
-<p>Sometimes <code class="highlighter-rouge">puts</code> and <code class="highlighter-rouge">dprintf</code> are used to print to STDOUT or STDERR. But the latter is not portable. <code class="highlighter-rouge">Crystal::System.print_error</code> was extended to handle <code class="highlighter-rouge">printf</code>-like format. So it should be used instead of <code class="highlighter-rouge">dprintf</code> usually. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8786">#8786</a>.</p>
+<p>Sometimes <code class="language-plaintext highlighter-rouge">puts</code> and <code class="language-plaintext highlighter-rouge">dprintf</code> are used to print to STDOUT or STDERR. But the latter is not portable. <code class="language-plaintext highlighter-rouge">Crystal::System.print_error</code> was extended to handle <code class="language-plaintext highlighter-rouge">printf</code>-like format. So it should be used instead of <code class="language-plaintext highlighter-rouge">dprintf</code> usually. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8786">#8786</a>.</p>
 
 <h3 id="spec">Spec</h3>
 
-<p>Usually using specs the <code class="highlighter-rouge">Spec::DotFormatter</code> shows… dots! The <code class="highlighter-rouge">Spec::JUnitFormatter</code> is another option that is a good fit for richer reporting. It’s got improved with lots of information in <a href="https://github.com/crystal-lang/crystal/pull/8599">#8599</a>.</p>
+<p>Usually using specs the <code class="language-plaintext highlighter-rouge">Spec::DotFormatter</code> shows… dots! The <code class="language-plaintext highlighter-rouge">Spec::JUnitFormatter</code> is another option that is a good fit for richer reporting. It’s got improved with lots of information in <a href="https://github.com/crystal-lang/crystal/pull/8599">#8599</a>.</p>
 
 <p>As a bonus point this reporting was integrated in our CircleCI jobs so we can get some concise reports of failures, slow test and other statistics in the test summary.  Read more at <a href="https://github.com/crystal-lang/crystal/pull/8617">#8617</a>.</p>
 
 <h3 id="doc-generator">Doc generator</h3>
 
-<p>We finally settled to use <code class="highlighter-rouge">:ditto:</code> and <code class="highlighter-rouge">:nodoc:</code> for the doc generator. So you should always put the <code class="highlighter-rouge">:</code> around those words when documenting your code. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6362">#6362</a>.</p>
+<p>We finally settled to use <code class="language-plaintext highlighter-rouge">:ditto:</code> and <code class="language-plaintext highlighter-rouge">:nodoc:</code> for the doc generator. So you should always put the <code class="language-plaintext highlighter-rouge">:</code> around those words when documenting your code. Read more at <a href="https://github.com/crystal-lang/crystal/pull/6362">#6362</a>.</p>
 
 <h2 id="platforms">Platforms</h2>
 
-<p>Regarding Windows support there was some movement. A Windows CI using GitHub Actions was added in <a href="https://github.com/crystal-lang/crystal/pull/8676">#8676</a> to help us move forward and not backwards. The <code class="highlighter-rouge">system</code> module in prelude was enabled in <a href="https://github.com/crystal-lang/crystal/pull/8661">#8661</a>. More specs got fixed to work in <a href="https://github.com/crystal-lang/crystal/pull/8670">#8670</a>. And a helper script to identify working std-lib specs was added in <a href="https://github.com/crystal-lang/crystal/pull/8664">#8664</a>.</p>
+<p>Regarding Windows support there was some movement. A Windows CI using GitHub Actions was added in <a href="https://github.com/crystal-lang/crystal/pull/8676">#8676</a> to help us move forward and not backwards. The <code class="language-plaintext highlighter-rouge">system</code> module in prelude was enabled in <a href="https://github.com/crystal-lang/crystal/pull/8661">#8661</a>. More specs got fixed to work in <a href="https://github.com/crystal-lang/crystal/pull/8670">#8670</a>. And a helper script to identify working std-lib specs was added in <a href="https://github.com/crystal-lang/crystal/pull/8664">#8664</a>.</p>
 
 <p>Regarding Alpine we are now also running it in the CI in <a href="https://github.com/crystal-lang/crystal/pull/7420">#7420</a> and you might <a href="/2020/02/02/alpine-based-docker-images.html">have read</a> about the Alpine Docker images we are now building since <a href="https://github.com/crystal-lang/crystal/pull/8708">#8708</a>.</p>
 
-<p>We started to use <code class="highlighter-rouge">lld</code> instead of <code class="highlighter-rouge">ld</code> in Linux builds since it seems we were hitting some <code class="highlighter-rouge">ld</code> limitations. In case you experience them you might also want to move to <code class="highlighter-rouge">lld</code>. If it is available the <code class="highlighter-rouge">Makefile</code> will take care to use it. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8641">#8641</a>.</p>
+<p>We started to use <code class="language-plaintext highlighter-rouge">lld</code> instead of <code class="language-plaintext highlighter-rouge">ld</code> in Linux builds since it seems we were hitting some <code class="language-plaintext highlighter-rouge">ld</code> limitations. In case you experience them you might also want to move to <code class="language-plaintext highlighter-rouge">lld</code>. If it is available the <code class="language-plaintext highlighter-rouge">Makefile</code> will take care to use it. Read more at <a href="https://github.com/crystal-lang/crystal/pull/8641">#8641</a>.</p>
 
 <h2 id="next-steps">Next steps</h2>
 

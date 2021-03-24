@@ -2263,8 +2263,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2276,7 +2288,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2286,8 +2298,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2339,7 +2375,7 @@
                 
                 
                 <h1 id="symbol">シンボル (Symbol)</h1>
-<p><a href="http://crystal-lang.org/api/Symbol.html">Symbol</a> はソースコード全体で一意な名前を表します。</p>
+<p><a href="https://crystal-lang.org/api/latest/Symbol.html">Symbol</a> はソースコード全体で一意な名前を表します。</p>
 <p>シンボルはコンパイル時に解釈されるもので、動的に生成することはできません。シンボルを生成する唯一の方法はシンボルリテラルを使うことです。それは、コロン (<code>:</code>) のあとに識別子を続けて記述します。識別子の部分はダブルクォート (<code>"</code>) で囲むこともできます。</p>
 <div class="highlight"><pre><span></span><code><span class="ss">:unquoted_symbol</span>
 <span class="ss">:&quot;quoted symbol&quot;</span>
@@ -2351,7 +2387,7 @@
 <div class="highlight"><pre><span></span><code><span class="ss">:question?</span>
 <span class="ss">:exclamation!</span>
 </code></pre></div>
-<p>すべての<a href="../operators.html">Crystal の演算子</a>もシンボルのダブルクォートで囲われていない識別子として有効です。
+<p>すべての<a href="../operators.html">Crystal の演算子</a>もシンボルのダブルクォートで囲われていない識別子として有効です。</p>
 <div class="highlight"><pre><span></span><code><span class="ss">:+</span>
 <span class="ss">:-</span>
 <span class="ss">:*</span>
@@ -2378,10 +2414,10 @@
 <span class="ss">:~</span>
 <span class="ss">:!~</span>
 <span class="ss">:=~</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>内部的には、シンボルは<code>Int32</code>型の定数値として実装されています。</p>
 <h2 id="_1">パーセントシンボル配列リテラル</h2>
-<p>1つのシンボルを表すリテラルの他に、シンボルの<a href="https://crystal-lang.org/api/Array.html">配列</a>を表すパーセントリテラルがあります。それは<code>%i</code>と区切り文字の組によって記述します。有効な区切り文字は、括弧<code>()</code>、角括弧<code>[]</code>、ひげ括弧<code>{}</code>、三角括弧<code>&lt;&gt;</code>そしてパイプ文字<code>||</code>です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</p>
+<p>Besides the single symbol literal, there is also a percent literal to create an <a href="https://crystal-lang.org/api/latest/Array.html">Array</a> of symbols. それは<code>%i</code>と区切り文字の組によって記述します。有効な区切り文字は、括弧<code>()</code>、角括弧<code>[]</code>、ひげ括弧<code>{}</code>、三角括弧<code>&lt;&gt;</code>そしてパイプ文字<code>||</code>です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。</p>
 <div class="highlight"><pre><span></span><code><span class="sx">%i(foo bar baz)</span>  <span class="c1"># =&gt; [:foo, :bar, :baz]</span>
 <span class="sx">%i(foo\nbar baz)</span> <span class="c1"># =&gt; [:&quot;foo\nbar&quot;, :baz]</span>
 <span class="sx">%i(foo(bar) baz)</span> <span class="c1"># =&gt; [:&quot;foo(bar)&quot;, :baz]</span>

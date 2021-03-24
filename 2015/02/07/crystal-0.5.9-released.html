@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.5.9 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.5.9 released!" />
 <meta name="author" content="asterite" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-02-07T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.5.9 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@asterite" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"url":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"asterite"},"description":"Crystal 0.5.9 has been released!","headline":"Crystal 0.5.9 released!","dateModified":"2015-02-07T00:00:00+00:00","datePublished":"2015-02-07T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2015/02/07/crystal-0.5.9-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"asterite"},"author":{"@type":"Person","name":"asterite"},"headline":"Crystal 0.5.9 released!","description":"Crystal 0.5.9 has been released!","dateModified":"2015-02-07T00:00:00+00:00","datePublished":"2015-02-07T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -179,15 +181,15 @@
 
 <p>This release has seen unprecedented contributions, both to the standard library and to the language itself.</p>
 
-<p>For starters, <a href="https://github.com/ysbaddaden">ysbaddaden</a> rewrote the entire <code class="highlighter-rouge">Socket</code> hierarchy,
-also adding classes like <code class="highlighter-rouge">UDPSocket</code> and <code class="highlighter-rouge">UNIXSocket</code>, by having a very similar API to that of Ruby.
+<p>For starters, <a href="https://github.com/ysbaddaden">ysbaddaden</a> rewrote the entire <code class="language-plaintext highlighter-rouge">Socket</code> hierarchy,
+also adding classes like <code class="language-plaintext highlighter-rouge">UDPSocket</code> and <code class="language-plaintext highlighter-rouge">UNIXSocket</code>, by having a very similar API to that of Ruby.
 His contributions came from a working project he has, <a href="https://github.com/ysbaddaden/prax.cr">prax.cr</a>, which is
 a port of <a href="https://github.com/ysbaddaden/prax">prax</a>, which is a pure Ruby alternative to <a href="http://pow.cx/">Pow</a>.</p>
 
-<p>He has also added a <code class="highlighter-rouge">Logger</code> class, again with an API similar to that of Ruby.</p>
+<p>He has also added a <code class="language-plaintext highlighter-rouge">Logger</code> class, again with an API similar to that of Ruby.</p>
 
 <p>Then <a href="https://github.com/jhass">jhass</a> sent lots of contributions to the standard libraries, with methods
-like <code class="highlighter-rouge">IO.select</code>, <code class="highlighter-rouge">Enumerable#max_of</code>, <code class="highlighter-rouge">String#[Regex]</code>, <code class="highlighter-rouge">String#count</code>, <code class="highlighter-rouge">String#delete</code> and <code class="highlighter-rouge">String#squeeze</code>.
+like <code class="language-plaintext highlighter-rouge">IO.select</code>, <code class="language-plaintext highlighter-rouge">Enumerable#max_of</code>, <code class="language-plaintext highlighter-rouge">String#[Regex]</code>, <code class="language-plaintext highlighter-rouge">String#count</code>, <code class="language-plaintext highlighter-rouge">String#delete</code> and <code class="language-plaintext highlighter-rouge">String#squeeze</code>.
 His contributions came from a working project he has <a href="https://github.com/jhass/DeBot">DeBot</a>, which is an
 IRC bot written in pure Crystal, ported from a Ruby version he also wrote. This bot is now being used
 in our IRC channel: you send “» 1 + 2” and DeBot replies with “3”.</p>
@@ -223,7 +225,7 @@ but it’s a possibility.</p>
 projects are something that we didn’t think was even possible to do at this moment, given how young the language is.
 Again, a big thank you to all of you!</p>
 
-<p>Another notable feature added is the ability to invoke <code class="highlighter-rouge">to_s</code> on a C struct or union, making debugging
+<p>Another notable feature added is the ability to invoke <code class="language-plaintext highlighter-rouge">to_s</code> on a C struct or union, making debugging
 C bindings much more easier.</p>
 
 <p>Happy hacking! :-)</p>

@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Towards Crystal 1.0 | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Towards Crystal 1.0" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-03T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Towards Crystal 1.0" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases.","headline":"Towards Crystal 1.0","dateModified":"2020-03-03T00:00:00+00:00","datePublished":"2020-03-03T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2020/03/03/towards-crystal-1.0.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Towards Crystal 1.0","description":"Currently the main goal of the Crystal core team is to reach 1.0 in the near future. Since achieving that goal involves a number of non-obvious tradeoffs, we want to use this post to shed some light on those inherent tensions and how they drive our work and priorities for the next few releases.","dateModified":"2020-03-03T00:00:00+00:00","datePublished":"2020-03-03T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -201,7 +203,7 @@ We want the language to keep evolving (said another way, we don’t want the fac
 
 <p><strong>Debugger</strong>: Improving the debugging capabilities requires changes to the compiler and tool ecosystem but not to the language. There is ongoing effort from the community and further collaboration is expected and welcome. The current efforts are looking amazing. These may or may not land in 1.0, it depends a lot on timing of testing and feedback.</p>
 
-<p><strong>Multi-threading</strong>: There are pending stories to make multi-thread mode a non preview feature. To mention a few: which the desired guarantees for some parts of the std-lib are, or how the scheduler and runtime could be improved. We already polished <code class="highlighter-rouge">GC</code>, <code class="highlighter-rouge">Channel</code>, <code class="highlighter-rouge">select</code> and <code class="highlighter-rouge">IO</code> to behave correctly with multi-threading on. Future potential enhancements may allow you to use multiple threads more freely, but the core aspects of the language and runtime are set and done.</p>
+<p><strong>Multi-threading</strong>: There are pending stories to make multi-thread mode a non preview feature. To mention a few: which the desired guarantees for some parts of the std-lib are, or how the scheduler and runtime could be improved. We already polished <code class="language-plaintext highlighter-rouge">GC</code>, <code class="language-plaintext highlighter-rouge">Channel</code>, <code class="language-plaintext highlighter-rouge">select</code> and <code class="language-plaintext highlighter-rouge">IO</code> to behave correctly with multi-threading on. Future potential enhancements may allow you to use multiple threads more freely, but the core aspects of the language and runtime are set and done.</p>
 
 <p><strong>X or Y compiler bug</strong>: We will keep fixing them, before and after 1.0. Their existence didn’t prevent the existing community from building awesome stuff.</p>
 

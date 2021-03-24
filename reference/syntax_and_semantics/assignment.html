@@ -561,9 +561,56 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="assignment.html" class="md-nav__link--active" style="display: block">
+        
+          代入
+        </a>
+      </label>
+    
     <a href="assignment.html" class="md-nav__link md-nav__link--active">
       代入
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    連続した代入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    多重代入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アンダースコア
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2228,8 +2275,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2241,7 +2300,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2251,8 +2310,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2272,6 +2355,35 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    連続した代入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    多重代入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アンダースコア
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2339,7 +2451,7 @@
 <span class="n">objects</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||=</span> <span class="mi">2</span> <span class="c1"># objects[1]? || (objects[1] = 2) と同じ</span>
 <span class="n">objects</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&amp;&amp;=</span> <span class="mi">2</span> <span class="c1"># objects[1]? &amp;&amp; (objects[1] = 2) と同じ</span>
 </code></pre></div>
-<h1 id="_2">連続した代入</h1>
+<h2 id="_2">連続した代入</h2>
 <p>連続した代入を用いることで、同じ値を複数の変数に一度に代入することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123</span>
 
@@ -2349,7 +2461,7 @@
 <span class="n">c</span> <span class="c1"># =&gt; 123</span>
 </code></pre></div>
 <p>連続した代入は<a href="local_variables.html">ローカル変数</a>に限らず<a href="methods_and_instance_variables.html">インスタンス変数</a>や<a href="class_variables.html">クラス変数</a>、セッターメソッド (名前が <code>=</code> で終わるメソッド) に対して利用できます。</p>
-<h1 id="_3">多重代入</h1>
+<h2 id="_3">多重代入</h2>
 <p>複数の式をカンマ記号 (<code>,</code>) で区切って代入すると、複数の変数に対して同時に宣言/代入を行うことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="s2">&quot;Crystal&quot;</span><span class="p">,</span> <span class="mi">1</span>
 
@@ -2392,6 +2504,21 @@
 <span class="n">temp2</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">objects</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp1</span>
 <span class="n">objects</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp2</span>
+</code></pre></div>
+<h2 id="_4">アンダースコア</h2>
+<p>アンダースコアを任意の代入の左辺に置くことができます。この代入には副作用がなく、代入した値を読み出すこともできません。</p>
+<div class="highlight"><pre><span></span><code><span class="n">_</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># 副作用なし</span>
+<span class="n">_</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span> <span class="c1"># 副作用なし</span>
+<span class="nb">puts</span> <span class="n">_</span>    <span class="c1"># Error: can&#39;t read from _</span>
+</code></pre></div>
+<p>これは多重代入で、右辺のいくつかの値は重要ではないようなときに役に立ちます。</p>
+<div class="highlight"><pre><span></span><code><span class="n">before</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">after</span> <span class="o">=</span> <span class="s2">&quot;main.cr&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+<span class="c1"># 上記は以下と同じ</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="s2">&quot;main.cr&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">before</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="c1"># この行は副作用がない</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
 </code></pre></div>
                 
               

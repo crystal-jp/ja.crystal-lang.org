@@ -2277,8 +2277,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2290,7 +2302,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2300,8 +2312,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2367,17 +2403,17 @@
                 
                 
                 <h1 id="proc">Proc</h1>
-<p><a href="http://crystal-lang.org/api/Proc.html">Proc</a> は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 引数を持たない Proc</span>
+<p><a href="https://crystal-lang.org/api/latest/Proc.html">Proc</a> は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 引数なしの Proc</span>
 <span class="o">-&gt;</span><span class="p">{</span> <span class="mi">1</span> <span class="p">}</span> <span class="c1"># Proc(Int32)</span>
 
-<span class="c1"># 1つの引数を持つ Proc</span>
+<span class="c1"># 1引数の Proc</span>
 <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span> <span class="c1"># Proc(Int32, String)</span>
 
-<span class="c1"># 2つの引数を持つ Proc</span>
+<span class="c1"># 2引数の Proc</span>
 <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">}</span> <span class="c1"># Proc(Int32, Int32, Int32)</span>
 </code></pre></div>
-<p>引数の型指定は必須です。ただし、C原語バインディングの <code>fun</code> に対して直接 Proc リテラルを渡すときだけは例外です。</p>
+<p>引数の型指定は必須です。ただし C言語バインディングの <code>fun</code> に対して直接 Proc リテラルを渡すときだけは例外です。</p>
 <p>戻り値の型は Proc の内容から推論されます。</p>
 <p>また、<code>new</code> を使って Proc を作ることもできます。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">Proc</span><span class="p">(</span><span class="nb">Int32</span><span class="p">,</span> <span class="nb">String</span><span class="p">)</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_s</span> <span class="p">}</span> <span class="c1"># Proc(Int32, String)</span>

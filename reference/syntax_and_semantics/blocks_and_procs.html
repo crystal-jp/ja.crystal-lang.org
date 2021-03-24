@@ -2223,8 +2223,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2236,7 +2248,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2246,8 +2258,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2373,7 +2409,7 @@
 <span class="k">end</span>
 </code></pre></div>
 <p>上記のプログラムでは各 <code>yield</code> ごとに、計2回の "Hello!" が出力されます。</p>
-<p>ブロックを受け取るメソッドを定義するには、単純に <code>yield</code> をメソッド内で使います。そうするとコンパイラはそれをブロックを受け取るメソッドであると認識します。ダミーのブロック引数を宣言することで、上記をより明確に示すことも可能です。先頭がアンパサンド (<code>&amp;</code>) の引数を最後の引数にしてください。</p>
+<p>ブロックを受け取るメソッドを定義するには、単純に <code>yield</code> をメソッド内で使います。そうするとコンパイラはそれをブロックを受け取るメソッドであると認識します。ダミーのブロック引数を宣言することで、上記をより明確に示すこともできます。先頭がアンパサンド (<code>&amp;</code>) の引数を最後の引数にしてください。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
@@ -2458,16 +2494,16 @@
 
 <span class="c1"># Output: 3</span>
 </code></pre></div>
-<p>しかし、yield された引数の数よりも多くのブロック引数を指定した場合はエラーになります。</p>
+<p>しかし yield された引数の数よりも多くのブロック引数を指定した場合はエラーとなります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">twice</span>
   <span class="k">yield</span>
   <span class="k">yield</span>
 <span class="k">end</span>
 
-<span class="n">twice</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="c1"># Error: too many block arguments</span>
+<span class="n">twice</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="c1"># Error: too many block parameters</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>ブロックの変数はすべての yield 式に応じた型を持ちます。例をあげます。</p>
+<p>ブロックの引数はすべての yield 式に応じた型を持ちます。例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some</span>
   <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span>
   <span class="k">yield</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span>
@@ -2479,16 +2515,28 @@
   <span class="c1"># second は Char | String | Nil</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>ブロック引数 <code>second</code> は <code>Nil</code> を含んでいます。これは、最後の <code>yield</code> 式に2番目の引数が指定されていないためです。</p>
+<p>ブロック引数に<a href="assignment.html#underscore">アンダースコア</a>も使えます。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">pairs</span>
+  <span class="k">yield</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+  <span class="k">yield</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span>
+  <span class="k">yield</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span>
+<span class="k">end</span>
+
+<span class="n">pairs</span> <span class="k">do</span> <span class="o">|</span><span class="n">_</span><span class="p">,</span> <span class="n">second</span><span class="o">|</span>
+  <span class="nb">print</span> <span class="n">second</span>
+<span class="k">end</span>
+
+<span class="c1"># Output: 246</span>
+</code></pre></div>
 <h2 id="_2">単一引数の場合の短縮記法</h2>
-<p>もしブロックが単一の引数とそれに対するメソッド呼び出しのみの場合、ブロックをより短い記法で置き換えることができます。</p>
+<p>ブロックが単一の引数とそれに対するメソッド呼び出しのみである場合、ブロックはより短い記法で置き換えれます。</p>
 <p>例えば、</p>
-<div class="highlight"><pre><span></span><code><span class="n">method</span> <span class="k">do</span> <span class="o">|</span><span class="n">argument</span><span class="o">|</span>
-  <span class="n">argument</span><span class="o">.</span><span class="n">some_method</span>
+<div class="highlight"><pre><span></span><code><span class="n">method</span> <span class="k">do</span> <span class="o">|</span><span class="n">param</span><span class="o">|</span>
+  <span class="n">param</span><span class="o">.</span><span class="n">some_method</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>and</p>
-<div class="highlight"><pre><span></span><code><span class="n">method</span> <span class="p">{</span> <span class="o">|</span><span class="n">argument</span><span class="o">|</span> <span class="n">argument</span><span class="o">.</span><span class="n">some_method</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">method</span> <span class="p">{</span> <span class="o">|</span><span class="n">param</span><span class="o">|</span> <span class="n">param</span><span class="o">.</span><span class="n">some_method</span> <span class="p">}</span>
 </code></pre></div>
 <p>は次のように書けます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">method</span> <span class="o">&amp;.</span><span class="n">some_method</span>
@@ -2497,12 +2545,12 @@
 <div class="highlight"><pre><span></span><code><span class="n">method</span><span class="p">(</span><span class="o">&amp;.</span><span class="n">some_method</span><span class="p">)</span>
 </code></pre></div>
 <p>両方の場合で、<code>&amp;.some_method</code> は <code>method</code> に引数として渡されています。この引数は意味的にはブロックと同様です。これは単なるシンタックスシュガーであり、パフォーマンス上の欠点はありません。</p>
-<p>メソッドが他の引数を要求する場合、短縮記法はメソッドの引数リストに追加されなければいけません。</p>
+<p>メソッドが他の引数を要求する場合、短縮句法はメソッドの引数リストに追加されなければいけません。</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="o">&amp;.</span><span class="n">upcase</span><span class="p">)</span>
 </code></pre></div>
-<p>これは次に等しいです。
+<p>これは次に等しいです。</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>短縮記法に引数を渡すこともできます。</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="o">&amp;.</span><span class="n">upcase</span><span class="p">(</span><span class="n">Unicode</span><span class="o">::</span><span class="n">CaseOptions</span><span class="o">::</span><span class="n">Turkic</span><span class="p">))</span>
 </code></pre></div>
@@ -2525,7 +2573,7 @@
 <span class="k">end</span>
 </code></pre></div>
 <p>上記では "2" と "3" が出力されます。</p>
-<p><code>yield</code> 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は <a href="https://crystal-lang.org/api/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method">Enumerable#map</a> と <a href="https://crystal-lang.org/api/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method">Enumerable#select</a> でしょう。</p>
+<p><code>yield</code> 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は <a href="https://crystal-lang.org/api/latest/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method">Enumerable#map</a> と <a href="https://crystal-lang.org/api/latest/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method">Enumerable#select</a> でしょう。</p>
 <div class="highlight"><pre><span></span><code><span class="n">ary</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
 <span class="n">ary</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>         <span class="c1"># =&gt; [2, 3, 4]</span>
 <span class="n">ary</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">}</span> <span class="c1"># =&gt; [1, 3]</span>
@@ -2586,7 +2634,7 @@
 <span class="k">end</span>
 <span class="n">value</span> <span class="c1"># :: Int32 | String</span>
 </code></pre></div>
-<p><code>break</code> が複数の引数を受け取るとき、それらは自動的に <a href="http://crystal-lang.org/api/Tuple.html">Tuple</a> に変換されます。</p>
+<p><code>break</code> が複数の引数を受け取るとき、それらは自動的に <a href="https://crystal-lang.org/api/latest/Tuple.html">Tuple</a> に変換されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="n">twice</span> <span class="p">{</span> <span class="k">break</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="n">values</span> <span class="c1"># =&gt; {1, 2}</span>
 </code></pre></div>
@@ -2635,7 +2683,7 @@
 <span class="c1"># 10</span>
 <span class="c1"># 3</span>
 </code></pre></div>
-<p><code>next</code> が引数の引数を受け取るとき、それらは自動的に <a href="http://crystal-lang.org/api/Tuple.html">Tuple</a> に変換されます。引数を取らない場合には、 <code>nil</code> を1つ受け取ったのと同じことになります。</p>
+<p><code>next</code> が複数の引数を受け取るとき、それらは自動的に <a href="https://crystal-lang.org/api/latest/Tuple.html">Tuple</a> に変換されます。引数を取らない場合には、 <code>nil</code> を1つ受け取ったのと同じことになります。</p>
 <h2 id="with-yield">with ... yield</h2>
 <p><code>yield</code> 式に <code>with</code> キーワードを使うと、ブロック内でメソッドを実行する際にデフォルトのレシーバとなるオブジェクトを指定することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Foo</span>
@@ -2660,7 +2708,7 @@
 <span class="n">Foo</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">yield_normally</span> <span class="p">{</span> <span class="n">one</span> <span class="p">}</span>  <span class="c1"># =&gt; &quot;one&quot;</span>
 </code></pre></div>
 <h2 id="_4">ブロック引数のアンパック</h2>
-<p>括弧で囲むことで引数をブロック引数をアンパックできます。</p>
+<p>括弧で囲むことでブロック引数をアンパックできます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">}</span><span class="o">]</span>
 <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2674,14 +2722,14 @@
   <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>整数の渡せる <code>[]</code> メソッドを持つどのような型のブロック引数に対してもアンパックができます。</p>
-<p>また、引数が <a href="http://crystal-lang.org/api/Tuple.html">Tuple</a> のみであれば、括弧が無くても自動で展開されます。</p>
+<p>整数の渡せる <code>[]</code> メソッドを持つどのような型のブロック引数に対してもアンパックは可能です。</p>
+<p>また、引数が <a href="https://crystal-lang.org/api/latest/Tuple.html">Tuple</a>  のみであれば、括弧がなくても自動で展開されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">}</span><span class="o">]</span>
 <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">bool</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">bool</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>例えば <a href="http://crystal-lang.org/api/Hash.html#each(&amp;):Nil-instance-method">Hash(K, V)#each</a> は <code>Tuple(K, V)</code> を渡すので、自動展開が上手く機能します。</p>
+<p>例えば <a href="https://crystal-lang.org/api/latest/Hash.html#each(&amp;):Nil-instance-method">Hash(K, V)#each</a> は <code>Tuple(K, V)</code> を渡すので、自動展開が上手く機能します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
 <span class="n">h</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
   <span class="n">key</span>   <span class="c1"># =&gt; &quot;foo&quot;</span>

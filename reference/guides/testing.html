@@ -2357,8 +2357,20 @@
 
 
   <li class="md-nav__item">
+    <a href="ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2370,7 +2382,7 @@
 
   <li class="md-nav__item">
     <a href="ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2380,8 +2392,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2627,7 +2663,7 @@ Note that the identity expectation uses <code>.same?</code> which tests if <a hr
 <span class="k">end</span>
 </code></pre></div>
 <p>Tagging an example group (<code>describe</code> or <code>context</code>) extends to all of the contained examples.</p>
-<p>Multiple tags can be specified by giving an <a href="https://crystal-lang.org/api/Enumerable.html"><code>Enumerable</code></a>, such as <a href="https://crystal-lang.org/api/Array.html"><code>Array</code></a> or <a href="https://crystal-lang.org/api/Set.html"><code>Set</code></a>.</p>
+<p>Multiple tags can be specified by giving an <a href="https://crystal-lang.org/api/latest/Enumerable.html"><code>Enumerable</code></a>, such as <a href="https://crystal-lang.org/api/latest/Array.html"><code>Array</code></a> or <a href="https://crystal-lang.org/api/latest/Set.html"><code>Set</code></a>.</p>
 <h2 id="running-specs">Running specs</h2>
 <p>The Crystal compiler has a <code>spec</code> command with tools to constrain which examples get run and tailor the output. All specs of a project are compiled and executed through the command <code>crystal spec</code>.</p>
 <p>By convention, specs live in the <code>spec/</code> directory of a project. Spec files must end with <code>_spec.cr</code> to be recognizable as such by the compiler command.</p>
@@ -2662,25 +2698,31 @@ crystal spec --tag <span class="s1">&#39;~slow&#39;</span>
 <h2 id="spec-helper">Spec helper</h2>
 <p>Many projects use a custom spec helper file, usually named <code>spec/spec_helper.cr</code>.</p>
 <p>This file is used to require <code>spec</code> and other includes like code from the project needed for every spec file. This is also a good place to define global helper methods that make writing specs easier and avoid code duplication.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># spec/spec_helper.cr</span>
-<span class="k">require</span> <span class="s2">&quot;spec&quot;</span>
-<span class="k">require</span> <span class="s2">&quot;../src/my_project.cr&quot;</span>
-
-<span class="k">def</span> <span class="nf">create_test_object</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-  <span class="n">project</span> <span class="o">=</span> <span class="n">MyProject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">option</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
-  <span class="n">object</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_object</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-  <span class="n">object</span>
-<span class="k">end</span>
-
-<span class="c1"># spec/my_project_spec.cr</span>
-<span class="k">require</span> <span class="s2">&quot;./spec_helper&quot;</span>
-
-<span class="n">describe</span> <span class="s2">&quot;MyProject::Object&quot;</span> <span class="k">do</span>
-  <span class="n">it</span> <span class="s2">&quot;is created&quot;</span> <span class="k">do</span>
-    <span class="n">object</span> <span class="o">=</span> <span class="n">create_test_object</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">object</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+<div class="admonition example">
+<p class="admonition-title">spec/spec_helper.cr</p>
+</div>
+<p>```crystal
+require "spec"
+require "../src/my_project.cr"</p>
+<div class="highlight"><pre><span></span><code>def create_test_object(name)
+  project = MyProject.new(option: false)
+  object = project.create_object(name)
+  object
+end
+```
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">spec/my_project_spec.cr</p>
+</div>
+<p>```crystal
+require "./spec_helper"</p>
+<div class="highlight"><pre><span></span><code>describe &quot;MyProject::Object&quot; do
+  it &quot;is created&quot; do
+    object = create_test_object(name)
+    object.should_not be_nil
+  end
+end
+```
 </code></pre></div>
                 
               

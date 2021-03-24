@@ -2206,16 +2206,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#travis-ci-and-travisyml" class="md-nav__link">
-    Travis CI and .travis.yml
+  <a href="#continuous-integration" class="md-nav__link">
+    Continuous integration
   </a>
   
-    <nav class="md-nav" aria-label="Travis CI and .travis.yml">
+    <nav class="md-nav" aria-label="Continuous integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#hosting-your-docs-on-github-pages" class="md-nav__link">
-    Hosting your docs on GitHub-Pages
+    Hosting your docs on GitHub Pages
   </a>
   
 </li>
@@ -2283,8 +2283,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2296,7 +2308,7 @@
 
   <li class="md-nav__item">
     <a href="../ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2306,8 +2318,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2342,16 +2378,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#travis-ci-and-travisyml" class="md-nav__link">
-    Travis CI and .travis.yml
+  <a href="#continuous-integration" class="md-nav__link">
+    Continuous integration
   </a>
   
-    <nav class="md-nav" aria-label="Travis CI and .travis.yml">
+    <nav class="md-nav" aria-label="Continuous integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#hosting-your-docs-on-github-pages" class="md-nav__link">
-    Hosting your docs on GitHub-Pages
+    Hosting your docs on GitHub Pages
   </a>
   
 </li>
@@ -2405,14 +2441,14 @@
 </code></pre></div>
 </li>
 </ul>
-<h4 id="github-releases">GitHub Releases</h4>
+<h2 id="github-releases">GitHub Releases</h2>
 <p>It's good practice to do GitHub Releases.</p>
 <p>Add the following markdown build badge below the description in your README to inform users what the most current release is:
 (Be sure to replace <code>&lt;YOUR-GITHUB-USERNAME&gt;</code> and <code>&lt;YOUR-REPOSITORY-NAME&gt;</code> accordingly)</p>
 <div class="highlight"><pre><span></span><code>[![GitHub release](https://img.shields.io/github/release/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;.svg)](https://github.com/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;/releases)
 </code></pre></div>
 <p>Start by navigating to your repository's <em>releases</em> page.
-- This can be found at <code>https://github.com/&lt;YOUR-GITHUB-NAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;/releases</code></p>
+This can be found at <code>https://github.com/&lt;YOUR-GITHUB-NAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;/releases</code></p>
 <p>Click "Create a new release".</p>
 <p>According to <a href="https://github.com/crystal-lang/shards/blob/master/README.md">the Crystal Shards README</a>,</p>
 <blockquote>
@@ -2422,60 +2458,31 @@
 <p>Click "Publish release" and you're done!</p>
 <p>You'll now notice that the GitHub Release badge has updated in your README.</p>
 <p>Follow <a href="http://semver.org/">Semantic Versioning</a> and create a new release every time your push new code to <code>master</code>.</p>
-<h3 id="travis-ci-and-travisyml">Travis CI and <code>.travis.yml</code></h3>
-<p>If you haven't already, <a href="https://travis-ci.org/">sign up for Travis CI</a>.</p>
-<p>Insert the following markdown build badge below the description in your README.md:
-(be sure to replace <code>&lt;YOUR-GITHUB-USERNAME&gt;</code> and <code>&lt;YOUR-REPOSITORY-NAME&gt;</code> accordingly)
-<div class="highlight"><pre><span></span><code>[![Build Status](https://travis-ci.org/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;.svg?branch=master)](https://travis-ci.org/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;)
+<h2 id="continuous-integration">Continuous integration</h2>
+<p>GitHub Actions allows you to automatically test your project on every commit. Configure it according to the <a href="../ci/gh-actions.html">dedicated guide</a>.</p>
+<p>You can also <a href="https://docs.github.com/en/actions/managing-workflow-runs/adding-a-workflow-status-badge">add a build status badge</a> below the description in your README.md.</p>
+<h3 id="hosting-your-docs-on-github-pages">Hosting your docs on GitHub Pages</h3>
+<p>As an extension of the GitHub Actions config, you can add the steps to build the API doc site and then upload them, correspondingly:</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">steps</span><span class="p">:</span>
+
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build docs</span>
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal docs</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy docs</span>
+        <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; github.ref == &#39;refs/heads/master&#39;</span>
+        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+        <span class="nt">with</span><span class="p">:</span>
+          <span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
-Build badges are a simple way to tell people whether your Travis CI build passes.</p>
-<p>Add the following lines to your <code>.travis.yml</code>:
-<div class="highlight"><pre><span></span><code><span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-</code></pre></div></p>
-<p>This tells Travis CI to run your tests.
-Accordingly with the outcome of this command, Travis CI will return a <a href="https://docs.travis-ci.com/user/for-beginners/#breaking-the-build">build status</a> of "passed", "errored", "failed" or "canceled".</p>
-<p>If you want to verify that all your code has been formatted with <code>crystal tool format</code>, add a script for <code>crystal tool format --check</code>. If the code is not formatted correctly, this will <a href="https://docs.travis-ci.com/user/for-beginners/#breaking-the-build">break the build</a> just as failing tests would.</p>
-<p>例:
-<div class="highlight"><pre><span></span><code><span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal tool format --check</span>
-</code></pre></div></p>
-<p>Commit and push to GitHub.</p>
-<p>Follow <a href="https://docs.travis-ci.com/user/getting-started/">these guidelines</a> to get your repo up &amp; running on Travis CI.</p>
-<p>Once you're up and running, and the build is passing, the build badge will update in your README.</p>
-<h4 id="hosting-your-docs-on-github-pages">Hosting your <code>docs</code> on GitHub-Pages</h4>
-<p>Add the following <code>script</code> to your <code>.travis.yml</code>:
-<div class="highlight"><pre><span></span><code>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal docs</span>
-</code></pre></div></p>
-<p>This tells Travis CI to generate your documentation.</p>
-<p>Next, add the following lines to your <code>.travis.yml</code>.
-(Be sure to replace all instances of <code>&lt;YOUR-GITHUB-REPOSITORY-NAME&gt;</code> accordingly)
-<div class="highlight"><pre><span></span><code><span class="nt">deploy</span><span class="p">:</span>
-  <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pages</span>
-  <span class="nt">skip_cleanup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$GITHUB_TOKEN</span>
-  <span class="nt">project_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;YOUR-GITHUB-REPOSITORY-NAME&gt;</span>
-  <span class="nt">on</span><span class="p">:</span>
-    <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
-  <span class="nt">local_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docs</span>
-</code></pre></div></p>
-<p><a href="https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings">Set the Environment Variable</a>, <code>GITHUB_TOKEN</code>, with your <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access token</a>.</p>
-<p>If you've been following along, your <code>.travis.yml</code> file should look something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
-<span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal spec</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">crystal docs</span>
-<span class="nt">deploy</span><span class="p">:</span>
-  <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pages</span>
-  <span class="nt">skip_cleanup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="nt">github_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$GITHUB_TOKEN</span>
-  <span class="nt">project_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;YOUR-GITHUB-REPOSITORY-NAME&gt;</span>
-  <span class="nt">on</span><span class="p">:</span>
-    <span class="nt">branch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
-  <span class="nt">local_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docs</span>
-</code></pre></div>
-<p><a href="https://docs.travis-ci.com/user/deployment/pages/">Click Here</a> for the official documentation on deploying to GitHub-Pages with Travis CI.</p>
+<p>-- where the latter <code>...</code> placeholder is any of the generic GitHub Actions to push a directory to the <em>gh-pages</em> branch. Some options are:</p>
+<ul>
+<li><a href="https://github.com/JamesIves/github-pages-deploy-action">JamesIves/github-pages-deploy-action</a> [<a href="https://github.com/search?q=JamesIves+crystal+path%3A.github%2Fworkflows&amp;type=Code">Search</a>]</li>
+<li><a href="https://github.com/crazy-max/ghaction-github-pages">crazy-max/ghaction-github-pages</a> [<a href="https://github.com/search?q=%22ghaction-github-pages%22+crystal+path%3A.github%2Fworkflows&amp;type=Code">Search</a>]</li>
+<li><a href="https://github.com/peaceiris/actions-gh-pages">peaceiris/actions-gh-pages</a> [<a href="https://github.com/search?q=peaceiris%2Factions-gh-pages+crystal+path%3A.github%2Fworkflows&amp;type=Code">Search</a>]</li>
+<li><a href="https://github.com/oprypin/push-to-gh-pages">oprypin/push-to-gh-pages</a> [<a href="https://github.com/search?q=%22oprypin%2Fpush-to-gh-pages%22+crystal+path%3A.github%2Fworkflows&amp;type=Code">Search</a>]</li>
+</ul>
+<p>This uses Crystal's built-in API doc generator to make a generic site based on your code and comments to the items in it.</p>
+<p>Rather than just publishing the generated API docs, consider also making a full textual manual of your project, for a well-rounded introduction.</p>
+<p>For one of the options for static site generation, <a href="https://squidfunk.github.io/mkdocs-material">mkdocs-material</a>, there's a solution to tightly integrate API documentation into an overall documentation site: <a href="https://github.com/mkdocstrings/crystal">mkdocstrings-crystal</a>. Consider it as an alternative to <code>crystal docs</code>.</p>
                 
               
               

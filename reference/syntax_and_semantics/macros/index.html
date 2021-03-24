@@ -2221,8 +2221,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2234,7 +2246,7 @@
 
   <li class="md-nav__item">
     <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2244,8 +2256,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2446,10 +2482,10 @@
 <span class="c1">#     end</span>
 <span class="n">define_method</span> <span class="ss">:foo</span><span class="p">,</span> <span class="mi">1</span>
 </code></pre></div>
-<p>マクロに渡されたものがそのまま埋め込まれるので、結果は <code>:foo</code> となっています。こういった、識別子を必要とする場合には <a href="https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method"><code>ASTNode#id</code></a> が利用できます。</p>
+<p>マクロに渡されたものがそのまま埋め込まれるので、結果は <code>:foo</code> となっています。こういった、識別子を必要とする場合には <a href="https://crystal-lang.org/api/latest/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method"><code>ASTNode#id</code></a> が利用できます。</p>
 <h2 id="_4">マクロにおけるメソッド呼び出し</h2>
-<p>コンパイル時に、メソッドの<strong>既定のサブセット</strong>を AST ノードに対して実行することが可能です。これらのメソッドは <a href="http://crystal-lang.org/api/Crystal/Macros.html">Crystal::Macros</a> というフェイクのモジュールでドキュメントされています。</p>
-<p>例えば、上の例では <a href="https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method"><code>ASTNode#id</code></a> を呼び出すことで問題を解決できます。</p>
+<p>コンパイル時に、メソッドの<strong>既定のサブセット</strong>を AST ノードに対して実行することが可能です。これらのメソッドは <a href="https://crystal-lang.org/api/latest/Crystal/Macros.html">Crystal::Macros</a> というフェイクのモジュールでドキュメントされています。</p>
+<p>例えば、上の例では <a href="https://crystal-lang.org/api/latest/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method"><code>ASTNode#id</code></a> を呼びa出すことで問題を解決できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">define_method</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
   <span class="k">def</span> <span class="si">{{</span><span class="n">name</span><span class="o">.</span><span class="n">id</span><span class="si">}}</span>
     <span class="si">{{</span><span class="n">content</span><span class="si">}}</span>
@@ -2515,7 +2551,7 @@
 <span class="n">bar</span> <span class="c1"># =&gt; two</span>
 <span class="n">baz</span> <span class="c1"># =&gt; 3</span>
 </code></pre></div>
-<p>通常のコードと同様に、<a href="https://crystal-lang.org/api/Crystal/Macros/Nop.html"><code>Nop</code></a> と <a href="https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html"><code>NilLiteral</code></a> そして偽の <a href="https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html"><code>BoolLiteral</code></a> は<em>偽となり</em>、それ以外はすべて<em>真となり</em>ます。</p>
+<p>通常のコードと同様に、<a href="https://crystal-lang.org/api/latest/Crystal/Macros/Nop.html"><code>Nop</code></a> と <a href="https://crystal-lang.org/api/latest/Crystal/Macros/NilLiteral.html"><code>NilLiteral</code></a>、そして偽の <a href="https://crystal-lang.org/api/latest/Crystal/Macros/BoolLiteral.html"><code>BoolLiteral</code></a> は<em>偽となり</em>、それ以外はすべて<em>真となり</em>ます。</p>
 <p>マクロの条件分岐は、マクロの外側でも使用することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="si">{%</span> <span class="k">if</span> <span class="n">env</span><span class="p">(</span><span class="s2">&quot;TEST&quot;</span><span class="p">)</span> <span class="si">%}</span>
   <span class="nb">puts</span> <span class="s2">&quot;We are in test mode&quot;</span>
@@ -2535,7 +2571,7 @@
 <span class="n">PI_2</span> <span class="c1"># =&gt; 6.28318...</span>
 <span class="n">PI_3</span> <span class="c1"># =&gt; 9.42477...</span>
 </code></pre></div>
-<p><a href="https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html"><code>ArrayLiteral</code></a> を繰り返すには次のようにします。</p>
+<p><a href="https://crystal-lang.org/api/latest/Crystal/Macros/ArrayLiteral.html"><code>ArrayLiteral</code></a> を繰り返すには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">define_dummy_methods</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
   <span class="si">{%</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">index</span> <span class="k">in</span> <span class="n">names</span> <span class="si">%}</span>
     <span class="k">def</span> <span class="si">{{</span><span class="n">name</span><span class="o">.</span><span class="n">id</span><span class="si">}}</span>
@@ -2551,7 +2587,7 @@
 <span class="n">baz</span> <span class="c1"># =&gt; 2</span>
 </code></pre></div>
 <p>上記の <code>index</code> 変数は任意です。</p>
-<p><a href="https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html"><code>HashLiteral</code></a> を繰り返すには次のようにします。</p>
+<p><a href="https://crystal-lang.org/api/latest/Crystal/Macros/HashLiteral.html"><code>HashLiteral</code></a> を繰り返すには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">define_dummy_methods</span><span class="p">(</span><span class="n">hash</span><span class="p">)</span>
   <span class="si">{%</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="k">in</span> <span class="n">hash</span> <span class="si">%}</span>
     <span class="k">def</span> <span class="si">{{</span><span class="n">key</span><span class="o">.</span><span class="n">id</span><span class="si">}}</span>
@@ -2591,8 +2627,8 @@
 <span class="n">bar</span> <span class="c1"># =&gt; 1</span>
 <span class="n">baz</span> <span class="c1"># =&gt; 2</span>
 </code></pre></div>
-<p>引数は <a href="https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html"><code>ArrayLiteral</code></a> に変換されてマクロに渡されます。</p>
-<p>さらに、<a href="https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html"><code>ArrayLiteral</code></a> を埋め込む際に <code>*</code> を使うと、要素がカンマ区切りのものとして埋め込まれます</p>
+<p>引数は <a href="https://crystal-lang.org/api/latest/Crystal/Macros/TupleLiteral.html"><code>TupleLiteral</code></a> に変換されてマクロに渡されます。</p>
+<p>さらに、<a href="https://crystal-lang.org/api/latest/Crystal/Macros/TupleLiteral.html"><code>TupleLiteral</code></a> を埋め込む際に <code>*</code> を使うと、要素がカンマ区切りのものとして埋め込まれます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">println</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
   <span class="nb">print</span> <span class="si">{{</span><span class="o">*</span><span class="n">values</span><span class="si">}}</span><span class="p">,</span> <span class="sc">&#39;\n&#39;</span>
 <span class="k">end</span>
@@ -2600,7 +2636,7 @@
 <span class="n">println</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="c1"># outputs 123\n</span>
 </code></pre></div>
 <h2 id="_9">型の情報</h2>
-<p>マクロが実行される際に、<code>@type</code> という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。この変数の型は <a href="https://crystal-lang.org/api/Crystal/Macros/TypeNode.html"><code>TypeNode</code></a> で、コンパイル時の型情報にアクセスできます。</p>
+<p>マクロが実行される際に、<code>@type</code> という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。この変数の型は <a href="https://crystal-lang.org/api/latest/Crystal/Macros/TypeNode.html"><code>TypeNode</code></a> で、コンパイル時の型情報にアクセスできます。</p>
 <p><code>@type</code> は常に (もしクラスメソッドの中で実行されたとしても) <em>インスタンス</em>の型になることに注意してください。</p>
 <p>例をあげます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">add_describe_methods</span>
@@ -2621,7 +2657,7 @@
 <span class="n">Foo</span><span class="o">.</span><span class="n">describe</span>     <span class="c1"># =&gt; &quot;Class is Foo&quot;</span>
 </code></pre></div>
 <h2 id="_10">メソッドの情報</h2>
-<p>マクロが実行される際に、<code>@def</code> という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は <a href="https://crystal-lang.org/api/Crystal/Macros/Def.html"><code>Def</code></a> で、もしマクロがメソッドの外で実行されていた場合は <a href="https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html"><code>NilLiteral</code></a> となります。</p>
+<p>マクロが実行される際に、<code>@def</code> という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は <a href="https://crystal-lang.org/api/latest/Crystal/Macros/Def.html"><code>Def</code></a> で、もしマクロがメソッドの外で実行されていた場合は <a href="https://crystal-lang.org/api/latest/Crystal/Macros/NilLiteral.html"><code>NilLiteral</code></a> となります。</p>
 <p>例:</p>
 <div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="nn">Foo</span>
   <span class="k">def</span> <span class="nc">Foo</span><span class="o">.</span><span class="nf">boo</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
@@ -2641,7 +2677,7 @@
   <span class="nb">puts</span> <span class="si">{{</span><span class="n">value</span><span class="si">}}</span>
 <span class="si">{%</span> <span class="k">end</span> <span class="si">%}</span>
 </code></pre></div>
-<p>もし定数が型を示していれば、そのとき得られるのは <a href="https://crystal-lang.org/api/Crystal/Macros/TypeNode.html"><code>TypeNode</code></a> となります。</p>
+<p>もし定数が型を示していれば、そのとき得られるのは <a href="https://crystal-lang.org/api/latest/Crystal/Macros/TypeNode.html"><code>TypeNode</code></a> となります。</p>
 <h2 id="_12">ネストしたマクロ</h2>
 <p>いくつかのマクロを生成するようなマクロを定義することができます。このとき、内側のマクロが外側のマクロによって評価されるのを防ぐため、バックラッシュでエスケープする必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">macro</span> <span class="nf">define_macros</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>

@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.36.0 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.36.0 released!" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-01-26T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.36.0 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.36.0 has been released!","headline":"Crystal 0.36.0 released!","dateModified":"2021-01-26T00:00:00+00:00","datePublished":"2021-01-26T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Crystal 0.36.0 released!","description":"Crystal 0.36.0 has been released!","dateModified":"2021-01-26T00:00:00+00:00","datePublished":"2021-01-26T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -146,7 +148,7 @@
           
           
           
-            <span class="date">4 days ago</span>
+            <span class="date">26 Jan 2021</span>
           
         </div>
 
@@ -189,9 +191,9 @@
 
 <p>Although instance variables can have annotations, we must apply them in the base class that declares them. So we reject annotations on instance variables redefined in a child class. We might lift this restriction in the future, but we are going to play it safe first. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9502">#9502</a>.</p>
 
-<p>The <code class="highlighter-rouge">**</code> operator is right-associative from now on. This matches Ruby and a couple of other programming languages. So <code class="highlighter-rouge">2 ** 2 ** 3 == 2 ** (2 ** 3) == 256</code>. But note that the negation is done before the exponentiation because of how we parse negative number literals. So <code class="highlighter-rouge">-2 ** 2 == (-2) ** 2 == 4</code>, which is different to Ruby. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9684">#9684</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">**</code> operator is right-associative from now on. This matches Ruby and a couple of other programming languages. So <code class="language-plaintext highlighter-rouge">2 ** 2 ** 3 == 2 ** (2 ** 3) == 256</code>. But note that the negation is done before the exponentiation because of how we parse negative number literals. So <code class="language-plaintext highlighter-rouge">-2 ** 2 == (-2) ** 2 == 4</code>, which is different to Ruby. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9684">#9684</a>.</p>
 
-<p>Some releases ago <code class="highlighter-rouge">TypeNode#annotation</code> was added. The former less powerful <code class="highlighter-rouge">TypeNode#has_attribute?</code> is deprecated now. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9950">#9950</a>.</p>
+<p>Some releases ago <code class="language-plaintext highlighter-rouge">TypeNode#annotation</code> was added. The former less powerful <code class="language-plaintext highlighter-rouge">TypeNode#has_attribute?</code> is deprecated now. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9950">#9950</a>.</p>
 
 <h2 id="compiler">Compiler</h2>
 
@@ -199,15 +201,15 @@
 
 <ul>
   <li>You can’t use keywords as block arguments names. <a href="https://github.com/crystal-lang/crystal/pull/9704">#9704</a></li>
-  <li>The <code class="highlighter-rouge">a-b -c</code> expression is now correctly parsed as <code class="highlighter-rouge">(a - b) - c</code>. <a href="https://github.com/crystal-lang/crystal/pull/9652">#9652</a>, <a href="https://github.com/crystal-lang/crystal/pull/9884">#9884</a>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">a-b -c</code> expression is now correctly parsed as <code class="language-plaintext highlighter-rouge">(a - b) - c</code>. <a href="https://github.com/crystal-lang/crystal/pull/9652">#9652</a>, <a href="https://github.com/crystal-lang/crystal/pull/9884">#9884</a>.</li>
 </ul>
 
-<p>When using abstract <code class="highlighter-rouge">def</code>s, the compiler will enforce a couple of additional rules that should improve the maintenance of the code base.</p>
+<p>When using abstract <code class="language-plaintext highlighter-rouge">def</code>s, the compiler will enforce a couple of additional rules that should improve the maintenance of the code base.</p>
 
 <ul>
-  <li>Abstract <code class="highlighter-rouge">def</code> implementations must honor abstract declaration regarding type restrictions, splats, default values, and keyword arguments.
+  <li>Abstract <code class="language-plaintext highlighter-rouge">def</code> implementations must honor abstract declaration regarding type restrictions, splats, default values, and keyword arguments.
 <a href="https://github.com/crystal-lang/crystal/pull/9585">#9585</a>, <a href="https://github.com/crystal-lang/crystal/pull/9634">#9634</a>, <a href="https://github.com/crystal-lang/crystal/pull/9633">#9633</a>.</li>
-  <li>Abstract <code class="highlighter-rouge">def</code> implementations must honor return type abstract declaration. <a href="https://github.com/crystal-lang/crystal/pull/9810">#9810</a></li>
+  <li>Abstract <code class="language-plaintext highlighter-rouge">def</code> implementations must honor return type abstract declaration. <a href="https://github.com/crystal-lang/crystal/pull/9810">#9810</a></li>
 </ul>
 
 <p>A simple example of what this enforce would be:</p>
@@ -262,9 +264,9 @@
 <span class="k">end</span></code></pre></figure>
 </div>
 
-<p>You can also declare <code class="highlighter-rouge">def</code>s overloads with different named tuple types. Really handy if you are into using tuples a lot. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10245">#10245</a>.</p>
+<p>You can also declare <code class="language-plaintext highlighter-rouge">def</code>s overloads with different named tuple types. Really handy if you are into using tuples a lot. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10245">#10245</a>.</p>
 
-<p>A breaking-change that affects C bindings is introduced in <a href="https://github.com/crystal-lang/crystal/pull/10254">#10254</a>. Callbacks within <code class="highlighter-rouge">lib</code> should be declared now as <code class="highlighter-rouge">alias</code> instead of <code class="highlighter-rouge">type</code>. One less quirk in the compiler.</p>
+<p>A breaking-change that affects C bindings is introduced in <a href="https://github.com/crystal-lang/crystal/pull/10254">#10254</a>. Callbacks within <code class="language-plaintext highlighter-rouge">lib</code> should be declared now as <code class="language-plaintext highlighter-rouge">alias</code> instead of <code class="language-plaintext highlighter-rouge">type</code>. One less quirk in the compiler.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-diff" data-lang="diff">lib YourLib
@@ -276,67 +278,67 @@
 <p>A second breaking-change that affects C bindings is that a Crystal nil value is no longer translated to a null pointer value. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9872">#9872</a>.</p>
 <h2 id="standard-library">Standard library</h2>
 
-<p>The following top-level deprecated definitions are dropped: <code class="highlighter-rouge">CRC32</code>, <code class="highlighter-rouge">Adler32</code>, <code class="highlighter-rouge">Flate</code>, <code class="highlighter-rouge">Gzip</code>, <code class="highlighter-rouge">Zip</code>, <code class="highlighter-rouge">Zlib</code>, <code class="highlighter-rouge">with_color</code>. You will need to migrate to the <code class="highlighter-rouge">Compress</code> and <code class="highlighter-rouge">Digest</code> namespace. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9530">#9530</a>, <a href="https://github.com/crystal-lang/crystal/pull/9529">#9529</a>, and <a href="https://github.com/crystal-lang/crystal/pull/9531">#9531</a>.</p>
+<p>The following top-level deprecated definitions are dropped: <code class="language-plaintext highlighter-rouge">CRC32</code>, <code class="language-plaintext highlighter-rouge">Adler32</code>, <code class="language-plaintext highlighter-rouge">Flate</code>, <code class="language-plaintext highlighter-rouge">Gzip</code>, <code class="language-plaintext highlighter-rouge">Zip</code>, <code class="language-plaintext highlighter-rouge">Zlib</code>, <code class="language-plaintext highlighter-rouge">with_color</code>. You will need to migrate to the <code class="language-plaintext highlighter-rouge">Compress</code> and <code class="language-plaintext highlighter-rouge">Digest</code> namespace. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9530">#9530</a>, <a href="https://github.com/crystal-lang/crystal/pull/9529">#9529</a>, and <a href="https://github.com/crystal-lang/crystal/pull/9531">#9531</a>.</p>
 
-<p>The <code class="highlighter-rouge">SemanticVersion</code> obeys the standard (as it should). This causes some breaking-changes if you rely on invalid version names, but otherwise you are safe. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9868">#9868</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">SemanticVersion</code> obeys the standard (as it should). This causes some breaking-changes if you rely on invalid version names, but otherwise you are safe. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9868">#9868</a>.</p>
 
-<p>Unfortunately some breaking-changes are silent. There is no simple way to show a warning. Such a case is when the return type of a method is changed. This is what happens to <code class="highlighter-rouge">File.size</code> and <code class="highlighter-rouge">FileInfo#size</code> since they now return Int64 instead of UInt64. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10015">#10015</a>.</p>
+<p>Unfortunately some breaking-changes are silent. There is no simple way to show a warning. Such a case is when the return type of a method is changed. This is what happens to <code class="language-plaintext highlighter-rouge">File.size</code> and <code class="language-plaintext highlighter-rouge">FileInfo#size</code> since they now return Int64 instead of UInt64. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10015">#10015</a>.</p>
 
 <h3 id="numeric">Numeric</h3>
 
-<p>If you use <code class="highlighter-rouge">Complex</code>, you will need to rewrite some operations like <code class="highlighter-rouge">Complex#exp</code>, <code class="highlighter-rouge">Complex#log</code>, etc. to <code class="highlighter-rouge">Math.exp</code>, <code class="highlighter-rouge">Math.log</code>. This is the same API as for other numerical types. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9739">#9739</a>.</p>
+<p>If you use <code class="language-plaintext highlighter-rouge">Complex</code>, you will need to rewrite some operations like <code class="language-plaintext highlighter-rouge">Complex#exp</code>, <code class="language-plaintext highlighter-rouge">Complex#log</code>, etc. to <code class="language-plaintext highlighter-rouge">Math.exp</code>, <code class="language-plaintext highlighter-rouge">Math.log</code>. This is the same API as for other numerical types. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9739">#9739</a>.</p>
 
 <h3 id="text">Text</h3>
 
-<p><code class="highlighter-rouge">String</code> can hold arbitrary byte sequences. When these turned out to be invalid UTF-8 sequences, operations like <code class="highlighter-rouge">String#index</code>, <code class="highlighter-rouge">String#includes?</code>, and <code class="highlighter-rouge">Char::Reader</code> were misbehaving. In the presence of an invalid UTF-8 sequence, the data is now iterated a bit more slowly, like 1 byte at a time, until a valid sequence is found. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9713">#9713</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">String</code> can hold arbitrary byte sequences. When these turned out to be invalid UTF-8 sequences, operations like <code class="language-plaintext highlighter-rouge">String#index</code>, <code class="language-plaintext highlighter-rouge">String#includes?</code>, and <code class="language-plaintext highlighter-rouge">Char::Reader</code> were misbehaving. In the presence of an invalid UTF-8 sequence, the data is now iterated a bit more slowly, like 1 byte at a time, until a valid sequence is found. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9713">#9713</a>.</p>
 
 <h3 id="collections">Collections</h3>
 
 <p>There is a set of changes seeking consistency over the collection types. Unfortunately some are silent breaking changes.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">Hash#reject!</code>, <code class="highlighter-rouge">Hash#select!</code>, and <code class="highlighter-rouge">Hash#compact!</code> return <code class="highlighter-rouge">self</code> always, as <code class="highlighter-rouge">Array</code>. Bonus point: you can method chain. <a href="https://github.com/crystal-lang/crystal/pull/9904">#9904</a>.</li>
-  <li><code class="highlighter-rouge">Set#delete</code> returns <code class="highlighter-rouge">Bool</code> to indicate if the element was present. <a href="https://github.com/crystal-lang/crystal/pull/9590">#9590</a>.</li>
-  <li>Use <code class="highlighter-rouge">Hash#reject!</code> instead of <code class="highlighter-rouge">Hash#delete_if</code>. <a href="https://github.com/crystal-lang/crystal/pull/9878">#9878</a>.</li>
-  <li>Use <code class="highlighter-rouge">Enumerable#select</code> instead of <code class="highlighter-rouge">Enumerable#grep</code>. <a href="https://github.com/crystal-lang/crystal/pull/9711">#9711</a>.</li>
-  <li><code class="highlighter-rouge">Hash#key_index</code> was removed. <a href="https://github.com/crystal-lang/crystal/pull/10016">#10016</a></li>
+  <li><code class="language-plaintext highlighter-rouge">Hash#reject!</code>, <code class="language-plaintext highlighter-rouge">Hash#select!</code>, and <code class="language-plaintext highlighter-rouge">Hash#compact!</code> return <code class="language-plaintext highlighter-rouge">self</code> always, as <code class="language-plaintext highlighter-rouge">Array</code>. Bonus point: you can method chain. <a href="https://github.com/crystal-lang/crystal/pull/9904">#9904</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">Set#delete</code> returns <code class="language-plaintext highlighter-rouge">Bool</code> to indicate if the element was present. <a href="https://github.com/crystal-lang/crystal/pull/9590">#9590</a>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">Hash#reject!</code> instead of <code class="language-plaintext highlighter-rouge">Hash#delete_if</code>. <a href="https://github.com/crystal-lang/crystal/pull/9878">#9878</a>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">Enumerable#select</code> instead of <code class="language-plaintext highlighter-rouge">Enumerable#grep</code>. <a href="https://github.com/crystal-lang/crystal/pull/9711">#9711</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">Hash#key_index</code> was removed. <a href="https://github.com/crystal-lang/crystal/pull/10016">#10016</a></li>
 </ul>
 
 <p>But not every change is a removal, the following additions are also part of the release!</p>
 
 <ul>
-  <li>Allow <code class="highlighter-rouge">Iterator#zip</code> to take multiple <code class="highlighter-rouge">Iterator</code> arguments. <a href="https://github.com/crystal-lang/crystal/pull/9944">#9944</a></li>
-  <li><code class="highlighter-rouge">Array#shift</code> and <code class="highlighter-rouge">Array#unshift</code> got faster. <a href="https://github.com/crystal-lang/crystal/pull/10081">#10081</a></li>
+  <li>Allow <code class="language-plaintext highlighter-rouge">Iterator#zip</code> to take multiple <code class="language-plaintext highlighter-rouge">Iterator</code> arguments. <a href="https://github.com/crystal-lang/crystal/pull/9944">#9944</a></li>
+  <li><code class="language-plaintext highlighter-rouge">Array#shift</code> and <code class="language-plaintext highlighter-rouge">Array#unshift</code> got faster. <a href="https://github.com/crystal-lang/crystal/pull/10081">#10081</a></li>
 </ul>
 
 <h3 id="serialization">Serialization</h3>
 
-<p>We try to have one way to do things. This comes at the expense of needing to migrate old solutions that served us well. <code class="highlighter-rouge">JSON.mapping</code> and <code class="highlighter-rouge">YAML.mapping</code> are no longer part of the std-lib since there is a more flexible alternative: <code class="highlighter-rouge">JSON::Serializable</code>, <code class="highlighter-rouge">YAML::Serializable</code>. You can either migrate or, if you still want them, you can use <a href="https://github.com/crystal-lang/json_mapping.cr">github:crystal-lang/json_mapping.cr</a> and <a href="https://github.com/crystal-lang/yaml_mapping.cr">github:crystal-lang/yaml_mapping.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9527">#9527</a> and <a href="https://github.com/crystal-lang/crystal/pull/9526">#9526</a>.</p>
+<p>We try to have one way to do things. This comes at the expense of needing to migrate old solutions that served us well. <code class="language-plaintext highlighter-rouge">JSON.mapping</code> and <code class="language-plaintext highlighter-rouge">YAML.mapping</code> are no longer part of the std-lib since there is a more flexible alternative: <code class="language-plaintext highlighter-rouge">JSON::Serializable</code>, <code class="language-plaintext highlighter-rouge">YAML::Serializable</code>. You can either migrate or, if you still want them, you can use <a href="https://github.com/crystal-lang/json_mapping.cr">github:crystal-lang/json_mapping.cr</a> and <a href="https://github.com/crystal-lang/yaml_mapping.cr">github:crystal-lang/yaml_mapping.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9527">#9527</a> and <a href="https://github.com/crystal-lang/crystal/pull/9526">#9526</a>.</p>
 
 <p>You can now declare properties that will be used only on serialization or deserialization. If your model has a field that should be hashed for serialization this comes in really handy. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9567">#9567</a>.</p>
 
-<p>Another addition is that you can use <code class="highlighter-rouge">use_json_discriminator</code> and <code class="highlighter-rouge">use_yaml_discriminator</code> with other types than <code class="highlighter-rouge">String</code>. For example, you can use numbers or enums to map the corresponding type. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9222">#9222</a> and <a href="https://github.com/crystal-lang/crystal/pull/10149">#10149</a>.</p>
+<p>Another addition is that you can use <code class="language-plaintext highlighter-rouge">use_json_discriminator</code> and <code class="language-plaintext highlighter-rouge">use_yaml_discriminator</code> with other types than <code class="language-plaintext highlighter-rouge">String</code>. For example, you can use numbers or enums to map the corresponding type. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9222">#9222</a> and <a href="https://github.com/crystal-lang/crystal/pull/10149">#10149</a>.</p>
 
 <h3 id="time">Time</h3>
 
 <p>It’s time to mention some small breaking-changes:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">Time::Span.new</code> deprecated variants are no longer available. (<a href="https://github.com/crystal-lang/crystal/pull/10051">#10051</a></li>
-  <li><code class="highlighter-rouge">Time::Span#duration</code> is deprecated in favor of <code class="highlighter-rouge">#abs</code>. <code class="highlighter-rouge">Time::Span</code> is already a duration, right? <a href="https://github.com/crystal-lang/crystal/pull/10144">#10144</a></li>
+  <li><code class="language-plaintext highlighter-rouge">Time::Span.new</code> deprecated variants are no longer available. (<a href="https://github.com/crystal-lang/crystal/pull/10051">#10051</a></li>
+  <li><code class="language-plaintext highlighter-rouge">Time::Span#duration</code> is deprecated in favor of <code class="language-plaintext highlighter-rouge">#abs</code>. <code class="language-plaintext highlighter-rouge">Time::Span</code> is already a duration, right? <a href="https://github.com/crystal-lang/crystal/pull/10144">#10144</a></li>
 </ul>
 
 <h3 id="files">Files</h3>
 
-<p>Some breaking-changes are almost bug-fixes, but since they mean changing a known behavior, it is worth mentioning them as such. After <a href="https://github.com/crystal-lang/crystal/pull/10180">#10180</a>, <code class="highlighter-rouge">FileUtils.cp_r</code> will behave as expected when destination is a directory: the destination is calculated with <code class="highlighter-rouge">File.join(dest_path, File.basename(src_path))</code>.</p>
+<p>Some breaking-changes are almost bug-fixes, but since they mean changing a known behavior, it is worth mentioning them as such. After <a href="https://github.com/crystal-lang/crystal/pull/10180">#10180</a>, <code class="language-plaintext highlighter-rouge">FileUtils.cp_r</code> will behave as expected when destination is a directory: the destination is calculated with <code class="language-plaintext highlighter-rouge">File.join(dest_path, File.basename(src_path))</code>.</p>
 
 <h3 id="networking">Networking</h3>
 
-<p>The <code class="highlighter-rouge">HTTP::Params</code> is renamed to <code class="highlighter-rouge">URI::Params</code>. In this release there is a deprecated alias that will allow you to deal with this migration more gradually. But I would not count on this alias to remain for long. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10098">#10098</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">HTTP::Params</code> is renamed to <code class="language-plaintext highlighter-rouge">URI::Params</code>. In this release there is a deprecated alias that will allow you to deal with this migration more gradually. But I would not count on this alias to remain for long. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10098">#10098</a>.</p>
 
-<p>Another breaking-change is the renaming of <code class="highlighter-rouge">URI#full_path</code> to <code class="highlighter-rouge">URI#request_target</code>. Some edge-case behaviors also change to match the expected definition. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10099">#10099</a>.</p>
+<p>Another breaking-change is the renaming of <code class="language-plaintext highlighter-rouge">URI#full_path</code> to <code class="language-plaintext highlighter-rouge">URI#request_target</code>. Some edge-case behaviors also change to match the expected definition. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10099">#10099</a>.</p>
 
-<p><code class="highlighter-rouge">URI::Params</code> (former <code class="highlighter-rouge">HTTP::Params</code>), as you know, is used to represent query strings that can hold multiple values for a key. When assigning a new value to a key you will override all values of that key. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9605">#9605</a></p>
+<p><code class="language-plaintext highlighter-rouge">URI::Params</code> (former <code class="language-plaintext highlighter-rouge">HTTP::Params</code>), as you know, is used to represent query strings that can hold multiple values for a key. When assigning a new value to a key you will override all values of that key. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9605">#9605</a></p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">params</span> <span class="o">=</span> <span class="no">URI</span><span class="o">::</span><span class="no">Params</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"color=red&amp;color=blue&amp;console=gameboy"</span><span class="p">)</span>
@@ -344,7 +346,7 @@
 <span class="n">params</span> <span class="c1"># =&gt; =&gt; "color=green&amp;console=gameboy"</span></code></pre></figure>
 </div>
 
-<p>The <code class="highlighter-rouge">HTTP::Client</code> can now be used with any <code class="highlighter-rouge">IO</code> instead of <code class="highlighter-rouge">TCPSocket</code>. If you happen to have an application that uses HTTP as protocol over UNIX Sockets, like Docker, you can now talk to it. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9543">#9543</a></p>
+<p>The <code class="language-plaintext highlighter-rouge">HTTP::Client</code> can now be used with any <code class="language-plaintext highlighter-rouge">IO</code> instead of <code class="language-plaintext highlighter-rouge">TCPSocket</code>. If you happen to have an application that uses HTTP as protocol over UNIX Sockets, like Docker, you can now talk to it. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9543">#9543</a></p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="nb">require</span> <span class="s2">"http"</span>
@@ -356,29 +358,29 @@
 
 <h3 id="logging">Logging</h3>
 
-<p>To have only one module to log them all, the former <code class="highlighter-rouge">Logger</code> is no longer in the std-lib. Migrate to <code class="highlighter-rouge">Log</code> or, for just a little longer, you can keep using <a href="https://github.com/crystal-lang/logger.cr">github:crystal-lang/logger.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9525">#9525</a>.</p>
+<p>To have only one module to log them all, the former <code class="language-plaintext highlighter-rouge">Logger</code> is no longer in the std-lib. Migrate to <code class="language-plaintext highlighter-rouge">Log</code> or, for just a little longer, you can keep using <a href="https://github.com/crystal-lang/logger.cr">github:crystal-lang/logger.cr</a>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9525">#9525</a>.</p>
 
-<p>If you need more excuses to migrate to <code class="highlighter-rouge">Log</code>, the <code class="highlighter-rouge">Log::Backend</code> can now emit their entries with different strategies that should help keeping the throughput of the app in the presence of logging. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9432">#9432</a>.</p>
+<p>If you need more excuses to migrate to <code class="language-plaintext highlighter-rouge">Log</code>, the <code class="language-plaintext highlighter-rouge">Log::Backend</code> can now emit their entries with different strategies that should help keeping the throughput of the app in the presence of logging. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9432">#9432</a>.</p>
 
 <h3 id="crypto">Crypto</h3>
 
-<p>Time for some security alerts. The std-lib prevents by default the Secure Client-Initiated Renegotiation vulnerability attack. In <a href="https://github.com/crystal-lang/crystal/pull/9815">#9815</a> you can find more info and a small patch if you need to secure existing apps. Also, if you use <code class="highlighter-rouge">verify_mode=force-peer</code>, it is now correctly set up. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9668">#9668</a>.</p>
+<p>Time for some security alerts. The std-lib prevents by default the Secure Client-Initiated Renegotiation vulnerability attack. In <a href="https://github.com/crystal-lang/crystal/pull/9815">#9815</a> you can find more info and a small patch if you need to secure existing apps. Also, if you use <code class="language-plaintext highlighter-rouge">verify_mode=force-peer</code>, it is now correctly set up. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9668">#9668</a>.</p>
 
-<p>The <code class="highlighter-rouge">Digest</code> module is now backed by <code class="highlighter-rouge">OpenSSL</code>. Most used algorithms have their own class that is easy to use: <code class="highlighter-rouge">Digest::MD5</code>, <code class="highlighter-rouge">Digest::SHA1</code>, <code class="highlighter-rouge">Digest::SHA256</code>, <code class="highlighter-rouge">Digest::SHA512</code>. Bonus: <code class="highlighter-rouge">Digest#file</code> and <code class="highlighter-rouge">Digest#update(IO)</code> are available to compute digest from file and <code class="highlighter-rouge">IO</code> content. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9864">#9864</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Digest</code> module is now backed by <code class="language-plaintext highlighter-rouge">OpenSSL</code>. Most used algorithms have their own class that is easy to use: <code class="language-plaintext highlighter-rouge">Digest::MD5</code>, <code class="language-plaintext highlighter-rouge">Digest::SHA1</code>, <code class="language-plaintext highlighter-rouge">Digest::SHA256</code>, <code class="language-plaintext highlighter-rouge">Digest::SHA512</code>. Bonus: <code class="language-plaintext highlighter-rouge">Digest#file</code> and <code class="language-plaintext highlighter-rouge">Digest#update(IO)</code> are available to compute digest from file and <code class="language-plaintext highlighter-rouge">IO</code> content. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9864">#9864</a>.</p>
 
 <h3 id="concurrency">Concurrency</h3>
 
-<p>We hid some <code class="highlighter-rouge">Channel</code> API that should have been internal since the beginning. I doubt this will cause any issues. Read more <a href="https://github.com/crystal-lang/crystal/pull/9564">#9564</a>.</p>
+<p>We hid some <code class="language-plaintext highlighter-rouge">Channel</code> API that should have been internal since the beginning. I doubt this will cause any issues. Read more <a href="https://github.com/crystal-lang/crystal/pull/9564">#9564</a>.</p>
 
-<p><code class="highlighter-rouge">Channel#close</code> now returns <code class="highlighter-rouge">true</code> unless the channel was already closed. This is handy in multi-thread, because you might need to know if the current fiber is the one that actually closed the channel. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9443">#9443</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">Channel#close</code> now returns <code class="language-plaintext highlighter-rouge">true</code> unless the channel was already closed. This is handy in multi-thread, because you might need to know if the current fiber is the one that actually closed the channel. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9443">#9443</a>.</p>
 
 <h3 id="system">System</h3>
 
-<p><code class="highlighter-rouge">Process.parse_arguments</code> will allow you to parse a <code class="highlighter-rouge">String</code> in the same way a POSIX shell does. This is internally used to improve <code class="highlighter-rouge">CRYSTAL_OPTS</code> parsing. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9518">#9518</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">Process.parse_arguments</code> will allow you to parse a <code class="language-plaintext highlighter-rouge">String</code> in the same way a POSIX shell does. This is internally used to improve <code class="language-plaintext highlighter-rouge">CRYSTAL_OPTS</code> parsing. Read more at <a href="https://github.com/crystal-lang/crystal/pull/9518">#9518</a>.</p>
 
 <h3 id="spec">Spec</h3>
 
-<p>The <code class="highlighter-rouge">#should</code> and <code class="highlighter-rouge">#should_not</code> methods can now take an additional argument for custom failure messages. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10127">#10127</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">#should</code> and <code class="language-plaintext highlighter-rouge">#should_not</code> methods can now take an additional argument for custom failure messages. Read more at <a href="https://github.com/crystal-lang/crystal/pull/10127">#10127</a>.</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">describe</span> <span class="s2">"something"</span> <span class="k">do</span>

@@ -6,9 +6,9 @@
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.5.0 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.27.1 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Crystal 0.27.1 released!" />
 <meta name="author" content="bcardiff" />
 <meta property="og:locale" content="en_US" />
@@ -21,10 +21,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-01-30T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:title" content="Crystal 0.27.1 released!" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@bcardiff" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html","image":"https://ja.crystal-lang.org/images/icon.png","author":{"@type":"Person","name":"bcardiff"},"description":"Crystal 0.27.1 has been released!","headline":"Crystal 0.27.1 released!","dateModified":"2019-01-30T00:00:00+00:00","datePublished":"2019-01-30T00:00:00+00:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html"},"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/2019/01/30/crystal-0.27.1-released.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"},"name":"bcardiff"},"author":{"@type":"Person","name":"bcardiff"},"headline":"Crystal 0.27.1 released!","description":"Crystal 0.27.1 has been released!","dateModified":"2019-01-30T00:00:00+00:00","datePublished":"2019-01-30T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -183,34 +185,34 @@
 
 <p>Let’s review some of the most relevant changes in this release. But don’t miss the rest of the <a href="https://github.com/crystal-lang/crystal/releases/tag/0.27.1">release changelog</a> with a lot of valuable information.</p>
 <h1 id="language-changes">Language changes</h1>
-<p>You already know tuples <code class="highlighter-rouge">{1, "foo"}</code>. We now allow a trailing comma as in <code class="highlighter-rouge">{1, "foo", }</code> to be a valid tuple. This comes in really handy when the tuple is generated from macros, for example. More on this at <a href="https://github.com/crystal-lang/crystal/pull/7182">#7182</a>.</p>
+<p>You already know tuples <code class="language-plaintext highlighter-rouge">{1, "foo"}</code>. We now allow a trailing comma as in <code class="language-plaintext highlighter-rouge">{1, "foo", }</code> to be a valid tuple. This comes in really handy when the tuple is generated from macros, for example. More on this at <a href="https://github.com/crystal-lang/crystal/pull/7182">#7182</a>.</p>
 <h1 id="macros">Macros</h1>
 <p>There is a new macro that allows you to embed the content of a text file as a string literal during compile time. Neat for embedding text resources. This new macro comes in two flavors:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">read_file(filename)</code> that will raise a compile time error if the file does not exist.</li>
-  <li><code class="highlighter-rouge">read_file?(filename)</code> that will generate a <code class="highlighter-rouge">nil</code> value if the file does not exist.</li>
+  <li><code class="language-plaintext highlighter-rouge">read_file(filename)</code> that will raise a compile time error if the file does not exist.</li>
+  <li><code class="language-plaintext highlighter-rouge">read_file?(filename)</code> that will generate a <code class="language-plaintext highlighter-rouge">nil</code> value if the file does not exist.</li>
 </ul>
 
 <p>You can read about more about at <a href="https://github.com/crystal-lang/crystal/pull/6967">#6967</a> and <a href="https://github.com/crystal-lang/crystal/pull/7094">#7094</a> since there was some rethinking after the first PR and in the <a href="https://crystal-lang.org/api/0.27.1/Crystal/Macros.html#read_file(filename):StringLiteral-instance-method">docs</a>.</p>
 <h1 id="numeric">Numeric</h1>
-<p>The compiler is now able to emit overflow checks, but for now this feature is only available with an opt-in flag, to allow a migration path and feedback. In a future version, the overflow checks will be the default. When you build a program you can pass <code class="highlighter-rouge">-D preview_overflow</code> to enable them. Depending on your setup you might also need to use <code class="highlighter-rouge">-D compiler_rt</code> until we ship the compiler-rt dependency properly.</p>
+<p>The compiler is now able to emit overflow checks, but for now this feature is only available with an opt-in flag, to allow a migration path and feedback. In a future version, the overflow checks will be the default. When you build a program you can pass <code class="language-plaintext highlighter-rouge">-D preview_overflow</code> to enable them. Depending on your setup you might also need to use <code class="language-plaintext highlighter-rouge">-D compiler_rt</code> until we ship the compiler-rt dependency properly.</p>
 
-<p>Assuming the overflow checks are turned on, methods like <code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code>, <code class="highlighter-rouge">*</code>, <code class="highlighter-rouge">**</code>, <code class="highlighter-rouge">to_i8</code> and <code class="highlighter-rouge">Int32.new</code> will raise an <code class="highlighter-rouge">OverflowError</code> if the result doesn’t fit within the representable values. This applies to all integer types (including 128).</p>
+<p>Assuming the overflow checks are turned on, methods like <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">**</code>, <code class="language-plaintext highlighter-rouge">to_i8</code> and <code class="language-plaintext highlighter-rouge">Int32.new</code> will raise an <code class="language-plaintext highlighter-rouge">OverflowError</code> if the result doesn’t fit within the representable values. This applies to all integer types (including 128).</p>
 
-<p>In case you need wrapping (a.k.a.: previous) behaviour you will need to use <code class="highlighter-rouge">&amp;+</code>, <code class="highlighter-rouge">&amp;-</code>, <code class="highlighter-rouge">&amp;*</code>, <code class="highlighter-rouge">&amp;**</code>, <code class="highlighter-rouge">to_i8!</code>, <code class="highlighter-rouge">Int32.new!</code>.</p>
+<p>In case you need wrapping (a.k.a.: previous) behaviour you will need to use <code class="language-plaintext highlighter-rouge">&amp;+</code>, <code class="language-plaintext highlighter-rouge">&amp;-</code>, <code class="language-plaintext highlighter-rouge">&amp;*</code>, <code class="language-plaintext highlighter-rouge">&amp;**</code>, <code class="language-plaintext highlighter-rouge">to_i8!</code>, <code class="language-plaintext highlighter-rouge">Int32.new!</code>.</p>
 
-<p>Many parts of the stdlib and the compiler had been updated to explicit use <code class="highlighter-rouge">&amp;+</code> (like <code class="highlighter-rouge">Hasher</code>) but if we happened to miss any, it would be great to hear about it. Check your apps with <code class="highlighter-rouge">-D preview_overflow</code> and let us know if you found any issues (before the overflow is the default behaviour).</p>
+<p>Many parts of the stdlib and the compiler had been updated to explicit use <code class="language-plaintext highlighter-rouge">&amp;+</code> (like <code class="language-plaintext highlighter-rouge">Hasher</code>) but if we happened to miss any, it would be great to hear about it. Check your apps with <code class="language-plaintext highlighter-rouge">-D preview_overflow</code> and let us know if you found any issues (before the overflow is the default behaviour).</p>
 
 <p>You can read more about that at <a href="https://github.com/crystal-lang/crystal/pull/7206">#7206</a> where you will also find other PRs related to it.</p>
 
-<p>While implementing that, we also took care of some leftovers related to <code class="highlighter-rouge">Int128</code> support like <a href="https://github.com/crystal-lang/crystal/pull/7135">#7135</a></p>
+<p>While implementing that, we also took care of some leftovers related to <code class="language-plaintext highlighter-rouge">Int128</code> support like <a href="https://github.com/crystal-lang/crystal/pull/7135">#7135</a></p>
 
-<p>Also, one of those big little changes that bring joy to some of you, is that you are now able to use <code class="highlighter-rouge">BigInt.new("1_000")</code> to mimic <code class="highlighter-rouge">1_000</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7107">#7107</a>.</p>
+<p>Also, one of those big little changes that bring joy to some of you, is that you are now able to use <code class="language-plaintext highlighter-rouge">BigInt.new("1_000")</code> to mimic <code class="language-plaintext highlighter-rouge">1_000</code>. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7107">#7107</a>.</p>
 <h1 id="collections">Collections</h1>
-<p>There were many additions to <code class="highlighter-rouge">Iterator</code>, <code class="highlighter-rouge">Enumerable</code> that will come in handy in the next advent of code, and when processing collections of data.</p>
+<p>There were many additions to <code class="language-plaintext highlighter-rouge">Iterator</code>, <code class="language-plaintext highlighter-rouge">Enumerable</code> that will come in handy in the next advent of code, and when processing collections of data.</p>
 
-<p>Let’s see some quick examples of these additions. For <code class="highlighter-rouge">Iterator#slice_after</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7146">#7146</a>:</p>
+<p>Let’s see some quick examples of these additions. For <code class="language-plaintext highlighter-rouge">Iterator#slice_after</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7146">#7146</a>:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
@@ -222,7 +224,7 @@
 <span class="c1"># [17]</span></code></pre></figure>
 </div>
 
-<p>For <code class="highlighter-rouge">Iterator#slice_before</code> added by (<a href="https://github.com/crystal-lang/crystal/pull/7152">#7152</a>:</p>
+<p>For <code class="language-plaintext highlighter-rouge">Iterator#slice_before</code> added by (<a href="https://github.com/crystal-lang/crystal/pull/7152">#7152</a>:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
@@ -234,7 +236,7 @@
 <span class="c1"># [16, 17]</span></code></pre></figure>
 </div>
 
-<p>For <code class="highlighter-rouge">Iterator#slice_when</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7159">#7159</a>:</p>
+<p>For <code class="language-plaintext highlighter-rouge">Iterator#slice_when</code> added by <a href="https://github.com/crystal-lang/crystal/pull/7159">#7159</a>:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="n">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -246,13 +248,13 @@
 <span class="c1"># [4, 4]</span></code></pre></figure>
 </div>
 
-<p>Using <code class="highlighter-rouge">ary.chunk_while { |x, y| x == y }.each { |x| puts x }</code> would’ve lead to the same result.</p>
+<p>Using <code class="language-plaintext highlighter-rouge">ary.chunk_while { |x, y| x == y }.each { |x| puts x }</code> would’ve lead to the same result.</p>
 
-<p>Note that some of these methods have a <code class="highlighter-rouge">reuse</code> param to avoid unneeded allocations per slice/chunk. Mind the allocation!</p>
+<p>Note that some of these methods have a <code class="language-plaintext highlighter-rouge">reuse</code> param to avoid unneeded allocations per slice/chunk. Mind the allocation!</p>
 
-<p><code class="highlighter-rouge">Enumerable#one?</code> has joined the party of <code class="highlighter-rouge">#all?</code> and <code class="highlighter-rouge">#none?</code>. It helps you check if a collection has only one truthy value. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7166">#7166</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">Enumerable#one?</code> has joined the party of <code class="language-plaintext highlighter-rouge">#all?</code> and <code class="language-plaintext highlighter-rouge">#none?</code>. It helps you check if a collection has only one truthy value. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7166">#7166</a>.</p>
 
-<p>Multiple methods in <code class="highlighter-rouge">Enumerable</code>, <code class="highlighter-rouge">Iterator</code> and <code class="highlighter-rouge">Array</code> can now accept a pattern. Patterns are things that implement <code class="highlighter-rouge">#===</code> like <code class="highlighter-rouge">Range</code>, <code class="highlighter-rouge">Regex</code>, or any class. This will allow you to write things like:</p>
+<p>Multiple methods in <code class="language-plaintext highlighter-rouge">Enumerable</code>, <code class="language-plaintext highlighter-rouge">Iterator</code> and <code class="language-plaintext highlighter-rouge">Array</code> can now accept a pattern. Patterns are things that implement <code class="language-plaintext highlighter-rouge">#===</code> like <code class="language-plaintext highlighter-rouge">Range</code>, <code class="language-plaintext highlighter-rouge">Regex</code>, or any class. This will allow you to write things like:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-crystal" data-lang="crystal"><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nf">all?</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">)</span>        <span class="c1"># =&gt; true</span>
@@ -261,11 +263,11 @@
 <span class="sx">%w[foo bar baz]</span><span class="p">.</span><span class="nf">all?</span><span class="p">(</span><span class="sr">/o|a/</span><span class="p">)</span> <span class="c1"># =&gt; true</span></code></pre></figure>
 </div>
 
-<p>This applies to methods like <code class="highlighter-rouge">#select</code>, <code class="highlighter-rouge">#reject</code>, <code class="highlighter-rouge">#all?</code>, <code class="highlighter-rouge">#any?</code>, <code class="highlighter-rouge">#none?</code> and the new ones described above. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7174">#7174</a>.</p>
+<p>This applies to methods like <code class="language-plaintext highlighter-rouge">#select</code>, <code class="language-plaintext highlighter-rouge">#reject</code>, <code class="language-plaintext highlighter-rouge">#all?</code>, <code class="language-plaintext highlighter-rouge">#any?</code>, <code class="language-plaintext highlighter-rouge">#none?</code> and the new ones described above. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7174">#7174</a>.</p>
 
-<p><code class="highlighter-rouge">Enumerable#to_h(&amp;block)</code> will now let you generate a hash from a collection in an easier way. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7150">#7150</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">Enumerable#to_h(&amp;block)</code> will now let you generate a hash from a collection in an easier way. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7150">#7150</a>.</p>
 <h1 id="serialization">Serialization</h1>
-<p>Thanks to <code class="highlighter-rouge">JSON::Any#to_yaml</code> and <code class="highlighter-rouge">YAML::Any#to_json</code> converting between these formats is now a piece of cake. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7232">#7232</a>.</p>
+<p>Thanks to <code class="language-plaintext highlighter-rouge">JSON::Any#to_yaml</code> and <code class="language-plaintext highlighter-rouge">YAML::Any#to_json</code> converting between these formats is now a piece of cake. Read more at <a href="https://github.com/crystal-lang/crystal/pull/7232">#7232</a>.</p>
 <h1 id="networking">Networking</h1>
 <p>The following feature will leave some of you speechless. There is now a MIME registry.</p>
 
@@ -282,7 +284,7 @@
 <span class="no">MIME</span><span class="p">.</span><span class="nf">from_filename</span><span class="p">(</span><span class="s2">"path/file.html"</span><span class="p">)</span> <span class="c1"># =&gt; "text/html; charset=utf-8"</span></code></pre></figure>
 </div>
 
-<p>This is used in <code class="highlighter-rouge">HTTP::StaticFileHandler</code> but you can give it other uses for sure.</p>
+<p>This is used in <code class="language-plaintext highlighter-rouge">HTTP::StaticFileHandler</code> but you can give it other uses for sure.</p>
 <h1 id="system">System</h1>
 
 <p>Every platform integration counts, even the smallest changeset. In <a href="https://github.com/crystal-lang/crystal/pull/7041">#7041</a> the inlined ASM when compiling for ARM got a fix. And in <a href="https://github.com/crystal-lang/crystal/pull/6972">#6972</a> methods to get  hostname and cpu count in Win32 were implemented.</p>

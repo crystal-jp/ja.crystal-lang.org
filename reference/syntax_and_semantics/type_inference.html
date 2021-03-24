@@ -1052,8 +1052,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 型制約を持った引数の代入
+  <a href="#3-assigning-a-variable-that-is-a-method-parameter-with-a-type-restriction" class="md-nav__link">
+    3. Assigning a variable that is a method parameter with a type restriction
   </a>
   
 </li>
@@ -1066,8 +1066,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. デフォルト値のある引数の代入
+  <a href="#5-assigning-a-variable-that-is-a-method-parameter-with-a-default-value" class="md-nav__link">
+    5. Assigning a variable that is a method parameter with a default value
   </a>
   
 </li>
@@ -2334,8 +2334,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2347,7 +2359,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2357,8 +2369,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2415,8 +2451,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 型制約を持った引数の代入
+  <a href="#3-assigning-a-variable-that-is-a-method-parameter-with-a-type-restriction" class="md-nav__link">
+    3. Assigning a variable that is a method parameter with a type restriction
   </a>
   
 </li>
@@ -2429,8 +2465,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. デフォルト値のある引数の代入
+  <a href="#5-assigning-a-variable-that-is-a-method-parameter-with-a-default-value" class="md-nav__link">
+    5. Assigning a variable that is a method parameter with a default value
   </a>
   
 </li>
@@ -2546,28 +2582,28 @@
 <span class="k">end</span>
 </code></pre></div>
 <p><strong>注意</strong>: <code>new</code> メソッドが再定義されている場合もあります。この場合、その他の規則で型が推論できれば、<code>new</code>で返る型に推論できるでしょう。</p>
-<h3 id="3">3. 型制約を持った引数の代入</h3>
-<p>次の例で <code>@name</code> は <code>String</code> に推論されます。これは <code>name</code> が <code>String</code> の型制約を持ち、<code>@name</code> に代入されているためです。</p>
+<h3 id="3-assigning-a-variable-that-is-a-method-parameter-with-a-type-restriction">3. Assigning a variable that is a method parameter with a type restriction</h3>
+<p>In the following example <code>@name</code> is inferred to be <code>String</code> because the method parameter <code>name</code> has a type restriction of type <code>String</code>, and that parameter is assigned to <code>@name</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
     <span class="vi">@name</span> <span class="o">=</span> <span class="n">name</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>メソッドの引数の名前は特に重要ではありません。次のようにしても動作します。</p>
+<p>Note that the name of the method parameter is not important; this works as well:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">obj</span> <span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
     <span class="vi">@name</span> <span class="o">=</span> <span class="n">obj</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>より簡潔に、メソッドの引数にインスタンス変数を指定しても同じ結果を得られます。</p>
+<p>Using the shorter syntax to assign an instance variable from a method parameter has the same effect:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="vi">@name</span> <span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>コンパイラはメソッドの引数が再代入された場合に、それを検出しないことに注意してください。</p>
+<p>Also note that the compiler doesn't check whether a method parameter is reassigned a different value:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
     <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2611,7 +2647,7 @@
 <span class="k">end</span>
 </code></pre></div>
 <p>この追加の規則は、よくある<code>new</code>を呼ぶだけのコンストラクタ的なメソッドに対して動作するため非常に便利です。</p>
-<h3 id="5">5. デフォルト値のある引数の代入</h3>
+<h3 id="5-assigning-a-variable-that-is-a-method-parameter-with-a-default-value">5. Assigning a variable that is a method parameter with a default value</h3>
 <p>次の例で、<code>name</code> のデフォルト値は文字列リテラルで、それが <code>@name</code> に代入されているため、結果 <code>String</code> に推論されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">)</span>
@@ -2625,7 +2661,7 @@
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>デフォルト値は <code>Type.new(...)</code> の形や戻り値の型制約のあるクラスメソッドでもよいです。</p>
+<p>The default parameter value can also be a <code>Type.new(...)</code> method or a class method with a return type restriction.</p>
 <h3 id="6-lib">6. <code>lib</code> 関数の呼び出し結果の代入</h3>
 <p><a href="c_bindings/fun.html">lib 関数</a> は明示的な型を持つため、それがインスタンス変数に代入されたとき、コンパイラは戻り値の型を予想できます。</p>
 <p>次の例で、<code>@age</code> は <code>Int32</code> に推論されます。</p>
@@ -2677,7 +2713,7 @@
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、<code>@lucky_number</code> は <code>Int32</code> に推論されます。</p>
+<p>ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、<code>@lucky_number</code> は <code>Int32</code> と推論されます。</p>
                 
               
               

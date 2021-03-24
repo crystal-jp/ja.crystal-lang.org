@@ -2293,8 +2293,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2306,7 +2318,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2316,8 +2328,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2536,34 +2572,46 @@
 </code></pre></div>
 <h2 id="_5">トップレベルのプライベートメソッド</h2>
 <p><code>private</code> をトップレベルのメソッドにつけると、現在のファイルからのみ見えるものになります。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># one.cr:</span>
-<span class="k">private</span> <span class="k">def</span> <span class="nf">greet</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hello&quot;</span>
-<span class="k">end</span>
-
-<span class="n">greet</span> <span class="c1"># =&gt; &quot;Hello&quot;</span>
-
-<span class="c1"># two.cr:</span>
-<span class="k">require</span> <span class="s2">&quot;./one&quot;</span>
-
-<span class="n">greet</span> <span class="c1"># undefined local variable or method &#39;greet&#39;</span>
+<div class="admonition example">
+<p class="admonition-title">one.cr</p>
+</div>
+<p>```crystal
+private def greet
+puts "Hello"
+end</p>
+<div class="highlight"><pre><span></span><code>greet # =&gt; &quot;Hello&quot;
+```
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">two.cr</p>
+</div>
+<p>```crystal
+require "./one"</p>
+<div class="highlight"><pre><span></span><code>greet # undefined local variable or method &#39;greet&#39;
+```
 </code></pre></div>
 <p>このことで、あるファイルの中でのみ利用できるヘルパーメソッドを定義することが可能です。</p>
 <h2 id="_6">トップレベルのプライベート型</h2>
 <p><code>private</code> をトップレベルの型につけると、現在のファイルからのみ見えるものになります。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># one.cr:</span>
-<span class="k">private</span> <span class="k">class</span> <span class="nc">Greeter</span>
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">greet</span>
-    <span class="s2">&quot;Hello&quot;</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="n">Greeter</span><span class="o">.</span><span class="n">greet</span> <span class="c1"># =&gt; &quot;Hello&quot;</span>
-
-<span class="c1"># two.cr:</span>
-<span class="k">require</span> <span class="s2">&quot;./one&quot;</span>
-
-<span class="n">Greeter</span><span class="o">.</span><span class="n">greet</span> <span class="c1"># undefined constant &#39;Greeter&#39;</span>
+<div class="admonition example">
+<p class="admonition-title">one.cr</p>
+</div>
+<p>```crystal
+private class Greeter
+def self.greet
+"Hello"
+end
+end</p>
+<div class="highlight"><pre><span></span><code>Greeter.greet # =&gt; &quot;Hello&quot;
+```
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">two.cr</p>
+</div>
+<p>```crystal
+require "./one"</p>
+<div class="highlight"><pre><span></span><code>Greeter.greet # undefined constant &#39;Greeter&#39;
+```
 </code></pre></div>
                 
               

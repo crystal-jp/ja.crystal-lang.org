@@ -2230,8 +2230,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../guides/ci/gh-actions.html" class="md-nav__link">
+      GitHub Actions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../guides/ci/travis.html" class="md-nav__link">
-      Travis CI の利用
+      Travis CI
     </a>
   </li>
 
@@ -2243,7 +2255,7 @@
 
   <li class="md-nav__item">
     <a href="../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI の利用
+      CircleCI
     </a>
   </li>
 
@@ -2253,8 +2265,32 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/static_linking.html" class="md-nav__link">
+      静的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../platform_support.html" class="md-nav__link">
+      Platform Support
+    </a>
   </li>
 
     
@@ -2295,14 +2331,14 @@
 <div class="highlight"><pre><span></span><code><span class="n">offsetof</span><span class="p">(</span><span class="n">Type</span><span class="p">,</span> <span class="vi">@ivar</span><span class="p">)</span>
 </code></pre></div>
 <p>これは低レベルプリミティブで、C 言語の API が Crystal の型のデータレイアウトを必要とする場合に限って有用です。</p>
-<p>例:
+<p>例:</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Foo</span>
   <span class="vi">@x</span> <span class="o">=</span> <span class="err">0</span><span class="n">_i64</span>
   <span class="vi">@y</span> <span class="o">=</span> <span class="mi">34_i32</span>
 <span class="k">end</span>
 
 <span class="n">offsetof</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="vi">@y</span><span class="p">)</span> <span class="c1"># =&gt; 8</span>
-</code></pre></div></p>
+</code></pre></div>
                 
               
               
