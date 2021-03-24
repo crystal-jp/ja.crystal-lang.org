@@ -29,6 +29,7 @@ Crystal の shard をリリースするために、そしてこのチュート�
 ターミナルで、次のように実行します: `crystal init lib <YOUR-SHARD-NAME>`
 
 例:
+
 ```console
 $ crystal init lib palindrome-example
     create  palindrome-example/.gitignore
@@ -47,6 +48,7 @@ Initialized empty Git repository in /<YOUR-DIRECTORY>/.../palindrome-example/.gi
 こうしたら、`cd` で作ったディレクトリに移動してください。
 
 例:
+
 ```bash
 cd palindrome-example
 ```
@@ -77,7 +79,7 @@ create mode 100644 src/palindrome-example/version.cr
 #### コードのテスト
 
 - コードのテストを書きましょう。それがすべてです。人々 (あなたを含む) にとって、テストだけがどのように機能するものなのかを示すものになります。
-- Crystal は[ビルトインのテスト用ライブラリ](https://crystal-lang.org/api/Spec.html)を持っています。それを使ってください。
+- Crystal は[ビルトインのテストライブラリ](https://crystal-lang.org/api/latest/Spec.html)を持っています。それを使ってください。
 
 #### ドキュメント化
 
@@ -91,7 +93,7 @@ create mode 100644 src/palindrome-example/version.cr
 ドキュメントのホスティングが完了したら、その存在を報せるためにリポジトリにドキュメンテーションバッジを追加するといいでしょう。GitLab では以降で説明する方法で、このバッジをプロジェクトに設定することができます。GitHub では README.md に次のように追加します。
 (`<LINK-TO-YOUR-DOCUMENTATION>` を自分のものに置き換えることを忘れないでください
 
-```Markdown
+```markdown
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>)
 ```
 
@@ -101,6 +103,7 @@ create mode 100644 src/palindrome-example/version.cr
 [Awesome README](https://github.com/matiassingers/awesome-readme) はこの話題の素晴らしい例やリソースのキュレーテッドリストになっています。
 
 最も重要なことですが、README では次のことが説明されているべきでしょう。
+
 1. このライブラリが何なのか
 2. 何をするものなのか
 3. どのようにして使うのか
@@ -108,8 +111,7 @@ create mode 100644 src/palindrome-example/version.cr
 この説明にはいくつかの例を適切に章立てして含めるべきです。
 
 !!!note
-Be sure to replace all instances of `[your-github-name]` in the Crystal-generated README template with your GitHub/GitLab username. また GitLab を使っている場合は、`github` を `gitlab` に変更してください。
-
+Crystal の生成した README のテンプレート中の `[your-github-name]` という部分を実際の GitHub もしくはl GitLab のユーザ名で置換するのを忘れないでください。また GitLab を使っている場合は、`github` を `gitlab` に変更してください。
 
 #### コーディングスタイル
 
@@ -117,6 +119,7 @@ Be sure to replace all instances of `[your-github-name]` in the Crystal-generate
 - Crystal [組み込みのフォーマッタ](../conventions/documenting_code.md)を活用して、すべての `.cr` ファイルをフォーマットしましょう。
 
 例:
+
 ```
 crystal tool format
 ```
@@ -124,37 +127,42 @@ crystal tool format
 `--check` をコマンドの末尾につけることで、コードが正しくフォーマットされているかを確かめる、要するにフォーマッタがコードを変更しないことを確かめられます。
 
 例:
+
 ```
 crystal tool format --check
 ```
 
-以降の Travis CI の章で、ビルド時にこのチェックを追加する方法が説明されています。
-
+この確認を[継続的インテグレーション](ci/README.md)の1ステップとして追加すると良いでしょう。
 
 ### `shard.yml` を書く
 
-[仕様書](https://github.com/crystal-lang/shards/blob/master/SPEC.md)を見てください。これに従いましょう。
+[仕様書](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc)を確認してください。これに従いましょう。
 
 #### 名前
+
 `shard.yml`ので `name` プロパティは簡潔かつ説明的なものにすべきです。
 
 - [crystalshards.xyz](https://crystalshards.xyz/) で検索して、既に使われている名前でないか確認しておきましょう。
 
 例:
-```YAML
+
+```yaml
 name: palindrome-example
 ```
 
 #### 説明
+
 `description` を `shard.yml` に追加しましょう。
 
 `description` は1行の説明文で、検索の際に使われます。
 
 description は次のようにすべきです。
+
 1. 有益な情報を含む
 2. 発見可能なものにする
 
 #### 最適化
+
 見つけられるものでなければ、誰もあなたのプロジェクトを利用しないでしょう。
 今のところ、[crystalshards.xyz](https://crystalshards.xyz/) に Crystal のライブラリは集約されています。なので、ここに向けて最適化します。
 
@@ -162,7 +170,8 @@ _精確な_機能からライブラリを探す人と、_一般的な_機能か�
 例えば Bob は回文を扱うライブラリを必要としていて、一方で Felipe が探しているのはテキストを扱うライブラリで、Susan が探しているのはスペルについてのライブラリ、といったように、です。
 
 この場合、`name` にはすでに Bob の探している "palindrome" という単語が含まれています。なので _palindrome_ と繰り返す必要はないでしょう。代わりに、Susan の探している "spelling" や Felipe の探している "text" といった単語を含めるようにするといいでしょう。
-```YAML
+
+```yaml
 description: |
   A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.
 ```

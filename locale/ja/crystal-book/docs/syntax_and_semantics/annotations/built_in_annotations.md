@@ -6,7 +6,7 @@ C ライブラリのリンクをコンパイラに指示します。詳細は [l
 
 ## Extern
 
-このアノテーションをつけた Crystal の構造体はlibの宣言の中でも使えるようになります。
+このアノテーションをつけた Crystal の構造体は lib 宣言の中でも使えるようになります。
 
 ```crystal
 @[Extern]
@@ -14,7 +14,7 @@ struct MyStruct
 end
 
 lib MyLib
-  fun my_func(s : MyStruct) # OK (Extern がない場合はエラー)
+  fun my_func(s : MyStruct) # OK (gives an error without the Extern annotation)
 end
 ```
 
@@ -38,7 +38,7 @@ s.char # => 'B'
 
 ## ThreadLocal
 
-`@[ThreadLocal]` アノテーションはクラス変数とCの外部変数に対して適用できます。これによって、それらの変数がスレッドローカルになります。
+`@[ThreadLocal]` アノテーションはクラス変数と C の外部変数に対して適用できます。これによって、それらの変数がスレッドローカルになります。
 
 ```crystal
 class DontUseThis

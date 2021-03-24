@@ -2,7 +2,7 @@
 
 Crystal のリファレンスにようこそ！
 
-はじめに[コンパイラをインストール](https://ja.crystal-lang.org/install/)して、それから以降の例に臨んでください。
+はじめに、正しく[コンパイラをインストール](https://ja.crystal-lang.org/install/)して、それから以降の例に臨んでください。
 
 インストールが済んでいれば、`crystal` というコマンドでコンパイラを利用できます。
 
@@ -14,10 +14,7 @@ Crystal のリファレンスにようこそ！
 
 ```console
 $ crystal --version
-Crystal 0.34.0 (2020-04-07)
-
-LLVM: 10.0.0
-Default target: x86_64-apple-macosx
+--8<-- "crystal-version.txt"
 ```
 
 いい感じですね。
@@ -53,9 +50,8 @@ Run a command followed by --help to see command specific information, ex:
 
 次の例は典型的な Hello World プログラムです。Crystal ではこのようになります。
 
+!!!example "hello_world.cr"
 ```crystal
-# hello_world.cr
-
 puts "Hello World!"
 ```
 

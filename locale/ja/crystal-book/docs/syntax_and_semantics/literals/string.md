@@ -1,6 +1,6 @@
 # 文字列 (String)
 
-[String](http://crystal-lang.org/api/String.html) は UTF-8 文字の不変な列を表します。
+[String](https://crystal-lang.org/api/latest/String.html) は UTF-8 文字の不変な列を表します。
 
 通常、ダブルクォート (`"`) で囲まれたUTF-8でエンコードされた文字の並びで文字列リテラルを記述します。
 
@@ -13,6 +13,7 @@
 文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。
 
 次のエスケープシーケンスが有効です。
+
 ```crystal
 "\""                  # ダブルクオート
 "\\"                  # バックスラッシュ
@@ -65,7 +66,7 @@ b = 2
 "sum: #{a} + #{b} = #{a + b}" # => "sum: 1 + 2 = 3"
 ```
 
-文字列の補間は [String#%](https://crystal-lang.org/api/String.html#%25%28other%29-instance-method) でも可能です。
+文字列の補間は [String#%](https://crystal-lang.org/api/latest/String.html#%25%28other%29-instance-method) でも可能です。
 
 任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。
 
@@ -76,7 +77,7 @@ b = 2
 %q(#{a + b}) # => "#{a + b}"
 ```
 
-文字列の補間は [String::Builder](http://crystal-lang.org/api/String/Builder.html) を使い、 `#{...}` の中の式に対して `Object#to_s(IO)` を呼び出すことで実装されています。式`"sum: #{a} + #{b} = #{a + b}"`は次に等しいです。
+文字列の補間は [String::Builder](https://crystal-lang.org/api/latest/String/Builder.html) を使い、`#{...}` の中の式に対して `Object#to_s(IO)` を呼び出すことで実装されています。式`"sum: #{a} + #{b} = #{a + b}"`は次に等しいです。
 
 ```crystal
 String.build do |io|
@@ -89,7 +90,7 @@ String.build do |io|
 end
 ```
 
-# パーセント文字列リテラル
+## パーセント文字列リテラル
 
 ダブルクォートによる文字列リテラルの他に、Crystalはパーセント記号 (`%`) と区切り文字の組による文字列リテラルもサポートしています。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
@@ -111,9 +112,9 @@ name = "world"
 %Q(hello \n #{name}) # => "hello \n world"
 ```
 
-## パーセント文字列配列リテラル
+### パーセント文字列配列リテラル
 
-1つの文字列を表すリテラルの他に、文字列の[配列](https://crystal-lang.org/api/Array.html)を表すパーセントリテラルがあります。それは`%w`と区切り文字の組によって記述します。有効な区切り文字は[パーセント文字列リテラル](#percent-string-literals)のときと同じです。
+1つの文字列を表すリテラルの他に、文字列の[配列](https://crystal-lang.org/api/latest/Array.html)を表すパーセントリテラルがあります。それは`%w`と区切り文字の組によって記述します。有効な区切り文字は[パーセント文字列リテラル](#percent-string-literals)のときと同じです。
 
 ```crystal
 %w(foo bar baz)  # => ["foo", "bar", "baz"]
@@ -121,7 +122,7 @@ name = "world"
 %w(foo(bar) baz) # => ["foo(bar)", "baz"]
 ```
 
-Note that literal denoted by `%w` does not apply interpolation nor escapes except spaces. もちろん、エスケープされた1つのスペース (` `) では文字列は区切られません。
+`%w` で記述されたリテラルはスペースを除くエスケープと文字列の補間を受け付けないことに注意してください。もちろん、エスケープされた1つのスペース (` `) では文字列は区切られません。
 
 ```crystal
 %w(foo\ bar baz) # => ["foo bar", "baz"]
@@ -199,7 +200,7 @@ upcase(<<-STRING) # => "HELLO WORLD"
 
 もし複数のヒアドキュメントが同じ行で開始した場合、それらの内容は逐次的に読み込まれます。
 
-```cr
+```crystal
 print(<<-FIRST, <<-SECOND) # prints "HelloWorld"
   Hello
   FIRST

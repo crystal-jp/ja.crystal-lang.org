@@ -47,11 +47,11 @@ Color::Red.value # :: UInt8
 
 ただし、整数型しか指定することはできません。
 
-すべての列挙型は [Enum](http://crystal-lang.org/api/Enum.html) を継承しています。
+すべての列挙型は [Enum](https://crystal-lang.org/api/latest/Enum.html) を継承しています。
 
 ## フラグ列挙型
 
-列挙型に `@[Flags]` という属性を指定することができます。これを指定するとデフォルトの値が変わります。
+列挙型に `@[Flags]` を指定できます。これを指定するとデフォルトの値が変わります。
 
 ```crystal
 @[Flags]
@@ -62,7 +62,7 @@ enum IOMode
 end
 ```
 
-`@[Flags]` 属性を指定することで、最初の定数の値は `1` になり、以降は前の値を `2` 倍したものになります。
+`@[Flags]` アノテーションを指定することで、最初の定数の値は `1` になり、以降は前の値を `2` 倍したものになります。
 
 また、暗黙の定数として `None` と `All` が自動的に列挙型に追加されます。ここで `None` の値は `0` で、`All` はすべての定数のビット ORを取ったものになります。
 
@@ -71,7 +71,7 @@ IOMode::None.value # => 0
 IOMode::All.value  # => 7
 ```
 
-さらに、`Enum` のメソッドには `@[Flags]` 属性によって振る舞いを換えるものがいくつかあります。例をあげます。
+さらに、`Enum` のメソッドには `@[Flags]` アノテーションを指定することで振る舞いを変えるものがいくつかあります。例をあげます。
 
 ```crystal
 puts(Color::Red)                    # prints "Red"
@@ -117,7 +117,7 @@ Color::Blue.red?# => false
 
 ## 使い方
 
-列挙型は [Symbol](http://crystal-lang.org/api/Symbol.html) の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.md)に指定することができます。
+列挙型は [Symbol](https://crystal-lang.org/api/latest/Symbol.html) の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.md)に指定することができます。
 
 ```crystal
 def paint(color : Color)

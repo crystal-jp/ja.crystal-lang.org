@@ -124,7 +124,7 @@ end
 Moo.new # undefined method 'new' for Moo:Module
 ```
 
-# モジュールの型検査
+## モジュールの型検査
 
 モジュールは型を検査するのにも使えます。
 
@@ -167,6 +167,7 @@ three.is_a?(B) # => true
 ```
 
 これによって、クラスの代わりにモジュールに基づく配列を作ったりすることができます。
+
 ```crystal
 one = One.new
 two = Two.new

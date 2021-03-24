@@ -1,6 +1,6 @@
 # 文字 (Char)
 
-[Char](http://crystal-lang.org/api/Char.html) は 32bit の [Unicode](http://en.wikipedia.org/wiki/Unicode) [コードポイント](http://en.wikipedia.org/wiki/Code_point)を表現します。
+[Char](https://crystal-lang.org/api/latest/Char.html) は 32bit の [Unicode](http://en.wikipedia.org/wiki/Unicode) [コードポイント](http://en.wikipedia.org/wiki/Code_point) を表します。
 
 通常、シングルクォートでUTF-8でエンコードされた文字を囲って文字リテラルを記述します。
 
@@ -15,6 +15,7 @@
 バックスラッシュによる名前つきのエスケープスーケンスかコードポイントの数値表現で、特別な文字を記述できます。
 
 次のエスケープシーケンスが有効です。
+
 ```crystal
 '\''         # シングルクォート
 '\\'         # バックスラッシュ

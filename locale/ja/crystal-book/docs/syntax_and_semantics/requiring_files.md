@@ -79,10 +79,10 @@
 * "filename" という名前のディレクトリの中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。
 * それ以外の場合はコンパイルエラーとなります。
 
-この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、[specs](../guides/testing.md) からコードを参照する場合にも利用されます。
-
+この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また [specs](../guides/testing.md) からコードを参照する場合にも利用されます。
+q
+!!!example "spec/spec_helper.cr"
 ```crystal
-# spec/project_spec.cr
 require "../src/project"
 ```
 

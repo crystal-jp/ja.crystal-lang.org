@@ -4,18 +4,18 @@
 
 ```crystal
 unless some_condition
-  then_expression
+  expression_when_falsey
 else
-  else_expression
+  expression_when_truthy
 end
 
-# 上記は以下に同じ
+# 上記は以下に同じ:
 if some_condition
-  else_expression
+  expression_when_truthy
 else
-  then_expression
+  expression_when_falsey
 end
 
-# このように後置して使うこともできる
+# このように後置しても使える
 close_door unless door_closed?
 ```

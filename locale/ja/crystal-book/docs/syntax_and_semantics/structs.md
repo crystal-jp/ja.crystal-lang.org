@@ -11,7 +11,7 @@ struct Point
 end
 ```
 
-構造体は [Value](https://crystal-lang.org/api/Value.html) を継承しているので、インスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 [Reference](https://crystal-lang.org/api/Reference.html) を継承しているクラスのインスタンスの場合は、値はヒープに確保され、参照渡しされます)。
+構造体は [Value](https://crystal-lang.org/api/latest/Value.html) を継承しているので、インスタンスはスタックに確保され、値渡しされることになります。値渡しというのは、メソッドに引数として渡すときやメソッドから値が返るとき、変数に代入するときに、値のコピーが実際には渡される、ということです (一方 [Reference](https://crystal-lang.org/api/latest/Reference.html) を継承しているクラスのインスタンスの場合は、値はヒープに確保され、参照渡しされます)。
 
 そのため、構造体は変更されない (immutable) データ型や、状態を持たない他の型のラッパーなどに使われます。小さいコピーを渡す方がより効率的であるとき、構造体を使うと、わずかなメモリ割り当てが大量に発生することを避けられるため、パフォーマンス上有利です (より詳細には[パフォーマンスガイド](https://ja.crystal-lang.org/docs/guides/performance.html#use-structs-when-possible)を参照してください)。
 
@@ -33,8 +33,8 @@ struct Counter
 end
 
 counter = Counter.new(0)
-counter.plus.plus # => Counter(@x=2)
-puts counter      # => Counter(@x=1)
+counter.plus.plus # => Counter(@count=2)
+puts counter      # => Counter(@count=1)
 ```
 
 連続する `plus` の呼び出しの戻り値は予想通りの結果になっていますが、最初の呼び出しだけが `counter` を変更している、ということに注意してください。2番目の呼び出しは最初の呼び出しで返った構造体の_コピー_になっていて、このコピーは呼び出し後に破棄されます。
@@ -78,10 +78,9 @@ puts strukt.array   # => ["str", "foo"]
 
 `Klass` はクラスのため `modify` に参照渡しされ、`object.array = ["new"]` の行で、元の `klass` オブジェクトに新しい配列が保存されます。この点で、コピーしたものに格納していた、`strukt` とは異なります。
 
-
 ## 継承
 
-* 構造体は暗黙に [Struct](http://crystal-lang.org/api/Struct.html) を継承しており、これは [Value](http://crystal-lang.org/api/Value.html) を継承しています。一方クラスは [Reference](http://crystal-lang.org/api/Reference.html) を継承しています。
+* 構造体は暗黙に [Struct](http://crystal-lang.org/api/latest/Struct.html) を継承しており、これは [Value](http://crystal-lang.org/api/latest/Value.html) を継承しています。一方クラスは [Reference](http://crystal-lang.org/api/latest/Reference.html) を継承しています。
 * 構造体は abstract でない構造体を継承することはできません。
 
 2番目のものには、構造体はメモリレイアウトが厳密に定まっていないといけない、という事情があります。例えば、次の `Point` という構造体は8バイトの大きさがあるとします。そして、配列のバッファに各点の情報が埋め込まれると考えてください。

@@ -101,9 +101,9 @@ end
 
 **注意**: `new` メソッドが再定義されている場合もあります。この場合、その他の規則で型が推論できれば、`new`で返る型に推論できるでしょう。
 
-### 3. 型制約を持った引数の代入
+### 3. Assigning a variable that is a method parameter with a type restriction
 
-次の例で `@name` は `String` に推論されます。これは `name` が `String` の型制約を持ち、`@name` に代入されているためです。
+In the following example `@name` is inferred to be `String` because the method parameter `name` has a type restriction of type `String`, and that parameter is assigned to `@name`.
 
 ```crystal
 class Person
@@ -113,7 +113,7 @@ class Person
 end
 ```
 
-メソッドの引数の名前は特に重要ではありません。次のようにしても動作します。
+Note that the name of the method parameter is not important; this works as well:
 
 ```crystal
 class Person
@@ -123,7 +123,7 @@ class Person
 end
 ```
 
-より簡潔に、メソッドの引数にインスタンス変数を指定しても同じ結果を得られます。
+Using the shorter syntax to assign an instance variable from a method parameter has the same effect:
 
 ```crystal
 class Person
@@ -132,7 +132,7 @@ class Person
 end
 ```
 
-コンパイラはメソッドの引数が再代入された場合に、それを検出しないことに注意してください。
+Also note that the compiler doesn't check whether a method parameter is reassigned a different value:
 
 ```crystal
 class Person
@@ -188,7 +188,7 @@ end
 
 この追加の規則は、よくある`new`を呼ぶだけのコンストラクタ的なメソッドに対して動作するため非常に便利です。
 
-### 5. デフォルト値のある引数の代入
+### 5. Assigning a variable that is a method parameter with a default value
 
 次の例で、`name` のデフォルト値は文字列リテラルで、それが `@name` に代入されているため、結果 `String` に推論されます。
 
@@ -209,7 +209,7 @@ class Person
 end
 ```
 
-デフォルト値は `Type.new(...)` の形や戻り値の型制約のあるクラスメソッドでもよいです。
+The default parameter value can also be a `Type.new(...)` method or a class method with a return type restriction.
 
 ### 6. `lib` 関数の呼び出し結果の代入
 
@@ -284,4 +284,4 @@ class SomeObject
 end
 ```
 
-ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、`@lucky_number` は `Int32` に推論されます。
+ここでは規則5 (引数のデフォルト値) が利用されています。そして定数が整数リテラルに解決されるので、`@lucky_number` は `Int32` と推論されます。

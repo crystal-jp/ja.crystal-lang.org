@@ -1,4 +1,5 @@
 # Summary
+
 * [導入](README.md)
 * [Getting Started](getting_started/README.md)
     * [HTTP サーバー](getting_started/http_server.md)
@@ -130,5 +131,8 @@
         * [GitHub でのホスト方法](guides/hosting/github.md)
         * [GitLab でのホスト方法](guides/hosting/gitlab.md)
     * [継続的インテグレーション (CI)](guides/ci/README.md)
-        * [Travis CI の利用](guides/ci/travis.md)
-        * [CircleCI の利用](guides/ci/circleci.md)
+        * [GitHub Actions](guides/ci/gh-actions.md)
+        * [Travis CI](guides/ci/travis.md)
+        * [CircleCI](guides/ci/circleci.md)
+    * [静的リンク](guides/static_linking.md)
+* [Platform Support](platform_support.md)

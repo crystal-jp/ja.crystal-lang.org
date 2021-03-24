@@ -7,7 +7,7 @@ sizeof(Int32) # => 4
 sizeof(Int64) # => 8
 ```
 
-[Reference](http://crystal-lang.org/api/Reference.html) 型の場合は、そのサイズはポインタのサイズと等しくなります。
+[Reference](https://crystal-lang.org/api/latest/Reference.html) 型の場合は、そのサイズはポインタのサイズと等しくなります。
 
 ```crystal
 # 64ビット処理系の場合

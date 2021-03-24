@@ -15,7 +15,7 @@ end
 
 上記のプログラムでは各 `yield` ごとに、計2回の "Hello!" が出力されます。
 
-ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはそれをブロックを受け取るメソッドであると認識します。ダミーのブロック引数を宣言することで、上記をより明確に示すことも可能です。先頭がアンパサンド (`&`) の引数を最後の引数にしてください。
+ブロックを受け取るメソッドを定義するには、単純に `yield` をメソッド内で使います。そうするとコンパイラはそれをブロックを受け取るメソッドであると認識します。ダミーのブロック引数を宣言することで、上記をより明確に示すこともできます。先頭がアンパサンド (`&`) の引数を最後の引数にしてください。
 
 ```crystal
 def twice(&block)
@@ -131,7 +131,7 @@ end
 # Output: 3
 ```
 
-しかし、yield された引数の数よりも多くのブロック引数を指定した場合はエラーになります。
+しかし yield された引数の数よりも多くのブロック引数を指定した場合はエラーとなります。
 
 ```crystal
 def twice
@@ -139,11 +139,11 @@ def twice
   yield
 end
 
-twice do |i| # Error: too many block arguments
+twice do |i| # Error: too many block parameters
 end
 ```
 
-ブロックの変数はすべての yield 式に応じた型を持ちます。例をあげます。
+ブロックの引数はすべての yield 式に応じた型を持ちます。例をあげます。
 
 ```crystal
 def some
@@ -158,24 +158,38 @@ some do |first, second|
 end
 ```
 
-ブロック引数 `second` は `Nil` を含んでいます。これは、最後の `yield` 式に2番目の引数が指定されていないためです。
+ブロック引数に[アンダースコア](assignment.md#underscore)も使えます。
+
+```crystal
+def pairs
+  yield 1, 2
+  yield 2, 4
+  yield 3, 6
+end
+
+pairs do |_, second|
+  print second
+end
+
+# Output: 246
+```
 
 ## 単一引数の場合の短縮記法
 
-もしブロックが単一の引数とそれに対するメソッド呼び出しのみの場合、ブロックをより短い記法で置き換えることができます。
+ブロックが単一の引数とそれに対するメソッド呼び出しのみである場合、ブロックはより短い記法で置き換えれます。
 
 例えば、
 
 ```crystal
-method do |argument|
-  argument.some_method
+method do |param|
+  param.some_method
 end
 ```
 
 and
 
 ```crystal
-method { |argument| argument.some_method }
+method { |param| param.some_method }
 ```
 
 は次のように書けます。
@@ -192,13 +206,14 @@ method(&.some_method)
 
 両方の場合で、`&.some_method` は `method` に引数として渡されています。この引数は意味的にはブロックと同様です。これは単なるシンタックスシュガーであり、パフォーマンス上の欠点はありません。
 
-メソッドが他の引数を要求する場合、短縮記法はメソッドの引数リストに追加されなければいけません。
+メソッドが他の引数を要求する場合、短縮句法はメソッドの引数リストに追加されなければいけません。
 
 ```crystal
 ["a", "b"].join(",", &.upcase)
 ```
 
 これは次に等しいです。
+
 ```crystal
 ["a", "b"].join(",") { |s| s.upcase }
 ```
@@ -236,7 +251,7 @@ end
 
 上記では "2" と "3" が出力されます。
 
-`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](https://crystal-lang.org/api/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) と [Enumerable#select](https://crystal-lang.org/api/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method) でしょう。
+`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](https://crystal-lang.org/api/latest/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) と [Enumerable#select](https://crystal-lang.org/api/latest/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method) でしょう。
 
 ```crystal
 ary = [1, 2, 3]
@@ -320,7 +335,7 @@ end
 value # :: Int32 | String
 ```
 
-`break` が複数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。
+`break` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/latest/Tuple.html) に変換されます。
 
 ```crystal
 values = twice { break 1, 2 }
@@ -382,7 +397,7 @@ end
 # 3
 ```
 
-`next` が引数の引数を受け取るとき、それらは自動的に [Tuple](http://crystal-lang.org/api/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
+`next` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/latest/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
 
 ## with ... yield
 
@@ -413,7 +428,7 @@ Foo.new.yield_normally { one }  # => "one"
 
 ## ブロック引数のアンパック
 
-括弧で囲むことで引数をブロック引数をアンパックできます。
+括弧で囲むことでブロック引数をアンパックできます。
 
 ```crystal
 array = [{1, "one"}, {2, "two"}]
@@ -433,9 +448,9 @@ array.each do |arg|
 end
 ```
 
-整数の渡せる `[]` メソッドを持つどのような型のブロック引数に対してもアンパックができます。
+整数の渡せる `[]` メソッドを持つどのような型のブロック引数に対してもアンパックは可能です。
 
-また、引数が [Tuple](http://crystal-lang.org/api/Tuple.html) のみであれば、括弧が無くても自動で展開されます。
+また、引数が [Tuple](https://crystal-lang.org/api/latest/Tuple.html)  のみであれば、括弧がなくても自動で展開されます。
 
 ```crystal
 array = [{1, "one", true}, {2, "two", false}]
@@ -444,7 +459,7 @@ array.each do |number, word, bool|
 end
 ```
 
-例えば [Hash(K, V)#each](http://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) は `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
+例えば [Hash(K, V)#each](https://crystal-lang.org/api/latest/Hash.html#each(&):Nil-instance-method) は `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
 
 ```crystal
 h = {"foo" => "bar"}

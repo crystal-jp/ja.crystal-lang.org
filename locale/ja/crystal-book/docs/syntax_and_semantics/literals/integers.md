@@ -4,14 +4,14 @@
 
 | 型 | 大きさ | 最小値 | 最大値 |
 | ---------- | -----------: | -----------: |-----------: |
-| [Int8](http://crystal-lang.org/api/Int8.html) | 8 | -128 | 127 |
-| [Int16](http://crystal-lang.org/api/Int16.html) | 16 | −32,768 | 32,767 |
-| [Int32](http://crystal-lang.org/api/Int32.html) | 32 | −2,147,483,648 | 2,147,483,647 |
-| [Int64](http://crystal-lang.org/api/Int64.html) | 64 | −2<sup>63</sup> | 2<sup>63</sup> - 1 |
-| [UInt8](http://crystal-lang.org/api/UInt8.html) | 8 | 0 | 255 |
-| [UInt16](http://crystal-lang.org/api/UInt16.html) | 16 | 0 | 65,535 |
-| [UInt32](http://crystal-lang.org/api/UInt32.html) | 32 | 0 | 4,294,967,295 |
-| [UInt64](http://crystal-lang.org/api/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1 |
+| [Int8](https://crystal-lang.org/api/latest/Int8.html) | 8 | -128 | 127 |
+| [Int16](https://crystal-lang.org/api/latest/Int16.html) | 16 | −32,768 | 32,767 |
+| [Int32](https://crystal-lang.org/api/latest/Int32.html) | 32 | −2,147,483,648 | 2,147,483,647 |
+| [Int64](https://crystal-lang.org/api/latest/Int64.html) | 64 | −2<sup>63</sup> | 2<sup>63</sup> - 1 |
+| [UInt8](https://crystal-lang.org/api/latest/UInt8.html) | 8 | 0 | 255 |
+| [UInt16](https://crystal-lang.org/api/latest/UInt16.html) | 16 | 0 | 65,535 |
+| [UInt32](https://crystal-lang.org/api/latest/UInt32.html) | 32 | 0 | 4,294,967,295 |
+| [UInt64](https://crystal-lang.org/api/latest/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1 |
 
 整数リテラルは `+` (オプション) または `-` 符号に続く数値とアンダースコアからなり、さらに型を表わすサフィックスを続けることができます。
 サフィックスがない場合はリテラルの型は`Int32`か`Int64`または`UInt64`の中で、その数値に適した最小のものになります。

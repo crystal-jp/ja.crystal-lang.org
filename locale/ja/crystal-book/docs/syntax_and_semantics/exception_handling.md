@@ -11,13 +11,13 @@ raise "OH NO!"
 raise Exception.new("Some error")
 ```
 
-文字列の場合は、単純にそのメッセージを含んだ [Exception](http://crystal-lang.org/api/Exception.html) のインスタンスを生成します。
+文字列の場合は、単純にそのメッセージを含んだ [Exception](https://crystal-lang.org/api/latest/Exception.html) のインスタンスを生成します。
 
 そして、raise の対象に指定することができるのは `Exception` のインスタンス、もしくはそのサブクラスのみに限られます。
 
 ## 独自の例外を定義する
 
-独自の例外を定義したい場合には、[Exception](http://crystal-lang.org/api/Exception.html) からサブクラスを作成します。
+独自の例外を定義したい場合には、[Exception](https://crystal-lang.org/api/latest/Exception.html) からサブクラスを作成します。
 
 ```crystal
 class MyException < Exception
