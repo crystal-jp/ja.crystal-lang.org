@@ -23,18 +23,19 @@
    $ git push public master
    ```
 
-#### GitHub Releases
+## GitHub Releases
+
 It's good practice to do GitHub Releases.
 
 Add the following markdown build badge below the description in your README to inform users what the most current release is:
 (Be sure to replace `<YOUR-GITHUB-USERNAME>` and `<YOUR-REPOSITORY-NAME>` accordingly)
 
-```Markdown
+```markdown
 [![GitHub release](https://img.shields.io/github/release/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>.svg)](https://github.com/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>/releases)
 ```
 
 Start by navigating to your repository's _releases_ page.
-- This can be found at `https://github.com/<YOUR-GITHUB-NAME>/<YOUR-REPOSITORY-NAME>/releases`
+This can be found at `https://github.com/<YOUR-GITHUB-NAME>/<YOUR-REPOSITORY-NAME>/releases`
 
 Click "Create a new release".
 
@@ -49,82 +50,37 @@ You'll now notice that the GitHub Release badge has updated in your README.
 
 Follow [Semantic Versioning](http://semver.org/) and create a new release every time your push new code to `master`.
 
-### Travis CI and `.travis.yml`
-If you haven't already, [sign up for Travis CI](https://travis-ci.org/).
+## Continuous integration
 
-Insert the following markdown build badge below the description in your README.md:
-(be sure to replace `<YOUR-GITHUB-USERNAME>` and `<YOUR-REPOSITORY-NAME>` accordingly)
-```Markdown
-[![Build Status](https://travis-ci.org/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>.svg?branch=master)](https://travis-ci.org/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>)
-```
-Build badges are a simple way to tell people whether your Travis CI build passes.
+GitHub Actions allows you to automatically test your project on every commit. Configure it according to the [dedicated guide](../ci/gh-actions.md).
 
-Add the following lines to your `.travis.yml`:
-```YAML
-script:
-  - crystal spec
-```
+You can also [add a build status badge](https://docs.github.com/en/actions/managing-workflow-runs/adding-a-workflow-status-badge) below the description in your README.md.
 
-This tells Travis CI to run your tests.
-Accordingly with the outcome of this command, Travis CI will return a [build status](https://docs.travis-ci.com/user/for-beginners/#breaking-the-build) of "passed", "errored", "failed" or "canceled".
+### Hosting your docs on GitHub Pages
 
+As an extension of the GitHub Actions config, you can add the steps to build the API doc site and then upload them, correspondingly:
 
-If you want to verify that all your code has been formatted with `crystal tool format`, add a script for `crystal tool format --check`. If the code is not formatted correctly, this will [break the build](https://docs.travis-ci.com/user/for-beginners/#breaking-the-build) just as failing tests would.
+```yaml
+    steps:
 
-例:
-```YAML
-script:
-  - crystal spec
-  - crystal tool format --check
+      - name: Build docs
+        run: crystal docs
+      - name: Deploy docs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: ...
+        with:
+          ...
 ```
 
+-- where the latter `...` placeholder is any of the generic GitHub Actions to push a directory to the *gh-pages* branch. Some options are:
 
-Commit and push to GitHub.
+* [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action) [[Search](https://github.com/search?q=JamesIves+crystal+path%3A.github%2Fworkflows&type=Code)]
+* [crazy-max/ghaction-github-pages](https://github.com/crazy-max/ghaction-github-pages) [[Search](https://github.com/search?q=%22ghaction-github-pages%22+crystal+path%3A.github%2Fworkflows&type=Code)]
+* [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) [[Search](https://github.com/search?q=peaceiris%2Factions-gh-pages+crystal+path%3A.github%2Fworkflows&type=Code)]
+* [oprypin/push-to-gh-pages](https://github.com/oprypin/push-to-gh-pages) [[Search](https://github.com/search?q=%22oprypin%2Fpush-to-gh-pages%22+crystal+path%3A.github%2Fworkflows&type=Code)]
 
-Follow [these guidelines](https://docs.travis-ci.com/user/getting-started/) to get your repo up & running on Travis CI.
+This uses Crystal's built-in API doc generator to make a generic site based on your code and comments to the items in it.
 
-Once you're up and running, and the build is passing, the build badge will update in your README.
+Rather than just publishing the generated API docs, consider also making a full textual manual of your project, for a well-rounded introduction.
 
-
-#### Hosting your `docs` on GitHub-Pages
-
-Add the following `script` to your `.travis.yml`:
-```YAML
-  - crystal docs
-```
-
-This tells Travis CI to generate your documentation.
-
-Next, add the following lines to your `.travis.yml`.
-(Be sure to replace all instances of `<YOUR-GITHUB-REPOSITORY-NAME>` accordingly)
-```YAML
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  project_name: <YOUR-GITHUB-REPOSITORY-NAME>
-  on:
-    branch: master
-  local_dir: docs
-```
-
-[Set the Environment Variable](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings), `GITHUB_TOKEN`, with your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
-
-If you've been following along, your `.travis.yml` file should look something like this:
-
-```YAML
-language: crystal
-script:
-  - crystal spec
-  - crystal docs
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  project_name: <YOUR-GITHUB-REPOSITORY-NAME>
-  on:
-    branch: master
-  local_dir: docs
-```
-
-[Click Here](https://docs.travis-ci.com/user/deployment/pages/) for the official documentation on deploying to GitHub-Pages with Travis CI.
+For one of the options for static site generation, [mkdocs-material](https://squidfunk.github.io/mkdocs-material), there's a solution to tightly integrate API documentation into an overall documentation site: [mkdocstrings-crystal](https://github.com/mkdocstrings/crystal). Consider it as an alternative to `crystal docs`.

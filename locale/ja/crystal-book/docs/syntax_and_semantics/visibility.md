@@ -163,19 +163,21 @@ end
 
 `private` をトップレベルのメソッドにつけると、現在のファイルからのみ見えるものになります。
 
+!!!example "one.cr"
 ```crystal
-# one.cr:
 private def greet
-  puts "Hello"
+puts "Hello"
 end
 
-greet # => "Hello"
+    greet # => "Hello"
+    ```
 
-# two.cr:
+!!!example "two.cr"
+```crystal
 require "./one"
 
-greet # undefined local variable or method 'greet'
-```
+    greet # undefined local variable or method 'greet'
+    ```
 
 このことで、あるファイルの中でのみ利用できるヘルパーメソッドを定義することが可能です。
 
@@ -183,18 +185,20 @@ greet # undefined local variable or method 'greet'
 
 `private` をトップレベルの型につけると、現在のファイルからのみ見えるものになります。
 
+!!!example "one.cr"
 ```crystal
-# one.cr:
 private class Greeter
-  def self.greet
-    "Hello"
-  end
+def self.greet
+"Hello"
+end
 end
 
-Greeter.greet # => "Hello"
+    Greeter.greet # => "Hello"
+    ```
 
-# two.cr:
+!!!example "two.cr"
+```crystal
 require "./one"
 
-Greeter.greet # undefined constant 'Greeter'
-```
+    Greeter.greet # undefined constant 'Greeter'
+    ```

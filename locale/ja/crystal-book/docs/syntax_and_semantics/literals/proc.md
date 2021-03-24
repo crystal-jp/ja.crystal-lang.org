@@ -1,19 +1,19 @@
 # Proc
 
-[Proc](http://crystal-lang.org/api/Proc.html) は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。
+[Proc](https://crystal-lang.org/api/latest/Proc.html) は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。
 
 ```crystal
-# 引数を持たない Proc
+# 引数なしの Proc
 ->{ 1 } # Proc(Int32)
 
-# 1つの引数を持つ Proc
+# 1引数の Proc
 ->(x : Int32) { x.to_s } # Proc(Int32, String)
 
-# 2つの引数を持つ Proc
+# 2引数の Proc
 ->(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)
 ```
 
-引数の型指定は必須です。ただし、C原語バインディングの `fun` に対して直接 Proc リテラルを渡すときだけは例外です。
+引数の型指定は必須です。ただし C言語バインディングの `fun` に対して直接 Proc リテラルを渡すときだけは例外です。
 
 戻り値の型は Proc の内容から推論されます。
 

@@ -13,7 +13,7 @@ proc = int_to_int { |x| x + 1 }
 proc.call(1) # => 2
 ```
 
-上記のコードでは、`int_to_int` に渡されたコードブロックを `block` という変数に捕捉し、それをメソッドの戻り値としています。このとき、`proc` の型は [Proc(Int32, Int32)](http://crystal-lang.org/api/Proc.html) で、これは単一の `Int32` を引数に取り、`Int32` を返す関数となります。
+上記のコードでは、`int_to_int` に渡されたコードブロックを `block` という変数に捕捉し、それをメソッドの戻り値としています。このとき `proc` の型は [`Proc(Int32, Int32)`](https://crystal-lang.org/api/latest/Proc.html) で、これは単一の `Int32` を引数に取り、`Int32` を返す関数となります。
 
 この方法で、ブロックをコールバックとして保存しておくこともできます。
 

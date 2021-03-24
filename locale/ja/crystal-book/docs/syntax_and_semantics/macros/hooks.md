@@ -7,7 +7,7 @@
 * `extended` はモジュールが extend されたときに呼び出されます。`@type` は extend する側の型になります。
 * `method_missing` はメソッドが見つからないときに呼び出されます。
 * `method_added` は現在のスコープに新しいメソッドが定義されたときに呼び出されます。
-* `finished` はすべてのクラスのインスタンス変数が判明したあとのタイミングで呼び出されます。
+* `finished` is invoked after parsing finished, so all types and their methods are known.
 
 `inherited` の例です。
 

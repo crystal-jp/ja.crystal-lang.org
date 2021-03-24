@@ -16,7 +16,7 @@ C.errno = 0
 C.errno # => 0
 ```
 
-変数はアノテーションを付与することでスレッドローカルにすることが可能です。
+A variable can be marked as thread local with an annotation:
 
 ```crystal
 lib C

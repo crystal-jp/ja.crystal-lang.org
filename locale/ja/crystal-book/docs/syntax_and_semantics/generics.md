@@ -30,7 +30,7 @@ class MyDictionary(K, V)
 end
 ```
 
-型引数の名前にはどんな名前でも使うこともできます。
+型引数の名前はどのような名前でも使えます。
 
 ```crystal
 class MyDictionary(KeyType, ValueType)

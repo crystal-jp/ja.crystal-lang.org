@@ -20,10 +20,7 @@ CLI アプリケーションの開発には、主なトピックが2つありま
 
 ```console
 $ crystal -v
-Crystal 0.31.1 (2019-10-02)
-
-LLVM: 8.0.1
-Default target: x86_64-apple-macosx
+--8<-- "crystal-version.txt"
 ```
 
 そして`crystal -h`と実行すると、Crystal は自身のオプションとそれらの利用方法を表示します。
@@ -35,23 +32,23 @@ CLI アプリケーションの開発を始めるにあたって、まず次の�
 * `-v` / `--version`: アプリケーションのバージョンを表示する。
 * `-h` / `--help`: アプリケーションの利用方法を表示する。
 
+!!!example "help.cr"
 ```crystal
-# file: help.cr
 require "option_parser"
 
-OptionParser.parse do |parser|
-  parser.banner = "Welcome to The Beatles App!"
+    OptionParser.parse do |parser|
+      parser.banner = "Welcome to The Beatles App!"
 
-  parser.on "-v", "--version", "Show version" do
-    puts "version 1.0"
-    exit
-  end
-  parser.on "-h", "--help", "Show help" do
-    puts parser
-    exit
-  end
-end
-```
+      parser.on "-v", "--version", "Show version" do
+        puts "version 1.0"
+        exit
+      end
+      parser.on "-h", "--help", "Show help" do
+        puts parser
+        exit
+      end
+    end
+    ```
 
 さて、これがどうやって動作するというのでしょうか？　それは……魔法のように！　いえいえ、実のところ魔法ではないのです。実装が簡単になったのは Crystal のおかげです。
 プログラムが開始すると、まず`OptionParser#parse`に渡されたブロックが実行されます。このブロックですべてのオプションを定義しています。ブロックが実行されたのち、オプションパーサーがアプリケーションに渡された引数を処理して、定義したオプションにマッチするかを確認します。ここで、オプションがマッチしたときに、`parser#on`に渡されたブロックが実行される、というわけです。
@@ -77,95 +74,95 @@ Welcome to The Beatles App!
 
 デフォルトでは (オプションが与えられなかったときに) The Fab Four のメンバーを表示します。しかし、`-t` もしくは `--twist` が渡されたときには、名前を大文字にします。
 
+!!!example "twist_and_shout.cr"
 ```crystal
-# file: twist_and_shout.cr
 require "option_parser"
 
-the_beatles = [
-  "John Lennon",
-  "Paul McCartney",
-  "George Harrison",
-  "Ringo Starr"
-]
-shout = false
+    the_beatles = [
+      "John Lennon",
+      "Paul McCartney",
+      "George Harrison",
+      "Ringo Starr"
+    ]
+    shout = false
 
-option_parser = OptionParser.parse do |parser|
-  parser.banner = "Welcome to The Beatles App!"
+    option_parser = OptionParser.parse do |parser|
+      parser.banner = "Welcome to The Beatles App!"
 
-  parser.on "-v", "--version", "Show version" do
-    puts "version 1.0"
-    exit
-  end
-  parser.on "-h", "--help", "Show help" do
-    puts parser
-    exit
-  end
-  parser.on "-t", "--twist", "Twist and SHOUT" do
-    shout = true
-  end
-end
+      parser.on "-v", "--version", "Show version" do
+        puts "version 1.0"
+        exit
+      end
+      parser.on "-h", "--help", "Show help" do
+        puts parser
+        exit
+      end
+      parser.on "-t", "--twist", "Twist and SHOUT" do
+        shout = true
+      end
+    end
 
-members = the_beatles
-members = the_beatles.map &.upcase if shout
+    members = the_beatles
+    members = the_beatles.map &.upcase if shout
 
-puts ""
-puts "Group members:"
-puts "=============="
-members.each do |member|
-  puts member
-end
-```
+    puts ""
+    puts "Group members:"
+    puts "=============="
+    members.each do |member|
+      puts member
+    end
+    ```
 
-`-t`をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。
+    `-t` をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。
 
-```console
-$ crystal run ./twist_and_shout.cr -- -t
+    ```console
+    $ crystal run ./twist_and_shout.cr -- -t
 
-Group members:
-==============
-JOHN LENNON
-PAUL MCCARTNEY
-GEORGE HARRISON
-RINGO STARR
-```
+    Group members:
+    ==============
+    JOHN LENNON
+    PAUL MCCARTNEY
+    GEORGE HARRISON
+    RINGO STARR
+    ```
 
 #### オプションのパラメーター
 
 次はこんなアプリケーションを作ってみましょう。_`-g` / `--goodbye_hello`オプションが与えられたときに、**オプションのパラメーター**として渡された名前に挨拶をする_。
 
+!!!example "hello_goodbye.cr"
 ```crystal
-# file: hello_goodbye.cr
 require "option_parser"
 
-the_beatles = [
-  "John Lennon",
-  "Paul McCartney",
-  "George Harrison",
-  "Ringo Starr"
-]
-say_hi_to = ""
+    the_beatles = [
+      "John Lennon",
+      "Paul McCartney",
+      "George Harrison",
+      "Ringo Starr"
+    ]
+    say_hi_to = ""
 
-option_parser = OptionParser.parse do |parser|
-  parser.banner = "Welcome to The Beatles App!"
+    option_parser = OptionParser.parse do |parser|
+      parser.banner = "Welcome to The Beatles App!"
 
-  parser.on "-v", "--version", "Show version" do
-    puts "version 1.0"
-    exit
-  end
-  parser.on "-h", "--help", "Show help" do
-    puts parser
-    exit
-  end
-  parser.on "-g NAME", "--goodbye_hello=NAME", "Say hello to whoever you want" do |name|
-    say_hi_to = name
-  end
-end
+      parser.on "-v", "--version", "Show version" do
+        puts "version 1.0"
+        exit
+      end
+      parser.on "-h", "--help", "Show help" do
+        puts parser
+        exit
+      end
+      parser.on "-g NAME", "--goodbye_hello=NAME", "Say hello to whoever you want" do |name|
+        say_hi_to = name
+      end
+    end
 
-unless say_hi_to.empty?
-  puts ""
-  puts "You say goodbye, and #{the_beatles.sample} says hello to #{say_hi_to}!"
-end
-```
+    unless say_hi_to.empty?
+      puts ""
+      puts "You say goodbye, and #{the_beatles.sample} says hello to #{say_hi_to}!"
+    end
+    ```
 
 この場合、ブロックにはオプションに与えられたパラメーターの値が渡されます。
 
@@ -193,81 +190,81 @@ Unhandled exception: Invalid option: -n (OptionParser::InvalidOption)
 
 これが、無効なオプション/パラメーターの処理を追加して、新しいオプションを追加した、最終的なソースコードです。
 
+!!!example "all_my_cli.cr"
 ```crystal
-# file: all_my_cli.cr
 require "option_parser"
 
-the_beatles = [
-  "John Lennon",
-  "Paul McCartney",
-  "George Harrison",
-  "Ringo Starr"
-]
-shout = false
-say_hi_to = ""
-strawberry = false
+    the_beatles = [
+      "John Lennon",
+      "Paul McCartney",
+      "George Harrison",
+      "Ringo Starr"
+    ]
+    shout = false
+    say_hi_to = ""
+    strawberry = false
 
-option_parser = OptionParser.parse do |parser|
-  parser.banner = "Welcome to The Beatles App!"
+    option_parser = OptionParser.parse do |parser|
+      parser.banner = "Welcome to The Beatles App!"
 
-  parser.on "-v", "--version", "Show version" do
-    puts "version 1.0"
-    exit
-  end
-  parser.on "-h", "--help", "Show help" do
-    puts parser
-    exit
-  end
-  parser.on "-t", "--twist", "Twist and SHOUT" do
-    shout = true
-  end
-  parser.on "-g NAME", "--goodbye_hello=NAME", "Say hello to whoever you want" do |name|
-    say_hi_to = name
-  end
-  parser.on "-r", "--random_goodbye_hello", "Say hello to one random member" do
-    say_hi_to = the_beatles.sample
-  end
-  parser.on "-s", "--strawberry", "Strawberry fields forever mode ON" do
-    strawberry = true
-  end
-  parser.missing_option do |option_flag|
-    STDERR.puts "ERROR: #{option_flag} is missing something."
-    STDERR.puts ""
-    STDERR.puts parser
-    exit(1)
-  end
-  parser.invalid_option do |option_flag|
-    STDERR.puts "ERROR: #{option_flag} is not a valid option."
-    STDERR.puts parser
-    exit(1)
-  end
-end
+      parser.on "-v", "--version", "Show version" do
+        puts "version 1.0"
+        exit
+      end
+      parser.on "-h", "--help", "Show help" do
+        puts parser
+        exit
+      end
+      parser.on "-t", "--twist", "Twist and SHOUT" do
+        shout = true
+      end
+      parser.on "-g NAME", "--goodbye_hello=NAME", "Say hello to whoever you want" do |name|
+        say_hi_to = name
+      end
+      parser.on "-r", "--random_goodbye_hello", "Say hello to one random member" do
+        say_hi_to = the_beatles.sample
+      end
+      parser.on "-s", "--strawberry", "Strawberry fields forever mode ON" do
+        strawberry = true
+      end
+      parser.missing_option do |option_flag|
+        STDERR.puts "ERROR: #{option_flag} is missing something."
+        STDERR.puts ""
+        STDERR.puts parser
+        exit(1)
+      end
+      parser.invalid_option do |option_flag|
+        STDERR.puts "ERROR: #{option_flag} is not a valid option."
+        STDERR.puts parser
+        exit(1)
+      end
+    end
 
-members = the_beatles
-members = the_beatles.map &.upcase if shout
+    members = the_beatles
+    members = the_beatles.map &.upcase if shout
 
-puts "Strawberry fields forever mode ON" if strawberry
+    puts "Strawberry fields forever mode ON" if strawberry
 
-puts ""
-puts "Group members:"
-puts "=============="
-members.each do |member|
-  puts "#{strawberry ?"🍓" : "-"} #{member}"
-end
+    puts ""
+    puts "Group members:"
+    puts "=============="
+    members.each do |member|
+      puts "#{strawberry ?"🍓" : "-"} #{member}"
+    end
 
-unless say_hi_to.empty?
-  puts ""
-  puts "You say goodbye, and I say hello to #{say_hi_to}!"
-end
-```
+    unless say_hi_to.empty?
+      puts ""
+      puts "You say goodbye, and I say hello to #{say_hi_to}!"
+    end
+    ```
 
 ### ユーザーへの入力の要求
 
 しばしばユーザーに値を入力してもらいたい場合があります。どのようにして値を_読む_のでしょうか？　
 簡単です！The Fab Four が望むフレーズを唄ってくれる、というアプリケーションを作ってみましょう。このアプリケーションを実行すると、ユーザーにフレーズを要求して、そして魔法が起こります！
 
+!!!example "let_it_cli.cr"
 ```crystal
-# file: let_it_cli.cr
 puts "Welcome to The Beatles Sing Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
@@ -281,8 +278,8 @@ puts "The Beatles are singing: 🎵#{user_input}🎶🎸🥁"
 しかし、ここでユーザーが何も入力しなかったらどうなるのでしょう？　この場合は、空文字列 (ユーザーが `Enter`を押した場合) もしくは `Nil` 値 (`Ctrl+D`によって入力ストリームを閉じた場合) が返ります。
 これがどういう問題なのか説明するために、入力された値を叫ばせて (大文字にして表示して) みましょう。
 
+!!!example "let_it_cli.cr"
 ```crystal
-# file: let_it_cli.cr
 puts "Welcome to The Beatles Sing Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
@@ -306,23 +303,23 @@ Error: undefined method 'upper_case' for Nil (compile-time type is (String | Nil
 つまり、こういうことです。ユーザーの入力した値の型は `String | Nil` という[ユニオン型](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html)なのです。
 というわけで、`Nil`もしくは`""` (空文字列) かをチェックして、自然に動作するようにしましょう。
 
+!!!example "let_it_cli.cr"
 ```crystal
- # file: let_it_cli.cr
 puts "Welcome to The Beatles Sing Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
 user_input = gets
 
-exit if user_input.nil?# Ctrl+D
+    exit if user_input.nil?# Ctrl+D
 
-default_lyrics = "Na, na, na, na-na-na na" \
-                 " / " \
-                 "Na-na-na na, hey Jude"
+    default_lyrics = "Na, na, na, na-na-na na" \
+                    " / " \
+                    "Na-na-na na, hey Jude"
 
-lyrics = user_input.presence || default_lyrics
+    lyrics = user_input.presence || default_lyrics
 
-puts "The Beatles are singing: 🎵#{lyrics.upcase}🎶🎸🥁"
-```
+    puts "The Beatles are singing: 🎵#{lyrics.upcase}🎶🎸🥁"
+    ```
 
 ## 出力
 
@@ -333,12 +330,12 @@ puts "The Beatles are singing: 🎵#{lyrics.upcase}🎶🎸🥁"
 
 色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。黒い背景に黄色の文字で表示します。
 
+!!!example "yellow_cli.cr"
 ```crystal
-# file: yellow_cli.cr
 require "colorize"
 
-puts "#{"The Beatles".colorize(:yellow).on(:black)} App"
-```
+    puts "#{"The Beatles".colorize(:yellow).on(:black)} App"
+    ```
 
 いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？ (it's easy if you try?)
 
@@ -348,25 +345,25 @@ puts "#{"The Beatles".colorize(:yellow).on(:black)} App"
 
 ユーザーの入力を受け取る方のアプリケーションに、今回は`blink` (点滅)という*テキストの装飾*を追加してみましょう。
 
+!!!example "let_it_cli.cr"
 ```crystal
-# file: let_it_cli.cr
 require "colorize"
 
-puts "Welcome to The Beatles Sing Along version 1.0!"
-puts "Enter a phrase you want The Beatles to sing"
-print "> "
-user_input = gets
+    puts "Welcome to The Beatles Sing Along version 1.0!"
+    puts "Enter a phrase you want The Beatles to sing"
+    print "> "
+    user_input = gets
 
-exit if user_input.nil?# Ctrl+D
+    exit if user_input.nil?# Ctrl+D
 
-default_lyrics = "Na, na, na, na-na-na na" \
-                 " / " \
-                 "Na-na-na na, hey Jude"
+    default_lyrics = "Na, na, na, na-na-na na" \
+                    " / " \
+                    "Na-na-na na, hey Jude"
 
-lyrics = user_input.presence || default_lyrics
+    lyrics = user_input.presence || default_lyrics
 
-puts "The Beatles are singing: #{"🎵#{user_input}🎶🎸🥁".colorize.mode(:blink)}"
-```
+    puts "The Beatles are singing: #{"🎵#{lyrics}🎶🎸🥁".colorize.mode(:blink)}"
+    ```
 
 生まれ変わったアプリケーションを試してみてください……そして、違いを_聴き取って_ください。
 **今**、私たちは2つのファビュラスなアプリケーションを実装したのです。
@@ -387,6 +384,6 @@ puts "The Beatles are singing: #{"🎵#{user_input}🎶🎸🥁".colorize.mode(:
 `Readline`は、ファイル名補完などの自動補完、キーバインディングのカスタマイズなど、様々な機能を持っています。それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
 
 続いて、`NCurses`(New Curses) の紹介です。このライブラリは端末で_グラフィカルな_ユーザーインターフェースを開発することを可能にします。その名前が暗に示すように、これは`Curses`というライブラリの改良版です。`Curses` は Rouge というテキストベースのダンジョン探索アドベンチャーゲームのために開発されました。
-`NCurses` を Crystal から扱える [shaeds は2つ](https://crystalshards.org/?filter=ncurses)ほど存在しています。
+想像してみてください。`NCurses` Crystal で使うには[いくつもの shardls](https://crystalshards.org/shards/search?q=ncurses)がエコシステムには存在しています。
 
 これでこの文章はおしまいです 😎🎶

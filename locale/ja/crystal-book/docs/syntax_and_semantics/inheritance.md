@@ -100,7 +100,7 @@ class Employee < Person
 end
 ```
 
-引数も括弧もない場合、`super` には呼び出し元のメソッドと同じ引数がそのまま渡されます。そうでない場合には、指定した引数が渡されます。
+Without arguments or parentheses, `super` receives all of the method's parameters as arguments. そうでない場合には、指定した引数が渡されます。
 
 ## 共変性と反変性
 

@@ -7,9 +7,9 @@
 
 パーセントリテラルの形式の場合、他のパーセントリテラルと同様に`%x`では、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ`||`といった区切り文字が有効です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
-特殊変数 `$?` はコマンドの実行結果の [`Process::Status`](https://crystal-lang.org/api/0.27.0/Process/Status.html) オブジェクトになります。この特殊変数はコマンドリテラルと同じスコープに限り有効です。
+特殊変数 `$?` はコマンドの実行結果の [`Process::Status`](https://crystal-lang.org/api/latest/Process/Status.html) オブジェクトになります。この特殊変数はコマンドリテラルと同じスコープに限り有効です。
 
-```cr
+```crystal
 `echo foo`  # => "foo"
 $?.success? # => true
 ```
@@ -20,7 +20,7 @@ $?.success? # => true
 
 コマンドリテラルはスクリプトのような簡易的な利用時に便利ですが、補間を使う場合にはコマンドインジェクションが起こらないように注意する特別の注意を払う必要があります。
 
-```cr
+```crystal
 user_input = "hello; rm -rf *"
 `echo #{user_input}`
 ```
@@ -29,7 +29,7 @@ user_input = "hello; rm -rf *"
 
 これを避けるには、コマンドリテラルの補間にユーザーの入力した値を用いないようにする必要があります。また、標準ライブラリにある [`Process`](https://crystal-lang.org/api/latest/Process.html) を使うとユーザーの入力を安全にコマンドの引数として渡すことができます。
 
-```cr
+```crystal
 user_input = "hello; rm -rf *"
 process = Process.new("echo", [user_input], output: Process::Redirect::Pipe)
 process.output.gets_to_end # => "hello; rm -rf *"

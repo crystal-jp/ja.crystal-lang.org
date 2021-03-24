@@ -170,7 +170,7 @@ end
 Fiber.yield
 ```
 
-今度は正しく動作しました。なぜかと言うと [Proc](http://crystal-lang.org/api/Proc.html) を生成してそれに `i` を渡しているからです。こうすることで、`i` の値がコピーされ、生成されたファイバが仕様するのはそのコピーになります。
+今度は正しく動作しました。なぜかというと [Proc](https://crystal-lang.org/api/latest/Proc.html) を生成して、それに `i` を渡しているからです。こうすることで `i` の値がコピーされ、生成したファイバが使用するのはそのコピーになります。
 
 上記のようなボイラープレートコードを回避するために、標準ライブラリは式の呼び出しを受け取って上記コードに展開する`spawn` マクロを用意しています。それを使い、最終的にはこうなりました。
 
@@ -216,7 +216,7 @@ puts "After receive"
 
 このコードの出力は以下の通りです。
 
-```text
+```
 Before receive
 Before send
 After receive
@@ -247,7 +247,7 @@ puts value # => 2
 
 出力はこうなります。
 
-```text
+```
 Before first receive
 Before first send
 1
@@ -328,7 +328,7 @@ puts "After yield"
 
 出力はこうなります。
 
-```text
+```
 Before yield
 Before send
 Before receive

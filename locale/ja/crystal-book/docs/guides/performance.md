@@ -69,24 +69,24 @@ end
 
 実行時間を比較してみましょう。
 
+!!!example "io_benchmark.cr"
 ```crystal
-# io_benchmark.cr
 require "benchmark"
 
-io = IO::Memory.new
+    io = IO::Memory.new
 
-Benchmark.ips do |x|
-  x.report("without to_s") do
-    io << 123
-    io.clear
-  end
+    Benchmark.ips do |x|
+      x.report("without to_s") do
+        io << 123
+        io.clear
+      end
 
-  x.report("with to_s") do
-    io << 123.to_s
-    io.clear
-  end
-end
-```
+      x.report("with to_s") do
+        io << 123.to_s
+        io.clear
+      end
+    end
+    ```
 
 出力はこうなります。
 
@@ -103,6 +103,7 @@ without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest
 しばしば、文字列リテラルと他の値とを組み合わせて文字列を直接構築しなければならいことがあります。このような文字列の構築では、`String#+(String)`メソッドによって文字列を結合するのではなく、文字列リテラルの中に式を埋め込める[文字列の式展開](../syntax_and_semantics/literals/string.md#interpolation)を使用しましょう。 `"Hello, #{name}"` の方が、`"Hello, " +  name.to_s`よりも良い結果になります。
 
 式展開を含む文字列は、コンパイラによってIOへ追加する形に変換され、中間文字列の生成を自動的に回避します。上の例はこのように変換されます。
+
 ```crystal
 String.build do |io|
   io << "Hello, " << name
@@ -143,7 +144,6 @@ String.build 597.57k (  1.67µs) (± 5.52%)       fastest
   IO::Memory 423.82k (  2.36µs) (± 3.76%)  1.41× slower
 ```
 
-
 ### 何度も何度も一時的なオブジェクトを生成しない
 
 以下のプログラムについて考えてみましょう。
@@ -164,29 +164,29 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 
 1. タプルを使う。上記プログラムで `{"crystal", "ruby", "java"}`を使用すると、同じようにちゃんと動作しますが、タプルはヒープメモリをつかわないため、より高速でメモリ消費が少なく、コンパイラに対してプログラムを最適化するより多くの機会を提供できます。
 
-```crystal
-lines_with_language_reference = 0
-while line = gets
-  if {"crystal", "ruby", "java"}.any?{ |string| line.includes?(string) }
-    lines_with_language_reference += 1
-  end
-end
-puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
-```
+   ```crystal
+   lines_with_language_reference = 0
+   while line = gets
+     if {"crystal", "ruby", "java"}.any?{ |string| line.includes?(string) }
+       lines_with_language_reference += 1
+     end
+   end
+   puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
+   ```
 
-2. 配列を定数にする
+1. 配列を定数にする
 
-```crystal
-LANGS = ["crystal", "ruby", "java"]
+   ```crystal
+   LANGS = ["crystal", "ruby", "java"]
 
-lines_with_language_reference = 0
-while line = gets
-  if LANGS.any?{ |string| line.includes?(string) }
-    lines_with_language_reference += 1
-  end
-end
-puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
-```
+   lines_with_language_reference = 0
+   while line = gets
+     if LANGS.any?{ |string| line.includes?(string) }
+       lines_with_language_reference += 1
+     end
+   end
+   puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
+   ```
 
 タプルを使用する方が推奨される方法です。
 
@@ -200,31 +200,31 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 
 例をあげます。
 
+!!!example "class_vs_struct.cr'
 ```crystal
-# class_vs_struct.cr
 require "benchmark"
 
-class PointClass
-  getter x
-  getter y
+    class PointClass
+      getter x
+      getter y
 
-  def initialize(@x : Int32, @y : Int32)
-  end
-end
+      def initialize(@x : Int32, @y : Int32)
+      end
+    end
 
-struct PointStruct
-  getter x
-  getter y
+    struct PointStruct
+      getter x
+      getter y
 
-  def initialize(@x : Int32, @y : Int32)
-  end
-end
+      def initialize(@x : Int32, @y : Int32)
+      end
+    end
 
-Benchmark.ips do |x|
-  x.report("class") { PointClass.new(1, 2) }
-  x.report("struct") { PointStruct.new(1, 2) }
-end
-```
+    Benchmark.ips do |x|
+      x.report("class") { PointClass.new(1, 2) }
+      x.report("struct") { PointStruct.new(1, 2) }
+    end
+    ```
 
 出力はこうなります。
 

@@ -49,7 +49,7 @@ $ crystal build hello_world.cr --release --static
 !!! note
     静的リンクした実行可能ファイルのビルドは現在Alpine Linux上でのみサポートされています。
 
-静的リンクについてのより詳細な情報は [Wiki (英語)](https://github.com/crystal-lang/crystal/wiki/Static-Linking) を参照してください。
+静的リンクについてのより詳細な情報は[「静的リンク」についてのガイド](../guides/static_linking.md)を参照してください。
 
 コンパイラは`CRYSTAL_LIBRARY_PATH`という環境変数を、静的もしくは動的にリンクするライブラリを最初に探索する場所とします。これは動的ライブラリとしても有効な、静的なバージョンのライブラリを提供することに使えます。
 
@@ -197,10 +197,7 @@ crystal version
 
 ```console
 $ crystal version
-Crystal 0.25.1 [b782738ff] (2018-06-27)
-
-LLVM: 4.0.0
-Default target: x86_64-unknown-linux-gnu
+--8<-- "crystal-version.txt"
 ```
 
 ### `crystal init`
@@ -214,6 +211,7 @@ crystal init (lib|app) <name> [<dir>]
 最初の引数は`lib`か`app`のいずれかです。`lib`は再利用可能なライブラリで、`app`は依存関係に含めることのないアプリケーションであることを意図しています。ライブラリは自身のリポジトリに`shard.lock`を含めず、`shard.yml`にビルド目標を持ちませんが、依存関係としてどのように利用するかの説明があります。
 
 例:
+
 ```console
 $ crystal init lib my_cool_lib
     create  my_cool_lib/.gitignore
@@ -230,7 +228,7 @@ Initialized empty Git repository in ~/my_cool_lib/.git/
 
 ### `crystal docs`
 
-`crystal docs`コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します。 (詳しくは[コードのドキュメント化](../conventions/documenting_code.md)を参照).
+`crystal docs` コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します (詳しくは [*コードのドキュメント化*](../conventions/documenting_code.md) を参照)。
 
 ```bash
 crystal docs [--output=<output_dir>] [--canonical-base-url=<url>] [<source_file>...]
@@ -364,6 +362,8 @@ crystal tool format [--check] [<path>...]
 ```
 
 `path` にはファイル名かフォルダ名が指定できて、フォルダ名の場合そのフォルダ中の Crystal ファイルを再帰的に辿ります。`path`が指定されなかった場合、現在のデイレクトリを指定したものとします。
+
+フォーマッタはコメント中の Crystal のコードブロックにも適用されます (see [*コードのドキュメント化*](../conventions/documenting_code.md) を参照)。
 
 ## 環境変数
 

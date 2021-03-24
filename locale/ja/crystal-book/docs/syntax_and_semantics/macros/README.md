@@ -70,13 +70,13 @@ Foo.emphasize(10) # => "***10***"
 define_method :foo, 1
 ```
 
-マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) が利用できます。
+マクロに渡されたものがそのまま埋め込まれるので、結果は `:foo` となっています。こういった、識別子を必要とする場合には [`ASTNode#id`](https://crystal-lang.org/api/latest/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) が利用できます。
 
 ## マクロにおけるメソッド呼び出し
 
-コンパイル時に、メソッドの**既定のサブセット**を AST ノードに対して実行することが可能です。これらのメソッドは [Crystal::Macros](http://crystal-lang.org/api/Crystal/Macros.html) というフェイクのモジュールでドキュメントされています。
+コンパイル時に、メソッドの**既定のサブセット**を AST ノードに対して実行することが可能です。これらのメソッドは [Crystal::Macros](https://crystal-lang.org/api/latest/Crystal/Macros.html) というフェイクのモジュールでドキュメントされています。
 
-例えば、上の例では [`ASTNode#id`](https://crystal-lang.org/api/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を呼び出すことで問題を解決できます。
+例えば、上の例では [`ASTNode#id`](https://crystal-lang.org/api/latest/Crystal/Macros/ASTNode.html#id%3AMacroId-instance-method) を呼びa出すことで問題を解決できます。
 
 ```crystal
 macro define_method(name, content)
@@ -153,7 +153,7 @@ bar # => two
 baz # => 3
 ```
 
-通常のコードと同様に、[`Nop`](https://crystal-lang.org/api/Crystal/Macros/Nop.html) と [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) そして偽の [`BoolLiteral`](https://crystal-lang.org/api/Crystal/Macros/BoolLiteral.html) は*偽となり*、それ以外はすべて*真となり*ます。
+通常のコードと同様に、[`Nop`](https://crystal-lang.org/api/latest/Crystal/Macros/Nop.html) と [`NilLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/NilLiteral.html)、そして偽の [`BoolLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/BoolLiteral.html) は*偽となり*、それ以外はすべて*真となり*ます。
 
 マクロの条件分岐は、マクロの外側でも使用することができます。
 
@@ -181,7 +181,7 @@ PI_2 # => 6.28318...
 PI_3 # => 9.42477...
 ```
 
-[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を繰り返すには次のようにします。
+[`ArrayLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/ArrayLiteral.html) を繰り返すには次のようにします。
 
 ```crystal
 macro define_dummy_methods(names)
@@ -201,7 +201,7 @@ baz # => 2
 
 上記の `index` 変数は任意です。
 
-[`HashLiteral`](https://crystal-lang.org/api/Crystal/Macros/HashLiteral.html) を繰り返すには次のようにします。
+[`HashLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/HashLiteral.html) を繰り返すには次のようにします。
 
 ```crystal
 macro define_dummy_methods(hash)
@@ -251,9 +251,9 @@ bar # => 1
 baz # => 2
 ```
 
-引数は [`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) に変換されてマクロに渡されます。
+引数は [`TupleLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/TupleLiteral.html) に変換されてマクロに渡されます。
 
-さらに、[`ArrayLiteral`](https://crystal-lang.org/api/Crystal/Macros/ArrayLiteral.html) を埋め込む際に `*` を使うと、要素がカンマ区切りのものとして埋め込まれます
+さらに、[`TupleLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/TupleLiteral.html) を埋め込む際に `*` を使うと、要素がカンマ区切りのものとして埋め込まれます。
 
 ```crystal
 macro println(*values)
@@ -265,7 +265,7 @@ println 1, 2, 3 # outputs 123\n
 
 ## 型の情報
 
-マクロが実行される際に、`@type` という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。この変数の型は [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html) で、コンパイル時の型情報にアクセスできます。
+マクロが実行される際に、`@type` という項別なインスタンス変数を使うことで、現在のスコープ、もしくは型にアクセスすることが可能です。この変数の型は [`TypeNode`](https://crystal-lang.org/api/latest/Crystal/Macros/TypeNode.html) で、コンパイル時の型情報にアクセスできます。
 
 `@type` は常に (もしクラスメソッドの中で実行されたとしても) *インスタンス*の型になることに注意してください。
 
@@ -292,7 +292,7 @@ Foo.describe     # => "Class is Foo"
 
 ## メソッドの情報
 
-マクロが実行される際に、`@def` という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は [`Def`](https://crystal-lang.org/api/Crystal/Macros/Def.html) で、もしマクロがメソッドの外で実行されていた場合は [`NilLiteral`](https://crystal-lang.org/api/Crystal/Macros/NilLiteral.html) となります。
+マクロが実行される際に、`@def` という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は [`Def`](https://crystal-lang.org/api/latest/Crystal/Macros/Def.html) で、もしマクロがメソッドの外で実行されていた場合は [`NilLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/NilLiteral.html) となります。
 
 例:
 
@@ -320,7 +320,7 @@ VALUES = [1, 2, 3]
 {% end %}
 ```
 
-もし定数が型を示していれば、そのとき得られるのは [`TypeNode`](https://crystal-lang.org/api/Crystal/Macros/TypeNode.html) となります。
+もし定数が型を示していれば、そのとき得られるのは [`TypeNode`](https://crystal-lang.org/api/latest/Crystal/Macros/TypeNode.html) となります。
 
 ## ネストしたマクロ
 

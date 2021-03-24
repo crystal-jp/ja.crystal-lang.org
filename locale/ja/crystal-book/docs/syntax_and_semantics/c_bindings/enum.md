@@ -69,7 +69,7 @@ X::SomeEnum::Zero # => 0_i8
 X::SomeEnum::Two  # => 2_i8
 ```
 
-`fun` の引数や、`struct` や `union` のメンバとしても列挙型を利用できます。
+`fun` の引数や、 `struct` や `union` のメンバとしても列挙型が利用できます。
 
 ```crystal
 lib X
