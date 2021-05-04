@@ -2370,7 +2370,7 @@
 <span class="k">end</span>
 </code></pre></div>
 <p>まず、<code>self.new</code> と書いていることに注目してください。これは<a href="class_methods.html">クラスメソッド</a>といって、<code>Person</code><strong>クラス</strong>自体に属すメソッドを表しています。特定のインスタンスに対してではありません。これによって <code>Person.new</code> とできるわけです。</p>
-<p>次に、<code>allocate</code>は与えられたクラスの初期化されていないオブジェクトを生成する、低レネルなクラスメソッドです。必要なメモリを割り当てて、<code>initialize</code> メソッドを呼び出し、最後にそのインスタンスを返しています。<code>allocate</code>は<a href="unsafe.html">安全でない</a>メソッドなので、一般的には直接呼び出すこと無いでしょう。<code>new</code> と <code>initialize</code> がこういった関係になっているのは、そのような理由です。</p>
+<p>次に、<code>allocate</code>は与えられたクラスの初期化されていないオブジェクトを生成する、低レベルなクラスメソッドです。必要なメモリを割り当てて、<code>initialize</code> メソッドを呼び出し、最後にそのインスタンスを返しています。<code>allocate</code>は<a href="unsafe.html">安全でない</a>メソッドなので、一般的には直接呼び出すこと無いでしょう。<code>new</code> と <code>initialize</code> がこういった関係になっているのは、そのような理由です。</p>
                 
               
               

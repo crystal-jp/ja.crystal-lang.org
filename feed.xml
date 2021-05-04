@@ -7,6 +7,80 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Announcing new apt and rpm repositories</title>
+        <description>&lt;p&gt;With our previous distribution hosting at &lt;a href=&quot;https://bintray.com/crystal&quot;&gt;bintray&lt;/a&gt;
+shutting down, we transitioned to the &lt;a href=&quot;https://build.opensuse.org&quot;&gt;Open Build Service (OBS)&lt;/a&gt;,
+a cross-platform package building service provided by openSUSE.&lt;/p&gt;
+
+&lt;p&gt;Instead of just hosting the packages, it takes care of the entire build process.
+For now we continue to provide deb and rpm repositories for x86_64 and i686,
+but more platforms and architectures will follow.&lt;/p&gt;
+
+&lt;p&gt;All packages are available on OBS at &lt;a href=&quot;https://build.opensuse.org/package/show/devel:languages:crystal&quot;&gt;build.opensuse.org/package/show/devel:languages:crystal&lt;/a&gt;.
+It offers an &lt;a href=&quot;https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&amp;amp;package=crystal&quot;&gt;installation page&lt;/a&gt; with detailed instructions for the many different
+target systems.
+Our own installation instructions at &lt;a href=&quot;/install&quot;&gt;crystal-lang.org/install&lt;/a&gt; have been updated,
+including the automatic installer script.&lt;/p&gt;
+
+&lt;p&gt;Since bintray is shutting down all operations on May 1st, 2021 our previous repositories
+won’t be available anymore. Please update to the new OBS repositories.
+Running the updated installation script should override the previous configuration
+in  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/apt/sources.list.d/crystal.list&lt;/code&gt; and  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/crystal.repo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;code_section&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt; curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://crystal-lang.org/install.sh | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Only the latest stable release Crystal 1.0.0 is available in the new
+package repositories.
+Thus the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--channel&lt;/code&gt; flag on the installation script is currently ignored,
+and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--crystal&lt;/code&gt; only allows the values &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;latest&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0.0&lt;/code&gt; (with identical semantics).
+Nightly builds and unstable releases will be available in the future.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/04/30/new-apt-and-rpm-repositories.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/04/30/new-apt-and-rpm-repositories.html</guid>
+      </item>
+    
+      <item>
+        <title>Announcing Crystal 1.0 Conference</title>
+        <description>&lt;p&gt;A decade ago, when Crystal was a quirky idea that a few people talked about in their spare time at Manas, it was impossible to think we would go through so many things on our way to releasing a stable and production ready 1.0 version.
+It was also unimaginable that such a generous community would form around Crystal, with people from all over the world that have been following every development, providing their views and advice, and contributing to the project both financially and with their work.&lt;/p&gt;
+
+&lt;p&gt;Going forward, we want to continue the evolution of the language on delighting its users. But we still want to &lt;strong&gt;take a moment to celebrate the 1.0 milestone&lt;/strong&gt;, and we decided a conference was the best way to do that.&lt;/p&gt;
+
+&lt;p&gt;The online conference takes place on &lt;strong&gt;July 8, 2021&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-a-crystal-10-launch-conference&quot;&gt;Why a Crystal 1.0 Launch Conference?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Many people have been a part of the Crystal universe for years, and many others are only now hearing about it. A conference is an ideal vehicle for those who’ve been around for a long time to show the newcomers what it’s all about.&lt;/li&gt;
+  &lt;li&gt;Over the years, organizations and individuals have trusted Crystal and used it for their projects, some of them experiments and some of them core to their business. We want to give them a platform to share their stories in the hopes that it inspires others to follow in their footsteps.&lt;/li&gt;
+  &lt;li&gt;We believe that dialogue is a central element in the evolution of initiatives like Crystal, and a conference creates a space to amplify the conversation channels between the Core Team and the community.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Conference will feature talks from the team developing the language, people using Crystal in production, folks who have been conducting experiments with Crystal, people who come from other languages and can bring cool insights to our community, and we are extending the invitation to users, developers, and contributors in general who want to present a talk.&lt;/p&gt;
+
+&lt;p&gt;To get your tickets, go to the &lt;a href=&quot;https://www.eventbrite.com.ar/e/crystal-conference-10-launch-tickets-149153252393&quot;&gt;&lt;strong&gt;Crystal Conference 1.0 Launch&lt;/strong&gt; page on Eventbrite&lt;/a&gt;. All proceeds from the event will be destined to maintain and increase the development pace of the language. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal.&lt;/p&gt;
+
+&lt;p&gt;See you there!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;call-for-talks&quot;&gt;Call for Talks&lt;/h3&gt;
+
+&lt;p&gt;We are inviting Crystal users, developers, and contributors in general to submit their talks for the Crystal 1.0 Conference.&lt;/p&gt;
+
+&lt;p&gt;Topics can cover anything related to the experience with Crystal that is worth sharing to other Crystallers around the globe, or that people from other languages can bring to our community: interesting shards, particularities of the compiler, benchmarks, etc.&lt;/p&gt;
+
+&lt;p&gt;Submit a talk proposal at: &lt;a href=&quot;https://man.as/crystal-cft&quot;&gt;man.as/crystal-cft&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/04/22/crystal-conference-1.0-launch.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/04/22/crystal-conference-1.0-launch.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal Core Team Announcements</title>
         <description>&lt;p&gt;A lot has been going on in the Crystal Core Team, and the community has voiced its need for more (and more frequent) communication. This post is an attempt to catch up with that. I’m taking the license of using “we” for both Crystal and Manas.Tech in this short update.&lt;/p&gt;
 
@@ -960,81 +1034,6 @@ gpgkey=http://bintray.com/user/downloadSubjectPublicKey?username=bintray&lt;/cod
         <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2020/08/20/preparing-our-shards-for-crystal-1.0.html</guid>
-      </item>
-    
-      <item>
-        <title>Shards 0.12.0 がリリースされました！</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.12.0&quot;&gt;Shards 0.12.0&lt;/a&gt; がリリースされました！&lt;/p&gt;
-
-&lt;p&gt;この Shards のリリースではいくつかのかすり傷のような問題を解決して、言語の異なるバージョンに対して機能する健全なパッケージエコシステムを手軽に可能にする機能を追加し、加えてあちこちを修正する際の摩擦を減らすことにフォーカスしています。&lt;a href=&quot;https://github.com/crystal-lang/shards/releases/tag/v0.12.0&quot;&gt;リリースのチェンジログ&lt;/a&gt;にも目を通してください。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;注意: この新しいリリースを使うには、Shards をソースコードからビルドするか、1.0.0-pre1 の Crystal がリリースされるまではナイトリー版の Crystal を使う必要があります。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;依存関係の &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.yml&lt;/code&gt; ファイルがエラーを起こしたときに、より適切なエラーメッセージが表示されるようになりました。この改善は &lt;a href=&quot;https://github.com/crystal-lang/shards/pull/408&quot;&gt;#408&lt;/a&gt; によるものです。&lt;/p&gt;
-
-&lt;p&gt;開発の際、依存関係をフォークしたものに切り替えることがあります。このシナリオは複数のコマンドで適切に処理されていませんでしたが、今回のリリースで修正されています。可能なら、Shards は元の依存関係の変更に関わらずバージョン選択を尊重するようにします。もしフォーク元の依存関係が曖昧であれば、エラーが表示されます。&lt;/p&gt;
-
-&lt;p&gt;フォーク元の依存関係が曖昧であるというのは、例えば、もしアプリケーションがパッケージ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; と &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; を要求していて、2つが &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; を要求しているにも関わらず、どちらも異なるフォークを参照している場合などがあります。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/419&quot;&gt;#419&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/429&quot;&gt;#429&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;前回のリリースで crystal プロパティが必須になり、そのパッケージが期待するコンパイラと標準ライブラリのバージョンを指定できるようになりました。同時に、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; が追加され、このチェックを無視できるようにもなっています。しばしば Shards を指定したものとは異なるバージョンの Crystal と共に動作させたい場合があります。ライブラリのメンテナが、サポートする Crystal のバージョンを選択するときやテストやリリースの際などに、そのような状況になります。&lt;/p&gt;
-
-&lt;p&gt;破壊的変更の起こりうる Crystal のバージョン (0.x から 1.x や 1.x から 2.x など) が開発されている間は、プロジェクトの CI でナイトリー版を使い &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; を指定するのは合理的でしょう。ですが、一度安定版がリリースされてエコシステムがそれに並べば、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-crystal-version&lt;/code&gt; は必要なくなります。なお、crystal プロパティは依存関係解決の探索空間を枝刈りするのにも役立っています。&lt;/p&gt;
-
-&lt;p&gt;このリリースでは、Shards は &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS&lt;/code&gt; 環境変数を読み取って、追加の CLI オプションとして認識するようになりました。なので、CI のどこかで &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shards install&lt;/code&gt; が実行されている場合は、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OPTS=--ignore-crystal-version&lt;/code&gt; が利用できます。詳細は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/417&quot;&gt;#417&lt;/a&gt;と&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/420&quot;&gt;#420&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;このリリースの特筆すべき機能は shards のオーバライドです。この機能はまだ初期段階なので、フィードバックをお待ちしています。この機能をリリースすることで可能になるワークフローや単純化されるものがあり、今後の Crystal のメジャーリリースを補助するものになることを期待しています。この機能は&lt;a href=&quot;https://github.com/crystal-lang/shards/pull/422&quot;&gt;#422&lt;/a&gt;で実装され、動機は&lt;a href=&quot;https://github.com/crystal-lang/shards/issues/412&quot;&gt;#412&lt;/a&gt;で説明されています。&lt;/p&gt;
-
-&lt;p&gt;ローカルでのオーバーライド機能は &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shard.override.yml&lt;/code&gt; ファイルを用意するか、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHARDS_OVERRIDE&lt;/code&gt; 環境変数で指定したファイルを用意することで有効になります。もし依存関係がオーバーライドファイルに載っていた場合、その他の依存関係のグラフの状態に関わらず、そのバージョンが使われることになります。&lt;/p&gt;
-
-&lt;p&gt;上記のロジックによって、次の場合のワークフローが単純化されるでしょう。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ある shard の開発者が、新バージョンをリリースして使えるようにする代わりに、手元の開発版のコピーを使いたいとき。&lt;/li&gt;
-  &lt;li&gt;中間の依存関係が新しいバージョンの依存関係と衝突しているのを回避したいとき。&lt;/li&gt;
-  &lt;li&gt;わざわざフォークしたり依存関係をいじったりしなくても、深いところにある依存関係のパッチを当てることができます。&lt;/li&gt;
-  &lt;li&gt;開発ワークフローを複雑にすることなく、依存関係の上流の開発版に対するテストをすることもできます。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あなたならこの機能をどのようにして使いますか？&lt;/p&gt;
-</description>
-        <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/08/06/shards-0.12.0-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/08/06/shards-0.12.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Crystal 0.35.1がリリースされました！</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.1&quot;&gt;Crystal 0.35.1&lt;/a&gt; がリリースされました。&lt;/p&gt;
-
-&lt;p&gt;このリリースは0.35.0ほど刺激的なものではありません。もしこちらのアナウンスを見ていなければ、&lt;a href=&quot;/2020/06/09/crystal-0.35.0-released.html&quot;&gt;こちらをまず読んでください&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;このパッチリリースは最近の追加や2つのリグレッションの修正を反映させるものです。&lt;/p&gt;
-
-&lt;p&gt;5人のコントリビュータによって&lt;a href=&quot;https://github.com/crystal-lang/crystal/compare/0.35.0...0.35.1&quot;&gt;0.35.0から13のコミットが&lt;/a&gt;ありました。&lt;/p&gt;
-
-&lt;p&gt;それでは今回のリリースのハイライトを紹介していきます。ですが、&lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/0.35.1&quot;&gt;リリースのチェンジログ&lt;/a&gt;にもたくさんの価値ある情報があることを忘れないでください。&lt;/p&gt;
-
-&lt;h2 id=&quot;標準ライブラリ&quot;&gt;標準ライブラリ&lt;/h2&gt;
-
-&lt;p&gt;0.35.0で導入された&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO#write&lt;/code&gt;の変更が取り消されることになりました。以前のように&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nil&lt;/code&gt;を返すことになります。この意図的な変更は想定以上に破壊的でした。振り回してしまったことをお詫びします。&lt;/p&gt;
-
-&lt;p&gt;このため、0.35.0向けにアップデートした shard については、0.35.0と十分に比較する必要があります。0.35.0 向けにアップデートしていない shard はとくに追加で何かすることはありません。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9469&quot;&gt;#9469&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;p&gt;OpenSSL クライアントのコンテキストは利便性のため、デフォルトでやや厳格でない暗号も設定されるようになりました。サーバーのコンテキストはよりセキュアなものになっています。詳細は&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9459&quot;&gt;#9459&lt;/a&gt;を確認してください。&lt;/p&gt;
-
-&lt;h2 id=&quot;次のステップ&quot;&gt;次のステップ&lt;/h2&gt;
-
-&lt;p&gt;Crystal をアップデートしてください。そして、問題の報告を心待ちにしています。私たちは1.0.0に向けての開発を始めています。1.0.0-preX のようなリリースをして、最終的な調整を重ねていくでしょう。&lt;/p&gt;
-
-&lt;p&gt;すべての非推奨にした定義は1.0では削除される予定です。1.0をクリーンなバージョンにしたいと思っています。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;、&lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt;、そして大勢の&lt;a href=&quot;/sponsors&quot;&gt;スポンサー&lt;/a&gt;の継続的なサポートにたくさんの感謝をします。継続的に開発・メンテナンスを続けていくには、寄付が不可欠です。&lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; で受け付けています。Crystal の直接のスポンサーになりたい場合や、他のサポート方法を見つけた場合は、&lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; に連絡してください。それでは、ここまで読んでいただきありがとうございます！&lt;/p&gt;
-</description>
-        <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/06/19/crystal-0.35.1-released.html</guid>
       </item>
     
   </channel>
