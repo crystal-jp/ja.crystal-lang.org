@@ -18134,6 +18134,14 @@ extra syntax to manipulate the AST nodes.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Add signing key</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120422Z" creationid="makenowjust" creationdate="20210504T120422Z">
+        <seg>署名用の鍵の追加</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Adding a page</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T165022Z" creationid="makenowjust" creationdate="20200413T164726Z">
@@ -28884,6 +28892,14 @@ item or map entry.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200413T163657Z" creationid="makenowjust" creationdate="20200413T163657Z">
         <seg>入力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Insert your distribution name and release as &lt;g1&gt;{REPOSITORY}&lt;/g1&gt; in the following script and you are all set.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120346Z" creationid="makenowjust" creationdate="20210504T120346Z">
+        <seg>ディストリビューション名とリリース名を次のスクリプトの &lt;g1&gt;{REPOSITORY}&lt;/g1&gt; に挿入することで、設定できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -42877,6 +42893,14 @@ by joining multiple literals with a backslash:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To install latest stable Crystal release from the official Crystal repository hosted on the &lt;g1&gt;Open Build Service&lt;/g1&gt;https://build.opensuse.org&lt;e2/&gt; run in your command line:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120208Z" creationid="makenowjust" creationdate="20210504T120208Z">
+        <seg>&lt;g1&gt;Open Build Service&lt;/g1&gt;https://build.opensuse.org&lt;e2/&gt; でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To invoke a Proc, you invoke the &lt;g1&gt;call&lt;/g1&gt; method on it.</seg>
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200422T171948Z" creationid="makenowjust" creationdate="20200422T171948Z">
@@ -46418,6 +46442,14 @@ end</seg>
    title="フォーラム (英語)"
    divId="discuss"
    content="Crystal フォーラムは総合的な議論をする第一の場所です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can find available options on the &lt;g2&gt;installation page at OBS&lt;/g2&gt;https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&amp;package=crystal&lt;e3/&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120411Z" creationid="makenowjust" creationdate="20210504T120411Z">
+        <seg>有効なオプションの一覧は &lt;g2&gt;OBS のインストールページ&lt;/g2&gt;https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&amp;package=crystal&lt;e3/&gt; で確認できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -60061,6 +60093,16 @@ Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-examp
       </tuv>
       <tuv lang="JA" changeid="makenowjust" changedate="20200419T160756Z" creationid="makenowjust" creationdate="20200419T160756Z">
         <seg>crystal version</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>curl -fsSL https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/crystal.gpg &gt; /dev/null
+{% endhighlight bash %}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120423Z" creationid="makenowjust" creationdate="20210504T120423Z">
+        <seg>curl -fsSL https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/crystal.gpg &gt; /dev/null
+{% endhighlight bash %}</seg>
       </tuv>
     </tu>
     <tu>
@@ -75198,6 +75240,32 @@ END</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>{% highlight bash %}
+cat &gt; /etc/yum.repos.d/crystal.repo &lt;&lt;END
+[crystal]
+name=Crystal
+type=rpm-md
+baseurl=https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/
+gpgcheck=1
+gpgkey=https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/repodata/repomd.xml.key
+enabled=1
+END</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120435Z" creationid="makenowjust" creationdate="20210504T120435Z">
+        <seg>{% highlight bash %}
+cat &gt; /etc/yum.repos.d/crystal.repo &lt;&lt;END
+[crystal]
+name=Crystal
+type=rpm-md
+baseurl=https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/
+gpgcheck=1
+gpgkey=https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/repodata/repomd.xml.key
+enabled=1
+END</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% highlight bash %}
 crystal --version
 {% endhighlight bash %}</seg>
       </tuv>
@@ -75269,6 +75337,16 @@ curl https://dist.crystal-lang.org/rpm/setup.sh | sudo bash
         <seg>{% highlight bash %}
 curl https://dist.crystal-lang.org/rpm/setup.sh | sudo bash
 {% endhighlight bash %}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{% highlight bash %}
+echo "deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /" | tee /etc/apt/sources.list.d/crystal.list</seg>
+      </tuv>
+      <tuv lang="JA" changeid="makenowjust" changedate="20210504T120412Z" creationid="makenowjust" creationdate="20210504T120412Z">
+        <seg>{% highlight bash %}
+echo "deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /" | tee /etc/apt/sources.list.d/crystal.list</seg>
       </tuv>
     </tu>
     <tu>
