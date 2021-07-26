@@ -8,7 +8,7 @@
     <link href='/favicon.png' rel='icon' type='image/png'>
     <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>プログラミング言語 Crystal | Ruby のような構文で型推論のあるコンパイル言語</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.1" />
 <meta property="og:title" content="プログラミング言語 Crystal" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Ruby のような構文で型推論のあるコンパイル言語" />
@@ -16,13 +16,13 @@
 <link rel="canonical" href="https://ja.crystal-lang.org/install/on_linux_mint/" />
 <meta property="og:url" content="https://ja.crystal-lang.org/install/on_linux_mint/" />
 <meta property="og:site_name" content="プログラミング言語 Crystal" />
-<meta property="og:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="og:image" content="https://ja.crystal-lang.org/assets/icon.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://ja.crystal-lang.org/images/icon.png" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/assets/icon.png" />
 <meta property="twitter:title" content="プログラミング言語 Crystal" />
 <meta name="twitter:site" content="@CrystalLanguage" />
 <script type="application/ld+json">
-{"image":"https://ja.crystal-lang.org/images/icon.png","url":"https://ja.crystal-lang.org/install/on_linux_mint/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/images/crystal-h.png"}},"headline":"プログラミング言語 Crystal","description":"Ruby のような構文で型推論のあるコンパイル言語","@type":"WebPage","@context":"https://schema.org"}</script>
+{"headline":"プログラミング言語 Crystal","url":"https://ja.crystal-lang.org/install/on_linux_mint/","image":"https://ja.crystal-lang.org/assets/icon.png","description":"Ruby のような構文で型推論のあるコンパイル言語","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"}},"@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
  <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
@@ -72,6 +72,11 @@
     </a>
   </li>
 <li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
     <a href="/docs/">
       Docs
     </a>
@@ -112,6 +117,11 @@
     </a>
   </li>
 <li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
     <a href="/docs/">
       Docs
     </a>
@@ -133,7 +143,74 @@
   <h1 class="distro-title">Linux Mint への</h1>
   <h1 class="center"><a href="/install">インストール</a></h1>
   <div class="row">
-    <div class="col offset-m1 m10 s12"><h2 id="snapcraft-を使う">Snapcraft を使う</h2>
+    <div class="col offset-m1 m10 s12"><p>On Linux Mint, you can use the <a href="#official-crystal-deb-repository">Official Crystal deb repository</a>. <a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
+
+<h2 id="crystal-公式の-deb-リポジトリ">Crystal 公式の deb リポジトリ</h2>
+
+<p><a href="https://build.opensuse.org">Open Build Service</a> でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash</code></pre></figure>
+
+</div>
+
+<p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--crystal</code> 引数に <code class="language-plaintext highlighter-rouge">major.minor.patch</code>、<code class="language-plaintext highlighter-rouge">major.minor</code> もしくは <code class="language-plaintext highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
+  <li><code class="language-plaintext highlighter-rouge">--channel</code> 引数では、<code class="language-plaintext highlighter-rouge">stable</code>、<code class="language-plaintext highlighter-rouge">unstable</code>、もしくは<code class="language-plaintext highlighter-rouge">nightly</code> の値を指定できます、</li>
+</ul>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">--channel</span><span class="o">=</span>nightly</code></pre></figure>
+
+</div>
+
+<p>より詳細な情報はこの<a href="/2021/04/30/new-apt-and-rpm-repositories.html">告知記事</a>を参照してください。</p>
+
+<h3 id="マニュアルセットアップ">マニュアルセットアップ</h3>
+
+<p>ディストリビューション名とリリース名を次のスクリプトの <code class="language-plaintext highlighter-rouge">{REPOSITORY}</code> に挿入することで、設定できます。
+有効なオプションの一覧は <a href="https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&amp;package=crystal">OBS のインストールページ</a> で確認できます。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /"</span> | <span class="nb">tee</span> /etc/apt/sources.list.d/crystal.list
+
+<span class="c"># 署名用の鍵の追加</span>
+curl <span class="nt">-fsSL</span> https://download.opensuse.org/repositories/devel:languages:crystal/<span class="o">{</span>REPOSITORY<span class="o">}</span>/Release.key | gpg <span class="nt">--dearmor</span> | <span class="nb">sudo tee</span> /etc/apt/trusted.gpg.d/crystal.gpg <span class="o">&gt;</span> /dev/null</code></pre></figure>
+
+</div>
+
+<p>リポジトリの設定が完了すれば、Crystal がインストールできます。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>crystal</code></pre></figure>
+</div>
+
+<p>次のパッケージは必ずしも必要なわけではありません。ですが、標準ライブラリの対応する機能を利用するのであればインストールを推奨します。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt <span class="nb">install </span>libssl-dev      <span class="c"># for using OpenSSL</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>libxml2-dev     <span class="c"># for using XML</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>libyaml-dev     <span class="c"># for using YAML</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>libgmp-dev      <span class="c"># for using Big numbers</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>libz-dev        <span class="c"># for using crystal play</span></code></pre></figure>
+</div>
+
+<p>新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>crystal</code></pre></figure>
+
+</div>
+
+<h2 id="snapcraft-を使う">Snapcraft を使う</h2>
 
 <p>Crystal の snap は classic な制限環境下を要求します。<code class="language-plaintext highlighter-rouge">snapd</code> がインストールしてあれば、Crystal をインストールする準備は万端です。</p>
 
@@ -148,6 +225,21 @@
 </div>
 
 <p>より詳しい情報は <a href="https://snapcraft.io/install/crystal/mint">Crystal の snapcraft のページ</a>を参照してください。</p>
+
+<h2 id="linuxbrew-を使う">Linuxbrew を使う</h2>
+
+<p><a href="https://linuxbrew.sh">Linuxbrew</a> がインストールされていれば、Crystal をインストールする準備は万端です。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">brew update
+brew <span class="nb">install </span>crystal-lang</code></pre></figure>
+</div>
+
+<p>言語にコントリビュートするつもりであれば、同時に LLVM もインストールしておくとよいでしょう。その場合、最後の行を以下の通りに変更してください。</p>
+
+<div class="code_section">
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">brew <span class="nb">install </span>crystal-lang <span class="nt">--with-llvm</span></code></pre></figure>
+</div>
 
 </div>
   </div>

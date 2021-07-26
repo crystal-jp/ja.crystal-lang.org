@@ -7558,6 +7558,10 @@ dt {
 dd {
   margin-left: 0; }
 
+ul.browser-default > li {
+  list-style: inherit;
+  padding: inherit; }
+
 footer {
   margin-top: 60px;
   border-top: 1px solid #D7D7D7;
@@ -7944,6 +7948,232 @@ a.with-icon {
 .row.no-bottom-margin {
   margin-bottom: 0; }
 
+.team-member {
+  display: flex;
+  align-items: center; }
+  .team-member > img {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
+    .core-team-alumni > .team-member > img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px; }
+  .team-member.inactive > img {
+    filter: grayscale(1); }
+  .team-member .team-member__inner {
+    display: flex;
+    flex-direction: column; }
+  .team-member .member_name {
+    font-size: 1.2em;
+    line-height: 1.3; }
+  .team-member:not(.inactive) .member_name {
+    color: #000000; }
+  .team-member .handles i {
+    transform: scale(0.7);
+    opacity: 0.6;
+    margin-right: -5px;
+    margin-top: -3px; }
+  .team-member .handles + * {
+    margin-top: 5px; }
+  .team-member .status {
+    font-style: italic; }
+
+.team-members {
+  margin: 2rem 0; }
+  .team-members .team-member + .team-member {
+    margin-top: 20px; }
+
+.core-team-alumni {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem auto;
+  max-width: 70em; }
+  @media only screen and (min-width: 540px) {
+    .core-team-alumni {
+      display: flex; } }
+  .core-team-alumni .team-member {
+    margin: 1rem; }
+
+.conference-session-list {
+  margin: 50px 0 80px 0; }
+  .conference-session-list header {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    background-color: white;
+    z-index: 100;
+    width: 100vw;
+    padding-left: 15vw;
+    margin-left: -15vw;
+    margin-bottom: 30px;
+    transition: all 0.25s; }
+    .conference-session-list header.shadow {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.conference-sessions-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 40px;
+  align-items: start; }
+  .conference-sessions-grid .conference-session {
+    width: 100%;
+    display: grid;
+    row-gap: 12px;
+    grid-column: 1;
+    border-left: 4px solid black;
+    padding-left: 10px;
+    height: 100%;
+    align-items: start;
+    grid-template-rows: auto auto auto auto auto 1fr; }
+    .conference-sessions-grid .conference-session :first-child:last-child {
+      max-width: 65em; }
+    @media only screen and (min-width: 900px) {
+      .conference-sessions-grid .conference-session--track-1, .conference-sessions-grid .conference-session--main {
+        grid-column: 2; }
+      .conference-sessions-grid .conference-session--track-2 {
+        grid-column: 3; }
+      .conference-sessions-grid .conference-session--track-3 {
+        grid-column: 4; }
+      .conference-sessions-grid .conference-session--span2 {
+        grid-row-end: 2 span; }
+      .conference-sessions-grid .conference-session--span6 {
+        grid-row-end: 6 span; }
+      .conference-sessions-grid .conference-session--span7 {
+        grid-row-end: 7 span; } }
+  .conference-sessions-grid .conference-sessions-break {
+    margin-top: -4px;
+    font-size: 1.4rem;
+    color: #777777;
+    font-weight: 500;
+    grid-column: 1; }
+    @media only screen and (min-width: 900px) {
+      .conference-sessions-grid .conference-sessions-break {
+        grid-column: 2 / -1; } }
+
+.conference-slot-info {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start; }
+  @media only screen and (min-width: 900px) {
+    .conference-slot-info {
+      align-items: end; } }
+  .conference-slot-info time {
+    text-align: right;
+    font-size: inherit;
+    font-weight: normal; }
+    .conference-slot-info time small {
+      display: block; }
+
+hr.custom-hr {
+  position: relative;
+  content: '';
+  border: none;
+  border-top: 1px #D7D7D7 solid;
+  margin: 30px 0;
+  overflow: visible;
+  grid-column: 1 / -1; }
+  hr.custom-hr::before {
+    position: absolute;
+    bottom: -3px;
+    left: -6px;
+    content: '';
+    width: 5px;
+    height: 5px;
+    border: 1px #D7D7D7 solid; }
+  hr.custom-hr::after {
+    position: absolute;
+    bottom: -3px;
+    right: -6px;
+    content: '';
+    width: 5px;
+    height: 5px;
+    border: 1px #D7D7D7 solid; }
+
+.conference-session .conference-track {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #D7D7D7;
+  border-radius: 4px;
+  margin-right: 12px;
+  height: 1.5rem;
+  padding: 4px;
+  color: #ffffff; }
+  .conference-session .conference-track--main {
+    display: none; }
+.conference-session .presenter {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 12px;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  line-height: 1.2rem; }
+  .conference-session .presenter .speaker-image {
+    width: 36px;
+    height: 36px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
+.conference-session > h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 2rem; }
+
+.speaker .github_handle {
+  font-size: 1rem; }
+  .speaker .github_handle i {
+    transform: scale(0.7);
+    opacity: 0.6;
+    margin-right: -5px;
+    margin-top: -3px; }
+
+.theme {
+  display: flex;
+  align-items: center;
+  height: 1.2rem;
+  border-radius: 0.6rem;
+  padding: 0 0.5rem;
+  color: #777777;
+  border: 1px #777777 solid;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  vertical-align: text-top;
+  white-space: nowrap; }
+
+@media only screen and (max-width: 900px) {
+  .conference-session-list .conference-slot .conference-slot-inner {
+    grid-template-columns: 1fr;
+    row-gap: 60px; }
+  .conference-session-list header {
+    position: unset;
+    padding-left: unset;
+    margin-left: unset;
+    width: unset; }
+    .conference-session-list header.shadow {
+      box-shadow: none; } }
+.session-links {
+  display: flex;
+  gap: .5em;
+  flex-wrap: wrap; }
+
 .highlight span.nb {
   color: #E45546; }
 .highlight span.s2, .highlight span.si {
@@ -8048,33 +8278,38 @@ code.highlighter-rouge {
     margin-bottom: 40px; }
   .main .header-section p.main-actions .btn {
     margin-right: 15px; }
-.main nav {
+.main.conference nav {
+  background-color: transparent;
+  border: none; }
+  .main.conference nav ul#nav-desktop li a {
+    color: #ffffff; }
+  .main.conference nav a.button-collapse {
+    color: #ffffff; }
+.main:not(.conference) nav {
   background-color: transparent;
   border-bottom: 0px;
   position: relative;
   text-align: center;
   z-index: 1000; }
-  .main nav ul#nav-desktop {
+  .main:not(.conference) nav ul#nav-desktop {
     display: inline-block;
     float: none !important;
     margin: 0 auto !important; }
-    .main nav ul#nav-desktop li a {
+    .main:not(.conference) nav ul#nav-desktop li a {
       color: #ffffff; }
-      .main nav ul#nav-desktop li a:hover {
+      .main:not(.conference) nav ul#nav-desktop li a:hover {
         border-color: #ffffff; }
-      .main nav ul#nav-desktop li a.selected {
+      .main:not(.conference) nav ul#nav-desktop li a.selected {
         border-bottom: 5px solid #ffffff; }
-  .main nav a.button-collapse {
-    color: #ffffff; }
 .main #crystal-container {
   text-align: center;
   margin-bottom: 15px; }
   .main #crystal-container #Crystal {
     fill: #ffffff; }
-.main #logo-container {
+.main:not(.conference) #logo-container {
   width: 160px;
   height: 160px; }
-  .main #logo-container #logo-canvas {
+  .main:not(.conference) #logo-container #logo-canvas {
     width: 150px;
     height: 150px; }
 .main #delaunay {
@@ -8131,7 +8366,7 @@ code.highlighter-rouge {
       margin: 5px 0; }
     .main .community-list .item i, .main .community-list .item span.with_icon {
       color: #000000; }
-.main h2, .main .post-layout h1, .post-layout .main h1 {
+.main:not(.conference) h2, .main:not(.conference) .post-layout h1, .post-layout .main:not(.conference) h1 {
   margin: 100px 0 30px 0; }
 .main hr.fullwidth {
   background: #D7D7D7;
@@ -8225,21 +8460,21 @@ code.highlighter-rouge {
   .register-mobile {
     display: none; } }
 @media only screen and (max-width: 600px) {
-  .main nav a.brand-logo {
+  .main:not(.conference) nav a.brand-logo {
     position: absolute;
     left: calc(50% - 15px);
     top: 2rem; }
-  .main .header-section.valign-wrapper {
+  .main:not(.conference) .header-section.valign-wrapper {
     display: block; }
-  .main #crystal-container {
+  .main:not(.conference) #crystal-container {
     margin-bottom: 5px; }
-    .main #crystal-container #Crystal {
+    .main:not(.conference) #crystal-container #Crystal {
       width: 150px !important;
       height: auto !important; }
-  .main #logo-container {
+  .main:not(.conference) #logo-container {
     width: 110px;
     height: 110px; }
-    .main #logo-container #logo-canvas {
+    .main:not(.conference) #logo-container #logo-canvas {
       width: 100px;
       height: 100px; } }
 .top-banner {

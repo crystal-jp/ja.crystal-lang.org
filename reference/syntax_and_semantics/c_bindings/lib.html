@@ -8,11 +8,11 @@
       
       
       
+      
         <link rel="canonical" href="https://ja.crystal-lang.org/reference/syntax_and_semantics/c_bindings/lib.html">
       
-      
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+      <link rel="icon" href="https://crystal-lang.org/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6910b76c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.196e0c26.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -35,15 +35,36 @@
     
       
         
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
     
+      <link rel="stylesheet" href="../../assets/vendor/codemirror/codemirror.min.css">
+    
+      <link rel="stylesheet" href="../../assets/style.css">
+    
+      <link rel="stylesheet" href="../../assets/vendor/carcin-play/carcin-play.css">
+    
+      <link rel="stylesheet" href="../../assets/vendor/carcin-play/codemirror-theme.css">
+    
     
       
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-42353458-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
     
     
   </head>
@@ -55,8 +76,10 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
-      
   
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -72,50 +95,81 @@
       
     </div>
     
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Crystal" class="md-header__button md-logo" aria-label="Crystal" data-md-component="logo">
       
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://ja.crystal-lang.org/reference/" title="Crystal" class="md-header-nav__button md-logo" aria-label="Crystal">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <img src="../../assets/crystal-circ.svg" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Crystal
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               lib
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="https://crystal-lang.org/reference/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="https://ja.crystal-lang.org/reference/" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -131,9 +185,9 @@
 </div>
     
     
-      <div class="md-header-nav__source">
+      <div class="md-header__source">
         
-<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source">
+<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -151,22 +205,92 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      ホーム
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        仕様
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../guides/index.html" class="md-tabs__link">
+      ガイド
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/basics/index.html" class="md-tabs__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="https://ja.crystal-lang.org/reference/" title="Crystal" class="md-nav__button md-logo" aria-label="Crystal">
-      
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Crystal" class="md-nav__button md-logo" aria-label="Crystal" data-md-component="logo">
+      
+  <img src="../../assets/crystal-circ.svg" alt="logo">
 
     </a>
     Crystal
@@ -174,7 +298,7 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source">
+<a href="https://github.com/crystal-lang/crystal/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -191,105 +315,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../index.html" class="md-nav__link">
-      導入
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
-    <label class="md-nav__link" for="nav-2">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../getting_started/index.html" style="display: block">
-      
-        Getting Started
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        ホーム
       </a>
-    </label>
-    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon"></span>
-        
-          <a href="../../getting_started/index.html" style="display: block">
-        
-          Getting Started
-        </a>
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../getting_started/http_server.html" class="md-nav__link">
-      HTTP サーバー
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../getting_started/cli.html" class="md-nav__link">
-      コマンドライアプリケーション
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../using_the_compiler/index.html" class="md-nav__link">
-      コンパイラの使い方
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../the_shards_command/index.html" class="md-nav__link">
-      shards コマンド
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/index.html" class="md-nav__link">
-      このガイドについて
-    </a>
-  </li>
+    </li>
+  
 
     
       
@@ -297,2001 +331,1900 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
-    <label class="md-nav__link" for="nav-6">
-      <span class="md-nav__icon md-icon"></span>
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        <a href="../index.html" style="display: block">
       
-        構文とその意味
-      </a>
-    </label>
-    <nav class="md-nav" aria-label="構文とその意味" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../index.html" style="display: block">
+          仕様
         
-          構文とその意味
-        </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="仕様" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
           
+            仕様
           
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../comments.html" class="md-nav__link">
-      コメント
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" >
-    <label class="md-nav__link" for="nav-6-2">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../literals/index.html" style="display: block">
-      
-        リテラル
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        このガイドについて
       </a>
-    </label>
-    <nav class="md-nav" aria-label="リテラル" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-2">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comments.html" class="md-nav__link">
+        コメント
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documenting_code.html" class="md-nav__link">
+        コードのドキュメント化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../literals/index.html" style="display: block">
+          <a href="../literals/index.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           リテラル
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="リテラル" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../literals/index.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            リテラル
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../literals/nil.html" class="md-nav__link">
-      Nil
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/bool.html" class="md-nav__link">
-      真偽値 (Bool)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/integers.html" class="md-nav__link">
-      整数 (Integer)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/floats.html" class="md-nav__link">
-      浮動小数点数 (Float)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/char.html" class="md-nav__link">
-      文字 (Char)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/string.html" class="md-nav__link">
-      文字列 (String)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/symbol.html" class="md-nav__link">
-      シンボル (Symbol)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/array.html" class="md-nav__link">
-      配列 (Array)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/hash.html" class="md-nav__link">
-      ハッシュ (Hash)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/range.html" class="md-nav__link">
-      範囲 (Range)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/regex.html" class="md-nav__link">
-      正規表現 (Regex)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/tuple.html" class="md-nav__link">
-      タプル (Tuple)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/named_tuple.html" class="md-nav__link">
-      名前付きタプル (NamedTuple)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/proc.html" class="md-nav__link">
-      Proc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literals/command.html" class="md-nav__link">
-      コマンド (Command)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../assignment.html" class="md-nav__link">
-      代入
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../local_variables.html" class="md-nav__link">
-      ローカル変数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5" >
-    <label class="md-nav__link" for="nav-6-5">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../control_expressions.html" style="display: block">
-      
-        制御式
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/nil.html" class="md-nav__link">
+        Nil
       </a>
-    </label>
-    <nav class="md-nav" aria-label="制御式" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-5">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/bool.html" class="md-nav__link">
+        真偽値 (Bool)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/integers.html" class="md-nav__link">
+        整数 (Integer)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/floats.html" class="md-nav__link">
+        浮動小数点数 (Float)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/char.html" class="md-nav__link">
+        文字 (Char)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/string.html" class="md-nav__link">
+        文字列 (String)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/symbol.html" class="md-nav__link">
+        シンボル (Symbol)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/array.html" class="md-nav__link">
+        配列 (Array)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/hash.html" class="md-nav__link">
+        ハッシュ (Hash)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/range.html" class="md-nav__link">
+        範囲 (Range)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/regex.html" class="md-nav__link">
+        正規表現 (Regex)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/tuple.html" class="md-nav__link">
+        タプル (Tuple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/named_tuple.html" class="md-nav__link">
+        名前付きタプル (NamedTuple)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/proc.html" class="md-nav__link">
+        Proc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../literals/command.html" class="md-nav__link">
+        コマンド (Command)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment.html" class="md-nav__link">
+        代入
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_variables.html" class="md-nav__link">
+        ローカル変数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../control_expressions.html" style="display: block">
+          <a href="../control_expressions.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           制御式
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="制御式" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../control_expressions.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            制御式
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../truthy_and_falsey_values.html" class="md-nav__link">
-      真になる値と偽になる値
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5-2" type="checkbox" id="nav-6-5-2" >
-    <label class="md-nav__link" for="nav-6-5-2">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../if.html" style="display: block">
-      
-        if
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../truthy_and_falsey_values.html" class="md-nav__link">
+        真になる値と偽になる値
       </a>
-    </label>
-    <nav class="md-nav" aria-label="if" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-5-2">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_2" type="checkbox" id="__nav_2_7_2" >
+      
+      <label class="md-nav__link" for="__nav_2_7_2">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../if.html" style="display: block">
+          <a href="../if.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           if
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="if" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_7_2">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../if.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            if
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../as_a_suffix.html" class="md-nav__link">
-      後置 if
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../as_an_expression.html" class="md-nav__link">
-      式としての if
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ternary_if.html" class="md-nav__link">
-      3項演算子
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../if_var.html" class="md-nav__link">
-      if var
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../if_varis_a.html" class="md-nav__link">
-      if var.is_a?(...)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../if_varresponds_to.html" class="md-nav__link">
-      if var.responds_to?(...)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../if_var_nil.html" class="md-nav__link">
-      if var.nil?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../not.html" class="md-nav__link">
-      if !
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../unless.html" class="md-nav__link">
-      unless
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../case.html" class="md-nav__link">
-      case
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5-5" type="checkbox" id="nav-6-5-5" >
-    <label class="md-nav__link" for="nav-6-5-5">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../while.html" style="display: block">
-      
-        while
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../as_a_suffix.html" class="md-nav__link">
+        後置 if
       </a>
-    </label>
-    <nav class="md-nav" aria-label="while" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-5-5">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../as_an_expression.html" class="md-nav__link">
+        式としての if
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ternary_if.html" class="md-nav__link">
+        3項演算子
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../if_var.html" class="md-nav__link">
+        if var
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../if_varis_a.html" class="md-nav__link">
+        if var.is_a?(...)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../if_varresponds_to.html" class="md-nav__link">
+        if var.responds_to?(...)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../if_var_nil.html" class="md-nav__link">
+        if var.nil?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../not.html" class="md-nav__link">
+        if !
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unless.html" class="md-nav__link">
+        unless
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case.html" class="md-nav__link">
+        case
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_5" type="checkbox" id="__nav_2_7_5" >
+      
+      <label class="md-nav__link" for="__nav_2_7_5">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../while.html" style="display: block">
+          <a href="../while.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           while
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="while" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_7_5">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../while.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            while
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../break.html" class="md-nav__link">
-      break
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../next.html" class="md-nav__link">
-      next
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../until.html" class="md-nav__link">
-      until
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../and.html" class="md-nav__link">
-      &&
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../or.html" class="md-nav__link">
-      ||
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../requiring_files.html" class="md-nav__link">
-      ファイルの require
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7" >
-    <label class="md-nav__link" for="nav-6-7">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../types_and_methods.html" style="display: block">
-      
-        型とメソッド
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../break.html" class="md-nav__link">
+        break
       </a>
-    </label>
-    <nav class="md-nav" aria-label="型とメソッド" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-7">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next.html" class="md-nav__link">
+        next
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../until.html" class="md-nav__link">
+        until
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../and.html" class="md-nav__link">
+        &&
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../or.html" class="md-nav__link">
+        ||
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requiring_files.html" class="md-nav__link">
+        ファイルの require
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      <label class="md-nav__link" for="__nav_2_9">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../types_and_methods.html" style="display: block">
+          <a href="../types_and_methods.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           型とメソッド
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="型とメソッド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../types_and_methods.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            型とメソッド
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../everything_is_an_object.html" class="md-nav__link">
-      すべてがオブジェクト
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../the_program.html" class="md-nav__link">
-      プログラム
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-3" type="checkbox" id="nav-6-7-3" >
-    <label class="md-nav__link" for="nav-6-7-3">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../classes_and_methods.html" style="display: block">
-      
-        クラスとメソッド
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../everything_is_an_object.html" class="md-nav__link">
+        すべてがオブジェクト
       </a>
-    </label>
-    <nav class="md-nav" aria-label="クラスとメソッド" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-7-3">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../the_program.html" class="md-nav__link">
+        プログラム
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_3" type="checkbox" id="__nav_2_9_3" >
+      
+      <label class="md-nav__link" for="__nav_2_9_3">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../classes_and_methods.html" style="display: block">
+          <a href="../classes_and_methods.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           クラスとメソッド
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="クラスとメソッド" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_3">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../classes_and_methods.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            クラスとメソッド
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../new%2C_initialize_and_allocate.html" class="md-nav__link">
-      new/initialize/allocate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../methods_and_instance_variables.html" class="md-nav__link">
-      メソッドとインスタンス変数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../type_inference.html" class="md-nav__link">
-      型推論
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../union_types.html" class="md-nav__link">
-      ユニオン型
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../overloading.html" class="md-nav__link">
-      オーバーロード
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../default_and_named_arguments.html" class="md-nav__link">
-      デフォルト引数と名前付き引数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../splats_and_tuples.html" class="md-nav__link">
-      スプラット展開とタプル
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../type_restrictions.html" class="md-nav__link">
-      型制約
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../return_types.html" class="md-nav__link">
-      戻り値の型
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../default_values_named_arguments_splats_tuples_and_overloading.html" class="md-nav__link">
-      メソッドの引数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../operators.html" class="md-nav__link">
-      演算子
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../visibility.html" class="md-nav__link">
-      可視性
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-3-13" type="checkbox" id="nav-6-7-3-13" >
-    <label class="md-nav__link" for="nav-6-7-3-13">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../inheritance.html" style="display: block">
-      
-        継承
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../new%2C_initialize_and_allocate.html" class="md-nav__link">
+        new/initialize/allocate
       </a>
-    </label>
-    <nav class="md-nav" aria-label="継承" data-md-level="4">
-      <label class="md-nav__title" for="nav-6-7-3-13">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods_and_instance_variables.html" class="md-nav__link">
+        メソッドとインスタンス変数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_inference.html" class="md-nav__link">
+        型推論
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../union_types.html" class="md-nav__link">
+        ユニオン型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overloading.html" class="md-nav__link">
+        オーバーロード
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../default_and_named_arguments.html" class="md-nav__link">
+        デフォルト引数と名前付き引数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splats_and_tuples.html" class="md-nav__link">
+        スプラット展開とタプル
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_restrictions.html" class="md-nav__link">
+        型制約
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../return_types.html" class="md-nav__link">
+        戻り値の型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../default_values_named_arguments_splats_tuples_and_overloading.html" class="md-nav__link">
+        メソッドの引数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operators.html" class="md-nav__link">
+        演算子
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visibility.html" class="md-nav__link">
+        可視性
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_3_13" type="checkbox" id="__nav_2_9_3_13" >
+      
+      <label class="md-nav__link" for="__nav_2_9_3_13">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../inheritance.html" style="display: block">
+          <a href="../inheritance.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           継承
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="継承" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_9_3_13">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../inheritance.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            継承
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../virtual_and_abstract_types.html" class="md-nav__link">
-      virtual 型と abstract 型
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../class_methods.html" class="md-nav__link">
-      クラスメソッド
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../class_variables.html" class="md-nav__link">
-      クラス変数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../finalize.html" class="md-nav__link">
-      finalize
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../modules.html" class="md-nav__link">
-      モジュール
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../generics.html" class="md-nav__link">
-      ジェネリクス
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../structs.html" class="md-nav__link">
-      構造体 (Struct)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../constants.html" class="md-nav__link">
-      定数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../enum.html" class="md-nav__link">
-      列挙型 (Enum)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7-9" type="checkbox" id="nav-6-7-9" >
-    <label class="md-nav__link" for="nav-6-7-9">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../blocks_and_procs.html" style="display: block">
-      
-        ブロックと Proc
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual_and_abstract_types.html" class="md-nav__link">
+        virtual 型と abstract 型
       </a>
-    </label>
-    <nav class="md-nav" aria-label="ブロックと Proc" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-7-9">
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_methods.html" class="md-nav__link">
+        クラスメソッド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_variables.html" class="md-nav__link">
+        クラス変数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finalize.html" class="md-nav__link">
+        finalize
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules.html" class="md-nav__link">
+        モジュール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics.html" class="md-nav__link">
+        ジェネリクス
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structs.html" class="md-nav__link">
+        構造体 (Struct)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constants.html" class="md-nav__link">
+        定数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum.html" class="md-nav__link">
+        列挙型 (Enum)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_9" type="checkbox" id="__nav_2_9_9" >
+      
+      <label class="md-nav__link" for="__nav_2_9_9">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../blocks_and_procs.html" style="display: block">
+          <a href="../blocks_and_procs.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           ブロックと Proc
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="ブロックと Proc" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_9">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../blocks_and_procs.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            ブロックと Proc
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../capturing_blocks.html" class="md-nav__link">
-      ブロックの捕捉
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../proc_literal.html" class="md-nav__link">
-      Proc リテラル
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../block_forwarding.html" class="md-nav__link">
-      ブロックのフォワーディング
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../closures.html" class="md-nav__link">
-      クロージャ
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../alias.html" class="md-nav__link">
-      型エイリアス (alias)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../exception_handling.html" class="md-nav__link">
-      例外の処理
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../type_grammar.html" class="md-nav__link">
-      型の文法
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-10" type="checkbox" id="nav-6-10" >
-    <label class="md-nav__link" for="nav-6-10">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../type_reflection.html" style="display: block">
-      
-        型のリフレクション
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capturing_blocks.html" class="md-nav__link">
+        ブロックの捕捉
       </a>
-    </label>
-    <nav class="md-nav" aria-label="型のリフレクション" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-10">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_literal.html" class="md-nav__link">
+        Proc リテラル
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../block_forwarding.html" class="md-nav__link">
+        ブロックのフォワーディング
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../closures.html" class="md-nav__link">
+        クロージャ
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alias.html" class="md-nav__link">
+        型エイリアス (alias)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception_handling.html" class="md-nav__link">
+        例外の処理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_grammar.html" class="md-nav__link">
+        型の文法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      <label class="md-nav__link" for="__nav_2_12">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../type_reflection.html" style="display: block">
+          <a href="../type_reflection.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           型のリフレクション
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="型のリフレクション" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../type_reflection.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            型のリフレクション
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../is_a.html" class="md-nav__link">
-      is_a?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nil_question.html" class="md-nav__link">
-      nil?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../responds_to.html" class="md-nav__link">
-      responds_to?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../as.html" class="md-nav__link">
-      as
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../as_question.html" class="md-nav__link">
-      as?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../typeof.html" class="md-nav__link">
-      typeof
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-11" type="checkbox" id="nav-6-11" >
-    <label class="md-nav__link" for="nav-6-11">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../macros/index.html" style="display: block">
-      
-        マクロ
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is_a.html" class="md-nav__link">
+        is_a?
       </a>
-    </label>
-    <nav class="md-nav" aria-label="マクロ" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-11">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nil_question.html" class="md-nav__link">
+        nil?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responds_to.html" class="md-nav__link">
+        responds_to?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../as.html" class="md-nav__link">
+        as
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../as_question.html" class="md-nav__link">
+        as?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typeof.html" class="md-nav__link">
+        typeof
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      <label class="md-nav__link" for="__nav_2_13">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../macros/index.html" style="display: block">
+          <a href="../macros/index.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           マクロ
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="マクロ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../macros/index.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            マクロ
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../macros/macro_methods.html" class="md-nav__link">
-      マクロメソッド
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../macros/hooks.html" class="md-nav__link">
-      フック
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../macros/fresh_variables.html" class="md-nav__link">
-      フレッシュ変数
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-12" type="checkbox" id="nav-6-12" >
-    <label class="md-nav__link" for="nav-6-12">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../annotations/index.html" style="display: block">
-      
-        アノテーション
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macros/macro_methods.html" class="md-nav__link">
+        マクロメソッド
       </a>
-    </label>
-    <nav class="md-nav" aria-label="アノテーション" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-12">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macros/hooks.html" class="md-nav__link">
+        フック
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macros/fresh_variables.html" class="md-nav__link">
+        フレッシュ変数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      <label class="md-nav__link" for="__nav_2_14">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../annotations/index.html" style="display: block">
+          <a href="../annotations/index.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           アノテーション
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="アノテーション" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../annotations/index.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            アノテーション
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../annotations/built_in_annotations.html" class="md-nav__link">
-      組み込みアノテーション
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-13" type="checkbox" id="nav-6-13" >
-    <label class="md-nav__link" for="nav-6-13">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../low_level_primitives.html" style="display: block">
-      
-        低レベルプリミティブ
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../annotations/built_in_annotations.html" class="md-nav__link">
+        組み込みアノテーション
       </a>
-    </label>
-    <nav class="md-nav" aria-label="低レベルプリミティブ" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-13">
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      <label class="md-nav__link" for="__nav_2_15">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../low_level_primitives.html" style="display: block">
+          <a href="../low_level_primitives.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           低レベルプリミティブ
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="低レベルプリミティブ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../low_level_primitives.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            低レベルプリミティブ
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../pointerof.html" class="md-nav__link">
-      pointerof
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../sizeof.html" class="md-nav__link">
-      sizeof
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../instance_sizeof.html" class="md-nav__link">
-      instance_sizeof
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../offsetof.html" class="md-nav__link">
-      offsetof
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../declare_var.html" class="md-nav__link">
-      初期化しない変数宣言
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-14" type="checkbox" id="nav-6-14" >
-    <label class="md-nav__link" for="nav-6-14">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../compile_time_flags.html" style="display: block">
-      
-        コンパイル時のフラグ
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pointerof.html" class="md-nav__link">
+        pointerof
       </a>
-    </label>
-    <nav class="md-nav" aria-label="コンパイル時のフラグ" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-14">
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sizeof.html" class="md-nav__link">
+        sizeof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instance_sizeof.html" class="md-nav__link">
+        instance_sizeof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../offsetof.html" class="md-nav__link">
+        offsetof
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../declare_var.html" class="md-nav__link">
+        初期化しない変数宣言
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_16" type="checkbox" id="__nav_2_16" >
+      
+      <label class="md-nav__link" for="__nav_2_16">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../compile_time_flags.html" style="display: block">
+          <a href="../compile_time_flags.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           コンパイル時のフラグ
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="コンパイル時のフラグ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_16">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../compile_time_flags.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            コンパイル時のフラグ
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../cross-compilation.html" class="md-nav__link">
-      クロスコンパイル
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-compilation.html" class="md-nav__link">
+        クロスコンパイル
+      </a>
+    </li>
   
 
+          
+        </ul>
+      </nav>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+          
+            
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-15" type="checkbox" id="nav-6-15" checked>
-    <label class="md-nav__link" for="nav-6-15">
-      <span class="md-nav__icon md-icon"></span>
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        <a href="index.html" style="display: block">
       
-        C バインディング
-      </a>
-    </label>
-    <nav class="md-nav" aria-label="C バインディング" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-15">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_17" type="checkbox" id="__nav_2_17" checked>
+      
+      <label class="md-nav__link" for="__nav_2_17">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="index.html" style="display: block">
+          <a href="index.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           C バインディング
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+      <nav class="md-nav" aria-label="C バインディング" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_17">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="index.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            C バインディング
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
         
-        
-          
-          
-          
-
+      
+      
+      <a href="lib.html" class="md-nav__link md-nav__link--active">
+        lib
+      </a>
+      
+    </li>
   
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="lib.html" class="md-nav__link md-nav__link--active">
-      lib
-    </a>
-    
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-15-2" type="checkbox" id="nav-6-15-2" >
-    <label class="md-nav__link" for="nav-6-15-2">
-      <span class="md-nav__icon md-icon"></span>
+    <li class="md-nav__item md-nav__item--nested">
       
-        <a href="fun.html" style="display: block">
       
-        fun
-      </a>
-    </label>
-    <nav class="md-nav" aria-label="fun" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-15-2">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_17_2" type="checkbox" id="__nav_2_17_2" >
+      
+      <label class="md-nav__link" for="__nav_2_17_2">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="fun.html" style="display: block">
+          <a href="fun.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
         
           fun
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="fun" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_17_2">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="fun.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            fun
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="out.html" class="md-nav__link">
-      out
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="to_unsafe.html" class="md-nav__link">
-      to_unsafe
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="struct.html" class="md-nav__link">
-      struct
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="union.html" class="md-nav__link">
-      union
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="enum.html" class="md-nav__link">
-      enum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="variables.html" class="md-nav__link">
-      変数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="constants.html" class="md-nav__link">
-      定数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="type.html" class="md-nav__link">
-      type
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="alias.html" class="md-nav__link">
-      型エイリアス (alias)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="callbacks.html" class="md-nav__link">
-      コールバック
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../unsafe.html" class="md-nav__link">
-      安全でない (unsafe) コード
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
-    <label class="md-nav__link" for="nav-7">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../conventions/index.html" style="display: block">
-      
-        規約
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="out.html" class="md-nav__link">
+        out
       </a>
-    </label>
-    <nav class="md-nav" aria-label="規約" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon"></span>
-        
-          <a href="../../conventions/index.html" style="display: block">
-        
-          規約
-        </a>
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    </li>
+  
+
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../conventions/coding_style.html" class="md-nav__link">
-      コーディングスタイル
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../conventions/documenting_code.html" class="md-nav__link">
-      コードのドキュメント化
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
-    <label class="md-nav__link" for="nav-8">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../database/index.html" style="display: block">
-      
-        データベース
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="to_unsafe.html" class="md-nav__link">
+        to_unsafe
       </a>
-    </label>
-    <nav class="md-nav" aria-label="データベース" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon"></span>
-        
-          <a href="../../database/index.html" style="display: block">
-        
-          データベース
-        </a>
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../database/connection.html" class="md-nav__link">
-      接続
-    </a>
-  </li>
-
-        
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="struct.html" class="md-nav__link">
+        struct
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="union.html" class="md-nav__link">
+        union
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../database/connection_pool.html" class="md-nav__link">
-      コネクションプール
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enum.html" class="md-nav__link">
+        enum
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="variables.html" class="md-nav__link">
+        変数
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="constants.html" class="md-nav__link">
+        定数
+      </a>
+    </li>
+  
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="type.html" class="md-nav__link">
+        type
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../../database/transactions.html" class="md-nav__link">
-      トランザクション
-    </a>
-  </li>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="alias.html" class="md-nav__link">
+        型エイリアス (alias)
+      </a>
+    </li>
+  
 
-        
-      </ul>
-    </nav>
-  </li>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="callbacks.html" class="md-nav__link">
+        コールバック
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unsafe.html" class="md-nav__link">
+        安全でない (unsafe) コード
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
-    <label class="md-nav__link" for="nav-9">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../guides/index.html" style="display: block">
-      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/index.html" class="md-nav__link">
         ガイド
       </a>
-    </label>
-    <nav class="md-nav" aria-label="ガイド" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="../../guides/index.html" style="display: block">
+          チュートリアル
         
-          ガイド
+      </label>
+      <nav class="md-nav" aria-label="チュートリアル" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          
+            チュートリアル
+          
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="../../tutorials/basics/index.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          基本
         </a>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="基本" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
           
+            <a href="../../tutorials/basics/index.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
           
+            基本
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/performance.html" class="md-nav__link">
-      パフォーマンス
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/concurrency.html" class="md-nav__link">
-      並列性
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/testing.html" class="md-nav__link">
-      テスト
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4" >
-    <label class="md-nav__link" for="nav-9-4">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../guides/writing_shards.html" style="display: block">
-      
-        shard の作り方
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/10_hello_world.html" class="md-nav__link">
+        Hello World
       </a>
-    </label>
-    <nav class="md-nav" aria-label="shard の作り方" data-md-level="2">
-      <label class="md-nav__title" for="nav-9-4">
-        <span class="md-nav__icon md-icon"></span>
-        
-          <a href="../../guides/writing_shards.html" style="display: block">
-        
-          shard の作り方
-        </a>
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../guides/hosting/github.html" class="md-nav__link">
-      GitHub でのホスト方法
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/hosting/gitlab.html" class="md-nav__link">
-      GitLab でのホスト方法
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-5" type="checkbox" id="nav-9-5" >
-    <label class="md-nav__link" for="nav-9-5">
-      <span class="md-nav__icon md-icon"></span>
-      
-        <a href="../../guides/ci/index.html" style="display: block">
-      
-        継続的インテグレーション (CI)
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/20_variables.html" class="md-nav__link">
+        変数
       </a>
-    </label>
-    <nav class="md-nav" aria-label="継続的インテグレーション (CI)" data-md-level="2">
-      <label class="md-nav__title" for="nav-9-5">
-        <span class="md-nav__icon md-icon"></span>
-        
-          <a href="../../guides/ci/index.html" style="display: block">
-        
-          継続的インテグレーション (CI)
-        </a>
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/30_math.html" class="md-nav__link">
+        数学関連
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/40_strings.html" class="md-nav__link">
+        文字列
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/50_control_flow.html" class="md-nav__link">
+        制御構文
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../guides/ci/gh-actions.html" class="md-nav__link">
-      GitHub Actions
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/60_methods.html" class="md-nav__link">
+        メソッド
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/ci/travis.html" class="md-nav__link">
-      Travis CI
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/ci/circleci.html" class="md-nav__link">
-      CircleCI
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../guides/static_linking.html" class="md-nav__link">
-      静的リンク
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../platform_support.html" class="md-nav__link">
-      Platform Support
-    </a>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -2301,11 +2234,13 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -2317,7 +2252,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -2326,9 +2261,9 @@
                   </a>
                 
                 
-                <h1 id="lib">lib</h1>
+                <h1 id="lib">lib<a class="headerlink" href="#lib" title="Permanent link">&para;</a></h1>
 <p><code>lib</code> 宣言によって、C ライブラリの関数群や型をグループ化します。</p>
-<div class="highlight"><pre><span></span><code><span class="o">@[</span><span class="nd">Link</span><span class="p">(</span><span class="s2">&quot;pcre&quot;</span><span class="p">)</span><span class="o">]</span>
+<div class="crystal highlight"><pre><span></span><code><span class="o">@[</span><span class="nd">Link</span><span class="p">(</span><span class="s2">&quot;pcre&quot;</span><span class="p">)</span><span class="o">]</span>
 <span class="k">lib</span> <span class="nn">LibPCRE</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -2350,45 +2285,46 @@
             </article>
           </div>
         </div>
+        
       </main>
       
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="index.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: C バインディング" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              C バインディング
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                C バインディング
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="fun.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                fun
-              </div>
+        <a href="fun.html" class="md-footer__link md-footer__link--next" aria-label="Next: fun" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              fun
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2398,6 +2334,7 @@
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
+        
       </div>
       
     </div>
@@ -2405,19 +2342,25 @@
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.fd16492e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
       
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+        <script src="../../assets/vendor/codemirror/codemirror.min.js"></script>
+      
+        <script src="../../assets/vendor/codemirror/mode/crystal/crystal.min.js"></script>
+      
+        <script src="../../assets/vendor/carcin-play/carcin.js"></script>
+      
+        <script src="../../assets/vendor/carcin-play/carcin-play.js"></script>
+      
+        <script src="../../assets/vendor/ansi_up/ansi_up.min.js"></script>
+      
+        <script src="../../assets/crystal-play.js"></script>
       
     
   </body>
