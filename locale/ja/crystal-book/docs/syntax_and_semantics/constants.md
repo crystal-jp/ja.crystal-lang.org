@@ -68,6 +68,6 @@ end
 
 [連続した代入](assignment.md#chained-assignment)や[多重代入](assignment.md#multiple-assignment)は定数に対してはサポートされておらず、構文エラーとなります。
 
-```crystal
+```{.crystal nocheck}
 ONE, TWO, THREE = 1, 2, 3 # Syntax error: Multiple assignment is not allowed for constants
 ```

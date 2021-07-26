@@ -1,55 +1,88 @@
 # 代入
 
-代入にはイコール記号 (`=`) を使います。
+An assignment expression assigns a value to a named identifier (usually a variable).
+The [assignment operator](operators.md#assignments) is the equals sign (`=`).
+
+The target of an assignment can be:
+
+* a [local variable](local_variables.md)
+* an [instance variable](methods_and_instance_variables.md)
+* a [class variable](class_variables.md)
+* a [constant](constants.md)
+* an assignment method
 
 ```crystal
-# ローカル変数への代入
+# Assigns to a local variable
 local = 1
 
-# インスタンス変数への代入
+# Assigns to an instance variable
 @instance = 2
 
-# クラス変数への代入
+# Assigns to a class variable
 @@class = 3
+
+# Assigns to a constant
+CONST = 4
+
+# Assigns to a setter method
+foo.method = 5
+foo[0] = 6
 ```
 
-上記のそれぞれの変数の種類については改めて説明します。
+### Method as assignment target
+
+A method ending with an equals sign (`=`) is called a setter method. It can be used
+as the target of an assignment. The semantics of the assignment operator apply as
+a form of syntax sugar to the method call.
+
+Calling setter methods requires an explicit receiver. The receiver-less syntax `x = y`
+is always parsed as an assignment to a local variable, never a call to a method `x=`.
+Even adding parentheses does not force a method call, as it would when reading from a local variable.
+
+The following example shows two calls to a setter method in typical method notation and with assignment operator.
+Both assignment expressions are equivalent.
+
+```crystal
+class Thing
+  def name=(value); end
+end
+
+thing = Thing.new
+
+thing.name=("John")
+thing.name = "John"
+```
+
+The following example shows two calls to an indexed assignment method in typical method notation and with index assignment operator.
+Both assignment expressions are equivalent.
+
+```crystal
+class List
+  def []=(key, value); end
+end
+
+list = List.new
+
+list.[]=(2, 3)
+list[2] = 3
+```
+
+### 複合代入
+
+[Combined assignments](operators.md#combined-assignments) are a combination of an
+assignment operator and another operator.
+This works with any target type except constants.
 
 `=` を使った代入のためのシンタックスシュガーがいくつか用意されています。
 
-```crystal
-local += 1  # local = local + 1 と同じ
-
-# 上記は以下の演算子でも有効
-# +, -, *, /, %, |, &, ^, **, <<, >>
-
-local ||= 1 # local || (local = 1) と同じ
-local &&= 1 # local && (local = 1) と同じ
+```{.crystal nocheck}
+local += 1  # same as: local = local + 1
 ```
 
-メソッド名が `=` で終わるメソッドの実行にもシンタックスシュガーがあります。
+This assumes that the corresponding target `local` is assignable, either as a variable or via the respective getter and setter methods.
 
-```crystal
-# セッターメソッドの呼び出し
-person.name=("John")
-
-# 上記は次ように書ける
-person.name = "John"
-
-# インデックスに対する代入
-objects.[]=(2, 3)
-
-# 上記は次のように書ける
-objects[2] = 3
-
-# 代入とは関係ないけれど、こういうシンタックスシュガーも
-objects.[](2, 3)
-
-# 上記は次のように書ける
-objects[2, 3]
-```
-
-`=` のシンタックスシュガーはセッターやインデックス代入に対しても有効です。このとき `||` と `&&` は、 `[]?` メソッドをキーの存在のチェックに使うことに注意してください。
+The `=` operator syntax sugar is also available to setter and index assignment methods.
+このとき `||` と `&&` は、 `[]?` メソッドをキーの存在のチェックに使うことに注意してください。
 
 ```crystal
 person.age += 1 # person.age = person.age + 1 と同じ
@@ -65,7 +98,8 @@ objects[1] &&= 2 # objects[1]? && (objects[1] = 2) と同じ
 
 ## 連続した代入
 
-連続した代入を用いることで、同じ値を複数の変数に一度に代入することができます。
+The same value can be assigned to multiple targets using chained assignment.
+This works with any target type except constants.
 
 ```crystal
 a = b = c = 123
@@ -76,11 +110,10 @@ b # => 123
 c # => 123
 ```
 
-連続した代入は[ローカル変数](local_variables.md)に限らず[インスタンス変数](methods_and_instance_variables.md)や[クラス変数](class_variables.md)、セッターメソッド (名前が `=` で終わるメソッド) に対して利用できます。
-
 ## 多重代入
 
-複数の式をカンマ記号 (`,`) で区切って代入すると、複数の変数に対して同時に宣言/代入を行うことができます。
+You can declare/assign multiple variables at the same time by separating expressions with a comma (`,`).
+This works with any target type except constants.
 
 ```crystal
 name, age = "Crystal", 1

@@ -11,7 +11,7 @@ Crystal をスタンドアローンの `.tar.gz` ファイルからインスト�
 実行ファイルに対して、パスの通った場所のシンボリックを貼っておけば、より簡単に利用することができるでしょう。
 
 <div class="code_section">{% highlight bash %}
-ln -s [full path to bin/crystal] /usr/local/bin/crystal
+ln -s /full/path/to/bin/crystal /usr/local/bin/crystal
 {% endhighlight bash %}</div>
 
 こうしておけば、次のようにするだけでコンパイラを実行できます。

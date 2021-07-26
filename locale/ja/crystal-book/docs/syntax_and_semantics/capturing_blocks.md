@@ -45,7 +45,7 @@ def some_proc(&block : Int32 ->)
 end
 
 proc = some_proc { |x| x + 1 }
-proc.call(1) # void
+proc.call(1) # => nil
 ```
 
 何か返して欲しい場合には、戻り値の型を指定するか、もしくはすべての型を許容したいときはアンダースコアを使ってください。

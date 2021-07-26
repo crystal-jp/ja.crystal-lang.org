@@ -290,6 +290,21 @@ Foo.new.describe # => "Class is Foo"
 Foo.describe     # => "Class is Foo"
 ```
 
+## The top level module
+
+It is possible to access the top-level namespace, as a [`TypeNode`](https://crystal-lang.org/api/latest/Crystal/Macros/TypeNode.html), with a special variable: `@top_level`. The following example shows its utility:
+
+```crystal
+A_CONSTANT = 0
+
+{% if @top_level.has_constant?("A_CONSTANT") %}
+  puts "this is printed"
+{% else %}
+  puts "this is not printed"
+{% end %}
+```
+
+
 ## メソッドの情報
 
 マクロが実行される際に、`@def` という特別なインスタンス変数を使うことで、メソッド、もしくはマクロにアクセスすることが可能です。この変数の型は [`Def`](https://crystal-lang.org/api/latest/Crystal/Macros/Def.html) で、もしマクロがメソッドの外で実行されていた場合は [`NilLiteral`](https://crystal-lang.org/api/latest/Crystal/Macros/NilLiteral.html) となります。
@@ -447,7 +462,7 @@ a
 
 次が、そのような無効なマクロの例になります。
 
-```crystal
+```{.crystal nocheck}
 case 42
 {% for klass in [Int32, String] %} # Syntax Error: unexpected token: {% (expecting when, else or end)
   when {{klass.id}}

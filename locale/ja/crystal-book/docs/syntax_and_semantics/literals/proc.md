@@ -30,13 +30,13 @@ Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
 Proc の型は次のようにして書けます。
 
 ```crystal
-# Int32 の引数を受け付けて、String を返す Proc の型を表す
+# A Proc accepting a single Int32 argument and returning a String
 Proc(Int32, String)
 
-# 引数を受け付けず Void を返す Proc の型を表す
-Proc(Void)
+# A proc accepting no arguments and returning Nil
+Proc(Nil)
 
-# Int32 と String という2つの引数を受け付け Char を返す Proc の型を表す
+# A proc accepting two arguments (one Int32 and one String) and returning a Char
 Proc(Int32, String, Char)
 ```
 

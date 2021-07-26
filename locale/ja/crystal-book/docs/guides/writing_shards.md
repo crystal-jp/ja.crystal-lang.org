@@ -84,7 +84,7 @@ create mode 100644 src/palindrome-example/version.cr
 #### ドキュメント化
 
 - コメントでコードをドキュメント化してください。それがすべてです。private なメソッドでもドキュメントを書きましょう。
-- Crystal は[組み込みのドキュメントジェネレータ](../conventions/documenting_code.md)を持っています。それを使ってください。
+- Crystal は[組み込みのドキュメントジェネレータ](../syntax_and_semantics/documenting_code.md)を持っています。それを使ってください。
 
 `crystal docs` を実行することで、コードのコメントを API ドキュメントに変換できます。`/docs/` ディレクトリのファイルを Web ブラウザで開くことで、生成されたドキュメントがどのようなものか確認できます。
 
@@ -116,7 +116,7 @@ Crystal の生成した README のテンプレート中の `[your-github-name]` 
 #### コーディングスタイル
 
 - 自身のスタイルを持つことは良いことですが、[Crystal チームの慣習的なスタイル](../conventions/coding_style.md)に従うことで、コードの一貫性や可読性を保ち、他の開発者の理解しやすいものにできます。
-- Crystal [組み込みのフォーマッタ](../conventions/documenting_code.md)を活用して、すべての `.cr` ファイルをフォーマットしましょう。
+- Crystal [組み込みのフォーマッタ](../syntax_and_semantics/documenting_code.md)を活用して、すべての `.cr` ファイルをフォーマットしましょう。
 
 例:
 

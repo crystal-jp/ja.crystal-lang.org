@@ -228,7 +228,7 @@ Initialized empty Git repository in ~/my_cool_lib/.git/
 
 ### `crystal docs`
 
-`crystal docs` コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します (詳しくは [*コードのドキュメント化*](../conventions/documenting_code.md) を参照)。
+`crystal docs` コマンドは Crystal のソースコード中のコメントから API ドキュメントを生成します (詳しくは [*コードのドキュメント化*](../syntax_and_semantics/documenting_code.md) を参照)。
 
 ```bash
 crystal docs [--output=<output_dir>] [--canonical-base-url=<url>] [<source_file>...]
@@ -363,7 +363,7 @@ crystal tool format [--check] [<path>...]
 
 `path` にはファイル名かフォルダ名が指定できて、フォルダ名の場合そのフォルダ中の Crystal ファイルを再帰的に辿ります。`path`が指定されなかった場合、現在のデイレクトリを指定したものとします。
 
-フォーマッタはコメント中の Crystal のコードブロックにも適用されます (see [*コードのドキュメント化*](../conventions/documenting_code.md) を参照)。
+フォーマッタはコメント中の Crystal のコードブロックにも適用されます (see [*コードのドキュメント化*](../syntax_and_semantics/documenting_code.md) を参照)。
 
 ## 環境変数
 
