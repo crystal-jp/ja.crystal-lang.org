@@ -41,7 +41,7 @@ locale/ja:
 	sed -i '' -e 's/&amp;/\&/g' $(patsubst %, locale/ja/%, $(FIX_ENTITY_FILES))
 	sed -i '' -e 's/\\&quot;//g' locale/ja/crystal-website/community/index.html
 	sed -i '' -e 's/   /    /g' locale/ja/crystal-book/docs/SUMMARY.md
-	sed -i '' -e 's/   <\/div>/<\/div0>/' -e 's/<\/div>/  <\/div1>/' -e 's/<\/div[01]>/<\/div>/' locale/ja/crystal-book/docs/README.md
+	sed -i '' -e 's/   <\/div>/<\/div0>/' -e 's/<\/div>/ <\/div1>/' -e 's/<\/div[01]>/<\/div>/' locale/ja/crystal-book/docs/README.md
 
 .PHONY: clean
 clean:
