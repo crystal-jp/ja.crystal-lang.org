@@ -200,7 +200,7 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 
 例をあげます。
 
-!!!example "class_vs_struct.cr'
+!!!example "class_vs_struct.cr"
 ```crystal
 require "benchmark"
 

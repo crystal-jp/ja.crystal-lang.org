@@ -24,21 +24,6 @@ brew upgrade crystal
 
 ## トラブルシューティング
 
-### macOS 10.11 (El Capitan) での注意
-
-以下のエラーが発生することがあります。
-
-<div class="code_section">{% highlight txt %}
-ld: library not found for -levent
-{% endhighlight txt %}</div>
-
-この場合、Command Line Tools を再インストールした後、デフォルトのツールチェインを選択する必要がありあります。
-
-<div class="code_section">{% highlight bash %}
-xcode-select --install
-xcode-select --switch /Library/Developer/CommandLineTools
-{% endhighlight bash %}</div>
-
 ### macOS 10.14 (Mojave) での注意
 
 以下のエラーが発生することがあります。

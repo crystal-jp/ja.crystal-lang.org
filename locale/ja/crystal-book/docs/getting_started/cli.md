@@ -27,7 +27,7 @@ $ crystal -v
 
 ここで「**オプションの解析部分を実装する必要がある？**」と疑問を持つことでしょう。その必要はありません。Crystal では`OptionParser`がその機能を提供しています。それではこのパーサーを使ったアプリケーションを作ってみましょう。
 
-CLI アプリケーションの開発を始めるにあたって、まず次のオプションを持っていることにします。
+At the start our CLI application has two options:
 
 * `-v` / `--version`: アプリケーションのバージョンを表示する。
 * `-h` / `--help`: アプリケーションの利用方法を表示する。
@@ -82,7 +82,7 @@ require "option_parser"
       "John Lennon",
       "Paul McCartney",
       "George Harrison",
-      "Ringo Starr"
+      "Ringo Starr",
     ]
     shout = false
 
@@ -138,7 +138,7 @@ require "option_parser"
       "John Lennon",
       "Paul McCartney",
       "George Harrison",
-      "Ringo Starr"
+      "Ringo Starr",
     ]
     say_hi_to = ""
 
@@ -171,7 +171,7 @@ require "option_parser"
 ```console
 $ crystal run ./hello_goodbye.cr -- -g "Penny Lane"
 
-You say goodbye, and Ringo Starr say hello to Penny Lane!
+You say goodbye, and Ringo Starr says hello to Penny Lane!
 ```
 
 いい感じですね。アプリケーションが段々といい感じになってきました。ですが、**渡されたオプションを宣言していなかった場合、どうなるのでしょうか？**　例えば -n を渡してみましょう。
@@ -184,7 +184,7 @@ Unhandled exception: Invalid option: -n (OptionParser::InvalidOption)
 
 なんてことでしょう。これは壊れていますね。**無効なオプション**と**無効なパラメーター**が渡されたときの処理をする必要するがあります。2つの状況に応じて、`OptionParser`クラスは`#invalid_option`と`#missing_option`という2つメソッドを持っています。
 
-それでは、これらのオプションハンドラーを追加して、さらにこれまでに作った2つのCLI アプリケーションをまとめて、1つのファビュラスな CLI アプリケーションにしましょう。
+So, let's add this option handler and merge all these CLI applications into one fabulous CLI application!
 
 #### All My CLI: 完成した CLI アプリケーション
 
@@ -198,7 +198,7 @@ require "option_parser"
       "John Lennon",
       "Paul McCartney",
       "George Harrison",
-      "Ringo Starr"
+      "Ringo Starr",
     ]
     shout = false
     say_hi_to = ""
@@ -265,22 +265,22 @@ require "option_parser"
 
 !!!example "let_it_cli.cr"
 ```crystal
-puts "Welcome to The Beatles Sing Along version 1.0!"
+puts "Welcome to The Beatles Sing-Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
 user_input = gets
 puts "The Beatles are singing: 🎵#{user_input}🎶🎸🥁"
 ```
 
-[`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) メソッドはアプリケーションの実行を、ユーザーの入力が終了する (`Enter` が押される) まで**停止**させます。
+The method [`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) will **pause** the execution of the application until the user finishes entering the input (pressing the `Enter` key).
 ユーザーが`Enter`を押すと、実行が再開して`user_input`にユーザーの入力した値が入ります。
 
-しかし、ここでユーザーが何も入力しなかったらどうなるのでしょう？　この場合は、空文字列 (ユーザーが `Enter`を押した場合) もしくは `Nil` 値 (`Ctrl+D`によって入力ストリームを閉じた場合) が返ります。
-これがどういう問題なのか説明するために、入力された値を叫ばせて (大文字にして表示して) みましょう。
+But what happens if the user doesn’t enter any value? In that case, we would get an empty string (if the user only presses `Enter`) or maybe a `Nil` value (if the input stream is closed, e.g. by pressing `Ctrl+D`).
+To illustrate the problem let’s try the following: we want the input entered by the user to be sung loudly:
 
 !!!example "let_it_cli.cr"
 ```crystal
-puts "Welcome to The Beatles Sing Along version 1.0!"
+puts "Welcome to The Beatles Sing-Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
 user_input = gets
@@ -300,12 +300,12 @@ In let_it_cli.cr:5:46
 Error: undefined method 'upper_case' for Nil (compile-time type is (String | Nil))
 ```
 
-つまり、こういうことです。ユーザーの入力した値の型は `String | Nil` という[ユニオン型](https://crystal-lang.org/reference/syntax_and_semantics/type_grammar.html)なのです。
+つまり、こういうことです。ユーザーの入力した値の型は`String | Nil`という[ユニオン型](../syntax_and_semantics/type_grammar.md)なのです。
 というわけで、`Nil`もしくは`""` (空文字列) かをチェックして、自然に動作するようにしましょう。
 
 !!!example "let_it_cli.cr"
 ```crystal
-puts "Welcome to The Beatles Sing Along version 1.0!"
+puts "Welcome to The Beatles Sing-Along version 1.0!"
 puts "Enter a phrase you want The Beatles to sing"
 print "> "
 user_input = gets
@@ -313,8 +313,8 @@ user_input = gets
     exit if user_input.nil?# Ctrl+D
 
     default_lyrics = "Na, na, na, na-na-na na" \
-                    " / " \
-                    "Na-na-na na, hey Jude"
+                     " / " \
+                     "Na-na-na na, hey Jude"
 
     lyrics = user_input.presence || default_lyrics
 
@@ -328,7 +328,7 @@ user_input = gets
 
 これを達成するために [`Colorize`](https://crystal-lang.org/api/latest/Colorize.html) モジュールを使いたいと思います。
 
-色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。黒い背景に黄色の文字で表示します。
+色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。We will use a yellow font on a black background:
 
 !!!example "yellow_cli.cr"
 ```crystal
@@ -340,7 +340,7 @@ require "colorize"
 いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？ (it's easy if you try?)
 
 ```crystal
-  parser.banner = "#{"The Beatles".colorize(:yellow).on(:black)} App"
+parser.banner = "#{"The Beatles".colorize(:yellow).on(:black)} App"
 ```
 
 ユーザーの入力を受け取る方のアプリケーションに、今回は`blink` (点滅)という*テキストの装飾*を追加してみましょう。
@@ -349,7 +349,7 @@ require "colorize"
 ```crystal
 require "colorize"
 
-    puts "Welcome to The Beatles Sing Along version 1.0!"
+    puts "Welcome to The Beatles Sing-Along version 1.0!"
     puts "Enter a phrase you want The Beatles to sing"
     print "> "
     user_input = gets
@@ -357,8 +357,8 @@ require "colorize"
     exit if user_input.nil?# Ctrl+D
 
     default_lyrics = "Na, na, na, na-na-na na" \
-                    " / " \
-                    "Na-na-na na, hey Jude"
+                     " / " \
+                     "Na-na-na na, hey Jude"
 
     lyrics = user_input.presence || default_lyrics
 
@@ -372,16 +372,16 @@ require "colorize"
 
 ## テスト
 
-他の多くのアプリケーションがそうしているように、異なる機能ごとに[テストを書きたい](../guides/testing.md)ものです。
+As with any other application, at some point, we would like to [write tests](../guides/testing.md) for the different features.
 
-現時点ではアプリケーションの各ロジックは`OptionParser`の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。このリファクタリングが済めば、あるロジックのテストに必要なコードを含むファイルだけをテストのコードに取り込んで、ロジックのテストをはじめることができるでしょう。これを読者の課題とします。.
+現時点ではアプリケーションの各ロジックは`OptionParser`の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。Once the refactoring is done, we could start testing the logic and including the file with the logic in the testing files we need. これを読者の課題とします。.
 
 ## `Readline`と`NCurses`の利用
 
 よりリッチなCLI アプリケーションを構築しようと思ったとき、これらのライブラリが助けになります。`Readline`と`NCurses`という、2つのよく知られたライブラリです。
 
 [GNU Readline Library](http://www.gnu.org/software/readline/) で述べられているように、`Readline` はユーザーに対してコマンドライン編集機能を提供します。
-`Readline`は、ファイル名補完などの自動補完、キーバインディングのカスタマイズなど、様々な機能を持っています。それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
+`Readline` has some great features: filename autocompletion out of the box; custom auto-completion method; keybinding, just to mention a few. それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
 
 続いて、`NCurses`(New Curses) の紹介です。このライブラリは端末で_グラフィカルな_ユーザーインターフェースを開発することを可能にします。その名前が暗に示すように、これは`Curses`というライブラリの改良版です。`Curses` は Rouge というテキストベースのダンジョン探索アドベンチャーゲームのために開発されました。
 想像してみてください。`NCurses` Crystal で使うには[いくつもの shardls](https://crystalshards.org/shards/search?q=ncurses)がエコシステムには存在しています。

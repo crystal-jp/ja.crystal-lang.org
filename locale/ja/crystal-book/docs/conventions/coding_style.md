@@ -4,7 +4,7 @@
 
 ## 命名
 
-__型の名前__ はキャメルケースとします。例をあげます。
+__Type names__ are PascalCased. 例をあげます。
 
 ```crystal
 class ParseError < Exception
@@ -27,7 +27,7 @@ enum Time::DayOfWeek
 end
 ```
 
-__メソッド名__ はアンダースコア区切りとします。例をあげます。
+__Method names__ are snake_cased. 例をあげます。
 
 ```crystal
 class Person
@@ -42,7 +42,7 @@ class Person
 end
 ```
 
-__変数名__ はアンダースコア区切りとします。例をあげます。
+__Variable names__ are snake_cased. 例をあげます。
 
 ```crystal
 class Greeting
@@ -58,7 +58,7 @@ class Greeting
 end
 ```
 
-__定数__ はすべて大文字とします。例をあげます。
+__Constants__ are SCREAMING_SNAKE_CASED. 例をあげます。
 
 ```crystal
 LUCKY_NUMBERS     = [3, 7, 11]
@@ -69,7 +69,7 @@ DOCUMENTATION_URL = "http://crystal-lang.org/docs"
 
 クラス名では、頭字語は _すべて大文字_ とします。例えば、`HTTP` や `LibXML` などです。
 
-メソッド名では、頭字語は _すべて小文字_ とします。 例えば、`#from_json` や `#to_io` などです。
+メソッド名では、頭字語は _すべて小文字_ とします。 For example `#from_json`, `#to_io`.
 
 ### ライブラリ (Lib)
 
@@ -84,11 +84,11 @@ DOCUMENTATION_URL = "http://crystal-lang.org/docs"
 - `spec/` には `crystal spec` によって実行できる、[プロジェクトの spec](../guides/testing.md) を配置します。
 - `bin/`には実行可能ファイルを配置します。
 
-ファイルパスは、そのファイルの内容の名前空間と一致するようにします。ファイル名は、そこで定義されるクラス名や名前空間にしたがって、 _アンダースコア区切り_ で命名します。
+ファイルパスは、そのファイルの内容の名前空間と一致するようにします。Files are named after the class or namespace they define, with *snake_case*.
 
 例えば、`HTTP::WebSocket` は `src/http/web_socket.cr` で定義されています。
 
-## 空白 (Whitespace)
+## Indentation
 
 名前空間やメソッド、ブロックやその他のネストされた内容をインデントするには __スペース2つ__ を使用してください。例をあげます。
 

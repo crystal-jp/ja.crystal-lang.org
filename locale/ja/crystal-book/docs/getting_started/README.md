@@ -2,7 +2,7 @@
 
 Crystal のリファレンスにようこそ！
 
-はじめに、正しく[コンパイラをインストール](https://ja.crystal-lang.org/install/)して、それから以降の例に臨んでください。
+First, let's make sure to [install the compiler](https://crystal-lang.org/install/) so that we may try all the examples listed in this book.
 
 インストールが済んでいれば、`crystal` というコマンドでコンパイラを利用できます。
 
@@ -40,7 +40,7 @@ Command:
     help, --help, -h         show this help
     version, --version, -v   show version
 
-Run a command followed by --help to see command specific information, ex:
+Run a command followed by --help to see command-specific information, ex:
     crystal <command> --help
 ```
 
@@ -64,6 +64,8 @@ Hello World!
 
 !!!note
     メインの処理は単純にプログラム自身となります。"main" 関数のような関数を定義する必要はありません。
+
+Next you might want to start with the [Introduction Tour](../tutorials/basics/README.md) to get acquainted with the language.
 
 最初の Crystal プログラムとして、次の2つの例を用意してあります。
 

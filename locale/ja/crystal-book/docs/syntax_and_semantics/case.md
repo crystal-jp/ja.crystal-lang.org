@@ -107,7 +107,7 @@ caseの式にタプルリテラルで、`when`の条件式もタプルリテラ�
 
 ### タプルの大きさは等しい必要があります
 
-```crystal
+```{.crystal nocheck}
 case {value1, value2}
 when {0, 0} # 大きさが2で等しいのでOK
   # ...
