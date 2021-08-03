@@ -2251,18 +2251,24 @@
                 
                 
                 <h1 id="offsetof">offsetof<a class="headerlink" href="#offsetof" title="Permanent link">&para;</a></h1>
-<p><code>offsetof</code> はクラスや構造体のインスタンス変数のバイトオフセットを返します。最初の引数に型を受け取り、2番目に引数には <code>@</code> からはじまるインスタンス変数を受け取ります。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="n">offsetof</span><span class="p">(</span><span class="n">Type</span><span class="p">,</span> <span class="vi">@ivar</span><span class="p">)</span>
-</code></pre></div>
-<p>これは低レベルプリミティブで、C 言語の API が Crystal の型のデータレイアウトを必要とする場合に限って有用です。</p>
-<p>例:</p>
+<p>An <code>offsetof</code> expression returns the byte offset of a field in an instance of a class or struct.</p>
+<p>There are two forms of <code>offsetof</code> expressions. The first form accepts any type as first argument and an instance variable name prefixed by an <code>@</code> as second argument, and returns the byte offset of that instance variable relative to an instance of the given type:</p>
 <div class="crystal highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Foo</span>
   <span class="vi">@x</span> <span class="o">=</span> <span class="err">0</span><span class="n">_i64</span>
-  <span class="vi">@y</span> <span class="o">=</span> <span class="mi">34_i32</span>
+  <span class="vi">@y</span> <span class="o">=</span> <span class="mi">34_i8</span>
+  <span class="vi">@z</span> <span class="o">=</span> <span class="mi">42_u16</span>
 <span class="k">end</span>
 
+<span class="n">offsetof</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="vi">@x</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
 <span class="n">offsetof</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="vi">@y</span><span class="p">)</span> <span class="c1"># =&gt; 8</span>
+<span class="n">offsetof</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="vi">@z</span><span class="p">)</span> <span class="c1"># =&gt; 10</span>
 </code></pre></div>
+<p>The second form accepts any <a href="https://crystal-lang.org/api/latest/Tuple.html"><code>Tuple</code></a> instance type as first argument and an integer literal index as second argument, and returns the byte offset of the corresponding tuple element relative to an instance of the given type:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">offsetof</span><span class="p">(</span><span class="nb">Tuple</span><span class="p">(</span><span class="nb">Int64</span><span class="p">,</span> <span class="nb">Int8</span><span class="p">,</span> <span class="nb">UInt16</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># =&gt; 0</span>
+<span class="n">offsetof</span><span class="p">(</span><span class="nb">Tuple</span><span class="p">(</span><span class="nb">Int64</span><span class="p">,</span> <span class="nb">Int8</span><span class="p">,</span> <span class="nb">UInt16</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; 8</span>
+<span class="n">offsetof</span><span class="p">(</span><span class="nb">Tuple</span><span class="p">(</span><span class="nb">Int64</span><span class="p">,</span> <span class="nb">Int8</span><span class="p">,</span> <span class="nb">UInt16</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># =&gt; 10</span>
+</code></pre></div>
+<p>これは低レベルプリミティブで、C 言語の API が Crystal の型のデータレイアウトを必要とする場合に限って有用です。</p>
                 
               
               

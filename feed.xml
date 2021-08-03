@@ -7,6 +7,32 @@
     <atom:link href="https://ja.crystal-lang.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Crystal 1.1.1 is released!</title>
+        <description>&lt;p&gt;We are releasing the first patch release of the &lt;a href=&quot;https://crystal-lang.org/2021/07/16/1.1.0-released.html&quot;&gt;1.1&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.1.1&quot;&gt;9 PRs since the 1.1.0 release&lt;/a&gt; by 2 contributors. This time we’d like to thank the developers that suffered and issued the regressions ❤️ Sorry about that!&lt;/p&gt;
+
+&lt;p&gt;There are just two relevant changes to point out:&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;p&gt;We had to revert the name of the top-level module. Prior to 1.1.0 it was &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;, but since we created a new accessor called &lt;a href=&quot;https://crystal-lang.org/reference/syntax_and_semantics/macros/index.html#the-top-level-module&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@top_level&lt;/code&gt;&lt;/a&gt;, we thought we should call it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;top_level&lt;/code&gt; too. Unfortunately that broke a shard, so we revert it to its former name (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10993&quot;&gt;#10993&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;stdlib&quot;&gt;Stdlib&lt;/h2&gt;
+
+&lt;p&gt;As we mentioned in the &lt;a href=&quot;https://crystal-lang.org/2021/07/16/1.1.0-released.html&quot;&gt;1.1.0 release&lt;/a&gt;, we started adding type information to methods of the stdlib, for documentation and better error reporting. Unfortunately, a few annotations were too restrictive and broke existing shards: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array#index&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array#rindex&lt;/code&gt; return types were erased (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10972&quot;&gt;10972&lt;/a&gt;).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Jul 2021 00:00:00 +0000</pubDate>
+        <link>https://ja.crystal-lang.org/2021/07/27/1.1.1-released.html</link>
+        <guid isPermaLink="true">https://ja.crystal-lang.org/2021/07/27/1.1.1-released.html</guid>
+      </item>
+    
+      <item>
         <title>Crystal 1.1.0 is released!</title>
         <description>&lt;p&gt;We are releasing the first post-1.0 release, making efforts to keep our promise of making regular releases each 3 months, a bit delayed because of the &lt;a href=&quot;/conference&quot;&gt;conference&lt;/a&gt;, and with special focus on keeping the language stability. Below we list the most important or interesting changes, without mentioning the several bugfixes. For details visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.1.0&quot;&gt;release’s notes&lt;/a&gt;.&lt;/p&gt;
 
@@ -696,93 +722,6 @@ It was also unimaginable that such a generous community would form around Crysta
         <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
         <link>https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html</link>
         <guid isPermaLink="true">https://ja.crystal-lang.org/2021/01/26/crystal-0.36.0-released.html</guid>
-      </item>
-    
-      <item>
-        <title>Raw Crystal 2020</title>
-        <description>&lt;p&gt;先週、Raw Crystal 2020 の第一段が開催されました。すべてのスピーカーのみなさんと参加者のみなさん、そしてこのイベントを現実のものにしてくださった Lorenzo Barasti さんに感謝いたします。この取り組みに貢献できたこと光栄に思います。そして、再びみなさんに会えることを願っています。&lt;/p&gt;
-
-&lt;p&gt;今回、Zoom と YouTube をストリーミングに利用しました。当日は最大 160 人の閲覧者がいて、各発表には最低でも 30 人は参加していました。&lt;/p&gt;
-
-&lt;h2 id=&quot;ビデオ-&quot;&gt;ビデオ 🍿&lt;/h2&gt;
-
-&lt;iframe width=&quot;840&quot; height=&quot;473&quot; src=&quot;https://www.youtube.com/embed/videoseries?list=PLfpFq_WLOW__RIIyWvTgYV4bw2cpav2mJ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot;margin: 0 auto; max-width: 100%;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h2 id=&quot;オーディエンス&quot;&gt;オーディエンス&lt;/h2&gt;
-
-&lt;p&gt;イベントの最中に、Zoom の投票機能を使っていくつかの質問を行いました。集計結果を見てみましょう。&lt;/p&gt;
-
-&lt;table class=&quot;bordered no-underline&quot; style=&quot;width: auto; margin: 0 auto;&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;地域&lt;/th&gt;&lt;th&gt;数&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;アジア&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;4&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;オーストラリア&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;ヨーロッパ&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;50&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;北アメリカ&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;33&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;南アメリカ&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;8&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;合計&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;96&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table class=&quot;bordered no-underline&quot; style=&quot;width: auto; margin: 0 auto;&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;年齢&lt;/th&gt;&lt;th&gt;数&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;16以下&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;16 - 19&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;20 - 24&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;5&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;25 - 34&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;27&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;35 - 44&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;49&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;45 - 54&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;8&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;55以上&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;5&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;合計&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;96&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;参加者のプログラミング背景についての2つの質問の結果を見てみましょう。&lt;/p&gt;
-
-&lt;table class=&quot;bordered no-underline&quot; style=&quot;width: auto; margin: 0 auto;&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;ここ6ヶ月で最も利用したプログラミング言語&lt;/th&gt;&lt;th&gt;数&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;C/C++&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;6&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;8&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Go&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Javascript&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;5&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Java, Scala, Clojure, Kotlin&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;2&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Python&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;2&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Ruby&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;20&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Rust&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;その他&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;合計&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;46&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table class=&quot;bordered no-underline&quot; style=&quot;width: auto; margin: 0 auto;&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;どれくらいの期間 Crystal を利用してきたか/知っていたか？&lt;/th&gt;&lt;th&gt;数&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;1ヶ月未満&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;2&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;6ヶ月未満&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;6&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;1年未満&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;7&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;3年未満&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;19&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;3年以上&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;12&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;合計&lt;/td&gt;&lt;td class=&quot;center&quot;&gt;46&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
-        <link>https://ja.crystal-lang.org/2020/12/16/raw-crystal-2020.html</link>
-        <guid isPermaLink="true">https://ja.crystal-lang.org/2020/12/16/raw-crystal-2020.html</guid>
       </item>
     
   </channel>

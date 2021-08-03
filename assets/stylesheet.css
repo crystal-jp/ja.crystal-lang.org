@@ -7468,6 +7468,7 @@ table.no-underline a {
   padding-bottom: 30px; }
   @media only screen and (max-width: 768px) {
     .header-section {
+      min-height: 265px;
       padding-bottom: 45px; } }
   .header-section .title {
     color: #000000;
@@ -7535,7 +7536,7 @@ table.no-underline a {
       text-align: inherit; } }
 @media only screen and (max-width: 600px) {
   .wrapper .header-section .title {
-    font-size: 3.4rem; }
+    font-size: 2.8rem; }
   .wrapper nav a.button-collapse i {
     font-size: 1.8rem;
     line-height: 72px; }
@@ -8276,14 +8277,22 @@ code.highlighter-rouge {
     color: #ffffff;
     font-size: 32px;
     margin-bottom: 40px; }
-  .main .header-section p.main-actions .btn {
-    margin-right: 15px; }
-.main.conference nav {
+.main p.main-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  @media only screen and (min-width: 601px) {
+    .main p.main-actions {
+      flex-direction: row; } }
+  .main p.main-actions .btn {
+    margin: 8px; }
+.main nav {
   background-color: transparent;
   border: none; }
-  .main.conference nav ul#nav-desktop li a {
+  .main nav ul#nav-desktop li a {
     color: #ffffff; }
-  .main.conference nav a.button-collapse {
+  .main nav a.button-collapse {
     color: #ffffff; }
 .main:not(.conference) nav {
   background-color: transparent;
