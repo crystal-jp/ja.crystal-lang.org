@@ -27,7 +27,7 @@ $ crystal -v
 
 ここで「**オプションの解析部分を実装する必要がある？**」と疑問を持つことでしょう。その必要はありません。Crystal では`OptionParser`がその機能を提供しています。それではこのパーサーを使ったアプリケーションを作ってみましょう。
 
-At the start our CLI application has two options:
+まずは次の2つのオプションを持つCLIアプリケーションです:
 
 * `-v` / `--version`: アプリケーションのバージョンを表示する。
 * `-h` / `--help`: アプリケーションの利用方法を表示する。
@@ -48,7 +48,7 @@ require "option_parser"
         exit
       end
     end
-    ```
+```
 
 さて、これがどうやって動作するというのでしょうか？　それは……魔法のように！　いえいえ、実のところ魔法ではないのです。実装が簡単になったのは Crystal のおかげです。
 プログラムが開始すると、まず`OptionParser#parse`に渡されたブロックが実行されます。このブロックですべてのオプションを定義しています。ブロックが実行されたのち、オプションパーサーがアプリケーションに渡された引数を処理して、定義したオプションにマッチするかを確認します。ここで、オプションがマッチしたときに、`parser#on`に渡されたブロックが実行される、というわけです。
@@ -111,11 +111,11 @@ require "option_parser"
     members.each do |member|
       puts member
     end
-    ```
+```
 
-    `-t` をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。
+`-t` をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。
 
-    ```console
+```console
     $ crystal run ./twist_and_shout.cr -- -t
 
     Group members:
@@ -124,11 +124,11 @@ require "option_parser"
     PAUL MCCARTNEY
     GEORGE HARRISON
     RINGO STARR
-    ```
+```
 
 #### オプションのパラメーター
 
-次はこんなアプリケーションを作ってみましょう。_`-g` / `--goodbye_hello`オプションが与えられたときに、**オプションのパラメーター**として渡された名前に挨拶をする_。
+次はこんなアプリケーションを作ってみましょう。_`-g` / `--goodbye_hello`オプションが与えられたときに、**オプションのパラメーター**として渡された名前に挨拶をします_。
 
 !!!example "hello_goodbye.cr"
 ```crystal
@@ -162,7 +162,7 @@ require "option_parser"
       puts ""
       puts "You say goodbye, and #{the_beatles.sample} says hello to #{say_hi_to}!"
     end
-    ```
+```
 
 この場合、ブロックにはオプションに与えられたパラメーターの値が渡されます。
 
@@ -184,7 +184,7 @@ Unhandled exception: Invalid option: -n (OptionParser::InvalidOption)
 
 なんてことでしょう。これは壊れていますね。**無効なオプション**と**無効なパラメーター**が渡されたときの処理をする必要するがあります。2つの状況に応じて、`OptionParser`クラスは`#invalid_option`と`#missing_option`という2つメソッドを持っています。
 
-So, let's add this option handler and merge all these CLI applications into one fabulous CLI application!
+それでは、これらのオプションハンドラーを追加して、すべてを1つのすばらしいCLIアプリケーションにマージしましょう。
 
 #### All My CLI: 完成した CLI アプリケーション
 
@@ -256,7 +256,7 @@ require "option_parser"
       puts ""
       puts "You say goodbye, and I say hello to #{say_hi_to}!"
     end
-    ```
+```
 
 ### ユーザーへの入力の要求
 
@@ -272,11 +272,10 @@ user_input = gets
 puts "The Beatles are singing: 🎵#{user_input}🎶🎸🥁"
 ```
 
-The method [`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method) will **pause** the execution of the application until the user finishes entering the input (pressing the `Enter` key).
-ユーザーが`Enter`を押すと、実行が再開して`user_input`にユーザーの入力した値が入ります。
+メソッド[`gets`](https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method)は、ユーザーが入力を完了する(Enterキーを押す)まで、アプリケーションの実行を一時停止します。ユーザーが`Enter`を押すと、実行が再開して`user_input`にユーザーの入力した値が入ります。
 
-But what happens if the user doesn’t enter any value? In that case, we would get an empty string (if the user only presses `Enter`) or maybe a `Nil` value (if the input stream is closed, e.g. by pressing `Ctrl+D`).
-To illustrate the problem let’s try the following: we want the input entered by the user to be sung loudly:
+しかし、ユーザーが何も入力しなかった場合はどうなるでしょうか？ この場合、空の文字列(ユーザーが`Enter`だけ入力した場合)か、`Nil`値が(インプットがクローズされた場合、例えば`Ctrl+D`を押された)を取得されます。
+この場合の問題を説明するために次のようにしてみましょう。ユーザーが入力した文字を大文字にしてみます:
 
 !!!example "let_it_cli.cr"
 ```crystal
@@ -319,7 +318,7 @@ user_input = gets
     lyrics = user_input.presence || default_lyrics
 
     puts "The Beatles are singing: 🎵#{lyrics.upcase}🎶🎸🥁"
-    ```
+```
 
 ## 出力
 
@@ -328,16 +327,16 @@ user_input = gets
 
 これを達成するために [`Colorize`](https://crystal-lang.org/api/latest/Colorize.html) モジュールを使いたいと思います。
 
-色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。We will use a yellow font on a black background:
+色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。黒の背景に黄色のフォントを使用します:
 
 !!!example "yellow_cli.cr"
 ```crystal
 require "colorize"
 
     puts "#{"The Beatles".colorize(:yellow).on(:black)} App"
-    ```
+```
 
-いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？ (it's easy if you try?)
+いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？(「案ずるより産むが易し」ですよ！)
 
 ```crystal
 parser.banner = "#{"The Beatles".colorize(:yellow).on(:black)} App"
@@ -363,7 +362,7 @@ require "colorize"
     lyrics = user_input.presence || default_lyrics
 
     puts "The Beatles are singing: #{"🎵#{lyrics}🎶🎸🥁".colorize.mode(:blink)}"
-    ```
+```
 
 生まれ変わったアプリケーションを試してみてください……そして、違いを_聴き取って_ください。
 **今**、私たちは2つのファビュラスなアプリケーションを実装したのです。
@@ -372,16 +371,16 @@ require "colorize"
 
 ## テスト
 
-As with any other application, at some point, we would like to [write tests](../guides/testing.md) for the different features.
+他のアプリケーションと同じように、ある時点で、さまざまな機能の[テスト](../guides/testing.md)を書きたいと思うでしょう。
 
-現時点ではアプリケーションの各ロジックは`OptionParser`の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。Once the refactoring is done, we could start testing the logic and including the file with the logic in the testing files we need. これを読者の課題とします。.
+現時点ではアプリケーションの各ロジックは`OptionParser`の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。リファクタリングが完了したら、ロジックのテストを開始し、必要なテストファイルにロジックを含むファイルを含めることができます。これは読者の課題としましょう。
 
 ## `Readline`と`NCurses`の利用
 
 よりリッチなCLI アプリケーションを構築しようと思ったとき、これらのライブラリが助けになります。`Readline`と`NCurses`という、2つのよく知られたライブラリです。
 
 [GNU Readline Library](http://www.gnu.org/software/readline/) で述べられているように、`Readline` はユーザーに対してコマンドライン編集機能を提供します。
-`Readline` has some great features: filename autocompletion out of the box; custom auto-completion method; keybinding, just to mention a few. それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
+`Readline` は素晴らしく強力な機能があります。ボックス外でのファイル名の自動補完; 自動補完方法のカスタマイズ; キーバインド変更というのはほんの一例です。それらの機能を使いたいのであれば [crystal-lang/crystal-readline](https://github.com/crystal-lang/crystal-readline) shard が `Readline` を簡単に扱うための API を提供しています。
 
 続いて、`NCurses`(New Curses) の紹介です。このライブラリは端末で_グラフィカルな_ユーザーインターフェースを開発することを可能にします。その名前が暗に示すように、これは`Curses`というライブラリの改良版です。`Curses` は Rouge というテキストベースのダンジョン探索アドベンチャーゲームのために開発されました。
 想像してみてください。`NCurses` Crystal で使うには[いくつもの shardls](https://crystalshards.org/shards/search?q=ncurses)がエコシステムには存在しています。
