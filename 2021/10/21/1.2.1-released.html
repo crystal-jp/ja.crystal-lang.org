@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <title>Crystal 1.2.1 is released! - プログラミング言語 Crystal</title>
+    <meta charset='UTF-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Crystal 1.2.1 is released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Crystal 1.2.1 is released!" />
+<meta name="author" content="beta-ziliani" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are releasing the first patch release of the 1.2 series." />
+<meta property="og:description" content="We are releasing the first patch release of the 1.2 series." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="twitter:title" content="Crystal 1.2.1 is released!" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@beta-ziliani" />
+<script type="application/ld+json">
+{"dateModified":"2021-10-21T00:00:00+00:00","datePublished":"2021-10-21T00:00:00+00:00","headline":"Crystal 1.2.1 is released!","url":"https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html"},"image":"https://ja.crystal-lang.org/assets/icon.png","author":{"@type":"Person","name":"beta-ziliani"},"description":"We are releasing the first patch release of the 1.2 series.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"},"name":"beta-ziliani"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+ <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <!-- <div class="top-banner">
+  <a href="https://www.eventbrite.co.uk/e/raw-crystal-2020-tickets-127439094763" target="_blank">
+    <span class="tb-title">RAW CRYSTAL<span class="tb-thin"> | 2020</span></span>
+    <span class="tb-gap"></span>
+    <span class="tb-date">Dec 11</span>
+    <span class="tb-register">REGISTER AT <em>Eventbrite</em></span>
+  </a>
+</div>
+ -->
+    <div class="wrapper "><nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+   <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/beta-ziliani.jpg" width="460" height="460" alt="authors/beta-ziliani.jpg">
+          
+          
+            <span class="author_name">Beta Ziliani</span>
+          
+          
+          
+            <span class="date">2 weeks and 3 days ago</span>
+          
+        </div>
+
+        <h1 class='title'>Crystal 1.2.1 is released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+  <main><div class="container">
+  <div class="row post-layout">
+    <div class="col m2 share">
+      <p class="title small share-title">Share</p>
+      <div class="share-list">
+        
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F10%2F21%2F1.2.1-released.html&text=Crystal+1.2.1+is+released%21&via=CrystalLanguage" target="_blank">
+          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F10%2F21%2F1.2.1-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+        </a>
+        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F10%2F21%2F1.2.1-released.html" target="_blank">
+          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+          </a>
+      </div>
+    </div>
+
+    <div class="col s12 m9">
+      <p>We are releasing the first patch release of the <a href="https://crystal-lang.org/2021/10/14/1.2.0-released.html">1.2</a> series.</p>
+
+<h2 id="stats">Stats</h2>
+
+<p>In this patch release we included <a href="https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.2.1">4 PRs since the 1.2.1 release</a> by 4 contributors. This time we’d like to thank the developers that suffered and issued the regressions ❤️ Sorry about that!</p>
+
+<p>There are just three relevant changes to point out:</p>
+
+<h2 id="fixes">Fixes</h2>
+
+<p>We had two major regression fixes. The first on is related to the introduction of <a href="https://github.com/icyleaf/markd/"><code class="language-plaintext highlighter-rouge">markd</code></a> to render the API docs (<a href="https://github.com/crystal-lang/crystal/pull/11040">#11040</a>). This lead to a <a href="https://github.com/crystal-lang/crystal/issues/11323">bug</a> that was fixed in a recent <code class="language-plaintext highlighter-rouge">markd</code> version (<a href="https://github.com/crystal-lang/crystal/pull/11338">#11338</a>).</p>
+
+<p>The second one is that class variables with a regex <a href="https://github.com/crystal-lang/crystal/issues/11318">stopped working</a> in 1.2.0. We fixed it in <a href="https://github.com/crystal-lang/crystal/pull/11334">#11334</a>.</p>
+
+<h2 id="llvm-13-support">LLVM 13 support</h2>
+
+<p>Not really a regression, but since LLVM 13 is already out and fixes several bugs that affected Crystal, we decided to start making it available in this patch release. As soon as your platform makes it available to you, you might want to check it out!</p>
+
+<hr />
+<p>We have been able to do all of this thanks to the continued support of <a href="https://www.84codes.com/">84codes</a>, <a href="https://nikolamotor.com/">Nikola Motor Company</a> and every other <a href="/sponsors">sponsor</a>. To maintain and increase the development pace, donations and sponsorships are essential. <a href="https://opencollective.com/crystal-lang">OpenCollective</a> is available for that. Reach out to <a href="mailto:crystal@manas.tech">crystal@manas.tech</a> if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!</p>
+
+    </div>
+    <div class="col m1"></div>
+  </div>
+</div>
+</main><footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -143,7 +143,70 @@
   <h1 class="distro-title">Fedora への</h1>
   <h1 class="center"><a href="/install">インストール</a></h1>
   <div class="row">
-    <div class="col offset-m1 m10 s12"><h2 id="snapcraft-を使う">Snapcraft を使う</h2>
+    <div class="col offset-m1 m10 s12"><p>Red Hat 系のディストリビューションでは、<a href="#official-crystal-rpm-repository">Crystal 公式の rpm リポジトリ</a>を利用してインストールできます。
+<a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
+
+<h2 id="crystal-公式の-rpm-リポジトリ">Crystal 公式の rpm リポジトリ</h2>
+
+<p><a href="https://build.opensuse.org">Open Build Service</a> でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash</code></pre></figure>
+
+</div>
+
+<p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--version</code> with <code class="language-plaintext highlighter-rouge">major.minor</code> or <code class="language-plaintext highlighter-rouge">latest</code> values</li>
+  <li><code class="language-plaintext highlighter-rouge">--channel</code> 引数では、<code class="language-plaintext highlighter-rouge">stable</code>、<code class="language-plaintext highlighter-rouge">unstable</code>、もしくは<code class="language-plaintext highlighter-rouge">nightly</code> の値を指定できます、</li>
+</ul>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">-fsSL</span> https://crystal-lang.org/install.sh | <span class="nb">sudo </span>bash <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">--channel</span><span class="o">=</span>nightly</code></pre></figure>
+
+</div>
+
+<p>より詳細な情報はこの<a href="/2021/04/30/new-apt-and-rpm-repositories.html">告知記事</a>を参照してください。</p>
+
+<h3 id="マニュアルセットアップ">マニュアルセットアップ</h3>
+
+<p>ディストリビューション名とリリース名を次のスクリプトの <code class="language-plaintext highlighter-rouge">{REPOSITORY}</code> に挿入することで、設定できます。
+有効なオプションの一覧は <a href="https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&amp;package=crystal">OBS のインストールページ</a> で確認できます。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cat</span> <span class="o">&gt;</span> /etc/yum.repos.d/crystal.repo &amp;lt<span class="p">;</span>&amp;lt<span class="p">;</span>END
+<span class="o">[</span>crystal]
+<span class="nv">name</span><span class="o">=</span>Crystal
+<span class="nb">type</span><span class="o">=</span>rpm-md
+<span class="nv">baseurl</span><span class="o">=</span>https://download.opensuse.org/repositories/devel:languages:crystal/<span class="o">{</span>REPOSITORY<span class="o">}</span>/
+<span class="nv">gpgcheck</span><span class="o">=</span>1
+<span class="nv">gpgkey</span><span class="o">=</span>https://download.opensuse.org/repositories/devel:languages:crystal/<span class="o">{</span>REPOSITORY<span class="o">}</span>/repodata/repomd.xml.key
+<span class="nv">enabled</span><span class="o">=</span>1
+END</code></pre></figure>
+
+</div>
+
+<p>リポジトリの設定が完了すれば、Crystal がインストールできます。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>yum <span class="nb">install </span>crystal</code></pre></figure>
+
+</div>
+
+<p>新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。</p>
+
+<div class="code_section">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>yum update crystal</code></pre></figure>
+
+</div>
+
+<h2 id="snapcraft-を使う">Snapcraft を使う</h2>
 
 <p>Crystal の snap は classic な制限環境下を要求します。<code class="language-plaintext highlighter-rouge">snapd</code> がインストールしてあれば、Crystal をインストールする準備は万端です。</p>
 
@@ -161,7 +224,7 @@
 
 <h2 id="linuxbrew-を使う">Linuxbrew を使う</h2>
 
-<p><a href="https://linuxbrew.sh">Linuxbrew</a> がインストールされていれば、Crystal をインストールする準備は万端です。</p>
+<p>If you have <a href="https://docs.brew.sh/Homebrew-on-Linux">Linuxbrew</a> installed you’re ready to install Crystal:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">brew update

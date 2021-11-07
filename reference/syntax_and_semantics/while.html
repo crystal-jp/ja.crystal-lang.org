@@ -2240,6 +2240,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    式としての if
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2264,7 +2271,6 @@
 <span class="k">end</span>
 </code></pre></div>
 <p>まず条件式に対して判定が行なわれて、<em>真であった</em>ときに本体が実行されます。これはつまり、本体が1度も実行されない場合もあるということです。</p>
-<p><code>while</code>の型が常に<code>Nil</code>です。</p>
 <p><code>if</code>のように、<code>while</code>の条件式が変数であった場合、本体ではその変数は<code>nil</code>ではないことが保証されます。条件式が<code>var.is_a?(Type)</code>という形なら、本体では<code>var</code>は<code>Type</code>型であることが保証されます。さらに、<code>var.responds_to?(:method)</code>という形なら、本体では<code>var</code>がそのメソッドを持つことが保証されます。</p>
 <p><code>while</code>を実行したあとの変数の型は、<code>while</code>以前の型と、<code>while</code>を抜ける直前の型によって決まります。</p>
 <div class="crystal highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2288,6 +2294,59 @@
   <span class="n">do_something</span>
   <span class="k">break</span> <span class="k">if</span> <span class="n">some_condition</span>
 <span class="k">end</span>
+</code></pre></div>
+<h2 id="if">式としての if<a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
+<p>The value of a <code>while</code> is the value of the <code>break</code> expression that exits the <code>while</code>'s body:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">break</span> <span class="s2">&quot;four&quot;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">4</span>
+  <span class="k">break</span> <span class="s2">&quot;three&quot;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">end</span>
+<span class="n">x</span> <span class="c1"># =&gt; &quot;three&quot;</span>
+</code></pre></div>
+<p>If the <code>while</code> loop ends normally (because its condition became false), the value is <code>nil</code>:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span>
+  <span class="k">break</span> <span class="mi">3</span>
+<span class="k">end</span>
+<span class="n">x</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p><code>break</code> expressions with no arguments also return <code>nil</code>:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
+  <span class="k">break</span>
+<span class="k">end</span>
+<span class="n">x</span> <span class="c1"># =&gt; nil</span>
+</code></pre></div>
+<p><code>break</code> expressions with multiple arguments are packed into <a href="https://crystal-lang.org/api/latest/Tuple.html"><code>Tuple</code></a> instances:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
+  <span class="k">break</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
+<span class="k">end</span>
+<span class="n">x</span>         <span class="c1"># =&gt; {3, 4}</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Tuple(Int32, Int32)</span>
+</code></pre></div>
+<p>The type of a <code>while</code> is the union of the types of all <code>break</code> expressions in the body, plus <code>Nil</code> because the condition can fail:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span>
+  <span class="k">if</span> <span class="nb">rand</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+    <span class="k">break</span> <span class="mi">3</span>
+  <span class="k">else</span>
+    <span class="k">break</span> <span class="sc">&#39;4&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; (Char | Int32 | Nil)</span>
+</code></pre></div>
+<p>However, if the condition is exactly the <code>true</code> literal, then its effect is excluded from the return value and return type:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="kc">true</span>
+  <span class="k">break</span> <span class="mi">1</span>
+<span class="k">end</span>
+<span class="n">x</span>         <span class="c1"># =&gt; 1</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; Int32</span>
+</code></pre></div>
+<p>In particular, a <code>while true</code> expression with no <code>break</code>s has the <code>NoReturn</code> type, since the loop can never be exited in the same scope:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="k">while</span> <span class="kc">true</span>
+  <span class="nb">puts</span> <span class="s2">&quot;yes&quot;</span>
+<span class="k">end</span>
+<span class="n">x</span>         <span class="c1"># unreachable</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># =&gt; NoReturn</span>
 </code></pre></div>
                 
               

@@ -2225,6 +2225,116 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying-flags" class="md-nav__link">
+    Querying flags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-provided-flags" class="md-nav__link">
+    Compiler-provided flags
+  </a>
+  
+    <nav class="md-nav" aria-label="Compiler-provided flags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-platform-flags" class="md-nav__link">
+    Target platform flags
+  </a>
+  
+    <nav class="md-nav" aria-label="Target platform flags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor" class="md-nav__link">
+    Vendor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    Operating System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abi" class="md-nav__link">
+    ABI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiler-options" class="md-nav__link">
+    Compiler options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-provided-flags" class="md-nav__link">
+    User-provided flags
+  </a>
+  
+    <nav class="md-nav" aria-label="User-provided flags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdlib-features" class="md-nav__link">
+    Stdlib features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiler-features" class="md-nav__link">
+    Compiler features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-code-features" class="md-nav__link">
+    User code features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2241,37 +2351,273 @@
                 
                 
                 <h1 id="_1">コンパイル時のフラグ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>型やメソッドなど、基本的にはコードのどの部分であっても、コンパイル時に指定可能なフラグによる条件に応じて定義することが可能です。デフォルトではホストの <a href="http://llvm.org/docs/LangRef.html#target-triple">LLVM ターゲットトリプル</a> を <code>-</code> で区切ったものがフラグとなります。実際のターゲットを得るには <code>llvm-config --host-target</code> を実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> llvm-config --host-target
-<span class="go">x86_64-unknown-linux-gnu</span>
-
-<span class="gp">#</span> よって、フラグは x86_64, unknown, linux, gnu となります
-</code></pre></div>
-<p>フラグを定義するには、<code>--define</code> もしくは <code>-D</code> オプションを使います。</p>
-<div class="highlight"><pre><span></span><code>crystal some_program.cr -Dflag
-</code></pre></div>
-<p>また、<code>--release</code> オプションをつけてプログラムをコンパイルqした場合には <code>release</code> フラグが有効になります。</p>
-<p>フラグが定義されているかどうかは <code>flag?</code> マクロメソッドを使うことで確認できます。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="si">{%</span> <span class="k">if</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:x86_64</span><span class="p">)</span> <span class="si">%}</span>
-  <span class="c1"># 64ビットプラットフォーム固有のコード</span>
+<p>Compile-time flags are boolean values provided through the compiler via a macro method.
+They allow to conditionally include or exclude code based on compile time conditions.</p>
+<p>There are several default flags provided by the compiler with information about compiler options and the target platform.
+User-provided flags are passed to the compiler, which allow them to be used as feature flags.</p>
+<h2 id="querying-flags">Querying flags<a class="headerlink" href="#querying-flags" title="Permanent link">&para;</a></h2>
+<p>A flag is just a named identifier which is either set or not.
+The status can be queried from code via the macro method <a href="https://crystal-lang.org/api/1.2.1/Crystal/Macros.html#flag%3F%28name%29%3ABoolLiteral-instance-method"><code>flag?</code></a>. It receives the name of a flag as a string or symbol
+literal and returns a bool literal indicating the flag's state.</p>
+<p>The following program shows the use of compile-time flags by printing the target OS family.</p>
+<div class="highlight"><pre><span></span><code><span class="si">{%</span> <span class="k">if</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:unix</span><span class="p">)</span> <span class="si">%}</span>
+  <span class="nb">puts</span> <span class="s2">&quot;This program is compiled for a UNIX-like operating system&quot;</span>
+<span class="si">{%</span> <span class="k">elsif</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:windows</span><span class="p">)</span> <span class="si">%}</span>
+  <span class="nb">puts</span> <span class="s2">&quot;This program is compiled for Windows&quot;</span>
 <span class="si">{%</span> <span class="k">else</span> <span class="si">%}</span>
-  <span class="c1"># 64ビットでないプラットフォームに固有のコード</span>
+  <span class="c1"># Currently, all supported targets are either UNIX or Windows platforms, so</span>
+  <span class="c1"># this branch is practically unreachable.</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Compiling for some other operating system&quot;</span>
 <span class="si">{%</span> <span class="k">end</span> <span class="si">%}</span>
 </code></pre></div>
-<p><code>flag?</code> は真偽値を返すので、<code>&amp;&amp;</code> や<code>||</code> を使うこともできます。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="si">{%</span> <span class="k">if</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:linux</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:x86_64</span><span class="p">)</span> <span class="si">%}</span>
-  <span class="c1"># Linux で64ビットの場合に固有のコード</span>
-<span class="si">{%</span> <span class="k">end</span> <span class="si">%}</span>
+<p>There's also the macro method <a href="https://crystal-lang.org/api/1.2.1/Crystal/Macros.html#host_flag%3F%28name%29%3ABoolLiteral-instance-method"><code>host_flag?</code></a>
+which returns whether a flag is set for the <em>host</em> platform, which can differ
+from the target platform (queried by <code>flag?</code>) during cross-compilation.</p>
+<h2 id="compiler-provided-flags">Compiler-provided flags<a class="headerlink" href="#compiler-provided-flags" title="Permanent link">&para;</a></h2>
+<p>The compiler defines a couple of implicit flags. They describe either the target platform or compiler options.</p>
+<h3 id="target-platform-flags">Target platform flags<a class="headerlink" href="#target-platform-flags" title="Permanent link">&para;</a></h3>
+<p>Platform-specific flags derive from the <a href="http://llvm.org/docs/LangRef.html#target-triple">target triple</a>.
+See <a href="../platform_support.html">Platform Support</a> for a list of supported target platforms.</p>
+<p><code>crystal --version</code> shows the default target triple of the compiler. It can be changed with the <code>--target</code> option.</p>
+<p>The flags in each of the following tables are mutually exclusive, except for those marked as <em>(derived)</em>.</p>
+<h4 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h4>
+<p>The target architecture is the first component of the target triple.</p>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aarch64</code></td>
+<td>AArch64 architecture</td>
+</tr>
+<tr>
+<td><code>arm</code></td>
+<td>ARM architecture</td>
+</tr>
+<tr>
+<td><code>i386</code></td>
+<td>x86 architecture (32-bit)</td>
+</tr>
+<tr>
+<td><code>x86_64</code></td>
+<td>x86-64 architecture</td>
+</tr>
+<tr>
+<td><code>bits32</code> <em>(derived)</em></td>
+<td>32-bit architecture</td>
+</tr>
+<tr>
+<td><code>bits64</code> <em>(derived)</em></td>
+<td>64-bit architecture</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vendor">Vendor<a class="headerlink" href="#vendor" title="Permanent link">&para;</a></h4>
+<p>The vendor is the second component of the target triple. This is typically unused,
+so the most common vendor is <code>unknown</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>macosx</code></td>
+<td>Apple</td>
+</tr>
+<tr>
+<td><code>portbld</code></td>
+<td>FreeBSD variant</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>Unknown vendor</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operating-system">Operating System<a class="headerlink" href="#operating-system" title="Permanent link">&para;</a></h4>
+<p>The operating system is derived from the third component of a the target triple.</p>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bsd</code> <em>(derived)</em></td>
+<td>BSD family (DragonFlyBSD, FreeBSD, NetBSD, OpenBSD)</td>
+</tr>
+<tr>
+<td><code>darwin</code></td>
+<td>Darwin (MacOS)</td>
+</tr>
+<tr>
+<td><code>dragonfly</code></td>
+<td>DragonFlyBSD</td>
+</tr>
+<tr>
+<td><code>freebsd</code></td>
+<td>FreeBSD</td>
+</tr>
+<tr>
+<td><code>linux</code></td>
+<td>Linux</td>
+</tr>
+<tr>
+<td><code>netbsd</code></td>
+<td>NetBSD</td>
+</tr>
+<tr>
+<td><code>openbsd</code></td>
+<td>OpenBSD</td>
+</tr>
+<tr>
+<td><code>unix</code> <em>(derived)</em></td>
+<td>UNIX-like (BSD, Darwin, Linux)</td>
+</tr>
+<tr>
+<td><code>windows</code></td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table>
+<h4 id="abi">ABI<a class="headerlink" href="#abi" title="Permanent link">&para;</a></h4>
+<p>The ABI is derived from the last component of the target triple.</p>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>armhf</code> <em>(derived)</em></td>
+<td>ARM EABI with hard float</td>
+</tr>
+<tr>
+<td><code>gnu</code></td>
+<td>GNU</td>
+</tr>
+<tr>
+<td><code>gnueabihf</code></td>
+<td>GNU EABI with hard float</td>
+</tr>
+<tr>
+<td><code>msvc</code></td>
+<td>Microsoft Visual C++</td>
+</tr>
+<tr>
+<td><code>musl</code></td>
+<td>musl</td>
+</tr>
+<tr>
+<td><code>win32</code> <em>(derived)</em></td>
+<td>Windows API</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compiler-options">Compiler options<a class="headerlink" href="#compiler-options" title="Permanent link">&para;</a></h3>
+<p>The compiler sets these flags based on compiler configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>release</code></td>
+<td>Compiler operates in release mode (<code>--release</code> CLI option)</td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td>Compiler generates debug symbols (without <code>--no-debug</code> CLI option)</td>
+</tr>
+<tr>
+<td><code>static</code></td>
+<td>Compiler creates a statically linked executable (<code>--static</code> CLI option)</td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>Code is processed to generate API docs (<code>crystal docs</code> command)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-provided-flags">User-provided flags<a class="headerlink" href="#user-provided-flags" title="Permanent link">&para;</a></h2>
+<p>User-provided flags are not defined automatically. They can be passed to the compiler via the <code>--define</code> or <code>-D</code> command line options.</p>
+<p>These flags usually enable certain features which activate breaking new or legacy functionality,
+a preview for a new feature, or entirely alternative behaviour (e.g. for debugging purposes).</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal <span class="nb">eval</span> -Dfoo <span class="s1">&#39;puts {{ flag?(:foo) }}&#39;</span>
+<span class="go">true</span>
 </code></pre></div>
-<p>これらのフラグは、一般的に C 言語のバインディングにおいて、型や関数を条件に応じて定義するときに利用します。例えば、<code>size_t</code> というよく知られた型は、Crystal では以下のように定義されています。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="k">lib</span> <span class="nn">C</span>
-  <span class="si">{%</span> <span class="k">if</span> <span class="n">flag?</span><span class="p">(</span><span class="ss">:x86_64</span><span class="p">)</span> <span class="si">%}</span>
-    <span class="k">alias</span> <span class="nc">SizeT</span> <span class="o">=</span> <span class="nb">UInt64</span>
-  <span class="si">{%</span> <span class="k">else</span> <span class="si">%}</span>
-    <span class="k">alias</span> <span class="nc">SizeT</span> <span class="o">=</span> <span class="nb">UInt32</span>
-  <span class="si">{%</span> <span class="k">end</span> <span class="si">%}</span>
-<span class="k">end</span>
-</code></pre></div>
+<h3 id="stdlib-features">Stdlib features<a class="headerlink" href="#stdlib-features" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gc_none</code></td>
+<td>Disables garbage collection (<a href="https://github.com/crystal-lang/crystal/pull/5314">#5314</a>)</td>
+</tr>
+<tr>
+<td><code>debug_raise</code></td>
+<td>Debugging flag for <code>raise</code> logic. Prints the backtrace before raising.</td>
+</tr>
+<tr>
+<td><code>preview_mt</code></td>
+<td>Enables multithreading preview. Introduced in 0.28.0 (<a href="https://github.com/crystal-lang/crystal/pull/7546">#7546</a>)</td>
+</tr>
+<tr>
+<td><code>skip_crystal_compiler_rt</code></td>
+<td>Exclude Crystal's native <code>compiler-rt</code> implementation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compiler-features">Compiler features<a class="headerlink" href="#compiler-features" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Flag name</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>without_openssl</code></td>
+<td>Build the compiler without OpenSSL support</td>
+</tr>
+<tr>
+<td><code>without_zlib</code></td>
+<td>Build the compiler without Zlib support</td>
+</tr>
+<tr>
+<td><code>without_playground</code></td>
+<td>Build the compiler without playground (<code>crystal play</code>)</td>
+</tr>
+<tr>
+<td><code>i_know_what_im_doing</code></td>
+<td>Safety guard against involuntarily building the compiler</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-code-features">User code features<a class="headerlink" href="#user-code-features" title="Permanent link">&para;</a></h3>
+<p>Custom flags can be freely used in user code as long as they don't collide with compiler-provided flags
+or other user-defined flags.
+When using a flag specific to a shard, it's recommended to use the shard name as a prefix.</p>
                 
               
               

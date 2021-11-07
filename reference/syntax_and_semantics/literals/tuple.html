@@ -560,9 +560,44 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="tuple.html" class="md-nav__link md-nav__link--active"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            タプル (Tuple)
+          </a>
+        </label>
+      
       <a href="tuple.html" class="md-nav__link md-nav__link--active">
         タプル (Tuple)
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#splat-expansion" class="md-nav__link">
+    Splat Expansion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2235,6 +2270,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#splat-expansion" class="md-nav__link">
+    Splat Expansion
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2265,6 +2315,15 @@
 <p>型制約やジェネリック型の型引数など型が期待される場所であれば、<a href="../type_grammar.html">型の文法</a>で説明しているような短い記法で型を書けます。</p>
 <div class="crystal highlight"><pre><span></span><code><span class="c1"># Int32、String、Char のタプルの配列の型を表す</span>
 <span class="nb">Array</span><span class="p">({</span><span class="nb">Int32</span><span class="p">,</span> <span class="nb">String</span><span class="p">,</span> <span class="nb">Char</span><span class="p">})</span>
+</code></pre></div>
+<h2 id="splat-expansion">Splat Expansion<a class="headerlink" href="#splat-expansion" title="Permanent link">&para;</a></h2>
+<p>The splat operator can be used inside tuple literals to unpack multiple values at once. The splatted value must be another tuple.</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">tuple</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">}</span> <span class="c1"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;, 2}</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">tuple</span><span class="p">)</span>                   <span class="c1"># =&gt; Tuple(Int32, String, Char, Int32)</span>
+
+<span class="n">tuple</span> <span class="o">=</span> <span class="p">{</span><span class="mf">3.5</span><span class="p">,</span> <span class="kc">true</span><span class="p">}</span>
+<span class="n">tuple</span> <span class="o">=</span> <span class="p">{</span><span class="o">*</span><span class="n">tuple</span><span class="p">,</span> <span class="o">*</span><span class="n">tuple</span><span class="p">}</span> <span class="c1"># =&gt; {3.5, true, 3.5, true}</span>
+<span class="k">typeof</span><span class="p">(</span><span class="n">tuple</span><span class="p">)</span>            <span class="c1"># =&gt; Tuple(Float64, Bool, Float64, Bool)</span>
 </code></pre></div>
                 
               

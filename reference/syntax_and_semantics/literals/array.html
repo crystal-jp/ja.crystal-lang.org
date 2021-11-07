@@ -561,6 +561,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#splat-expansion" class="md-nav__link">
+    Splat Expansion
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2311,6 +2318,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#splat-expansion" class="md-nav__link">
+    Splat Expansion
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2376,6 +2390,27 @@
 <p>型引数は型名の部分で明示的に指定することもできます。</p>
 <div class="crystal highlight"><pre><span></span><code><span class="nb">Set</span><span class="p">(</span><span class="nb">Int32</span><span class="p">){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 </code></pre></div>
+<h2 id="splat-expansion">Splat Expansion<a class="headerlink" href="#splat-expansion" title="Permanent link">&para;</a></h2>
+<p>The splat operator can be used inside array and array-like literals to insert multiple values at once.</p>
+<div class="crystal highlight"><pre><span></span><code><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">coll</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="nb">Set</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">coll</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</code></pre></div>
+<p>The only requirement is that <code>coll</code>'s type must include <a href="https://crystal-lang.org/api/latest/Enumerable.html"><code>Enumerable</code></a>. よって、上の例は以下と等しいものになります。</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="o">...</span><span class="p">))</span><span class="o">.</span><span class="n">new</span>
+<span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+<span class="n">array</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">coll</span><span class="p">)</span>
+<span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+<span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span>
+
+<span class="n">array_like</span> <span class="o">=</span> <span class="nb">Set</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="o">...</span><span class="p">))</span><span class="o">.</span><span class="n">new</span>
+<span class="n">array_like</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+<span class="n">coll</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">elem</span><span class="o">|</span>
+  <span class="n">array_like</span> <span class="o">&lt;&lt;</span> <span class="n">elem</span>
+<span class="k">end</span>
+<span class="n">array_like</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+<span class="n">array_like</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span>
+</code></pre></div>
+<p>In these cases, the generic type argument is additionally inferred using <code>coll</code>'s elements.</p>
                 
               
               

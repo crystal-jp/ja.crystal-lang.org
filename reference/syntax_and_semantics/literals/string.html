@@ -2390,20 +2390,21 @@
 <h2 id="_1">エスケープ文字<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>文字列中では、バックスラッシュによる名前つきのエスケープシーケンスやコードポイントの数値表現によって、特別な文字を記述できます。</p>
 <p>次のエスケープシーケンスが有効です。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>                  <span class="c1"># ダブルクオート</span>
-<span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>                  <span class="c1"># バックスラッシュ</span>
-<span class="s2">&quot;\a&quot;</span>                  <span class="c1"># アラート</span>
-<span class="s2">&quot;</span><span class="se">\b</span><span class="s2">&quot;</span>                  <span class="c1"># バックスペース</span>
-<span class="s2">&quot;</span><span class="se">\e</span><span class="s2">&quot;</span>                  <span class="c1"># エスケープ</span>
-<span class="s2">&quot;</span><span class="se">\f</span><span class="s2">&quot;</span>                  <span class="c1"># フォームフィード (改ページ)</span>
-<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>                  <span class="c1"># 改行</span>
-<span class="s2">&quot;\r&quot;</span>                  <span class="c1"># キャリッジリターン (復帰)</span>
-<span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>                  <span class="c1"># タブ</span>
-<span class="s2">&quot;</span><span class="se">\v</span><span class="s2">&quot;</span>                  <span class="c1"># 垂直タブ</span>
-<span class="s2">&quot;</span><span class="se">\377</span><span class="s2">&quot;</span>                <span class="c1"># 8進数による ASCII 文字</span>
-<span class="s2">&quot;</span><span class="se">\xFF</span><span class="s2">&quot;</span>                <span class="c1"># 16進数による ASCII 文字</span>
-<span class="s2">&quot;\uFFFF&quot;</span>              <span class="c1"># 16進数によるユニコード文字</span>
-<span class="s2">&quot;\u{0}&quot;</span><span class="o">..</span><span class="s2">&quot;\u{10FFFF}&quot;</span> <span class="c1"># 16進数によるユニコード文字</span>
+<div class="crystal highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span>                  <span class="c1"># double quote</span>
+<span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>                  <span class="c1"># backslash</span>
+<span class="s2">&quot;</span><span class="se">\#</span><span class="s2">&quot;</span>                  <span class="c1"># hash character (to escape interpolation)</span>
+<span class="s2">&quot;\a&quot;</span>                  <span class="c1"># alert</span>
+<span class="s2">&quot;</span><span class="se">\b</span><span class="s2">&quot;</span>                  <span class="c1"># backspace</span>
+<span class="s2">&quot;</span><span class="se">\e</span><span class="s2">&quot;</span>                  <span class="c1"># escape</span>
+<span class="s2">&quot;</span><span class="se">\f</span><span class="s2">&quot;</span>                  <span class="c1"># form feed</span>
+<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>                  <span class="c1"># newline</span>
+<span class="s2">&quot;\r&quot;</span>                  <span class="c1"># carriage return</span>
+<span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span>                  <span class="c1"># tab</span>
+<span class="s2">&quot;</span><span class="se">\v</span><span class="s2">&quot;</span>                  <span class="c1"># vertical tab</span>
+<span class="s2">&quot;</span><span class="se">\377</span><span class="s2">&quot;</span>                <span class="c1"># octal ASCII character</span>
+<span class="s2">&quot;</span><span class="se">\xFF</span><span class="s2">&quot;</span>                <span class="c1"># hexadecimal ASCII character</span>
+<span class="s2">&quot;\uFFFF&quot;</span>              <span class="c1"># hexadecimal unicode character</span>
+<span class="s2">&quot;\u{0}&quot;</span><span class="o">..</span><span class="s2">&quot;\u{10FFFF}&quot;</span> <span class="c1"># hexadecimal unicode character</span>
 </code></pre></div>
 <p>その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。</p>
 <p>バックスラッシュに続く最大3つの0から7までの数値は、8進数によるコードポイントの記述となります。</p>
@@ -2428,7 +2429,7 @@
 </code></pre></div>
 <p>文字列の補間は <a href="https://crystal-lang.org/api/latest/String.html#%25%28other%29-instance-method">String#%</a> でも可能です。</p>
 <p>任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。</p>
-<p><code>#</code>をバックスラッシュでエスケープするか、<code>%q()</code>のような補間を許可しないような文字列リテラルを使うことで、補間を無効にできます。</p>
+<p>Interpolation can be disabled by escaping the hash character (<code>#</code>) with a backslash or by using a non-interpolating string literal like <code>%q()</code>.</p>
 <div class="crystal highlight"><pre><span></span><code><span class="s2">&quot;</span><span class="se">\#</span><span class="s2">{a + b}&quot;</span>  <span class="c1"># =&gt; &quot;#{a + b}&quot;</span>
 <span class="o">%</span><span class="n">q</span><span class="p">(</span><span class="c1">#{a + b}) # =&gt; &quot;#{a + b}&quot;</span>
 </code></pre></div>

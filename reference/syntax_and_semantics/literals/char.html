@@ -2261,18 +2261,19 @@
 </code></pre></div>
 <p>バックスラッシュによる名前つきのエスケープスーケンスかコードポイントの数値表現で、特別な文字を記述できます。</p>
 <p>次のエスケープシーケンスが有効です。</p>
-<div class="crystal highlight"><pre><span></span><code><span class="sc">&#39;\&#39;&#39;</span>         <span class="c1"># シングルクォート</span>
-<span class="sc">&#39;\\&#39;</span>         <span class="c1"># バックスラッシュ</span>
-<span class="sc">&#39;\a&#39;</span>         <span class="c1"># アラート</span>
-<span class="sc">&#39;\b&#39;</span>         <span class="c1"># バックスペース</span>
-<span class="sc">&#39;\e&#39;</span>         <span class="c1"># エスケープ</span>
-<span class="sc">&#39;\f&#39;</span>         <span class="c1"># フォームフィード (改ページ)</span>
-<span class="sc">&#39;\n&#39;</span>         <span class="c1"># 改行</span>
-<span class="sc">&#39;\r&#39;</span>         <span class="c1"># キャリッジリターン (復帰)</span>
-<span class="sc">&#39;\t&#39;</span>         <span class="c1"># タブ文字</span>
-<span class="sc">&#39;\v&#39;</span>         <span class="c1"># 垂直タブ</span>
-<span class="sc">&#39;\uFFFF&#39;</span>     <span class="c1"># 16進数によるユニコード文字</span>
-<span class="sc">&#39;\u{10FFFF}&#39;</span> <span class="c1"># 16進数によるユニコード文字</span>
+<div class="crystal highlight"><pre><span></span><code><span class="sc">&#39;\&#39;&#39;</span>         <span class="c1"># single quote</span>
+<span class="sc">&#39;\\&#39;</span>         <span class="c1"># backslash</span>
+<span class="sc">&#39;\a&#39;</span>         <span class="c1"># alert</span>
+<span class="sc">&#39;\b&#39;</span>         <span class="c1"># backspace</span>
+<span class="sc">&#39;\e&#39;</span>         <span class="c1"># escape</span>
+<span class="sc">&#39;\f&#39;</span>         <span class="c1"># form feed</span>
+<span class="sc">&#39;\n&#39;</span>         <span class="c1"># newline</span>
+<span class="sc">&#39;\r&#39;</span>         <span class="c1"># carriage return</span>
+<span class="sc">&#39;\t&#39;</span>         <span class="c1"># tab</span>
+<span class="sc">&#39;\v&#39;</span>         <span class="c1"># vertical tab</span>
+<span class="sc">&#39;\0&#39;</span>         <span class="c1"># null character</span>
+<span class="sc">&#39;\uFFFF&#39;</span>     <span class="c1"># hexadecimal unicode character</span>
+<span class="sc">&#39;\u{10FFFF}&#39;</span> <span class="c1"># hexadecimal unicode character</span>
 </code></pre></div>
 <p>バックスラッシュに<code>u</code>を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (<code>\u0000</code> to <code>\uFFFF</code>) かひげ括弧で囲った6つまでの16進数の数値が利用できます (<code>\u{0}</code> to <code>\u{10FFFF}</code></p>
 <div class="crystal highlight"><pre><span></span><code><span class="sc">&#39;\u0041&#39;</span>    <span class="c1"># =&gt; &#39;A&#39;</span>

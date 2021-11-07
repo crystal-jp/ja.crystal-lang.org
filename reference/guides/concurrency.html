@@ -2372,18 +2372,6 @@
   
   
     <li class="md-nav__item">
-      <a href="ci/travis.html" class="md-nav__link">
-        Travis CI
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="ci/circleci.html" class="md-nav__link">
         CircleCI
       </a>
@@ -3058,12 +3046,69 @@ After yield
 <div class="highlight"><pre><span></span><code>Before send 1
 Before send 2
 Before send 3
+After send
 1
 2
-After send
 3
 </code></pre></div>
-<p>最初の２回のsendが実行された際に、他のファイバに処理が切り替わらなかったことに注目してください。しかし、3回目のsendではチャネルのバッファがいっぱいになっているため、メインファイバに処理が移ります。ここで2つの値が取り出されてチャネルが空になります。そのため、3回目の<code>receive</code>はメインファイバをブロックされて他のファイバに処理が移り、さらに値が送信されたり、終了したりします。</p>
+<p>Note that the first <code>send</code> does not occupy space in the channel. This is because there is a <code>receive</code> invoked prior to the first <code>send</code> whereas the other 2 <code>send</code> invocations take place before their respective <code>receive</code>. The number of <code>send</code> calls do not exceed the bounds of the buffer and so the send fiber runs uninterrupted to completion.</p>
+<p>Here's an example where all space in the buffer gets occupied:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="c1"># A buffered channel of capacity 1</span>
+<span class="n">channel</span> <span class="o">=</span> <span class="nb">Channel</span><span class="p">(</span><span class="nb">Int32</span><span class="p">)</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="bp">spawn</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 1&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 2&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 3&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;End of send fiber&quot;</span>
+<span class="k">end</span>
+
+<span class="mi">3</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">channel</span><span class="o">.</span><span class="n">receive</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>出力はこうなります。</p>
+<div class="highlight"><pre><span></span><code>Before send 1
+Before send 2
+Before send 3
+1
+2
+3
+</code></pre></div>
+<p>Note that "End of send fiber" does not appear in the output because we <code>receive</code> the 3 <code>send</code> calls which means <code>3.times</code> runs to completion and in turn unblocks the main fiber which executes to completion.</p>
+<p>Here's the same snippet as the one we just saw - with the addition of a <code>Fiber.yield</code> call at the very bottom:</p>
+<div class="crystal highlight"><pre><span></span><code><span class="c1"># A buffered channel of capacity 1</span>
+<span class="n">channel</span> <span class="o">=</span> <span class="nb">Channel</span><span class="p">(</span><span class="nb">Int32</span><span class="p">)</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="bp">spawn</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 1&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 2&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Before send 3&quot;</span>
+  <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;End of send fiber&quot;</span>
+<span class="k">end</span>
+
+<span class="mi">3</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">channel</span><span class="o">.</span><span class="n">receive</span>
+<span class="k">end</span>
+
+<span class="n">Fiber</span><span class="o">.</span><span class="n">yield</span>
+</code></pre></div>
+<p>出力はこうなります。</p>
+<div class="highlight"><pre><span></span><code>Before send 1
+Before send 2
+Before send 3
+1
+2
+3
+End of send fiber
+</code></pre></div>
+<p>With the addition of a <code>Fiber.yield</code> call at the end of the snippet we see the "End of send fiber" message in the output which would have otherwise been missed due to the main fiber executing to completion.</p>
                 
               
               

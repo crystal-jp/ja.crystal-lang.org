@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='ja'>
   <head>
-    <title>Elementary OS へのインストール - プログラミング言語 Crystal</title>
+    <title>On elementary OSインストール - プログラミング言語 Crystal</title>
     <meta charset='UTF-8'>
     <!-- Import Google Icon Font -->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
@@ -140,10 +140,10 @@
   </div>
 </nav>
  <main><div class="container install">
-  <h1 class="distro-title">Elementary OS への</h1>
+  <h1 class="distro-title">On elementary OS</h1>
   <h1 class="center"><a href="/install">インストール</a></h1>
   <div class="row">
-    <div class="col offset-m1 m10 s12"><p>In Elementary OS, you can use the <a href="#official-crystal-deb-repository">Official Crystal deb repository</a>. <a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
+    <div class="col offset-m1 m10 s12"><p>In elementary OS, you can use the <a href="#official-crystal-deb-repository">Official Crystal deb repository</a>. <a href="#snapcraft">Snapcraft</a> や <a href="#linuxbrew">Linuxbrew</a> も使えます。</p>
 
 <h2 id="crystal-公式の-deb-リポジトリ">Crystal 公式の deb リポジトリ</h2>
 
@@ -158,7 +158,7 @@
 <p>インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">--crystal</code> 引数に <code class="language-plaintext highlighter-rouge">major.minor.patch</code>、<code class="language-plaintext highlighter-rouge">major.minor</code> もしくは <code class="language-plaintext highlighter-rouge">major.minor.patch-iteration</code> の形式でバージョンを指定できます。</li>
+  <li><code class="language-plaintext highlighter-rouge">--version</code> with <code class="language-plaintext highlighter-rouge">major.minor</code> or <code class="language-plaintext highlighter-rouge">latest</code> value</li>
   <li><code class="language-plaintext highlighter-rouge">--channel</code> 引数では、<code class="language-plaintext highlighter-rouge">stable</code>、<code class="language-plaintext highlighter-rouge">unstable</code>、もしくは<code class="language-plaintext highlighter-rouge">nightly</code> の値を指定できます、</li>
 </ul>
 
@@ -177,7 +177,7 @@
 
 <div class="code_section">
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /"</span> | <span class="nb">tee</span> /etc/apt/sources.list.d/crystal.list
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/crystal.list
 
 <span class="c"># 署名用の鍵の追加</span>
 curl <span class="nt">-fsSL</span> https://download.opensuse.org/repositories/devel:languages:crystal/<span class="o">{</span>REPOSITORY<span class="o">}</span>/Release.key | gpg <span class="nt">--dearmor</span> | <span class="nb">sudo tee</span> /etc/apt/trusted.gpg.d/crystal.gpg <span class="o">&gt;</span> /dev/null</code></pre></figure>
@@ -228,7 +228,7 @@ curl <span class="nt">-fsSL</span> https://download.opensuse.org/repositories/de
 
 <h2 id="linuxbrew-を使う">Linuxbrew を使う</h2>
 
-<p><a href="https://linuxbrew.sh">Linuxbrew</a> がインストールされていれば、Crystal をインストールする準備は万端です。</p>
+<p>If you have <a href="https://docs.brew.sh/Homebrew-on-Linux">Linuxbrew</a> installed you’re ready to install Crystal:</p>
 
 <div class="code_section">
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">brew update
