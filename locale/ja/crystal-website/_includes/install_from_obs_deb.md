@@ -10,7 +10,7 @@ curl -fsSL https://crystal-lang.org/install.sh | sudo bash
 
 インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。
 
-- `--crystal` 引数に `major.minor.patch`、`major.minor` もしくは `major.minor.patch-iteration` の形式でバージョンを指定できます。
+- `--version` with `major.minor` or `latest` value
 - `--channel` 引数では、`stable`、`unstable`、もしくは`nightly` の値を指定できます、
 
 <div class="code_section">
@@ -28,7 +28,7 @@ curl -fsSL https://crystal-lang.org/install.sh | sudo bash -s -- --channel=night
 
 <div class="code_section">
 {% highlight bash %}
-echo "deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /" | tee /etc/apt/sources.list.d/crystal.list
+echo "deb http://download.opensuse.org/repositories/devel:/languages:/crystal/{REPOSITORY}/ /" | sudo tee /etc/apt/sources.list.d/crystal.list
 
 # 署名用の鍵の追加
 curl -fsSL https://download.opensuse.org/repositories/devel:languages:crystal/{REPOSITORY}/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/crystal.gpg > /dev/null

@@ -1,6 +1,6 @@
 ## Linuxbrew を使う
 
-[Linuxbrew](https://linuxbrew.sh) がインストールされていれば、Crystal をインストールする準備は万端です。
+If you have [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) installed you're ready to install Crystal:
 
 <div class="code_section">{% highlight bash %}
 brew update

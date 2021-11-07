@@ -6,7 +6,7 @@ subtitle: ソースコードからの
 
 1. [最新のリリースの Crystal をインストールしてください](/install)。Crystal をコンパイルするには、Crystal 自身が必要なのです。
 
-2. サポートしているバージョンの LLVM にパスが通っているか確認してください。可能なら、サポートしている最新のバージョン 8.0 の LLVM を使ってください。
+2. サポートしているバージョンの LLVM にパスが通っているか確認してください。When possible, use [the latest supported version](https://github.com/crystal-lang/crystal/blob/master/src/llvm/ext/llvm-versions.txt).
 
 3. そして、[すべての必要なライブラリ (英語)](https://github.com/crystal-lang/crystal/wiki/All-required-libraries) がインストールされていることを確認してください。また、[コントリビューションガイド (英語)](https://github.com/crystal-lang/crystal/blob/master/CONTRIBUTING.md) にも目を通しておくとよいでしょう。
 

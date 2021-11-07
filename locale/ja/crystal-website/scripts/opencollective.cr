@@ -36,6 +36,9 @@ module OpenCollective
 
     @[JSON::Field(converter: Time::Format.new("%Y-%m-%d %H:%M"))]
     property createdAt : Time
+
+    @[JSON::Field(converter: Time::Format.new("%Y-%m-%d %H:%M"))]
+    property lastTransactionAt : Time
   end
 end
 
@@ -43,20 +46,26 @@ team = "crystal-lang"
 opencollective = OpenCollective::API.new(team)
 sponsors = SponsorsBuilder.new
 
+dateOfGrace = Time.utc - 3.months
 opencollective.members.each do |member|
   next unless member.role == "BACKER"
-  next unless member.isActive
+
+  # Let's not consider inactive a member that sponsored in the last 3 months
+  next unless member.isActive || member.lastTransactionAt > dateOfGrace
+
   # organizations that provides gift cards to backers seems
   # to appear with lastTransactionAmount == 0
   # but with totalAmountDonated > 0
   next unless member.lastTransactionAmount > 0
-  next if member.name == "incognito"
+
+  downcase_name = member.name.downcase
+  next if downcase_name == "incognito" || downcase_name == "guest"
 
   url = member.website || member.twitter || member.github
   logo = member.image
   amount = member.lastTransactionAmount
   all_time = member.totalAmountDonated
-  sponsors.add Sponsor.new(member.name, url, logo, amount, all_time, nil, member.createdAt)
+  sponsors.add Sponsor.new(member.name, url, logo, amount, all_time, nil, member.createdAt, nil)
 end
 
 File.open("#{__DIR__}/../_data/opencollective.json", "w") do |file|

@@ -10,7 +10,7 @@ curl -fsSL https://crystal-lang.org/install.sh | sudo bash
 
 インストールスクリプトはその他のチャンネルのリリースをインストール、もしくは更新するためのオプション引数を受け付けます。
 
-- `--crystal` 引数に `major.minor.patch`、`major.minor` もしくは `major.minor.patch-iteration` の形式でバージョンを指定できます。
+- `--version` with `major.minor` or `latest` values
 - `--channel` 引数では、`stable`、`unstable`、もしくは`nightly` の値を指定できます、
 
 <div class="code_section">

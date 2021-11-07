@@ -202,7 +202,7 @@ while (page = bountysource.supporters(page_index)) &&
 end
 
 support_levels = bountysource.support_levels
-support_levels.select! { |s| s.status == "active" && s.owner.display_name != "Anonymous" }
+support_levels.select! { |s| s.status == "active" && s.owner.display_name.downcase != "anonymous" }
 support_levels.sort_by! &.amount
 
 sponsors = SponsorsBuilder.new
@@ -250,7 +250,7 @@ support_levels.each do |support_level|
   all_time = supporter.alltime_amount
   since = Time.parse(supporter.created_at[0..10], "%F", location: Time::Location::UTC)
 
-  sponsors.add Sponsor.new(name, url, logo, amount, all_time, nil, since)
+  sponsors.add Sponsor.new(name, url, logo, amount, all_time, nil, since, nil)
 end
 
 File.open("#{__DIR__}/../_data/bountysource.json", "w") do |file|
