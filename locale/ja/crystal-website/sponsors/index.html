@@ -1,24 +1,25 @@
----
-title: スポンサー
-description: これらの企業や個人は、Crystal の発展を維持するために、毎月一定の金額を寄付してくれています。
----
+--- title: Sponsors description: These are the companies and individuals that help sustain Crystal's development. ---
+<script src='/javascripts/tablesort-5.2.1/tablesort.js'></script>
+<script src='/javascripts/tablesort-5.2.1/sorts/tablesort.number.js'></script>
+<script src='/javascripts/tablesort-5.2.1/sorts/tablesort.date.js'></script>
+
 <div class="container">
 
   <div class="row">
     <div class="col s12 m8">
-      <table class="bordered">
+      <table class="bordered" id="sponsors-tbl">
         <thead>
           <th></th>
-          <th>サポーター</th>
-          <th>今月</th>
-          <th>これまでの合計</th>
-          <th>開始時期</th>
+          <th><span>Supporter</span></th>
+          <th class='currency' data-sort-method='number' aria-sort="descending"><span>This month</span></th>
+          <th class='currency' data-sort-method='number'><span>All time</span></th>
+          <th class='since' data-sort-method='date'><span>Since</span></th>
         </thead>
         <tbody>{% for sp in site.data.sponsors %} {% capture sponsor_class %}level-{{sp.level}} sponsor{% endcapture %}<tr class="{{sponsor_class}}">
               <td class="col-logo">{% if sp.logo %}<div class="logo">{% if sp.url %} <a href="{{sp.url}}" target="_blank"> {% img '{{ assets[sp.logo].filename }}' %} </a> {% else %} {% img '{{ assets[sp.logo].filename }}' %} {% endif %}</div>{% else %}   {% endif %}</td>
               <td class="name">{% if sp.url %} <a href="{{sp.url}}" target="_blank"> {{sp.name}} </a> {% else %} {{sp.name}} {% endif %}</td>
-              <td class="this_month">{{sp.this_month}}</td>
-              <td class="all_time">{{sp.all_time}}</td>
+              <td class="currency">{{sp.last_payment}}</td>
+              <td class="currency">{{sp.all_time}}</td>
               <td class="since">{{sp.since}}</td>
             </tr>{% endfor %}</tbody>
       </table>
@@ -34,3 +35,7 @@ description: これらの企業や個人は、Crystal の発展を維持する�
   </div>
 
 </div>
+
+<script>
+  new Tablesort(document.getElementById('sponsors-tbl'));
+</script>

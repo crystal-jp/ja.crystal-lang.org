@@ -22,24 +22,24 @@ description: Crystal が成長する方法はたくさんあります。ここ�
 {% include community_row.html
    title='フォーラム (英語l)'
    divId='discuss'
-   content='Crystal フォーラムは総合的な議論をする第一の場所です。気軽に質問してください。あなたのプロジェクトの紹介、ベストプラクティスの質問、どうやってプロジェクトに貢献したらよいか、その他 Crystal に関わることなら何でも OK です。'
+   content='Crystal フォーラムは総合的な議論をする第一の場所です。あなたのプロジェクトの紹介、ガイダンスやベストプラクティスに関する質問、プロジェクトへの貢献の募集や、その他 Crystal に関わることであれば何でも気軽に尋ねてください。'
   link_text='forum.crystal-lang.org'
   url='https://forum.crystal-lang.org'
   icon='forum' %}
 
 {% include community_row.html
-   title='新しいリリースやユースケースの紹介'
-   divId='blog'
-   content='Crystal 公式ブログでは、新しいリリースの詳細なアナウンス、興味深いユースケース、言語デザインの決定の背景、Crystal の開発チームの普段書いているコードについてなどが見れます。<a -ERR:REF-NOT-FOUND- target="_blank"><code>ゲストからの投稿も受け付けています。もし Crystal で何か驚くものを作った場合は、<a href="mailto:crystal@manas.tech" title="もしくはこのページの一覧から適切なところを選択して">私たちに連絡してみて</a>ください。あなたのことをブログで取り上げられることを楽しみにしています。'
-  link_text='Crystal ブログ'
+  title='新しいリリースやユースケースの紹介'
+  divId='blog'
+  content='Crystal 公式ブログには、新しいリリースの詳細なアナウンス、興味深いユースケース、言語デザインの決定の背景、Crystal の開発チームの普段書いているコードについて、などの記事があります。<br/><br/>ゲストからの投稿も受け付けていて、もし Crystal で何か驚くべきものを作った場合は<a href="mailto:crystal@manas.tech" title="もしくはこのページの一覧から適切なところを選択して">私たちに連絡してみて</a>ください。あなたのことをブログで取り上げられることを楽しみにしています。'
+  link_text='Crystal Blog'
   url='/blog'
   icon='chat_bubble_outline'
   internal_link='true' %}
 
 {% include community_row.html
-   title='チャットルーム (英語)'
-   divId='chat'
-   content='Gitter が Crystal 公式のチャットルームです。些細な疑問をここに投稿すればすぐに解答が返ってくるかもしれません。他にもガイダンスに関する質問をしたり、関心のある機能やプロジェクトの小さな議論をしたりできます。議論を整理整頓するようにして、チャット欄が短いと感じたらメーリングリストを使うことも検討してください。'
+  title='チャットルーム (英語)'
+  divId='chat'
+  content='Gitter の部屋が Crystal 公式のチャットルームです。些細な疑問をここに投稿すればすぐに解答が返ってくるかもしれません。他にもガイダンスに関する質問をしたり、関心のある機能やプロジェクトの小さな議論をしたりできます。議論を整理整頓するようにして、チャット欄が短いと感じたらメーリングリストを使うことも検討してください。'
   link_text='crystal-lang/crystal'
   url='https://gitter.im/crystal-lang/crystal'
   icon='gitter'
@@ -48,11 +48,13 @@ description: Crystal が成長する方法はたくさんあります。ここ�
 
 {% include community_row.html
   title=''
-  content='IRC チャンネル <a href="ircs://irc.libera.chat:6697#crystal-lang">irc.libera.chat:6697#crystal-lang</a> は Gitter のルームにブリッジされているので、一方に送られたことはもう一方にも転送されます。ログは <a href="https://irclog.crystal-lang.org">irclog.crystal-lang.org</a> にあります。'
+  divId='liberachat'
+  content='IRC チャンネル <a href="ircs://irc.libera.chat:6697#crystal-lang">irc.libera.chat:6697#crystal-lang</a> は Gitter のルームにブリッジされているので、一方に送られたことはもう一方にも転送されます。チャットのログは <a href="http://irclog.crystal-lang.org">irclog.crystal-lang.org</a> で確認できます。'
   link_text='#crystal-lang'
   url='https://web.libera.chat/#crystal-lang'
-  icon='web_asset'
-  continues=true %}
+  icon='libera_chat'
+  continues=true
+  custom_icon=true %}
 
 {% include community_row.html
   title=''
@@ -60,12 +62,21 @@ description: Crystal が成長する方法はたくさんあります。ここ�
   link_text='Crystal Programming'
   url='https://discord.gg/YS7YvQy'
   icon='discord'
+  custom_icon=true
+  continues=true %}
+
+{% include community_row.html
+  title=''
+  content='小さいながらも Crystal について互いに助けあっている勇敢なコミュニティです。主な言語はロシア語ですが、英語で質問することもできます。'
+  link_text='Crystal - ロシア語話者コミュニティー'
+  url='https://t.me/crystal_ru'
+  icon='telegram'
   custom_icon=true %}
 
 {% include community_row.html
-   title='総合的なアナウンスやイベントの通知'
-   divId='twitter'
-   content='Twitter アカウントは総合的なリリースのアナウンスや、興味深い記事のリツイートをします。Crystal についてツイートしたときは是非このアカウントにメンションをしてみてください。'
+  title='総合的なアナウンスやイベントの通知'
+  divId='twitter'
+  content='Twitter アカウントは総合的なリリースのアナウンスや、興味深い記事のリツイートをします。Crystal についてツイートしたときは是非このアカウントにメンションをしてみてください。'
    link_text='@CrystalLanguage'
    url='https://twitter.com/CrystalLanguage'
    icon='twitter'

@@ -129,7 +129,6 @@
         * [GitLab でのホスト方法](guides/hosting/gitlab.md)
     * [継続的インテグレーション (CI)](guides/ci/README.md)
         * [GitHub Actions](guides/ci/gh-actions.md)
-        * [Travis CI](guides/ci/travis.md)
         * [CircleCI](guides/ci/circleci.md)
     * [静的リンク](guides/static_linking.md)
     * [データベース](database/README.md)

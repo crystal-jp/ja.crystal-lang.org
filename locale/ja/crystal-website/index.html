@@ -1,8 +1,8 @@
 ---
 title: Crystal
-description: Livestreamed on 8 July 2021, 12:30pm – 9:30pm UTC
+description: Livestreamed on 8 July 2021
 custom_body_classes:
-- main
+  - main
 ---
 <div class="banner center sponsorship no-select">
   <div class="flag">さらなる成長のために支援をお願いします:<div class="flag-logos"><a href="https://opencollective.com/crystal-lang" target="_blank"> <img src="{{ 'oc.png' | asset_path }}" class="oc-logo"> </a></div>
@@ -13,7 +13,7 @@ custom_body_classes:
   <div class="row center">
     <div class="col s12">
       <p class="main-actions"><a href="/install/" class="btn btn-large btn-flat-white">Install</a> <a href="https://crystal-lang.org/reference/" target="_blank" class="btn btn-large btn-flat-white">Learn</a> <a href="https://play.crystal-lang.org/#/cr" target="_blank" class="btn btn-large btn-flat-white">Try Online</a></p>
-      <h2 class="latest-release">最新のリリース <a href="/2021/07/27/1.1.1-released.html">{{ site.latest_release.version }}</a></h2>
+      <h2 class="latest-release">最新のリリース <a href="/{{site.latest_release.date | date: '%Y/%m/%d'}}/{{site.latest_release.version}}-released.html">{{ site.latest_release.version }}</a></h2>
       <p>{{ site.latest_release.date | date: '%d %B %Y' }} - <a href="/blog#release_notes" class="gray-link">その他のリリースノート</a></p>
     </div>
   </div>
@@ -98,6 +98,21 @@ custom_body_classes:
       <div class='sponsors-list'><a href='https://manas.tech/' target='_blank' class="sponsor"> {% img manas-orange.svg %} <span class="small">Manas Technology Solutions</span> </a> <a href='https://www.84codes.com/' target='_blank' class="sponsor"> {% img sponsors/84.png %} <span class="small">84 codes</span> </a> <a href='https://nikolamotor.com/' target='_blank' class="sponsor"> {% img sponsors/nikola_motor_company.png %} <span class="small">Nikola Motor Company</span> </a> <a href='https://place.technology/' target='_blank' class="sponsor"> {% img sponsors/placeos.png %} <span class="small">PlaceOS</span> </a></div>
     </div>
   </div>
+
+  <div class="row center">
+    <div class="col s12">
+      <div class="flag">
+        <h3>いくつかの CI はこちらで実行されています</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div class='sponsors-list'><a href='https://developer.arm.com/solutions/infrastructure/works-on-arm' target='_blank' class="sponsor"> {% img sponsors/woa.png %} <span class="small">Works on Arm</span> </a></div>
+    </div>
+  </div>
+
   <hr class="fullwidth">
   <div class="row">
     <div class="col s12">

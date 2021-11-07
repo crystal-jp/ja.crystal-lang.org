@@ -17,18 +17,19 @@
 次のエスケープシーケンスが有効です。
 
 ```crystal
-'\''         # シングルクォート
-'\\'         # バックスラッシュ
-'\a'         # アラート
-'\b'         # バックスペース
-'\e'         # エスケープ
-'\f'         # フォームフィード (改ページ)
-'\n'         # 改行
-'\r'         # キャリッジリターン (復帰)
-'\t'         # タブ文字
-'\v'         # 垂直タブ
-'\uFFFF'     # 16進数によるユニコード文字
-'\u{10FFFF}' # 16進数によるユニコード文字
+'\''         # single quote
+'\\'         # backslash
+'\a'         # alert
+'\b'         # backspace
+'\e'         # escape
+'\f'         # form feed
+'\n'         # newline
+'\r'         # carriage return
+'\t'         # tab
+'\v'         # vertical tab
+'\0'         # null character
+'\uFFFF'     # hexadecimal unicode character
+'\u{10FFFF}' # hexadecimal unicode character
 ```
 
 バックスラッシュに`u`を続けることでユニコードのコードポイントを記述できます。ユニコードの文字を表現するため、ちょうど4つの16進数の数値か (`\u0000` to `\uFFFF`) かひげ括弧で囲った6つまでの16進数の数値が利用できます (`\u{0}` to `\u{10FFFF}`
