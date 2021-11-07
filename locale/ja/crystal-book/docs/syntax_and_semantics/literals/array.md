@@ -80,3 +80,32 @@ array_like << 3
 ```crystal
 Set(Int32){1, 2, 3}
 ```
+
+## Splat Expansion
+
+The splat operator can be used inside array and array-like literals to insert multiple values at once.
+
+```crystal
+[1, *coll, 2, 3]
+Set{1, *coll, 2, 3}
+```
+
+The only requirement is that `coll`'s type must include [`Enumerable`](https://crystal-lang.org/api/latest/Enumerable.html). よって、上の例は以下と等しいものになります。
+
+```crystal
+array = Array(typeof(...)).new
+array << 1
+array.concat(coll)
+array << 2
+array << 3
+
+array_like = Set(typeof(...)).new
+array_like << 1
+coll.each do |elem|
+  array_like << elem
+end
+array_like << 2
+array_like << 3
+```
+
+In these cases, the generic type argument is additionally inferred using `coll`'s elements.

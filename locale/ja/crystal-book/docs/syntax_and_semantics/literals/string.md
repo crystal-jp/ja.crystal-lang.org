@@ -15,20 +15,21 @@
 次のエスケープシーケンスが有効です。
 
 ```crystal
-"\""                  # ダブルクオート
-"\\"                  # バックスラッシュ
-"\a"                  # アラート
-"\b"                  # バックスペース
-"\e"                  # エスケープ
-"\f"                  # フォームフィード (改ページ)
-"\n"                  # 改行
-"\r"                  # キャリッジリターン (復帰)
-"\t"                  # タブ
-"\v"                  # 垂直タブ
-"\377"                # 8進数による ASCII 文字
-"\xFF"                # 16進数による ASCII 文字
-"\uFFFF"              # 16進数によるユニコード文字
-"\u{0}".."\u{10FFFF}" # 16進数によるユニコード文字
+"\""                  # double quote
+"\\"                  # backslash
+"\#"                  # hash character (to escape interpolation)
+"\a"                  # alert
+"\b"                  # backspace
+"\e"                  # escape
+"\f"                  # form feed
+"\n"                  # newline
+"\r"                  # carriage return
+"\t"                  # tab
+"\v"                  # vertical tab
+"\377"                # octal ASCII character
+"\xFF"                # hexadecimal ASCII character
+"\uFFFF"              # hexadecimal unicode character
+"\u{0}".."\u{10FFFF}" # hexadecimal unicode character
 ```
 
 その他の文字がバックスラッシュに続いた場合、その文字自身を表すものになります。
@@ -70,7 +71,7 @@ b = 2
 
 任意の式を文字列の補間として書くことができますが、可読性を高めるためそれらの式は小さなものに保ったほうが良いです。
 
-`#`をバックスラッシュでエスケープするか、`%q()`のような補間を許可しないような文字列リテラルを使うことで、補間を無効にできます。
+Interpolation can be disabled by escaping the hash character (`#`) with a backslash or by using a non-interpolating string literal like `%q()`.
 
 ```crystal
 "\#{a + b}"  # => "#{a + b}"
