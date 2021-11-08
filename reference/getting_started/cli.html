@@ -440,6 +440,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    オプションのパラメーター
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#all-my-cli-cli" class="md-nav__link">
     All My CLI: 完成した CLI アプリケーション
   </a>
@@ -451,13 +458,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ユーザーへの入力の要求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     テスト
   </a>
   
@@ -2479,6 +2500,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    オプションのパラメーター
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#all-my-cli-cli" class="md-nav__link">
     All My CLI: 完成した CLI アプリケーション
   </a>
@@ -2490,13 +2518,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ユーザーへの入力の要求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     テスト
   </a>
   
@@ -2549,150 +2591,136 @@
 </code></pre></div>
 <p>そして<code>crystal -h</code>と実行すると、Crystal は自身のオプションとそれらの利用方法を表示します。</p>
 <p>ここで「<strong>オプションの解析部分を実装する必要がある？</strong>」と疑問を持つことでしょう。その必要はありません。Crystal では<code>OptionParser</code>がその機能を提供しています。それではこのパーサーを使ったアプリケーションを作ってみましょう。</p>
-<p>At the start our CLI application has two options:</p>
+<p>まずは次の2つのオプションを持つCLIアプリケーションです:</p>
 <ul>
 <li><code>-v</code> / <code>--version</code>: アプリケーションのバージョンを表示する。</li>
 <li><code>-h</code> / <code>--help</code>: アプリケーションの利用方法を表示する。</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">help.cr</p>
-</div>
 <div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;option_parser&quot;</span>
 
-    <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
+<span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
 
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-    <span class="sb">```</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+</div>
+<p>さて、これがどうやって動作するというのでしょうか？　それは……魔法のように！　いえいえ、実のところ魔法ではないのです。実装が簡単になったのは Crystal のおかげです。
+プログラムが開始すると、まず<code>OptionParser#parse</code>に渡されたブロックが実行されます。このブロックですべてのオプションを定義しています。ブロックが実行されたのち、オプションパーサーがアプリケーションに渡された引数を処理して、定義したオプションにマッチするかを確認します。ここで、オプションがマッチしたときに、<code>parser#on</code>に渡されたブロックが実行される、というわけです。</p>
+<p><code>OptionParser</code> のすべてを<a href="https://crystal-lang.org/api/latest/OptionParser.html">公式の API ドキュメント</a>によって確認できます。そして、そこから1クリックでソースコードを見ることができます。……これが魔法ではないということの証明です。</p>
+<p>さて、それではアプリケーションを実際に実行してみましょう。<a href="../using_the_compiler/index.html">コンパイラの実行方法</a>は2種類あります。</p>
+<ol>
+<li><a href="../using_the_compiler/index.html#crystal-build">アプリケーションのビルド</a>をして、それを実行する。</li>
+<li>コンパイルと<a href="../using_the_compiler/index.html#crystal-run">アプリケーションの実行</a>を、1度のコマンドでまとめて行う。</li>
+</ol>
+<p>今回は2番目の方法でいきたいと思います。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run ./help.cr -- -h
 
-<span class="sb">さて、これがどうやって動作するというのでしょうか？　それは……魔法のように！　いえいえ、実のところ魔法ではないのです。実装が簡単になったのは Crystal のおかげです。</span>
-<span class="sb">プログラムが開始すると、まず`</span><span class="n">OptionParser</span><span class="c1">#parse`に渡されたブロックが実行されます。このブロックですべてのオプションを定義しています。ブロックが実行されたのち、オプションパーサーがアプリケーションに渡された引数を処理して、定義したオプションにマッチするかを確認します。ここで、オプションがマッチしたときに、`parser#on`に渡されたブロックが実行される、というわけです。</span>
-
-<span class="sb">`OptionParser`</span> <span class="err">のすべてを</span><span class="o">[</span><span class="err">公式の</span> <span class="no">API</span> <span class="err">ドキュメント</span><span class="o">]</span><span class="p">(</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">crystal</span><span class="o">-</span><span class="n">lang</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">OptionParser</span><span class="o">.</span><span class="n">html</span><span class="p">)</span><span class="err">によって確認できます。そして、そこから1クリックでソースコードを見ることができます。……これが魔法ではないということの証明です。</span>
-
-<span class="err">さて、それではアプリケーションを実際に実行してみましょう。</span><span class="o">[</span><span class="err">コンパイラの実行方法</span><span class="o">]</span><span class="p">(</span><span class="o">../</span><span class="n">using_the_compiler</span><span class="o">/</span><span class="no">README</span><span class="o">.</span><span class="n">md</span><span class="p">)</span><span class="err">は2種類あります。</span>
-
-<span class="mi">1</span><span class="o">.</span> <span class="o">[</span><span class="err">アプリケーションのビルド</span><span class="o">]</span><span class="p">(</span><span class="o">../</span><span class="n">using_the_compiler</span><span class="o">/</span><span class="no">README</span><span class="o">.</span><span class="n">md</span><span class="c1">#crystal-build)をして、それを実行する。</span>
-<span class="mi">2</span><span class="o">.</span> <span class="err">コンパイルと</span><span class="o">[</span><span class="err">アプリケーションの実行</span><span class="o">]</span><span class="p">(</span><span class="o">../</span><span class="n">using_the_compiler</span><span class="o">/</span><span class="no">README</span><span class="o">.</span><span class="n">md</span><span class="c1">#crystal-run)を、1度のコマンドでまとめて行う。</span>
-
-<span class="err">今回は2番目の方法でいきたいと思います。</span>
-
-<span class="sb">```console</span>
-<span class="sb">$ crystal run ./help.cr -- -h</span>
-
-<span class="sb">Welcome to The Beatles App!</span>
-<span class="sb">    -v, --version                    Show version</span>
-<span class="sb">    -h, --help                       Show help</span>
+<span class="go">Welcome to The Beatles App!</span>
+<span class="go">    -v, --version                    Show version</span>
+<span class="go">    -h, --help                       Show help</span>
 </code></pre></div>
 <p>続けて、こんな機能を持つ_ファビュラスな_アプリケーションを作ってみましょう:</p>
 <p>デフォルトでは (オプションが与えられなかったときに) The Fab Four のメンバーを表示します。しかし、<code>-t</code> もしくは <code>--twist</code> が渡されたときには、名前を大文字にします。</p>
 <div class="admonition example">
 <p class="admonition-title">twist_and_shout.cr</p>
-</div>
 <div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;option_parser&quot;</span>
 
-    <span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
-    <span class="o">]</span>
-    <span class="n">shout</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
+<span class="o">]</span>
+<span class="n">shout</span> <span class="o">=</span> <span class="kc">false</span>
 
-    <span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
+<span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
 
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--twist&quot;</span><span class="p">,</span> <span class="s2">&quot;Twist and SHOUT&quot;</span> <span class="k">do</span>
-        <span class="n">shout</span> <span class="o">=</span> <span class="kc">true</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--twist&quot;</span><span class="p">,</span> <span class="s2">&quot;Twist and SHOUT&quot;</span> <span class="k">do</span>
+    <span class="n">shout</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-    <span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span>
-    <span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">map</span> <span class="o">&amp;.</span><span class="n">upcase</span> <span class="k">if</span> <span class="n">shout</span>
+<span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span>
+<span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">map</span> <span class="o">&amp;.</span><span class="n">upcase</span> <span class="k">if</span> <span class="n">shout</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
-    <span class="nb">puts</span> <span class="s2">&quot;Group members:&quot;</span>
-    <span class="nb">puts</span> <span class="s2">&quot;==============&quot;</span>
-    <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
-      <span class="nb">puts</span> <span class="n">member</span>
-    <span class="k">end</span>
-    <span class="sb">```</span>
+<span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;Group members:&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;==============&quot;</span>
+<span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">member</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><code>-t</code> をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run ./twist_and_shout.cr -- -t
 
-<span class="sb">    `</span><span class="o">-</span><span class="n">t</span><span class="sb">` をつけてこのアプリケーションを実行すると、次のように表示されるでしょう。</span>
+<span class="go">Group members:</span>
+<span class="go">==============</span>
+<span class="go">JOHN LENNON</span>
+<span class="go">PAUL MCCARTNEY</span>
+<span class="go">GEORGE HARRISON</span>
+<span class="go">RINGO STARR</span>
+</code></pre></div>
+</div>
+<h4 id="_3">オプションのパラメーター<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>次はこんなアプリケーションを作ってみましょう。<em><code>-g</code> / <code>--goodbye_hello</code>オプションが与えられたときに、<strong>オプションのパラメーター</strong>として渡された名前に挨拶をする</em>。</p>
+<div class="admonition example">
+<p class="admonition-title">hello_goodbye.cr</p>
+<div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;option_parser&quot;</span>
 
-<span class="sb">    ```</span><span class="n">console</span>
-    <span class="err">$</span> <span class="n">crystal</span> <span class="n">run</span> <span class="o">.</span><span class="n n-Operator">/</span><span class="n">twist_and_shout</span><span class="o">.</span><span class="n">cr</span> <span class="o">--</span> <span class="o">-</span><span class="n">t</span>
+<span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
+<span class="o">]</span>
+<span class="n">say_hi_to</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-    <span class="n">Group</span> <span class="ss">members</span><span class="p">:</span>
-    <span class="o">==============</span>
-    <span class="no">JOHN</span> <span class="no">LENNON</span>
-    <span class="no">PAUL</span> <span class="no">MCCARTNEY</span>
-    <span class="no">GEORGE</span> <span class="no">HARRISON</span>
-    <span class="no">RINGO</span> <span class="no">STARR</span>
-    <span class="sb">```</span>
+<span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
 
-<span class="sb">#### オプションのパラメーター</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-g NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;--goodbye_hello=NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to whoever you want&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">name</span><span class="o">|</span>
+    <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<span class="sb">次はこんなアプリケーションを作ってみましょう。_`</span><span class="o">-</span><span class="n">g</span><span class="sb">` / `</span><span class="o">--</span><span class="n">goodbye_hello</span><span class="sb">`オプションが与えられたときに、**オプションのパラメーター**として渡された名前に挨拶をする_。</span>
+<span class="k">unless</span> <span class="n">say_hi_to</span><span class="o">.</span><span class="n">empty?</span>
+  <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
+  <span class="nb">puts</span> <span class="s2">&quot;You say goodbye, and </span><span class="si">#{</span><span class="n">the_beatles</span><span class="o">.</span><span class="n">sample</span><span class="si">}</span><span class="s2"> says hello to </span><span class="si">#{</span><span class="n">say_hi_to</span><span class="si">}</span><span class="s2">!&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+</div>
+<p>この場合、ブロックにはオプションに与えられたパラメーターの値が渡されます。</p>
+<p>試してみましょう。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run ./hello_goodbye.cr -- -g <span class="s2">&quot;Penny Lane&quot;</span>
 
-<span class="sb">!!!example &quot;hello_goodbye.cr&quot;</span>
-<span class="sb">```</span><span class="n">crystal</span>
-<span class="k">require</span> <span class="s2">&quot;option_parser&quot;</span>
-
-    <span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
-    <span class="o">]</span>
-    <span class="n">say_hi_to</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
-    <span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
-
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-g NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;--goodbye_hello=NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to whoever you want&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">name</span><span class="o">|</span>
-        <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">name</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-
-    <span class="k">unless</span> <span class="n">say_hi_to</span><span class="o">.</span><span class="n">empty?</span>
-      <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
-      <span class="nb">puts</span> <span class="s2">&quot;You say goodbye, and </span><span class="si">#{</span><span class="n">the_beatles</span><span class="o">.</span><span class="n">sample</span><span class="si">}</span><span class="s2"> says hello to </span><span class="si">#{</span><span class="n">say_hi_to</span><span class="si">}</span><span class="s2">!&quot;</span>
-    <span class="k">end</span>
-    <span class="sb">```</span>
-
-<span class="sb">この場合、ブロックにはオプションに与えられたパラメーターの値が渡されます。</span>
-
-<span class="sb">試してみましょう。</span>
-
-<span class="sb">```</span><span class="n">console</span>
-<span class="err">$</span> <span class="n">crystal</span> <span class="n">run</span> <span class="o">.</span><span class="n n-Operator">/</span><span class="n">hello_goodbye</span><span class="o">.</span><span class="n">cr</span> <span class="o">--</span> <span class="o">-</span><span class="n">g</span> <span class="s2">&quot;Penny Lane&quot;</span>
-
-<span class="n">You</span> <span class="n">say</span> <span class="n">goodbye</span><span class="p">,</span> <span class="n">and</span> <span class="n">Ringo</span> <span class="n">Starr</span> <span class="n">says</span> <span class="n">hello</span> <span class="n">to</span> <span class="n">Penny</span> <span class="n">Lane!</span>
+<span class="go">You say goodbye, and Ringo Starr says hello to Penny Lane!</span>
 </code></pre></div>
 <p>いい感じですね。アプリケーションが段々といい感じになってきました。ですが、<strong>渡されたオプションを宣言していなかった場合、どうなるのでしょうか？</strong>　例えば -n を渡してみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run ./hello_goodbye.cr -- -n
@@ -2700,104 +2728,102 @@
 <span class="go">  from ...</span>
 </code></pre></div>
 <p>なんてことでしょう。これは壊れていますね。<strong>無効なオプション</strong>と<strong>無効なパラメーター</strong>が渡されたときの処理をする必要するがあります。2つの状況に応じて、<code>OptionParser</code>クラスは<code>#invalid_option</code>と<code>#missing_option</code>という2つメソッドを持っています。</p>
-<p>So, let's add this option handler and merge all these CLI applications into one fabulous CLI application!</p>
+<p>それでは、これらのオプションハンドラーを追加して、すべてを1つのすばらしいCLIアプリケーションにマージしましょう。</p>
 <h4 id="all-my-cli-cli">All My CLI: 完成した CLI アプリケーション<a class="headerlink" href="#all-my-cli-cli" title="Permanent link">&para;</a></h4>
 <p>これが、無効なオプション/パラメーターの処理を追加して、新しいオプションを追加した、最終的なソースコードです。</p>
 <div class="admonition example">
 <p class="admonition-title">all_my_cli.cr</p>
-</div>
 <div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;option_parser&quot;</span>
 
-    <span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
-      <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
-    <span class="o">]</span>
-    <span class="n">shout</span> <span class="o">=</span> <span class="kc">false</span>
-    <span class="n">say_hi_to</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="n">strawberry</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">the_beatles</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Paul McCartney&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;George Harrison&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Ringo Starr&quot;</span><span class="p">,</span>
+<span class="o">]</span>
+<span class="n">shout</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">say_hi_to</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">strawberry</span> <span class="o">=</span> <span class="kc">false</span>
 
-    <span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
+<span class="n">option_parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="o">.</span><span class="n">parse</span> <span class="k">do</span> <span class="o">|</span><span class="n">parser</span><span class="o">|</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;Welcome to The Beatles App!&quot;</span>
 
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
-        <span class="nb">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--twist&quot;</span><span class="p">,</span> <span class="s2">&quot;Twist and SHOUT&quot;</span> <span class="k">do</span>
-        <span class="n">shout</span> <span class="o">=</span> <span class="kc">true</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-g NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;--goodbye_hello=NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to whoever you want&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">name</span><span class="o">|</span>
-        <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">name</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;--random_goodbye_hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to one random member&quot;</span> <span class="k">do</span>
-        <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">sample</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;--strawberry&quot;</span><span class="p">,</span> <span class="s2">&quot;Strawberry fields forever mode ON&quot;</span> <span class="k">do</span>
-        <span class="n">strawberry</span> <span class="o">=</span> <span class="kc">true</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">missing_option</span> <span class="k">do</span> <span class="o">|</span><span class="n">option_flag</span><span class="o">|</span>
-        <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;ERROR: </span><span class="si">#{</span><span class="n">option_flag</span><span class="si">}</span><span class="s2"> is missing something.&quot;</span>
-        <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;&quot;</span>
-        <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-      <span class="k">end</span>
-      <span class="n">parser</span><span class="o">.</span><span class="n">invalid_option</span> <span class="k">do</span> <span class="o">|</span><span class="n">option_flag</span><span class="o">|</span>
-        <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;ERROR: </span><span class="si">#{</span><span class="n">option_flag</span><span class="si">}</span><span class="s2"> is not a valid option.&quot;</span>
-        <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="n">parser</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;Show version&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s2">&quot;version 1.0&quot;</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">,</span> <span class="s2">&quot;Show help&quot;</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--twist&quot;</span><span class="p">,</span> <span class="s2">&quot;Twist and SHOUT&quot;</span> <span class="k">do</span>
+    <span class="n">shout</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-g NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;--goodbye_hello=NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to whoever you want&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">name</span><span class="o">|</span>
+    <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">name</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;--random_goodbye_hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Say hello to one random member&quot;</span> <span class="k">do</span>
+    <span class="n">say_hi_to</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">sample</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">on</span> <span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;--strawberry&quot;</span><span class="p">,</span> <span class="s2">&quot;Strawberry fields forever mode ON&quot;</span> <span class="k">do</span>
+    <span class="n">strawberry</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">missing_option</span> <span class="k">do</span> <span class="o">|</span><span class="n">option_flag</span><span class="o">|</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;ERROR: </span><span class="si">#{</span><span class="n">option_flag</span><span class="si">}</span><span class="s2"> is missing something.&quot;</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;&quot;</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">invalid_option</span> <span class="k">do</span> <span class="o">|</span><span class="n">option_flag</span><span class="o">|</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;ERROR: </span><span class="si">#{</span><span class="n">option_flag</span><span class="si">}</span><span class="s2"> is not a valid option.&quot;</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="n">parser</span>
+    <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-    <span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span>
-    <span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">map</span> <span class="o">&amp;.</span><span class="n">upcase</span> <span class="k">if</span> <span class="n">shout</span>
+<span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span>
+<span class="n">members</span> <span class="o">=</span> <span class="n">the_beatles</span><span class="o">.</span><span class="n">map</span> <span class="o">&amp;.</span><span class="n">upcase</span> <span class="k">if</span> <span class="n">shout</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;Strawberry fields forever mode ON&quot;</span> <span class="k">if</span> <span class="n">strawberry</span>
+<span class="nb">puts</span> <span class="s2">&quot;Strawberry fields forever mode ON&quot;</span> <span class="k">if</span> <span class="n">strawberry</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
-    <span class="nb">puts</span> <span class="s2">&quot;Group members:&quot;</span>
-    <span class="nb">puts</span> <span class="s2">&quot;==============&quot;</span>
-    <span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
-      <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">strawberry</span> <span class="sc">?&quot;</span><span class="err">🍓</span><span class="s2">&quot; : &quot;</span><span class="o">-</span><span class="s2">&quot;} </span><span class="si">#{</span><span class="n">member</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">end</span>
+<span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;Group members:&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;==============&quot;</span>
+<span class="n">members</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">member</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">strawberry</span> <span class="sc">?&quot;</span><span class="err">🍓</span><span class="s2">&quot; : &quot;</span><span class="o">-</span><span class="s2">&quot;} </span><span class="si">#{</span><span class="n">member</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
 
-    <span class="k">unless</span> <span class="n">say_hi_to</span><span class="o">.</span><span class="n">empty?</span>
-      <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
-      <span class="nb">puts</span> <span class="s2">&quot;You say goodbye, and I say hello to </span><span class="si">#{</span><span class="n">say_hi_to</span><span class="si">}</span><span class="s2">!&quot;</span>
-    <span class="k">end</span>
-    <span class="sb">```</span>
-
-<span class="sb">### ユーザーへの入力の要求</span>
-
-<span class="sb">しばしばユーザーに値を入力してもらいたい場合があります。どのようにして値を_読む_のでしょうか？　</span>
-<span class="sb">簡単です！The Fab Four が望むフレーズを唄ってくれる、というアプリケーションを作ってみましょう。このアプリケーションを実行すると、ユーザーにフレーズを要求して、そして魔法が起こります！</span>
-
-<span class="sb">!!!example &quot;let_it_cli.cr&quot;</span>
-<span class="sb">```</span><span class="n">crystal</span>
-<span class="nb">puts</span> <span class="s2">&quot;Welcome to The Beatles Sing-Along version 1.0!&quot;</span>
+<span class="k">unless</span> <span class="n">say_hi_to</span><span class="o">.</span><span class="n">empty?</span>
+  <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
+  <span class="nb">puts</span> <span class="s2">&quot;You say goodbye, and I say hello to </span><span class="si">#{</span><span class="n">say_hi_to</span><span class="si">}</span><span class="s2">!&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+</div>
+<h3 id="_4">ユーザーへの入力の要求<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>しばしばユーザーに値を入力してもらいたい場合があります。どのようにして値を_読む_のでしょうか？　
+簡単です！The Fab Four が望むフレーズを唄ってくれる、というアプリケーションを作ってみましょう。このアプリケーションを実行すると、ユーザーにフレーズを要求して、そして魔法が起こります！</p>
+<div class="admonition example">
+<p class="admonition-title">let_it_cli.cr</p>
+<div class="crystal highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;Welcome to The Beatles Sing-Along version 1.0!&quot;</span>
 <span class="nb">puts</span> <span class="s2">&quot;Enter a phrase you want The Beatles to sing&quot;</span>
 <span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
 <span class="n">user_input</span> <span class="o">=</span> <span class="nb">gets</span>
 <span class="nb">puts</span> <span class="s2">&quot;The Beatles are singing: 🎵</span><span class="si">#{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">🎶🎸🥁&quot;</span>
 </code></pre></div>
-<p>The method <a href="https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method"><code>gets</code></a> will <strong>pause</strong> the execution of the application until the user finishes entering the input (pressing the <code>Enter</code> key).
+</div>
+<p>メソッド <a href="https://crystal-lang.org/api/latest/toplevel.html#gets%28*args,**options%29-class-method"><code>gets</code></a> は、ユーザーが入力を完了する (<code>Enter</code> キーを押す) まで、アプリケーションの実行を<strong>一時停止</strong>します。
 ユーザーが<code>Enter</code>を押すと、実行が再開して<code>user_input</code>にユーザーの入力した値が入ります。</p>
-<p>But what happens if the user doesn’t enter any value? In that case, we would get an empty string (if the user only presses <code>Enter</code>) or maybe a <code>Nil</code> value (if the input stream is closed, e.g. by pressing <code>Ctrl+D</code>).
-To illustrate the problem let’s try the following: we want the input entered by the user to be sung loudly:</p>
+<p>しかし、ユーザーが何も入力しなかった場合はどうなるでしょうか？　この場合、空の文字列 (ユーザーが <code>Enter</code> だけ入力した場合) か、<code>Nil</code> 値 (インプットがクローズされた場合、例えば <code>Ctrl+D</code> を押された) を取得します。
+この場合の問題を説明するために次のようにしてみましょう。ユーザーが入力した文字を大文字にしてみます:</p>
 <div class="admonition example">
 <p class="admonition-title">let_it_cli.cr</p>
-</div>
 <div class="crystal highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;Welcome to The Beatles Sing-Along version 1.0!&quot;</span>
 <span class="nb">puts</span> <span class="s2">&quot;Enter a phrase you want The Beatles to sing&quot;</span>
 <span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
 <span class="n">user_input</span> <span class="o">=</span> <span class="nb">gets</span>
 <span class="nb">puts</span> <span class="s2">&quot;The Beatles are singing: 🎵</span><span class="si">#{</span><span class="n">user_input</span><span class="o">.</span><span class="n">upcase</span><span class="si">}</span><span class="s2">🎶🎸🥁&quot;</span>
 </code></pre></div>
+</div>
 <p>これを実行しようとしてみると、 Crystal はこんな風にしてコンパイルに失敗するでしょう。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> crystal run ./let_it_cli.cr
 <span class="go">Showing last frame. Use --error-trace for full trace.</span>
@@ -2812,76 +2838,68 @@ To illustrate the problem let’s try the following: we want the input entered b
 というわけで、<code>Nil</code>もしくは<code>""</code> (空文字列) かをチェックして、自然に動作するようにしましょう。</p>
 <div class="admonition example">
 <p class="admonition-title">let_it_cli.cr</p>
-</div>
 <div class="crystal highlight"><pre><span></span><code><span class="nb">puts</span> <span class="s2">&quot;Welcome to The Beatles Sing-Along version 1.0!&quot;</span>
 <span class="nb">puts</span> <span class="s2">&quot;Enter a phrase you want The Beatles to sing&quot;</span>
 <span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
 <span class="n">user_input</span> <span class="o">=</span> <span class="nb">gets</span>
 
-    <span class="nb">exit</span> <span class="k">if</span> <span class="n">user_input</span><span class="o">.</span><span class="n">nil?</span><span class="c1"># Ctrl+D</span>
+<span class="nb">exit</span> <span class="k">if</span> <span class="n">user_input</span><span class="o">.</span><span class="n">nil?</span><span class="c1"># Ctrl+D</span>
 
-    <span class="n">default_lyrics</span> <span class="o">=</span> <span class="s2">&quot;Na, na, na, na-na-na na&quot;</span> <span class="p">\</span>
-                     <span class="s2">&quot; / &quot;</span> <span class="p">\</span>
-                     <span class="s2">&quot;Na-na-na na, hey Jude&quot;</span>
+<span class="n">default_lyrics</span> <span class="o">=</span> <span class="s2">&quot;Na, na, na, na-na-na na&quot;</span> <span class="p">\</span>
+                 <span class="s2">&quot; / &quot;</span> <span class="p">\</span>
+                 <span class="s2">&quot;Na-na-na na, hey Jude&quot;</span>
 
-    <span class="n">lyrics</span> <span class="o">=</span> <span class="n">user_input</span><span class="o">.</span><span class="n">presence</span> <span class="o">||</span> <span class="n">default_lyrics</span>
+<span class="n">lyrics</span> <span class="o">=</span> <span class="n">user_input</span><span class="o">.</span><span class="n">presence</span> <span class="o">||</span> <span class="n">default_lyrics</span>
 
-    <span class="nb">puts</span> <span class="s2">&quot;The Beatles are singing: 🎵</span><span class="si">#{</span><span class="n">lyrics</span><span class="o">.</span><span class="n">upcase</span><span class="si">}</span><span class="s2">🎶🎸🥁&quot;</span>
-    <span class="sb">```</span>
+<span class="nb">puts</span> <span class="s2">&quot;The Beatles are singing: 🎵</span><span class="si">#{</span><span class="n">lyrics</span><span class="o">.</span><span class="n">upcase</span><span class="si">}</span><span class="s2">🎶🎸🥁&quot;</span>
+</code></pre></div>
+</div>
+<h2 id="_5">出力<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>ここからは、アプリケーションの出力という、2つ目のトピックに取りかかっていきます。
+はじめに、アプリケーションは現時点でも情報を表示してはいるけど、そこまで良い表示だとは言えません。せっかくなので出力を <em>色付け</em> してみましょう。</p>
+<p>これを達成するために <a href="https://crystal-lang.org/api/latest/Colorize.html"><code>Colorize</code></a> モジュールを使いたいと思います。</p>
+<p>色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。黒の背景に黄色のフォントを使用します:</p>
+<div class="admonition example">
+<p class="admonition-title">yellow_cli.cr</p>
+<div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;colorize&quot;</span>
 
-<span class="sb">## 出力</span>
-
-<span class="sb">ここからは、アプリケーションの出力という、2つ目のトピックに取りかかっていきます。</span>
-<span class="sb">はじめに、アプリケーションは現時点でも情報を表示してはいるけど、そこまで良い表示だとは言えません。せっかくなので出力を _色付け_ してみましょう。</span>
-
-<span class="sb">これを達成するために [`</span><span class="n">Colorize</span><span class="sb">`](https://crystal-lang.org/api/latest/Colorize.html) モジュールを使いたいと思います。</span>
-
-<span class="sb">色付いた文字列を表示する、単純なアプリケーションを作ってみましょう。We will use a yellow font on a black background:</span>
-
-<span class="sb">!!!example &quot;yellow_cli.cr&quot;</span>
-<span class="sb">```</span><span class="n">crystal</span>
-<span class="k">require</span> <span class="s2">&quot;colorize&quot;</span>
-
-    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="s2">&quot;The Beatles&quot;</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="ss">:yellow</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="ss">:black</span><span class="p">)</span><span class="si">}</span><span class="s2"> App&quot;</span>
-    <span class="sb">```</span>
-
-<span class="sb">いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？ (it&#39;s easy if you try?)</span>
-
-<span class="sb">```</span><span class="n">crystal</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="s2">&quot;The Beatles&quot;</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="ss">:yellow</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="ss">:black</span><span class="p">)</span><span class="si">}</span><span class="s2"> App&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="s2">&quot;The Beatles&quot;</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="ss">:yellow</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="ss">:black</span><span class="p">)</span><span class="si">}</span><span class="s2"> App&quot;</span>
+</code></pre></div>
+</div>
+<p>いい感じですね。簡単でしょう。イマジン (想像) してみてください、All My CLI アプリケーションのバナーにこの文字列を使うことを。ほら、簡単でしょう？ (it's easy if you try?)</p>
+<div class="crystal highlight"><pre><span></span><code><span class="n">parser</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="s2">&quot;The Beatles&quot;</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="ss">:yellow</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="ss">:black</span><span class="p">)</span><span class="si">}</span><span class="s2"> App&quot;</span>
 </code></pre></div>
 <p>ユーザーの入力を受け取る方のアプリケーションに、今回は<code>blink</code> (点滅)という<em>テキストの装飾</em>を追加してみましょう。</p>
 <div class="admonition example">
 <p class="admonition-title">let_it_cli.cr</p>
-</div>
-<p>```crystal
-require "colorize"</p>
-<div class="highlight"><pre><span></span><code>puts &quot;Welcome to The Beatles Sing-Along version 1.0!&quot;
-puts &quot;Enter a phrase you want The Beatles to sing&quot;
-print &quot;&gt; &quot;
-user_input = gets
+<div class="crystal highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;colorize&quot;</span>
 
-exit if user_input.nil?# Ctrl+D
+<span class="nb">puts</span> <span class="s2">&quot;Welcome to The Beatles Sing-Along version 1.0!&quot;</span>
+<span class="nb">puts</span> <span class="s2">&quot;Enter a phrase you want The Beatles to sing&quot;</span>
+<span class="nb">print</span> <span class="s2">&quot;&gt; &quot;</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="nb">gets</span>
 
-default_lyrics = &quot;Na, na, na, na-na-na na&quot; \
-                 &quot; / &quot; \
-                 &quot;Na-na-na na, hey Jude&quot;
+<span class="nb">exit</span> <span class="k">if</span> <span class="n">user_input</span><span class="o">.</span><span class="n">nil?</span><span class="c1"># Ctrl+D</span>
 
-lyrics = user_input.presence || default_lyrics
+<span class="n">default_lyrics</span> <span class="o">=</span> <span class="s2">&quot;Na, na, na, na-na-na na&quot;</span> <span class="p">\</span>
+                 <span class="s2">&quot; / &quot;</span> <span class="p">\</span>
+                 <span class="s2">&quot;Na-na-na na, hey Jude&quot;</span>
 
-puts &quot;The Beatles are singing: #{&quot;🎵#{lyrics}🎶🎸🥁&quot;.colorize.mode(:blink)}&quot;
-```
+<span class="n">lyrics</span> <span class="o">=</span> <span class="n">user_input</span><span class="o">.</span><span class="n">presence</span> <span class="o">||</span> <span class="n">default_lyrics</span>
+
+<span class="nb">puts</span> <span class="s2">&quot;The Beatles are singing: </span><span class="si">#{</span><span class="s2">&quot;🎵</span><span class="si">#{</span><span class="n">lyrics</span><span class="si">}</span><span class="s2">🎶🎸🥁&quot;</span><span class="o">.</span><span class="n">colorize</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="ss">:blink</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
+</div>
 <p>生まれ変わったアプリケーションを試してみてください……そして、違いを_聴き取って_ください。
 <strong>今</strong>、私たちは2つのファビュラスなアプリケーションを実装したのです。</p>
 <p><strong>利用できる色</strong>や<strong>テキストの装飾</strong>の一覧は <a href="https://crystal-lang.org/api/latest/Colorize.html">API ドキュメント</a>で確認できます。</p>
-<h2 id="_3">テスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>As with any other application, at some point, we would like to <a href="../guides/testing.html">write tests</a> for the different features.</p>
-<p>現時点ではアプリケーションの各ロジックは<code>OptionParser</code>の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。Once the refactoring is done, we could start testing the logic and including the file with the logic in the testing files we need. これを読者の課題とします。.</p>
+<h2 id="_6">テスト<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>他のアプリケーションと同じように、ある時点で、さまざまな機能の<a href="../guides/testing.html">テストを書き</a>たいと思うでしょう。</p>
+<p>現時点ではアプリケーションの各ロジックは<code>OptionParser</code>の内で実行されています。つまり、アプリケーション全体を実行することなしに、部分的にファイルを取り込むことができないのです。よって、まずはじめにオプションの解析部分と実際のロジックを分離するリファクタリングを行う必要があります。リファクタリングが完了したら、ロジックのテストを開始し、必要なテストファイルにロジックを含むファイルを含めることができます。これは読者の課題としましょう。これを読者の課題とします。.</p>
 <h2 id="readlinencurses"><code>Readline</code>と<code>NCurses</code>の利用<a class="headerlink" href="#readlinencurses" title="Permanent link">&para;</a></h2>
 <p>よりリッチなCLI アプリケーションを構築しようと思ったとき、これらのライブラリが助けになります。<code>Readline</code>と<code>NCurses</code>という、2つのよく知られたライブラリです。</p>
 <p><a href="http://www.gnu.org/software/readline/">GNU Readline Library</a> で述べられているように、<code>Readline</code> はユーザーに対してコマンドライン編集機能を提供します。
-<code>Readline</code> has some great features: filename autocompletion out of the box; custom auto-completion method; keybinding, just to mention a few. それらの機能を使いたいのであれば <a href="https://github.com/crystal-lang/crystal-readline">crystal-lang/crystal-readline</a> shard が <code>Readline</code> を簡単に扱うための API を提供しています。</p>
+<code>Readline</code> は素晴らしく強力な機能があります。ボックス外でのファイル名の自動補完、自動補完方法のカスタマイズ、キーバインド変更というのはほんの一例です。それらの機能を使いたいのであれば <a href="https://github.com/crystal-lang/crystal-readline">crystal-lang/crystal-readline</a> shard が <code>Readline</code> を簡単に扱うための API を提供しています。</p>
 <p>続いて、<code>NCurses</code>(New Curses) の紹介です。このライブラリは端末で_グラフィカルな_ユーザーインターフェースを開発することを可能にします。その名前が暗に示すように、これは<code>Curses</code>というライブラリの改良版です。<code>Curses</code> は Rouge というテキストベースのダンジョン探索アドベンチャーゲームのために開発されました。
 想像してみてください。<code>NCurses</code> Crystal で使うには<a href="https://crystalshards.org/shards/search?q=ncurses">いくつもの shardls</a>がエコシステムには存在しています。</p>
 <p>これでこの文章はおしまいです 😎🎶</p>
