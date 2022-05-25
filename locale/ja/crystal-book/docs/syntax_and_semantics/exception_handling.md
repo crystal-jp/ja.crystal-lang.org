@@ -4,20 +4,20 @@ Crystal では、例外を発生 (raise) させ、それを捕捉 (rescue) す�
 
 ## 例外を発生させる
 
-例外を発生させるにはトップレベルの `raise` メソッドを使います。他のキーワードと異なり、`raise` は通常のメソッドであり、2つのオーバーロードがあります。その1つは[文字列を受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28exception%3AException%29%3ANoReturn-class-method)で、もう1つは[例外オブジェクトを受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28message%3AString%29%3ANoReturn-class-method)です。
+例外を発生させるにはトップレベルの `raise` メソッドを使います。他のキーワードとは異なり、`raise` は通常のメソッドであり、2つのオーバーロードがあります。その1つは[String を受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28exception%3AException%29%3ANoReturn-class-method)で、もう1つは[例外オブジェクトを受け取るもの](https://crystal-lang.org/api/toplevel.html#raise%28message%3AString%29%3ANoReturn-class-method)です。
 
 ```crystal
 raise "OH NO!"
 raise Exception.new("Some error")
 ```
 
-文字列の場合は、単純にそのメッセージを含んだ [Exception](https://crystal-lang.org/api/latest/Exception.html) のインスタンスを生成します。
+String の場合は、単純にそのメッセージを含んだ [Exception](https://crystal-lang.org/api/Exception.html) のインスタンスを生成します。
 
 そして、raise の対象に指定することができるのは `Exception` のインスタンス、もしくはそのサブクラスのみに限られます。
 
 ## 独自の例外を定義する
 
-独自の例外を定義したい場合には、[Exception](https://crystal-lang.org/api/latest/Exception.html) からサブクラスを作成します。
+独自の例外型を定義したい場合には、[Exception](https://crystal-lang.org/api/Exception.html) からサブクラスを作成します。
 
 ```crystal
 class MyException < Exception

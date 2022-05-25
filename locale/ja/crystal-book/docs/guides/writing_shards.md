@@ -19,8 +19,8 @@
 Crystal の shard をリリースするために、そしてこのチュートリアルを続けていくためには、次のものが必要です。
 
 * [Crystal のコンパイラ](../using_the_compiler/README.md)が動作するようにインストールされていること
-* [Git](https://git-scm.com) が動作するようにインストールされていること
-* [GitHub](https://github.com) もしくは [GitLab](https://gitlab.com/) のアカウント
+* A working installation of [Git](https://git-scm.com)
+* A [GitHub](https://github.com) or [GitLab](https://gitlab.com/) account
 
 ### プロジェクトの作成
 
@@ -75,7 +75,7 @@ $ git commit -am "First Commit"
 #### コードのテスト
 
 - コードのテストを書きましょう。それがすべてです。人々 (あなたを含む) にとって、テストだけがどのように機能するものなのかを示すものになります。
-- Crystal は[ビルトインのテストライブラリ](https://crystal-lang.org/api/latest/Spec.html)を持っています。それを使ってください。
+- Crystal has [a built-in testing library](https://crystal-lang.org/api/Spec.html). それを使ってください。
 
 #### ドキュメント化
 
@@ -96,7 +96,7 @@ $ git commit -am "First Commit"
 ### README を書く
 
 良い README があるかどうかはプロジェクトの成功を左右します。
-[Awesome README](https://github.com/matiassingers/awesome-readme) はこの話題の素晴らしい例やリソースのキュレーテッドリストになっています。
+[Awesome README](https://github.com/matiassingers/awesome-readme) is a nice curation of examples and resources on the topic.
 
 最も重要なことですが、README では次のことが説明されているべきでしょう。
 
@@ -132,13 +132,13 @@ crystal tool format --check
 
 ### `shard.yml` を書く
 
-[仕様書](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc)を確認してください。これに従いましょう。
+[The spec](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc) is your rulebook. これに従いましょう。
 
 #### 名前
 
 `shard.yml`ので `name` プロパティは簡潔かつ説明的なものにすべきです。
 
-- [crystalshards.xyz](https://crystalshards.xyz/) で検索して、既に使われている名前でないか確認しておきましょう。
+- Search [crystalshards.xyz](https://crystalshards.xyz/) to check if your name is already taken.
 
 例:
 
@@ -160,7 +160,7 @@ description は次のようにすべきです。
 #### 最適化
 
 見つけられるものでなければ、誰もあなたのプロジェクトを利用しないでしょう。
-今のところ、[crystalshards.xyz](https://crystalshards.xyz/) に Crystal のライブラリは集約されています。なので、ここに向けて最適化します。
+There are several services for discovering shards, a list is available on the [Crystal Community page](https://crystal-lang.org/community/#shards).
 
 _精確な_機能からライブラリを探す人と、_一般的な_機能からライブラリを探す人がいます。
 例えば Bob は回文を扱うライブラリを必要としていて、一方で Felipe が探しているのはテキストを扱うライブラリで、Susan が探しているのはスペルについてのライブラリ、といったように、です。

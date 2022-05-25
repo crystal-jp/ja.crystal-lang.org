@@ -46,7 +46,7 @@ peter.age # => 0
 
 ## ゲッターとセッター
 
-Crystal の[標準ライブラリ](https://crystal-lang.org/api)にはゲッターとセッターを簡潔に定義するためのマクロがいくつかあります。
+Crystal の[標準ライブラリ](https://crystal-lang.org/api) にはゲッターとセッターを完結に定義するためのマクロがいくつかあります。
 
 ```crystal
 class Person
@@ -63,7 +63,7 @@ john.age = 32
 john.age # => 32
 ```
 
-ゲッターとセッターのマクロの詳細は、標準ライブラリの [Object#getter](https://crystal-lang.org/api/latest/Object.html#getter%28%2Anames%2C%26block%29-macro) や [Object#setter](https://crystal-lang.org/api/latest/Object.html#setter%28%2Anames%29-macro)、[Object#property](https://crystal-lang.org/api/latest/Object.html#property%28%2Anames%2C%26block%29-macro) の辺りを参照してください。
+ゲッターとセッターのマクロの詳細は、標準ライブラリの[Object#getter](https://crystal-lang.org/api/Object.html#getter%28%2Anames%2C%26block%29-macro), [Object#setter](https://crystal-lang.org/api/Object.html#setter%28%2Anames%29-macro)と[Object#property](https://crystal-lang.org/api/Object.html#property%28%2Anames%2C%26block%29-macro)の辺りを参照してください。
 
 少し捕捉をすると、上記のように `become_older` メソッドを元々の `Person` クラスのなか で定義するだけではなく、元々のクラスと別で改めて定義することも可能です。Crystal はそれらのすべての定義を1つのクラスにまとめます。つまり、以下の場合でも問題なく動作します。
 

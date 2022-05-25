@@ -7,7 +7,7 @@ x = uninitialized Int32
 x # => some random value, garbage, unreliable
 ```
 
-これは[安全でない](unsafe.md)コードで、特に低レベルなコードにおいて、未初期化の [StaticArray](https://crystal-lang.org/api/latest/StaticArray.html) バッファをパフォーマンスの劣化なく定義するために使われます。
+これは[安全でない](unsafe.md)コードで、特に低レベルなコードにおいて、未初期化の [StaticArray](https://crystal-lang.org/api/StaticArray.html) バッファをパフォーマンスの劣化なく定義するために使われます。
 
 ```crystal
 buffer = uninitialized UInt8[256]

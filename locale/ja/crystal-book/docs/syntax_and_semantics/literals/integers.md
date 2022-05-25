@@ -1,33 +1,38 @@
 # 整数 (Integer)
 
-4つ符号付き整数型と、4つの符号無し整数型が存在します。
+There are five signed integer types, and five unsigned integer types:
 
 | 型 | 大きさ | 最小値 | 最大値 |
 | ---------- | -----------: | -----------: |-----------: |
-| [Int8](https://crystal-lang.org/api/latest/Int8.html) | 8 | -128 | 127 |
-| [Int16](https://crystal-lang.org/api/latest/Int16.html) | 16 | −32,768 | 32,767 |
-| [Int32](https://crystal-lang.org/api/latest/Int32.html) | 32 | −2,147,483,648 | 2,147,483,647 |
-| [Int64](https://crystal-lang.org/api/latest/Int64.html) | 64 | −2<sup>63</sup> | 2<sup>63</sup> - 1 |
-| [UInt8](https://crystal-lang.org/api/latest/UInt8.html) | 8 | 0 | 255 |
-| [UInt16](https://crystal-lang.org/api/latest/UInt16.html) | 16 | 0 | 65,535 |
-| [UInt32](https://crystal-lang.org/api/latest/UInt32.html) | 32 | 0 | 4,294,967,295 |
-| [UInt64](https://crystal-lang.org/api/latest/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1 |
+| [Int8](http://crystal-lang.org/api/Int8.html) | 8 | -128 | 127 |
+| [Int16](http://crystal-lang.org/api/Int16.html) | 16 | −32,768 | 32,767 |
+| [Int32](http://crystal-lang.org/api/Int32.html) | 32 | −2,147,483,648 | 2,147,483,647 |
+| [Int64](http://crystal-lang.org/api/Int64.html) | 64 | −2<sup>63</sup> | 2<sup>63</sup> - 1 |
+| [Int128](https://crystal-lang.org/api/Int128.html) | 128 | −2<sup>127</sup> | 2<sup>127</sup> - 1 |
+| [UInt8](http://crystal-lang.org/api/UInt8.html) | 8 | 0 | 255 |
+| [UInt16](http://crystal-lang.org/api/UInt16.html) | 16 | 0 | 65,535 |
+| [UInt32](http://crystal-lang.org/api/UInt32.html) | 32 | 0 | 4,294,967,295 |
+| [UInt64](http://crystal-lang.org/api/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1 |
+| [UInt128](https://crystal-lang.org/api/UInt128.html) | 128 | 0 | 2<sup>128</sup> - 1 |
 
 整数リテラルは `+` (オプション) または `-` 符号に続く数値とアンダースコアからなり、さらに型を表わすサフィックスを続けることができます。
-サフィックスがない場合はリテラルの型は`Int32`か`Int64`または`UInt64`の中で、その数値に適した最小のものになります。
+If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
+in which the number fits (at the moment, `128` bit integers must always be suffixed):
 
 ```crystal
 1 # Int32
 
-1_i8  # Int8
-1_i16 # Int16
-1_i32 # Int32
-1_i64 # Int64
+1_i8   # Int8
+1_i16  # Int16
+1_i32  # Int32
+1_i64  # Int64
+1_i128 # Int128
 
-1_u8  # UInt8
-1_u16 # UInt16
-1_u32 # UInt32
-1_u64 # UInt64
+1_u8   # UInt8
+1_u16  # UInt16
+1_u32  # UInt32
+1_u64  # UInt64
+1_u128 # UInt128
 
 +10 # Int32
 -20 # Int32

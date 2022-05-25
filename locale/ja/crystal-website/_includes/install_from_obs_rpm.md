@@ -1,6 +1,6 @@
 ## Crystal 公式の rpm リポジトリ
 
-[Open Build Service](https://build.opensuse.org) でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。
+To install latest stable Crystal release from the official Crystal repository hosted on the [Open Build Service](https://build.opensuse.org) run in your command line:
 
 <div class="code_section">
 {% highlight bash %}
@@ -24,7 +24,7 @@ curl -fsSL https://crystal-lang.org/install.sh | sudo bash -s -- --channel=night
 ### マニュアルセットアップ
 
 ディストリビューション名とリリース名を次のスクリプトの `{REPOSITORY}` に挿入することで、設定できます。
-有効なオプションの一覧は [OBS のインストールページ](https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&package=crystal) で確認できます。
+You can find available options on the [installation page at OBS](https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&package=crystal).
 
 <div class="code_section">
 {% highlight bash %}

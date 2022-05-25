@@ -1,6 +1,6 @@
 # Summary
 
-* [ホーム](README.md)
+* [Welcome](README.md)
     * [Getting Started](getting_started/README.md)
         * [HTTP サーバー](getting_started/http_server.md)
         * [コマンドライアプリケーション](getting_started/cli.md)
@@ -92,6 +92,7 @@
         * [as](syntax_and_semantics/as.md)
         * [as?](syntax_and_semantics/as_question.md)
         * [typeof](syntax_and_semantics/typeof.md)
+    * [Type autocasting](syntax_and_semantics/autocasting.md)
     * [マクロ](syntax_and_semantics/macros/README.md)
         * [マクロメソッド](syntax_and_semantics/macros/macro_methods.md)
         * [フック](syntax_and_semantics/macros/hooks.md)

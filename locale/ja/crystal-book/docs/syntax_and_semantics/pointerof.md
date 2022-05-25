@@ -1,6 +1,6 @@
 # pointerof
 
-`pointerof` は、変数やインスタンス変数の格納場所を示す [Pointer](https://crystal-lang.org/api/latest/Pointer.html) を返します。
+`pointerof` は、変数やインスタンス変数の格納場所を示す [Pointer](https://crystal-lang.org/api/Pointer.html) を返します。
 
 変数の例:
 

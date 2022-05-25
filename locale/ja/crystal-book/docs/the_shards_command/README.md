@@ -8,13 +8,13 @@ Crystal には通常、依存関係管理ツールとして Shards が付随し�
 
 Shards 通常であれば Crystal 自身と共に配布されています。そうでなければ、分割された`shards`パッケージがあなたのシステムでは有効かもしれません。
 
-ソースコードからインストールするには、[リポジトリ](https://github.com/crystal-lang/shards)からソースコードをダウンロードかクローンしてきて、`make CRFLAGS=--release` を実行します。コンパイルされたバイナリは `bin/shards` にあるので、`PATH` にそれを追加してください。
+ソースコードからインストールするには、[リポジトリ](https://github.com/crystal-lang/shards)からソースコードをダウンロードかクローンしてきて、`make CRFLAGS=--release`を実行します。コンパイルされたバイナリは `bin/shards` にあるので、`PATH` にそれを追加してください。
 
 ## 使い方
 
 `shards` は `shard.yml` がプロジェクトのフォルダ (現在のディレクトリ) に置いてあることを要求します。このファイルはプロジェクトの説明と、ビルドに必要な依存関係のリストを含んでいます。
 デフォルトのファイルは [`shards init`](#shards-install) を実行することで生成できます。
-そのファイルの内容は [*Shard の書き方*というガイド](../guides/writing_shards.md)で説明されていて、詳細な説明は[shard.yml の仕様 (英語)](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc) にあります。
+そのファイル内容は[*Shardの書き方*というガイド](../guides/writing_shards.md)で説明されていて、詳細な説明は[shard.yml の仕様 (英語)](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc)にあります。
 
 [`shards install`](#shards-install) を実行すると、指定された依存関係の解決とインストールが行なわれます。
 `shards install` がもう一度実行されたときに同じバージョンがインストールされるために、インストールしたバージョンは `shard.lock` に書き出されます。

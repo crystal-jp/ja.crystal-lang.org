@@ -1,6 +1,7 @@
 ---
 hide:
-  - toc
+  - toc        # Hide table of contents
+  - navigation # Hide sidebar nabigation
 ---
 
 # Crystal Book
@@ -19,6 +20,9 @@ Crystal は人間とコンピューター双方のための言語です。この
 ### [Getting Started](getting_started/README.md)
 
 Crystal ををインストールして実行する方法を説明します。
+
+* [インストール](https://crystal-lang.org/install)
+* [Try Online](https://play.crystal-lang.org/#/cr)
 
  </div>
   <div class="card" markdown="1">
@@ -39,8 +43,8 @@ Crystal ををインストールして実行する方法を説明します。
 
 ### ツール
 
-* [オンラインのプレイグラウンド](https://github.com/crystal-lang/crystal/wiki/Online-playgrounds)
-* [IDE 統合](https://github.com/veelenga/awesome-crystal#editor-plugins)
+* [Online Playgrounds](https://github.com/crystal-lang/crystal/wiki/Online-playgrounds)
+* [IDE Integrations](https://github.com/veelenga/awesome-crystal#editor-plugins)
 * [CI 統合](guides/ci/README.md)
 
  </div>
@@ -61,7 +65,7 @@ Crystal の構文や、標準ライブラリ、ツールについての主要な
  </div>
   <div class="card" markdown="1">
 
-### [標準ライブラリの API ドキュメント](https://crystal-lang.org/api)
+### [Standard Library API](https://crystal-lang.org/api)
 標準ライブラリのドキュメント
 
  </div>
@@ -70,8 +74,8 @@ Crystal の構文や、標準ライブラリ、ツールについての主要な
 ### Shards
 Crystal のライブラリのエコシステムの探訪。
 
-* [Shards の発見方法](https://crystal-lang.org/community/#shards)
-* [仕様](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc)
+* [Discovering Shards](https://crystal-lang.org/community/#shards)
+* [Specification](https://github.com/crystal-lang/shards/blob/master/docs/shard.yml.adoc)
 * [Shards のマニュアル](the_shards_command/README.md)
 
  </div>
@@ -87,8 +91,8 @@ Crystal のライブラリのエコシステムの探訪。
 
 言語の開発についてのアナウンス
 
-* [リリースノート](https://ja.crystal-lang.org/blog/#release_notes)
-* [Crystal ブログ](https://ja.crystal-lang.org/blog)
+* [Release Notes](https://crystal-lang.org/blog/#release_notes)
+* [Crystal Blog](https://crystal-lang.org/blog)
 
  </div>
 </div>
@@ -102,13 +106,13 @@ Crystal の開発に興味があるのであれば、これらの資料がガイ
 <div class="cards" markdown="1">
   <div class="card" markdown="1">
 
-### [貢献方法についての資料](https://github.com/crystal-lang/crystal/blob/master/CONTRIBUTING.md)
+### [Contributing Instructions](https://github.com/crystal-lang/crystal/blob/master/CONTRIBUTING.md)
 Issue の開き方やCrystal にコードで貢献する方法についてのガイドです。
 
  </div>
   <div class="card" markdown="1">
 
-### [行動規範](https://github.com/crystal-lang/crystal/blob/master/CODE_OF_CONDUCT.md)
+### [Code of Conduct](https://github.com/crystal-lang/crystal/blob/master/CODE_OF_CONDUCT.md)
 コミュニティで共にはたらくあたっての標準で期待していることです。
 
  </div>
@@ -122,11 +126,11 @@ Issue の開き方やCrystal にコードで貢献する方法についてのガ
 
 ### 開発者向けリソース
 
-* [すべての要求ライブラリ](https://github.com/crystal-lang/crystal/wiki/All-required-libraries)
-* [コンパイラの内部構造](https://github.com/crystal-lang/crystal/wiki/Compiler-internals)
+* [All required libraries](https://github.com/crystal-lang/crystal/wiki/All-required-libraries)
+* [Compiler internals](https://github.com/crystal-lang/crystal/wiki/Compiler-internals)
 * [コーディングスタイル](conventions/coding_style.md)
 * [プラットフォームサポート](platform_support.md)
-* [PR のマージについて](https://github.com/crystal-lang/crystal/wiki/Merging-PRs)
+* [Merging PRs](https://github.com/crystal-lang/crystal/wiki/Merging-PRs)
 
  </div>
 </div>

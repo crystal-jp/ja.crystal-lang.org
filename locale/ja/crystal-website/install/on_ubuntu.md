@@ -1,5 +1,5 @@
 ---
-subtitle: Ubuntu への
+subtitle: On Ubuntu
 ---
 
 Ubuntu 系のディストリビューションでは、[Crystal 公式の deb リポジトリ](#official-crystal-deb-repository).を利用してインストールできます。[Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。

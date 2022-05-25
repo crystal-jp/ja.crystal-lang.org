@@ -2,10 +2,22 @@
 title: ブログ
 description: 新しいリリースのアナウンス、興味深いユースケース、言語デザインの決定の背景の紹介など
 ---
+
+
 <div class="container">
   <div class="row">
     <div class="col s12">
-      <h2>記事 (一部未翻訳)</h2>{% assign articles = site.posts | where_exp: 'item','item.release_notes != true' %}<div class='post-list'>{% for post in articles %} {% include blog_row.html post=post %} {% endfor %}</div>
+      <h2>記事 (一部未翻訳)</h2>
+      
+      {% assign articles = site.posts %}
+      
+      <div class='post-list'>
+        
+        {% for post in articles %}
+        {% include blog_row.html post=post %}
+        {% endfor %}
+      
+      </div>
       <p><a href="javascript:void(0)" id="more-articles">さらに記事を見る</a></p>
     </div>
   </div>
@@ -14,11 +26,24 @@ description: 新しいリリースのアナウンス、興味深いユースケ�
     <div class="col s12">
       <h2 name="release_notes" id="release_notes">リリースノート (一部未翻訳)</h2>
       <table class="bordered no-underline">
-        <tbody class="notes-list">{% assign releases = site.posts | where: 'release_notes',true %} {% for post in releases %}<tr>
+        <tbody class="notes-list">
+          
+          {% assign releases = site.releases | reverse %}
+          {% for post in releases %}
+            
+            <tr>
               <td></td>
-              <td><a href="{{ post.url }}"> {{ post.title }} </a></td>
-              <td>{{ post.date | date_to_string }}</td>{% endfor %}</tbody>
-      </table>
+              <td><a href="{{ post.url }}">
+                
+                {{ post.title }}
+              
+              </a></td>
+              <td>{{ post.date | date_to_string }}</td>
+          
+          {% endfor %}
+        
+        </tbody>
+      </tr></table>
       <p><a href="javascript:void(0)" id="more-notes">さらにリリースノートを見る</a></p>
     </div>
   </div>

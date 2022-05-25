@@ -1,5 +1,5 @@
 ---
-subtitle: Kubuntu への
+subtitle: On Kubuntu
 ---
 
 Ubuntu 系のディストリビューションでは、[Crystal 公式の deb リポジトリ](#official-crystal-deb-repository).を利用してインストールできます。[Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。

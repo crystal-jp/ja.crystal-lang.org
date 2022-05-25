@@ -1,5 +1,5 @@
 ---
-subtitle: Linux Mint への
+subtitle: On Linux Mint
 ---
 
 On Linux Mint, you can use the [Official Crystal deb repository](#official-crystal-deb-repository). [Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。

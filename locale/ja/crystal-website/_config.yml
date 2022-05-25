@@ -1,11 +1,15 @@
 name: プログラミング言語 Crystal
-description: Ruby のような構文で型推論のあるコンパイル言語
+description: A language for humans and computers
 url: https://ja.crystal-lang.org
 logo: /assets/media/crystal_logo.svg
 
-latest_release:
-  version: 1.2.1
-  date: 2021-10-21
+future: true
+
+collections:
+  releases:
+    output: true
+  style_guide:
+    output: false
 
 defaults:
   -
@@ -14,7 +18,7 @@ defaults:
       type: pages
     values:
       image: /assets/icon.png
-      layout: default
+      layout: page
   -
     scope:
       path: ""
@@ -31,13 +35,18 @@ defaults:
       image: /assets/icon.png
       layout: install
       permalink: /install/:basename/
+  - scope:
+      path: ""
+      type: releases
+    values:
+      layout: post
+      permalink: /:year/:month/:day/:title.html
+      image: /assets/icon.png
+
 twitter:
   username: CrystalLanguage
 
-highlighter: rouge
-markdown: kramdown
 exclude:
-- "*.haml"
 - "*.nix"
 - docker-compose.yml
 - docker-compose.*.yml
@@ -46,18 +55,16 @@ exclude:
 - Makefile
 - Rakefile
 - README.md
-- scripts/*.cr
+- /scripts/
 - vendor
+- netlify.toml
 
-assets:
-  assets:
-    - media/crystal_logo.svg
-    - icon.png
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: crystal
+    block:
+      css_class: code_section
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-assets
-  - jekyll-timeago
-
-google_calendar_api_key: 'AIzaSyCv-2Npqm0mwmwVCKX8xDPhwtP_8HwCWCE'
-google_calendar_id: '0s0pa4k3fov71e4itn79atlmeg@group.calendar.google.com'
+repository: crystal-lang/crystal-website

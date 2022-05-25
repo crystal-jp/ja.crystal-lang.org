@@ -1,6 +1,6 @@
 # シンボル (Symbol)
 
-[Symbol](https://crystal-lang.org/api/latest/Symbol.html) はソースコード全体で一意な名前を表します。
+[Symbol](https://crystal-lang.org/api/Symbol.html)はソースコード全体でユニークな名前を表します。
 
 シンボルはコンパイル時に解釈されるもので、動的に生成することはできません。シンボルを生成する唯一の方法はシンボルリテラルを使うことです。それは、コロン (`:`) のあとに識別子を続けて記述します。識別子の部分はダブルクォート (`"`) で囲むこともできます。
 
@@ -55,7 +55,7 @@
 
 ## パーセントシンボル配列リテラル
 
-Besides the single symbol literal, there is also a percent literal to create an [Array](https://crystal-lang.org/api/latest/Array.html) of symbols. それは`%i`と区切り文字の組によって記述します。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
+1つのシンボルを表すリテラルの他に、シンボルの[配列](https://crystal-lang.org/api/Array.html)を表すパーセントリテラルがあります。それは`%i`と区切り文字の組によって記述します。有効な区切り文字は、括弧`()`、角括弧`[]`、ひげ括弧`{}`、三角括弧`<>`そしてパイプ文字`||`です。パイプ文字を除いて、すべての区切り文字はネストに応じて適切に処理されます。
 
 ```crystal
 %i(foo bar baz)  # => [:foo, :bar, :baz]

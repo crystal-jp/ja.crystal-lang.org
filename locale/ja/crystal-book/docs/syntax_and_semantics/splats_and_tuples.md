@@ -15,7 +15,7 @@ sum 1, 2, 3      # => 6
 sum 1, 2, 3, 4.5 # => 10.5
 ```
 
-渡された引数はメソッドの中で [Tuple](https://crystal-lang.org/api/latest/Tuple.html) として扱えます。
+渡された引数はメソッドの中で [Tuple](https://crystal-lang.org/api/Tuple.html) として扱うことができます。
 
 ```crystal
 # elements は Tuple(Int32, Int32, Int32) になる

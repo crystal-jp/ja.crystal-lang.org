@@ -1,5 +1,5 @@
 ---
-subtitle: Red Hat への
+subtitle: On Red Hat
 ---
 
 Red Hat 系のディストリビューションでは、[Crystal 公式の rpm リポジトリ](#official-crystal-rpm-repository)を利用してインストールできます。
