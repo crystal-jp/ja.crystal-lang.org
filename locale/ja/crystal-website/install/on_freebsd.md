@@ -1,5 +1,5 @@
 ---
-subtitle: FreeBSD への
+subtitle: On FreeBSD
 ---
 
 FreeBSD では、バージョン 11.0 から Crystal のコンパイラが ports ツリーに含まれています。
@@ -53,4 +53,4 @@ sudo pkg install -y llvm60
 {% endhighlight bash %}
 </div>
 
-もしくは、[Synth](https://github.com/jrmarino/synth) のような賢い port ビルダーを使うこともできます。これは再ビルドが必要ない場合に、自動的に依存関係のバイナリパッケージをダウンロードしてくれます。
+Alternatively, use a smart port builder like [Synth](https://github.com/jrmarino/synth), which automatically decides to download dependencies as binary packages when there's no reason to rebuild them.

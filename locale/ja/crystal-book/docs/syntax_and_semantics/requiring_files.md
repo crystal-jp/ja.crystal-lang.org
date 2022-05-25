@@ -10,7 +10,21 @@
 
 このように記述した場合、require パスの中で "filename" に対応するファイルを探します。
 
-デフォルトの require パスは、コンパイラとあわせて提供される標準ライブラリと、カレントディレクトリ (UNIX シェルで言う `pwd`) から相対的に指定される lib ディレクトリとなっています。探索の対象となるディレクトリはこれらのみです。
+By default, the require path includes two locations:
+
+* the `lib` directory relative to the current working directory (this is where dependencies are looked up)
+* the location of the standard library that comes with the compiler
+
+探索の対象となるディレクトリはこれらのみです。
+
+The exact paths used by the compiler can be queried as `crystal env CRYSTAL_PATH`:
+
+```console
+$ crystal env CRYSTAL_PATH
+lib:/usr/bin/../share/crystal/src
+```
+
+These lookup paths can be overridden by defining the [`CRYSTAL_PATH` environment variable](../using_the_compiler/README.md#environment-variables).
 
 ファイルの探索は以下の流れで処理されます。
 
@@ -78,10 +92,9 @@
 * "filename" という名前のディレクトリの中に "filename.cr" というファイルがあれば、そのファイルが読み込まれます。
 * それ以外の場合はコンパイルエラーとなります。
 
-この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また [specs](../guides/testing.md) からコードを参照する場合にも利用されます。
-q
-!!!example "spec/spec_helper.cr"
-```crystal
+この相対パス参照はプロジェクトの中で他のファイルを参照するときによく使われます。また、[specs](../guides/testing.md) からコードを参照する場合にも利用されます。
+
+```crystal title="spec/spec_helper.cr"
 require "../src/project"
 ```
 

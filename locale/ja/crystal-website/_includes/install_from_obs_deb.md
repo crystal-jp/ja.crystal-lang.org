@@ -1,6 +1,6 @@
 ## Crystal 公式の deb リポジトリ
 
-[Open Build Service](https://build.opensuse.org) でホストされている Crystal 公式の deb リポジトリから最新の安定板の Crystal のリリースをインストールするには、コマンドラインで次のように入力してください。
+To install latest stable Crystal release from the official Crystal repository hosted on the [Open Build Service](https://build.opensuse.org) run in your command line:
 
 <div class="code_section">
 {% highlight bash %}
@@ -24,7 +24,7 @@ curl -fsSL https://crystal-lang.org/install.sh | sudo bash -s -- --channel=night
 ### マニュアルセットアップ
 
 ディストリビューション名とリリース名を次のスクリプトの `{REPOSITORY}` に挿入することで、設定できます。
-有効なオプションの一覧は [OBS のインストールページ](https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&package=crystal) で確認できます。
+You can find available options on the [installation page at OBS](https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&package=crystal).
 
 <div class="code_section">
 {% highlight bash %}
@@ -37,20 +37,20 @@ curl -fsSL https://download.opensuse.org/repositories/devel:languages:crystal/{R
 
 リポジトリの設定が完了すれば、Crystal がインストールできます。
 
-<div class="code_section">{% highlight bash %}
+```bash
 sudo apt update
 sudo apt install crystal
-{% endhighlight bash %}</div>
+```
 
 次のパッケージは必ずしも必要なわけではありません。ですが、標準ライブラリの対応する機能を利用するのであればインストールを推奨します。
 
-<div class="code_section">{% highlight bash %}
+```bash
 sudo apt install libssl-dev      # for using OpenSSL
 sudo apt install libxml2-dev     # for using XML
 sudo apt install libyaml-dev     # for using YAML
 sudo apt install libgmp-dev      # for using Big numbers
 sudo apt install libz-dev        # for using crystal play
-{% endhighlight bash %}</div>
+```
 
 新しいバージョンの Crystal がリリースされた場合には、以下でアップグレードすることが可能です。
 

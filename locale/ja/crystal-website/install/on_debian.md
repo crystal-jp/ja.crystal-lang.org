@@ -1,5 +1,5 @@
 ---
-subtitle: Debian への
+subtitle: On Debian
 ---
 
 Debian 系のディストリビューションでは、[Crystal 公式の deb リポジトリ](#official-crystal-deb-repository)を利用してインストールできます。[Snapcraft](#snapcraft) や [Linuxbrew](#linuxbrew) も使えます。

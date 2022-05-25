@@ -1,6 +1,6 @@
 # 配列 (Array)
 
-[Array](https://crystal-lang.org/api/latest/Array.html) は順番に意味があり整数でインデックスされた、`T` 型の値を要素として持つジェネリックなコレクションです。
+[Array](https://crystal-lang.org/api/Array.html)は順番に意味があり整数でインデックスされた、`T`型の値を要素として持つジェネリックなコレクションです。
 
 配列は通常、角括弧 (`[]`) とコンマ (`,`) によって区切られた個々の要素による配列リテラルで生成されます。
 
@@ -90,7 +90,7 @@ The splat operator can be used inside array and array-like literals to insert mu
 Set{1, *coll, 2, 3}
 ```
 
-The only requirement is that `coll`'s type must include [`Enumerable`](https://crystal-lang.org/api/latest/Enumerable.html). よって、上の例は以下と等しいものになります。
+The only requirement is that `coll`'s type must include [`Enumerable`](https://crystal-lang.org/api/Enumerable.html). よって、上の例は以下と等しいものになります。
 
 ```crystal
 array = Array(typeof(...)).new

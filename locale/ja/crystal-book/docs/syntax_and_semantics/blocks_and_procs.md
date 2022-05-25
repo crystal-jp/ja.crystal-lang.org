@@ -64,8 +64,9 @@ open file "foo.cr" do
   something
 end
 
-# 以下と同じ
+# Same as:
 open(file("foo.cr")) do
+  something
 end
 ```
 
@@ -73,6 +74,7 @@ end
 
 ```crystal
 open(file("foo.cr") do
+  something
 end)
 ```
 
@@ -251,7 +253,7 @@ end
 
 上記では "2" と "3" が出力されます。
 
-`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](https://crystal-lang.org/api/latest/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) と [Enumerable#select](https://crystal-lang.org/api/latest/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method) でしょう。
+`yield` 式の値は、主に値の変換やフィルタリングの際に有効に利用できます。その最もわかりやすい例は [Enumerable#map](https://crystal-lang.org/api/Enumerable.html#map%28%26block%3AT-%3EU%29forallU-instance-method) と [Enumerable#select](https://crystal-lang.org/api/Enumerable.html#select%28%26block%3AT-%3E%29-instance-method) でしょう。
 
 ```crystal
 ary = [1, 2, 3]
@@ -335,7 +337,7 @@ end
 value # :: Int32 | String
 ```
 
-`break` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/latest/Tuple.html) に変換されます。
+`break` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/Tuple.html) に変換されます。
 
 ```crystal
 values = twice { break 1, 2 }
@@ -397,7 +399,7 @@ end
 # 3
 ```
 
-`next` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/latest/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
+`next` が複数の引数を受け取るとき、それらは自動的に [Tuple](https://crystal-lang.org/api/Tuple.html) に変換されます。引数を取らない場合には、 `nil` を1つ受け取ったのと同じことになります。
 
 ## with ... yield
 
@@ -450,7 +452,7 @@ end
 
 整数の渡せる `[]` メソッドを持つどのような型のブロック引数に対してもアンパックは可能です。
 
-また、引数が [Tuple](https://crystal-lang.org/api/latest/Tuple.html)  のみであれば、括弧がなくても自動で展開されます。
+For [Tuple](https://crystal-lang.org/api/Tuple.html) parameters you can take advantage of auto-splatting and do not need parentheses:
 
 ```crystal
 array = [{1, "one", true}, {2, "two", false}]
@@ -459,7 +461,7 @@ array.each do |number, word, bool|
 end
 ```
 
-例えば [Hash(K, V)#each](https://crystal-lang.org/api/latest/Hash.html#each(&):Nil-instance-method) は `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
+例えば [Hash(K, V)#each](https://crystal-lang.org/api/Hash.html#each(&):Nil-instance-method) はブロックに `Tuple(K, V)` を渡すので、自動展開が上手く機能します。
 
 ```crystal
 h = {"foo" => "bar"}

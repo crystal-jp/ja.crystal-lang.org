@@ -1,8 +1,8 @@
 ---
-subtitle: Arch Linux への
+subtitle: On Arch Linux
 ---
 
-Arch Linux はコミュニティのリポジトリで Crystal コンパイラが提供されています。くわえて `shards` もインストールしてください。これは Crystal の依存関係マネージャです ([shards コマンド](https://ja.crystal-lang.org/reference/the_shards_command/)参照)。
+Arch Linux はコミュニティのリポジトリで Crystal コンパイラが提供されています。You should also install `shards`, Crystal's dependency manager (see [The Shards command](https://crystal-lang.org/reference/the_shards_command/)).
 [Snapcraft](#snapcraft) も使えます。
 
 ## インストール

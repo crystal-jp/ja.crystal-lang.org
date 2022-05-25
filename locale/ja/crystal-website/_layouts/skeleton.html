@@ -1,0 +1,33 @@
+---
+layout: none
+# Basic HTML skeleton with only the top nav and otherwise blank content
+---
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>
+      {%- if layout.site_title -%}
+        {{ layout.site_title}}
+      {%- else -%}
+        {{ layout.page_title | liquify | default: page.title }} - The Crystal Programming Language
+      {%- endif -%}
+    </title>
+    <meta charset='utf-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'>
+    <link href="/assets/stylesheet.css" rel="stylesheet" />
+    <link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    {% seo %}
+    <!-- Let browser know website is optimized for mobile -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    {{ content }}
+
+    <script src="/assets/js/bundle.js"></script>
+    {% include google_analytics.html %}
+  </body>
+</html>

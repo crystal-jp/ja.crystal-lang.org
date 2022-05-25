@@ -2,7 +2,7 @@
 
 本言語において、以下は安全でない (unsafe) とされます。
 
-* 生のポインタを使うコード: [Pointer](https://crystal-lang.org/api/latest/Pointer.html) 型と [pointerof](pointerof.md)。
+* 名前のポインタを使うコード: [Pointer](https://crystal-lang.org/api/Pointer.html) 型と [pointerof](pointerof.md)
 * [allocate](new,_initialize_and_allocate.md) クラスメソッド
 * C バインディングを呼び出すコード
 * [初期化しない変数宣言](declare_var.md)

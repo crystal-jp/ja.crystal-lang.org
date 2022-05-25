@@ -50,8 +50,7 @@ Run a command followed by --help to see command-specific information, ex:
 
 次の例は典型的な Hello World プログラムです。Crystal ではこのようになります。
 
-!!!example "hello_world.cr"
-```crystal
+```crystal title="hello_world.cr"
 puts "Hello World!"
 ```
 

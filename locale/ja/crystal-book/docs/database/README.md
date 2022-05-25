@@ -1,12 +1,12 @@
 # データベース
 
-リレーショナルデータベースにアクセスするには、使用したいデータベースサーバー用に設計された Shard が必要です。[crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) パッケージは異なるドライバーに対して統一された API を提供します。
+リレーショナルデータベースにアクセスするには、使用したいデータベースサーバー用に設計された Shard が必要です。The package [crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) offers a unified api across different drivers.
 
 次のパッケージ群は crystal-db に準拠しています。
 
-* [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3) sqlite用
-* [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql) mysql と mariadb 用
-* [will/crystal-pg](https://github.com/will/crystal-pg) postgres 用
+* [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3) for sqlite
+* [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql) for mysql & mariadb
+* [will/crystal-pg](https://github.com/will/crystal-pg) for postgres
 
 このガイドでは、crystal-db の API を紹介していますが、 postgres 、 mysql 、 sqlite の違いにより、具体的なドライバに合わせてsqlコマンドを変更する必要があるかもしれません。
 
@@ -67,7 +67,7 @@ sql 文を実行するには `Database#exec` を利用します。
 db.exec "create table contacts (name varchar(30), age int)"
 ```
 
-[SQL インジェクション](https://owasp.org/www-community/attacks/SQL_Injection) を避けるため、クエリパラメータとして値を与えることが出来ます。
+To avoid [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection) values can be provided as query parameters.
 クエリパラメータを使用するための構文はデータベースドライバに依存します。なぜならそれらは通常データベースに渡されるだけだからです。MySQL ではパラメータの展開に `?` を使用し、代入は引数の順序に基づいて行われます。PostgreSQL では `$n` を使用し、 `n` は1から始まる引数の順序です。
 
 ```crystal

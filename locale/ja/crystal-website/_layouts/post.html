@@ -1,27 +1,41 @@
 ---
-layout: default
+layout: base
+# Layout for blog posts including post header and body
+# Doesn't use the page layout because posts have a special header
 ---
-<div class="container">
-  <div class="row post-layout">
-    <div class="col m2 share">
-      <p class="title small share-title">Share</p>
-      <div class="share-list">
-        {% assign share_url = site.url | append: page.url | cgi_escape %}
-        <a href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ page.title | cgi_escape }}&via=CrystalLanguage" target="_blank">
-          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank">
-          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
-        </a>
-        <a href="https://plus.google.com/share?url={{ share_url }}" target="_blank">
-          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+{% include post_header.html %}
+
+<main>
+  <div class="container">
+    <div class="row post-layout">
+      <div class="col m2 share">
+        <p class="title small share-title">Share</p>
+        <div class="share-list">
+          {% assign share_url = site.url | append: page.url | cgi_escape %}
+          <a href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ page.title | cgi_escape }}&via=CrystalLanguage" target="_blank">
+            <div class="share-item"><i class="extra-icons twitter gray"></i></div>
           </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank">
+            <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+          </a>
+          <a href="https://plus.google.com/share?url={{ share_url }}" target="_blank">
+            <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+            </a>
+        </div>
       </div>
+
+      <div class="col s12 m9">
+        {{ content }}
+      </div>
+      <div class="col m1"></div>
     </div>
 
-    <div class="col s12 m9">
-      {{ content }}
+    <div class="row disqus">
+      <div class="col m2"></div>
+      <div class="col s12 m9" id='disqus_thread'>
+        {{ content }}
+      </div>
+      <div class="col m1"></div>
     </div>
-    <div class="col m1"></div>
   </div>
-</div>
+</main>

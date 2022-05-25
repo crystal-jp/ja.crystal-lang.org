@@ -10,13 +10,13 @@
 
 とはいえ、もしプログラムを書いている際に「意味的に同じ内容をより早く実行できるバージョン」がちょっとした変更で実現できるのであれば、その機会を見逃す手はありません。
 
-そして、常に自分のプログラムをプロファイリングして、ボトルネックがどこにあるのかを確認するようにしましょう。プロファイリングには、macOS上であればXCodeに含まれている [Instruments Time Profiler](https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html) もしくは [サンプリングプロファイラ](https://stackoverflow.com/questions/11445619/profiling-c-on-mac-os-x)の1つが利用できます。Linux であれば、[perf](https://perf.wiki.kernel.org/index.php/Main_Page) や [Callgrind](http://valgrind.org/docs/manual/cl-manual.html) のようなC/C++ プログラムをプロファイリング可能な仕組みが大抵は動作するでしょう。Linux と macOS のどちらにしても、デバッガーでプログラムを実行している最中に "ctrl+c" で割り込んで、 gdb の  `backtrace` コマンドを使ってもっともよく出現するところがホットスポットだと考えられます。(もしくは、 [gdb poor man's profiler](https://poormansprofiler.org/) を使って同様のことをしたり、macOS では `sample` コマンドが使えます)
+そして、常に自分のプログラムをプロファイリングして、ボトルネックがどこにあるのかを確認するようにしましょう。For profiling, on macOS you can use [Instruments Time Profiler](https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html), which comes with XCode, or one of the [sampling profilers](https://stackoverflow.com/questions/11445619/profiling-c-on-mac-os-x). On Linux, any program that can profile C/C++ programs, like [perf](https://perf.wiki.kernel.org/index.php/Main_Page) or [Callgrind](http://valgrind.org/docs/manual/cl-manual.html), should work.  For both Linux and OS X, you can detect most hotspots by running your program within a debugger then hitting "ctrl+c" to interrupt it occasionally and issuing a gdb `backtrace` command to look for patterns in backtraces (or use the [gdb poor man's profiler](https://poormansprofiler.org/) which does the same thing for you, or OS X `sample` command.
 
 なお、プログラムのプロファイリングを行う際は、必ずコンパイルする際や実行時に `--release` フラグをつけて最適化を有効にするようにしてください。
 
 ## メモリの割り当てを避ける
 
-プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。メモリの割り当ては**クラス**のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。**構造体**のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。スタックメモリとヒープメモリの違いがわからない場合は、[ここを読んでみてください](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)。
+プログラムの中で実施可能な一番良い最適化は、余分な/無用なメモリの割り当てを避けることです。メモリの割り当ては**クラス**のインスタンスを生成することで起き、結果としてヒープメモリが割り当てられます。**構造体**のインスタンスを使用する場合はスタックメモリ が使用されるので、パフォーマンス上のペナルティ発生しません。スタックメモリとヒープメモリの違いがわからない場合は、 [ここを読んでみてください](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap)。
 
 ヒープメモリの割り当ては低速で、後々そのメモリを解放するガーベジコレクタ（GC）に負荷をかけます。
 
@@ -69,24 +69,23 @@ end
 
 実行時間を比較してみましょう。
 
-!!!example "io_benchmark.cr"
-```crystal
+```crystal title="io_benchmark.cr"
 require "benchmark"
 
-    io = IO::Memory.new
+io = IO::Memory.new
 
-    Benchmark.ips do |x|
-      x.report("without to_s") do
-        io << 123
-        io.clear
-      end
+Benchmark.ips do |x|
+  x.report("without to_s") do
+    io << 123
+    io.clear
+  end
 
-      x.report("with to_s") do
-        io << 123.to_s
-        io.clear
-      end
-    end
-    ```
+  x.report("with to_s") do
+    io << 123.to_s
+    io.clear
+  end
+end
+```
 
 出力はこうなります。
 
@@ -200,31 +199,30 @@ puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}
 
 例をあげます。
 
-!!!example "class_vs_struct.cr"
-```crystal
+```crystal title="class_vs_struct.cr"
 require "benchmark"
 
-    class PointClass
-      getter x
-      getter y
+class PointClass
+  getter x
+  getter y
 
-      def initialize(@x : Int32, @y : Int32)
-      end
-    end
+  def initialize(@x : Int32, @y : Int32)
+  end
+end
 
-    struct PointStruct
-      getter x
-      getter y
+struct PointStruct
+  getter x
+  getter y
 
-      def initialize(@x : Int32, @y : Int32)
-      end
-    end
+  def initialize(@x : Int32, @y : Int32)
+  end
+end
 
-    Benchmark.ips do |x|
-      x.report("class") { PointClass.new(1, 2) }
-      x.report("struct") { PointStruct.new(1, 2) }
-    end
-    ```
+Benchmark.ips do |x|
+  x.report("class") { PointClass.new(1, 2) }
+  x.report("struct") { PointStruct.new(1, 2) }
+end
+```
 
 出力はこうなります。
 

@@ -1,29 +1,41 @@
 # Proc
 
-[Proc](https://crystal-lang.org/api/latest/Proc.html) は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。
+[Proc](https://crystal-lang.org/api/Proc.html)は追加のコンテキスト (クロージャ) を持つ関数ポインタです。通常、Proc リテラルを使って生成します。
 
 ```crystal
-# 引数なしの Proc
+# A proc without parameters
 ->{ 1 } # Proc(Int32)
 
-# 1引数の Proc
+# A proc with one parameter
 ->(x : Int32) { x.to_s } # Proc(Int32, String)
 
-# 2引数の Proc
+# A proc with two parameters
 ->(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)
 ```
 
 引数の型指定は必須です。ただし C言語バインディングの `fun` に対して直接 Proc リテラルを渡すときだけは例外です。
 
-戻り値の型は Proc の内容から推論されます。
+The return type is inferred from the proc's body, but can also be provided explicitly:
 
-また、`new` を使って Proc を作ることもできます。
+```
+# A proc returning an Int32 or String
+-> : Int32 | String { 1 } # Proc(Int32 | String)
+
+# A proc with one parameter and returning Nil
+->(x : Array(String)) : Nil { x.delete("foo") } # Proc(Array(String), Nil)
+
+# The return type must match the proc's body
+->(x : Int32) : Bool { x.to_s } # Error: expected Proc to return Bool, not String
+```
+
+A `new` method is provided too, which creates a `Proc` from a [captured block](../capturing_blocks.md). This form is mainly useful with [aliases](../alias.md):
 
 ```crystal
 Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
-```
 
-この形式の場合、戻り値の型を指定することができるため、Proc の本体の戻り値が正しい型であるかをチェックすることが可能です。
+alias Foo = Int32 -> String
+Foo.new { |x| x.to_s } # same proc as above
+```
 
 ## Proc の型
 

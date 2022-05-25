@@ -9,9 +9,9 @@ TRANSLATE_FILES := \
     /crystal-website/_includes/install_from_*.md \
     /crystal-website/_layouts/default.html \
     /crystal-website/_layouts/install.html \
-    /crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md \
-    /crystal-website/_posts/2020-06-19-crystal-0.35.1-released.md \
-    /crystal-website/_posts/2020-08-06-shards-0.12.0-released.md \
+    /crystal-website/_releases/2020-06-09-crystal-0.35.0-released.md \
+    /crystal-website/_releases/2020-06-19-crystal-0.35.1-released.md \
+    /crystal-website/_releases/2020-08-06-shards-0.12.0-released.md \
     /crystal-website/_posts/2020-12-16-raw-crystal-2020.md \
     /crystal-website/blog/index.html \
     /crystal-website/community/index.html \
@@ -24,7 +24,7 @@ TRANSLATE_FILES := \
     /crystal-website/sponsors/original-sponsors.html \
 
 FIX_ENTITY_FILES := \
-    /crystal-website/_posts/2020-06-09-crystal-0.35.0-released.md \
+    /crystal-website/_releases/2020-06-09-crystal-0.35.0-released.md \
 
 # 翻訳元から翻訳対象のディレクトリ `i18n/source` にファイルをコピーする
 .PHONY: i18n/source

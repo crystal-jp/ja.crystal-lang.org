@@ -47,7 +47,7 @@ Color::Red.value # :: UInt8
 
 ただし、整数型しか指定することはできません。
 
-すべての列挙型は [Enum](https://crystal-lang.org/api/latest/Enum.html) を継承しています。
+すべての列挙型は [Enum](https://crystal-lang.org/api/Enum.html) を継承しています。
 
 ## フラグ列挙型
 
@@ -117,7 +117,7 @@ Color::Blue.red?# => false
 
 ## 使い方
 
-列挙型は [Symbol](https://crystal-lang.org/api/latest/Symbol.html) の型安全な代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.md)に指定することができます。
+列挙型は [Symbol](https://crystal-lang.org/api/Symbol.html) の型安全の代替物として利用できます。例えば、列挙型を API のメソッドの[型制約](type_restrictions.md)に指定することができます。
 
 ```crystal
 def paint(color : Color)

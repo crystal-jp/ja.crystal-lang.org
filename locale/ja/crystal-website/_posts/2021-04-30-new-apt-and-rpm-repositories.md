@@ -13,11 +13,7 @@ Instead of just hosting the packages, it takes care of the entire build process.
 For now we continue to provide deb and rpm repositories for x86_64 and i686,
 but more platforms and architectures will follow.
 
-<<<<<<< HEAD
-All packages are available on OBS at [build.opensuse.org/package/show/devel:languages:crystal](https://build.opensuse.org/package/show/devel:languages:crystal).
-=======
 All packages are available on OBS at [build.opensuse.org/package/show/devel:languages:crystal](https://build.opensuse.org/project/show/devel:languages:crystal).
->>>>>>> upstream/unstable
 It offers an [installation page](https://software.opensuse.org/download.html?project=devel%3Alanguages%3Acrystal&package=crystal) with detailed instructions for the many different
 target systems.
 Our own installation instructions at [crystal-lang.org/install](/install) have been updated,
@@ -28,9 +24,9 @@ won't be available anymore. Please update to the new OBS repositories.
 Running the updated installation script should override the previous configuration
 in  `/etc/apt/sources.list.d/crystal.list` and  `/etc/yum.repos.d/crystal.repo`.
 
-<div class="code_section">{% highlight shell-session %}
+```shell-session
 $ curl -fsSL https://crystal-lang.org/install.sh | sudo bash
-{% endhighlight shell-session %}</div>
+```
 
 Only the latest stable release Crystal 1.0.0 is available in the new
 package repositories.
