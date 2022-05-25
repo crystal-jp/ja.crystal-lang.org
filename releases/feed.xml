@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Crystal Releases</title>
+  <subtitle>A language for humans and computers</subtitle>
+  <link href="https://ja.crystal-lang.org/" rel="alternate" type="text/html" />
+  <link href="https://ja.crystal-lang.org/releases/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://ja.crystal-lang.org/feed.xml" rel="related" type="application/atom+xml" />
+  <updated>2022-05-25T09:36:30+00:00</updated>
+  <id>https://ja.crystal-lang.org/releases/feed.xml</id>
+    <entry>
+      <title>Crystal 1.4.1 is released!</title><link href="https://ja.crystal-lang.org/2022/04/22/1.4.1-released.html" rel="alternate" type="text/html" title="Crystal 1.4.1 is released!" />
+      <published>2022-04-22T00:00:00+00:00</published>
+      <updated>2022-04-22T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2022/04/22/1.4.1-released</id>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2022/04/22/1.4.1-released.html">&lt;p&gt;We are releasing the first patch release of the &lt;a href=&quot;https://crystal-lang.org/2022/04/06/1.4.0-released.html&quot;&gt;1.4&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;p&gt;Pre-built packages are available on &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.4.1&quot;&gt;GitHub Releases&lt;/a&gt; and our official distribution channels.
+See &lt;a href=&quot;https://crystal-lang.org/install/&quot;&gt;crystal-lang.org/install&lt;/a&gt; for installation instructions.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.4.1&quot;&gt;5 PRs since the 1.4.0 release&lt;/a&gt; by 4 contributors. We thank all the effort put into improving the language! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;remarkable-changes&quot;&gt;Remarkable changes&lt;/h2&gt;
+
+&lt;p&gt;Prior to 1.4.0, the following code will raise at runtime an illegal access error:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;M&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;a&apos;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;b&apos;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;
+
+  &lt;span class=&quot;vi&quot;&gt;@c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As a quick workaround, in 1.4.0 we disabled the possibility to define an instance variable in a class and an included module. The same code will then throw an error at compile time: &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;a&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ined&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, as it turned out, in some cases it was possible to define the same instance variable in a class and in an including module: if &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;B&lt;/span&gt;&lt;/code&gt; above weren’t defining its own instance variable (&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@c&lt;/span&gt;&lt;/code&gt;), then that code runs fine in Crystal 1.3.2. In &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11995&quot;&gt;#11995&lt;/a&gt; this was fixed for good, and now instance variables having compatible types are allowed to be defined in a class and an including module.&lt;/p&gt;
+
+&lt;p&gt;For more details of this and other bug fixes included in this release, please visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.4.1&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.4.0 is released!</title><link href="https://ja.crystal-lang.org/2022/04/06/1.4.0-released.html" rel="alternate" type="text/html" title="Crystal 1.4.0 is released!" />
+      <published>2022-04-06T00:00:00+00:00</published>
+      <updated>2022-04-06T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2022/04/06/1.4.0-released</id>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2022/04/06/1.4.0-released.html">&lt;p&gt;Celebrating the first year of the 1.X series of our beloved language, we are delivering a new release with several bugfixes and improvements.&lt;/p&gt;
+
+&lt;p&gt;Below we list the most important or interesting changes, without mentioning the several bugfixes and smaller enhancements. For more details, visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.4.0&quot;&gt;changelog&lt;/a&gt;. Those excited by the new &lt;a href=&quot;https://crystal-lang.org/2021/12/29/crystal-i.html&quot;&gt;interpreter&lt;/a&gt; might be happy to find the ongoing efforts to improve it.&lt;/p&gt;
+
+&lt;p&gt;Pre-built packages are available on &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.4.0&quot;&gt;GitHub Releases&lt;/a&gt; and our official distribution channels.
+See &lt;a href=&quot;https://crystal-lang.org/install/&quot;&gt;crystal-lang.org/install&lt;/a&gt; for installation instructions.&lt;/p&gt;
+
+&lt;p&gt;As usual, breaking changes are marked with ⚠️.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.4.0&quot;&gt;132 changes since the 1.3.2 release&lt;/a&gt; by 31 contributors. We thank all the effort put into improving the language! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;towards-wasm-support&quot;&gt;Towards WASM support&lt;/h2&gt;
+
+&lt;p&gt;Version 1.4.0 ships with, at the moment, minimal support for compiling into WebAssembly (linking the program with a WASI-based LibC). There are several important pieces missing; please check &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10870&quot;&gt;#10870&lt;/a&gt; for details. The updated instructions to try it out are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Write a simple Crystal program, let’s say:
+    &lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello WebAssembly!&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;and name it &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt;&lt;/code&gt;.
+You can also try more complicated programs, but keep in mind that this is still experimental
+and not ready for production.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You need to have &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ld&lt;/span&gt;&lt;/code&gt; installed on your system, it is the WebAssembly linker from LLVM.
+On some systems, it comes by installing &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;lld&lt;/span&gt;&lt;/code&gt;. Confirm that it is installed by using
+&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ld&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;/code&gt;. Please also check that its version is similar to Crystal’s LLVM version
+(&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;/code&gt;).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will need &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;libpcre&lt;/span&gt;&lt;/code&gt; compiled to the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasm32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wasi&lt;/span&gt;&lt;/code&gt; target. You can fetch a
+precompiled version of them &lt;a href=&quot;https://github.com/lbguilherme/wasm-libs/releases&quot;&gt;here&lt;/a&gt;.
+Check for the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasm32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wasi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;libs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gz&lt;/span&gt;&lt;/code&gt; asset, download it and extract it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cross-compile it with &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cross&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wasm32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wasi&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Link it with
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;wasm-ld main.wasm &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; main-final.wasm  &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PWD&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/wasm32-wasi-libs&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lpcre&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lclang_rt&lt;/span&gt;.builtins-wasm32
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run the WebAssembly module with &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasmer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;final&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wasm&lt;/span&gt;&lt;/code&gt; or &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;wasmtime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;final&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wasm&lt;/span&gt;&lt;/code&gt; and have fun.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note: There is currently &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11948&quot;&gt;#11948&lt;/a&gt; that will simplify steps 4 and 5 above.&lt;/p&gt;
+
+&lt;h2 id=&quot;better-type-inference-for-instance-and-class-variables&quot;&gt;Better type inference for instance and class variables&lt;/h2&gt;
+
+&lt;p&gt;Previous to this release, a simple program like the following failed to type because it couldn’t infer the type of the instance variable:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DisplayHello&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;DELAY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;milliseconds&lt;/span&gt;
+
+  &lt;span class=&quot;vi&quot;&gt;@timer_countdown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DELAY&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now it compiles fine, inferring correctly that &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@timer_countdown&lt;/span&gt;&lt;/code&gt; has type &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Span&lt;/span&gt;&lt;/code&gt;. It is also possible to omit types in other cases too (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11812&quot;&gt;details&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DisplayHello&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@timer_countdown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;seconds&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;collections&quot;&gt;Collections&lt;/h2&gt;
+
+&lt;h3 id=&quot;enumerable&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;There are two relevant improvements in this class. First, there are raising variants of &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#find&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#index&lt;/span&gt;&lt;/code&gt;, called &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#find!&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#index!&lt;/span&gt;&lt;/code&gt; respectively:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 2&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# raises Enumerable::NotFoundError&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;index!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 1&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;index!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# raises Enumerable::NotFoundError&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Second, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#tally&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#tally_by&lt;/span&gt;&lt;/code&gt; can be given an existing hash to populate.&lt;/p&gt;
+
+&lt;h3 id=&quot;hash&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;/code&gt; also got two improvements. First, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;nb&quot;&gt;select&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;nb&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;reject&lt;/span&gt;&lt;/code&gt; can now receive any enumerable. Prior to 1.4.0, only &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Tuple&lt;/span&gt;&lt;/code&gt; were accepted.&lt;/p&gt;
+
+&lt;p&gt;Second, there is a new method &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#update&lt;/span&gt;&lt;/code&gt; that, given a key and a block, updates the element with the resulting value of the block. The method returns the old value:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;41&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;                       &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 42&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Details in the &lt;a href=&quot;https://crystal-lang.org/api/1.4.0/Hash.html#update%28key%3AK%2C%26%3AV-%3EV%29%3AV-instance-method&quot;&gt;docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;other-remarkable-changes&quot;&gt;Other remarkable changes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for LLVM 14 (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11905&quot;&gt;#11905&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Completed compiler support for &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Int128&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11576&quot;&gt;#11576&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;⚠️ Support for scientific notation in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;BigFloat&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#to_s&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10632&quot;&gt;#10632&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;⚠️ Drop support of undocumented flag &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;skip_abstract_def_check&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/9217&quot;&gt;#9217&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;New &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#getb_to_end&lt;/span&gt;&lt;/code&gt; method for reading all the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Bytes&lt;/span&gt;&lt;/code&gt; of an &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://crystal-lang.org/api/1.4.0/IO.html#getb_to_end%3ABytes-instance-method&quot;&gt;docs&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;New macro method &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;parse_type&lt;/span&gt;&lt;/code&gt; to parse a type given as a &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://crystal-lang.org/api/1.4.0/Crystal/Macros.html#parse_type%28type_name%3AStringLiteral%29%3APath%7CGeneric%7CProcNotation%7CMetaclass-instance-method&quot;&gt;docs&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.3.2 is released!</title>
+      <author>
+        <name>Johannes Müller</name>
+        <uri>https://github.com/straight-shoota/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2022/01/18/1.3.2-released.html" rel="alternate" type="text/html" title="Crystal 1.3.2 is released!" />
+      <published>2022-01-18T00:00:00+00:00</published>
+      <updated>2022-01-18T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2022/01/18/1.3.2-released</id>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2022/01/18/1.3.2-released.html">&lt;p&gt;We are releasing the second patch release of the &lt;a href=&quot;https://crystal-lang.org/2022/01/06/1.3.0-released.html&quot;&gt;1.3&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;p&gt;Pre-built packages are available on &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.2&quot;&gt;GitHub Releases&lt;/a&gt; and our official distribution channels.
+See &lt;a href=&quot;https://crystal-lang.org/install/&quot;&gt;crystal-lang.org/install&lt;/a&gt; for installation instructions.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.2&quot;&gt;1 PRs since the 1.3.1 release&lt;/a&gt; by 1 contributor. We thank all the effort put into improving the language! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;notable-changes&quot;&gt;Notable changes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fix buffer overflow in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#index&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11747&quot;&gt;#11747&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more details, visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.2&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.3.1 is released!</title><link href="https://ja.crystal-lang.org/2022/01/13/1.3.1-released.html" rel="alternate" type="text/html" title="Crystal 1.3.1 is released!" />
+      <published>2022-01-13T00:00:00+00:00</published>
+      <updated>2022-01-13T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2022/01/13/1.3.1-released</id>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2022/01/13/1.3.1-released.html">&lt;p&gt;We are releasing the first patch release of the &lt;a href=&quot;https://crystal-lang.org/2022/01/06/1.3.0-released.html&quot;&gt;1.3&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;p&gt;Pre-built packages are available on &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.1&quot;&gt;GitHub Releases&lt;/a&gt; and our official distribution channels.
+See &lt;a href=&quot;https://crystal-lang.org/install/&quot;&gt;crystal-lang.org/install&lt;/a&gt; for installation instructions.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.1&quot;&gt;6 PRs since the 1.3.0 release&lt;/a&gt; by 4 contributors. We thank all the effort put into improving the language! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;notable-changes&quot;&gt;Notable changes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fix regression from surpressing GC warnings which could halt the program in multithreading mode (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11729&quot;&gt;#11729&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Support for OpenSSL 1.0.* (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11736&quot;&gt;#11736&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more details, visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.1&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.3.0 is released!</title><link href="https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html" rel="alternate" type="text/html" title="Crystal 1.3.0 is released!" />
+      <published>2022-01-06T00:00:00+00:00</published>
+      <updated>2022-01-06T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2022/01/06/1.3.0-released</id>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html">&lt;p&gt;We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.0&quot;&gt;changelog&lt;/a&gt;. Breaking changes are marked with ⚠️.&lt;/p&gt;
+
+&lt;p&gt;Pre-built packages are available on &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.3.0&quot;&gt;GitHub Releases&lt;/a&gt; and our official distribution channels.
+See &lt;a href=&quot;https://crystal-lang.org/install/&quot;&gt;crystal-lang.org/install&lt;/a&gt; for installation instructions.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0&quot;&gt;176 changes since the 1.2.2 release&lt;/a&gt; by 31 contributors. We thank all the effort put into improving the language! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;interpreter&quot;&gt;Interpreter&lt;/h2&gt;
+
+&lt;p&gt;The awaited Crystal interpreter has been &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11159&quot;&gt;merged&lt;/a&gt;. But it’s still a preview and &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11555&quot;&gt;misses substantial features&lt;/a&gt; for real use cases.&lt;/p&gt;
+
+&lt;p&gt;Our distribution packages are &lt;strong&gt;not&lt;/strong&gt; being compiled with it, and we recommend the same for external packages. If you want to try it, you need to build the compiler with interpreter support explicitly (&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interpreter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;You can invoke the interpreter using two modes: &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;/code&gt; or &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt;&lt;/code&gt;. In the first case, a REPL will start right away, and in the second case the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt;&lt;/code&gt; will be interpreted. Interestingly, if the interpreter finds the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;debugger&lt;/span&gt;&lt;/code&gt; instruction, it will start an interactive process to debug it. For instance, if we have a file &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt;&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;debugger&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then calling &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;crystal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cr&lt;/span&gt;&lt;/code&gt; stops after the call to &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;debugger&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;From: example.cr:3:3 &amp;lt;Program&amp;gt;#example.cr:
+
+    1: a = 1
+    2: debugger
+ =&amp;gt; 3: p a
+
+ pry&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point we can inspect and modify variables, step into function calls, etc. If we enter &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;/code&gt; in the REPL and then &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;k&quot;&gt;next&lt;/span&gt;&lt;/code&gt;, we’ll see the program printing &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Read more about the interpreter in our blog post: &lt;a href=&quot;https://crystal-lang.org/2021/12/29/crystal-i.html&quot;&gt;&lt;em&gt;Crystal’s interpreter – A very special holiday present&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;windows-support&quot;&gt;Windows Support&lt;/h2&gt;
+
+&lt;p&gt;With over &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0+label%3Aplatform%3Awindows&quot;&gt;30 individual changes&lt;/a&gt; there has been great progress for improving Windows support.&lt;/p&gt;
+
+&lt;p&gt;It’s still not yet a fully supported platform, but we’ve started building self-contained and portable Windows packages.&lt;/p&gt;
+
+&lt;p&gt;A self-contained and portable snapshot package for Windows x86-64 is available &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/download/1.3.0/crystal-1.3.0-windows-x86_64-msvc-unsupported.zip&quot;&gt;on the GitHub release&lt;/a&gt;. Please remember that this is still experimental and unsupported.&lt;/p&gt;
+
+&lt;p&gt;We’ve also started building packages for nightlies, and you can grab the current build at &lt;a href=&quot;https://nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip&quot;&gt;nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip&lt;/a&gt;. There is also a repository for the &lt;a href=&quot;https://scoop.sh/&quot;&gt;scoop package manager&lt;/a&gt; at &lt;a href=&quot;https://github.com/neatorobito/scoop-crystal&quot;&gt;neatorobito/scoop-crystal&lt;/a&gt;.
+Together with many smaller improvements in the compiler, user experience on Windows has greatly improved.&lt;/p&gt;
+
+&lt;p&gt;One of the most important missing features has been added: Stack traces. Now you can properly follow where your exceptions come from on Windows (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11461&quot;&gt;#11461&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Additionally, several stdlib APIs have been ported to Windows, including &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Big&lt;/span&gt;&lt;/code&gt; numbers (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11412&quot;&gt;#11412&lt;/a&gt;), &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;OpenSSL&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11477&quot;&gt;#11477&lt;/a&gt;), and text encoding (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11480&quot;&gt;#11480&lt;/a&gt;).
+As a result, 96% of stdlib specs run successfully on Windows now.&lt;/p&gt;
+
+&lt;h2 id=&quot;unicode&quot;&gt;Unicode&lt;/h2&gt;
+
+&lt;p&gt;There are a couple of changes related to Unicode support.&lt;/p&gt;
+
+&lt;p&gt;Most significant is that &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/Char.html#inspect%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#inspect&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/Char.html#dump%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#dump&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; as well as &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/String.html#inspect%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#inspect&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/String.html#dump%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#dump&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; escape all non-printable characters (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11452&quot;&gt;#11452&lt;/a&gt;). Note that this may break up grapheme clusters if they depend on non-printable characters. There might be further refinements to this, but we believe it’s better to be explicit over potentially missing characters (&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11630&quot;&gt;#11630&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Further, we added an API for Unicode extended grapheme clusters at &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/String/Grapheme.html&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Grapheme&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11472&quot;&gt;#11472&lt;/a&gt;). It allows splitting a string into grapheme clusters which represent a user-perceived character and may consist of multiple code points.&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a👍🏼à&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;graphemes&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [String::Grapheme(&apos;a&apos;), String::Grapheme(&quot;👍🏼&quot;), String::Grapheme(&quot;à&quot;)]&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;a👍🏼à&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;chars&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&apos;a&apos;, &apos;👍&apos;, &apos;🏼&apos;, &apos;a&apos;, &apos;̀&apos;]&lt;/span&gt;
+
+&lt;span class=&quot;s2&quot;&gt;&quot;a👍🏼à&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;grapheme_size&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 3&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;a👍🏼à&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This API is experimental for now, and we expect to enhance and refine it in the following releases.&lt;/p&gt;
+
+&lt;p&gt;Further notable changes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New: &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#unicode_escape%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#unicode_escape&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; returns the Unicode escape sequence representing the character (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11421&quot;&gt;#11421&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;New: &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#printable%3F-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#printable?&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; returns &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt; for printable characters, i.e. those with a visible glyph as well as the ASCII whitespace (&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0020&lt;/span&gt;&lt;/code&gt;) (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11429&quot;&gt;#11429&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;⚠️ Fix: &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#ascii_control%3F%3ABool-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#ascii_control?&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; no longer applies to &lt;em&gt;C1 control codes&lt;/em&gt;. They are not part of the ASCII character set (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11510&quot;&gt;#11510&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Fix: &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#letter%3F%3ABool-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#letter?&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; correctly identifies code points in the Unicode general categories &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Lo&lt;/span&gt;&lt;/code&gt; (&lt;em&gt;Other Letter&lt;/em&gt;) and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Lm&lt;/span&gt;&lt;/code&gt; (&lt;em&gt;Modifier Letter&lt;/em&gt;) as letters (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11474&quot;&gt;#11474&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Standardized Unicode escape formats for &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#inspect%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#inspect&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://crystal-lang.org/api/1.3.0Char.html#dump%3AString-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#dump&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11421&quot;&gt;#11421&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;syscalls&quot;&gt;Syscalls&lt;/h2&gt;
+
+&lt;p&gt;We added an experimental API to create native system calls (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10777&quot;&gt;#10777&lt;/a&gt;). Only Linux is supported for now. This is a first step towards supporting Linux’s &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;io_uring&lt;/span&gt;&lt;/code&gt; interface to improve IO performance.&lt;/p&gt;
+
+&lt;p&gt;To define system calls open a module and use the &lt;a href=&quot;https://crystal-lang.org/api/1.3.0/Syscall.html#def_syscall%28name%2Creturn_type%2C%2Aargs%29-macro&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Syscall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;def_syscall&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; macro. As demonstrated in the following example, you need to pass in the system call name, the return type and its arguments.&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;syscall&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MySyscalls&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Syscall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;def_syscall&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UInt8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LibC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SizeT&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;MySyscalls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_unsafe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LibC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SizeT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;multi-assign&quot;&gt;Multi-Assign&lt;/h2&gt;
+
+&lt;p&gt;Multiple assignments got improved in various ways. First, it’s possible to use a splat target in a multi-assignment (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10410&quot;&gt;#10410&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Splat in multi-assign with array&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rest&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [2, 3, 4]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Splat in multi-assign with tuple&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tuple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rest&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; {&quot;This&quot;, 15, 4, &quot;tuple&quot;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To take the first and last element, it is possible to use the &lt;em&gt;underscore splat&lt;/em&gt; notation:&lt;/p&gt;
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Ignoring the elements in the middle&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tuple&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;This&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Second, there’s an optional preview feature to detect unbalanced multi-assignments (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11145&quot;&gt;#11145&lt;/a&gt;). It can be enabled with the compiler flag &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Dstrict_multi_assign&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Error: index out of bounds for Tuple(Int32, Int32) (2 not in -2..1)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Error: cannot assign Tuple(Int32, Int32, Int32) to 2 targets&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that the first example fails with a similar error in 1.2.2 (this error is &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11695&quot;&gt;expected to change&lt;/a&gt; in the near future).&lt;/p&gt;
+
+&lt;p&gt;To ignore the extra items in strict mode you can use the underscore splat notation. This can be used to port existing code to work with the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;strict_multi_assign&lt;/span&gt;&lt;/code&gt; flag.&lt;/p&gt;
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Same as a, b = {1, 2, 3} without the flag&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;⚠️ This second improvement is a breaking change; therefore it’s not enabled by default. We encourage using it to detect possible errors in your code. This setting will likely be the default in 2.0. An additional restriction guarded by that flag is that if the right-hand side has a unique element, it must be of type &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Indexable&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11545&quot;&gt;#11545&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;number-autocast&quot;&gt;Number Autocast&lt;/h2&gt;
+
+&lt;p&gt;Primitive numeric values are now &lt;em&gt;autocasted&lt;/em&gt; to fit into larger types (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11431&quot;&gt;#11431&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11529&quot;&gt;#11529&lt;/a&gt;). For instance, it is possible to call a function expecting an &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Int64&lt;/span&gt;&lt;/code&gt; with an &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;/code&gt; (note that before 1.3.0 only number &lt;em&gt;literals&lt;/em&gt; were autocasted):&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1_i32&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Works in 1.2.2 and 1.3.0&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1_i32&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Fails in 1.2.2, works in 1.3.0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Unsigned integer types can be autocasted into larger signed ones. And autocasting also works for floating point types (&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Float32&lt;/span&gt;&lt;/code&gt; to &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Float64&lt;/span&gt;&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;If there is ambiguity, for instance, because there is more than one option, the compiler throws an error:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Int128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1_i32&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Error: ambiguous call, implicit cast of Int32 matches all of Int64, Int128&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;128-bit-literals&quot;&gt;128-bit Literals&lt;/h2&gt;
+
+&lt;p&gt;The parser has been improved to understand number literals in the full range or 128-bit integers (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11571&quot;&gt;#11571&lt;/a&gt;).
+Until now, 128-bit literals had been supported only within the limits of 64-bit values.&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1_i128&lt;/span&gt;                                       &lt;span class=&quot;c1&quot;&gt;# Works in 1.2.2 and 1.3.0&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;170141183460469231731687303715884105727_i128&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Fails in 1.2.2, works in 1.3.0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In order to get there, we needed to implement some arithmetic primitives for all platforms, and refactor the parsing of number literals (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11211&quot;&gt;#11211&lt;/a&gt;).
+The latter also cleaned up a couple of edge cases. Some examples are highlighted here:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Error: unexpected &apos;_&apos; in number&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u64&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Error: Invalid negative value -0 for UInt64&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0_u64&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Error: Invalid negative value -0 for UInt64&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__2&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Error: consecutive underscores in numbers aren&apos;t allowed&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_2&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Error: unexpected &apos;_&apos; in number&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;0_12&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Error: octal constants should be prefixed with 0o&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;0e40&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 0.0&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# Error: numeric literal without digits&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;other-notable-changes&quot;&gt;Other notable changes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;⚠️ Methods that enumerate on a sub-range now always use &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;/code&gt; as parameter name for the begin of the sub-range (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11350&quot;&gt;#11350&lt;/a&gt;). This was standardized from several different forms, which keep working as deprecated overloads until the next major release.&lt;/li&gt;
+  &lt;li&gt;⚠️ More refactoring happened to &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Indexable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mutable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#fill&lt;/span&gt;&lt;/code&gt;’s overloads (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11368&quot;&gt;#11368&lt;/a&gt;). Again, existing code continues to work with deprecated overloads.&lt;/li&gt;
+  &lt;li&gt;⚠️ &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Regex&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#name_table&lt;/span&gt;&lt;/code&gt; returns &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt; instead of &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Int16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11539&quot;&gt;#11539&lt;/a&gt;). Noticeable effects are pretty limited due to number autocasting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.2.2 is released!</title>
+      <author>
+        <name>Johannes Müller</name>
+        <uri>https://github.com/straight-shoota/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2021/11/10/1.2.2-released.html" rel="alternate" type="text/html" title="Crystal 1.2.2 is released!" />
+      <published>2021-11-10T00:00:00+00:00</published>
+      <updated>2021-11-10T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2021/11/10/1.2.2-released</id>
+      <summary type="html">Fixing some bugs and adding support for OpenSSL 3 and DWARF 5</summary>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2021/11/10/1.2.2-released.html">&lt;p&gt;We are releasing the second patch release of the &lt;a href=&quot;https://crystal-lang.org/2021/10/14/1.2.0-released.html&quot;&gt;1.2&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.2.2&quot;&gt;15 PRs since the 1.2.1 release&lt;/a&gt; by 5 contributors.&lt;/p&gt;
+
+&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
+
+&lt;p&gt;We have fixed three regressions in the compiler, two of them related to debug mode:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Virtual metaclasses missed a type restriction (&lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11376&quot;&gt;#11397&lt;/a&gt;) since 1.2.0.&lt;/li&gt;
+  &lt;li&gt;Debug locations were missing for some const and class var read calls (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11417&quot;&gt;#11417&lt;/a&gt;). This only affected &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;/code&gt; builds since 1.2.0.&lt;/li&gt;
+  &lt;li&gt;Debug locations were missing for some union types (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11390&quot;&gt;#11390&lt;/a&gt;). This only affected &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;/code&gt; builds since 1.2.1.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Among the other bug fixes, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11344&quot;&gt;#11344&lt;/a&gt;
+fixed a long-standing codegen bug for passing structs in the x86_64 ABI.&lt;/p&gt;
+
+&lt;h2 id=&quot;support-for-openssl-3-and-libressl&quot;&gt;Support for OpenSSL 3 and LibreSSL&lt;/h2&gt;
+
+&lt;p&gt;We added support for binding against OpenSSL 3.0 (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11360&quot;&gt;#11360&lt;/a&gt;) and restored support for LibreSSL (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11400&quot;&gt;#11400&lt;/a&gt;), which can both be used as alternatives to OpenSSL 1.x.&lt;/p&gt;
+
+&lt;h2 id=&quot;support-for-dwarf-5&quot;&gt;Support for DWARF 5&lt;/h2&gt;
+
+&lt;p&gt;We also added support for DWARF 5 when reading debug info for stack traces (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11399&quot;&gt;#11399&lt;/a&gt;).
+GCC 11 uses this version by default, so we’re set for that.&lt;/p&gt;
+
+&lt;p&gt;Unrelated to DWARF 5 support, stack traces now show the filenames of shared libraries (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11408&quot;&gt;#11408&lt;/a&gt;).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.2.1 is released!</title>
+      <author>
+        <name>Beta Ziliani</name>
+        <uri>https://github.com/beta-ziliani/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html" rel="alternate" type="text/html" title="Crystal 1.2.1 is released!" />
+      <published>2021-10-21T00:00:00+00:00</published>
+      <updated>2021-10-21T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2021/10/21/1.2.1-released</id>
+      <summary type="html">Two regressions and a freebie</summary>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2021/10/21/1.2.1-released.html">&lt;p&gt;We are releasing the first patch release of the &lt;a href=&quot;https://crystal-lang.org/2021/10/14/1.2.0-released.html&quot;&gt;1.2&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.2.1&quot;&gt;4 PRs since the 1.2.1 release&lt;/a&gt; by 4 contributors. This time we’d like to thank the developers that suffered and issued the regressions ❤️ Sorry about that!&lt;/p&gt;
+
+&lt;p&gt;There are just three relevant changes to point out:&lt;/p&gt;
+
+&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
+
+&lt;p&gt;We had two major regression fixes. The first on is related to the introduction of &lt;a href=&quot;https://github.com/icyleaf/markd/&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;markd&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; to render the API docs (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11040&quot;&gt;#11040&lt;/a&gt;). This lead to a &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11323&quot;&gt;bug&lt;/a&gt; that was fixed in a recent &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;markd&lt;/span&gt;&lt;/code&gt; version (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11338&quot;&gt;#11338&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The second one is that class variables with a regex &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11318&quot;&gt;stopped working&lt;/a&gt; in 1.2.0. We fixed it in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11334&quot;&gt;#11334&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;llvm-13-support&quot;&gt;LLVM 13 support&lt;/h2&gt;
+
+&lt;p&gt;Not really a regression, but since LLVM 13 is already out and fixes several bugs that affected Crystal, we decided to start making it available in this patch release. As soon as your platform makes it available to you, you might want to check it out!&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.2.0 is released!</title>
+      <author>
+        <name>Beta Ziliani</name>
+        <uri>https://github.com/beta-ziliani/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2021/10/14/1.2.0-released.html" rel="alternate" type="text/html" title="Crystal 1.2.0 is released!" />
+      <published>2021-10-14T00:00:00+00:00</published>
+      <updated>2021-10-14T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2021/10/14/1.2.0-released</id>
+      <summary type="html">Improving platform support</summary>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2021/10/14/1.2.0-released.html">&lt;p&gt;We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning the several bugfixes. For details visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.2.0&quot;&gt;release’s notes&lt;/a&gt;. Breaking changes are marked with ⚠️.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.2.0&quot;&gt;181 PRs since the 1.1.1 release&lt;/a&gt; by 32 contributors. We thank all the effort put into improving the language and its stdlib! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;platform-support&quot;&gt;Platform support&lt;/h2&gt;
+
+&lt;p&gt;As mentioned in the preparatory &lt;a href=&quot;https://crystal-lang.org/2021/09/30/preparing-1.2.html&quot;&gt;blog post&lt;/a&gt; for 1.2, we decided to lower the support for 32-bit x86 architecture. This is a direct consequence of focusing our efforts in more popular platforms: we do have some good news to share!&lt;/p&gt;
+
+&lt;p&gt;We are making progress in achieving full native Windows support, in this release including most notably a sockets implementation (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11205&quot;&gt;#11205&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11137&quot;&gt;#11137&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10784&quot;&gt;#10605&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10605&quot;&gt;#10605&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Related to Windows, and also relevant for ARM64 architectures, we fixed an important &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11189&quot;&gt;codegen bug&lt;/a&gt;. We are now in conditions to promote aarch64 platforms to Tier 1, expecting to include packages for them soon. This is also relevant for macOS with the M1 chipset: starting from this release we include a &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/download/1.2.0/crystal-1.2.0-1.universal.pkg&quot;&gt;universal macOS package&lt;/a&gt; that works for x86 and M1 macs.&lt;/p&gt;
+
+&lt;p&gt;We discovered that two bugs appearing on &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11047&quot;&gt;Windows&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/issues/11021&quot;&gt;M1’s macs&lt;/a&gt; are coming from LLVM 11 and 12. We expect the fix will come with the recently released LLVM 13. Crystal 1.2.0 is compatible with &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10873&quot;&gt;LLVM 12&lt;/a&gt;, although we advice against using LLVM 11 and 12.&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;p&gt;It is now possible to assign a subclass of a generic class to an element of &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11250&quot;&gt;the parent class&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also pertain to generic classes, there were situations in which the compiler was not properly substituting the generic argument (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11166&quot;&gt;#11166&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11067&quot;&gt;#11067&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The support for &lt;a href=&quot;https://clang.llvm.org/docs/ThinLTO.html&quot;&gt;ThinLTO&lt;/a&gt; compilation was &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11194&quot;&gt;dropped&lt;/a&gt;, since it wasn’t working already since Crystal 0.25.&lt;/p&gt;
+
+&lt;h2 id=&quot;macros&quot;&gt;Macros&lt;/h2&gt;
+
+&lt;p&gt;It is possible to add an underscore in &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11141&quot;&gt;for loops&lt;/a&gt; to ignore a value. For instance, in the following code the keys of the map are ignored:&lt;/p&gt;
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Additionally, there is a new &lt;a href=&quot;https://crystal-lang.org/api/1.2.0/Crystal/Macros.html#file_exists?(filename):BoolLiteral-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;file_exists?&lt;/span&gt;&lt;/code&gt; macro method&lt;/a&gt; to check the existence of a file (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10540&quot;&gt;#10540&lt;/a&gt;), and &lt;a href=&quot;https://crystal-lang.org/api/1.2.0/Crystal/Macros/ASTNode.html#is_a?(type:TypeNode):BoolLiteral-instance-method&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#is_a?&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; now recognizes the AST node hierarchy (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11062&quot;&gt;#11062&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;stdlib&quot;&gt;Stdlib&lt;/h2&gt;
+
+&lt;p&gt;⚠️ We are continuing the trend started in the 1.1.0 version to help get better error messages and documentation: several methods were annotated with expected types. Adding typing annotations might break existing code in specific scenarios so, if this happens to you, please let us now.&lt;/p&gt;
+
+&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
+
+&lt;p&gt;The major improvement in the numeric area is the steps taken to support 128 bits integers (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11206/&quot;&gt;#11206&lt;/a&gt; and &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11245&quot;&gt;#11245&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;As minor improvements, it is now possible to adjust the precision in the output of &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10926&quot;&gt;Int#to_s&lt;/a&gt;; to iterate the set of representable floats through new methods &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10908&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#next_float&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#prev_float&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;;
+to use a negative exponential to a &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10892&quot;&gt;BigDecimal&lt;/a&gt;; and to calculate the &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10549&quot;&gt;integer square root&lt;/a&gt; of a number.&lt;/p&gt;
+
+&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
+
+&lt;p&gt;Mutable collections now include a &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11059&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Indexable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt; module&lt;/a&gt;, which greatly expand the set of operations on certain collections such as &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;BitArray&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Deque&lt;/span&gt;&lt;/code&gt;. The following now works:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ba&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BitArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ba is BitArray[0000000000]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# ba is BitArray[1000000000]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rotate!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# ba is BitArray[0100000000]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Additionally, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Indexable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt; was expanded to include stable and unstable sorting methods (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11254&quot;&gt;#11254&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11029&quot;&gt;#11029&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10163&quot;&gt;#10163&lt;/a&gt;). The default &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;/code&gt; operation now calls a stable algorithm.&lt;/p&gt;
+
+&lt;p&gt;⚠️ As a breaking change, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#product&lt;/span&gt;&lt;/code&gt; was deprecated in favor of the new generic and better named &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10013&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Indexable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#cartesian_product&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another two contributions worth of mention: enumerables are equipped with method to tally them with a given predicate (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10922&quot;&gt;Enumerable#tally_by&lt;/a&gt;); and the methods &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#transpose&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#reject&lt;/span&gt;&lt;/code&gt;, and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#to_h&lt;/span&gt;&lt;/code&gt; now work with &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10445&quot;&gt;tuples&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
+
+&lt;p&gt;⚠️ The method &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#write_utf8&lt;/span&gt;&lt;/code&gt; was deprecated in favor of the more descriptive name &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11051&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#write_string&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;, because you can use it to write strings in all kinds of encodings, depending on the IO’s configuration.
+We also fixed a number of bugs related to using &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#write&lt;/span&gt;&lt;/code&gt; instead of &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#write_string&lt;/span&gt;&lt;/code&gt; to append text to an IO.&lt;/p&gt;
+
+&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
+
+&lt;p&gt;⚠️ In order to improve the security of the stdlib, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encode&lt;/span&gt;&lt;/code&gt; was &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11248&quot;&gt;deprecated&lt;/a&gt; in favor of &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encode_path&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encode_path_segment&lt;/span&gt;&lt;/code&gt; whith safer semantics and names better fitting to the purpose.&lt;/p&gt;
+
+&lt;p&gt;There is now support for basic authentication taken from an URI in websockets (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10854&quot;&gt;#10854&lt;/a&gt;), and
+proper handling of max-age and expires for cookies (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10564&quot;&gt;#10564&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;text&quot;&gt;Text&lt;/h3&gt;
+
+&lt;p&gt;⚠️ &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#unsafe_byte_at&lt;/span&gt;&lt;/code&gt; was &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10559&quot;&gt;deprecated&lt;/a&gt; since &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;/code&gt; has already a &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#to_unsafe&lt;/span&gt;&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;Crystal now supports &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11215&quot;&gt;Unicode 14.0.0&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
+
+&lt;p&gt;There is a new method &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11072&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;XML&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#namespace_definition&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; to obtain explicitly-defined XML namespaces of a node, and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;/code&gt;s can now be &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10404&quot;&gt;serialized&lt;/a&gt; to JSON and YAML.&lt;/p&gt;
+
+&lt;h2 id=&quot;tools-new-docs-generator&quot;&gt;Tools: new docs generator&lt;/h2&gt;
+
+&lt;p&gt;The API docs now use &lt;a href=&quot;https://github.com/icyleaf/markd/&quot;&gt;markd&lt;/a&gt; to render Markdown (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/11040&quot;&gt;#11040&lt;/a&gt;). This puts an end to the shortcomings caused by the internal renderer implementation.&lt;/p&gt;
+
+&lt;h2 id=&quot;infrastructure&quot;&gt;Infrastructure&lt;/h2&gt;
+
+&lt;p&gt;It is now possible to &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10878&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; Crystal.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.1.1 is released!</title>
+      <author>
+        <name>Beta Ziliani</name>
+        <uri>https://github.com/beta-ziliani/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2021/07/27/1.1.1-released.html" rel="alternate" type="text/html" title="Crystal 1.1.1 is released!" />
+      <published>2021-07-27T00:00:00+00:00</published>
+      <updated>2021-07-27T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2021/07/27/1.1.1-released</id>
+      <summary type="html">Fixing a few regressions</summary>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2021/07/27/1.1.1-released.html">&lt;p&gt;We are releasing the first patch release of the &lt;a href=&quot;https://crystal-lang.org/2021/07/16/1.1.0-released.html&quot;&gt;1.1&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this patch release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.1.1&quot;&gt;9 PRs since the 1.1.0 release&lt;/a&gt; by 2 contributors. This time we’d like to thank the developers that suffered and issued the regressions ❤️ Sorry about that!&lt;/p&gt;
+
+&lt;p&gt;There are just two relevant changes to point out:&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;p&gt;We had to revert the name of the top-level module. Prior to 1.1.0 it was &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;/code&gt;, but since we created a new accessor called &lt;a href=&quot;https://crystal-lang.org/reference/syntax_and_semantics/macros/index.html#the-top-level-module&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@top_level&lt;/span&gt;&lt;/code&gt;&lt;/a&gt;, we thought we should call it &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;top_level&lt;/span&gt;&lt;/code&gt; too. Unfortunately that broke a shard, so we revert it to its former name (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10993&quot;&gt;#10993&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;stdlib&quot;&gt;Stdlib&lt;/h2&gt;
+
+&lt;p&gt;As we mentioned in the &lt;a href=&quot;https://crystal-lang.org/2021/07/16/1.1.0-released.html&quot;&gt;1.1.0 release&lt;/a&gt;, we started adding type information to methods of the stdlib, for documentation and better error reporting. Unfortunately, a few annotations were too restrictive and broke existing shards: &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#index&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#rindex&lt;/span&gt;&lt;/code&gt; return types were erased (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10972&quot;&gt;10972&lt;/a&gt;).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Crystal 1.1.0 is released!</title>
+      <author>
+        <name>Beta Ziliani</name>
+        <uri>https://github.com/beta-ziliani/</uri>
+      </author>
+      <link href="https://ja.crystal-lang.org/2021/07/16/1.1.0-released.html" rel="alternate" type="text/html" title="Crystal 1.1.0 is released!" />
+      <published>2021-07-16T00:00:00+00:00</published>
+      <updated>2021-07-16T00:00:00+00:00</updated>
+      <id>https://ja.crystal-lang.org/2021/07/16/1.1.0-released</id>
+      <summary type="html">The first post-1.0 release</summary>
+      <content type="html" xml:base="https://ja.crystal-lang.org/2021/07/16/1.1.0-released.html">&lt;p&gt;We are releasing the first post-1.0 release, making efforts to keep our promise of making regular releases each 3 months, a bit delayed because of the &lt;a href=&quot;/conference&quot;&gt;conference&lt;/a&gt;, and with special focus on keeping the language stability. Below we list the most important or interesting changes, without mentioning the several bugfixes. For details visit the &lt;a href=&quot;https://github.com/crystal-lang/crystal/releases/tag/1.1.0&quot;&gt;release’s notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+
+&lt;p&gt;In this release we included &lt;a href=&quot;https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.1.0&quot;&gt;166 PRs since the 1.0.0 release&lt;/a&gt; by 28 contributors. We thank all the effort put into improving the language and its stdlib! ❤️&lt;/p&gt;
+
+&lt;h2 id=&quot;language-changes&quot;&gt;Language changes&lt;/h2&gt;
+
+&lt;p&gt;Splats can now be embedded in enumerable literals and in type definitions (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10429&quot;&gt;#10429&lt;/a&gt;). A few examples:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;t1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; {true, 1, &apos;a&apos;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Tuple(Bool, Int32, Char)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}});&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# Works in type annotations too&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;f2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Tuple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Int32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}));&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;ae&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;e&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ccae&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&amp;lt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ae&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&amp;gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&apos;&amp;lt;&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;&amp;gt;&apos;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The type of a while expression is now the union of all break expressions within the body, plus &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Nil&lt;/span&gt;&lt;/code&gt; if the condition isn’t exactly the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt; literal; the while expression returns &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;/code&gt; if the condition fails. The type of a break expression is computed similarly to a break inside a block or a return (&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Nil&lt;/span&gt;&lt;/code&gt; if empty, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Tuple&lt;/span&gt;&lt;/code&gt; if multiple values) (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10566&quot;&gt;#10566&lt;/a&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# First the first non-blank line in STDIN&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first_non_blank_line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gets&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;blank?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_non_blank_line&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;macros&quot;&gt;Macros&lt;/h2&gt;
+
+&lt;p&gt;It is now possible to access the top level module with the special instance variable &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@top_level&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10682&quot;&gt;#10682&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;FOO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Foo&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@top_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has_constant?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FOO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}}&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# true&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;NumberLiteral&lt;/span&gt;&lt;/code&gt; now includes a &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;to_number&lt;/span&gt;&lt;/code&gt; method to obtain the pure number, without any &lt;em&gt;stringification&lt;/em&gt; &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10802&quot;&gt;#10802&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;code_section&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10_u8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 10_u8&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10_u8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We included a small breaking change, as there was a mismatch between the documentation and the code regarding &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#global?&lt;/span&gt;&lt;/code&gt;. The former &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#global&lt;/span&gt;&lt;/code&gt; is now deprecated in favor of &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#global?&lt;/span&gt;&lt;/code&gt;, whose name better represents it (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10812&quot;&gt;#10812&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;There is a new macro method &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;ASTNode&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#nil?&lt;/span&gt;&lt;/code&gt; for querying if an object is the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;NilLiteral&lt;/span&gt;&lt;/code&gt; or &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Nop&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10850&quot;&gt;#10850&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10616&quot;&gt;#10616&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;stdlib&quot;&gt;Stdlib&lt;/h2&gt;
+
+&lt;p&gt;There were several changes that are not supposed to have a direct impact on the users. The most important one to note is that to help get better error messages and documentation, several methods were annotated with expected types. Adding typing annotations might break existing code in specific scenarios so, if this happens to you, please let us now. Also, we are growing the native Windows support, requiring several refactors.&lt;/p&gt;
+
+&lt;h3 id=&quot;numeric&quot;&gt;Numeric&lt;/h3&gt;
+
+&lt;p&gt;It is now possible to create numbers from different representations using &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt;&lt;/code&gt;, as in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whitespace&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt; ((&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10422&quot;&gt;#10422&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;We added &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#positive?&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#negative?&lt;/span&gt;&lt;/code&gt; methods for &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Number&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Span&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10601&quot;&gt;#10601&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;BigFloat&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;BigDecimal&lt;/span&gt;&lt;/code&gt; got rounding modes (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10618&quot;&gt;#10618&lt;/a&gt;, &lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10798&quot;&gt;#10798&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;collections&quot;&gt;Collections&lt;/h3&gt;
+
+&lt;p&gt;Likewise to &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Set&lt;/span&gt;&lt;/code&gt;, the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;/code&gt; class includes now sub/superset checking methods (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/7500&quot;&gt;#7500&lt;/a&gt;):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#subset_of?(other : Hash)&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#proper_subset_of?(other : Hash)&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#superset_of?(other : Hash)&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#proper_superset_of?(other : Hash)&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, we  generalized &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#step&lt;/span&gt;&lt;/code&gt; with a new &lt;a href=&quot;https://crystal-lang.org/api/1.1.0/Steppable.html&quot;&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Steppable&lt;/span&gt;&lt;/code&gt;&lt;/a&gt; module, that is included in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Char&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Number&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Span&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10279&quot;&gt;#10279&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Finally, it is now possible to &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#truncate&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;/code&gt;, to efficiently remove elements from both ends (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10712&quot;&gt;#10712&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;crypto&quot;&gt;Crypto&lt;/h3&gt;
+
+&lt;p&gt;New methods for getting peer certificates and signatures in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;OpenSSL&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/8005&quot;&gt;#8005&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;files&quot;&gt;Files&lt;/h3&gt;
+
+&lt;p&gt;Now it is possible to use a &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;Path&lt;/span&gt;&lt;/code&gt; for the methods in &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;FileUtils&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10747&quot;&gt;#10747&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;networking&quot;&gt;Networking&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;OAuth2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Client&lt;/span&gt;&lt;/code&gt; supports the customization of its &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Client&lt;/span&gt;&lt;/code&gt; node (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10452&quot;&gt;10452&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;runtime&quot;&gt;Runtime&lt;/h3&gt;
+
+&lt;p&gt;The segfault handler is now implemented in Crystal, in practice meaning that the compilation process of Crystal is simpler: it does not require the former external &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;libcrystal&lt;/span&gt;&lt;/code&gt;. For package maintainers, this means building &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;libcrystal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;a&lt;/span&gt;&lt;/code&gt; (which was part of the &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deps&lt;/span&gt;&lt;/code&gt; recipe) is obsolete now. The C code for this library has been removed and packaging instructions need to be updated. &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deps&lt;/span&gt;&lt;/code&gt; is no longer necessary for building arbitrary Crystal programs; now it only builds &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;llvm_ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;a&lt;/span&gt;&lt;/code&gt;, only required for linking against LLVM (for example when building the compiler itself).&lt;/p&gt;
+
+&lt;h3 id=&quot;serialization&quot;&gt;Serialization&lt;/h3&gt;
+
+&lt;p&gt;The Yaml parser now supports &lt;code class=&quot;language-crystal highlighter-rouge&quot;&gt;&lt;span class=&quot;no&quot;&gt;UUID&lt;/span&gt;&lt;/code&gt; (&lt;a href=&quot;https://github.com/crystal-lang/crystal/pull/10715&quot;&gt;#10715&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;We have been able to do all of this thanks to the continued support of &lt;a href=&quot;https://www.84codes.com/&quot;&gt;84codes&lt;/a&gt;, &lt;a href=&quot;https://nikolamotor.com/&quot;&gt;Nikola Motor Company&lt;/a&gt; and every other &lt;a href=&quot;/sponsors&quot;&gt;sponsor&lt;/a&gt;. To maintain and increase the development pace, donations and sponsorships are essential. &lt;a href=&quot;https://opencollective.com/crystal-lang&quot;&gt;OpenCollective&lt;/a&gt; is available for that. Reach out to &lt;a href=&quot;mailto:crystal@manas.tech&quot;&gt;crystal@manas.tech&lt;/a&gt; if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!&lt;/p&gt;</content>
+    </entry>
+  
+</feed>

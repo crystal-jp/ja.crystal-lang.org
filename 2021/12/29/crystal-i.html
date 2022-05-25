@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Crystal's interpreter – A very special holiday present - The Crystal Programming Language</title>
+    <meta charset='utf-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'>
+    <link href="/assets/stylesheet.css" rel="stylesheet" />
+    <link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Crystal’s interpreter – A very special holiday present | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Crystal’s interpreter – A very special holiday present" />
+<meta name="author" content="beta-ziliani" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The awaited Crystal interpreter has been merged. To use it, you need to compile Crystal with a special flag and, at the time of writing, the official releases (.deb, .rpm, docker images, etc.) are not being compiled with it." />
+<meta property="og:description" content="The awaited Crystal interpreter has been merged. To use it, you need to compile Crystal with a special flag and, at the time of writing, the official releases (.deb, .rpm, docker images, etc.) are not being compiled with it." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2021/12/29/crystal-i.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2021/12/29/crystal-i.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="twitter:title" content="Crystal’s interpreter – A very special holiday present" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@beta-ziliani" />
+<script type="application/ld+json">
+{"datePublished":"2021-12-29T00:00:00+00:00","dateModified":"2021-12-29T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2021/12/29/crystal-i.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"},"name":"beta-ziliani"},"url":"https://ja.crystal-lang.org/2021/12/29/crystal-i.html","author":{"@type":"Person","name":"beta-ziliani"},"@type":"BlogPosting","image":"https://ja.crystal-lang.org/assets/icon.png","headline":"Crystal’s interpreter – A very special holiday present","description":"The awaited Crystal interpreter has been merged. To use it, you need to compile Crystal with a special flag and, at the time of writing, the official releases (.deb, .rpm, docker images, etc.) are not being compiled with it.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper ">
+  <nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+
+
+  <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/beta-ziliani.jpg" />
+          
+          
+            <span class="author_name">Beta Ziliani</span>
+          
+          <span class="date">29 Dec 2021</span>
+        </div>
+
+        <h1 class='title'>Crystal's interpreter – A very special holiday present</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+
+
+<main>
+  <div class="container">
+    <div class="row post-layout">
+      <div class="col m2 share">
+        <p class="title small share-title">Share</p>
+        <div class="share-list">
+          
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F12%2F29%2Fcrystal-i.html&text=Crystal%27s+interpreter+%E2%80%93+A+very+special+holiday+present&via=CrystalLanguage" target="_blank">
+            <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F12%2F29%2Fcrystal-i.html" target="_blank">
+            <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+          </a>
+          <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2021%2F12%2F29%2Fcrystal-i.html" target="_blank">
+            <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+            </a>
+        </div>
+      </div>
+
+      <div class="col s12 m9">
+        <p>The awaited Crystal interpreter has been <a href="https://github.com/crystal-lang/crystal/pull/11159">merged</a>. To use it, you need to compile Crystal with a special flag and, at the time of writing, the official releases (.deb, .rpm, docker images, etc.) are not being compiled with it.</p>
+
+<p>This post doubles as a F.A.Q. for this special feature. Let’s start from the very beginning:</p>
+
+<h1 id="why-crystal-needs-an-interpreter">Why Crystal needs an interpreter</h1>
+
+<p>While many will find this obvious, it’s useful to point out two specific features that an interpreter might enable:</p>
+
+<ol>
+  <li>In principle an interpreter should start executing code faster, since the codegen phase is skipped (see below), allowing to quickly test the result of some code without needing to recompile. It should be noted that the interpreter is quick for short programs that need to run only once, but compiled mode provides much more performance and should be preferred for most production use cases. Also, while the behavior of interpreted and compiled programs might differ in some aspects (due to the system), we intend to keep the differences down to a minimum, and most programs should behave exactly the same in interpreted and compiled mode.</li>
+  <li>An interpreter improves the experience of debugging, being an ad-hoc tool to the language (unlike the generic <code class="language-crystal highlighter-rouge"><span class="n">lldb</span></code>).</li>
+</ol>
+
+<h1 id="what-is-the-current-status">What is the current status?</h1>
+
+<p>The interpreter is currently on an experimental phase, with lots of <a href="https://github.com/crystal-lang/crystal/issues/11555">missing bits</a>. The reason to merge it at this early stage is to enable a proper discussion of interpreter-related PRs and speed up its development a bit. For those willing to try it out, we welcome interpreter-related issues taking into consideration the already known issues aforelinked.</p>
+
+<h1 id="how-does-it-work">How does it work?</h1>
+
+<p>The <a href="https://github.com/crystal-lang/crystal/pull/11159">original PR</a> answers it:</p>
+
+<blockquote>
+  <p>When running in interpreted mode, semantic analysis is done as usual, but instead of then using LLVM to generate code, we compile code to bytecode (custom bytecode defined in this PR, totally unrelated to LLVM). Then there’s an interpreter that understands this bytecode.</p>
+</blockquote>
+
+<h1 id="how-do-i-invoke-it">How do I invoke it?</h1>
+
+<p>⚠️ This is not set in stone!</p>
+
+<p>Assuming you’ve compiled Crystal passing the flag <code class="language-crystal highlighter-rouge"><span class="n">interpreter</span><span class="o">=</span><span class="mi">1</span></code> to <code class="language-crystal highlighter-rouge"><span class="n">make</span></code>, you can invoke the interpreter using two modes right now:</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code></li>
+</ul>
+
+<p>This commands runs a file in interpreted mode, so if <code class="language-crystal highlighter-rouge"><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code> contains the following:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="no">File</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">,</span> <span class="s2">"Hello from the interpreter!"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s2">"done"</span>
+</code></pre></div></div>
+
+<p>Invoking <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code> will produce the file <code class="language-crystal highlighter-rouge"><span class="sr">/tmp/</span><span class="n">hello</span></code> and print <code class="language-crystal highlighter-rouge"><span class="s2">"done"</span></code> to the <code class="language-crystal highlighter-rouge"><span class="n">stdout</span></code>.</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span></code></li>
+</ul>
+
+<p>This command opens an interactive crystal session (REPL) similar to <code class="language-crystal highlighter-rouge"><span class="n">irb</span></code> from Ruby. In this session we can write a command and get its result:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">icr</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">File</span><span class="p">.</span><span class="nf">read_lines</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Hello from the interpreter!"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>(Note: the highlighting is not yet part of the interpreter.)</p>
+
+<h1 id="debugging-a-program">Debugging a program</h1>
+
+<p>In any of these two modes, you can use <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> in your code to debug it at that point. This is similar to Ruby’s <code class="language-crystal highlighter-rouge"><span class="n">pry</span></code>. There you can use these commands (similar to <code class="language-crystal highlighter-rouge"><span class="n">pry</span></code> also):</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">step</span></code>: go to the next line/instruction, possibly going inside a method.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="k">next</span></code>: go to the next line/instruction, doesn’t enter into methods.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">finish</span></code>: exit the current method.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">continue</span></code>: resume execution.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">whereami</span></code>: show where the debugger is.</li>
+</ul>
+
+<p>For instance, if we add <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> between the <code class="language-crystal highlighter-rouge"><span class="n">write</span></code> and the <code class="language-crystal highlighter-rouge"><span class="nb">puts</span></code> in <code class="language-crystal highlighter-rouge"><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code>, we get the following after interpreting the file:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="no">From</span><span class="p">:</span> <span class="sr">/tmp/</span><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span> <span class="o">&lt;</span><span class="no">Program</span><span class="o">&gt;</span><span class="c1">#/tmp/write_hello.cr:</span>
+
+    <span class="mi">1</span><span class="p">:</span> <span class="no">File</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">,</span> <span class="s2">"Hello from the interpreter!"</span><span class="p">)</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">debugger</span>
+ <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">:</span> <span class="nb">puts</span> <span class="s2">"done"</span>
+
+<span class="n">pry</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>And if we <code class="language-crystal highlighter-rouge"><span class="n">step</span></code>, we can see the method form the standard library being called:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">pry</span><span class="o">&gt;</span> <span class="n">step</span>
+<span class="no">From</span><span class="p">:</span> <span class="sr">/Users/</span><span class="n">beta</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">crystal</span><span class="o">/</span><span class="n">crystal</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">kernel</span><span class="p">.</span><span class="nf">cr</span><span class="p">:</span><span class="mi">385</span><span class="p">:</span><span class="mi">1</span> <span class="o">&lt;</span><span class="no">Program</span><span class="o">&gt;</span><span class="c1">#puts:</span>
+
+    <span class="mi">380</span><span class="p">:</span>
+    <span class="mi">381</span><span class="p">:</span> <span class="c1"># Prints *objects* to `STDOUT`, each followed by a newline character unless</span>
+    <span class="mi">382</span><span class="p">:</span> <span class="c1"># the object is a `String` and already ends with a newline.</span>
+    <span class="mi">383</span><span class="p">:</span> <span class="c1">#</span>
+    <span class="mi">384</span><span class="p">:</span> <span class="c1"># See also: `IO#puts`.</span>
+ <span class="o">=&gt;</span> <span class="mi">385</span><span class="p">:</span> <span class="k">def</span> <span class="nf">puts</span><span class="p">(</span><span class="o">*</span><span class="n">objects</span><span class="p">)</span> <span class="p">:</span> <span class="no">Nil</span>
+    <span class="mi">386</span><span class="p">:</span>   <span class="no">STDOUT</span><span class="p">.</span><span class="nf">puts</span> <span class="o">*</span><span class="n">objects</span>
+    <span class="mi">387</span><span class="p">:</span> <span class="k">end</span>
+    <span class="mi">388</span><span class="p">:</span>
+    <span class="mi">389</span><span class="p">:</span> <span class="c1"># Inspects *object* to `STDOUT` followed</span>
+    <span class="mi">390</span><span class="p">:</span> <span class="c1"># by a newline. Returns *object*.</span>
+
+<span class="n">pry</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>At this point, we might be curious: what are the <code class="language-crystal highlighter-rouge"><span class="n">objects</span></code> that we passed to this method? We <code class="language-crystal highlighter-rouge"><span class="n">step</span></code> once again to have the variable in scope, and we issue:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">pry</span><span class="o">&gt;</span> <span class="n">objects</span>
+<span class="p">{</span><span class="s2">"done"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="how-much-faster-does-the-interpreter-load-a-program">How much faster does the interpreter load a program?</h1>
+
+<p>We’re definitely missing benchmarks, more so given that not many shards can be successfully interpreted. Testing on a few random files from the standard library and <a href="https://github.com/crystal-community/crystal-patterns">Crystal Patterns</a>, it loads them (and <em>executes</em> them, see below) between 50 and 75% faster than it takes when compiling them (comparing <code class="language-crystal highlighter-rouge"><span class="n">time</span> <span class="n">crystal</span> <span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span></code> vs. <code class="language-crystal highlighter-rouge"><span class="n">time</span> <span class="n">crystal</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span></code>). This depends significantly on how much time Crystal takes on the common steps to the compiler and the interpreter, like parsing and semantic analysis.</p>
+
+<h1 id="how-fast-or-slow-does-it-run">How fast (or slow) does it run?</h1>
+
+<p>As Ary, its creator, <a href="https://www.youtube.com/watch?v=een_W1YEICw">showed</a> in <a href="https://www.crystal-lang.org/conference/">Crystal Conf 1.0</a>, it runs sufficiently fast—for an interpreter that is. Of course, it’s not nearly as efficient as a mature interpreter implementation like Ruby’s, yet in our preliminary tests it runs fast enough for the expected use cases. For instance, it can handle millions of integer additions within the second. This said, using the interpreter for processing intensive tasks is definitively discouraged, as that’s the task for a compiled program.</p>
+
+<hr />
+<p>To conclude, merging the PR is the first step to get a working interpreter in Crystal and, more importantly, it’s a testament of the will of the Crystal team to improve the developer experience.</p>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+
+    <div class="row disqus">
+      <div class="col m2"></div>
+      <div class="col s12 m9" id='disqus_thread'>
+        <p>The awaited Crystal interpreter has been <a href="https://github.com/crystal-lang/crystal/pull/11159">merged</a>. To use it, you need to compile Crystal with a special flag and, at the time of writing, the official releases (.deb, .rpm, docker images, etc.) are not being compiled with it.</p>
+
+<p>This post doubles as a F.A.Q. for this special feature. Let’s start from the very beginning:</p>
+
+<h1 id="why-crystal-needs-an-interpreter">Why Crystal needs an interpreter</h1>
+
+<p>While many will find this obvious, it’s useful to point out two specific features that an interpreter might enable:</p>
+
+<ol>
+  <li>In principle an interpreter should start executing code faster, since the codegen phase is skipped (see below), allowing to quickly test the result of some code without needing to recompile. It should be noted that the interpreter is quick for short programs that need to run only once, but compiled mode provides much more performance and should be preferred for most production use cases. Also, while the behavior of interpreted and compiled programs might differ in some aspects (due to the system), we intend to keep the differences down to a minimum, and most programs should behave exactly the same in interpreted and compiled mode.</li>
+  <li>An interpreter improves the experience of debugging, being an ad-hoc tool to the language (unlike the generic <code class="language-crystal highlighter-rouge"><span class="n">lldb</span></code>).</li>
+</ol>
+
+<h1 id="what-is-the-current-status">What is the current status?</h1>
+
+<p>The interpreter is currently on an experimental phase, with lots of <a href="https://github.com/crystal-lang/crystal/issues/11555">missing bits</a>. The reason to merge it at this early stage is to enable a proper discussion of interpreter-related PRs and speed up its development a bit. For those willing to try it out, we welcome interpreter-related issues taking into consideration the already known issues aforelinked.</p>
+
+<h1 id="how-does-it-work">How does it work?</h1>
+
+<p>The <a href="https://github.com/crystal-lang/crystal/pull/11159">original PR</a> answers it:</p>
+
+<blockquote>
+  <p>When running in interpreted mode, semantic analysis is done as usual, but instead of then using LLVM to generate code, we compile code to bytecode (custom bytecode defined in this PR, totally unrelated to LLVM). Then there’s an interpreter that understands this bytecode.</p>
+</blockquote>
+
+<h1 id="how-do-i-invoke-it">How do I invoke it?</h1>
+
+<p>⚠️ This is not set in stone!</p>
+
+<p>Assuming you’ve compiled Crystal passing the flag <code class="language-crystal highlighter-rouge"><span class="n">interpreter</span><span class="o">=</span><span class="mi">1</span></code> to <code class="language-crystal highlighter-rouge"><span class="n">make</span></code>, you can invoke the interpreter using two modes right now:</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code></li>
+</ul>
+
+<p>This commands runs a file in interpreted mode, so if <code class="language-crystal highlighter-rouge"><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code> contains the following:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="no">File</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">,</span> <span class="s2">"Hello from the interpreter!"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s2">"done"</span>
+</code></pre></div></div>
+
+<p>Invoking <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code> will produce the file <code class="language-crystal highlighter-rouge"><span class="sr">/tmp/</span><span class="n">hello</span></code> and print <code class="language-crystal highlighter-rouge"><span class="s2">"done"</span></code> to the <code class="language-crystal highlighter-rouge"><span class="n">stdout</span></code>.</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span></code></li>
+</ul>
+
+<p>This command opens an interactive crystal session (REPL) similar to <code class="language-crystal highlighter-rouge"><span class="n">irb</span></code> from Ruby. In this session we can write a command and get its result:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">icr</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">File</span><span class="p">.</span><span class="nf">read_lines</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Hello from the interpreter!"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>(Note: the highlighting is not yet part of the interpreter.)</p>
+
+<h1 id="debugging-a-program">Debugging a program</h1>
+
+<p>In any of these two modes, you can use <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> in your code to debug it at that point. This is similar to Ruby’s <code class="language-crystal highlighter-rouge"><span class="n">pry</span></code>. There you can use these commands (similar to <code class="language-crystal highlighter-rouge"><span class="n">pry</span></code> also):</p>
+
+<ul>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">step</span></code>: go to the next line/instruction, possibly going inside a method.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="k">next</span></code>: go to the next line/instruction, doesn’t enter into methods.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">finish</span></code>: exit the current method.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">continue</span></code>: resume execution.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">whereami</span></code>: show where the debugger is.</li>
+</ul>
+
+<p>For instance, if we add <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> between the <code class="language-crystal highlighter-rouge"><span class="n">write</span></code> and the <code class="language-crystal highlighter-rouge"><span class="nb">puts</span></code> in <code class="language-crystal highlighter-rouge"><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span></code>, we get the following after interpreting the file:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="no">From</span><span class="p">:</span> <span class="sr">/tmp/</span><span class="n">write_hello</span><span class="p">.</span><span class="nf">cr</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span> <span class="o">&lt;</span><span class="no">Program</span><span class="o">&gt;</span><span class="c1">#/tmp/write_hello.cr:</span>
+
+    <span class="mi">1</span><span class="p">:</span> <span class="no">File</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"/tmp/hello"</span><span class="p">,</span> <span class="s2">"Hello from the interpreter!"</span><span class="p">)</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">debugger</span>
+ <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">:</span> <span class="nb">puts</span> <span class="s2">"done"</span>
+
+<span class="n">pry</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>And if we <code class="language-crystal highlighter-rouge"><span class="n">step</span></code>, we can see the method form the standard library being called:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">pry</span><span class="o">&gt;</span> <span class="n">step</span>
+<span class="no">From</span><span class="p">:</span> <span class="sr">/Users/</span><span class="n">beta</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">crystal</span><span class="o">/</span><span class="n">crystal</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">kernel</span><span class="p">.</span><span class="nf">cr</span><span class="p">:</span><span class="mi">385</span><span class="p">:</span><span class="mi">1</span> <span class="o">&lt;</span><span class="no">Program</span><span class="o">&gt;</span><span class="c1">#puts:</span>
+
+    <span class="mi">380</span><span class="p">:</span>
+    <span class="mi">381</span><span class="p">:</span> <span class="c1"># Prints *objects* to `STDOUT`, each followed by a newline character unless</span>
+    <span class="mi">382</span><span class="p">:</span> <span class="c1"># the object is a `String` and already ends with a newline.</span>
+    <span class="mi">383</span><span class="p">:</span> <span class="c1">#</span>
+    <span class="mi">384</span><span class="p">:</span> <span class="c1"># See also: `IO#puts`.</span>
+ <span class="o">=&gt;</span> <span class="mi">385</span><span class="p">:</span> <span class="k">def</span> <span class="nf">puts</span><span class="p">(</span><span class="o">*</span><span class="n">objects</span><span class="p">)</span> <span class="p">:</span> <span class="no">Nil</span>
+    <span class="mi">386</span><span class="p">:</span>   <span class="no">STDOUT</span><span class="p">.</span><span class="nf">puts</span> <span class="o">*</span><span class="n">objects</span>
+    <span class="mi">387</span><span class="p">:</span> <span class="k">end</span>
+    <span class="mi">388</span><span class="p">:</span>
+    <span class="mi">389</span><span class="p">:</span> <span class="c1"># Inspects *object* to `STDOUT` followed</span>
+    <span class="mi">390</span><span class="p">:</span> <span class="c1"># by a newline. Returns *object*.</span>
+
+<span class="n">pry</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>At this point, we might be curious: what are the <code class="language-crystal highlighter-rouge"><span class="n">objects</span></code> that we passed to this method? We <code class="language-crystal highlighter-rouge"><span class="n">step</span></code> once again to have the variable in scope, and we issue:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">pry</span><span class="o">&gt;</span> <span class="n">objects</span>
+<span class="p">{</span><span class="s2">"done"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="how-much-faster-does-the-interpreter-load-a-program">How much faster does the interpreter load a program?</h1>
+
+<p>We’re definitely missing benchmarks, more so given that not many shards can be successfully interpreted. Testing on a few random files from the standard library and <a href="https://github.com/crystal-community/crystal-patterns">Crystal Patterns</a>, it loads them (and <em>executes</em> them, see below) between 50 and 75% faster than it takes when compiling them (comparing <code class="language-crystal highlighter-rouge"><span class="n">time</span> <span class="n">crystal</span> <span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span></code> vs. <code class="language-crystal highlighter-rouge"><span class="n">time</span> <span class="n">crystal</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span></code>). This depends significantly on how much time Crystal takes on the common steps to the compiler and the interpreter, like parsing and semantic analysis.</p>
+
+<h1 id="how-fast-or-slow-does-it-run">How fast (or slow) does it run?</h1>
+
+<p>As Ary, its creator, <a href="https://www.youtube.com/watch?v=een_W1YEICw">showed</a> in <a href="https://www.crystal-lang.org/conference/">Crystal Conf 1.0</a>, it runs sufficiently fast—for an interpreter that is. Of course, it’s not nearly as efficient as a mature interpreter implementation like Ruby’s, yet in our preliminary tests it runs fast enough for the expected use cases. For instance, it can handle millions of integer additions within the second. This said, using the interpreter for processing intensive tasks is definitively discouraged, as that’s the task for a compiled program.</p>
+
+<hr />
+<p>To conclude, merging the PR is the first step to get a working interpreter in Crystal and, more importantly, it’s a testament of the will of the Crystal team to improve the developer experience.</p>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+
+    <script src="/assets/js/bundle.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

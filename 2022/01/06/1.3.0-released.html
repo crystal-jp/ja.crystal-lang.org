@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Crystal 1.3.0 is released! - The Crystal Programming Language</title>
+    <meta charset='utf-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'>
+    <link href="/assets/stylesheet.css" rel="stylesheet" />
+    <link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Crystal 1.3.0 is released! | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Crystal 1.3.0 is released!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the changelog. Breaking changes are marked with ⚠️." />
+<meta property="og:description" content="We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the changelog. Breaking changes are marked with ⚠️." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="twitter:title" content="Crystal 1.3.0 is released!" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<script type="application/ld+json">
+{"datePublished":"2022-01-06T00:00:00+00:00","dateModified":"2022-01-06T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"}},"url":"https://ja.crystal-lang.org/2022/01/06/1.3.0-released.html","@type":"BlogPosting","image":"https://ja.crystal-lang.org/assets/icon.png","headline":"Crystal 1.3.0 is released!","description":"We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the changelog. Breaking changes are marked with ⚠️.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper ">
+  <nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+
+
+  <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+          
+          <span class="date">06 Jan 2022</span>
+        </div>
+
+        <h1 class='title'>Crystal 1.3.0 is released!</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+
+
+<main>
+  <div class="container">
+    <div class="row post-layout">
+      <div class="col m2 share">
+        <p class="title small share-title">Share</p>
+        <div class="share-list">
+          
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F01%2F06%2F1.3.0-released.html&text=Crystal+1.3.0+is+released%21&via=CrystalLanguage" target="_blank">
+            <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F01%2F06%2F1.3.0-released.html" target="_blank">
+            <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+          </a>
+          <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F01%2F06%2F1.3.0-released.html" target="_blank">
+            <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+            </a>
+        </div>
+      </div>
+
+      <div class="col s12 m9">
+        <p>We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the <a href="https://github.com/crystal-lang/crystal/releases/tag/1.3.0">changelog</a>. Breaking changes are marked with ⚠️.</p>
+
+<p>Pre-built packages are available on <a href="https://github.com/crystal-lang/crystal/releases/tag/1.3.0">GitHub Releases</a> and our official distribution channels.
+See <a href="https://crystal-lang.org/install/">crystal-lang.org/install</a> for installation instructions.</p>
+
+<h2 id="stats">Stats</h2>
+
+<p>In this release we included <a href="https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0">176 changes since the 1.2.2 release</a> by 31 contributors. We thank all the effort put into improving the language! ❤️</p>
+
+<h2 id="interpreter">Interpreter</h2>
+
+<p>The awaited Crystal interpreter has been <a href="https://github.com/crystal-lang/crystal/pull/11159">merged</a>. But it’s still a preview and <a href="https://github.com/crystal-lang/crystal/issues/11555">misses substantial features</a> for real use cases.</p>
+
+<p>Our distribution packages are <strong>not</strong> being compiled with it, and we recommend the same for external packages. If you want to try it, you need to build the compiler with interpreter support explicitly (<code class="language-crystal highlighter-rouge"><span class="n">make</span> <span class="n">crystal</span> <span class="n">interpreter</span><span class="o">=</span><span class="mi">1</span></code>).</p>
+
+<p>You can invoke the interpreter using two modes: <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span></code> or <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code>. In the first case, a REPL will start right away, and in the second case the <code class="language-crystal highlighter-rouge"><span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code> will be interpreted. Interestingly, if the interpreter finds the <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> instruction, it will start an interactive process to debug it. For instance, if we have a file <code class="language-crystal highlighter-rouge"><span class="n">example</span><span class="p">.</span><span class="nf">cr</span></code> with:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">debugger</span>
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>Then calling <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">example</span><span class="p">.</span><span class="nf">cr</span></code> stops after the call to <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code>:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="code_section"><code>From: example.cr:3:3 &lt;Program&gt;#example.cr:
+
+    1: a = 1
+    2: debugger
+ =&gt; 3: p a
+
+ pry&gt;
+</code></pre></div></div>
+
+<p>At this point we can inspect and modify variables, step into function calls, etc. If we enter <code class="language-crystal highlighter-rouge"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span></code> in the REPL and then <code class="language-crystal highlighter-rouge"><span class="k">next</span></code>, we’ll see the program printing <code class="language-crystal highlighter-rouge"><span class="mi">2</span></code>.</p>
+
+<p>Read more about the interpreter in our blog post: <a href="https://crystal-lang.org/2021/12/29/crystal-i.html"><em>Crystal’s interpreter – A very special holiday present</em></a></p>
+
+<h2 id="windows-support">Windows Support</h2>
+
+<p>With over <a href="https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0+label%3Aplatform%3Awindows">30 individual changes</a> there has been great progress for improving Windows support.</p>
+
+<p>It’s still not yet a fully supported platform, but we’ve started building self-contained and portable Windows packages.</p>
+
+<p>A self-contained and portable snapshot package for Windows x86-64 is available <a href="https://github.com/crystal-lang/crystal/releases/download/1.3.0/crystal-1.3.0-windows-x86_64-msvc-unsupported.zip">on the GitHub release</a>. Please remember that this is still experimental and unsupported.</p>
+
+<p>We’ve also started building packages for nightlies, and you can grab the current build at <a href="https://nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip">nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip</a>. There is also a repository for the <a href="https://scoop.sh/">scoop package manager</a> at <a href="https://github.com/neatorobito/scoop-crystal">neatorobito/scoop-crystal</a>.
+Together with many smaller improvements in the compiler, user experience on Windows has greatly improved.</p>
+
+<p>One of the most important missing features has been added: Stack traces. Now you can properly follow where your exceptions come from on Windows (<a href="https://github.com/crystal-lang/crystal/pull/11461">#11461</a>).</p>
+
+<p>Additionally, several stdlib APIs have been ported to Windows, including <code class="language-crystal highlighter-rouge"><span class="no">Big</span></code> numbers (<a href="https://github.com/crystal-lang/crystal/pull/11412">#11412</a>), <code class="language-crystal highlighter-rouge"><span class="no">OpenSSL</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11477">#11477</a>), and text encoding (<a href="https://github.com/crystal-lang/crystal/pull/11480">#11480</a>).
+As a result, 96% of stdlib specs run successfully on Windows now.</p>
+
+<h2 id="unicode">Unicode</h2>
+
+<p>There are a couple of changes related to Unicode support.</p>
+
+<p>Most significant is that <a href="https://crystal-lang.org/api/1.3.0/Char.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0/Char.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> as well as <a href="https://crystal-lang.org/api/1.3.0/String.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0/String.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> escape all non-printable characters (<a href="https://github.com/crystal-lang/crystal/pull/11452">#11452</a>). Note that this may break up grapheme clusters if they depend on non-printable characters. There might be further refinements to this, but we believe it’s better to be explicit over potentially missing characters (<a href="https://github.com/crystal-lang/crystal/issues/11630">#11630</a>).</p>
+
+<p>Further, we added an API for Unicode extended grapheme clusters at <a href="https://crystal-lang.org/api/1.3.0/String/Grapheme.html"><code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="o">::</span><span class="no">Grapheme</span></code></a> (<a href="https://github.com/crystal-lang/crystal/pull/11472">#11472</a>). It allows splitting a string into grapheme clusters which represent a user-perceived character and may consist of multiple code points.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">graphemes</span> <span class="c1"># =&gt; [String::Grapheme('a'), String::Grapheme("👍🏼"), String::Grapheme("à")]</span>
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">chars</span>     <span class="c1"># =&gt; ['a', '👍', '🏼', 'a', '̀']</span>
+
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">grapheme_size</span> <span class="c1"># =&gt; 3</span>
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">size</span>          <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<p>This API is experimental for now, and we expect to enhance and refine it in the following releases.</p>
+
+<p>Further notable changes:</p>
+
+<ul>
+  <li>New: <a href="https://crystal-lang.org/api/1.3.0Char.html#unicode_escape%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#unicode_escape</span></code></a> returns the Unicode escape sequence representing the character (<a href="https://github.com/crystal-lang/crystal/pull/11421">#11421</a>).</li>
+  <li>New: <a href="https://crystal-lang.org/api/1.3.0Char.html#printable%3F-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#printable?</span></code></a> returns <code class="language-crystal highlighter-rouge"><span class="kp">true</span></code> for printable characters, i.e. those with a visible glyph as well as the ASCII whitespace (<code class="language-crystal highlighter-rouge"><span class="no">U</span><span class="o">+</span><span class="mi">0020</span></code>) (<a href="https://github.com/crystal-lang/crystal/pull/11429">#11429</a>).</li>
+  <li>⚠️ Fix: <a href="https://crystal-lang.org/api/1.3.0Char.html#ascii_control%3F%3ABool-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#ascii_control?</span></code></a> no longer applies to <em>C1 control codes</em>. They are not part of the ASCII character set (<a href="https://github.com/crystal-lang/crystal/pull/11510">#11510</a>).</li>
+  <li>Fix: <a href="https://crystal-lang.org/api/1.3.0Char.html#letter%3F%3ABool-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#letter?</span></code></a> correctly identifies code points in the Unicode general categories <code class="language-crystal highlighter-rouge"><span class="no">Lo</span></code> (<em>Other Letter</em>) and <code class="language-crystal highlighter-rouge"><span class="no">Lm</span></code> (<em>Modifier Letter</em>) as letters (<a href="https://github.com/crystal-lang/crystal/pull/11474">#11474</a>).</li>
+  <li>Standardized Unicode escape formats for <a href="https://crystal-lang.org/api/1.3.0Char.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0Char.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> (<a href="https://github.com/crystal-lang/crystal/pull/11421">#11421</a>).</li>
+</ul>
+
+<h2 id="syscalls">Syscalls</h2>
+
+<p>We added an experimental API to create native system calls (<a href="https://github.com/crystal-lang/crystal/pull/10777">#10777</a>). Only Linux is supported for now. This is a first step towards supporting Linux’s <code class="language-crystal highlighter-rouge"><span class="n">io_uring</span></code> interface to improve IO performance.</p>
+
+<p>To define system calls open a module and use the <a href="https://crystal-lang.org/api/1.3.0/Syscall.html#def_syscall%28name%2Creturn_type%2C%2Aargs%29-macro"><code class="language-crystal highlighter-rouge"><span class="no">Syscall</span><span class="p">.</span><span class="nf">def_syscall</span></code></a> macro. As demonstrated in the following example, you need to pass in the system call name, the return type and its arguments.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="nb">require</span> <span class="s2">"syscall"</span>
+
+<span class="k">module</span> <span class="nn">MySyscalls</span>
+  <span class="no">Syscall</span><span class="p">.</span><span class="nf">def_syscall</span> <span class="n">write</span><span class="p">,</span> <span class="no">Int32</span><span class="p">,</span> <span class="n">fd</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">,</span> <span class="n">buf</span> <span class="p">:</span> <span class="no">UInt8</span><span class="o">*</span><span class="p">,</span> <span class="n">count</span> <span class="p">:</span> <span class="no">LibC</span><span class="o">::</span><span class="no">SizeT</span>
+<span class="k">end</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">"Hello!</span><span class="se">\n</span><span class="s2">"</span>
+<span class="no">MySyscalls</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="nf">to_unsafe</span><span class="p">,</span> <span class="no">LibC</span><span class="o">::</span><span class="no">SizeT</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="nf">size</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="multi-assign">Multi-Assign</h2>
+
+<p>Multiple assignments got improved in various ways. First, it’s possible to use a splat target in a multi-assignment (<a href="https://github.com/crystal-lang/crystal/pull/10410">#10410</a>):</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Splat in multi-assign with array</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">first</span> <span class="c1"># =&gt; 1</span>
+<span class="n">rest</span> <span class="c1"># =&gt; [2, 3, 4]</span>
+<span class="n">last</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Splat in multi-assign with tuple</span>
+<span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"This"</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"tuple"</span><span class="p">,</span> <span class="kp">true</span><span class="p">}</span>
+<span class="n">rest</span> <span class="c1"># =&gt; {"This", 15, 4, "tuple"}</span>
+<span class="n">last</span> <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>To take the first and last element, it is possible to use the <em>underscore splat</em> notation:</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Ignoring the elements in the middle</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"This"</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"tuple"</span><span class="p">,</span> <span class="kp">true</span><span class="p">}</span>
+<span class="n">first</span> <span class="c1"># =&gt; "This"</span>
+<span class="n">last</span> <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>Second, there’s an optional preview feature to detect unbalanced multi-assignments (<a href="https://github.com/crystal-lang/crystal/pull/11145">#11145</a>). It can be enabled with the compiler flag <code class="language-crystal highlighter-rouge"><span class="o">-</span><span class="no">Dstrict_multi_assign</span></code>.</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="c1"># Error: index out of bounds for Tuple(Int32, Int32) (2 not in -2..1)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># Error: cannot assign Tuple(Int32, Int32, Int32) to 2 targets</span>
+</code></pre></div></div>
+
+<p>Note that the first example fails with a similar error in 1.2.2 (this error is <a href="https://github.com/crystal-lang/crystal/issues/11695">expected to change</a> in the near future).</p>
+
+<p>To ignore the extra items in strict mode you can use the underscore splat notation. This can be used to port existing code to work with the <code class="language-crystal highlighter-rouge"><span class="n">strict_multi_assign</span></code> flag.</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># Same as a, b = {1, 2, 3} without the flag</span>
+</code></pre></div></div>
+
+<p>⚠️ This second improvement is a breaking change; therefore it’s not enabled by default. We encourage using it to detect possible errors in your code. This setting will likely be the default in 2.0. An additional restriction guarded by that flag is that if the right-hand side has a unique element, it must be of type <code class="language-crystal highlighter-rouge"><span class="no">Indexable</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11545">#11545</a>).</p>
+
+<h2 id="number-autocast">Number Autocast</h2>
+
+<p>Primitive numeric values are now <em>autocasted</em> to fit into larger types (<a href="https://github.com/crystal-lang/crystal/pull/11431">#11431</a>, <a href="https://github.com/crystal-lang/crystal/pull/11529">#11529</a>). For instance, it is possible to call a function expecting an <code class="language-crystal highlighter-rouge"><span class="no">Int64</span></code> with an <code class="language-crystal highlighter-rouge"><span class="no">Int32</span></code> (note that before 1.3.0 only number <em>literals</em> were autocasted):</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int64</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="n">foo</span> <span class="mi">1_i32</span> <span class="c1"># Works in 1.2.2 and 1.3.0</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="mi">1_i32</span>
+<span class="n">foo</span> <span class="n">bar</span>  <span class="c1"># Fails in 1.2.2, works in 1.3.0</span>
+</code></pre></div></div>
+
+<p>Unsigned integer types can be autocasted into larger signed ones. And autocasting also works for floating point types (<code class="language-crystal highlighter-rouge"><span class="no">Float32</span></code> to <code class="language-crystal highlighter-rouge"><span class="no">Float64</span></code>).</p>
+
+<p>If there is ambiguity, for instance, because there is more than one option, the compiler throws an error:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int64</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int128</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="mi">1_i32</span>
+<span class="n">foo</span> <span class="n">bar</span> <span class="c1"># Error: ambiguous call, implicit cast of Int32 matches all of Int64, Int128</span>
+</code></pre></div></div>
+
+<h2 id="128-bit-literals">128-bit Literals</h2>
+
+<p>The parser has been improved to understand number literals in the full range or 128-bit integers (<a href="https://github.com/crystal-lang/crystal/pull/11571">#11571</a>).
+Until now, 128-bit literals had been supported only within the limits of 64-bit values.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="mi">1_i128</span>                                       <span class="c1"># Works in 1.2.2 and 1.3.0</span>
+<span class="mi">170141183460469231731687303715884105727_i128</span> <span class="c1"># Fails in 1.2.2, works in 1.3.0</span>
+</code></pre></div></div>
+
+<p>In order to get there, we needed to implement some arithmetic primitives for all platforms, and refactor the parsing of number literals (<a href="https://github.com/crystal-lang/crystal/pull/11211">#11211</a>).
+The latter also cleaned up a couple of edge cases. Some examples are highlighted here:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="mi">1</span><span class="n">_</span><span class="o">.</span><span class="mi">1</span>   <span class="c1"># Error: unexpected '_' in number</span>
+<span class="o">-</span><span class="mi">0</span><span class="n">u64</span>  <span class="c1"># Error: Invalid negative value -0 for UInt64</span>
+<span class="o">-</span><span class="mi">0_u64</span> <span class="c1"># Error: Invalid negative value -0 for UInt64</span>
+<span class="mi">1</span><span class="n">__2</span>   <span class="c1"># Error: consecutive underscores in numbers aren't allowed</span>
+<span class="mi">0</span><span class="n">x_2</span>   <span class="c1"># Error: unexpected '_' in number</span>
+<span class="mi">0_12</span>   <span class="c1"># Error: octal constants should be prefixed with 0o</span>
+<span class="mf">0e40</span>   <span class="c1"># =&gt; 0.0</span>
+<span class="mi">0</span><span class="n">x</span>     <span class="c1"># Error: numeric literal without digits</span>
+</code></pre></div></div>
+
+<h2 id="other-notable-changes">Other notable changes</h2>
+
+<ul>
+  <li>⚠️ Methods that enumerate on a sub-range now always use <code class="language-crystal highlighter-rouge"><span class="n">start</span></code> as parameter name for the begin of the sub-range (<a href="https://github.com/crystal-lang/crystal/pull/11350">#11350</a>). This was standardized from several different forms, which keep working as deprecated overloads until the next major release.</li>
+  <li>⚠️ More refactoring happened to <code class="language-crystal highlighter-rouge"><span class="no">Indexable</span><span class="o">::</span><span class="no">Mutable</span><span class="c1">#fill</span></code>’s overloads (<a href="https://github.com/crystal-lang/crystal/pull/11368">#11368</a>). Again, existing code continues to work with deprecated overloads.</li>
+  <li>⚠️ <code class="language-crystal highlighter-rouge"><span class="no">Regex</span><span class="c1">#name_table</span></code> returns <code class="language-crystal highlighter-rouge"><span class="no">Hash</span><span class="p">(</span><span class="no">Int32</span><span class="p">,</span> <span class="no">String</span><span class="p">)</span></code> instead of <code class="language-crystal highlighter-rouge"><span class="no">Hash</span><span class="p">(</span><span class="no">Int16</span><span class="p">,</span> <span class="no">String</span><span class="p">)</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11539">#11539</a>). Noticeable effects are pretty limited due to number autocasting.</li>
+</ul>
+
+<hr />
+<p>We have been able to do all of this thanks to the continued support of <a href="https://www.84codes.com/">84codes</a>, <a href="https://nikolamotor.com/">Nikola Motor Company</a> and every other <a href="/sponsors">sponsor</a>. To maintain and increase the development pace, donations and sponsorships are essential. <a href="https://opencollective.com/crystal-lang">OpenCollective</a> is available for that. Reach out to <a href="mailto:crystal@manas.tech">crystal@manas.tech</a> if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!</p>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+
+    <div class="row disqus">
+      <div class="col m2"></div>
+      <div class="col s12 m9" id='disqus_thread'>
+        <p>We are delivering a new release with several bugfixes and improvements. Below we list the most important or interesting changes, without mentioning several bugfixes and smaller enhancements. For more details, visit the <a href="https://github.com/crystal-lang/crystal/releases/tag/1.3.0">changelog</a>. Breaking changes are marked with ⚠️.</p>
+
+<p>Pre-built packages are available on <a href="https://github.com/crystal-lang/crystal/releases/tag/1.3.0">GitHub Releases</a> and our official distribution channels.
+See <a href="https://crystal-lang.org/install/">crystal-lang.org/install</a> for installation instructions.</p>
+
+<h2 id="stats">Stats</h2>
+
+<p>In this release we included <a href="https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0">176 changes since the 1.2.2 release</a> by 31 contributors. We thank all the effort put into improving the language! ❤️</p>
+
+<h2 id="interpreter">Interpreter</h2>
+
+<p>The awaited Crystal interpreter has been <a href="https://github.com/crystal-lang/crystal/pull/11159">merged</a>. But it’s still a preview and <a href="https://github.com/crystal-lang/crystal/issues/11555">misses substantial features</a> for real use cases.</p>
+
+<p>Our distribution packages are <strong>not</strong> being compiled with it, and we recommend the same for external packages. If you want to try it, you need to build the compiler with interpreter support explicitly (<code class="language-crystal highlighter-rouge"><span class="n">make</span> <span class="n">crystal</span> <span class="n">interpreter</span><span class="o">=</span><span class="mi">1</span></code>).</p>
+
+<p>You can invoke the interpreter using two modes: <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span></code> or <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code>. In the first case, a REPL will start right away, and in the second case the <code class="language-crystal highlighter-rouge"><span class="n">file</span><span class="p">.</span><span class="nf">cr</span></code> will be interpreted. Interestingly, if the interpreter finds the <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code> instruction, it will start an interactive process to debug it. For instance, if we have a file <code class="language-crystal highlighter-rouge"><span class="n">example</span><span class="p">.</span><span class="nf">cr</span></code> with:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">debugger</span>
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>Then calling <code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">i</span> <span class="n">example</span><span class="p">.</span><span class="nf">cr</span></code> stops after the call to <code class="language-crystal highlighter-rouge"><span class="n">debugger</span></code>:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="code_section"><code>From: example.cr:3:3 &lt;Program&gt;#example.cr:
+
+    1: a = 1
+    2: debugger
+ =&gt; 3: p a
+
+ pry&gt;
+</code></pre></div></div>
+
+<p>At this point we can inspect and modify variables, step into function calls, etc. If we enter <code class="language-crystal highlighter-rouge"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span></code> in the REPL and then <code class="language-crystal highlighter-rouge"><span class="k">next</span></code>, we’ll see the program printing <code class="language-crystal highlighter-rouge"><span class="mi">2</span></code>.</p>
+
+<p>Read more about the interpreter in our blog post: <a href="https://crystal-lang.org/2021/12/29/crystal-i.html"><em>Crystal’s interpreter – A very special holiday present</em></a></p>
+
+<h2 id="windows-support">Windows Support</h2>
+
+<p>With over <a href="https://github.com/crystal-lang/crystal/pulls?q=is%3Apr+milestone%3A1.3.0+label%3Aplatform%3Awindows">30 individual changes</a> there has been great progress for improving Windows support.</p>
+
+<p>It’s still not yet a fully supported platform, but we’ve started building self-contained and portable Windows packages.</p>
+
+<p>A self-contained and portable snapshot package for Windows x86-64 is available <a href="https://github.com/crystal-lang/crystal/releases/download/1.3.0/crystal-1.3.0-windows-x86_64-msvc-unsupported.zip">on the GitHub release</a>. Please remember that this is still experimental and unsupported.</p>
+
+<p>We’ve also started building packages for nightlies, and you can grab the current build at <a href="https://nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip">nightly.link/crystal-lang/crystal/workflows/win/master/crystal.zip</a>. There is also a repository for the <a href="https://scoop.sh/">scoop package manager</a> at <a href="https://github.com/neatorobito/scoop-crystal">neatorobito/scoop-crystal</a>.
+Together with many smaller improvements in the compiler, user experience on Windows has greatly improved.</p>
+
+<p>One of the most important missing features has been added: Stack traces. Now you can properly follow where your exceptions come from on Windows (<a href="https://github.com/crystal-lang/crystal/pull/11461">#11461</a>).</p>
+
+<p>Additionally, several stdlib APIs have been ported to Windows, including <code class="language-crystal highlighter-rouge"><span class="no">Big</span></code> numbers (<a href="https://github.com/crystal-lang/crystal/pull/11412">#11412</a>), <code class="language-crystal highlighter-rouge"><span class="no">OpenSSL</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11477">#11477</a>), and text encoding (<a href="https://github.com/crystal-lang/crystal/pull/11480">#11480</a>).
+As a result, 96% of stdlib specs run successfully on Windows now.</p>
+
+<h2 id="unicode">Unicode</h2>
+
+<p>There are a couple of changes related to Unicode support.</p>
+
+<p>Most significant is that <a href="https://crystal-lang.org/api/1.3.0/Char.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0/Char.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> as well as <a href="https://crystal-lang.org/api/1.3.0/String.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0/String.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> escape all non-printable characters (<a href="https://github.com/crystal-lang/crystal/pull/11452">#11452</a>). Note that this may break up grapheme clusters if they depend on non-printable characters. There might be further refinements to this, but we believe it’s better to be explicit over potentially missing characters (<a href="https://github.com/crystal-lang/crystal/issues/11630">#11630</a>).</p>
+
+<p>Further, we added an API for Unicode extended grapheme clusters at <a href="https://crystal-lang.org/api/1.3.0/String/Grapheme.html"><code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="o">::</span><span class="no">Grapheme</span></code></a> (<a href="https://github.com/crystal-lang/crystal/pull/11472">#11472</a>). It allows splitting a string into grapheme clusters which represent a user-perceived character and may consist of multiple code points.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">graphemes</span> <span class="c1"># =&gt; [String::Grapheme('a'), String::Grapheme("👍🏼"), String::Grapheme("à")]</span>
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">chars</span>     <span class="c1"># =&gt; ['a', '👍', '🏼', 'a', '̀']</span>
+
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">grapheme_size</span> <span class="c1"># =&gt; 3</span>
+<span class="s2">"a👍🏼à"</span><span class="p">.</span><span class="nf">size</span>          <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<p>This API is experimental for now, and we expect to enhance and refine it in the following releases.</p>
+
+<p>Further notable changes:</p>
+
+<ul>
+  <li>New: <a href="https://crystal-lang.org/api/1.3.0Char.html#unicode_escape%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#unicode_escape</span></code></a> returns the Unicode escape sequence representing the character (<a href="https://github.com/crystal-lang/crystal/pull/11421">#11421</a>).</li>
+  <li>New: <a href="https://crystal-lang.org/api/1.3.0Char.html#printable%3F-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#printable?</span></code></a> returns <code class="language-crystal highlighter-rouge"><span class="kp">true</span></code> for printable characters, i.e. those with a visible glyph as well as the ASCII whitespace (<code class="language-crystal highlighter-rouge"><span class="no">U</span><span class="o">+</span><span class="mi">0020</span></code>) (<a href="https://github.com/crystal-lang/crystal/pull/11429">#11429</a>).</li>
+  <li>⚠️ Fix: <a href="https://crystal-lang.org/api/1.3.0Char.html#ascii_control%3F%3ABool-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#ascii_control?</span></code></a> no longer applies to <em>C1 control codes</em>. They are not part of the ASCII character set (<a href="https://github.com/crystal-lang/crystal/pull/11510">#11510</a>).</li>
+  <li>Fix: <a href="https://crystal-lang.org/api/1.3.0Char.html#letter%3F%3ABool-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#letter?</span></code></a> correctly identifies code points in the Unicode general categories <code class="language-crystal highlighter-rouge"><span class="no">Lo</span></code> (<em>Other Letter</em>) and <code class="language-crystal highlighter-rouge"><span class="no">Lm</span></code> (<em>Modifier Letter</em>) as letters (<a href="https://github.com/crystal-lang/crystal/pull/11474">#11474</a>).</li>
+  <li>Standardized Unicode escape formats for <a href="https://crystal-lang.org/api/1.3.0Char.html#inspect%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="no">Char</span><span class="c1">#inspect</span></code></a> and <a href="https://crystal-lang.org/api/1.3.0Char.html#dump%3AString-instance-method"><code class="language-crystal highlighter-rouge"><span class="c1">#dump</span></code></a> (<a href="https://github.com/crystal-lang/crystal/pull/11421">#11421</a>).</li>
+</ul>
+
+<h2 id="syscalls">Syscalls</h2>
+
+<p>We added an experimental API to create native system calls (<a href="https://github.com/crystal-lang/crystal/pull/10777">#10777</a>). Only Linux is supported for now. This is a first step towards supporting Linux’s <code class="language-crystal highlighter-rouge"><span class="n">io_uring</span></code> interface to improve IO performance.</p>
+
+<p>To define system calls open a module and use the <a href="https://crystal-lang.org/api/1.3.0/Syscall.html#def_syscall%28name%2Creturn_type%2C%2Aargs%29-macro"><code class="language-crystal highlighter-rouge"><span class="no">Syscall</span><span class="p">.</span><span class="nf">def_syscall</span></code></a> macro. As demonstrated in the following example, you need to pass in the system call name, the return type and its arguments.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="nb">require</span> <span class="s2">"syscall"</span>
+
+<span class="k">module</span> <span class="nn">MySyscalls</span>
+  <span class="no">Syscall</span><span class="p">.</span><span class="nf">def_syscall</span> <span class="n">write</span><span class="p">,</span> <span class="no">Int32</span><span class="p">,</span> <span class="n">fd</span> <span class="p">:</span> <span class="no">Int32</span><span class="p">,</span> <span class="n">buf</span> <span class="p">:</span> <span class="no">UInt8</span><span class="o">*</span><span class="p">,</span> <span class="n">count</span> <span class="p">:</span> <span class="no">LibC</span><span class="o">::</span><span class="no">SizeT</span>
+<span class="k">end</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">"Hello!</span><span class="se">\n</span><span class="s2">"</span>
+<span class="no">MySyscalls</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="nf">to_unsafe</span><span class="p">,</span> <span class="no">LibC</span><span class="o">::</span><span class="no">SizeT</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="nf">size</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="multi-assign">Multi-Assign</h2>
+
+<p>Multiple assignments got improved in various ways. First, it’s possible to use a splat target in a multi-assignment (<a href="https://github.com/crystal-lang/crystal/pull/10410">#10410</a>):</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Splat in multi-assign with array</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">first</span> <span class="c1"># =&gt; 1</span>
+<span class="n">rest</span> <span class="c1"># =&gt; [2, 3, 4]</span>
+<span class="n">last</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Splat in multi-assign with tuple</span>
+<span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"This"</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"tuple"</span><span class="p">,</span> <span class="kp">true</span><span class="p">}</span>
+<span class="n">rest</span> <span class="c1"># =&gt; {"This", 15, 4, "tuple"}</span>
+<span class="n">last</span> <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>To take the first and last element, it is possible to use the <em>underscore splat</em> notation:</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="c1"># Ignoring the elements in the middle</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"This"</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"tuple"</span><span class="p">,</span> <span class="kp">true</span><span class="p">}</span>
+<span class="n">first</span> <span class="c1"># =&gt; "This"</span>
+<span class="n">last</span> <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>Second, there’s an optional preview feature to detect unbalanced multi-assignments (<a href="https://github.com/crystal-lang/crystal/pull/11145">#11145</a>). It can be enabled with the compiler flag <code class="language-crystal highlighter-rouge"><span class="o">-</span><span class="no">Dstrict_multi_assign</span></code>.</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="c1"># Error: index out of bounds for Tuple(Int32, Int32) (2 not in -2..1)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># Error: cannot assign Tuple(Int32, Int32, Int32) to 2 targets</span>
+</code></pre></div></div>
+
+<p>Note that the first example fails with a similar error in 1.2.2 (this error is <a href="https://github.com/crystal-lang/crystal/issues/11695">expected to change</a> in the near future).</p>
+
+<p>To ignore the extra items in strict mode you can use the underscore splat notation. This can be used to port existing code to work with the <code class="language-crystal highlighter-rouge"><span class="n">strict_multi_assign</span></code> flag.</p>
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="c1"># Same as a, b = {1, 2, 3} without the flag</span>
+</code></pre></div></div>
+
+<p>⚠️ This second improvement is a breaking change; therefore it’s not enabled by default. We encourage using it to detect possible errors in your code. This setting will likely be the default in 2.0. An additional restriction guarded by that flag is that if the right-hand side has a unique element, it must be of type <code class="language-crystal highlighter-rouge"><span class="no">Indexable</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11545">#11545</a>).</p>
+
+<h2 id="number-autocast">Number Autocast</h2>
+
+<p>Primitive numeric values are now <em>autocasted</em> to fit into larger types (<a href="https://github.com/crystal-lang/crystal/pull/11431">#11431</a>, <a href="https://github.com/crystal-lang/crystal/pull/11529">#11529</a>). For instance, it is possible to call a function expecting an <code class="language-crystal highlighter-rouge"><span class="no">Int64</span></code> with an <code class="language-crystal highlighter-rouge"><span class="no">Int32</span></code> (note that before 1.3.0 only number <em>literals</em> were autocasted):</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int64</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="n">foo</span> <span class="mi">1_i32</span> <span class="c1"># Works in 1.2.2 and 1.3.0</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="mi">1_i32</span>
+<span class="n">foo</span> <span class="n">bar</span>  <span class="c1"># Fails in 1.2.2, works in 1.3.0</span>
+</code></pre></div></div>
+
+<p>Unsigned integer types can be autocasted into larger signed ones. And autocasting also works for floating point types (<code class="language-crystal highlighter-rouge"><span class="no">Float32</span></code> to <code class="language-crystal highlighter-rouge"><span class="no">Float64</span></code>).</p>
+
+<p>If there is ambiguity, for instance, because there is more than one option, the compiler throws an error:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int64</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="no">Int128</span><span class="p">)</span>
+  <span class="n">x</span>
+<span class="k">end</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="mi">1_i32</span>
+<span class="n">foo</span> <span class="n">bar</span> <span class="c1"># Error: ambiguous call, implicit cast of Int32 matches all of Int64, Int128</span>
+</code></pre></div></div>
+
+<h2 id="128-bit-literals">128-bit Literals</h2>
+
+<p>The parser has been improved to understand number literals in the full range or 128-bit integers (<a href="https://github.com/crystal-lang/crystal/pull/11571">#11571</a>).
+Until now, 128-bit literals had been supported only within the limits of 64-bit values.</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="mi">1_i128</span>                                       <span class="c1"># Works in 1.2.2 and 1.3.0</span>
+<span class="mi">170141183460469231731687303715884105727_i128</span> <span class="c1"># Fails in 1.2.2, works in 1.3.0</span>
+</code></pre></div></div>
+
+<p>In order to get there, we needed to implement some arithmetic primitives for all platforms, and refactor the parsing of number literals (<a href="https://github.com/crystal-lang/crystal/pull/11211">#11211</a>).
+The latter also cleaned up a couple of edge cases. Some examples are highlighted here:</p>
+
+<div class="language-crystal highlighter-rouge"><div class="highlight"><pre class="code_section"><code><span class="mi">1</span><span class="n">_</span><span class="o">.</span><span class="mi">1</span>   <span class="c1"># Error: unexpected '_' in number</span>
+<span class="o">-</span><span class="mi">0</span><span class="n">u64</span>  <span class="c1"># Error: Invalid negative value -0 for UInt64</span>
+<span class="o">-</span><span class="mi">0_u64</span> <span class="c1"># Error: Invalid negative value -0 for UInt64</span>
+<span class="mi">1</span><span class="n">__2</span>   <span class="c1"># Error: consecutive underscores in numbers aren't allowed</span>
+<span class="mi">0</span><span class="n">x_2</span>   <span class="c1"># Error: unexpected '_' in number</span>
+<span class="mi">0_12</span>   <span class="c1"># Error: octal constants should be prefixed with 0o</span>
+<span class="mf">0e40</span>   <span class="c1"># =&gt; 0.0</span>
+<span class="mi">0</span><span class="n">x</span>     <span class="c1"># Error: numeric literal without digits</span>
+</code></pre></div></div>
+
+<h2 id="other-notable-changes">Other notable changes</h2>
+
+<ul>
+  <li>⚠️ Methods that enumerate on a sub-range now always use <code class="language-crystal highlighter-rouge"><span class="n">start</span></code> as parameter name for the begin of the sub-range (<a href="https://github.com/crystal-lang/crystal/pull/11350">#11350</a>). This was standardized from several different forms, which keep working as deprecated overloads until the next major release.</li>
+  <li>⚠️ More refactoring happened to <code class="language-crystal highlighter-rouge"><span class="no">Indexable</span><span class="o">::</span><span class="no">Mutable</span><span class="c1">#fill</span></code>’s overloads (<a href="https://github.com/crystal-lang/crystal/pull/11368">#11368</a>). Again, existing code continues to work with deprecated overloads.</li>
+  <li>⚠️ <code class="language-crystal highlighter-rouge"><span class="no">Regex</span><span class="c1">#name_table</span></code> returns <code class="language-crystal highlighter-rouge"><span class="no">Hash</span><span class="p">(</span><span class="no">Int32</span><span class="p">,</span> <span class="no">String</span><span class="p">)</span></code> instead of <code class="language-crystal highlighter-rouge"><span class="no">Hash</span><span class="p">(</span><span class="no">Int16</span><span class="p">,</span> <span class="no">String</span><span class="p">)</span></code> (<a href="https://github.com/crystal-lang/crystal/pull/11539">#11539</a>). Noticeable effects are pretty limited due to number autocasting.</li>
+</ul>
+
+<hr />
+<p>We have been able to do all of this thanks to the continued support of <a href="https://www.84codes.com/">84codes</a>, <a href="https://nikolamotor.com/">Nikola Motor Company</a> and every other <a href="/sponsors">sponsor</a>. To maintain and increase the development pace, donations and sponsorships are essential. <a href="https://opencollective.com/crystal-lang">OpenCollective</a> is available for that. Reach out to <a href="mailto:crystal@manas.tech">crystal@manas.tech</a> if you’d like to become a direct sponsor or find other ways to support Crystal. We thank you in advance!</p>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+
+    <script src="/assets/js/bundle.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

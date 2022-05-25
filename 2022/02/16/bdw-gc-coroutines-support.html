@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>bdw-gc coroutines support - The Crystal Programming Language</title>
+    <meta charset='utf-8'>
+    <!-- Import Google Icon Font -->
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'>
+    <link href="/assets/stylesheet.css" rel="stylesheet" />
+    <link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='/favicon.png' rel='icon' type='image/png'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>bdw-gc coroutines support | プログラミング言語 Crystal</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="bdw-gc coroutines support" />
+<meta name="author" content="bcardiff" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crystal uses bdw-gc and supports coroutines. Fibers is how coroutines are called here. For many years Crystal has been single-thread with fibers. Single-thread is still the default alternative. Sometime ago we added muti-thread support where each thread can run concurrently multiple fibers. This required some patches and eventual contributions to bdw-gc in order to achieve this since there was no built-in support for coroutines in the library." />
+<meta property="og:description" content="Crystal uses bdw-gc and supports coroutines. Fibers is how coroutines are called here. For many years Crystal has been single-thread with fibers. Single-thread is still the default alternative. Sometime ago we added muti-thread support where each thread can run concurrently multiple fibers. This required some patches and eventual contributions to bdw-gc in order to achieve this since there was no built-in support for coroutines in the library." />
+<link rel="canonical" href="https://ja.crystal-lang.org/2022/02/16/bdw-gc-coroutines-support.html" />
+<meta property="og:url" content="https://ja.crystal-lang.org/2022/02/16/bdw-gc-coroutines-support.html" />
+<meta property="og:site_name" content="プログラミング言語 Crystal" />
+<meta property="og:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ja.crystal-lang.org/assets/icon.png" />
+<meta property="twitter:title" content="bdw-gc coroutines support" />
+<meta name="twitter:site" content="@CrystalLanguage" />
+<meta name="twitter:creator" content="@bcardiff" />
+<script type="application/ld+json">
+{"datePublished":"2022-02-16T00:00:00+00:00","dateModified":"2022-02-16T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2022/02/16/bdw-gc-coroutines-support.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"},"name":"bcardiff"},"url":"https://ja.crystal-lang.org/2022/02/16/bdw-gc-coroutines-support.html","author":{"@type":"Person","name":"bcardiff"},"@type":"BlogPosting","image":"https://ja.crystal-lang.org/assets/icon.png","headline":"bdw-gc coroutines support","description":"Crystal uses bdw-gc and supports coroutines. Fibers is how coroutines are called here. For many years Crystal has been single-thread with fibers. Single-thread is still the default alternative. Sometime ago we added muti-thread support where each thread can run concurrently multiple fibers. This required some patches and eventual contributions to bdw-gc in order to achieve this since there was no built-in support for coroutines in the library.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <div class="wrapper ">
+  <nav role='navigation'>
+  <div class='nav-wrapper no-select'>
+    
+      <a class='brand-logo' id='logo-container'>
+        <canvas height='120' id='logo-canvas' style='cursor:move' width='120'></canvas>
+      </a>
+    
+    <ul class='right hide-on-med-and-down' id='nav-desktop'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class='side-nav' id='nav-mobile'>
+      
+<li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+<li>
+    <a href="https://forum.crystal-lang.org" target="_blank">
+      Forum
+    </a>
+  </li>
+<li>
+    <a href="/blog/">
+      Blog
+    </a>
+  </li>
+<li>
+    <a href="/sponsors/">
+      Sponsors
+    </a>
+  </li>
+<li>
+    <a href="/community/">
+      Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
+    <a href="/team/">
+      Team
+    </a>
+  </li>
+<li>
+    <a href="/docs/">
+      Docs
+    </a>
+  </li>
+<li>
+    <a href="https://github.com/crystal-lang/crystal" target="_blank">
+      GitHub
+    </a>
+  </li>
+
+
+    </ul>
+    <a class='button-collapse' data-activates='nav-mobile' href='#'>
+      <i class='material-icons'>menu</i>
+    </a>
+  </div>
+</nav>
+
+
+  <div class='post-header'>
+  <div class="container">
+    <div class='valign row'>
+      <div class="col m2"></div>
+      <div class="col s12 m9">
+        <div class="author small">
+          
+          
+            <img src="/assets/authors/bcardiff.jpg" />
+          
+          
+            <span class="author_name">Brian J. Cardiff</span>
+          
+          <span class="date">16 Feb 2022</span>
+        </div>
+
+        <h1 class='title'>bdw-gc coroutines support</h1>
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</div>
+
+
+<main>
+  <div class="container">
+    <div class="row post-layout">
+      <div class="col m2 share">
+        <p class="title small share-title">Share</p>
+        <div class="share-list">
+          
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F02%2F16%2Fbdw-gc-coroutines-support.html&text=bdw-gc+coroutines+support&via=CrystalLanguage" target="_blank">
+            <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F02%2F16%2Fbdw-gc-coroutines-support.html" target="_blank">
+            <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+          </a>
+          <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2022%2F02%2F16%2Fbdw-gc-coroutines-support.html" target="_blank">
+            <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+            </a>
+        </div>
+      </div>
+
+      <div class="col s12 m9">
+        <p><a href="https://crystal-lang.org">Crystal</a> uses bdw-gc and supports coroutines. Fibers is how coroutines are called here. For many years Crystal has been single-thread with fibers. Single-thread is still the default alternative. Sometime ago we added muti-thread support where each thread can run concurrently multiple fibers. This required some patches and eventual contributions to bdw-gc in order to achieve this since there was no built-in support for coroutines in the library.</p>
+
+<p>The support for multi-thread coroutines was gained by allowing the user to control the stack bottom of each thread. Changing the stack bottom and the instruction pointer is what effectively gives life to the coroutines. This is, letting the program choose what portion of the program to execute next without needing to tell the OS about it. Telling the OS would be equivalent to using threads and that would be more expensive.</p>
+
+<p>So Crystal, and other languages, could benefit from having a mutli-thread program where in each thread multiple coroutines can be executed concurrently.</p>
+
+<p>When implementing coroutines the runtime will likely have some sort of book-keeping of the existing coroutines that still need to keep executing. The record of these will involve their stack, instruction pointer and persistence of registers among other information that is specific to the runtime.</p>
+
+<p>The following describes how Crystal uses bdw-gc in single-thread and in multi-thread mode to achieve the coroutines support. We will not focus on the details of the Crystal runtime and its book-keeping, this is mostly focused on the interface with bdw-gc.</p>
+
+<p>The topic aspects to cover in both scenarios are:</p>
+
+<ol>
+  <li>What should happen when the current coroutine needs to be switched to another one?</li>
+  <li>How is the bdw-gc set up so it’s aware of all the coroutines, even the ones that are not running and hence are not accessible from the current stack.</li>
+</ol>
+
+<h2 id="single-thread-coroutines">single-thread coroutines</h2>
+
+<p>When the current coroutine <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> needs to be switched another one <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>,</p>
+
+<ol>
+  <li>We set the global variable <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> to <code class="language-crystal highlighter-rouge"><span class="n">stack_bottom</span><span class="p">(</span><span class="no">C_1</span><span class="p">)</span></code></li>
+  <li>We do context-switch between <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code></li>
+</ol>
+
+<p>The value of <code class="language-crystal highlighter-rouge"><span class="n">stack_bottom</span><span class="p">(</span><span class="no">C_1</span><span class="p">)</span></code> is known when the coroutine is allocated. Allocating a coroutine means most of the time reserving some heap space that will be used as the stack of that coroutine. Hence, the stack bottom is known at that time.</p>
+
+<p>The edge case is what happens with the first coroutine, the one that belongs to the main thread of the program. Well, by using the global variable <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> at the beginning of the program we can get the stack bottom of the very first fiber.</p>
+
+<p>Since we are in a single-thread, all coroutines are either created by the runtime or is the main thread seen as a coroutine.</p>
+
+<p>How do we do the context-switch? <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> will make a regular function call to a routine that preserves all the sensible context (this is arch specific), then from the saved context of <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> the stack pointer is restored and a return is made. Effectively we are hanging <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and resuming <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>. There are some further details of this process in <a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context.cr">src/fiber/context.cr</a> but this does not depend on the GC.</p>
+
+<p>Addressing the bdw-gc set up part, we use <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> to hook before the GC attempts a collect. In this procedure we push all the stacks of the coroutines that are not the current one, i.e.: that are not running.</p>
+
+<p>The current coroutine stack is already known by the GC via the <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> and all the rest are known via the <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code>. Since the GC will pause the main thread to perform the collect we have a good picture of all the memory we need to care about. Great!</p>
+
+<h2 id="multi-thread-coroutines">multi-thread coroutines</h2>
+
+<p>Now that the simpler single-thread is covered we can discuss the multi-thread one.</p>
+
+<p>So far we didn’t need to disable the GC for the single-thread, and it’s better to keep it that way for performance reasons. But for the muti-thread environment we are going to need some lock around the switching fibers routine. We use a global <a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock">Read/Write Lock</a>.</p>
+
+<p>When the current coroutine <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> needs to be switched another one <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>,</p>
+
+<ol>
+  <li>Mark that <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> is going to be executed in the current thread</li>
+  <li>Add a reader to the global lock</li>
+  <li>We do context-switch between <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code></li>
+  <li>Remove a reader from the global lock</li>
+</ol>
+
+<p>It’s worth noticing that we are not accessing <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> as in the single-thread case. Also, the context switch is exactly the same as before.</p>
+
+<p>Since the last step is not the context switch, this means that we need to remove a reader from the global lock at the beginning of the execution of the fibers. Only in the fibers that are created by the runtime.</p>
+
+<p>A way to think about this is that after the context switch, the next step is executed in <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>, not <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code>. If <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> was previously removed by the coroutine switch the code is in place, but for the very first time it is executed it will need to perform that last step before the instructions indicated by the programmer.</p>
+
+<p>Addressing the bdw-gc set up part, we still use <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> to hook before the GC attempts a collect. In this procedure we push all the stacks of the coroutines that are not running. We also need to deal with the running coroutines, that in this case there is one per application thread (Let’s call it application thread since there are also threads of the GC we can omit).</p>
+
+<p>So, as part of this procedure we also inform the GC the stack bottom of all running fibers. For this we iterate all application threads and call <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> with the running fiber’s stack bottom of the iterated thread.</p>
+
+<p>As the final step of the procedure we remove a writer from the global lock.</p>
+
+<p>So to recap the procedure registered in <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> do:</p>
+
+<ol>
+  <li>Push all stacks of fibers that are not running</li>
+  <li>Inform via <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> the stack bottom of each running fiber (one per application thread)</li>
+  <li>Remove a writer from the global lock</li>
+</ol>
+
+<p>The analogous to the single thread would have been calling the <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> for each context-switch, but calling <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> acquires a GC lock so it’s better doing it only when necessary. Maybe the single-thread case could mimic this, but for historical reasons we ended up with this difference.</p>
+
+<p>We are missing where the writers are added to the global lock. This is done in a registered callback at <code class="language-crystal highlighter-rouge"><span class="no">GC_set_start_callback</span></code>.</p>
+
+<p>The effect of the global lock is to allow simultaneous context switches, unless there is a collect in progress.</p>
+
+<p>As in the single-thread case there are two kind of coroutines, a) the ones manually created by the runtime that have a stack that lives in the heap of the program, and b) the ones that correspond to the threads initial stack. Knowing the stack bottom of the first one is as before, the memory is known. For the latter we use <code class="language-crystal highlighter-rouge"><span class="no">GC_get_my_stackbottom</span></code> when the fibers are registered in the runtime.</p>
+
+<p>So this is how <code class="language-crystal highlighter-rouge"><span class="no">GC_get_my_stackbottom</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> are used to enable coroutines in multi-thread environment! There are a lot of pieces coming together to make this possible so we hope this clarifies how they can be used.</p>
+
+<h2 id="the-source-code">The source code</h2>
+
+<p>There are couple of details not covered but these are about the Crystal runtime: how to keep a pool of fibers’ stack memory so they are reused, the list of running fibers and threads in a thread-safe linked list, etc. If you are interested in the details for further motivation the relevant files are:</p>
+
+<ul>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/gc/boehm.cr">src/gc/boehm.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber.cr">src/fiber.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/crystal/scheduler.cr">src/crystal/scheduler.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context/x86_64-sysv.cr">src/fiber/context/x86_64-sysv.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context.cr">src/fiber/context.cr</a></li>
+</ul>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+
+    <div class="row disqus">
+      <div class="col m2"></div>
+      <div class="col s12 m9" id='disqus_thread'>
+        <p><a href="https://crystal-lang.org">Crystal</a> uses bdw-gc and supports coroutines. Fibers is how coroutines are called here. For many years Crystal has been single-thread with fibers. Single-thread is still the default alternative. Sometime ago we added muti-thread support where each thread can run concurrently multiple fibers. This required some patches and eventual contributions to bdw-gc in order to achieve this since there was no built-in support for coroutines in the library.</p>
+
+<p>The support for multi-thread coroutines was gained by allowing the user to control the stack bottom of each thread. Changing the stack bottom and the instruction pointer is what effectively gives life to the coroutines. This is, letting the program choose what portion of the program to execute next without needing to tell the OS about it. Telling the OS would be equivalent to using threads and that would be more expensive.</p>
+
+<p>So Crystal, and other languages, could benefit from having a mutli-thread program where in each thread multiple coroutines can be executed concurrently.</p>
+
+<p>When implementing coroutines the runtime will likely have some sort of book-keeping of the existing coroutines that still need to keep executing. The record of these will involve their stack, instruction pointer and persistence of registers among other information that is specific to the runtime.</p>
+
+<p>The following describes how Crystal uses bdw-gc in single-thread and in multi-thread mode to achieve the coroutines support. We will not focus on the details of the Crystal runtime and its book-keeping, this is mostly focused on the interface with bdw-gc.</p>
+
+<p>The topic aspects to cover in both scenarios are:</p>
+
+<ol>
+  <li>What should happen when the current coroutine needs to be switched to another one?</li>
+  <li>How is the bdw-gc set up so it’s aware of all the coroutines, even the ones that are not running and hence are not accessible from the current stack.</li>
+</ol>
+
+<h2 id="single-thread-coroutines">single-thread coroutines</h2>
+
+<p>When the current coroutine <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> needs to be switched another one <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>,</p>
+
+<ol>
+  <li>We set the global variable <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> to <code class="language-crystal highlighter-rouge"><span class="n">stack_bottom</span><span class="p">(</span><span class="no">C_1</span><span class="p">)</span></code></li>
+  <li>We do context-switch between <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code></li>
+</ol>
+
+<p>The value of <code class="language-crystal highlighter-rouge"><span class="n">stack_bottom</span><span class="p">(</span><span class="no">C_1</span><span class="p">)</span></code> is known when the coroutine is allocated. Allocating a coroutine means most of the time reserving some heap space that will be used as the stack of that coroutine. Hence, the stack bottom is known at that time.</p>
+
+<p>The edge case is what happens with the first coroutine, the one that belongs to the main thread of the program. Well, by using the global variable <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> at the beginning of the program we can get the stack bottom of the very first fiber.</p>
+
+<p>Since we are in a single-thread, all coroutines are either created by the runtime or is the main thread seen as a coroutine.</p>
+
+<p>How do we do the context-switch? <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> will make a regular function call to a routine that preserves all the sensible context (this is arch specific), then from the saved context of <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> the stack pointer is restored and a return is made. Effectively we are hanging <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and resuming <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>. There are some further details of this process in <a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context.cr">src/fiber/context.cr</a> but this does not depend on the GC.</p>
+
+<p>Addressing the bdw-gc set up part, we use <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> to hook before the GC attempts a collect. In this procedure we push all the stacks of the coroutines that are not the current one, i.e.: that are not running.</p>
+
+<p>The current coroutine stack is already known by the GC via the <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> and all the rest are known via the <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code>. Since the GC will pause the main thread to perform the collect we have a good picture of all the memory we need to care about. Great!</p>
+
+<h2 id="multi-thread-coroutines">multi-thread coroutines</h2>
+
+<p>Now that the simpler single-thread is covered we can discuss the multi-thread one.</p>
+
+<p>So far we didn’t need to disable the GC for the single-thread, and it’s better to keep it that way for performance reasons. But for the muti-thread environment we are going to need some lock around the switching fibers routine. We use a global <a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock">Read/Write Lock</a>.</p>
+
+<p>When the current coroutine <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> needs to be switched another one <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>,</p>
+
+<ol>
+  <li>Mark that <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> is going to be executed in the current thread</li>
+  <li>Add a reader to the global lock</li>
+  <li>We do context-switch between <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code></li>
+  <li>Remove a reader from the global lock</li>
+</ol>
+
+<p>It’s worth noticing that we are not accessing <code class="language-crystal highlighter-rouge"><span class="no">GC_stackbottom</span></code> as in the single-thread case. Also, the context switch is exactly the same as before.</p>
+
+<p>Since the last step is not the context switch, this means that we need to remove a reader from the global lock at the beginning of the execution of the fibers. Only in the fibers that are created by the runtime.</p>
+
+<p>A way to think about this is that after the context switch, the next step is executed in <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code>, not <code class="language-crystal highlighter-rouge"><span class="no">C_0</span></code>. If <code class="language-crystal highlighter-rouge"><span class="no">C_1</span></code> was previously removed by the coroutine switch the code is in place, but for the very first time it is executed it will need to perform that last step before the instructions indicated by the programmer.</p>
+
+<p>Addressing the bdw-gc set up part, we still use <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> to hook before the GC attempts a collect. In this procedure we push all the stacks of the coroutines that are not running. We also need to deal with the running coroutines, that in this case there is one per application thread (Let’s call it application thread since there are also threads of the GC we can omit).</p>
+
+<p>So, as part of this procedure we also inform the GC the stack bottom of all running fibers. For this we iterate all application threads and call <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> with the running fiber’s stack bottom of the iterated thread.</p>
+
+<p>As the final step of the procedure we remove a writer from the global lock.</p>
+
+<p>So to recap the procedure registered in <code class="language-crystal highlighter-rouge"><span class="no">GC_set_push_other_roots</span></code> do:</p>
+
+<ol>
+  <li>Push all stacks of fibers that are not running</li>
+  <li>Inform via <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> the stack bottom of each running fiber (one per application thread)</li>
+  <li>Remove a writer from the global lock</li>
+</ol>
+
+<p>The analogous to the single thread would have been calling the <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> for each context-switch, but calling <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> acquires a GC lock so it’s better doing it only when necessary. Maybe the single-thread case could mimic this, but for historical reasons we ended up with this difference.</p>
+
+<p>We are missing where the writers are added to the global lock. This is done in a registered callback at <code class="language-crystal highlighter-rouge"><span class="no">GC_set_start_callback</span></code>.</p>
+
+<p>The effect of the global lock is to allow simultaneous context switches, unless there is a collect in progress.</p>
+
+<p>As in the single-thread case there are two kind of coroutines, a) the ones manually created by the runtime that have a stack that lives in the heap of the program, and b) the ones that correspond to the threads initial stack. Knowing the stack bottom of the first one is as before, the memory is known. For the latter we use <code class="language-crystal highlighter-rouge"><span class="no">GC_get_my_stackbottom</span></code> when the fibers are registered in the runtime.</p>
+
+<p>So this is how <code class="language-crystal highlighter-rouge"><span class="no">GC_get_my_stackbottom</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">GC_set_stackbottom</span></code> are used to enable coroutines in multi-thread environment! There are a lot of pieces coming together to make this possible so we hope this clarifies how they can be used.</p>
+
+<h2 id="the-source-code">The source code</h2>
+
+<p>There are couple of details not covered but these are about the Crystal runtime: how to keep a pool of fibers’ stack memory so they are reused, the list of running fibers and threads in a thread-safe linked list, etc. If you are interested in the details for further motivation the relevant files are:</p>
+
+<ul>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/gc/boehm.cr">src/gc/boehm.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber.cr">src/fiber.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/crystal/scheduler.cr">src/crystal/scheduler.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context/x86_64-sysv.cr">src/fiber/context/x86_64-sysv.cr</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/blob/1.3.2/src/fiber/context.cr">src/fiber/context.cr</a></li>
+</ul>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="row">
+    <div class="col s12 m12 l6 crystal">
+      Crystal is licensed under the Apache License,
+      <a href='https://www.apache.org/licenses/LICENSE-2.0' target='_blank'>
+        Version 2.0
+      </a>
+    </div>
+    <div class="col s12 m12 l6 manas right-align black-text">
+      Crystal language, born & raised at
+      <a href="https://manas.tech" target="_blank" class="black-text">Manas</a>
+      <a href="https://manas.tech" target="_blank" class="logo">
+        <i class="manas"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+
+    <script src="/assets/js/bundle.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42353458-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

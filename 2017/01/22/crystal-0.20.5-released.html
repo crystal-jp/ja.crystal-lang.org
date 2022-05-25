@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang='ja'>
+<html lang='en'>
   <head>
-    <title>Crystal 0.20.5 released! - プログラミング言語 Crystal</title>
-    <meta charset='UTF-8'>
+    <title>Crystal 0.20.5 released! - The Crystal Programming Language</title>
+    <meta charset='utf-8'>
     <!-- Import Google Icon Font -->
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'><link type="text/css" rel="stylesheet" href="/assets/stylesheet.css"><link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons|Roboto+Mono' rel='stylesheet'>
+    <link href="/assets/stylesheet.css" rel="stylesheet" />
+    <link href='/feed.xml' rel='alternate' title='Atom 1.0' type='application/atom+xml'>
     <link href='/favicon.png' rel='icon' type='image/png'>
-    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'><!-- Begin Jekyll SEO tag v2.7.1 -->
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Crystal 0.20.5 released! | プログラミング言語 Crystal</title>
-<meta name="generator" content="Jekyll v3.9.1" />
+<meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Crystal 0.20.5 released!" />
 <meta name="author" content="straight-shoota" />
 <meta property="og:locale" content="en_US" />
@@ -26,22 +29,16 @@
 <meta name="twitter:site" content="@CrystalLanguage" />
 <meta name="twitter:creator" content="@straight-shoota" />
 <script type="application/ld+json">
-{"dateModified":"2017-01-22T00:00:00+00:00","datePublished":"2017-01-22T00:00:00+00:00","headline":"Crystal 0.20.5 released!","url":"https://ja.crystal-lang.org/2017/01/22/crystal-0.20.5-released.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/01/22/crystal-0.20.5-released.html"},"image":"https://ja.crystal-lang.org/assets/icon.png","author":{"@type":"Person","name":"straight-shoota"},"description":"Crystal 0.20.5 has been released!","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"},"name":"straight-shoota"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2017-01-22T00:00:00+00:00","dateModified":"2017-01-22T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ja.crystal-lang.org/2017/01/22/crystal-0.20.5-released.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ja.crystal-lang.org/assets/media/crystal_logo.svg"},"name":"straight-shoota"},"url":"https://ja.crystal-lang.org/2017/01/22/crystal-0.20.5-released.html","author":{"@type":"Person","name":"straight-shoota"},"@type":"BlogPosting","image":"https://ja.crystal-lang.org/assets/icon.png","headline":"Crystal 0.20.5 released!","description":"Crystal 0.20.5 has been released!","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
- <!-- Let browser know website is optimized for mobile --><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+
+    <!-- Let browser know website is optimized for mobile -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' type='text/javascript'></script>
   </head>
   <body>
-    <!-- <div class="top-banner">
-  <a href="https://www.eventbrite.co.uk/e/raw-crystal-2020-tickets-127439094763" target="_blank">
-    <span class="tb-title">RAW CRYSTAL<span class="tb-thin"> | 2020</span></span>
-    <span class="tb-gap"></span>
-    <span class="tb-date">Dec 11</span>
-    <span class="tb-register">REGISTER AT <em>Eventbrite</em></span>
-  </a>
-</div>
- -->
-    <div class="wrapper "><nav role='navigation'>
+    <div class="wrapper ">
+  <nav role='navigation'>
   <div class='nav-wrapper no-select'>
     
       <a class='brand-logo' id='logo-container'>
@@ -73,6 +70,11 @@
 <li>
     <a href="/community/">
       Community
+    </a>
+  </li>
+<li>
+    <a href="/conference/">
+      Conference
     </a>
   </li>
 <li>
@@ -121,6 +123,11 @@
     </a>
   </li>
 <li>
+    <a href="/conference/">
+      Conference
+    </a>
+  </li>
+<li>
     <a href="/team/">
       Team
     </a>
@@ -143,7 +150,9 @@
     </a>
   </div>
 </nav>
-   <div class='post-header'>
+
+
+  <div class='post-header'>
   <div class="container">
     <div class='valign row'>
       <div class="col m2"></div>
@@ -151,15 +160,12 @@
         <div class="author small">
           
           
-            <img src="/assets/authors/straight-shoota.jpg" width="400" height="400" alt="authors/straight-shoota.jpg">
+            <img src="/assets/authors/straight-shoota.jpg" />
           
           
             <span class="author_name">Johannes Müller</span>
           
-          
-          
-            <span class="date">22 Jan 2017</span>
-          
+          <span class="date">22 Jan 2017</span>
         </div>
 
         <h1 class='title'>Crystal 0.20.5 released!</h1>
@@ -168,36 +174,39 @@
     </div>
   </div>
 </div>
-  <main><div class="container">
-  <div class="row post-layout">
-    <div class="col m2 share">
-      <p class="title small share-title">Share</p>
-      <div class="share-list">
-        
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html&text=Crystal+0.20.5+released%21&via=CrystalLanguage" target="_blank">
-          <div class="share-item"><i class="extra-icons twitter gray"></i></div>
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html" target="_blank">
-          <div class="share-item"><i class="extra-icons facebook gray"></i></div>
-        </a>
-        <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html" target="_blank">
-          <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
-          </a>
-      </div>
-    </div>
 
-    <div class="col s12 m9">
-      <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.20.5">Crystal 0.20.5</a> has been released!</p>
+
+<main>
+  <div class="container">
+    <div class="row post-layout">
+      <div class="col m2 share">
+        <p class="title small share-title">Share</p>
+        <div class="share-list">
+          
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html&text=Crystal+0.20.5+released%21&via=CrystalLanguage" target="_blank">
+            <div class="share-item"><i class="extra-icons twitter gray"></i></div>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html" target="_blank">
+            <div class="share-item"><i class="extra-icons facebook gray"></i></div>
+          </a>
+          <a href="https://plus.google.com/share?url=https%3A%2F%2Fja.crystal-lang.org%2F2017%2F01%2F22%2Fcrystal-0.20.5-released.html" target="_blank">
+            <div class="share-item"><i class="extra-icons google_plus gray"></i></div>
+            </a>
+        </div>
+      </div>
+
+      <div class="col s12 m9">
+        <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.20.5">Crystal 0.20.5</a> has been released!</p>
 
 <p>As any release it includes numerous bugfixes, cool features and performance improvements - in <a href="https://github.com/crystal-lang/crystal/compare/0.20.4...0.20.5">56 commits since 0.20.4</a>.</p>
 
 <h1 id="exciting-changes">Exciting Changes</h1>
 
 <ul>
-  <li>Improved performance for <code class="language-plaintext highlighter-rouge">String#index</code> and <code class="language-plaintext highlighter-rouge">Crypto::Bcrypt</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">expect_raises</code> returns raised and rescued exception.</li>
-  <li><code class="language-plaintext highlighter-rouge">Zip::File</code>, <code class="language-plaintext highlighter-rouge">Zip::Reader</code> and <code class="language-plaintext highlighter-rouge">Zip::Writer</code> are new native readers for zip files that delegate compression to existing zlib module.</li>
-  <li><code class="language-plaintext highlighter-rouge">crystal tool expand</code> expands and prints macro call in a given location.</li>
+  <li>Improved performance for <code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="c1">#index</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">Crypto</span><span class="o">::</span><span class="no">Bcrypt</span></code>.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">expect_raises</span></code> returns raised and rescued exception.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">File</span></code>, <code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">Reader</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">Writer</span></code> are new native readers for zip files that delegate compression to existing zlib module.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">tool</span> <span class="n">expand</span></code> expands and prints macro call in a given location.</li>
 </ul>
 
 <p>Thanks to everyone who supported this release through contributions, reviews and suggestions.</p>
@@ -208,11 +217,42 @@
   <li><a href="https://github.com/crystal-lang/crystal/issues?q=milestone%3A0.20.5">Milestone 0.20.5</a></li>
 </ul>
 
+      </div>
+      <div class="col m1"></div>
     </div>
-    <div class="col m1"></div>
+
+    <div class="row disqus">
+      <div class="col m2"></div>
+      <div class="col s12 m9" id='disqus_thread'>
+        <p><a href="https://github.com/crystal-lang/crystal/releases/tag/0.20.5">Crystal 0.20.5</a> has been released!</p>
+
+<p>As any release it includes numerous bugfixes, cool features and performance improvements - in <a href="https://github.com/crystal-lang/crystal/compare/0.20.4...0.20.5">56 commits since 0.20.4</a>.</p>
+
+<h1 id="exciting-changes">Exciting Changes</h1>
+
+<ul>
+  <li>Improved performance for <code class="language-crystal highlighter-rouge"><span class="no">String</span><span class="c1">#index</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">Crypto</span><span class="o">::</span><span class="no">Bcrypt</span></code>.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">expect_raises</span></code> returns raised and rescued exception.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">File</span></code>, <code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">Reader</span></code> and <code class="language-crystal highlighter-rouge"><span class="no">Zip</span><span class="o">::</span><span class="no">Writer</span></code> are new native readers for zip files that delegate compression to existing zlib module.</li>
+  <li><code class="language-crystal highlighter-rouge"><span class="n">crystal</span> <span class="n">tool</span> <span class="n">expand</span></code> expands and prints macro call in a given location.</li>
+</ul>
+
+<p>Thanks to everyone who supported this release through contributions, reviews and suggestions.</p>
+
+<ul>
+  <li><a href="https://github.com/crystal-lang/crystal/releases/tag/0.20.5">CHANGELOG</a></li>
+  <li><a href="https://crystal-lang.org/api/0.20.5">API Docs</a></li>
+  <li><a href="https://github.com/crystal-lang/crystal/issues?q=milestone%3A0.20.5">Milestone 0.20.5</a></li>
+</ul>
+
+      </div>
+      <div class="col m1"></div>
+    </div>
   </div>
-</div>
-</main><footer>
+</main>
+
+
+  <footer>
   <div class="row">
     <div class="col s12 m12 l6 crystal">
       Crystal is licensed under the Apache License,
@@ -229,7 +269,12 @@
     </div>
   </div>
 </footer>
-</div><script type="text/javascript" src="/assets/bundle.js"></script> <script>
+
+</div>
+
+
+    <script src="/assets/js/bundle.js"></script>
+    <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -238,5 +283,6 @@
   ga('create', 'UA-42353458-1', 'auto');
   ga('send', 'pageview');
 </script>
-</body>
+
+  </body>
 </html>
