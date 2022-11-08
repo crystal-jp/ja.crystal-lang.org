@@ -1,6 +1,6 @@
 # 整数 (Integer)
 
-There are five signed integer types, and five unsigned integer types:
+5つの符号付き整数と5つの符号なし整数があります。
 
 | 型 | 大きさ | 最小値 | 最大値 |
 | ---------- | -----------: | -----------: |-----------: |
@@ -16,8 +16,8 @@ There are five signed integer types, and five unsigned integer types:
 | [UInt128](https://crystal-lang.org/api/UInt128.html) | 128 | 0 | 2<sup>128</sup> - 1 |
 
 整数リテラルは `+` (オプション) または `-` 符号に続く数値とアンダースコアからなり、さらに型を表わすサフィックスを続けることができます。
-If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
-in which the number fits (at the moment, `128` bit integers must always be suffixed):
+サフィックスがない場合、順にまず`Int32`の範囲に数がおさまれば型は`Int32`になり、`Int64`の範囲におさまれば`Int64`になり、 `UInt64`の範囲におさまれば`UInt64`になります。
+なお、これらの範囲外の`128`ビット整数には、常にサフィックスを付ける必要があります。
 
 ```crystal
 1 # Int32
