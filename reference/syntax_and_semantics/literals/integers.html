@@ -2263,7 +2263,7 @@
                 
                 
                 <h1 id="integer">整数 (Integer)<a class="headerlink" href="#integer" title="Permanent link">&para;</a></h1>
-<p>There are five signed integer types, and five unsigned integer types:</p>
+<p>5つの符号付き整数と5つの符号なし整数があります。</p>
 <table>
 <thead>
 <tr>
@@ -2337,8 +2337,8 @@
 </tbody>
 </table>
 <p>整数リテラルは <code>+</code> (オプション) または <code>-</code> 符号に続く数値とアンダースコアからなり、さらに型を表わすサフィックスを続けることができます。
-If no suffix is present, the literal's type is the lowest between <code>Int32</code>, <code>Int64</code> and <code>UInt64</code>
-in which the number fits (at the moment, <code>128</code> bit integers must always be suffixed):</p>
+サフィックスがない場合、順にまず<code>Int32</code>の範囲に数がおさまれば型は<code>Int32</code>になり、<code>Int64</code>の範囲におさまれば<code>Int64</code>になり、 <code>UInt64</code>の範囲におさまれば<code>UInt64</code>になります。
+なお、これらの範囲外の<code>128</code>ビット整数には、常にサフィックスを付ける必要があります。</p>
 <div class="crystal highlight"><pre><span></span><code><span class="mi">1</span> <span class="c1"># Int32</span>
 
 <span class="mi">1_i8</span>   <span class="c1"># Int8</span>
